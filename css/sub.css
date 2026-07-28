@@ -1,0 +1,139 @@
+/* 하위 페이지 공통 (온라인·오프라인·작품·뉴스) */
+
+.sub-hero{padding:clamp(44px,5.6vw,120px) 0 clamp(30px,3.6vw,72px)}
+.eyebrow-line{
+  font-family:Unbounded,Pretendard,sans-serif;font-weight:800;
+  font-size:clamp(11px,.95vw,18px);letter-spacing:.18em;color:var(--green);
+  margin-bottom:clamp(14px,1.6vw,30px);
+}
+.sub-hero h1{
+  font-size:clamp(26px,4vw,78px);font-weight:800;line-height:1.22;
+  letter-spacing:-.03em;color:#fff;
+}
+.sub-hero .lede{
+  margin-top:clamp(16px,1.9vw,36px);max-width:60ch;
+  font-size:clamp(13px,1.2vw,23px);font-weight:500;line-height:1.8;color:#B9B9B9;
+}
+.hero-actions{
+  display:flex;flex-wrap:wrap;gap:clamp(8px,1vw,16px);
+  margin-top:clamp(22px,2.6vw,50px);
+}
+.btn-primary,.btn-ghost{
+  display:inline-block;font-weight:800;
+  font-size:clamp(12.5px,1.05vw,20px);
+  padding:.85em 1.9em;border-radius:999px;
+  transition:transform .12s,filter .15s,background .15s;
+}
+.btn-primary{background:var(--green);color:#000}
+.btn-primary:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.09)}
+.block{display:block;text-align:center;width:100%}
+.block + .block{margin-top:8px}
+
+.sec-title{
+  font-size:clamp(20px,2.6vw,50px);font-weight:800;letter-spacing:-.02em;color:#fff;
+  margin-bottom:clamp(16px,2vw,38px);
+}
+
+/* ── 강의 카드 ─────────────────────────────────────────── */
+.course-card-sec{padding:clamp(20px,2.6vw,50px) 0 clamp(40px,5vw,96px)}
+.course-card{
+  display:grid;grid-template-columns:1fr minmax(260px,.5fr);
+  gap:clamp(20px,2.6vw,54px);
+  background:var(--ink);border:1px solid rgba(255,255,255,.1);
+  border-radius:clamp(14px,1.4vw,26px);
+  padding:clamp(22px,2.8vw,56px);
+}
+.badge-row{margin-bottom:clamp(12px,1.3vw,24px)}
+.badge-hot{
+  background:var(--green);color:#000;font-weight:800;
+  font-size:clamp(10.5px,.82vw,15px);padding:.4em 1em;border-radius:999px;
+}
+.course-info h2{
+  font-size:clamp(17px,1.85vw,36px);font-weight:800;line-height:1.35;color:#fff;
+}
+.course-meta{margin-top:clamp(16px,1.9vw,36px);display:grid;gap:.85em}
+.course-meta > div{
+  display:grid;grid-template-columns:5.5em 1fr;gap:1em;
+  font-size:clamp(12px,1vw,19px);
+}
+.course-meta dt{color:var(--muted);font-weight:600}
+.course-meta dd{color:#DEDEDE;font-weight:600}
+
+.course-buy{
+  background:var(--black);border:1px solid rgba(255,255,255,.1);
+  border-radius:clamp(12px,1.2vw,22px);
+  padding:clamp(18px,2.2vw,42px);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.price-off{
+  font-family:Unbounded,Pretendard,sans-serif;font-weight:800;color:var(--green);
+  font-size:clamp(20px,2.2vw,42px);line-height:1;
+}
+.price-was{
+  margin-top:.4em;font-size:clamp(12px,1vw,19px);color:var(--muted);
+  text-decoration:line-through;font-weight:600;
+}
+.price-now{
+  margin:.15em 0 clamp(16px,1.9vw,34px);
+  font-family:Unbounded,Pretendard,sans-serif;font-weight:800;color:#fff;
+  font-size:clamp(26px,2.9vw,56px);line-height:1;letter-spacing:-.03em;
+}
+.price-now span{font-size:.45em;margin-left:.15em;font-weight:800}
+.buy-lead{
+  font-size:clamp(12.5px,1.05vw,20px);font-weight:700;line-height:1.6;color:#DEDEDE;
+  margin-bottom:clamp(16px,1.9vw,34px);
+}
+.buy-note{
+  margin-top:.9em;text-align:center;
+  font-size:clamp(10.5px,.82vw,15px);color:var(--muted);font-weight:500;
+}
+
+/* ── 3열 설명 ──────────────────────────────────────────── */
+.why{padding:clamp(40px,5vw,100px) 0;background:var(--ink)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.5vw,28px)}
+.why-grid article{
+  background:var(--black);border:1px solid rgba(255,255,255,.08);
+  border-radius:clamp(12px,1.2vw,22px);padding:clamp(18px,2.2vw,42px);
+}
+.why-grid h3{
+  font-size:clamp(14.5px,1.45vw,28px);font-weight:800;color:var(--green);
+  margin-bottom:.7em;line-height:1.35;
+}
+.why-grid p{
+  font-size:clamp(12px,1vw,19px);font-weight:500;line-height:1.75;color:#B9B9B9;
+}
+
+.also{padding:clamp(40px,5vw,100px) 0;text-align:center}
+.also-lede{
+  max-width:64ch;margin:0 auto;
+  font-size:clamp(12.5px,1.1vw,21px);font-weight:500;line-height:1.8;color:#B9B9B9;
+}
+.also .hero-actions{justify-content:center}
+
+/* ── 뉴스 ──────────────────────────────────────────────── */
+.news-list-sec{padding:clamp(20px,2.6vw,50px) 0 clamp(44px,5.6vw,110px)}
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.5vw,28px)}
+.news-card{
+  background:var(--ink);border:1px solid rgba(255,255,255,.09);
+  border-radius:clamp(12px,1.2vw,22px);padding:clamp(20px,2.4vw,46px);
+}
+.news-card h2{
+  font-size:clamp(16px,1.7vw,33px);font-weight:800;color:#fff;line-height:1.35;
+}
+.news-date{
+  margin:.7em 0 1.1em;font-size:clamp(11px,.88vw,17px);
+  color:var(--green);font-weight:700;
+}
+.news-card p:last-child{
+  font-size:clamp(12px,1vw,19px);font-weight:500;line-height:1.8;color:#B9B9B9;
+}
+
+.yt{padding:clamp(20px,2.6vw,50px) 0 clamp(44px,5.6vw,110px);text-align:center}
+.yt .hero-actions{justify-content:center}
+
+@media (max-width:900px){
+  .course-card{grid-template-columns:1fr}
+  .why-grid,.news-grid{grid-template-columns:1fr}
+}
