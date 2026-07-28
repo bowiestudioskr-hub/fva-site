@@ -1,0 +1,436 @@
+/* ─────────────────────────────────────────────────────────────
+   FVA ACADEMY — 공식 홈페이지
+   피그마 node 3398:146 (1920 기준) 실측값을 비율로 환산.
+
+   핵심 원칙: 글자를 이미지 위에 좌표로 얹지 않는다.
+   평면 그래픽은 CSS로 그리고 그 안에 텍스트를 흘려서,
+   글자가 길어지면 그릇이 같이 늘어나게 한다. 겹침이 불가능해진다.
+   ───────────────────────────────────────────────────────────── */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+:root{
+  --green:#2CFF05;
+  --black:#000;
+  --ink:#151515;
+  --ink2:#252526;
+  --white:#FDFDFD;
+  --muted:#8A8A8A;
+
+  --max:1920px;          /* 디자인 기준 폭 */
+  --pad:clamp(16px,4.2vw,80px);
+  --ls:-0.03em;          /* 본문 자간 (피그마 실측) */
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+/* 회전 요소는 시각적 박스가 레이아웃 박스보다 커서 가로 스크롤을 만든다.
+   clip은 hidden과 달리 스크롤 컨테이너를 만들지 않아 sticky를 깨지 않는다. */
+html,body{overflow-x:clip}
+
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,
+              "Apple SD Gothic Neo","Segoe UI",Roboto,sans-serif;
+  font-weight:500;
+  letter-spacing:var(--ls);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+img,svg,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+
+/* 화면에는 안 보이지만 검색엔진과 스크린리더는 읽는 텍스트.
+   이미지로 남긴 제목의 대체 텍스트 용도로만 쓴다. */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
+
+/* ── 섹션 제목 ─────────────────────────────────────────────
+   TLAB 믹스커피는 유료 폰트라 웹에 못 싣는다. 대신 피그마에서
+   투명 PNG로 뽑아 <h2> 안에 넣고, alt에 실제 문구를 적는다.
+   검색엔진은 alt를 제목 텍스트로 읽으므로 손해가 없다.
+   폰트를 구매하면 img를 텍스트로 바꾸기만 하면 된다.        */
+.display{text-align:center;line-height:0}
+.display img{
+  display:inline-block;width:auto;height:auto;
+  max-width:min(100%, var(--dw, 900px));
+}
+
+/* ══════════════════════════════════════════════════════════
+   헤더
+   ══════════════════════════════════════════════════════════ */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(0,0,0,.88);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.site-header .wrap{
+  display:flex;align-items:center;gap:clamp(16px,2.4vw,44px);
+  height:clamp(56px,4.2vw,72px);
+}
+.logo{
+  font-family:Unbounded,Pretendard,sans-serif;
+  font-weight:800;color:var(--green);
+  font-size:clamp(15px,1.15vw,21px);
+  letter-spacing:-0.01em;white-space:nowrap;
+}
+.gnb{display:flex;gap:clamp(12px,1.7vw,32px);margin-inline:auto}
+.gnb a{
+  font-size:clamp(12.5px,.94vw,17px);font-weight:600;
+  color:var(--white);opacity:.88;white-space:nowrap;
+  padding:6px 0;border-bottom:2px solid transparent;
+  transition:opacity .15s,border-color .15s;
+}
+.gnb a:hover,.gnb a[aria-current="page"]{opacity:1;border-color:var(--green)}
+.header-actions{display:flex;align-items:center;gap:12px}
+.sns{display:flex;gap:10px}
+.sns a{
+  width:30px;height:30px;display:grid;place-items:center;
+  border-radius:7px;background:rgba(255,255,255,.09);
+  font-size:13px;font-weight:700;transition:background .15s;
+}
+.sns a:hover{background:rgba(44,255,5,.22)}
+.btn-cta{
+  background:var(--green);color:#000;font-weight:800;
+  font-size:clamp(12px,.85vw,15px);
+  padding:.62em 1.25em;border-radius:999px;white-space:nowrap;
+  transition:transform .12s,filter .15s;
+}
+.btn-cta:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.nav-toggle{display:none}
+
+/* ══════════════════════════════════════════════════════════
+   히어로 — ONLINE / OFFLINE CLASS
+   ══════════════════════════════════════════════════════════ */
+.hero{padding:clamp(28px,3.6vw,64px) 0 clamp(40px,5vw,90px)}
+.hero h1{
+  text-align:center;
+  font-family:Unbounded,Pretendard,sans-serif;
+  font-weight:800;color:var(--green);
+  font-size:clamp(30px,4.6vw,86px);
+  letter-spacing:-0.02em;
+  margin-bottom:clamp(24px,3vw,56px);
+}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.4vw,26px)}
+.hero-card{
+  position:relative;display:block;overflow:hidden;
+  aspect-ratio:750/622;background:var(--ink);
+}
+.hero-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.hero-card:hover img{transform:scale(1.035)}
+.hero-card figcaption{
+  position:absolute;inset:auto 0 0 0;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1em;padding:clamp(14px,2vw,38px);
+  font-family:Unbounded,Pretendard,sans-serif;font-weight:800;
+  font-size:clamp(17px,2.5vw,48px);letter-spacing:-0.02em;
+  background:linear-gradient(to top,rgba(0,0,0,.86) 30%,transparent);
+  padding-top:clamp(40px,5vw,90px);
+  pointer-events:none;
+}
+.hero-card.online figcaption{color:#22E9FF}
+.hero-card.offline figcaption{color:var(--green)}
+
+/* ══════════════════════════════════════════════════════════
+   파트너
+   ══════════════════════════════════════════════════════════ */
+.partners{padding:clamp(30px,4vw,70px) 0;text-align:center}
+.partners img{margin-inline:auto;width:min(100%,1120px)}
+.partners p{
+  margin-top:clamp(12px,1.5vw,26px);
+  font-size:clamp(11.5px,.82vw,15px);color:var(--muted);font-weight:500;
+}
+
+/* ══════════════════════════════════════════════════════════
+   DIRECTOR'S PROFILE — 검증 완료 (320~1920px 넘침 0px)
+   ══════════════════════════════════════════════════════════ */
+.profile{
+  position:relative;width:100%;
+  aspect-ratio:1920/1853;
+  background:var(--green);
+  overflow:hidden;
+  container-type:inline-size;
+}
+.profile .photo{
+  position:absolute;left:0;top:0;height:100%;width:54.1%;
+  object-fit:cover;object-position:center top;
+}
+/* 텍스트는 절대배치가 아니라 세로 흐름 — 서로 겹칠 수 없다 */
+.profile .copy{
+  position:absolute;left:54.10%;top:8.69%;width:41.14%;
+  container-type:inline-size;color:#000;
+}
+.profile h2{
+  font-family:"TLAB 믹스커피","TlabMixCoffee",Pretendard,sans-serif;
+  font-weight:400;line-height:.86;letter-spacing:-.04em;text-transform:uppercase;
+}
+.profile h2 .l1{display:block;font-size:24.13cqi}   /* 190.61 / 790 */
+.profile h2 .l2{display:block;font-size:36.20cqi}   /* 285.95 / 790 */
+.profile .name{margin-top:5.4cqi}
+.profile .who {font-size:7.59cqi;font-weight:800;letter-spacing:-.02em}
+.profile .role{font-size:5.06cqi;font-weight:700;margin-left:.45em}
+.profile .org {font-size:5.06cqi;font-weight:700;margin-top:.28em;display:block}
+.profile .rule{height:.42cqi;background:#000;margin-top:2.2cqi}
+.profile h3{margin-top:4.3cqi;font-size:5.70cqi;font-weight:800}
+.profile ul{margin-top:1.6cqi}
+.profile li{
+  font-size:4.81cqi;font-weight:600;line-height:1.676;
+  text-indent:-.55em;padding-left:.55em;
+}
+.profile li::before{content:"· "}
+
+/* ══════════════════════════════════════════════════════════
+   수상 / 트로피
+   ══════════════════════════════════════════════════════════ */
+.awards-hero{position:relative;background:var(--black)}
+.awards-hero > img{width:100%;margin-bottom:clamp(-40px,-3vw,-90px);position:relative}
+.awards-lede{
+  padding:clamp(34px,4.4vw,80px) 0 clamp(20px,2.6vw,48px);
+  text-align:center;
+}
+.awards-lede .kicker{
+  display:inline-flex;align-items:baseline;gap:.5em;
+  font-size:clamp(14px,1.3vw,26px);font-weight:700;color:var(--white);
+  margin-bottom:.6em;
+}
+.awards-lede .kicker b{color:var(--green);font-size:1.5em;font-weight:800}
+.awards-lede .quote{
+  font-size:clamp(15px,1.55vw,30px);font-weight:600;color:var(--white);
+  opacity:.92;margin-bottom:.5em;
+}
+.awards-lede h2{--dw:1100px;margin-top:.35em}
+
+/* ── 수강생 작품 카드 ─────────────────────────────────────── */
+.works{padding:clamp(20px,2.6vw,48px) 0 clamp(40px,5vw,96px)}
+.work{margin-bottom:clamp(38px,4.6vw,88px)}
+.work:last-child{margin-bottom:0}
+.work .stills{width:100%;background:var(--ink)}
+.work .stills img{width:100%}
+/* 초록 배너 — 이미지가 아니라 CSS. 글자가 길어지면 배너가 같이 자란다. */
+.work .banner{
+  background:var(--green);color:#000;
+  width:min(100%,860px);margin:clamp(-14px,-1.1vw,-22px) auto 0;
+  position:relative;z-index:2;
+  padding:clamp(12px,1.5vw,26px) clamp(16px,2vw,34px);
+  text-align:center;
+  transform:rotate(-1.1deg);
+}
+.work .banner h3{
+  font-family:"TLAB 믹스커피","TlabMixCoffee",Pretendard,sans-serif;
+  font-weight:400;font-size:clamp(17px,2.05vw,40px);
+  line-height:1.15;letter-spacing:-.02em;
+}
+.work .banner p{
+  margin-top:.35em;font-size:clamp(12.5px,1.08vw,21px);font-weight:700;
+}
+.work .credit{
+  margin-top:clamp(16px,1.9vw,34px);
+  font-size:clamp(10.5px,.78vw,15px);color:var(--muted);font-weight:500;
+  padding-inline:clamp(4px,1vw,16px);
+}
+
+/* ══════════════════════════════════════════════════════════
+   감독 전문성 / 통계
+   ══════════════════════════════════════════════════════════ */
+.expertise{padding:clamp(40px,5.2vw,100px) 0;background:var(--black)}
+.expertise h2{
+  font-family:"TLAB 믹스커피","TlabMixCoffee",Pretendard,sans-serif;
+  font-weight:400;color:var(--green);
+  font-size:clamp(22px,3.2vw,62px);line-height:1.1;letter-spacing:-.02em;
+  margin-bottom:clamp(18px,2.2vw,40px);
+}
+.expertise p{
+  font-size:clamp(13px,1.3vw,25px);font-weight:600;line-height:1.85;
+  color:var(--white);opacity:.94;
+}
+.expertise p + p{margin-top:1.5em}
+
+.stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:clamp(12px,2vw,40px);text-align:center;
+  padding:clamp(34px,4.4vw,84px) 0;
+}
+.stats dt{
+  font-family:Unbounded,Pretendard,sans-serif;font-weight:800;color:var(--green);
+  font-size:clamp(34px,5.4vw,104px);line-height:1;letter-spacing:-.03em;
+}
+.stats dd{
+  margin-top:.32em;font-size:clamp(11px,1.15vw,22px);
+  font-weight:700;color:var(--white);letter-spacing:.06em;
+}
+
+.showreel{padding:0 0 clamp(30px,4vw,72px)}
+.showreel figure{position:relative;background:var(--ink)}
+.showreel video,.showreel img{width:100%}
+.showreel figcaption{
+  text-align:center;margin-top:clamp(16px,2vw,36px);
+  font-family:"TLAB 믹스커피","TlabMixCoffee",Pretendard,sans-serif;
+  font-weight:400;color:var(--green);
+  font-size:clamp(17px,2.2vw,44px);
+}
+
+/* ══════════════════════════════════════════════════════════
+   차별점 3가지
+   ══════════════════════════════════════════════════════════ */
+.features{padding:clamp(44px,5.6vw,110px) 0}
+.section-head{text-align:center;margin-bottom:clamp(26px,3.2vw,60px)}
+.section-head h2{--dw:820px}
+.section-head .sub{
+  margin-top:.7em;font-size:clamp(12px,1.05vw,20px);
+  color:var(--muted);font-weight:600;
+}
+.feature-list{display:grid;gap:clamp(12px,1.5vw,26px)}
+.feature{
+  display:grid;grid-template-columns:auto 1fr;
+  gap:clamp(14px,1.8vw,34px);align-items:start;
+  background:var(--ink);border:1px solid rgba(255,255,255,.07);
+  padding:clamp(18px,2.2vw,42px);
+}
+.feature .num{
+  font-family:Unbounded,Pretendard,sans-serif;font-weight:800;
+  color:var(--green);font-size:clamp(20px,2.3vw,44px);line-height:1;
+}
+.feature h3{font-size:clamp(15px,1.5vw,30px);font-weight:800;margin-bottom:.5em}
+.feature p{
+  font-size:clamp(12.5px,1.05vw,20px);font-weight:500;
+  line-height:1.72;color:#C9C9C9;
+}
+
+/* ══════════════════════════════════════════════════════════
+   후기
+   ══════════════════════════════════════════════════════════ */
+.reviews{padding:clamp(44px,5.6vw,110px) 0;background:var(--ink)}
+.rating{
+  display:flex;flex-direction:column;align-items:center;
+  margin-bottom:clamp(24px,3vw,52px);
+}
+.rating .score{
+  font-family:Unbounded,Pretendard,sans-serif;font-weight:800;color:var(--green);
+  font-size:clamp(38px,5vw,96px);line-height:1;
+}
+.rating .stars{color:var(--green);font-size:clamp(16px,1.6vw,30px);margin-top:.25em;letter-spacing:.1em}
+.rating .meta{margin-top:.6em;font-size:clamp(12px,1.05vw,20px);color:var(--muted);font-weight:600}
+.review-list{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.4vw,26px)}
+.review{
+  background:var(--black);border:1px solid rgba(255,255,255,.08);
+  padding:clamp(16px,2vw,36px);display:flex;flex-direction:column;
+}
+.review .stars{color:var(--green);font-size:clamp(12px,1vw,19px);letter-spacing:.08em}
+.review blockquote{
+  margin-top:.85em;font-size:clamp(12.5px,1vw,19px);font-weight:500;
+  line-height:1.75;color:#D6D6D6;flex:1;
+}
+.review figcaption{
+  margin-top:1.2em;font-size:clamp(11px,.85vw,16px);color:var(--muted);font-weight:600;
+}
+.reviews .more{
+  display:block;text-align:center;margin-top:clamp(22px,2.6vw,48px);
+  font-size:clamp(13px,1.1vw,21px);font-weight:700;color:var(--green);
+}
+.reviews .more:hover{text-decoration:underline}
+
+/* ══════════════════════════════════════════════════════════
+   FAQ
+   ══════════════════════════════════════════════════════════ */
+.faq{padding:clamp(44px,5.6vw,110px) 0}
+.faq-list{max-width:1400px;margin-inline:auto}
+.faq details{border-bottom:1px solid rgba(255,255,255,.13)}
+.faq summary{
+  display:flex;align-items:center;justify-content:space-between;gap:1.2em;
+  padding:clamp(16px,1.8vw,34px) clamp(4px,.6vw,12px);
+  font-size:clamp(13.5px,1.22vw,24px);font-weight:700;cursor:pointer;
+  list-style:none;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+";color:var(--green);font-weight:400;
+  font-size:clamp(22px,2vw,40px);line-height:1;flex:none;
+  transition:transform .22s ease;
+}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .answer{
+  padding:0 clamp(4px,.6vw,12px) clamp(18px,2vw,36px);
+  font-size:clamp(12.5px,1.05vw,20px);font-weight:500;line-height:1.8;color:#BFBFBF;
+}
+
+/* ══════════════════════════════════════════════════════════
+   CTA / 푸터
+   ══════════════════════════════════════════════════════════ */
+.cta{
+  padding:clamp(48px,6vw,120px) 0;text-align:center;
+  background:var(--green);color:#000;
+}
+.cta h2{
+  font-family:Unbounded,Pretendard,sans-serif;font-weight:800;
+  font-size:clamp(24px,3.4vw,66px);letter-spacing:-.02em;
+}
+.cta p{margin-top:.7em;font-size:clamp(13px,1.3vw,26px);font-weight:700}
+.cta .btn{
+  display:inline-block;margin-top:clamp(20px,2.4vw,44px);
+  background:#000;color:var(--green);font-weight:800;
+  font-size:clamp(13px,1.15vw,22px);
+  padding:.85em 2.2em;border-radius:999px;
+  transition:transform .12s;
+}
+.cta .btn:hover{transform:translateY(-2px)}
+
+.site-footer{padding:clamp(34px,4vw,76px) 0;background:var(--black)}
+.site-footer .logo{margin-bottom:clamp(14px,1.6vw,28px);display:block}
+.site-footer p{
+  font-size:clamp(10.5px,.78vw,15px);color:var(--muted);
+  font-weight:500;line-height:1.95;
+}
+.site-footer p + p{margin-top:.9em}
+
+/* ══════════════════════════════════════════════════════════
+   태블릿 · 모바일
+   원본 비율을 그대로 유지하면 900px 근처에서 본문이 17px까지
+   작아지므로, 그 전에 세로 배치로 전환해 가독성을 확보한다.
+   ══════════════════════════════════════════════════════════ */
+@media (max-width:1024px){
+  .profile{aspect-ratio:auto}
+  .profile .photo{position:static;width:100%;aspect-ratio:1080/1240;object-position:center 22%}
+  .profile .copy{position:static;width:100%;padding:7cqi 6cqi 8.5cqi}
+  .review-list{grid-template-columns:1fr 1fr}
+  .review:last-child{display:none}
+}
+
+@media (max-width:760px){
+  .gnb{
+    position:fixed;inset:56px 0 auto 0;
+    flex-direction:column;gap:0;
+    background:rgba(0,0,0,.97);backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(255,255,255,.1);
+    padding:8px 0 16px;
+    transform:translateY(-130%);transition:transform .28s ease;
+  }
+  .gnb[data-open="true"]{transform:translateY(0)}
+  .gnb a{padding:13px var(--pad);font-size:15px;border-bottom:none}
+  .nav-toggle{
+    display:grid;place-items:center;margin-left:auto;
+    width:38px;height:38px;background:none;border:0;cursor:pointer;
+    color:var(--white);font-size:20px;
+  }
+  .header-actions .sns{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-card{aspect-ratio:16/10}
+  .stats{grid-template-columns:1fr;gap:clamp(20px,5vw,36px)}
+  .feature{grid-template-columns:1fr;gap:10px}
+  .review-list{grid-template-columns:1fr}
+  .review:nth-child(n+3){display:none}
+  .work .banner{width:calc(100% - 24px);transform:rotate(-.8deg)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
