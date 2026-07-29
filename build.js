@@ -79,6 +79,18 @@ const footer = () => `
       btn.textContent=open?'☰':'✕';
     });
   })();
+
+  (function(){
+    var v=document.getElementById('reel'), b=document.querySelector('.reel-sound');
+    if(!v||!b)return;
+    b.addEventListener('click',function(){
+      v.muted=!v.muted;
+      b.textContent=v.muted?'\uD83D\uDD07':'\uD83D\uDD0A';
+      b.setAttribute('aria-pressed',String(!v.muted));
+      b.setAttribute('aria-label',v.muted?'소리 켜기':'소리 끄기');
+      if(!v.muted) v.play();
+    });
+  })();
 </script>`;
 
 function page({ file, title, desc, active, extraCss = [], jsonld = null, body }) {

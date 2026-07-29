@@ -146,6 +146,18 @@
       btn.textContent=open?'☰':'✕';
     });
   })();
+
+  (function(){
+    var v=document.getElementById('reel'), b=document.querySelector('.reel-sound');
+    if(!v||!b)return;
+    b.addEventListener('click',function(){
+      v.muted=!v.muted;
+      b.textContent=v.muted?'🔇':'🔊';
+      b.setAttribute('aria-pressed',String(!v.muted));
+      b.setAttribute('aria-label',v.muted?'소리 켜기':'소리 끄기');
+      if(!v.muted) v.play();
+    });
+  })();
 </script>
 </body>
 </html>

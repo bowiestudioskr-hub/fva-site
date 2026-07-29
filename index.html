@@ -117,6 +117,8 @@
 
   <!-- ── 감독 프로필 ────────────────────────────────────── -->
   <section class="profile" aria-labelledby="director-h">
+    <span class="fold top" aria-hidden="true"></span>
+    <span class="fold bot" aria-hidden="true"></span>
     <img class="photo" src="assets/img/director.jpg" width="1080" height="1788" loading="lazy"
          alt="정주 감독 흑백 인물 사진">
     <div class="copy">
@@ -215,6 +217,8 @@
 
   </section>
 
+  <span class="zig green" aria-hidden="true"></span>
+
   <!-- ── 감독 전문성 ────────────────────────────────────── -->
   <section class="expertise" aria-labelledby="expertise-h">
     <div class="wrap">
@@ -243,14 +247,18 @@
   <!-- ── 쇼릴 ───────────────────────────────────────────── -->
   <section class="showreel" aria-labelledby="showreel-h">
     <div class="wrap">
-      <figure>
-        <video src="assets/video/showreel.mp4" poster="assets/works/work1-joyfools.jpg"
-               controls preload="none" playsinline
+      <figure class="reel">
+        <video id="reel" src="assets/video/students.mp4"
+               autoplay muted loop playsinline preload="metadata"
                aria-label="FVA 수강생 작품 모음 영상"></video>
+        <button class="reel-sound" type="button" aria-pressed="false"
+                aria-label="소리 켜기">🔇</button>
         <figcaption id="showreel-h">모든 영상은 수강생 작품입니다.</figcaption>
       </figure>
     </div>
   </section>
+
+  <span class="zig green" aria-hidden="true"></span>
 
   <!-- ── 차별점 ─────────────────────────────────────────── -->
   <section class="features" aria-labelledby="features-h">
@@ -392,6 +400,18 @@
       nav.setAttribute('data-open',String(!open));
       btn.setAttribute('aria-expanded',String(!open));
       btn.textContent=open?'☰':'✕';
+    });
+  })();
+
+  (function(){
+    var v=document.getElementById('reel'), b=document.querySelector('.reel-sound');
+    if(!v||!b)return;
+    b.addEventListener('click',function(){
+      v.muted=!v.muted;
+      b.textContent=v.muted?'🔇':'🔊';
+      b.setAttribute('aria-pressed',String(!v.muted));
+      b.setAttribute('aria-label',v.muted?'소리 켜기':'소리 끄기');
+      if(!v.muted) v.play();
     });
   })();
 </script>
