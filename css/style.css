@@ -224,25 +224,58 @@ ul,ol{list-style:none}
 .profile li::before{content:"· "}
 
 /* ══════════════════════════════════════════════════════════
-   수상 / 트로피
+   수상 — 피그마 y3954~6914 (1920x2960) 실측
+   트로피 1923x2554 · 월계관 x107.7 y202 1672x202
+   「5연속 수상」 y2143 · 카피 y2358 · 대제목 y2436
    ══════════════════════════════════════════════════════════ */
-.awards-hero{position:relative;background:var(--black)}
-.awards-hero > img{width:100%;margin-bottom:clamp(-40px,-3vw,-90px);position:relative}
+.awards{
+  --u:100vw;
+  position:relative;background:var(--black);
+  aspect-ratio:1920/2960;
+  overflow:hidden;
+}
+@media (min-width:1920px){ .awards{--u:1920px} }
+.awards .trophy{
+  position:absolute;left:0;top:0;
+  width:calc(var(--u) * 1923/1920);
+  height:calc(var(--u) * 2554/1920);
+  object-fit:cover;
+}
+.awards .laurels{
+  position:absolute;z-index:2;
+  left:calc(107.7/1920 * 100%);
+  top:calc(202/2960 * 100%);
+  width:calc(1672/1920 * 100%);
+  height:auto;
+}
 .awards-lede{
-  padding:clamp(34px,4.4vw,80px) 0 clamp(20px,2.6vw,48px);
+  position:absolute;z-index:3;left:0;right:0;
+  top:calc(2050/2960 * 100%);
   text-align:center;
 }
 .awards-lede .kicker{
-  display:inline-flex;align-items:baseline;gap:.5em;
-  font-size:clamp(14px,1.3vw,26px);font-weight:700;color:var(--white);
-  margin-bottom:.6em;
+  display:inline-flex;align-items:baseline;gap:.34em;
+  font-size:calc(var(--u) * 54/1920);font-weight:700;color:#fff;
+  letter-spacing:-.02em;
 }
-.awards-lede .kicker b{color:var(--green);font-size:1.5em;font-weight:800}
+.awards-lede .kicker b{color:var(--green);font-weight:800}
+.awards-lede .kicker .q{color:var(--green);font-size:1.5em;line-height:0}
 .awards-lede .quote{
-  font-size:clamp(15px,1.55vw,30px);font-weight:600;color:var(--white);
-  opacity:.92;margin-bottom:.5em;
+  margin-top:calc(var(--u) * 118/1920);
+  font-size:calc(var(--u) * 72/1920);font-weight:700;color:#fff;
+  letter-spacing:-.03em;
 }
-.awards-lede h2{--dw:1100px;margin-top:.35em}
+.awards-lede .quote em{font-style:normal;color:var(--green)}
+.awards-lede h2{ --dw:1675px; margin-top:calc(var(--u) * 26/1920) }
+
+@media (max-width:820px){
+  .awards{aspect-ratio:auto;padding-bottom:clamp(28px,7vw,60px)}
+  .awards .trophy{position:static;width:100%;height:auto}
+  .awards .laurels{position:absolute;top:7%}
+  .awards-lede{position:static;margin-top:clamp(-60px,-8vw,-24px);padding-inline:16px}
+  .awards-lede .kicker{font-size:clamp(14px,3.6vw,26px)}
+  .awards-lede .quote{font-size:clamp(15px,4.4vw,34px);margin-top:clamp(10px,2.4vw,22px)}
+}
 
 /* ── 수강생 작품 카드 — 피그마 3398:411 실측 ──────────────
    스틸 2장 각 959.62x548.09 를 화면 폭에 꽉 채움 (full-bleed)
