@@ -229,10 +229,16 @@
 
   <span class="zig green" aria-hidden="true"></span>
 
-  <!-- ── 감독 전문성 ────────────────────────────────────── -->
+  <!-- ── 감독 전문성 ──────────────────────────────────────
+       피그마 순서: 제목(3398:452) → 본문(3398:453)
+                   → 영상그리드(3398:3297) → 캡션(3398:3298)
+                   → FILM VISUAL(3398:455) → 통계(3398:375)   -->
   <section class="expertise" aria-labelledby="expertise-h">
     <div class="wrap">
-      <h2 id="expertise-h">The Expertise of<br>a Visionary Director</h2>
+      <h2 id="expertise-h" class="display">
+        <img src="assets/img/h-expertise.png" width="1236" height="243" loading="lazy"
+             alt="THE EXPERTISE OF A VISIONARY DIRECTOR">
+      </h2>
       <p>영화를 좋아하던 학생에서, 글로벌 프로젝트를 이끄는 디렉터까지.<br>
          이 강의의 메인 디렉터는 전공자가 아닌 현장 스태프로 시작해<br>
          국내외 기업 광고와 뮤직비디오를 연출하는 단계까지 성장해왔습니다.</p>
@@ -242,22 +248,7 @@
     </div>
   </section>
 
-  <!-- ── FILM VISUAL ART / 통계 ───────────────────────────
-       피그마 3398:455 : x296 y16196 1220x396.5
-       TLAB 108px #2CFF05 3줄 · 통계 3398:375 x177 w1566   -->
-  <section class="fva-seoul" aria-labelledby="stats-h">
-    <h2 id="stats-h">
-      <img src="assets/img/h-fva-seoul.png" loading="lazy"
-           alt="FILM VISUAL ART ACADEMY, THE CINEMA ACADEMY IN SEOUL, MAPO-GU">
-    </h2>
-    <dl class="stats">
-      <div><dt>8</dt><dd>TROPHIES</dd></div>
-      <div><dt>2</dt><dd>YEARS</dd></div>
-      <div><dt>300+</dt><dd>GRADUATES</dd></div>
-    </dl>
-  </section>
-
-  <!-- ── 쇼릴 ───────────────────────────────────────────── -->
+  <!-- ── 쇼릴 (피그마 3398:3297 x170 y13458 1580x2524) ──── -->
   <section class="showreel" aria-labelledby="showreel-h">
     <div class="wrap">
       <figure class="reel">
@@ -268,6 +259,26 @@
                 aria-label="소리 켜기">🔇</button>
         <figcaption id="showreel-h">모든 영상은 수강생 작품입니다.</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <!-- ── FILM VISUAL ART / 통계 ───────────────────────────
+       피그마 3398:455 : x296 y16196 1220x396.5
+       통계 3398:375 x177 y16680 1566x256.2
+       FVA ACADEMY 워드마크 x177 522x50.4 · 숫자 흰색 · 라벨 초록 -->
+  <section class="fva-seoul" aria-labelledby="stats-h">
+    <h2 id="stats-h">
+      <img src="assets/img/h-fva-seoul.png" loading="lazy"
+           alt="FILM VISUAL ART ACADEMY, THE CINEMA ACADEMY IN SEOUL, MAPO-GU">
+    </h2>
+    <div class="stats-row">
+      <img class="stats-wordmark" src="assets/icons/wordmark-fva.svg"
+           width="522" height="50" loading="lazy" alt="FVA ACADEMY">
+      <ul class="stats">
+        <li class="stat s-trophies"><img src="assets/img/stat-trophies.png" width="235" height="256" loading="lazy" alt="트로피 8개 · 8 TROPHIES"></li>
+        <li class="stat s-years"><img src="assets/img/stat-years.png" width="217" height="256" loading="lazy" alt="운영 2년 · 2 YEARS"></li>
+        <li class="stat s-grads"><img src="assets/img/stat-grads.png" width="299" height="256" loading="lazy" alt="수료생 300명 이상 · 300+ GRADUATES"></li>
+      </ul>
     </div>
   </section>
 

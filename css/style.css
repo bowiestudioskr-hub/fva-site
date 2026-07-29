@@ -372,49 +372,42 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 /* ══════════════════════════════════════════════════════════
    감독 전문성 / 통계
    ══════════════════════════════════════════════════════════ */
-/* 감독 전문성 — 피그마 3398:452/453 : x296, 제목 w1319 / 본문 w1342 */
-.expertise{--u:var(--pagew);padding:calc(var(--u) * 100/1920) 0;background:var(--black)}
+/* 감독 전문성 — 피그마 실측 (지그재그 하단 12176 기준)
+   제목 3398:452 잉크 1235.5x243 · 상단 12403.5 · x296 (2줄, 줄간격 142)
+   본문 3398:453 박스 1342x666 · 상단 12747 · 초록 #2CFF05
+        글리프 44.5 / 줄간격 95 / 단락사이 190(=2줄)  → 60px·lh1.5833 */
+.expertise{--u:var(--pagew);padding:calc(var(--u) * 227.5/1920) 0 0;background:var(--black)}
 .expertise .wrap{padding-left:calc(var(--u) * 296/1920);padding-right:calc(var(--u) * 100/1920)}
-.expertise h2{
-  font-family:"TLAB 믹스커피","TlabMixCoffee",Pretendard,sans-serif;
-  font-weight:400;color:var(--green);
-  font-size:clamp(22px,3.2vw,62px);line-height:1.1;letter-spacing:-.02em;
-  margin-bottom:clamp(18px,2.2vw,40px);
+.expertise h2{ line-height:0 }
+.expertise h2 img{
+  display:block;height:auto;
+  width:calc(var(--u) * 1235.5/1920);
+  max-width:calc(100% - 16px);
 }
+/* Pretendard 는 피그마 원본 폰트보다 6% 넓다. 폭 1342 안에 3줄이 들어가고
+   글리프 높이 44.5 · 줄간격 95 를 동시에 맞추는 값 = 51px / -.03em / lh1.8627 */
 .expertise p{
-  font-size:clamp(13px,1.3vw,25px);font-weight:600;line-height:1.85;
-  color:var(--white);opacity:.94;
+  margin-top:calc(var(--u) * 100.5/1920);
+  width:calc(var(--u) * 1342/1920);max-width:100%;
+  font-size:calc(var(--u) * 51/1920);
+  font-weight:700;line-height:1.8627;letter-spacing:-.03em;
+  color:var(--green);
 }
-.expertise p + p{margin-top:1.5em}
+.expertise p + p{margin-top:1.8627em}
 
-/* 통계 — 피그마 3398:375 : x177 w1566 h256 */
-.stats{
-  --u:var(--pagew);
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:calc(var(--u) * 40/1920);text-align:center;
-  width:calc(var(--u) * 1566/1920);max-width:calc(100% - 32px);
-  margin-inline:auto;padding:calc(var(--u) * 84/1920) 0;
-}
-.stats dt{
-  font-family:Unbounded,Pretendard,sans-serif;font-weight:800;color:var(--green);
-  font-size:clamp(34px,5.4vw,104px);line-height:1;letter-spacing:-.03em;
-}
-.stats dd{
-  margin-top:.32em;font-size:clamp(11px,1.15vw,22px);
-  font-weight:700;color:var(--white);letter-spacing:.06em;
-}
-
-/* 학생작 영상 — 피그마 3398:3297 : x170 w1580 h2524 (비율 0.626)
+/* 학생작 영상 — 피그마 3398:3297 : x170 y13458 w1580 h2524 (비율 0.626)
+   캡션 3398:3298 박스 605x96 · 상단 15992 · #5A5A5A · 60px·lh1.6
    음소거 자동재생 + 반복. 마우스 올리면 소리 버튼이 나온다. */
-.showreel{--u:var(--pagew);padding:0 0 calc(var(--u) * 72/1920)}
+.showreel{--u:var(--pagew);padding:calc(var(--u) * 45/1920) 0 0}
 .showreel .wrap{padding-inline:calc(var(--u) * 170/1920)}
 .showreel figure{position:relative;background:var(--ink)}
 .showreel video,.showreel img{width:100%;aspect-ratio:1580/2524;object-fit:cover;display:block;background:#000}
 .showreel figcaption{
-  text-align:center;margin-top:clamp(16px,2vw,36px);
-  font-family:"TLAB 믹스커피","TlabMixCoffee",Pretendard,sans-serif;
-  font-weight:400;color:var(--green);
-  font-size:clamp(17px,2.2vw,44px);
+  text-align:center;
+  margin-top:calc(var(--u) * 10/1920);
+  font-size:calc(var(--u) * 51/1920);
+  font-weight:700;line-height:1.8824;letter-spacing:-.03em;
+  color:#5A5A5A;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -706,15 +699,37 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 @media (hover:none){ .reel-sound{opacity:1} }
 
 /* FILM VISUAL ART — 피그마 3398:455 : x296 w1220 (TLAB 108px) */
-.fva-seoul{ --u:var(--pagew); padding:calc(var(--u) * 60/1920) 0 }
+/* FILM VISUAL ART — 피그마 3398:457 박스 1214.3x396.5 / 잉크 993.5x372.5
+   잉크 상단 16208 (캡션 박스 하단 16088 + 120)
+   통계 3398:375 x177 y16680 1566x256.23 — 그룹 3장은 노드박스 그대로 export */
+.fva-seoul{ --u:var(--pagew); padding:calc(var(--u) * 120/1920) 0 calc(var(--u) * 120.8/1920) }
 .fva-seoul h2{
   line-height:0;
   padding-left:calc(var(--u) * 296/1920);
 }
 .fva-seoul h2 img{
-  width:calc(var(--u) * 1220/1920);
+  width:calc(var(--u) * 993.5/1920);
   max-width:calc(100% - 32px);height:auto;
 }
+.stats-row{
+  position:relative;
+  margin-top:calc(var(--u) * 99.5/1920);
+  margin-left:calc(var(--u) * 177/1920);
+  width:calc(var(--u) * 1566/1920);
+  aspect-ratio:1566/256.2266;
+}
+.stats-row .stats-wordmark{
+  position:absolute;left:0;
+  top:calc(111.81/256.2266 * 100%);
+  width:calc(522/1566 * 100%);height:auto;
+}
+.stats-row .stats{ list-style:none;margin:0;padding:0 }
+.stats-row .stat{ position:absolute;top:0 }
+.stats-row .stat img{ width:100%;height:auto;display:block }
+.stats-row .s-trophies{ left:calc(654/1566 * 100%);    width:calc(235/1566 * 100%) }
+.stats-row .s-years   { left:calc(957.79/1566 * 100%); width:calc(217.21/1566 * 100%) }
+.stats-row .s-grads   { left:calc(1267.11/1566 * 100%);width:calc(298.89/1566 * 100%) }
+
 @media (max-width:820px){
   .fva-seoul h2{padding-left:16px}
   .fva-seoul h2 img{width:calc(100% - 32px)}
