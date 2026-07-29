@@ -78,14 +78,14 @@
       <a href="/works.html">수강생 작품</a>
       <a href="https://bowiestudioskr-hub.github.io/fva-reviews/" target="_blank" rel="noopener">강의후기</a>
     </nav>
-    <a class="btn-cta" href="http://pf.kakao.com/_nxhyhn" target="_blank" rel="noopener">즉시 상담하기</a>
+    <a class="btn-cta" href="https://pf.kakao.com/_nxhyhn/chat" target="_blank" rel="noopener">즉시 상담하기</a>
     <ul class="sns">
       <li><a href="https://smartstore.naver.com/bowiestudios" target="_blank" rel="noopener" aria-label="네이버 스마트스토어"><img src="assets/icons/sns-naver.svg" alt="" aria-hidden="true"></a></li>
       <li><a href="https://www.instagram.com/fvaacademy/" target="_blank" rel="noopener" aria-label="인스타그램"><img src="assets/icons/sns-instagram.svg" alt="" aria-hidden="true"></a></li>
-      <li><a href="http://pf.kakao.com/_nxhyhn" target="_blank" rel="noopener" aria-label="카카오톡 채널"><img src="assets/icons/sns-kakao.svg" alt="" aria-hidden="true"></a></li>
-      <li><a href="https://blog.naver.com/bowiestudios" target="_blank" rel="noopener" aria-label="네이버 블로그"><img src="assets/icons/sns-blog.svg" alt="" aria-hidden="true"></a></li>
+      <li><a href="https://pf.kakao.com/_nxhyhn/chat" target="_blank" rel="noopener" aria-label="카카오톡 채널"><img src="assets/icons/sns-kakao.svg" alt="" aria-hidden="true"></a></li>
+      <li><a href="https://blog.naver.com/bowiestudioskr" target="_blank" rel="noopener" aria-label="네이버 블로그"><img src="assets/icons/sns-blog.svg" alt="" aria-hidden="true"></a></li>
       <li><a href="https://www.youtube.com/@FVA-ACADEMY" target="_blank" rel="noopener" aria-label="유튜브"><img src="assets/icons/sns-youtube.svg" alt="" aria-hidden="true"></a></li>
-      <li><a href="https://bowiestudioskr-hub.github.io/fva-reviews/" target="_blank" rel="noopener" aria-label="수강 후기"><img src="assets/icons/sns-link.svg" alt="" aria-hidden="true"></a></li>
+      <li><a href="https://litt.ly/bowiestudios" target="_blank" rel="noopener" aria-label="피바아카데미 리틀리"><img src="assets/icons/sns-link.svg" alt="" aria-hidden="true"></a></li>
     </ul>
   </div>
 </header>
@@ -180,6 +180,16 @@
       b.setAttribute('aria-label',v.muted?'소리 켜기':'소리 끄기');
       if(!v.muted) v.play();
     });
+  })();
+
+  /* 스크롤 진행 바 */
+  (function(){
+    var bar=document.querySelector('.top-bar'); if(!bar)return;
+    var tick=function(){
+      var d=document.documentElement, max=d.scrollHeight-d.clientHeight;
+      bar.style.setProperty('--scroll', (max>0 ? (d.scrollTop/max*100) : 0)+'%');
+    };
+    addEventListener('scroll',tick,{passive:true}); addEventListener('resize',tick); tick();
   })();
 </script>
 </body>

@@ -10,7 +10,7 @@ const path = require('path');
 const SITE = 'https://fva.co.kr';
 const PUBL = 'https://www.fva.co.kr/channels/L2NoYW5uZWxzLzIyMDkw'; // 도메인 이전 시 class.fva.co.kr 로 교체
 const REVIEWS = 'https://bowiestudioskr-hub.github.io/fva-reviews/';
-const KAKAO = 'http://pf.kakao.com/_nxhyhn';
+const KAKAO = 'https://pf.kakao.com/_nxhyhn/chat';
 
 const NAV = [
   ['/',               '홈'],
@@ -25,10 +25,10 @@ const NAV = [
 const SNS = [
   ['sns-naver.svg',     '네이버 스마트스토어', 'https://smartstore.naver.com/bowiestudios'],
   ['sns-instagram.svg', '인스타그램',        'https://www.instagram.com/fvaacademy/'],
-  ['sns-kakao.svg',     '카카오톡 채널',      'http://pf.kakao.com/_nxhyhn'],
-  ['sns-blog.svg',      '네이버 블로그',      'https://blog.naver.com/bowiestudios'],
+  ['sns-kakao.svg',     '카카오톡 채널',      'https://pf.kakao.com/_nxhyhn/chat'],
+  ['sns-blog.svg',      '네이버 블로그',      'https://blog.naver.com/bowiestudioskr'],
   ['sns-youtube.svg',   '유튜브',            'https://www.youtube.com/@FVA-ACADEMY'],
-  ['sns-link.svg',      '수강 후기',          'https://bowiestudioskr-hub.github.io/fva-reviews/'],
+  ['sns-link.svg',      '피바아카데미 리틀리',  'https://litt.ly/bowiestudios'],
 ];
 
 /* 피그마 1920 기준 실측
@@ -91,6 +91,16 @@ const footer = () => `
       b.setAttribute('aria-label',v.muted?'소리 켜기':'소리 끄기');
       if(!v.muted) v.play();
     });
+  })();
+
+  /* 스크롤 진행 바 */
+  (function(){
+    var bar=document.querySelector('.top-bar'); if(!bar)return;
+    var tick=function(){
+      var d=document.documentElement, max=d.scrollHeight-d.clientHeight;
+      bar.style.setProperty('--scroll', (max>0 ? (d.scrollTop/max*100) : 0)+'%');
+    };
+    addEventListener('scroll',tick,{passive:true}); addEventListener('resize',tick); tick();
   })();
 </script>`;
 
