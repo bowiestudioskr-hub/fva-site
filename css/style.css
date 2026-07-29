@@ -558,7 +558,8 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 /* ══════════════════════════════════════════════════════════
    FAQ
    ══════════════════════════════════════════════════════════ */
-.faq{--u:var(--pagew);padding:calc(var(--u) * 164.74/1920) 0 calc(var(--u) * 110/1920)}
+/* 하단 여백은 .bts 가 182.5 로 책임진다 (피그마: FAQ 끝 21786.5 -> 사진 21969) */
+.faq{--u:var(--pagew);padding:calc(var(--u) * 164.74/1920) 0 0}
 .faq-list{width:calc(var(--u) * 1653/1920);max-width:calc(100% - 32px);margin-inline:auto}
 .faq details{border-bottom:1px solid rgba(255,255,255,.13)}
 .faq summary{
@@ -582,33 +583,76 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 /* ══════════════════════════════════════════════════════════
    CTA / 푸터
    ══════════════════════════════════════════════════════════ */
-.cta{
-  padding:clamp(48px,6vw,120px) 0;text-align:center;
-  background:var(--green);color:#000;
+/* 촬영 현장 사진 — 피그마 3398:510 : x0 y21969 1918x1243
+   FAQ 마지막 항목 하단 21786.5 -> 사진 상단 21969 = 182.5 */
+.bts{ --u:var(--pagew); padding-top:calc(var(--u) * 182.5/1920) }
+.bts img{
+  width:calc(var(--u) * 1918/1920);
+  margin-inline:auto;
+  aspect-ratio:1918/1243;object-fit:cover;
 }
-.cta h2{
-  font-family:Unbounded,Pretendard,sans-serif;font-weight:800;
-  font-size:clamp(24px,3.4vw,66px);letter-spacing:-.02em;
-}
-.cta p{margin-top:.7em;font-size:clamp(13px,1.3vw,26px);font-weight:700}
-.cta .btn{
-  display:inline-block;margin-top:clamp(20px,2.4vw,44px);
-  background:#000;color:var(--green);font-weight:800;
-  font-size:clamp(13px,1.15vw,22px);
-  padding:.85em 2.2em;border-radius:999px;
-  transition:transform .12s;
-}
-.cta .btn:hover{transform:translateY(-2px)}
 
-/* 푸터 — 피그마 3398:459 : x120 w1680 */
-.site-footer{--u:var(--pagew);padding:calc(var(--u) * 76/1920) 0;background:var(--black)}
-.site-footer .wrap{padding-inline:calc(var(--u) * 120/1920)}
-.ft-logo{width:clamp(120px,9.6vw,184px);height:auto;margin-bottom:clamp(14px,1.6vw,28px)}
-.site-footer p{
-  font-size:clamp(10.5px,.78vw,15px);color:var(--muted);
-  font-weight:500;line-height:1.95;
+/* CTA — 사진 하단 23212 -> 배너 상단 23319.23 = 107.23 */
+.cta{
+  --u:var(--pagew);
+  position:relative;
+  width:calc(var(--u) * 1918/1920);
+  margin:calc(var(--u) * 107.23/1920) auto 0;
+  aspect-ratio:1918/480;
+  overflow:hidden;
+  text-align:center;
 }
-.site-footer p + p{margin-top:.9em}
+.cta .cta-bg{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;
+  z-index:0;
+}
+.cta-inner{ position:relative;z-index:1;height:100% }
+/* 배너 상단 23319.23 기준 — 제목 잉크 23415.2 (=+95.97) */
+.cta h2{ line-height:0;padding-top:calc(var(--u) * 95.97/1920) }
+.cta h2 img{
+  display:inline-block;height:auto;
+  width:calc(var(--u) * 591.3/1920);max-width:calc(100% - 32px);
+}
+.cta p{
+  margin-top:calc(var(--u) * 29/1920);          /* 잉크하단 23497.2 -> 박스 23526.2 */
+  font-size:calc(var(--u) * 51/1920);
+  line-height:1.8824;                            /* 박스 96 */
+  font-weight:700;color:var(--green);letter-spacing:-.03em;
+}
+.cta-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:.3em;
+  margin-top:calc(var(--u) * 33/1920);           /* 박스하단 23622.2 -> 버튼 23655.2 */
+  width:calc(var(--u) * 222/1920);
+  height:calc(var(--u) * 81/1920);
+  background:var(--green);color:#000;
+  font-size:calc(var(--u) * 40/1920);
+  font-weight:800;letter-spacing:-.03em;line-height:1;
+  border-radius:999px;
+  transition:filter .15s,transform .12s;
+}
+.cta-btn:hover{ filter:brightness(1.08);transform:translateY(-2px) }
+.cta-btn:focus-visible{ outline:3px solid #fff;outline-offset:3px }
+
+/* 푸터 — 피그마 3398:459 : x120 y23942.2 1680x231, 중앙정렬 #4C4C4C
+   구분선 3402:231315 : x120 y23905.2 1680x1
+   배너 하단 23799.23 -> 구분선 23905.2 = 105.97 / 구분선 -> 본문 36 */
+.site-footer{--u:var(--pagew);padding:0 0 calc(var(--u) * 90/1920);background:var(--black)}
+.site-footer .ft-inner{
+  width:calc(var(--u) * 1680/1920);
+  margin-inline:auto;text-align:center;
+}
+.ft-rule{
+  border:0;height:1px;background:#4C4C4C;
+  margin:calc(var(--u) * 105.97/1920) 0 calc(var(--u) * 36/1920);
+}
+.site-footer p{
+  font-size:calc(var(--u) * 29/1920);
+  line-height:2.2414;                  /* 줄간격 65 (피그마) */
+  color:#4C4C4C;font-weight:700;letter-spacing:-.02em;
+}
+.site-footer .ft-name{ letter-spacing:.02em }
 
 /* ══════════════════════════════════════════════════════════
    태블릿 · 모바일
