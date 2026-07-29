@@ -10,6 +10,11 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 
 :root{
+  /* 좌우 여백 — 화면 가장자리에 숨 쉴 틈을 준다.
+     모든 섹션의 --u 가 이 폭을 기준으로 계산되므로 비율은 그대로 유지된다. */
+  --gutter:clamp(0px, 2.2vw, 44px);
+  --pagew:min(calc(100vw - 2 * var(--gutter)), 1920px);
+
   --green:#2CFF05;
   --black:#000;
   --ink:#151515;
@@ -54,6 +59,10 @@ ul,ol{list-style:none}
 }
 
 .wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
+body > header,
+body > main,
+body > footer{ padding-inline:var(--gutter) }
+body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 
 /* ── 섹션 제목 ─────────────────────────────────────────────
    TLAB 믹스커피는 유료 폰트라 웹에 못 싣는다. 대신 피그마에서
@@ -79,7 +88,7 @@ ul,ol{list-style:none}
   border-bottom:1px solid rgba(255,255,255,.07);
 }
 .hd{
-  --u:100vw;                      /* 1920 기준 단위 */
+  --u:var(--pagew);                      /* 1920 기준 단위 */
   max-width:1920px;margin-inline:auto;
   height:calc(var(--u) * 72/1920);
   min-height:56px;
@@ -141,7 +150,7 @@ ul,ol{list-style:none}
    위에 덧씌우지 않는다 (alt 로 검색엔진에 전달).
    ══════════════════════════════════════════════════════════ */
 .hero{
-  --u:100vw;
+  --u:var(--pagew);
   padding-top:calc(var(--u) * 81/1920);
   padding-bottom:calc(var(--u) * 127/1920);
 }
@@ -179,7 +188,7 @@ ul,ol{list-style:none}
    파트너
    ══════════════════════════════════════════════════════════ */
 /* 파트너 — 피그마 3398:215 : x103 w1713 h590 */
-.partners{--u:100vw;padding:calc(var(--u) * 60/1920) 0;text-align:center}
+.partners{--u:var(--pagew);padding:calc(var(--u) * 60/1920) 0;text-align:center}
 @media (min-width:1920px){.partners{--u:1920px}}
 .partners img{margin-inline:auto;width:calc(var(--u) * 1713/1920);max-width:calc(100% - 32px)}
 .partners p{
@@ -231,7 +240,7 @@ ul,ol{list-style:none}
    「5연속 수상」 y2143 · 카피 y2358 · 대제목 y2436
    ══════════════════════════════════════════════════════════ */
 .awards{
-  --u:100vw;
+  --u:var(--pagew);
   position:relative;background:var(--black);
   aspect-ratio:1920/2960;
   overflow:hidden;
@@ -284,7 +293,7 @@ ul,ol{list-style:none}
    배너 x179.6 / w1458.75 좌측 정렬 · 제목 TLAB 110px(이미지)
    부제 56px · 크레딧 30px #636363                          */
 .works{
-  --u:100vw;
+  --u:var(--pagew);
   padding:0 0 calc(var(--u) * 120/1920);
 }
 @media (min-width:1920px){ .works{--u:1920px} }
@@ -363,7 +372,7 @@ ul,ol{list-style:none}
    감독 전문성 / 통계
    ══════════════════════════════════════════════════════════ */
 /* 감독 전문성 — 피그마 3398:452/453 : x296, 제목 w1319 / 본문 w1342 */
-.expertise{--u:100vw;padding:calc(var(--u) * 100/1920) 0;background:var(--black)}
+.expertise{--u:var(--pagew);padding:calc(var(--u) * 100/1920) 0;background:var(--black)}
 @media (min-width:1920px){.expertise{--u:1920px}}
 .expertise .wrap{padding-left:calc(var(--u) * 296/1920);padding-right:calc(var(--u) * 100/1920)}
 .expertise h2{
@@ -380,7 +389,7 @@ ul,ol{list-style:none}
 
 /* 통계 — 피그마 3398:375 : x177 w1566 h256 */
 .stats{
-  --u:100vw;
+  --u:var(--pagew);
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:calc(var(--u) * 40/1920);text-align:center;
   width:calc(var(--u) * 1566/1920);max-width:calc(100% - 32px);
@@ -398,7 +407,7 @@ ul,ol{list-style:none}
 
 /* 학생작 영상 — 피그마 3398:3297 : x170 w1580 h2524 (비율 0.626)
    음소거 자동재생 + 반복. 마우스 올리면 소리 버튼이 나온다. */
-.showreel{--u:100vw;padding:0 0 calc(var(--u) * 72/1920)}
+.showreel{--u:var(--pagew);padding:0 0 calc(var(--u) * 72/1920)}
 @media (min-width:1920px){.showreel{--u:1920px}}
 .showreel .wrap{padding-inline:calc(var(--u) * 170/1920)}
 .showreel figure{position:relative;background:var(--ink)}
@@ -417,7 +426,7 @@ ul,ol{list-style:none}
    번호 TLAB 42px #2CFF05 · 제목 EB 28px #EAEAEA
    본문 Regular 21px/34 #9A9A9A
    ══════════════════════════════════════════════════════════ */
-.features{ --u:100vw; padding:calc(var(--u) * 110/1920) 0 }
+.features{ --u:var(--pagew); padding:calc(var(--u) * 110/1920) 0 }
 @media (min-width:1920px){ .features{--u:1920px} }
 .section-head{ text-align:center; margin-bottom:calc(var(--u) * 105/1920) }
 .section-head h2{ --dw:1542px }
@@ -459,7 +468,7 @@ ul,ol{list-style:none}
    카드 564.4x702.8 (x 0 / 591.4 / 1182.8) · 사진 561.4x421.1
    4.99 박스 631x163.2
    ══════════════════════════════════════════════════════════ */
-.reviews{ --u:100vw; padding:calc(var(--u) * 110/1920) 0; background:var(--black) }
+.reviews{ --u:var(--pagew); padding:calc(var(--u) * 110/1920) 0; background:var(--black) }
 @media (min-width:1920px){ .reviews{--u:1920px} }
 .rating{
   display:flex; align-items:center; justify-content:center;
@@ -513,7 +522,7 @@ ul,ol{list-style:none}
 /* ══════════════════════════════════════════════════════════
    FAQ
    ══════════════════════════════════════════════════════════ */
-.faq{--u:100vw;padding:calc(var(--u) * 110/1920) 0}
+.faq{--u:var(--pagew);padding:calc(var(--u) * 110/1920) 0}
 @media (min-width:1920px){.faq{--u:1920px}}
 .faq-list{width:calc(var(--u) * 1653/1920);max-width:calc(100% - 32px);margin-inline:auto}
 .faq details{border-bottom:1px solid rgba(255,255,255,.13)}
@@ -557,7 +566,7 @@ ul,ol{list-style:none}
 .cta .btn:hover{transform:translateY(-2px)}
 
 /* 푸터 — 피그마 3398:459 : x120 w1680 */
-.site-footer{--u:100vw;padding:calc(var(--u) * 76/1920) 0;background:var(--black)}
+.site-footer{--u:var(--pagew);padding:calc(var(--u) * 76/1920) 0;background:var(--black)}
 @media (min-width:1920px){.site-footer{--u:1920px}}
 .site-footer .wrap{padding-inline:calc(var(--u) * 120/1920)}
 .ft-logo{width:clamp(120px,9.6vw,184px);height:auto;margin-bottom:clamp(14px,1.6vw,28px)}
@@ -703,7 +712,7 @@ ul,ol{list-style:none}
 @media (hover:none){ .reel-sound{opacity:1} }
 
 /* FILM VISUAL ART — 피그마 3398:455 : x296 w1220 (TLAB 108px) */
-.fva-seoul{ --u:100vw; padding:calc(var(--u) * 60/1920) 0 }
+.fva-seoul{ --u:var(--pagew); padding:calc(var(--u) * 60/1920) 0 }
 @media (min-width:1920px){ .fva-seoul{--u:1920px} }
 .fva-seoul h2{
   line-height:0;
