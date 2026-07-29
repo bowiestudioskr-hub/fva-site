@@ -137,3 +137,34 @@
   .course-card{grid-template-columns:1fr}
   .why-grid,.news-grid{grid-template-columns:1fr}
 }
+
+/* ── 피바뉴스 뎁스 ─────────────────────────────────────── */
+a.news-card{display:block;transition:border-color .15s,transform .12s}
+a.news-card:hover{border-color:rgba(44,255,5,.45);transform:translateY(-2px)}
+.news-more{
+  display:inline-block;margin-top:clamp(14px,1.6vw,30px);
+  font-size:clamp(11.5px,.95vw,18px);font-weight:800;color:var(--green);
+}
+.eyebrow-line a{color:var(--green);opacity:.85}
+.eyebrow-line a:hover{opacity:1;text-decoration:underline}
+.series-meta{
+  margin-top:clamp(14px,1.6vw,30px);
+  font-size:clamp(11.5px,.95vw,18px);font-weight:700;color:var(--green);
+}
+.post-list{display:grid;gap:clamp(10px,1.2vw,22px)}
+.post{
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(14px,1.8vw,34px);
+  align-items:start;
+  background:var(--ink);border:1px solid rgba(255,255,255,.09);
+  border-radius:clamp(12px,1.2vw,22px);padding:clamp(18px,2.2vw,42px);
+}
+.post-no{
+  font-family:Unbounded,Pretendard,sans-serif;font-weight:800;color:var(--green);
+  font-size:clamp(18px,2vw,38px);line-height:1;
+}
+.post h2{font-size:clamp(15px,1.55vw,30px);font-weight:800;color:#fff;line-height:1.35}
+.post-sub{margin-top:.5em;font-size:clamp(12px,1vw,19px);font-weight:600;color:#B9B9B9}
+.post-topic{
+  margin-top:.8em;font-size:clamp(12px,1vw,19px);font-weight:600;color:#DEDEDE;
+}
+.post-topic b{color:var(--green);font-weight:800;margin-right:.5em}

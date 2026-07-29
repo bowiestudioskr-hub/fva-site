@@ -2,6 +2,8 @@
  * 페이지별 본문. build.js 가 헤더·푸터·메타를 씌워 완성 HTML을 만든다.
  * 메인(index.html)과 커리큘럼(curriculum.html)은 손으로 정밀 조판했으므로 여기서 제외.
  */
+const NEWS = require('./news-data');
+
 module.exports = ({ PUBL, REVIEWS, KAKAO, SITE, read }) => [
 
   // ══════════════════════════════════════════════════════════
@@ -272,7 +274,7 @@ module.exports = ({ PUBL, REVIEWS, KAKAO, SITE, read }) => [
   },
 
   // ══════════════════════════════════════════════════════════
-  // 피바뉴스
+  // 피바뉴스 — 뎁스 2단 (목록 → 시리즈 → 글)
   // ══════════════════════════════════════════════════════════
   {
     file: 'news.html',
@@ -292,35 +294,56 @@ module.exports = ({ PUBL, REVIEWS, KAKAO, SITE, read }) => [
   <section class="news-list-sec">
     <div class="wrap">
       <div class="news-grid">
-
-        <article class="news-card">
-          <h2>촬영 &amp; 조명 워크샵</h2>
-          <p class="news-date"><time datetime="2026-02-23">2026. 02. 23</time> · 포함된 포스트 4</p>
-          <p>FVA 아카데미 오프라인 클래스에서는 기획 이론을 바탕으로 수강생들이 직접 현장을 만들어 볼 수 있는 촬영 &amp; 조명 워크샵이 매 분기 진행됩니다. 평소 눈여겨 보던 레퍼런스를 직접 구현해보거나 고가의 카메라/조명 장비를 직접 손으로 만져보면서 실무 중심적인 촬영 현장 프로세스를 경험해 보실 수 있습니다.</p>
-        </article>
-
-        <article class="news-card">
-          <h2>네트워킹 파티</h2>
-          <p class="news-date"><time datetime="2025-02-23">2025. 02. 23</time> · 포함된 포스트 4</p>
-          <p>진행 중인 작품 기획을 공유하고 나만의 팀원을 모집할 수 있는 ‘영상인들의 비밀 파티’에 초대합니다! 아이디어와 레퍼런스를 공유할 수 있는 발표 시간, 감독님과 함께 고민 상담, 영상 현업자 초청 특강, 궁금했던 점들을 물어볼 수 있는 Q&amp;A 등 다양한 프로그램이 준비되어 있습니다.</p>
-        </article>
-
-        <article class="news-card">
-          <h2>수강생 작품 촬영 비하인드</h2>
-          <p class="news-date"><time datetime="2024-02-23">2024. 02. 23</time> · 포함된 포스트 1</p>
-          <p>피바아카데미 오프라인 클래스 수강생들의 생생한 촬영 현장 Behind The Scene을 살펴보세요!</p>
-        </article>
-
-        <article class="news-card">
-          <h2>초청 연사 아카이브</h2>
-          <p class="news-date"><time datetime="2023-02-09">2023. 02. 09</time> · 포함된 포스트 4</p>
-          <p>FVA 아카데미는 현장에서 실제 결과를 만들어내는 실무자들과 지식을 나누는 것을 중요하게 생각합니다. 각 분야의 감독, 제작자, 크리에이터들이 전한 작업 방식과 업계의 흐름을 통해, 배움이 한 번의 수업을 넘어 업계와 연결되는 경험으로 이어지기를 바랍니다.</p>
-        </article>
-
+${NEWS.map(s => `        <a class="news-card" href="/news-${s.slug}.html">
+          <h2>${s.title}</h2>
+          <p class="news-date"><time datetime="${s.date}">${s.dateLabel}</time> · 글 ${s.posts.length}개</p>
+          <p>${s.desc}</p>
+          <span class="news-more">시리즈 보기 →</span>
+        </a>`).join('\n')}
       </div>
-      <p class="cur-foot" data-build="news-todo">개별 글 상세 페이지는 퍼블에서 내용을 옮겨온 뒤 추가됩니다.</p>
     </div>
   </section>
 `,
   },
+
+  // 시리즈별 페이지
+  ...NEWS.map(s => ({
+    file: `news-${s.slug}.html`,
+    active: '/news.html',
+    title: `${s.title} — 피바뉴스 | FVA 피바아카데미`,
+    desc: s.desc.replace(/&amp;/g, '&').slice(0, 155),
+    extraCss: ['sub.css'],
+    jsonld: {
+      '@context':'https://schema.org','@type':'CollectionPage',
+      name: s.title, description: s.desc.replace(/&amp;/g,'&'),
+      url: `${SITE}/news-${s.slug}.html`,
+      isPartOf:{'@type':'WebSite',name:'FVA ACADEMY',url:SITE+'/'},
+      hasPart: s.posts.map(x => ({'@type':'Article', headline:x.title, description:x.sub})),
+    },
+    body: `
+  <section class="sub-hero">
+    <div class="wrap">
+      <p class="eyebrow-line"><a href="/news.html">← 피바뉴스</a></p>
+      <h1>${s.title}</h1>
+      <p class="lede">${s.desc}</p>
+      <p class="series-meta"><time datetime="${s.date}">${s.dateLabel}</time> · 총 ${s.posts.length}개</p>
+    </div>
+  </section>
+
+  <section class="news-list-sec">
+    <div class="wrap">
+      <ol class="post-list">
+${s.posts.map((x, i) => `        <li class="post">
+          <span class="post-no">${String(i + 1).padStart(2, '0')}</span>
+          <div>
+            <h2>${x.title}</h2>
+            <p class="post-sub">${x.sub}</p>
+            ${x.topic ? `<p class="post-topic"><b>강연 주제</b> 〈${x.topic}〉</p>` : ''}
+          </div>
+        </li>`).join('\n')}
+      </ol>
+    </div>
+  </section>
+`,
+  })),
 ];
