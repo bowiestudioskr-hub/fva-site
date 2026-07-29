@@ -3,6 +3,7 @@
  * 메인(index.html)과 커리큘럼(curriculum.html)은 손으로 정밀 조판했으므로 여기서 제외.
  */
 const NEWS = require('./news-data');
+const PHOTOS = require('./post-photos.json');
 
 module.exports = ({ PUBL, REVIEWS, KAKAO, SITE, read }) => [
 
@@ -377,7 +378,9 @@ ${s.posts.map((x,i) => `    <article class="post-card">
       <p class="post-sub">${x.sub}</p>
       ${x.topic ? `<p class="post-topic"><b>강연 주제</b> 〈${x.topic}〉</p>` : ''}
       <p class="post-meta"><time datetime="${s.date}">${s.dateLabel}</time></p>
-      <div class="post-gallery" data-todo="퍼블에서 현장 사진 이관 예정"></div>
+      ${(PHOTOS[`${s.slug}-${i+1}`] || []).length ? `<div class="post-gallery">
+${(PHOTOS[`${s.slug}-${i+1}`]).map((f, k) => `        <img src="assets/news/posts/${f}" loading="lazy" alt="${x.title.replace(/"/g,'&quot;')} 현장 사진 ${k+1}">`).join('\n')}
+      </div>` : ''}
     </div>
   </article>
 
