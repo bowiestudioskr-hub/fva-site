@@ -131,7 +131,9 @@ for (const p of pages({ PUBL, REVIEWS, KAKAO, SITE, read })) {
 
 // ── sitemap.xml ──────────────────────────────────────────
 const today = new Date().toISOString().slice(0, 10);
-const NEWS_SLUGS = require('./pages/news-data').map(n => `news-${n.slug}.html`);
+const ND = require('./pages/news-data');
+const NEWS_SLUGS = [...ND.map(n => `news-${n.slug}.html`),
+                    ...ND.flatMap(n => n.posts.map((_, i) => `news-${n.slug}-${i+1}.html`))];
 const urls = ['', 'online.html', 'offline.html', 'curriculum.html', 'news.html', 'works.html', ...NEWS_SLUGS];
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'),
 `<?xml version="1.0" encoding="UTF-8"?>

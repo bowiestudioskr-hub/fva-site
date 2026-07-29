@@ -1,0 +1,219 @@
+/* ─────────────────────────────────────────────────────────────
+   피바뉴스 — 피그마 실측
+   1뎁스 3405:231353 / 2뎁스 3453:241927 / 3뎁스 3455:142
+
+   기준 1920:
+     시리즈 좌측 컬럼 720.19 · 우측 사진 949.05 · 사이 71.55
+     좌우 패딩 71.55 · 시리즈 헤더 top 215
+     제목  Pretendard JP Bold  59.63 / 89.44  자간 -1.2356  #FDFDFD
+     설명  Pretendard Regular  26.83 / 40.25  자간 -1.46    #FDFDFD
+     메타  Pretendard JP Med   20.87 / 31.30  자간 -0.85    #A5A5AB
+     글 카드 855x573 · 2열 · 좌 x85 / 우 x982
+     3뎁스 본문 컬럼 1140 · 대표이미지 1137x639.6
+   ───────────────────────────────────────────────────────────── */
+
+:root{ --nu:100vw; }
+@media (min-width:1920px){ :root{ --nu:1920px } }
+
+.news-index,
+.series-head,
+.post-grid,
+.post-detail,
+.post-nav,
+.back-link{
+  max-width:1920px;margin-inline:auto;
+}
+
+/* ── 뒤로가기 (피그마 x89 y119, 아이콘 48 + 텍스트 36) ────── */
+.back-link{
+  display:flex;align-items:center;gap:calc(var(--nu) * 12/1920);
+  padding:calc(var(--nu) * 47/1920) calc(var(--nu) * 89/1920) 0;
+  font-size:calc(var(--nu) * 24/1920);font-weight:600;color:#fff;
+  width:fit-content;
+}
+.back-link span{
+  display:grid;place-items:center;flex:none;
+  width:calc(var(--nu) * 48/1920);height:calc(var(--nu) * 48/1920);
+  min-width:32px;min-height:32px;
+  font-size:calc(var(--nu) * 30/1920);color:var(--green);
+}
+.back-link:hover{color:var(--green)}
+
+/* ── 시리즈 공통 텍스트 블록 ───────────────────────────── */
+.series-kicker{
+  font-family:"TLAB 믹스커피","TlabMixCoffee",Unbounded,Pretendard,sans-serif;
+  font-weight:800;color:var(--green);
+  font-size:calc(var(--nu) * 30/1920);
+  line-height:1.15;letter-spacing:-.01em;
+  margin-bottom:calc(var(--nu) * 36/1920);
+}
+.series-copy h1,
+.series-copy h2{
+  font-size:calc(var(--nu) * 59.63/1920);
+  line-height:1.5;letter-spacing:-.0207em;
+  font-weight:700;color:#FDFDFD;
+}
+.series-copy h2 a:hover{color:var(--green)}
+.series-desc{
+  margin-top:calc(var(--nu) * 18/1920);
+  font-size:calc(var(--nu) * 26.83/1920);
+  line-height:1.5;letter-spacing:-.0544em;
+  font-weight:400;color:#FDFDFD;
+}
+.series-meta{
+  display:flex;gap:calc(var(--nu) * 12/1920);
+  margin-top:calc(var(--nu) * 18/1920);
+  font-size:calc(var(--nu) * 20.87/1920);
+  line-height:1.5;letter-spacing:-.0407em;
+  font-weight:500;color:#A5A5AB;
+}
+.btn-more{
+  display:inline-block;
+  margin-top:calc(var(--nu) * 36/1920);
+  background:var(--green);color:#06150a;
+  font-weight:800;font-size:calc(var(--nu) * 20/1920);
+  padding:calc(var(--nu) * 12/1920) calc(var(--nu) * 30/1920);
+  border-radius:calc(var(--nu) * 6/1920);
+  transition:filter .15s,transform .12s;
+}
+.btn-more:hover{filter:brightness(1.08);transform:translateY(-1px)}
+
+/* ── 1뎁스 : 목록 (좌 텍스트 / 우 사진) ─────────────────── */
+.news-index{
+  padding:calc(var(--nu) * 100/1920) calc(var(--nu) * 71.55/1920)
+          calc(var(--nu) * 120/1920);
+}
+.series-row{
+  display:grid;
+  grid-template-columns:calc(var(--nu) * 720.19/1920) 1fr;
+  gap:calc(var(--nu) * 71.55/1920);
+  align-items:center;
+  padding-block:calc(var(--nu) * 60/1920);
+}
+.series-row + .series-row{border-top:1px solid rgba(255,255,255,.1)}
+.series-photo{display:block;overflow:hidden;background:var(--ink)}
+.series-photo img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  aspect-ratio:949/633;
+  transition:transform .5s ease;
+}
+a.series-photo:hover img{transform:scale(1.03)}
+
+/* ── 2뎁스 : 시리즈 헤더 + 글 그리드 ───────────────────── */
+.series-head{
+  display:grid;
+  grid-template-columns:calc(var(--nu) * 720.19/1920) 1fr;
+  gap:calc(var(--nu) * 71.55/1920);
+  align-items:start;
+  padding:calc(var(--nu) * 96/1920) calc(var(--nu) * 89.55/1920) 0;
+}
+.series-head .series-photo{aspect-ratio:949/633}
+
+.post-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:calc(var(--nu) * 42/1920) calc(var(--nu) * 42/1920);
+  padding:calc(var(--nu) * 86/1920) calc(var(--nu) * 85/1920)
+          calc(var(--nu) * 120/1920);
+}
+.post-card figure{position:relative;overflow:hidden;background:var(--ink)}
+.post-card img{
+  width:100%;display:block;aspect-ratio:855/573;object-fit:cover;
+  transition:transform .5s ease;
+}
+.post-card a:hover img{transform:scale(1.03)}
+.likes{
+  position:absolute;right:calc(var(--nu) * 24/1920);
+  bottom:calc(var(--nu) * 27/1920);
+  display:flex;align-items:center;gap:.4em;
+  background:rgba(0,0,0,.55);backdrop-filter:blur(6px);
+  color:#fff;font-size:calc(var(--nu) * 16/1920);font-weight:700;
+  padding:.35em .8em;border-radius:999px;
+}
+.likes span{color:var(--green)}
+.post-card h2{
+  margin-top:calc(var(--nu) * 30/1920);
+  font-size:calc(var(--nu) * 28/1920);
+  line-height:1.4;font-weight:700;color:#FDFDFD;
+}
+.post-card a:hover h2{color:var(--green)}
+.post-sub{
+  margin-top:calc(var(--nu) * 10/1920);
+  font-size:calc(var(--nu) * 22/1920);
+  line-height:1.5;font-weight:500;color:#A5A5AB;
+}
+
+/* ── 3뎁스 : 글 상세 (피그마는 모달, 여기선 개별 URL 페이지)
+   개별 주소가 있어야 검색에 잡히므로 페이지로 만들되
+   모달과 같은 1140 중앙 컬럼 형태를 유지한다.            ── */
+.post-detail{
+  width:calc(var(--nu) * 1140/1920);
+  max-width:calc(100% - 32px);
+  margin-inline:auto;
+  margin-top:calc(var(--nu) * 48/1920);
+  background:#111;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:calc(var(--nu) * 8/1920);
+  overflow:hidden;
+}
+.post-cover img{width:100%;display:block;aspect-ratio:1137/639.6;object-fit:cover}
+.post-body{padding:calc(var(--nu) * 45/1920) calc(var(--nu) * 51/1920)
+                   calc(var(--nu) * 80/1920)}
+.post-eyebrow{
+  font-size:calc(var(--nu) * 24/1920);font-weight:600;color:#A5A5AB;
+  line-height:1.5;
+}
+.post-detail h1{
+  margin-top:calc(var(--nu) * 12/1920);
+  font-size:calc(var(--nu) * 42/1920);
+  line-height:1.5;font-weight:700;color:#FDFDFD;letter-spacing:-.02em;
+}
+.post-detail .post-sub{
+  margin-top:calc(var(--nu) * 16/1920);
+  font-size:calc(var(--nu) * 24/1920);color:#DEDEDE;
+}
+.post-detail .post-topic{
+  margin-top:calc(var(--nu) * 20/1920);
+  font-size:calc(var(--nu) * 24/1920);font-weight:600;color:#DEDEDE;
+}
+.post-detail .post-topic b{color:var(--green);margin-right:.5em}
+.post-meta{
+  margin-top:calc(var(--nu) * 24/1920);
+  font-size:calc(var(--nu) * 20/1920);color:#A5A5AB;font-weight:500;
+}
+.post-gallery{display:grid;gap:calc(var(--nu) * 20/1920)}
+.post-gallery img{width:100%;display:block}
+
+.post-nav{
+  text-align:center;
+  padding:calc(var(--nu) * 60/1920) 16px calc(var(--nu) * 120/1920);
+}
+
+/* ── 태블릿 · 모바일 ───────────────────────────────────── */
+@media (max-width:1024px){
+  :root{ --nu:1600px }
+  .news-index,.series-head,.post-grid{padding-inline:clamp(16px,4vw,48px)}
+  .back-link{padding-inline:clamp(16px,4vw,48px)}
+  .series-row,.series-head{grid-template-columns:1fr;gap:clamp(18px,3vw,32px)}
+  .series-copy{order:2}
+  .series-photo{order:1}
+  .series-kicker{font-size:clamp(17px,2.6vw,28px);margin-bottom:clamp(12px,1.8vw,24px)}
+  .series-copy h1,.series-copy h2{font-size:clamp(22px,3.4vw,44px)}
+  .series-desc{font-size:clamp(13px,1.7vw,22px)}
+  .series-meta{font-size:clamp(11.5px,1.35vw,18px)}
+  .btn-more{font-size:clamp(12.5px,1.4vw,18px);padding:.7em 1.6em;margin-top:clamp(16px,2vw,28px)}
+  .post-card h2{font-size:clamp(14px,1.9vw,24px);margin-top:clamp(12px,1.6vw,22px)}
+  .post-sub{font-size:clamp(12px,1.5vw,19px)}
+  .likes{font-size:clamp(10px,1.1vw,14px)}
+  .post-detail{width:auto;margin-inline:clamp(16px,4vw,48px);margin-top:clamp(20px,3vw,40px)}
+  .post-body{padding:clamp(18px,3vw,40px)}
+  .post-eyebrow{font-size:clamp(12px,1.5vw,19px)}
+  .post-detail h1{font-size:clamp(19px,2.8vw,36px)}
+  .post-detail .post-sub,.post-detail .post-topic{font-size:clamp(12.5px,1.6vw,20px)}
+  .post-meta{font-size:clamp(11px,1.3vw,17px)}
+  .back-link{font-size:clamp(13px,1.6vw,20px)}
+  .back-link span{font-size:clamp(16px,2vw,26px)}
+}
+
+@media (max-width:700px){
+  .post-grid{grid-template-columns:1fr;gap:clamp(24px,5vw,40px)}
+}

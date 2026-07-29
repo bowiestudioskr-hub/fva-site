@@ -274,76 +274,116 @@ module.exports = ({ PUBL, REVIEWS, KAKAO, SITE, read }) => [
   },
 
   // ══════════════════════════════════════════════════════════
-  // 피바뉴스 — 뎁스 2단 (목록 → 시리즈 → 글)
+  // 피바뉴스 — 피그마 3뎁스 구조
+  //  1뎁스 3405:231353  목록 (좌 텍스트 / 우 사진)
+  //  2뎁스 3453:241927  시리즈 (뒤로가기 + 헤더 + 글 2열)
+  //  3뎁스 3455:142     글 상세 (모달 형태 1140 컬럼)
+  //  서체 실측: 제목 Pretendard JP Bold 59.63/89.44 자간 -1.2356
+  //            설명 Pretendard Regular 26.83/40.25 자간 -1.46
+  //            메타 Pretendard JP Medium 20.87/31.30 #A5A5AB
   // ══════════════════════════════════════════════════════════
   {
     file: 'news.html',
     active: '/news.html',
     title: '피바뉴스 — 촬영 워크샵·네트워킹 파티·초청 연사 | FVA 피바아카데미',
     desc: '촬영 & 조명 워크샵, 영상인들의 네트워킹 파티, 수강생 작품 촬영 비하인드, 초청 연사 아카이브. FVA 아카데미에서 실제로 벌어지는 일들을 기록합니다.',
-    extraCss: ['sub.css'],
+    extraCss: ['news.css'],
     body: `
-  <section class="sub-hero">
-    <div class="wrap">
-      <p class="eyebrow-line">FVA NEWS</p>
-      <h1>피바뉴스</h1>
-      <p class="lede">FVA 아카데미에서 실제로 벌어지는 일들 — 워크샵, 파티, 촬영 현장, 초청 강연을 기록합니다.</p>
-    </div>
-  </section>
-
-  <section class="news-list-sec">
-    <div class="wrap">
-      <div class="news-grid">
-${NEWS.map(s => `        <a class="news-card" href="/news-${s.slug}.html">
-          <h2>${s.title}</h2>
-          <p class="news-date"><time datetime="${s.date}">${s.dateLabel}</time> · 글 ${s.posts.length}개</p>
-          <p>${s.desc}</p>
-          <span class="news-more">시리즈 보기 →</span>
-        </a>`).join('\n')}
+  <section class="news-index">
+${NEWS.map(s => `    <article class="series-row">
+      <div class="series-copy">
+        <p class="series-kicker">${s.kicker}</p>
+        <h2><a href="/news-${s.slug}.html">${s.title}</a></h2>
+        <p class="series-desc">${s.desc}</p>
+        <p class="series-meta"><time datetime="${s.date}">${s.dateLabel}</time><span>포함된 포스트 ${s.posts.length}</span></p>
+        <a class="btn-more" href="/news-${s.slug}.html">더보기</a>
       </div>
-    </div>
+      <a class="series-photo" href="/news-${s.slug}.html" tabindex="-1" aria-hidden="true">
+        <img src="assets/news/${s.hero}" loading="lazy" alt="${s.title}">
+      </a>
+    </article>`).join('\n')}
   </section>
 `,
   },
 
-  // 시리즈별 페이지
+  // 2뎁스 — 시리즈
   ...NEWS.map(s => ({
     file: `news-${s.slug}.html`,
     active: '/news.html',
     title: `${s.title} — 피바뉴스 | FVA 피바아카데미`,
     desc: s.desc.replace(/&amp;/g, '&').slice(0, 155),
-    extraCss: ['sub.css'],
+    extraCss: ['news.css'],
     jsonld: {
       '@context':'https://schema.org','@type':'CollectionPage',
       name: s.title, description: s.desc.replace(/&amp;/g,'&'),
       url: `${SITE}/news-${s.slug}.html`,
       isPartOf:{'@type':'WebSite',name:'FVA ACADEMY',url:SITE+'/'},
-      hasPart: s.posts.map(x => ({'@type':'Article', headline:x.title, description:x.sub})),
+      hasPart: s.posts.map((x,i) => ({'@type':'Article', headline:x.title, description:x.sub,
+        url:`${SITE}/news-${s.slug}-${i+1}.html`})),
     },
     body: `
-  <section class="sub-hero">
-    <div class="wrap">
-      <p class="eyebrow-line"><a href="/news.html">← 피바뉴스</a></p>
-      <h1>${s.title}</h1>
-      <p class="lede">${s.desc}</p>
-      <p class="series-meta"><time datetime="${s.date}">${s.dateLabel}</time> · 총 ${s.posts.length}개</p>
-    </div>
-  </section>
+  <a class="back-link" href="/news.html"><span aria-hidden="true">←</span> 뒤로가기</a>
 
-  <section class="news-list-sec">
-    <div class="wrap">
-      <ol class="post-list">
-${s.posts.map((x, i) => `        <li class="post">
-          <span class="post-no">${String(i + 1).padStart(2, '0')}</span>
-          <div>
-            <h2>${x.title}</h2>
-            <p class="post-sub">${x.sub}</p>
-            ${x.topic ? `<p class="post-topic"><b>강연 주제</b> 〈${x.topic}〉</p>` : ''}
-          </div>
-        </li>`).join('\n')}
-      </ol>
+  <header class="series-head">
+    <div class="series-copy">
+      <p class="series-kicker">${s.kicker}</p>
+      <h1>${s.title}</h1>
+      <p class="series-desc">${s.desc}</p>
+      <p class="series-meta"><time datetime="${s.date}">${s.dateLabel}</time><span>포함된 포스트 ${s.posts.length}</span></p>
     </div>
+    <div class="series-photo"><img src="assets/news/${s.hero}" alt="${s.title}"></div>
+  </header>
+
+  <section class="post-grid">
+${s.posts.map((x,i) => `    <article class="post-card">
+      <a href="/news-${s.slug}-${i+1}.html">
+        <figure>
+          <img src="assets/news/${x.img}" loading="lazy" alt="${x.title.replace(/"/g,'&quot;')}">
+          ${x.likes ? `<figcaption class="likes"><span aria-hidden="true">♥</span> ${x.likes}</figcaption>` : ''}
+        </figure>
+        <h2>${x.title}</h2>
+        <p class="post-sub">${x.sub}</p>
+      </a>
+    </article>`).join('\n')}
   </section>
 `,
   })),
+
+  // 3뎁스 — 글 상세
+  ...NEWS.flatMap(s => s.posts.map((x, i) => ({
+    file: `news-${s.slug}-${i+1}.html`,
+    active: '/news.html',
+    title: `${x.title.replace(/[🎥🎬🎄]/g,'').trim()} — ${s.title} | FVA 피바아카데미`,
+    desc: `${x.sub} · ${s.title} · FVA 피바아카데미`,
+    extraCss: ['news.css'],
+    jsonld: {
+      '@context':'https://schema.org','@type':'Article',
+      headline: x.title, description: x.sub,
+      datePublished: s.date,
+      image: `${SITE}/assets/news/${x.img}`,
+      publisher:{'@type':'Organization',name:'FVA ACADEMY 피바아카데미',url:SITE+'/'},
+      isPartOf:{'@type':'CollectionPage',name:s.title,url:`${SITE}/news-${s.slug}.html`},
+    },
+    body: `
+  <a class="back-link" href="/news-${s.slug}.html"><span aria-hidden="true">←</span> ${s.title}</a>
+
+  <article class="post-detail">
+    <figure class="post-cover">
+      <img src="assets/news/${x.img}" alt="${x.title.replace(/"/g,'&quot;')}">
+    </figure>
+    <div class="post-body">
+      <p class="post-eyebrow">${x.title}</p>
+      <h1>${s.title}</h1>
+      <p class="post-sub">${x.sub}</p>
+      ${x.topic ? `<p class="post-topic"><b>강연 주제</b> 〈${x.topic}〉</p>` : ''}
+      <p class="post-meta"><time datetime="${s.date}">${s.dateLabel}</time></p>
+      <div class="post-gallery" data-todo="퍼블에서 현장 사진 이관 예정"></div>
+    </div>
+  </article>
+
+  <nav class="post-nav">
+    <a class="btn-more" href="/news-${s.slug}.html">${s.title} 전체 보기</a>
+  </nav>
+`,
+  }))),
 ];
