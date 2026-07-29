@@ -114,6 +114,7 @@ function page({ file, title, desc, active, extraCss = [], jsonld = null, body })
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mobile.css">
 ${extraCss.map(c => `<link rel="stylesheet" href="css/${c}">`).join('\n')}
 ${jsonld ? `<script type="application/ld+json">\n${JSON.stringify(jsonld, null, 2)}\n</script>` : ''}
 </head>
