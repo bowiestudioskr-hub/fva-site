@@ -734,3 +734,27 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   z-index:1;
 }
 
+
+/* 호버 피드백 — 누를 수 있는 요소는 반응이 있어야 한다 */
+.hd-logo{transition:opacity .15s}
+.hd-logo:hover{opacity:.75}
+
+.faq summary{transition:color .15s, background .15s}
+.faq summary:hover{color:var(--green)}
+.faq summary:hover::after{color:#fff}
+.faq details[open] summary{color:var(--green)}
+.faq summary:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+/* 「지금 신청하러 가기」류 버튼 — 호버 시 반짝이는 가벼운 모션 */
+.btn-primary,.btn-more,.cta .btn{position:relative;overflow:hidden}
+.btn-primary::after,.btn-more::after,.cta .btn::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%);
+  transform:translateX(-120%);
+}
+.btn-primary:hover::after,.btn-more:hover::after,.cta .btn:hover::after{
+  transform:translateX(120%);transition:transform .55s ease;
+}
+@media (prefers-reduced-motion:reduce){
+  .btn-primary::after,.btn-more::after,.cta .btn::after{display:none}
+}
