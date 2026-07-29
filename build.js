@@ -22,10 +22,25 @@ const NAV = [
   [REVIEWS,           '강의후기'],
 ];
 
+const SNS = [
+  ['sns-naver.svg',     '네이버 스마트스토어', 'https://smartstore.naver.com/bowiestudios'],
+  ['sns-instagram.svg', '인스타그램',        'https://www.instagram.com/fvaacademy/'],
+  ['sns-kakao.svg',     '카카오톡 채널',      'http://pf.kakao.com/_nxhyhn'],
+  ['sns-blog.svg',      '네이버 블로그',      'https://blog.naver.com/bowiestudios'],
+  ['sns-youtube.svg',   '유튜브',            'https://www.youtube.com/@FVA-ACADEMY'],
+  ['sns-link.svg',      '수강 후기',          'https://bowiestudioskr-hub.github.io/fva-reviews/'],
+];
+
+/* 피그마 1920 기준 실측
+   헤더 높이 72 · 로고 x25 184x17.77 · 네비 x264 20px 간격50
+   버튼 x1451 124x35 (Pretendard ExtraBold 14px, #06150a, radius 999)
+   SNS  x1615~1885, 아이콘 16~22px                                    */
 const header = (active) => `
 <header class="site-header">
-  <div class="wrap">
-    <a class="logo" href="/">FVA ACADEMY</a>
+  <div class="hd">
+    <a class="hd-logo" href="/" aria-label="FVA ACADEMY 홈">
+      <img src="assets/icons/logo-nav.svg" width="184" height="18" alt="FVA ACADEMY">
+    </a>
     <button class="nav-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">☰</button>
     <nav class="gnb" id="gnb" aria-label="주 메뉴">
 ${NAV.map(([href, label]) => {
@@ -34,20 +49,19 @@ ${NAV.map(([href, label]) => {
   return `      <a href="${href}"${cur}${ext ? ' target="_blank" rel="noopener"' : ''}>${label}</a>`;
 }).join('\n')}
     </nav>
-    <div class="header-actions">
-      <div class="sns">
-        <a href="https://smartstore.naver.com/bowiestudios" target="_blank" rel="noopener" aria-label="네이버 스마트스토어">N</a>
-        <a href="https://www.instagram.com/fvaacademy/" target="_blank" rel="noopener" aria-label="인스타그램">◙</a>
-      </div>
-      <a class="btn-cta" href="${KAKAO}" target="_blank" rel="noopener">즉시 상담하기</a>
-    </div>
+    <a class="btn-cta" href="${KAKAO}" target="_blank" rel="noopener">즉시 상담하기</a>
+    <ul class="sns">
+${SNS.map(([f, label, href]) =>
+`      <li><a href="${href}" target="_blank" rel="noopener" aria-label="${label}"><img src="assets/icons/${f}" alt="" aria-hidden="true"></a></li>`
+).join('\n')}
+    </ul>
   </div>
 </header>`;
 
 const footer = () => `
 <footer class="site-footer">
   <div class="wrap">
-    <span class="logo">FVA ACADEMY</span>
+    <img class="ft-logo" src="assets/icons/logo-nav.svg" width="184" height="18" alt="FVA ACADEMY">
     <p>보위스튜디오(bowie studios) ㅣ 대표자 : 정주영 ㅣ 주소 : 서울특별시 마포구 독막로6길 6, 5층(합정동, 현영빌딩) ㅣ 이메일 : bowiestudios.kr@gmail.com</p>
     <p>통신판매업 신고번호 : 2024-서울마포-1965호 ㅣ 사업자 등록 번호 : 285-37-00494 ㅣ 대표 전화번호 : 010-8108-3530</p>
     <p>Copyright ⓒ 2024 FVA ACADEMY. All rights reserved.</p>
@@ -104,10 +118,12 @@ ${footer()}
 }
 
 // ── 페이지 정의 ───────────────────────────────────────────
+const fsx = require('fs');
+const read = (f) => fsx.readFileSync(path.join(__dirname, 'pages', f), 'utf8');
 const pages = require('./pages');
 
 let built = 0;
-for (const p of pages({ PUBL, REVIEWS, KAKAO, SITE })) {
+for (const p of pages({ PUBL, REVIEWS, KAKAO, SITE, read })) {
   fs.writeFileSync(path.join(__dirname, p.file), page(p));
   console.log(`  ✓ ${p.file}`);
   built++;

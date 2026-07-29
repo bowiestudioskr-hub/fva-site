@@ -2,7 +2,55 @@
  * 페이지별 본문. build.js 가 헤더·푸터·메타를 씌워 완성 HTML을 만든다.
  * 메인(index.html)과 커리큘럼(curriculum.html)은 손으로 정밀 조판했으므로 여기서 제외.
  */
-module.exports = ({ PUBL, REVIEWS, KAKAO, SITE }) => [
+module.exports = ({ PUBL, REVIEWS, KAKAO, SITE, read }) => [
+
+  // ══════════════════════════════════════════════════════════
+  // 메인 — 피그마 3398:146 실측 조판
+  // ══════════════════════════════════════════════════════════
+  {
+    file: 'index.html',
+    active: '/',
+    title: 'FVA 피바아카데미 — 영상 기획·연출 학원 | 서울 마포 합정',
+    desc: '현역 뮤직비디오·광고 감독이 기획부터 촬영·편집까지 1:1로 가르치는 영상 아카데미. ARRI ALEXA·FX6 시네마 장비 실전 촬영, 팀 단위 포트폴리오 제작. 영상 공모전 5연속 대상 수상. 서울 마포구 합정동.',
+    jsonld: {
+      '@context':'https://schema.org','@type':'EducationalOrganization',
+      name:'FVA ACADEMY 피바아카데미', alternateName:'Film Visual Art Academy',
+      url: SITE + '/',
+      description:'영상 기획·연출·촬영 실무 아카데미. 현역 뮤직비디오·광고 감독이 직접 지도합니다.',
+      address:{'@type':'PostalAddress',streetAddress:'독막로6길 6, 5층 (합정동, 현영빌딩)',
+        addressLocality:'마포구',addressRegion:'서울특별시',postalCode:'04072',addressCountry:'KR'},
+      telephone:'+82-10-8108-3530', email:'bowiestudios.kr@gmail.com',
+      parentOrganization:{'@type':'Organization',name:'보위스튜디오 (bowie studios)'},
+      sameAs:['https://www.instagram.com/fvaacademy/','https://www.youtube.com/@FVA-ACADEMY','https://smartstore.naver.com/bowiestudios'],
+      aggregateRating:{'@type':'AggregateRating',ratingValue:'4.99',bestRating:'5',ratingCount:'134'},
+    },
+    body: read('_home.html'),
+  },
+
+  // ══════════════════════════════════════════════════════════
+  // 커리큘럼
+  // ══════════════════════════════════════════════════════════
+  {
+    file: 'curriculum.html',
+    active: '/curriculum.html',
+    title: '커리큘럼 — 12주 영상 기획·연출 과정 | FVA 피바아카데미',
+    desc: '1개월·2개월·3개월 골라듣는 수강권. 1-4주차 기획과 연출, 4-8주차 비주얼 디렉팅, 9-12주차 포트폴리오 제작. AI 스토리보드·데모 영상 특강 포함. 13개 회차 전체 커리큘럼을 확인하세요.',
+    extraCss: ['curriculum.css'],
+    jsonld: {
+      '@context':'https://schema.org','@type':'Course',
+      name:'FVA 영상 기획·연출 12주 과정',
+      description:'영상 기획과 연출부터 비주얼 디렉팅, 포트폴리오 작품 제작까지 다루는 12주 오프라인 과정. AI 스토리보드·데모 영상 제작 실습 포함.',
+      provider:{'@type':'EducationalOrganization',name:'FVA ACADEMY 피바아카데미',url:SITE+'/'},
+      inLanguage:'ko',
+      hasCourseInstance:[
+        {'@type':'CourseInstance',name:'1개월 수강권',courseMode:'onsite',courseWorkload:'P4W'},
+        {'@type':'CourseInstance',name:'2개월 수강권',courseMode:'onsite',courseWorkload:'P8W'},
+        {'@type':'CourseInstance',name:'3개월 풀코스 수강권',courseMode:'onsite',courseWorkload:'P12W'},
+      ],
+    },
+    body: read('_curriculum.html'),
+  },
+
 
   // ══════════════════════════════════════════════════════════
   // 온라인 강의 — 피그마에 없던 페이지. 결제는 퍼블로 넘긴다.
