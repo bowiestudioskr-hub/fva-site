@@ -311,30 +311,35 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 .work .stills.phone .s1,
 .work .stills.phone .s2,
 .work .stills.phone .s3{ aspect-ratio:479/854; object-fit:cover }
-.work .stills.phone .s3{ grid-column:4 }
+.work .stills.phone .s3{ grid-column:4; aspect-ratio:481/854 }
 .work .stills.phone .ph{
   position:absolute; z-index:2;
-  left:calc(921/1920 * 100%);
-  width:calc(563/1920 * 100%);
+  left:calc(921.3/1920 * 100%);
+  width:calc(562.7/1920 * 100%);
   top:0;
+  display:block;
 }
+.work .stills.phone .ph img{ width:100%; height:auto; display:block }
 
-/* 초록 배너 — 좌측 179.6, 폭 1458.75. 살짝 기울어져 있다 */
+/* 초록 배너 — 피그마 실측. 회전 전 박스 크기를 --bw/--bh 로 개별 지정한다.
+   (AABB 에서 rotate(1.15°) 를 역산한 값. 제목 PNG 는 --tw 로 --u 배율을 태운다) */
 .work .banner{
   position:relative; z-index:3;
-  width:calc(var(--u) * 1458.75/1920);
+  width:calc(var(--u) * var(--bw,1451.7)/1920);
+  aspect-ratio:var(--bw,1451.7) / var(--bh,366.9);
   margin-inline:auto;                    /* 완전 중앙정렬 */
   margin-top:calc(var(--u) * -60/1920);
   background:var(--green);
   transform:rotate(-1.15deg);
-  padding:calc(var(--u) * 46/1920) calc(var(--u) * 40/1920) calc(var(--u) * 52/1920);
+  padding-inline:calc(var(--u) * 40/1920);
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
   text-align:center;
 }
-.work .banner.short{ padding-bottom:calc(var(--u) * 46/1920) }
 .work .banner h3{ line-height:0 }
 .work .banner h3 img{
-  display:inline-block; width:auto; height:auto;
-  max-width:min(100%, calc(var(--u) * 1226/1920));
+  display:block; height:auto;
+  width:calc(var(--u) * var(--tw,1226)/1920);
+  max-width:100%;
 }
 .work .wsub{
   margin-top:calc(var(--u) * 22/1920);
