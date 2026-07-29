@@ -19,18 +19,20 @@
 .series-head,
 .post-grid,
 .post-detail,
-.post-nav,
-.back-link{
+.post-nav{
   max-width:1920px;margin-inline:auto;
 }
+/* 뒤로가기는 좌측 고정 — fit-content + margin auto 조합이면 가운데로 밀린다 */
+.back-link{ max-width:1920px; margin-inline:auto; }
 
 /* ── 뒤로가기 (피그마 x89 y119, 아이콘 48 + 텍스트 36) ────── */
 .back-link{
   display:flex;align-items:center;gap:calc(var(--nu) * 12/1920);
   padding:calc(var(--nu) * 47/1920) calc(var(--nu) * 89/1920) 0;
   font-size:calc(var(--nu) * 24/1920);font-weight:600;color:#fff;
-  width:fit-content;
+  width:100%;justify-content:flex-start;
 }
+.back-link > *{flex:none}
 .back-link span{
   display:grid;place-items:center;flex:none;
   width:calc(var(--nu) * 48/1920);height:calc(var(--nu) * 48/1920);
@@ -223,3 +225,32 @@ a.series-photo:hover img{transform:scale(1.03)}
 .series-kicker.img img{
   width:calc(var(--nu) * 109/1920);min-width:72px;height:auto;
 }
+
+/* ── 글 상세 팝업 ─────────────────────────────────────────
+   게시글은 개별 URL 페이지로 존재해(검색 노출) 직접 열면 페이지로 뜨고,
+   시리즈 목록에서 누르면 그 자리에 팝업으로 얹힌다. 피그마 3455:142 형태. */
+.modal{
+  position:fixed;inset:0;z-index:200;
+  display:none;place-items:start center;
+  background:rgba(0,0,0,.72);backdrop-filter:blur(3px);
+  overflow-y:auto;padding:clamp(16px,4vw,64px) 0;
+}
+.modal[open],.modal.on{display:grid}
+.modal-inner{
+  position:relative;
+  width:min(1140px, calc(100% - 32px));
+  background:#111;border:1px solid rgba(255,255,255,.12);
+  border-radius:8px;overflow:hidden;
+}
+.modal-close{
+  position:absolute;right:10px;top:6px;z-index:2;
+  width:44px;height:44px;display:grid;place-items:center;
+  background:none;border:0;cursor:pointer;
+  color:#fff;font-size:30px;line-height:1;
+  transition:color .15s;
+}
+.modal-close:hover{color:var(--green)}
+.modal .post-detail{width:100%;margin:0;border:0;border-radius:0}
+.modal .back-link,.modal .post-nav{display:none}
+.modal-loading{padding:80px 0;text-align:center;color:var(--muted);font-size:15px}
+body.modal-open{overflow:hidden}

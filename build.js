@@ -102,6 +102,49 @@ const footer = () => `
     };
     addEventListener('scroll',tick,{passive:true}); addEventListener('resize',tick); tick();
   })();
+
+  /* 피바뉴스 — 시리즈 목록에서 글을 누르면 팝업으로 연다.
+     주소는 그대로 바뀌므로 뒤로가기·새로고침·링크공유가 모두 정상 동작한다. */
+  (function(){
+    var grid=document.querySelector('.post-grid'); if(!grid)return;
+    var modal=document.createElement('div');
+    modal.className='modal'; modal.setAttribute('role','dialog');
+    modal.setAttribute('aria-modal','true'); modal.hidden=true;
+    modal.innerHTML='<div class="modal-inner"><button class="modal-close" type="button" aria-label="닫기">&times;</button><div class="modal-body"><p class="modal-loading">불러오는 중…</p></div></div>';
+    document.body.appendChild(modal);
+    var body=modal.querySelector('.modal-body');
+
+    function close(){
+      modal.classList.remove('on'); modal.hidden=true;
+      document.body.classList.remove('modal-open');
+      if(location.pathname!==openerPath) history.pushState({},'',openerPath);
+    }
+    var openerPath=location.pathname;
+
+    function open(href){
+      modal.hidden=false; modal.classList.add('on');
+      document.body.classList.add('modal-open');
+      body.innerHTML='<p class="modal-loading">불러오는 중…</p>';
+      history.pushState({modal:href},'',href);
+      fetch(href).then(function(r){return r.text()}).then(function(html){
+        var doc=new DOMParser().parseFromString(html,'text/html');
+        var art=doc.querySelector('.post-detail');
+        body.innerHTML=''; if(art) body.appendChild(art);
+        modal.querySelector('.modal-close').focus();
+      }).catch(function(){ location.href=href; });
+    }
+
+    grid.addEventListener('click',function(e){
+      var a=e.target.closest('a[href]'); if(!a)return;
+      if(e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;   // 새 탭은 그대로
+      e.preventDefault(); open(a.getAttribute('href'));
+    });
+    modal.addEventListener('click',function(e){
+      if(e.target===modal||e.target.closest('.modal-close')) close();
+    });
+    addEventListener('keydown',function(e){ if(e.key==='Escape'&&!modal.hidden) close(); });
+    addEventListener('popstate',function(){ if(!modal.hidden) { modal.classList.remove('on'); modal.hidden=true; document.body.classList.remove('modal-open'); } });
+  })();
 </script>`;
 
 function page({ file, title, desc, active, extraCss = [], jsonld = null, body }) {
