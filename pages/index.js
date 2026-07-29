@@ -292,7 +292,7 @@ module.exports = ({ PUBL, REVIEWS, KAKAO, SITE, read }) => [
   <section class="news-index">
 ${NEWS.map(s => `    <article class="series-row">
       <div class="series-copy">
-        <p class="series-kicker">${s.kicker}</p>
+        ${s.kicker ? `<p class="series-kicker">${s.kicker}</p>` : s.kickerImg ? `<p class="series-kicker img"><img src="assets/icons/${s.kickerImg}" alt="" aria-hidden="true"></p>` : ''}
         <h2><a href="/news-${s.slug}.html">${s.title}</a></h2>
         <p class="series-desc">${s.desc}</p>
         <p class="series-meta"><time datetime="${s.date}">${s.dateLabel}</time><span>포함된 포스트 ${s.posts.length}</span></p>
@@ -326,7 +326,7 @@ ${NEWS.map(s => `    <article class="series-row">
 
   <header class="series-head">
     <div class="series-copy">
-      <p class="series-kicker">${s.kicker}</p>
+      ${s.kicker ? `<p class="series-kicker">${s.kicker}</p>` : s.kickerImg ? `<p class="series-kicker img"><img src="assets/icons/${s.kickerImg}" alt="" aria-hidden="true"></p>` : ''}
       <h1>${s.title}</h1>
       <p class="series-desc">${s.desc}</p>
       <p class="series-meta"><time datetime="${s.date}">${s.dateLabel}</time><span>포함된 포스트 ${s.posts.length}</span></p>

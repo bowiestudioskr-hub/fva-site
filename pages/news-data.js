@@ -35,30 +35,31 @@ module.exports = [
     ],
   },
   {
-    slug: 'speakers',
-    hero: 'speakers-hero.jpg',
-    kicker: 'GUEST SPEAKER<br>ARCHIVE',
-    title: '초청 연사 아카이브',
-    date: '2023-02-09',
-    dateLabel: '2023. 02. 09',
-    desc: 'FVA 아카데미는 현장에서 실제 결과를 만들어내는 실무자들과 지식을 나누는 것을 중요하게 생각합니다. 각 분야의 감독, 제작자, 크리에이터들이 전한 작업 방식과 업계의 흐름을 통해, 배움이 한 번의 수업을 넘어 업계와 연결되는 경험으로 이어지기를 바랍니다.',
-    posts: [
-      { title: '박유승 영상 스토리보드 작가', sub: 'FVA 6·7·8기 초청 연사', topic: '스토리보드를 그리고 달라진 것들', img: 'speakers-1.png'  },
-      { title: '815VIDEO 이광복 PD', sub: 'FVA 9·10기 초청 연사', topic: '슬기로운 PD생활', img: 'speakers-2.png'  },
-      { title: 'ambience 정다운 EP', sub: 'FVA 11·12기 초청 연사', topic: '영상 프로듀서로 살아남기', img: 'speakers-3.png'  },
-      { title: 'Ethanol Production 신윤철 감독', sub: 'FVA 13·14기 초청 연사', topic: '영상을 만든다는 것, 그리고 그 일로 먹고 산다는 것.', img: 'speakers-4.png'  },
-    ],
-  },
-  {
     slug: 'behind',
     hero: 'behind-hero.png',
-    kicker: 'BEHIND THE<br>SCENE',
+    kickerImg: 'news-kicker-behind.png',  // 스크립트 로고 (피그마)
+    kicker: null,
     title: '수강생 작품 촬영 비하인드',
     date: '2024-02-23',
     dateLabel: '2024. 02. 23',
     desc: '피바아카데미 오프라인 클래스 수강생들의 생생한 촬영 현장 Behind The Scene을 살펴보세요!',
     posts: [
       { title: 'FVA 8기 서정하 수강생 비하인드', sub: '오월오일 Unofficial M/V 촬영 현장', img: 'behind-1.png', likes: 10  },
+    ],
+  },
+  {
+    slug: 'speakers',
+    hero: 'speakers-hero.jpg',
+    kicker: null,   // 피그마 1뎁스에 영문 키커 없음
+    title: '초청 연사 아카이브',
+    date: '2025-02-23',
+    dateLabel: '2025. 02. 23',
+    desc: 'FVA 아카데미는 현장에서 실제 결과를 만들어내는 실무자들과 지식을 나누는 것을 중요하게 생각합니다. 각 분야의 감독, 제작자, 크리에이터들이 전한 작업 방식과 업계의 흐름을 통해, 배움이 한 번의 수업을 넘어 업계와 연결되는 경험으로 이어지기를 바랍니다.',
+    posts: [
+      { title: '박유승 영상 스토리보드 작가', sub: 'FVA 6·7·8기 초청 연사', topic: '스토리보드를 그리고 달라진 것들', img: 'speakers-1.png'  },
+      { title: '815VIDEO 이광복 PD', sub: 'FVA 9·10기 초청 연사', topic: '슬기로운 PD생활', img: 'speakers-2.png'  },
+      { title: 'ambience 정다운 EP', sub: 'FVA 11·12기 초청 연사', topic: '영상 프로듀서로 살아남기', img: 'speakers-3.png'  },
+      { title: 'Ethanol Production 신윤철 감독', sub: 'FVA 13·14기 초청 연사', topic: '영상을 만든다는 것, 그리고 그 일로 먹고 산다는 것.', img: 'speakers-4.png'  },
     ],
   },
 ];

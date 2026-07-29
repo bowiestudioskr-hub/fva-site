@@ -217,3 +217,9 @@ a.series-photo:hover img{transform:scale(1.03)}
 @media (max-width:700px){
   .post-grid{grid-template-columns:1fr;gap:clamp(24px,5vw,40px)}
 }
+
+/* 「비하인드」는 영문 키커가 스크립트 로고 이미지 */
+.series-kicker.img{line-height:0}
+.series-kicker.img img{
+  width:calc(var(--nu) * 109/1920);min-width:72px;height:auto;
+}
