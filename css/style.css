@@ -204,12 +204,12 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   container-type:inline-size;
 }
 .profile .photo{
-  position:absolute;left:0;top:0;height:100%;width:48.26%;  /* 마스크 926.542/1920 */
+  position:absolute;left:0;top:0;height:100%;width:50.064%; /* 피그마 3398:491 우측단 961.224/1920 */
   object-fit:cover;object-position:center top;
 }
 /* 텍스트는 절대배치가 아니라 세로 흐름 — 서로 겹칠 수 없다 */
 .profile .copy{
-  position:absolute;left:54.10%;top:8.69%;width:41.14%;
+  position:absolute;left:54.10%;top:11.684%;width:41.14%;   /* 글리프 상단 y=205 (피그마) */
   container-type:inline-size;color:#000;
 }
 .profile h2{
@@ -217,14 +217,14 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   font-weight:400;line-height:.86;letter-spacing:-.04em;text-transform:uppercase;
 }
 .profile h2 .l1{display:block;font-size:24.13cqi}   /* 190.61 / 790 */
-.profile h2 .l2{display:block;font-size:36.20cqi}   /* 285.95 / 790 */
-.profile .name{margin-top:5.4cqi}
+.profile h2 .l2{display:block;font-size:36.20cqi;margin-top:2.10cqi}  /* 글리프 상단 y=400.5 */
+.profile .name{margin-top:10.11cqi}                 /* 정주 감독 글리프 상단 y=731.5 */
 .profile .who {font-size:7.59cqi;font-weight:800;letter-spacing:-.02em}
 .profile .role{font-size:5.06cqi;font-weight:700;margin-left:.45em}
-.profile .org {font-size:5.06cqi;font-weight:700;margin-top:.28em;display:block}
-.profile .rule{height:.42cqi;background:#000;margin-top:2.2cqi}
-.profile h3{margin-top:4.3cqi;font-size:5.70cqi;font-weight:800}
-.profile ul{margin-top:1.6cqi}
+.profile .org {font-size:5.06cqi;font-weight:700;margin-top:.19em;display:block}
+.profile .rule{height:.42cqi;background:#000;margin-top:1.30cqi}      /* 구분선 y=859 */
+.profile h3{margin-top:12.61cqi;font-size:5.70cqi;font-weight:800}    /* 주요 이력 y=969.5 */
+.profile ul{margin-top:2.46cqi}                     /* 이력 1행 y=1049.5 */
 .profile li{
   font-size:4.81cqi;font-weight:600;line-height:1.676;
   text-indent:-.55em;padding-left:.55em;
