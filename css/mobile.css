@@ -7,6 +7,34 @@
 
   :root{ --m:100vw; --gutter:0px }   /* 모바일은 피그마 360 그대로 */
 
+  /* ── 햄버거 메뉴 — 피그마 3400:4375 ───────────────────────
+     배경 #0D0D0D · 아래 테두리 0.786 #1D1D1D
+     세로 중앙정렬 · 간격 12.576 · 패딩 14.15/18.87/14.93
+     Pretendard Bold 11px / 17.963 · 활성 #2CFF05 그 외 #D2D2D2  */
+  .gnb{
+    position:fixed;
+    left:0;right:0;
+    top:calc(var(--m) * 45.65/360);
+    display:flex;flex-direction:column;align-items:center;
+    gap:calc(var(--m) * 12.576/360);
+    margin-left:0;
+    background:#0D0D0D;
+    border-bottom:calc(var(--m) * 0.786/360) solid #1D1D1D;
+    padding:calc(var(--m) * 14.148/360) calc(var(--m) * 18.865/360) calc(var(--m) * 14.934/360);
+    transform:translateY(-115%);
+    transition:transform .28s ease;
+    z-index:99;
+  }
+  .gnb[data-open="true"]{ transform:translateY(0) }
+  .gnb a{
+    padding:calc(var(--m) * 5/360) 0;
+    font-size:calc(var(--m) * 11/360);
+    font-weight:700;line-height:1.633;color:#D2D2D2;
+    min-height:34px;display:flex;align-items:center;
+  }
+  .gnb a[aria-current="page"]{ color:var(--green) }
+
+
   /* ── 헤더 360x45.65 ──────────────────────────────────────
      로고 x15.34 y17.83 101.79x9.83 · 메뉴 x320.33 23.95
      즉시상담 x233 y13 75x22                                */
@@ -18,7 +46,8 @@
   }
   .hd-logo img{ width:calc(var(--m) * 101.79/360); min-width:88px }
   .btn-cta{
-    font-size:calc(var(--m) * 11/360);
+    font-size:calc(var(--m) * 10/360);
+    line-height:1.344;
     padding:calc(var(--m) * 4/360) calc(var(--m) * 10/360);
     margin-left:auto;
   }

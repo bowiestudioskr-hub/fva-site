@@ -37,6 +37,7 @@ const SNS = [
    SNS  x1615~1885, 아이콘 16~22px                                    */
 const header = (active) => `
 <header class="site-header">
+  <span class="top-bar" aria-hidden="true"></span>
   <div class="hd">
     <a class="hd-logo" href="/" aria-label="FVA ACADEMY 홈">
       <img src="assets/icons/logo-nav.svg" width="184" height="18" alt="FVA ACADEMY">
