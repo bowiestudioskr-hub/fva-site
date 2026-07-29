@@ -4,6 +4,7 @@
  */
 const NEWS = require('./news-data');
 const PHOTOS = require('./post-photos.json');
+const YT = require('./youtube.json');
 
 module.exports = ({ PUBL, REVIEWS, KAKAO, SITE, read }) => [
 
@@ -222,6 +223,15 @@ module.exports = ({ PUBL, REVIEWS, KAKAO, SITE, read }) => [
     title: '수강생 작품 — 영상 공모전 5연속 대상 수상 | FVA 피바아카데미',
     desc: '2024 BCU 콘텐츠리그 대상, 제11회 신한 29초영화제 최우수상, 김복남 맥주·얌샘김밥 광고 공모전 대상. FVA 수강생 팀이 제작한 수상작을 확인하세요.',
     extraCss: ['sub.css'],
+    jsonld: {
+      '@context':'https://schema.org','@type':'ItemList',
+      name:'FVA 수강생 작품',
+      itemListElement: YT.students.map((v, i) => ({
+        '@type':'ListItem', position:i+1,
+        item:{'@type':'VideoObject', name:v.title, description:v.desc||v.title,
+              thumbnailUrl:v.thumb, uploadDate:v.published, contentUrl:v.url, embedUrl:`https://www.youtube.com/embed/${v.id}`},
+      })),
+    },
     body: `
   <section class="sub-hero">
     <div class="wrap">
@@ -262,12 +272,29 @@ module.exports = ({ PUBL, REVIEWS, KAKAO, SITE, read }) => [
   <section class="yt" id="yt" aria-labelledby="yt-h">
     <div class="wrap">
       <h2 id="yt-h" class="sec-title">유튜브에 올라온 수강생 작품</h2>
-      <p class="also-lede" data-build="youtube-placeholder">
-        유튜브 채널의 <b>[FVA 수강생 우수작]</b> 영상을 자동으로 불러올 영역입니다.
-        새 영상을 올리면 이 목록에 자동으로 추가됩니다.
-      </p>
+      <p class="also-lede">유튜브 채널에 올라오는 <b>[FVA 수강생 우수작]</b> 영상입니다. 새 영상을 올리면 여기에 자동으로 추가됩니다.</p>
+      <ul class="yt-grid">
+${YT.students.map(v => `        <li class="yt-card">
+          <a href="${v.url}" target="_blank" rel="noopener">
+            <figure><img src="${v.thumb}" loading="lazy" width="480" height="360" alt="${v.title}"><span class="yt-play" aria-hidden="true">▶</span></figure>
+            <h3>${v.title.replace(/\[FVA 수강생 우수작\]\s*/,'')}</h3>
+            <p class="yt-meta"><time datetime="${v.published}">${v.published.replace(/-/g,'. ')}</time>${v.views ? ` · 조회 ${v.views.toLocaleString()}회` : ''}</p>
+          </a>
+        </li>`).join('\n')}
+      </ul>
+
+      <h2 class="sec-title yt-more-h">FVA 유튜브 최신 영상</h2>
+      <ul class="yt-list">
+${YT.latest.slice(0,8).map(v => `        <li>
+          <a href="${v.url}" target="_blank" rel="noopener">
+            <img src="${v.thumb}" loading="lazy" width="480" height="360" alt="">
+            <div><h3>${v.title}</h3><p class="yt-meta"><time datetime="${v.published}">${v.published.replace(/-/g,'. ')}</time>${v.views ? ` · 조회 ${v.views.toLocaleString()}회` : ''}</p></div>
+          </a>
+        </li>`).join('\n')}
+      </ul>
+
       <div class="hero-actions">
-        <a class="btn-primary" href="https://www.youtube.com/@FVA-ACADEMY" target="_blank" rel="noopener">유튜브 채널 보기</a>
+        <a class="btn-primary" href="${YT.channel}" target="_blank" rel="noopener">유튜브 채널 전체 보기</a>
       </div>
     </div>
   </section>

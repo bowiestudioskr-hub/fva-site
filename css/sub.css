@@ -168,3 +168,40 @@ a.news-card:hover{border-color:rgba(44,255,5,.45);transform:translateY(-2px)}
   margin-top:.8em;font-size:clamp(12px,1vw,19px);font-weight:600;color:#DEDEDE;
 }
 .post-topic b{color:var(--green);font-weight:800;margin-right:.5em}
+
+/* ── 유튜브 ────────────────────────────────────────────── */
+.yt{text-align:left}
+.yt .also-lede{margin:0 0 clamp(22px,2.6vw,48px);max-width:70ch}
+.yt .also-lede b{color:var(--green);font-weight:800}
+.yt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,26px)}
+.yt-card figure{position:relative;overflow:hidden;background:var(--ink)}
+.yt-card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .5s ease}
+.yt-card a:hover img{transform:scale(1.05)}
+.yt-play{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-size:clamp(20px,2.2vw,42px);color:#fff;
+  background:rgba(0,0,0,.28);opacity:.85;transition:opacity .15s;
+}
+.yt-card a:hover .yt-play{opacity:1}
+.yt-card h3{
+  margin-top:clamp(10px,1.2vw,20px);
+  font-size:clamp(12.5px,1.05vw,20px);font-weight:700;line-height:1.45;color:#fff;
+}
+.yt-card a:hover h3{color:var(--green)}
+.yt-meta{margin-top:.45em;font-size:clamp(10.5px,.82vw,15px);color:var(--muted);font-weight:600}
+
+.yt-more-h{margin-top:clamp(38px,4.4vw,84px)}
+.yt-list{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.2vw,22px)}
+.yt-list a{
+  display:grid;grid-template-columns:clamp(96px,11vw,200px) 1fr;
+  gap:clamp(10px,1.2vw,22px);align-items:center;
+  background:var(--ink);border:1px solid rgba(255,255,255,.08);
+  padding:clamp(8px,.9vw,16px);transition:border-color .15s;
+}
+.yt-list a:hover{border-color:rgba(44,255,5,.45)}
+.yt-list img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.yt-list h3{font-size:clamp(11.5px,.95vw,18px);font-weight:700;line-height:1.45;color:#EDEDED}
+.yt-list a:hover h3{color:var(--green)}
+
+@media (max-width:1024px){ .yt-grid{grid-template-columns:1fr 1fr} }
+@media (max-width:700px){ .yt-grid,.yt-list{grid-template-columns:1fr} }
