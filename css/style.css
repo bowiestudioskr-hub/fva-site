@@ -190,7 +190,10 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
    파트너
    ══════════════════════════════════════════════════════════ */
 /* 파트너 — 피그마 3398:215 : x103 w1713 h590 */
-.partners{--u:var(--pagew);padding:calc(var(--u) * 60/1920) 0;text-align:center}
+/* 파트너 — 피그마 3398:215 : x103 y1171 1713x590.
+   히어로 하단여백 127 이 곧 피그마 간격이라 padding-top 은 0.
+   하단은 프로필 상단 1936 에 맞춰 121.2 */
+.partners{--u:var(--pagew);padding:0 0 calc(var(--u) * 121.2/1920);text-align:center}
 .partners img{margin-inline:auto;width:calc(var(--u) * 1713/1920);max-width:calc(100% - 32px)}
 .partners p{
   margin-top:calc(var(--u) * 26/1920);
@@ -242,6 +245,7 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
    ══════════════════════════════════════════════════════════ */
 .awards{
   --u:var(--pagew);
+  margin-top:calc(var(--u) * 164.92/1920);   /* 프로필 하단 3789.08 -> 3954 */
   position:relative;background:var(--black);
   aspect-ratio:1920/2960;
   overflow:hidden;
@@ -259,25 +263,43 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   width:calc(1672/1920 * 100%);
   height:auto;
 }
+/* 레데 — 피그마 로컬좌표(섹션 2960 기준)
+   별 2050.05 (383.31x67.25) · 키커행 2138.34~2248 · 카피 2357.99 (박스 107.67)
+   대제목 잉크 2499. 키커 전체가 #777777 (트로피 받침에 새긴 느낌) */
 .awards-lede{
   position:absolute;z-index:3;left:0;right:0;
-  top:calc(2050/2960 * 100%);
+  top:calc(2050.05/2960 * 100%);
   text-align:center;
 }
-.awards-lede .kicker{
-  display:inline-flex;align-items:baseline;gap:.34em;
-  font-size:calc(var(--u) * 54/1920);font-weight:700;color:#fff;
-  letter-spacing:-.02em;
+.awards-lede .stars{ line-height:0 }
+.awards-lede .stars img{
+  display:inline-block;width:calc(var(--u) * 383.31/1920);height:auto;
 }
-.awards-lede .kicker b{color:var(--green);font-weight:800}
-.awards-lede .kicker .q{color:var(--green);font-size:1.5em;line-height:0}
+.awards-lede .kicker{
+  margin-top:calc(var(--u) * 21.04/1920);
+  display:inline-flex;align-items:flex-end;
+  gap:calc(var(--u) * 22/1920);
+  color:#777;letter-spacing:-.02em;
+}
+.awards-lede .kicker .q{
+  font-size:calc(var(--u) * 103/1920);line-height:.9;
+  margin-inline:calc(var(--u) * 30/1920);
+}
+.awards-lede .brand{
+  display:flex;flex-direction:column;align-items:flex-start;
+  gap:calc(var(--u) * 3/1920);
+}
+.awards-lede .brand img{ width:calc(var(--u) * 191/1920);height:auto }
+.awards-lede .k1{ font-size:calc(var(--u) * 45/1920);line-height:1.2;font-weight:700 }
+.awards-lede .k2{ font-size:calc(var(--u) * 87.5/1920);line-height:1.2;font-weight:800 }
+.awards-lede .bang{ margin-left:.18em }
 .awards-lede .quote{
-  margin-top:calc(var(--u) * 118/1920);
-  font-size:calc(var(--u) * 72/1920);font-weight:700;color:#fff;
-  letter-spacing:-.03em;
+  margin-top:calc(var(--u) * 114.89/1920);
+  font-size:calc(var(--u) * 72/1920);line-height:1.4954;   /* 박스 107.67 */
+  font-weight:700;color:#fff;letter-spacing:-.03em;
 }
 .awards-lede .quote em{font-style:normal;color:var(--green)}
-.awards-lede h2{ --dwn:1663; margin-top:calc(var(--u) * 26/1920) }
+.awards-lede h2{ --dwn:1663; margin-top:calc(var(--u) * 33.34/1920) }
 
 @media (max-width:820px){
   .awards{aspect-ratio:auto;padding-bottom:clamp(28px,7vw,60px)}
