@@ -26,7 +26,19 @@
 .off-plan .p-qmark{ left:calc(1171.1/1920 * 100%);top:calc(2621.0/16715.2 * 100%);width:calc(44.0/1920 * 100%);font-size:calc(var(--u) * 81/1920);line-height:1;color:#fff }
 .off-plan .p-ask{ left:calc(462.1/1920 * 100%);top:calc(2973.8/16715.2 * 100%);width:calc(994.0/1920 * 100%);font-size:calc(var(--u) * 81/1920);line-height:1;color:#fff }
 .off-plan .pp-glow{ left:calc(201.3/1920 * 100%);top:calc(3325.6/16715.2 * 100%);width:calc(1521.5/1920 * 100%);z-index:1 }
-.off-plan .pp-text{ left:calc(246.0/1920 * 100%);top:calc(3370.3/16715.2 * 100%);width:calc(1432.0/1920 * 100%);z-index:2 }
+/* Pre-Production — Pretendard SemiBold 223.256px / 자간 -8.9302px /
+   초록->흰색 그라데이션 글자 (배경 클립). TLAB 이 아니었다 */
+.off-plan .pp-text{
+  left:calc(178.6/1920 * 100%);top:calc(3337.7/16715.2 * 100%);
+  width:calc(1565/1920 * 100%);z-index:2;
+  font-size:calc(var(--u) * 223.256/1920);
+  line-height:1.04;
+  letter-spacing:calc(var(--u) * -8.9302/1920);
+  font-weight:600;text-align:center;
+  background-image:linear-gradient(68.519deg,#2CFF05 32.213%,#FFFFFF 94.71%);
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent;
+}
 .off-plan .p-box{ left:calc(111.6/1920 * 100%);top:calc(3668.1/16715.2 * 100%);width:calc(1696.7/1920 * 100%);height:calc(1210.0/16715.2 * 100%);background:linear-gradient(180deg,#011001 0%,#022003 45%,#042905 100%);border:1px solid rgba(44,255,5,.28);border-radius:calc(var(--u) * 60/1920) }
 .off-plan .p-pencil{ left:calc(600.6/1920 * 100%);top:calc(3813.2/16715.2 * 100%);width:calc(669.8/1920 * 100%);z-index:2;mix-blend-mode:screen }
 .off-plan .p-def{ left:calc(250.0/1920 * 100%);top:calc(4996.5/16715.2 * 100%);width:calc(1440.0/1920 * 100%);font-size:calc(var(--u) * 87/1920);line-height:1.2759;color:#fff }
@@ -36,7 +48,12 @@
 .off-plan .p-ask3{ left:calc(515.7/1920 * 100%);top:calc(8758.3/16715.2 * 100%);width:calc(1249.0/1920 * 100%);font-size:calc(var(--u) * 87/1920);line-height:1.2874;color:#ECECEC }
 .off-plan .p-col2{ left:calc(0.0/1920 * 100%);top:calc(8950.0/16715.2 * 100%);width:calc(1920.0/1920 * 100%) }
 .off-plan .p-cta{ left:calc(2.2/1920 * 100%);top:calc(9495.1/16715.2 * 100%);width:calc(1917.8/1920 * 100%);font-size:calc(var(--u) * 92/1920);line-height:1.2065;color:var(--green) }
-.off-plan .p-cf{ left:calc(116.1/1920 * 100%);top:calc(10278.7/16715.2 * 100%);width:calc(1662.5/1920 * 100%);line-height:0 }
+/* CLASS FEATURE — TlabMixCoffee 303.628px 흰색 1줄 (SVG) +
+   그 위 FVA ACADEMY 워드마크 */
+.off-plan .p-cf{ left:calc(116.1/1920 * 100%);top:calc(10467.7/16715.2 * 100%);width:calc(1663/1920 * 100%);line-height:0 }
+.off-plan .p-cf svg.tlab{ color:#fff;width:100% }
+.off-plan .p-cf-wm{ left:calc(741.6/1920 * 100%);top:calc(10306.7/16715.2 * 100%);width:calc(437/1920 * 100%);line-height:0 }
+.off-plan .p-cf-wm svg{ color:var(--green);width:100%;height:auto;fill:currentColor;display:block }
 .off-plan .p-f1{ left:calc(0.0/1920 * 100%);top:calc(10688.0/16715.2 * 100%);width:calc(1920.0/1920 * 100%) }
 .off-plan .p-n1{ left:calc(95.8/1920 * 100%);top:calc(11527.1/16715.2 * 100%);width:calc(194.0/1920 * 100%) }
 .off-plan .p-t1{ left:calc(423.7/1920 * 100%);top:calc(11615.6/16715.2 * 100%);width:calc(1294.9/1920 * 100%);font-size:calc(var(--u) * 100/1920);line-height:1.20;color:#fff;text-align:left }
@@ -128,7 +145,11 @@
   .off-plan .p-ask{ font-size:calc(var(--m) * 15/360);margin-top:calc(var(--m) * 10/360) }
 
   .off-plan .pp-glow{ display:none }
-  .off-plan .pp-text{ width:calc(var(--m) * 250/360);margin-top:calc(var(--m) * 30/360) }
+  .off-plan .pp-text{
+    width:calc(var(--m) * 300/360);margin-top:calc(var(--m) * 30/360);
+    font-size:calc(var(--m) * 34/360);line-height:1.05;
+    letter-spacing:calc(var(--m) * -1.4/360);
+  }
 
   /* 기획 8요소 — 모바일에선 목록 자체를 박스로 만든다.
      (데스크탑은 .p-box/.p-pencil/.p-keys 가 모두 블록 기준 절대배치라
@@ -161,8 +182,10 @@
   .off-plan .p-f1,.off-plan .p-f2,.off-plan .p-f3,
   .off-plan .p-ai1,.off-plan .p-ai2{ width:100%;margin-top:calc(var(--m) * 16/360) }
   .off-plan .p-cta{ font-size:calc(var(--m) * 15/360);line-height:1.4;margin-top:calc(var(--m) * 22/360) }
-  .off-plan .p-cf{ margin-top:calc(var(--m) * 34/360) }
-  .off-plan .p-cf img{ width:calc(var(--m) * 290/360) }
+  .off-plan .p-cf-wm{ margin-top:calc(var(--m) * 34/360) }
+  .off-plan .p-cf-wm svg{ width:calc(var(--m) * 120/360) }
+  .off-plan .p-cf{ margin-top:calc(var(--m) * 6/360) }
+  .off-plan .p-cf svg.tlab{ width:calc(var(--m) * 290/360) }
 
   /* STEP 01/02/03 — 사진 아래 번호+제목+본문 */
   .off-plan .p-n1,.off-plan .p-n2,.off-plan .p-n3{

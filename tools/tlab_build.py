@@ -263,6 +263,12 @@ def solve(lines, png):
     return round(tr, 5), round(step_units, 1), round(xs, 5), (W, H), ok, dens
 
 
+# 피그마 get_design_context 로 확인한 실제 값 (역산보다 이게 정확하다)
+#   tracking_em, 줄간격(폰트단위, 1줄이면 0)
+FIGMA = {
+ 'h-class-feature': (-3.0363/303.628, 0.0),   # TlabMixCoffee 303.628px, 자간 -3.0363px, 흰색 1줄
+}
+
 SPECS = [
  ('h-awards',        ['수상한 아카데미가 있다?'],                        'assets/img/h-awards.png'),
  ('h-expertise',     ['THE EXPERTISE OF A VISIONARY', 'DIRECTOR'],    'assets/img/h-expertise.png'),
@@ -275,10 +281,7 @@ SPECS = [
  ('h-offline',       ['오프라인 강의'],                                  'assets/img/h-offline.png'),
  ('h-secret-club',   ['SECRET CLUB FOR'],                              'assets/img/offline/h-secret-club.png'),
  ('h-filmmakers',    ['FILMMAKERS'],                                   'assets/img/offline/h-filmmakers.png'),
- ('h-satisfaction',  ['수강생 만족도 100%'],                             'assets/img/offline/h-satisfaction-text.png'),
- ('h-first-step',    ['영상 제작의 ‘첫 단추’를 꿰는 곳'],                  'assets/img/offline/h-first-step.png'),
- ('h-pre-production',['Pre-Production'],                               'assets/img/offline/b2-pre-text.jpg'),
- ('h-class-feature', ['FVA ACADEMY', 'CLASS FEATURE'],                 'assets/img/offline/b2-class-feature.png'),
+ ('h-class-feature', ['CLASS FEATURE'],                                'assets/img/offline/b2-class-feature.png'),
  ('h-num01',         ['01'],                                           'assets/img/offline/b2-num01.png'),
  ('h-num02',         ['02'],                                           'assets/img/offline/b2-num02.png'),
  ('h-num03',         ['03'],                                           'assets/img/offline/b2-num03.png'),
@@ -297,7 +300,12 @@ if __name__ == '__main__':
         if not os.path.exists(p):
             print(f'{name:<20} 원본 없음: {png}')
             continue
-        tr, step, xs, (W, H), ok, dens = solve(lines, p)
+        if name in FIGMA:
+            tr, step = FIGMA[name]
+            xs, ok, dens = 1.0, True, ('figma', 'figma')
+            W, H = png_lines(p, len(lines))[3:5]
+        else:
+            tr, step, xs, (W, H), ok, dens = solve(lines, p)
         svg, vw, vh = build(lines, tr, step, xs)
         fp = os.path.join(OUT, name + '.svg')
         open(fp, 'w', encoding='utf-8').write(svg)
