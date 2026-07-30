@@ -166,7 +166,9 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 }
 .hero-mark img,
 .hero-mark svg.tlab-logo{
-  display:inline-block;
+  /* 피그마에서 뽑은 로고 SVG 는 style="display:block" 이 인라인으로 박혀 있어
+     text-align:center 가 먹지 않는다. 마진으로 중앙을 잡는다. */
+  display:block; margin-inline:auto;
   width:calc(var(--u) * 596/1920);
   min-width:220px;height:auto;
 }
@@ -416,13 +418,13 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
    음소거 자동재생 + 반복. 마우스 올리면 소리 버튼이 나온다. */
 .showreel{--u:var(--pagew);padding:calc(var(--u) * 45/1920) 0 0}
 .showreel .wrap{padding-inline:calc(var(--u) * 170/1920)}
-.showreel figure{position:relative;background:var(--ink)}
+.showreel figure{position:relative}   /* 배경을 빼야 캡션 뒤 회색 띠가 사라진다 */
 .showreel video,.showreel img{width:100%;aspect-ratio:1580/2524;object-fit:cover;display:block;background:#000}
 .showreel figcaption{
   text-align:center;
   margin-top:calc(var(--u) * 10/1920);
-  font-size:calc(var(--u) * 51/1920);
-  font-weight:700;line-height:1.8824;letter-spacing:-.03em;
+  font-size:calc(var(--u) * 34/1920);
+  font-weight:700;line-height:1.75;letter-spacing:-.03em;
   color:#5A5A5A;
 }
 
@@ -564,16 +566,27 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   font-size:calc(var(--u) * 19/1920); color:#8A8A8A; font-weight:500;
 }
 .reviews .more{
-  display:block; text-align:center; margin-top:calc(var(--u) * 61.97/1920);
-  font-size:calc(var(--u) * 25/1920); font-weight:700; color:var(--green);
+  display:flex; align-items:center; justify-content:center; gap:.5em;
+  width:fit-content; margin:calc(var(--u) * 61.97/1920) auto 0;
+  padding:calc(var(--u) * 22/1920) calc(var(--u) * 54/1920);
+  font-size:calc(var(--u) * 25/1920); font-weight:700;
+  color:var(--green); border:2px solid var(--green); border-radius:999px;
+  transition:background-color .22s ease, color .22s ease, transform .16s ease;
 }
-.reviews .more:hover{ text-decoration:underline }
+.reviews .more::after{ content:"\2192"; transition:transform .22s ease }
+.reviews .more:hover,
+.reviews .more:focus-visible{
+  background:var(--green); color:#06150A; transform:translateY(-2px);
+}
+.reviews .more:hover::after{ transform:translateX(4px) }
+.reviews .more:focus-visible{ outline:3px solid #fff; outline-offset:3px }
 
 /* ══════════════════════════════════════════════════════════
    FAQ
    ══════════════════════════════════════════════════════════ */
 /* 하단 여백은 .bts 가 182.5 로 책임진다 (피그마: FAQ 끝 21786.5 -> 사진 21969) */
 .faq{--u:var(--pagew);padding:calc(var(--u) * 164.74/1920) 0 0}
+.faq .section-head{ margin-bottom:calc(var(--u) * 60/1920) }   /* 제목이 목록에 붙어 답답했다 */
 .faq-list{width:calc(var(--u) * 1653/1920);max-width:calc(100% - 32px);margin-inline:auto}
 .faq details{border-bottom:1px solid rgba(255,255,255,.13)}
 .faq summary{
@@ -638,11 +651,11 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 .cta-btn{
   display:inline-flex;align-items:center;justify-content:center;
   gap:.3em;
-  margin-top:calc(var(--u) * 33/1920);           /* 박스하단 23622.2 -> 버튼 23655.2 */
-  width:calc(var(--u) * 222/1920);
-  height:calc(var(--u) * 81/1920);
+  margin-top:calc(var(--u) * 52/1920);           /* 문구와 너무 붙어 답답했다 */
+  width:calc(var(--u) * 240/1920);
+  height:calc(var(--u) * 84/1920);
   background:var(--green);color:#000;
-  font-size:calc(var(--u) * 40/1920);
+  font-size:calc(var(--u) * 31/1920);            /* 40 은 버튼을 꽉 채워 여백이 없었다 */
   font-weight:800;letter-spacing:-.03em;line-height:1;
   border-radius:999px;
   transition:filter .15s,transform .12s;
@@ -663,8 +676,8 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   margin:calc(var(--u) * 105.97/1920) 0 calc(var(--u) * 36/1920);
 }
 .site-footer p{
-  font-size:calc(var(--u) * 29/1920);
-  line-height:2.2414;                  /* 줄간격 65 (피그마) */
+  font-size:calc(var(--u) * 20/1920);  /* 29 는 한 줄에 안 들어가 계속 줄바꿈됐다 */
+  line-height:1.95;
   color:#4C4C4C;font-weight:700;letter-spacing:-.02em;
 }
 .site-footer .ft-name{ letter-spacing:.02em }
@@ -950,3 +963,19 @@ svg.tlab-logo{ display:block; fill:currentColor; height:auto }
 svg.club-wordmark{ color:var(--green) }
 .awards-lede .brand svg.tlab-logo,
 .awards-lede .stars svg.tlab-logo{ color:#777 }
+
+
+/* ══════════════════════════════════════════════════════════
+   스크롤 등장 — 어둡게 있다가 화면에 들어오면 밝아진다
+   JS 가 클래스를 붙이므로, JS 가 없으면 처음부터 그냥 보인다.
+   ══════════════════════════════════════════════════════════ */
+.reveal{
+  opacity:.55; filter:brightness(.28) saturate(.7);
+  transform:translateY(14px);
+  transition:opacity 1s ease, filter 1.2s ease, transform 1s ease;
+  will-change:opacity, filter, transform;
+}
+.reveal.in{ opacity:1; filter:none; transform:none }
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal.in{ opacity:1;filter:none;transform:none;transition:none }
+}
