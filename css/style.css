@@ -306,14 +306,7 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 .awards-lede .quote em{font-style:normal;color:var(--green)}
 .awards-lede h2{ --dwn:1663; margin-top:calc(var(--u) * 33.34/1920) }
 
-@media (max-width:820px){
-  .awards{aspect-ratio:auto;padding-bottom:clamp(28px,7vw,60px)}
-  .awards .trophy{position:static;width:100%;height:auto}
-  .awards .laurels{position:absolute;top:7%}
-  .awards-lede{position:static;margin-top:clamp(-60px,-8vw,-24px);padding-inline:16px}
-  .awards-lede .kicker{font-size:clamp(14px,3.6vw,26px)}
-  .awards-lede .quote{font-size:clamp(15px,4.4vw,34px);margin-top:clamp(10px,2.4vw,22px)}
-}
+/* 수상 모바일은 css/mobile.css 에서 피그마 3457:1642 실측값으로 정의한다 */
 
 /* ── 수강생 작품 카드 — 피그마 3398:411 실측 ──────────────
    스틸 2장 각 959.62x548.09 를 화면 폭에 꽉 채움 (full-bleed)
@@ -387,18 +380,7 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   font-weight:500; color:#636363; letter-spacing:-.03em;
 }
 
-@media (max-width:820px){
-  .work{ margin-bottom:clamp(40px,9vw,90px) }
-  .work .banner{
-    width:calc(100% - 32px); margin-left:16px;
-    margin-top:-14px; padding:16px 14px 18px; transform:rotate(-.9deg);
-  }
-  .work .wsub{ font-size:clamp(12px,3vw,20px); margin-top:8px }
-  .work .credit{ margin:16px 16px 0; font-size:12px !important; line-height:1.7 }
-  .work .stills.phone{ grid-template-columns:1fr 1fr; padding-top:0 }
-  .work .stills.phone .s3{ grid-column:auto }
-  .work .stills.phone .ph{ display:none }
-}
+/* 작품 모바일은 css/mobile.css 에서 피그마 3457:1884 실측값으로 정의한다 */
 
 /* ══════════════════════════════════════════════════════════
    감독 전문성 / 통계
@@ -732,11 +714,8 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
    생긴다. 작은 화면에서만 하한을 올린다.
    ══════════════════════════════════════════════════════════ */
 @media (max-width:820px){
-  .work .credit,
-  .partners p,
-  .site-footer p,
-  .review figcaption,
-  .rating .meta,
+  /* 피그마 모바일 실측값이 있는 항목(.work .credit / .partners p / .site-footer p /
+     .review figcaption / .rating .meta)은 mobile.css 가 정확한 크기를 준다 */
   .buy-note,
   .cur-note,
   .cur-foot,
@@ -749,15 +728,15 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   .work .credit{ line-height:1.7 }
 
   /* 터치 영역 — 손가락으로 누를 수 있는 최소치 */
+  /* .btn-cta(75x22) · .faq summary(310x22) · .reviews .more(179x40.8) 는
+     피그마 박스가 44 보다 작다 — 시안을 따르고 강제하지 않는다 */
   .gnb a,
-  .btn-cta,
   .btn-primary,
   .btn-ghost,
   .btn-more,
-  .faq summary,
-  .reviews .more,
   .back-link{ min-height:44px; display:flex; align-items:center }
-  .btn-cta,.btn-primary,.btn-ghost,.btn-more,.reviews .more{ justify-content:center }
+  .btn-primary,.btn-ghost,.btn-more{ justify-content:center }
+  .btn-cta,.reviews .more{ display:flex;align-items:center;justify-content:center }
   .sns a{ min-width:40px; min-height:40px }
   .hd-logo{ min-height:40px; display:flex; align-items:center }
 }
@@ -765,6 +744,11 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 @media (max-width:400px){
   .btn-cta{ font-size:11.5px; padding:.5em .85em }
   .hd{ gap:6px }
+}
+
+/* 태블릿(821~1200) — 1920 비례식만 쓰면 헤더 버튼이 7px 까지 작아진다 */
+@media (min-width:821px) and (max-width:1200px){
+  .btn-cta{ font-size:12px; padding:.5em 1em }
 }
 
 @media (max-width:820px){
@@ -852,11 +836,7 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 .stats-row .s-years   { left:calc(957.79/1566 * 100%); width:calc(217.21/1566 * 100%) }
 .stats-row .s-grads   { left:calc(1267.11/1566 * 100%);width:calc(298.89/1566 * 100%) }
 
-@media (max-width:820px){
-  .fva-seoul h2{padding-left:16px}
-  .fva-seoul h2 img,
-  .fva-seoul h2 svg.tlab{width:calc(100% - 32px)}
-}
+/* FILM VISUAL ART 모바일: 잉크폭 공식(993.5/1920)이 360 에서 그대로 맞아 재정의하지 않는다 */
 
 /* 후기 본문 — 피그마는 카드 높이가 고정(데스크탑 564x702.8 / 모바일 265x329.4)이라
    본문이 넘치면 잘린다. 4줄에서 자르고 나머지는 리뷰 사이트에서 보게 한다. */

@@ -38,9 +38,10 @@
   /* ── 헤더 360x45.65 ──────────────────────────────────────
      로고 x15.34 y17.83 101.79x9.83 · 메뉴 x320.33 23.95
      즉시상담 x233 y13 75x22                                */
+  .site-header{ border-bottom-width:calc(var(--m) * 0.786/360) }
   .hd{
-    height:calc(var(--m) * 45.65/360);
-    min-height:44px;
+    height:calc(var(--m) * 44.864/360);   /* 테두리 0.786 포함 45.65 */
+    min-height:0; box-sizing:border-box;
     padding-inline:calc(var(--m) * 15.34/360);
     gap:calc(var(--m) * 8/360);
   }
@@ -54,9 +55,14 @@
   }
   .nav-toggle{ width:calc(var(--m) * 23.95/360); min-width:30px; font-size:17px }
 
-  /* ── 히어로 : 워드마크 223x21.5 (y70) · 카드 280x280 ──── */
-  .hero{ padding-top:calc(var(--m) * 70/360); padding-bottom:calc(var(--m) * 22/360) }
-  .hero-mark{ margin-bottom:calc(var(--m) * 28.8/360) }
+  /* ══ 히어로 ══ 워드마크 박스 y70.21 223.04x21.54
+     카드 280x280 (y120 / y436, 간격 36) · 파트너 y739
+     헤더 45.65 + 24.56 = 70.21                              */
+  .hero{
+    padding-top:calc(var(--m) * 24.56/360);
+    padding-bottom:calc(var(--m) * 22/360);
+  }
+  .hero-mark{ margin-bottom:calc(var(--m) * 28.29/360) }
   .hero-mark img,
   .hero-mark svg.tlab-logo{ width:calc(var(--m) * 223.04/360); min-width:0 }
   .hero-grid{
@@ -64,18 +70,20 @@
     grid-template-columns:1fr;
     gap:calc(var(--m) * 36/360);
   }
+  .hero-card{ aspect-ratio:1/1 }
 
-  /* ── 파트너 x19.3 y739 321.19x117 ───────────────────── */
-  .partners{ padding:calc(var(--m) * 30/360) 0 }
-  .partners img{ width:calc(var(--m) * 295.89/360); max-width:none }
-  .partners p{
-    margin-top:calc(var(--m) * 12/360);
-    font-size:12px !important;
-    padding-inline:calc(var(--m) * 30/360);
+  /* ══ 파트너 ══ x19.31 y739 321.19 (하단 856 -> 프로필 863) */
+  .partners{ padding:0 0 calc(var(--m) * 13.37/360) }   /* 그룹 117 - 로고 110.63 + 7 */
+  .partners img{ width:calc(var(--m) * 321.19/360); max-width:none }
+  .partners p{                       /* 피그마 모바일에는 없는 설명문 — 검색용으로만 남긴다 */
+    position:absolute;width:1px;height:1px;margin:0;padding:0;
+    overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+    font-size:12px;
   }
 
-  /* ── 감독 프로필 360x411.19 (좌 사진 173.7 / 우 텍스트) ── */
+  /* ══ 감독 프로필 ══ y863 360x411.19 (사진 173.73 / 글 x194.67) */
   .profile{
+    margin-top:0;
     aspect-ratio:360/411.19;
     container-type:inline-size;
   }
@@ -86,7 +94,7 @@
   }
   .profile .copy{
     position:absolute;
-    left:calc(192.67/360 * 100%);
+    left:calc(194.67/360 * 100%);
     top:calc(30.19/411.19 * 100%);
     width:calc(150/360 * 100%);
     padding:0;
@@ -104,8 +112,9 @@
   .profile .fold.top{ top:-5.7% }
   .profile .fold.bot{ bottom:-5.7% }
 
-  /* ── 수상 360x555 (트로피 478.87 · 월계관 y37.95) ────── */
-  .awards{ aspect-ratio:360/555; padding-bottom:0 }
+  /* ══ 수상 ══ y1274.19 360x555 (트로피 478.87 · 월계관 y37.95)
+     프로필 하단에 딱 붙는다 — 데스크탑 margin-top 을 지운다 */
+  .awards{ margin-top:0; aspect-ratio:360/555; padding-bottom:0 }
   .awards .trophy{
     position:absolute;left:0;top:0;
     width:100%;height:calc(478.87/555 * 100%);object-fit:cover;
@@ -127,146 +136,287 @@
     font-size:calc(var(--m) * 13/360);
   }
   .awards-lede h2{ margin-top:calc(var(--m) * 10/360) }
-  .awards-lede h2 img,
-  .awards-lede h2 svg.tlab{ width:calc(var(--m) * 315/360); max-width:none }
 
-  /* ── 수강생 작품 : 스틸 179.93x102.77 2열 유지 ────────── */
-  .works{ padding-bottom:calc(var(--m) * 30/360) }
-  .work{ margin-bottom:calc(var(--m) * 44/360) }
+  /* ══ 수강생 작품 ══ 피그마 3457:1884 y1829.19 359.95x924.94
+     스틸 179.93x102.77 2장 (x0 / x180.02)
+     배너 폭 273.5~275.8 · 높이 83.19 / 74.25 / 61.20 / 74.25
+       -> 회전된 벡터라 스틸과 겹치는 양이 작품마다 다르다
+     크레딧 x33.68 h7 (=피그마 3.94px) — 읽을 수 없어 8px 로 올린다
+     작품4 는 아이폰(201.68)이 스틸(160.14)보다 16.09 위로 올라온다 */
+  .works{ padding-top:0; padding-bottom:calc(var(--m) * 27.4/360) }
+  .work{ margin-bottom:calc(var(--m) * 43.93/360) }
+  .work:nth-of-type(3){ margin-bottom:calc(var(--m) * 16.95/360) }
+  .work:last-of-type{ margin-bottom:0 }
+  .work .stills.two{ gap:calc(var(--m) * 0.09/360) }
   .work .stills.two img{ aspect-ratio:179.93/102.77; height:auto }
   .work .banner{
     width:calc(273.52/360 * 100%);
     margin-inline:auto;
-    margin-top:calc(var(--m) * -12/360);
     padding:calc(var(--m) * 9/360) calc(var(--m) * 8/360) calc(var(--m) * 10/360);
     transform:rotate(-1.15deg);
   }
-  .work .banner h3 img{ max-width:calc(var(--m) * 230/360) }
+  .work:nth-of-type(2) .banner{ margin-top:calc(var(--m) * -9.95/360) }
+  .work:nth-of-type(3) .banner{ margin-top:calc(var(--m) * -12.23/360) }
+  .work:nth-of-type(4) .banner{ margin-top:calc(var(--m) * -2.92/360) }
+  .work:nth-of-type(5) .banner{ margin-top:calc(var(--m) * 8.6/360) }
+  .work .banner h3 img,
+  .work .banner h3 svg.tlab{ max-width:calc(var(--m) * 230/360) }
   .work .wsub{
     margin-top:calc(var(--m) * 5/360);
-    font-size:calc(var(--m) * 10.5/360);
+    font-size:calc(var(--m) * 8.5/360);
+    line-height:1.4988;                  /* 피그마 부제 박스 12.74 */
   }
   .work .credit{
-    margin:calc(var(--m) * 14/360) 0 0 calc(33.68/360 * 100%);
-    font-size:12px !important;line-height:1.6;
+    margin:calc(var(--m) * 2.84/360) 0 0 calc(33.68/360 * 100%);
+    width:calc(292.64/360 * 100%);
+    font-size:calc(var(--m) * 8/360);
+    line-height:1.15;
   }
-  .work .stills.phone{ grid-template-columns:repeat(4,1fr); padding-top:calc(var(--m) * 16/360) }
+  .work:last-of-type .credit{ margin-top:calc(var(--m) * 9.61/360) }
+  .work .stills.phone{
+    grid-template-columns:repeat(4,1fr);
+    padding-top:calc(var(--m) * 16.09/360);
+  }
   .work .stills.phone .s3{ grid-column:4 }
   .work .stills.phone .ph{
     display:block;position:absolute;
     left:calc(172.75/360 * 100%);
     width:calc(105.52/360 * 100%);top:0;
   }
-  .work .stills.phone .s1,.work .stills.phone .s2,.work .stills.phone .s3{ aspect-ratio:89.8/160.14 }
+  .work .stills.phone .s1,
+  .work .stills.phone .s2,
+  .work .stills.phone .s3{ aspect-ratio:89.8/160.14 }
 
-  /* ── 지그재그 360x47.44 ─────────────────────────────── */
+  /* ══ 지그재그 ══ 359.63x47.44 */
   .zig{ aspect-ratio:359.63/47.44 }
   .profile .fold{ aspect-ratio:360/47.44 }
 
-  /* ── 감독 전문성 x55.5 y2854 247x54 / 본문 251.6x125 ───
-     제목은 TLAB PNG. 박스 247 -> 잉크 비율 0.9366 적용 = 231.3 */
-  .expertise{ padding:calc(var(--m) * 40/360) 0 0 }
+  /* ══ 감독 전문성 ══ 제목 박스 x55.5 y2854.53 247.33x54
+     본문 y2922.875 251.63x125 — 9px / 줄간격 17.815 / 자간 -0.27px
+     7줄(3+빈줄+3) x 17.815 = 124.7 = 피그마 높이 125
+     제목 폭은 데스크탑 잉크폭 공식(1235.5/1920)이 360 에서 그대로 맞는다 */
+  .expertise{ padding:calc(var(--m) * 53.23/360) 0 0 }
   .expertise .wrap{ padding-inline:calc(var(--m) * 55.5/360) }
   .expertise h2{ line-height:0; margin-bottom:0 }
-  .expertise h2 img,
-  .expertise h2 svg.tlab{ width:calc(var(--m) * 231.3/360); max-width:100% }
+  .expertise h2 svg.tlab,
+  .expertise h2 img{ max-width:none }
   .expertise p{
-    margin-top:calc(var(--m) * 14/360);
-    width:calc(var(--m) * 251.6/360);
-    font-size:calc(var(--m) * 10/360); line-height:1.75; letter-spacing:-.03em;
+    margin-top:calc(var(--m) * 22.85/360);
+    width:max-content; max-width:calc(var(--m) * 300/360);
+    font-size:calc(var(--m) * 9/360);
+    line-height:calc(var(--m) * 17.815/360);
+    letter-spacing:calc(var(--m) * -0.27/360);
   }
-  .expertise p + p{ margin-top:1.2em }
+  .expertise p + p{ margin-top:calc(var(--m) * 17.815/360) }
 
-  /* ── 학생작 영상 x31.88 y3056 296.25x473.25 ──────────── */
-  .showreel{ padding:calc(var(--m) * 18/360) 0 calc(var(--m) * 24/360) }
-  .showreel .wrap{ padding-inline:calc(var(--m) * 31.88/360) }
+  /* ══ 학생작 영상 ══ x31.875 y3056.19 296.25x473.25
+     캡션 박스 y3531.31 114x18 */
+  .showreel{ padding:calc(var(--m) * 8.315/360) 0 0 }
+  .showreel .wrap{ padding-inline:calc(var(--m) * 31.875/360) }
   .showreel video{ aspect-ratio:296.25/473.25 }
   .showreel figcaption{
-    font-size:calc(var(--m) * 15/360); margin-top:calc(var(--m) * 14/360);
-    line-height:1.5; letter-spacing:-.03em;
+    font-size:calc(var(--m) * 11/360);
+    margin-top:calc(var(--m) * 1.87/360);
+    line-height:1.636; letter-spacing:-.03em;
   }
 
-  /* ── FILM VISUAL ART x55.5 228.78x74.35 · 통계 293.6 ───
-     모바일은 워드마크를 빼고 지표 3개만 한 줄에 둔다 */
-  .fva-seoul{ padding:calc(var(--m) * 26/360) 0 }
+  /* ══ FILM VISUAL ART ══ 제목 박스 x55.5 y3569.56 228.78x74.35
+     -> 잉크 폭은 데스크탑 공식(993.5/1920 x 360 = 186.3) 그대로가 정답.
+     통계 x33.19 y3660.31 293.62x48.92 · 워드마크 x33.19 y3681.28 97.87x9.45 */
+  .fva-seoul{ padding:calc(var(--m) * 20.55/360) 0 0 }
   .fva-seoul h2{ padding-left:calc(var(--m) * 55.5/360) }
-  .fva-seoul h2 img,
-  .fva-seoul h2 svg.tlab{ width:calc(var(--m) * 228.78/360); max-width:none }
+  .fva-seoul h2 svg.tlab,
+  .fva-seoul h2 img{ max-width:none }
   .stats-row{
-    position:static; aspect-ratio:auto;
+    margin:calc(var(--m) * 20.9/360) 0 0 calc(var(--m) * 33.19/360);
     width:calc(var(--m) * 293.62/360);
-    margin:calc(var(--m) * 20/360) auto 0;
+    aspect-ratio:293.62/48.92;
   }
-  .stats-row .stats-wordmark{ display:none }
-  .stats-row .stats{
-    display:grid; grid-template-columns:repeat(3,auto);
-    justify-content:center; align-items:end;
-    gap:calc(var(--m) * 22/360);
+  .stats-row .stats-wordmark,
+  .stats-row svg.stats-wordmark{
+    display:block;
+    top:calc(20.97/48.92 * 100%);
+    width:calc(97.87/293.62 * 100%);
   }
-  .stats-row .stat{ position:static; width:auto }
-  .stats-row .stat img{ height:calc(var(--m) * 56/360); width:auto }
+  .stats-row .s-trophies{ left:calc(122.6/293.62 * 100%); width:calc(44.06/293.62 * 100%) }
+  .stats-row .s-years   { left:calc(179.55/293.62 * 100%); width:calc(40.73/293.62 * 100%) }
+  .stats-row .s-grads   { left:calc(237.55/293.62 * 100%); width:calc(56.03/293.62 * 100%) }
 
-  /* ── 차별점 : 카드 265x148, x47.69 세로 3개 ──────────── */
-  .features{ padding:calc(var(--m) * 34/360) 0 }
-  .section-head{ margin-bottom:calc(var(--m) * 24/360) }
-  .section-head h2 img,
-  .section-head h2 svg.tlab{ width:calc(var(--m) * 293/360); max-width:none }
-  .section-head .sub{ margin-top:calc(var(--m) * 12/360); font-size:calc(var(--m) * 12/360) }
+  /* ══ 차별점 ══ 제목 박스 y3811.13 293x69 · 서브 y3880.31 167x12
+     카드 x47.69 265x148 (y3915 / 4075 / 4234 -> 간격 12)
+     제목 잉크폭 = 데스크탑 공식(1542/1920 x 360 = 289.1) */
+  .features{ padding:calc(var(--m) * 54.43/360) 0 calc(var(--m) * 14.245/360) }
+  .section-head h2 svg.tlab,
+  .section-head h2 img{ max-width:none }
+  .features .section-head{ margin-bottom:calc(var(--m) * 22.69/360) }
+  .section-head .sub{
+    margin-top:calc(var(--m) * 23.8/360);   /* 제목 잉크 하단 -> 서브 (박스 여백 23.6 포함) */
+    font-size:calc(var(--m) * 9/360); line-height:1.3333;
+  }
   .feature-list{
     grid-template-columns:1fr;
     width:calc(var(--m) * 265/360);
     gap:calc(var(--m) * 12/360);
     padding-inline:0;
   }
-  .feature{ padding:calc(var(--m) * 24/360) calc(var(--m) * 19/360) }
-  .feature .num{ font-size:calc(var(--m) * 20/360) }
-  .feature h3{ margin-top:calc(var(--m) * 10/360); font-size:calc(var(--m) * 14/360) }
-  .feature p:last-child{ margin-top:calc(var(--m) * 8/360); font-size:calc(var(--m) * 10/360) }
-
-  /* ── 후기 : 4.99 박스 184.86x47.97 · 카드 265x329 세로 ── */
-  .reviews{ padding:calc(var(--m) * 34/360) 0 }
-  .rating{
-    width:calc(var(--m) * 184.86/360);
-    margin-inline:auto;
-    padding:calc(var(--m) * 10/360) calc(var(--m) * 14/360);
-    gap:calc(var(--m) * 10/360);
+  .feature{
+    height:calc(var(--m) * 148/360);
+    padding:calc(var(--m) * 24/360) calc(var(--m) * 19/360);
+    border-width:calc(var(--m) * 1.5/360);
+    border-radius:calc(var(--m) * 11.24/360);
   }
-  .rating .score{ font-size:calc(var(--m) * 28/360) }
-  .rating .stars{ font-size:calc(var(--m) * 12/360) }
-  .rating .meta{ font-size:12px !important; margin-top:calc(var(--m) * 3/360) }
+  .feature .num{ font-size:calc(var(--m) * 19.7/360) }
+  .feature h3{ margin-top:calc(var(--m) * 10/360); font-size:calc(var(--m) * 13.13/360) }
+  .feature p:last-child{ margin-top:calc(var(--m) * 8/360); font-size:calc(var(--m) * 9.85/360); line-height:1.619 }
+
+  /* ══ 후기 ══ 제목 박스 y4420 267x69 · REVIEWS y4487 46x12
+     평점 x87.47 y4516 184.86x47.97 · 카드 x48 265x329.44 (간격 33.06)
+     전체보기 x90 y5686 179.15x40.8 */
+  .reviews{ padding:calc(var(--m) * 22.8/360) 0 0 }
+  .reviews .section-head{ margin-bottom:calc(var(--m) * 17.03/360) }
+  .reviews .section-head .sub{ margin-top:calc(var(--m) * 21.8/360) }
+  .rating{
+    box-sizing:border-box;
+    width:calc(var(--m) * 184.86/360);
+    height:calc(var(--m) * 47.97/360);
+    margin-inline:auto;
+    gap:calc(var(--m) * 9.201/360);
+    padding:calc(var(--m) * 9.426/360) calc(var(--m) * 18.196/360);
+    border:calc(var(--m) * 0.657/360) solid #1D1D1D;
+    border-radius:calc(var(--m) * 10.515/360);
+    background:#161616;
+  }
+  .rating .score{
+    font-size:calc(var(--m) * 27.602/360);
+    line-height:1;
+  }
+  .rating > div{ width:calc(var(--m) * 93.271/360) }
+  .rating .stars{
+    font-size:calc(var(--m) * 8.544/360);
+    line-height:calc(var(--m) * 13.67/360);
+    letter-spacing:calc(var(--m) * 1.3144/360);
+  }
+  .rating .meta{
+    margin-top:calc(var(--m) * 1.972/360);
+    font-size:calc(var(--m) * 8.215/360);
+    line-height:calc(var(--m) * 13.144/360);
+  }
   .review-list{
     grid-template-columns:1fr;
     width:calc(var(--m) * 265/360);
-    gap:calc(var(--m) * 33/360);
+    gap:calc(var(--m) * 33.06/360);
     padding-inline:0;
+    margin-top:calc(var(--m) * 32.43/360);
   }
-  .review img{ aspect-ratio:263.58/197.37; height:auto }
-  .rv-body{ padding:calc(var(--m) * 11/360) calc(var(--m) * 12.6/360) }
-  .review .stars{ font-size:calc(var(--m) * 12/360) }
-  .review blockquote{ margin-top:calc(var(--m) * 8/360); font-size:calc(var(--m) * 10/360) }
-  .review figcaption{ margin-top:calc(var(--m) * 10/360); font-size:12px !important }
-  .reviews .more{ margin-top:calc(var(--m) * 24/360); font-size:calc(var(--m) * 12/360) }
+  .review{
+    box-sizing:border-box;
+    height:calc(var(--m) * 329.44/360);   /* 피그마 고정높이 + overflow-clip */
+    overflow:hidden;
+    border:calc(var(--m) * 0.703/360) solid #1D1D1D;
+    border-radius:calc(var(--m) * 9.836/360);
+    background:#161616;
+    padding:calc(var(--m) * 0.703/360);
+  }
+  .review img{ aspect-ratio:262.19/197.369; height:auto }   /* 테두리·패딩 0.703 안쪽 폭 */
+  .rv-body{ padding:calc(var(--m) * 11.241/360) calc(var(--m) * 12.646/360) }
+  .review .stars{
+    font-size:calc(var(--m) * 9.133/360);
+    line-height:calc(var(--m) * 14.614/360);
+    letter-spacing:calc(var(--m) * 1.4052/360);
+  }
+  .review blockquote{
+    margin-top:calc(var(--m) * 5.621/360);
+    font-size:calc(var(--m) * 10/360);
+    line-height:calc(var(--m) * 16.862/360);
+    height:calc(var(--m) * 67.447/360);            /* 피그마 4줄 고정 */
+    overflow:hidden;
+  }
+  .review figcaption{
+    margin-top:calc(var(--m) * 7.026/360);
+    font-size:calc(var(--m) * 8.431/360);
+    line-height:calc(var(--m) * 13.489/360);
+  }
+  .reviews .more{
+    margin-top:calc(var(--m) * 33.56/360);
+    width:calc(var(--m) * 179.15/360);
+    height:calc(var(--m) * 40.8/360);
+    font-size:calc(var(--m) * 11/360);
+  }
 
-  /* ── FAQ : x25 310x262, 항목 310x22 간격 30 ──────────── */
-  .faq{ padding:calc(var(--m) * 34/360) 0 }
-  .faq-list{ width:calc(var(--m) * 310/360); max-width:none }
+  /* ══ FAQ ══ 제목 박스 y5792 184x69 · 목록 x25 y5875 310x262
+     행 310x22 · 간격 8 · 아래 테두리 0.369 #1D1D1D
+     질문 Pretendard Bold 12px (박스 안 4.38 내려앉음) · + 8.25px */
+  .faq{ padding:calc(var(--m) * 65.2/360) 0 0 }
+  .faq .section-head{ margin-bottom:calc(var(--m) * 40.5/360) }
+  .faq-list{
+    width:calc(var(--m) * 310/360); max-width:none;
+    display:flex;flex-direction:column;
+    gap:calc(var(--m) * 8/360);
+  }
+  .faq details{ box-sizing:border-box;height:calc(var(--m) * 22/360);
+                border-bottom:calc(var(--m) * 0.369/360) solid #1D1D1D }
+  .faq details[open]{ height:auto }
   .faq summary{
-    padding:calc(var(--m) * 8/360) 0;
-    font-size:calc(var(--m) * 12.5/360);
-    min-height:40px;
+    box-sizing:border-box;
+    height:calc(var(--m) * 22/360);
+    min-height:0;
+    padding:calc(var(--m) * 4.38/360) 0 0;
+    align-items:flex-start;
+    font-size:calc(var(--m) * 12/360);
+    line-height:1.15;
   }
-  .faq summary::after{ font-size:calc(var(--m) * 16/360) }
-  .faq .answer{ padding:0 0 calc(var(--m) * 12/360); font-size:calc(var(--m) * 11/360) }
+  .faq summary::after{ font-size:calc(var(--m) * 8.25/360); line-height:calc(var(--m) * 20/360) }
+  .faq details[open] summary{ height:auto }
+  .faq .answer{ padding:calc(var(--m) * 4/360) 0 calc(var(--m) * 10/360); font-size:calc(var(--m) * 10.5/360) }
 
-  /* ── CTA 360x136 (y6423) ────────────────────────────── */
-  .cta{ padding:calc(var(--m) * 34/360) 0 }
-  .cta h2{ font-size:calc(var(--m) * 26/360) }
-  .cta p{ margin-top:calc(var(--m) * 8/360); font-size:calc(var(--m) * 13/360) }
-  .cta .btn{ margin-top:calc(var(--m) * 16/360); font-size:calc(var(--m) * 12/360) }
+  /* ══ 촬영현장 사진 ══ y6177 359.63x233.06 (FAQ 하단 6137 -> 40) */
+  .bts{ padding-top:calc(var(--m) * 40/360) }
 
-  /* ── 푸터 x23 315x42 ────────────────────────────────── */
-  .site-footer{ padding:calc(var(--m) * 24/360) 0 }
-  .site-footer .wrap{ padding-inline:calc(var(--m) * 23/360) }
+  /* ══ CTA ══ 배너 y6423 360x136 (사진은 위로 24.79 넘쳐 흐른다)
+     NEW SEASON OPEN 박스 y6457.21 225x39 — TLAB 36px 이므로
+       잉크폭 = 6151.3/1000 x 36 = 221.4 (데스크탑 공식의 2배)
+     카카오 문구 y6490.21 212x36 — 16px / 35.629 / -0.48px
+     Contact y6530.21 84x30.25 — TLAB 13.5px · 패딩 5.625/15 · radius 47.25 */
+  .cta{
+    margin-top:calc(var(--m) * 12.94/360);
+    aspect-ratio:360/136;
+    padding:0;
+  }
+  .cta .cta-bg{
+    position:absolute;
+    left:calc(-0.56/360 * 100%);
+    top:calc(-24.79/136 * 100%);
+    width:calc(365.333/360 * 100%);
+    height:calc(205.5/136 * 100%);
+    max-width:none;object-fit:cover;
+  }
+  .cta h2{ padding-top:calc(var(--m) * 36.3/360) }
+  .cta h2 svg.tlab,
+  .cta h2 img{ width:calc(var(--m) * 221.4/360); max-width:none }
+  .cta p{
+    margin-top:calc(var(--m) * 2.5/360);
+    font-size:calc(var(--m) * 16/360);
+    line-height:calc(var(--m) * 35.629/360);
+    letter-spacing:calc(var(--m) * -0.48/360);
+  }
+  .cta-btn{
+    margin-top:calc(var(--m) * 4/360);
+    width:calc(var(--m) * 84/360);
+    height:calc(var(--m) * 30.25/360);
+    font-size:calc(var(--m) * 13.5/360);
+    border-radius:calc(var(--m) * 47.25/360);
+  }
+
+  /* ══ 푸터 ══ 구분선 x23 y6648 315x1 · 본문 y6659 315x42
+     피그마는 42(약 3줄)이지만 사업자 정보를 다 담으면 6px 까지 내려가
+     읽을 수 없다. 8px/13.5 로 두고 폭·자리만 피그마에 맞춘다. */
+  .site-footer{ padding:0 0 calc(var(--m) * 31/360) }
+  .site-footer .ft-inner{ width:calc(var(--m) * 315/360) }
+  .ft-rule{ margin:calc(var(--m) * 89/360) 0 calc(var(--m) * 11/360) }
+  .site-footer p{
+    font-size:calc(var(--m) * 8/360);
+    line-height:calc(var(--m) * 13.5/360);
+  }
   .ft-logo{ width:calc(var(--m) * 101.79/360) }
 }
 
