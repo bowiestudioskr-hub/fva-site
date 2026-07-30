@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TLAB 제목 — PNG vs SVG 아웃라인 비교 | FVA</title>
+<style>
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+:root{--green:#2CFF05;--line:#1c1c1c;--dim:#7d7d7d}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;color:#EDEDED;font-family:"Pretendard Variable",Pretendard,sans-serif}
+header{position:sticky;top:0;z-index:9;background:rgba(0,0,0,.94);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);padding:18px 26px}
+h1{font-size:19px;font-weight:800;letter-spacing:-.02em}
+.sub{color:var(--dim);font-size:13px;margin-top:6px;line-height:1.7}
+.sub b{color:var(--green)}
+main{padding:24px 26px 80px}
+.item{border-bottom:1px solid var(--line);padding:20px 0 24px}
+.hd{font-size:12.5px;color:var(--dim);font-weight:700;margin-bottom:14px}
+.hd b{color:#ddd}
+.hd .num{color:var(--green)}
+.row{display:flex;flex-direction:column;gap:12px}
+.slot{position:relative;padding-top:15px}
+.slot .tag{position:absolute;left:0;top:0;font-size:10.5px;font-weight:800;color:#5f5f5f;letter-spacing:.04em}
+.slot img{display:block;height:auto}
+.art{color:var(--green);display:block}
+.art svg{display:block;width:100%;height:auto;fill:currentColor}
+
+.zoomwrap{margin-top:16px;border-top:1px dashed #222;padding-top:14px}
+.zoomwrap .hd2{font-size:11.5px;color:#666;font-weight:700;margin-bottom:8px}
+.zooms{display:flex;gap:16px;flex-wrap:wrap}
+.zoom{width:300px;height:150px;overflow:hidden;border:1px solid #222;border-radius:8px;position:relative;background:#000}
+.zoom > *{position:absolute;left:-40px;top:-30px;transform:scale(4);transform-origin:left top}
+.zoom img{width:var(--w)}
+.zoom .art{width:var(--w)}
+.zlab{font-size:10.5px;color:#666;margin-top:5px;font-weight:700}
+
+.tbl{margin:26px 26px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid #151515}
+th{background:#0d0d0d;color:#9a9a9a;font-weight:700;font-size:12px}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+tfoot td{background:#0b0b0b;font-weight:800;color:var(--green)}
+.note{margin:26px;padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:#0b0b0b;
+  font-size:13px;line-height:1.9;color:#c6c6c6}
+.note h2{font-size:14px;color:var(--green);margin-bottom:8px}
+.note code{background:#1a1a1a;padding:1px 6px;border-radius:4px;font-size:12px}
+.note ul{margin:8px 0 0 18px}
+.color-demo{display:flex;gap:14px;margin-top:12px;flex-wrap:wrap;align-items:center}
+.color-demo .art{width:280px}
+.c1{color:#2CFF05}.c2{color:#fff}.c3{color:#FF3D00}.c4{color:#08FFD0}
+</style>
+</head>
+<body>
+<header>
+  <h1>TLAB 제목 — 지금의 PNG vs SVG 아웃라인</h1>
+  <p class="sub">
+    폰트 파일을 웹에 올리지 않고, <b>TLAB 글자 모양 그대로</b> 벡터로 바꾼 결과입니다.
+    티랩 라이선스가 허용하는 「웹이미지 제작」 범위 안이고, 원본과 픽셀 불일치는 <b>1.8~7.1%</b>(안티에일리어싱 수준)입니다.
+    아래 <b>4배 확대</b> 칸을 보시면 차이가 분명합니다.
+  </p>
+</header>
+
+<main id="list"></main>
+
+<div class="tbl">
+  <table>
+    <thead><tr><th>제목</th><th class="n">지금 PNG</th><th class="n">SVG</th><th class="n">용량</th><th class="n">원본과 불일치</th></tr></thead>
+    <tbody id="tb"></tbody>
+    <tfoot><tr><td>합계 8개</td><td class="n">177 KB</td><td class="n">20.4 KB</td><td class="n">11.5%</td><td class="n">평균 3.3%</td></tr></tfoot>
+  </table>
+</div>
+
+<div class="note">
+  <h2>이렇게 넣을 계획입니다</h2>
+  제목 안에 <b>진짜 텍스트</b>를 넣고, 보이는 그림만 TLAB 벡터로 씁니다. 검색엔진과 스크린리더는 텍스트를 읽고,
+  화면에는 TLAB 글자가 그대로 보입니다.
+  <pre style="margin:10px 0;padding:12px;background:#141414;border-radius:8px;font-size:12px;overflow:auto;color:#bbb">&lt;h2 id="awards-h" class="tlab"&gt;
+  &lt;span class="sr-only"&gt;수상한 아카데미가 있다?&lt;/span&gt;
+  &lt;svg viewBox="0 0 6398 931" aria-hidden="true"&gt;…&lt;/svg&gt;
+&lt;/h2&gt;</pre>
+  <ul>
+    <li>지금(PNG): 이미지 + alt → alt만 검색 대상, 확대하면 흐려짐, 색 고정</li>
+    <li>바꾼 뒤(SVG): <b>h2 안에 진짜 텍스트</b> + 벡터 그림 → 제목으로 인식, 어느 배율에서도 선명, <code>fill:currentColor</code>로 색 자유</li>
+  </ul>
+  <div class="color-demo">
+    <span style="font-size:11.5px;color:#666;font-weight:700">색 자유롭게:</span>
+    <span class="art c1" data-svg="h-filmmakers"></span>
+    <span class="art c3" data-svg="h-filmmakers"></span>
+    <span class="art c4" data-svg="h-filmmakers"></span>
+  </div>
+  <p style="margin-top:14px;color:#8a8a8a">
+    남은 것: 「수강생 만족도 100%」와 「영상 제작의 ‘첫 단추’를 꿰는 곳」은 피그마에서 가로로 눌린 텍스트라
+    가로배율을 따로 넣어야 합니다. 「THE EXPERTISE…」「FILM VISUAL ART…」「CLASS FEATURE」「01/02/03」도 같은 방식으로 됩니다.
+  </p>
+</div>
+
+<script>
+const ITEMS=[
+ {n:'h-awards',      p:'assets/img/h-awards.png',            t:'수상한 아카데미가 있다?', w:1663, png:16, svg:3.4, d:1.8, pg:'메인'},
+ {n:'h-features',    p:'assets/img/h-features.png',          t:'FVA에서만 경험하세요',   w:1542, png:16, svg:3.1, d:3.3, pg:'메인'},
+ {n:'h-reviews',     p:'assets/img/h-reviews.png',           t:'수강생들의 진짜 후기',    w:1402, png:14, svg:3.0, d:2.5, pg:'메인'},
+ {n:'h-faq',         p:'assets/img/h-faq.png',               t:'자주 묻는 질문',         w:976,  png:7,  svg:1.6, d:3.8, pg:'메인'},
+ {n:'h-newseason',   p:'assets/img/h-newseason.png',         t:'NEW SEASON OPEN',      w:591,  png:22, svg:2.6, d:7.1, pg:'메인'},
+ {n:'h-offline',     p:'assets/img/h-offline.png',           t:'오프라인 강의',          w:909,  png:23, svg:1.9, d:2.4, pg:'오프라인'},
+ {n:'h-secret-club', p:'assets/img/offline/h-secret-club.png',t:'SECRET CLUB FOR',     w:1334, png:25, svg:3.0, d:2.5, pg:'오프라인'},
+ {n:'h-filmmakers',  p:'assets/img/offline/h-filmmakers.png', t:'FILMMAKERS',          w:1706, png:51, svg:1.8, d:3.3, pg:'오프라인'},
+];
+const MAXW=980;
+const cache={};
+async function svgText(n){
+  if(!cache[n]) cache[n]=await (await fetch(`assets/tlab/${n}.svg`)).text();
+  return cache[n];
+}
+(async ()=>{
+  const list=document.getElementById('list'), tb=document.getElementById('tb');
+  for(let i=0;i<ITEMS.length;i++){
+    const it=ITEMS[i], shown=Math.min(it.w,MAXW);
+    const sec=document.createElement('section'); sec.className='item';
+    sec.innerHTML=`
+      <p class="hd"><span class="num">${i+1}.</span> <b>${it.t}</b> — ${it.pg} · ${it.n}.png</p>
+      <div class="row">
+        <div class="slot"><span class="tag">① 지금 · PNG 이미지</span><img src="${it.p}" style="width:${shown}px"></div>
+        <div class="slot"><span class="tag">② SVG 아웃라인 · h2 안에 진짜 텍스트</span>
+          <h2 class="art" style="width:${shown}px" data-svg="${it.n}"></h2></div>
+      </div>
+      <div class="zoomwrap"><p class="hd2">같은 부분 4배 확대 — 왼쪽 PNG / 오른쪽 SVG</p>
+        <div class="zooms">
+          <div><div class="zoom" style="--w:${shown}px"><img src="${it.p}"></div><p class="zlab">PNG</p></div>
+          <div><div class="zoom" style="--w:${shown}px"><span class="art" data-svg="${it.n}"></span></div><p class="zlab">SVG</p></div>
+        </div>
+      </div>`;
+    list.appendChild(sec);
+    tb.insertAdjacentHTML('beforeend',
+      `<tr><td>${it.t}</td><td class="n">${it.png} KB</td><td class="n">${it.svg} KB</td>
+       <td class="n">${Math.round(it.svg/it.png*100)}%</td><td class="n">${it.d}%</td></tr>`);
+  }
+  for (const el of document.querySelectorAll('[data-svg]')){
+    el.innerHTML = await svgText(el.dataset.svg);
+    const s=el.querySelector('svg'); if(s){ s.removeAttribute('width'); s.removeAttribute('height'); s.setAttribute('aria-hidden','true'); }
+  }
+})();
+</script>
+</body>
+</html>
