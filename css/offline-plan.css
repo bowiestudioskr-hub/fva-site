@@ -14,6 +14,7 @@
 }
 .off-plan > *{ position:absolute;margin:0 }
 .off-plan img{ height:auto }
+.off-plan svg.tlab{ height:auto }
 .off-plan p,.off-plan h2,.off-plan h3,.off-plan blockquote,.off-plan li{
   text-align:center;letter-spacing:-.03em;font-weight:700;
 }
@@ -192,3 +193,8 @@
   }
   .off-plan .p-bar1,.off-plan .p-bar2{ display:none }
 }
+
+/* STEP 숫자 색 — 피그마 실측 (01 회색 / 02 주황 / 03 초록) */
+.off-plan .p-n1 svg.tlab{ color:#8C8C8C }
+.off-plan .p-n2 svg.tlab{ color:#FF3D00 }
+.off-plan .p-n3 svg.tlab{ color:#2CFF05 }

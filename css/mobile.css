@@ -44,7 +44,8 @@
     padding-inline:calc(var(--m) * 15.34/360);
     gap:calc(var(--m) * 8/360);
   }
-  .hd-logo img{ width:calc(var(--m) * 101.79/360); min-width:88px }
+  .hd-logo img,
+  .hd-logo svg.tlab-logo{ width:calc(var(--m) * 101.79/360); min-width:88px }
   .btn-cta{
     font-size:calc(var(--m) * 10/360);
     line-height:1.344;
@@ -56,7 +57,8 @@
   /* ── 히어로 : 워드마크 223x21.5 (y70) · 카드 280x280 ──── */
   .hero{ padding-top:calc(var(--m) * 70/360); padding-bottom:calc(var(--m) * 22/360) }
   .hero-mark{ margin-bottom:calc(var(--m) * 28.8/360) }
-  .hero-mark img{ width:calc(var(--m) * 223.04/360); min-width:0 }
+  .hero-mark img,
+  .hero-mark svg.tlab-logo{ width:calc(var(--m) * 223.04/360); min-width:0 }
   .hero-grid{
     width:calc(var(--m) * 280/360);
     grid-template-columns:1fr;
@@ -125,7 +127,8 @@
     font-size:calc(var(--m) * 13/360);
   }
   .awards-lede h2{ margin-top:calc(var(--m) * 10/360) }
-  .awards-lede h2 img{ width:calc(var(--m) * 315/360); max-width:none }
+  .awards-lede h2 img,
+  .awards-lede h2 svg.tlab{ width:calc(var(--m) * 315/360); max-width:none }
 
   /* ── 수강생 작품 : 스틸 179.93x102.77 2열 유지 ────────── */
   .works{ padding-bottom:calc(var(--m) * 30/360) }
@@ -165,7 +168,8 @@
   .expertise{ padding:calc(var(--m) * 40/360) 0 0 }
   .expertise .wrap{ padding-inline:calc(var(--m) * 55.5/360) }
   .expertise h2{ line-height:0; margin-bottom:0 }
-  .expertise h2 img{ width:calc(var(--m) * 231.3/360); max-width:100% }
+  .expertise h2 img,
+  .expertise h2 svg.tlab{ width:calc(var(--m) * 231.3/360); max-width:100% }
   .expertise p{
     margin-top:calc(var(--m) * 14/360);
     width:calc(var(--m) * 251.6/360);
@@ -186,7 +190,8 @@
      모바일은 워드마크를 빼고 지표 3개만 한 줄에 둔다 */
   .fva-seoul{ padding:calc(var(--m) * 26/360) 0 }
   .fva-seoul h2{ padding-left:calc(var(--m) * 55.5/360) }
-  .fva-seoul h2 img{ width:calc(var(--m) * 228.78/360); max-width:none }
+  .fva-seoul h2 img,
+  .fva-seoul h2 svg.tlab{ width:calc(var(--m) * 228.78/360); max-width:none }
   .stats-row{
     position:static; aspect-ratio:auto;
     width:calc(var(--m) * 293.62/360);
@@ -204,7 +209,8 @@
   /* ── 차별점 : 카드 265x148, x47.69 세로 3개 ──────────── */
   .features{ padding:calc(var(--m) * 34/360) 0 }
   .section-head{ margin-bottom:calc(var(--m) * 24/360) }
-  .section-head h2 img{ width:calc(var(--m) * 293/360); max-width:none }
+  .section-head h2 img,
+  .section-head h2 svg.tlab{ width:calc(var(--m) * 293/360); max-width:none }
   .section-head .sub{ margin-top:calc(var(--m) * 12/360); font-size:calc(var(--m) * 12/360) }
   .feature-list{
     grid-template-columns:1fr;

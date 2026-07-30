@@ -73,7 +73,8 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
    width:auto 로 두면 원본 픽셀이 그대로 박혀 --pagew 배율(=1836/1920)을 안 타고
    4.6% 과대해진다. --dwn 에 PNG 원본 폭(=피그마 잉크 폭)을 넣어 환산한다. */
 .display{text-align:center;line-height:0}
-.display img{
+.display img,
+.display svg.tlab{
   display:inline-block;height:auto;
   width:calc(var(--pagew) * var(--dwn, 900)/1920);
   max-width:calc(100% - 16px);
@@ -102,7 +103,8 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 }
 
 .hd-logo{flex:none;display:block;line-height:0}
-.hd-logo img{
+.hd-logo img,
+.hd-logo svg.tlab-logo{
   width:calc(var(--u) * 184/1920);
   min-width:118px;height:auto;display:block;
 }
@@ -162,7 +164,8 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   text-align:center;line-height:0;
   margin-bottom:calc(var(--u) * 84/1920);
 }
-.hero-mark img{
+.hero-mark img,
+.hero-mark svg.tlab-logo{
   display:inline-block;
   width:calc(var(--u) * 596/1920);
   min-width:220px;height:auto;
@@ -272,7 +275,8 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   text-align:center;
 }
 .awards-lede .stars{ line-height:0 }
-.awards-lede .stars img{
+.awards-lede .stars img,
+.awards-lede .stars svg.tlab-logo{
   display:inline-block;width:calc(var(--u) * 383.31/1920);height:auto;
 }
 .awards-lede .kicker{
@@ -289,7 +293,8 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   display:flex;flex-direction:column;align-items:flex-start;
   gap:calc(var(--u) * 3/1920);
 }
-.awards-lede .brand img{ width:calc(var(--u) * 191/1920);height:auto }
+.awards-lede .brand img,
+.awards-lede .brand svg.tlab-logo{ width:calc(var(--u) * 191/1920);height:auto }
 .awards-lede .k1{ font-size:calc(var(--u) * 45/1920);line-height:1.2;font-weight:700 }
 .awards-lede .k2{ font-size:calc(var(--u) * 87.5/1920);line-height:1.2;font-weight:800 }
 .awards-lede .bang{ margin-left:.18em }
@@ -405,7 +410,8 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 .expertise{--u:var(--pagew);padding:calc(var(--u) * 227.5/1920) 0 0;background:var(--black)}
 .expertise .wrap{padding-left:calc(var(--u) * 296/1920);padding-right:calc(var(--u) * 100/1920)}
 .expertise h2{ line-height:0 }
-.expertise h2 img{
+.expertise h2 img,
+.expertise h2 svg.tlab{
   display:block;height:auto;
   width:calc(var(--u) * 1235.5/1920);
   max-width:calc(100% - 16px);
@@ -632,7 +638,8 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 .cta-inner{ position:relative;z-index:1;height:100% }
 /* 배너 상단 23319.23 기준 — 제목 잉크 23415.2 (=+95.97) */
 .cta h2{ line-height:0;padding-top:calc(var(--u) * 95.97/1920) }
-.cta h2 img{
+.cta h2 img,
+.cta h2 svg.tlab{
   display:inline-block;height:auto;
   width:calc(var(--u) * 591.3/1920);max-width:calc(100% - 32px);
 }
@@ -820,7 +827,8 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   line-height:0;
   padding-left:calc(var(--u) * 296/1920);
 }
-.fva-seoul h2 img{
+.fva-seoul h2 img,
+.fva-seoul h2 svg.tlab{
   width:calc(var(--u) * 993.5/1920);
   max-width:calc(100% - 32px);height:auto;
 }
@@ -831,7 +839,8 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   width:calc(var(--u) * 1566/1920);
   aspect-ratio:1566/256.2266;
 }
-.stats-row .stats-wordmark{
+.stats-row .stats-wordmark,
+.stats-row svg.stats-wordmark{
   position:absolute;left:0;
   top:calc(111.81/256.2266 * 100%);
   width:calc(522/1566 * 100%);height:auto;
@@ -845,7 +854,8 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 
 @media (max-width:820px){
   .fva-seoul h2{padding-left:16px}
-  .fva-seoul h2 img{width:calc(100% - 32px)}
+  .fva-seoul h2 img,
+  .fva-seoul h2 svg.tlab{width:calc(100% - 32px)}
 }
 
 /* 후기 본문 — 피그마는 카드 높이가 고정(데스크탑 564x702.8 / 모바일 265x329.4)이라
@@ -891,3 +901,24 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 @media (prefers-reduced-motion:reduce){
   .btn-primary::after,.btn-more::after,.cta .btn::after{display:none}
 }
+
+
+/* ── TLAB 제목 : 진짜 텍스트 + 인라인 SVG ────────────────────
+   폰트가 유료(웹 임베딩 불가)라 글리프를 벡터로 떠서 쓴다.
+   h2 안에는 sr-only 로 실제 문구가 들어가므로 검색엔진은 제목 텍스트를 읽는다.
+   currentColor 라 색을 CSS 로 바꿀 수 있고, 어느 배율에서도 선명하다.
+   tools/tlab_build.py 로 생성 · assets/tlab/*.svg                        */
+svg.tlab{ display:block; fill:currentColor; color:var(--green); height:auto }
+.display svg.tlab{ display:inline-block }
+.cq svg.tlab, .off-plan svg.tlab{ display:block }
+
+/* 로고·워드마크도 인라인 SVG + sr-only 텍스트.
+   awards 키커의 작은 워드마크·별은 회색(#777) 이라 색을 따로 준다. */
+svg.tlab-logo{ display:block; fill:currentColor; height:auto }
+.hd-logo svg.tlab-logo,
+.hero-mark svg.tlab-logo{ color:var(--green) }
+.hero-mark svg.tlab-logo{ display:inline-block }
+.stats-row svg.stats-wordmark{ color:var(--green) }
+svg.club-wordmark{ color:var(--green) }
+.awards-lede .brand svg.tlab-logo,
+.awards-lede .stars svg.tlab-logo{ color:#777 }
