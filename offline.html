@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/mobile.css">
 <link rel="stylesheet" href="css/sub.css">
+<link rel="stylesheet" href="css/offline.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -71,17 +72,42 @@
 
 <main>
 
-  <section class="sub-hero">
-    <div class="wrap">
-      <p class="eyebrow-line">OFFLINE CLASS</p>
-      <h1>직접 팀을 꾸려서<br>완성하는 작품</h1>
-      <p class="lede">서울 마포구 합정동. 현역 감독과 함께 실제 촬영 현장을 만들고, 12주 뒤에는 완성된 포트폴리오 작품을 손에 쥡니다.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="https://pf.kakao.com/_nxhyhn/chat" target="_blank" rel="noopener">수강 문의하기</a>
-        <a class="btn-ghost" href="/curriculum.html">커리큘럼 보기</a>
-      </div>
+  <!-- ══ 오프라인 강의 히어로 ═══════════════════════════════
+       피그마 3398:3432 (오프라인 강의 - 데스크탑)
+       제목 3402:222666 박스 x498 y134 925x369 / 잉크 909x237.5 (상단 199.75)
+       설명 3402:222667 x346 y503 1229x34
+       슬라이드 3402:222140 y599 1920x289.7 · 카드 407.31x263.99 간격 425.41
+       버튼 3402:222663 x832 y996 256.94x72.53
+       ══════════════════════════════════════════════════════ -->
+  <section class="off-hero" aria-labelledby="off-h">
+    <h1 id="off-h" class="display">
+      <img src="assets/img/h-offline.png" width="909" height="238" alt="오프라인 강의">
+    </h1>
+    <p class="off-lede">아래는 수강생이 직접 만든 공모전 수상작·대표작입니다. 슬라이드를 클릭하면 이 자리에서 바로 재생됩니다.</p>
+
+    <div class="off-slider" aria-label="수강생 작품 슬라이드">
+      <ul class="off-track" id="off-track"></ul>
     </div>
+
+    <p class="off-cta-wrap">
+      <a class="off-cta" href="https://smartstore.naver.com/bowiestudios" target="_blank" rel="noopener">
+        지금 신청하러 가기 <span aria-hidden="true">&rarr;</span>
+      </a>
+    </p>
   </section>
+
+  <!-- 수강생 작품 슬라이드 데이터 — youtube 는 영상 ID.
+       비어 있으면 카드가 유튜브 채널로 이동한다. ID 를 채우면 그 자리에서 재생된다. -->
+  <script type="application/json" id="off-slides">
+  [
+    {"title":"김복남 맥주 BOK PLAY \u00b7 영상 공모전 대상","tag":"공모전 대상","thumb":"assets/works/off-slide-bokplay.jpg","youtube":""},
+    {"title":"아빠의 입금 \u00b7 신한 29초영화제 최우수상","tag":"29초영화제 최우수상","thumb":"assets/works/off-slide-appa.jpg","youtube":""},
+    {"title":"잔나비 TOGETHER! 뮤직비디오","tag":"뮤직비디오","thumb":"assets/works/off-slide-jannabi.jpg","youtube":""},
+    {"title":"The Joyfools \u00b7 Loser\u2019s Love 뮤직비디오","tag":"뮤직비디오","thumb":"assets/works/off-slide-joyfools.jpg","youtube":""},
+    {"title":"아름다운 구속 뮤직비디오","tag":"뮤직비디오","thumb":"assets/works/off-slide-arumdaun.jpg","youtube":""}
+  ]
+  </script>
+
 
   <section class="why">
     <div class="wrap">
@@ -213,6 +239,69 @@
     addEventListener('keydown',function(e){ if(e.key==='Escape'&&!modal.hidden) close(); });
     addEventListener('popstate',function(){ if(!modal.hidden) { modal.classList.remove('on'); modal.hidden=true; document.body.classList.remove('modal-open'); } });
   })();
+</script>
+
+<script>
+/* 수강생 작품 슬라이드 — 카드를 2벌 만들어 이음새 없는 무한 루프.
+   카드를 누르면 그 자리에서 유튜브가 재생된다(영상 ID 가 있을 때). */
+(function(){
+  var data = document.getElementById('off-slides');
+  var track = document.getElementById('off-track');
+  if(!data || !track) return;
+  var items;
+  try { items = JSON.parse(data.textContent); } catch(e){ return; }
+  if(!items.length) return;
+
+  var CH = 'https://www.youtube.com/@FVA-ACADEMY';
+
+  function card(it, dup){
+    var li = document.createElement('li');
+    li.className = 'off-card';
+    if (dup) li.setAttribute('aria-hidden','true');
+
+    var fig = document.createElement('figure');
+    var btn = document.createElement(it.youtube ? 'button' : 'a');
+    btn.className = 'off-thumb';
+    if (it.youtube) { btn.type = 'button'; btn.setAttribute('aria-label', it.title + ' 재생'); }
+    else { btn.href = CH; btn.target = '_blank'; btn.rel = 'noopener';
+           btn.setAttribute('aria-label', it.title + ' — 유튜브 채널에서 보기'); }
+    if (dup) btn.tabIndex = -1;
+
+    var img = document.createElement('img');
+    img.src = it.thumb; img.alt = it.title;
+    img.width = 1024; img.height = 576;
+    img.loading = 'lazy';
+
+    var tag = document.createElement('span');
+    tag.className = 'off-tag'; tag.textContent = it.tag;
+
+    var play = document.createElement('span');
+    play.className = 'off-play'; play.setAttribute('aria-hidden','true');
+    play.textContent = '\u25B6';
+
+    btn.appendChild(img); btn.appendChild(tag); btn.appendChild(play);
+
+    if (it.youtube) {
+      btn.addEventListener('click', function(){
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube.com/embed/' + it.youtube + '?autoplay=1&rel=0';
+        f.title = it.title;
+        f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
+        f.allowFullscreen = true;
+        btn.innerHTML = ''; btn.appendChild(f);
+        track.style.animationPlayState = 'paused';
+      });
+    }
+
+    var cap = document.createElement('figcaption');
+    cap.textContent = it.title;
+    fig.appendChild(btn); fig.appendChild(cap); li.appendChild(fig);
+    return li;
+  }
+
+  items.forEach(function(it){ track.appendChild(card(it, false)); });
+  items.forEach(function(it){ track.appendChild(card(it, true)); });
+})();
 </script>
 </body>
 </html>
