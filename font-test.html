@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>제목 폰트 비교 — TLAB 믹스커피 vs 무료 대체 | FVA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Black+Han+Sans&family=Do+Hyeon&family=Gothic+A1:wght@900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+@font-face{font-family:'Jalnan';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Jalnan.woff') format('woff');font-display:swap}
+@font-face{font-family:'Aggro';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/SBAggroB.woff') format('woff');font-display:swap}
+@font-face{font-family:'Esamanru';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/ESAMANRU-BOLD.woff') format('woff');font-display:swap}
+
+:root{
+  --green:#2CFF05; --bg:#000; --line:#1c1c1c; --dim:#7d7d7d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:#EDEDED;
+  font-family:"Pretendard Variable",Pretendard,-apple-system,sans-serif;
+  padding:0 0 90px;
+}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(0,0,0,.93);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+  padding:18px 26px 14px;
+}
+h1{font-size:19px;font-weight:800;letter-spacing:-.02em}
+.sub{color:var(--dim);font-size:13px;margin-top:5px;line-height:1.6}
+.sub b{color:var(--green)}
+.pickers{display:flex;flex-wrap:wrap;gap:22px;margin-top:14px}
+.pick{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pick > span{font-size:12px;color:var(--dim);font-weight:700}
+button{
+  background:#141414;color:#ddd;border:1px solid #2b2b2b;
+  border-radius:999px;padding:6px 13px;font-size:12.5px;font-weight:700;
+  cursor:pointer;font-family:inherit;transition:.15s;
+}
+button:hover{border-color:#4a4a4a}
+button[aria-pressed=true]{background:var(--green);color:#000;border-color:var(--green)}
+
+main{padding:26px}
+.item{border-bottom:1px solid var(--line);padding:22px 0 26px}
+.name{font-size:12.5px;color:var(--dim);font-weight:700;margin-bottom:12px}
+.name em{font-style:normal;color:#bbb}
+.pair{display:flex;flex-direction:column;gap:14px}
+.slot{position:relative}
+.slot .tag{
+  position:absolute;left:0;top:-2px;
+  font-size:10.5px;font-weight:800;letter-spacing:.04em;
+  color:#5f5f5f;
+}
+.slot .body{padding-top:16px}
+.slot img{display:block;height:auto}
+.cand{
+  color:var(--green);line-height:1.02;letter-spacing:-.03em;
+  white-space:pre;transform-origin:left top;
+  font-weight:400;
+}
+.cand.k-pre{font-family:"Pretendard Variable",Pretendard,sans-serif;font-weight:900}
+.cand.k-bhs{font-family:"Black Han Sans",sans-serif}
+.cand.k-dohyeon{font-family:"Do Hyeon",sans-serif}
+.cand.k-jalnan{font-family:Jalnan,sans-serif}
+.cand.k-aggro{font-family:Aggro,sans-serif}
+.cand.k-esamanru{font-family:Esamanru,sans-serif}
+.cand.k-gothic{font-family:"Gothic A1",sans-serif;font-weight:900}
+.cand.l-anton{font-family:Anton,sans-serif}
+.cand.l-archivo{font-family:"Archivo Black",sans-serif}
+.cand.l-bebas{font-family:"Bebas Neue",sans-serif}
+.cand.l-pre{font-family:"Pretendard Variable",Pretendard,sans-serif;font-weight:900}
+
+.note{
+  margin:30px 26px 0;padding:18px 20px;border:1px solid var(--line);
+  border-radius:12px;background:#0b0b0b;font-size:13px;line-height:1.85;color:#c3c3c3;
+}
+.note h2{font-size:14px;color:var(--green);margin-bottom:8px;letter-spacing:-.02em}
+.note code{background:#1a1a1a;padding:1px 6px;border-radius:4px;font-size:12px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;font-size:11.5px;color:#666}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>제목 폰트 비교 — TLAB 믹스커피 vs 무료 대체</h1>
+  <p class="sub">
+    지금 이미지로 남아 있는 제목 <b>17개</b> 전부입니다. 아래 후보는 <b>원본 이미지와 같은 폭</b>에 자동으로 맞춰 렌더하므로,
+    글자 두께·높이·모양 차이만 비교하시면 됩니다.
+  </p>
+  <div class="pickers">
+    <div class="pick"><span>한글 후보</span>
+      <button data-k="k-pre"      aria-pressed="true">Pretendard Black 82%</button>
+      <button data-k="k-dohyeon"  aria-pressed="false">배민 도현</button>
+      <button data-k="k-aggro"    aria-pressed="false">어그로체</button>
+      <button data-k="k-esamanru" aria-pressed="false">이사만루체</button>
+      <button data-k="k-bhs"      aria-pressed="false">Black Han Sans</button>
+      <button data-k="k-jalnan"   aria-pressed="false">잘난체</button>
+      <button data-k="k-gothic"   aria-pressed="false">Gothic A1 900</button>
+    </div>
+    <div class="pick"><span>라틴 후보</span>
+      <button data-l="l-anton"   aria-pressed="true">Anton</button>
+      <button data-l="l-archivo" aria-pressed="false">Archivo Black</button>
+      <button data-l="l-bebas"   aria-pressed="false">Bebas Neue</button>
+      <button data-l="l-pre"     aria-pressed="false">Pretendard Black 82%</button>
+    </div>
+  </div>
+  <div class="legend">
+    <span>① 위 = 지금 쓰는 TLAB 이미지</span>
+    <span>② 아래 = 후보 폰트 실제 텍스트</span>
+    <span>초록색은 실제 사이트와 동일한 #2CFF05</span>
+  </div>
+</header>
+
+<main id="list"></main>
+
+<div class="note">
+  <h2>정리</h2>
+  이 17개 말고 사이트의 <b>모든 글자는 이미 실제 텍스트</b>입니다. 이 17개만 TLAB 믹스커피라 이미지로 남았습니다.<br>
+  TLAB 믹스커피는 이 맥에 설치돼 있지만, 폰트 파일 자체의 권한 비트가 <code>fsType=4</code>(미리보기·인쇄만)로
+  웹 임베딩을 막고 있고 티랩 라이선스 페이지에도 웹폰트 조항이 없어서, 제가 임의로 웹폰트로 올릴 수 없습니다.<br>
+  → <b>티랩(02-741-9960)에 웹폰트 가능 여부를 확인</b>하시면 피그마와 픽셀까지 같은 상태로 실제 텍스트가 됩니다.
+  그게 아니면 위 후보 중 하나로 가면 되고, 나중에 라이선스가 생기면 CSS의 font-family 한 줄만 바꾸면 원본 폰트로 돌아갑니다.
+</div>
+
+<script>
+/* 제목 17개 — src 는 실제 사이트가 쓰는 이미지, text 는 그 alt 문구 */
+const ITEMS = [
+  {p:'메인',   f:'assets/img/h-awards.png',            w:1663, t:'수상한 아카데미가 있다?', s:'k'},
+  {p:'메인',   f:'assets/img/h-expertise.png',         w:1236, t:'THE EXPERTISE OF A VISIONARY\nDIRECTOR', s:'l'},
+  {p:'메인',   f:'assets/img/h-fva-seoul.png',         w:994,  t:'FILM VISUAL ART ACADEMY,\nTHE CINEMA ACADEMY IN\nSEOUL, MAPO-GU', s:'l'},
+  {p:'메인',   f:'assets/img/h-features.png',          w:1542, t:'FVA에서만 경험하세요', s:'k'},
+  {p:'메인',   f:'assets/img/h-reviews.png',           w:1402, t:'수강생들의 진짜 후기', s:'k'},
+  {p:'메인',   f:'assets/img/h-faq.png',               w:976,  t:'자주 묻는 질문', s:'k'},
+  {p:'메인',   f:'assets/img/h-newseason.png',         w:591,  t:'NEW SEASON OPEN', s:'l'},
+  {p:'오프라인', f:'assets/img/h-offline.png',           w:909,  t:'오프라인 강의', s:'k'},
+  {p:'오프라인', f:'assets/img/offline/h-secret-club.png',w:1334, t:'SECRET CLUB FOR', s:'l'},
+  {p:'오프라인', f:'assets/img/offline/h-filmmakers.png', w:1706, t:'FILMMAKERS', s:'l'},
+  {p:'오프라인', f:'assets/img/offline/h-satisfaction-text.png', w:1422, t:'수강생 만족도 100%', s:'k'},
+  {p:'오프라인', f:'assets/img/offline/h-first-step.png',w:1266, t:'영상 제작의 ‘첫 단추’를 꿰는 곳', s:'k'},
+  {p:'오프라인', f:'assets/img/offline/b2-pre-text.jpg', w:1432, t:'Pre-Production', s:'l'},
+  {p:'오프라인', f:'assets/img/offline/b2-class-feature.png', w:1663, t:'FVA ACADEMY\nCLASS FEATURE', s:'l'},
+  {p:'오프라인', f:'assets/img/offline/b2-num01.png',    w:194,  t:'01', s:'l'},
+  {p:'오프라인', f:'assets/img/offline/b2-num02.png',    w:226,  t:'02', s:'l'},
+  {p:'오프라인', f:'assets/img/offline/b2-num03.png',    w:226,  t:'03', s:'l'},
+];
+const NUM_COLOR = {'b2-num01.png':'#8C8C8C','b2-num02.png':'#FF3D00','b2-num03.png':'#2CFF05'};
+let KFONT='k-pre', LFONT='l-anton';
+const MAXW = 1080;                       // 화면에 맞춘 표시 폭 상한
+
+const list = document.getElementById('list');
+ITEMS.forEach((it,i)=>{
+  const shown = Math.min(it.w, MAXW);
+  const div = document.createElement('section');
+  div.className='item';
+  const file = it.f.split('/').pop();
+  div.innerHTML = `
+    <p class="name">${i+1}. <em>${it.p}</em> — ${it.t.replace(/\n/g,' ')} <span style="color:#4a4a4a">(${file} · 원본 폭 ${it.w})</span></p>
+    <div class="pair">
+      <div class="slot"><span class="tag">① TLAB 이미지 (지금)</span>
+        <div class="body"><img src="${it.f}" style="width:${shown}px"></div></div>
+      <div class="slot"><span class="tag">② 후보 · 실제 텍스트</span>
+        <div class="body"><div class="cand" data-i="${i}" style="width:${shown}px">${it.t}</div></div></div>
+    </div>`;
+  list.appendChild(div);
+  const c = div.querySelector('.cand');
+  if (NUM_COLOR[file]) c.style.color = NUM_COLOR[file];
+});
+
+/* 각 후보를 원본 이미지와 같은 폭에 맞춘다 */
+function fit(){
+  document.querySelectorAll('.cand').forEach(el=>{
+    const it = ITEMS[+el.dataset.i];
+    const cls = it.s==='k' ? KFONT : LFONT;
+    el.className = 'cand ' + cls;
+    const target = Math.min(it.w, MAXW);
+    el.style.transform='none';
+    el.style.fontSize='100px';
+    el.style.width='max-content';
+    const lines = it.t.split('\n');
+    // 가장 넓은 줄 기준으로 배율 계산
+    let widest = 0;
+    lines.forEach(L=>{
+      const probe=document.createElement('span');
+      probe.style.cssText='position:absolute;visibility:hidden;white-space:pre;font:inherit';
+      probe.className = el.className;
+      probe.style.fontSize='100px';
+      probe.textContent=L;
+      document.body.appendChild(probe);
+      widest = Math.max(widest, probe.getBoundingClientRect().width);
+      probe.remove();
+    });
+    const squeeze = (cls==='k-pre'||cls==='l-pre') ? 0.82 : 1;
+    const size = 100 * target / (widest * squeeze);
+    el.style.fontSize = size.toFixed(1)+'px';
+    el.style.width = target+'px';
+    el.style.transform = squeeze===1 ? 'none' : `scaleX(${squeeze})`;
+    el.style.transformOrigin='left top';
+    if (squeeze!==1) el.style.width = (target/squeeze)+'px';
+  });
+}
+document.querySelectorAll('button[data-k]').forEach(b=>b.addEventListener('click',()=>{
+  KFONT=b.dataset.k;
+  document.querySelectorAll('button[data-k]').forEach(x=>x.setAttribute('aria-pressed', String(x===b)));
+  fit();
+}));
+document.querySelectorAll('button[data-l]').forEach(b=>b.addEventListener('click',()=>{
+  LFONT=b.dataset.l;
+  document.querySelectorAll('button[data-l]').forEach(x=>x.setAttribute('aria-pressed', String(x===b)));
+  fit();
+}));
+if (document.fonts) document.fonts.ready.then(fit);
+addEventListener('load', fit); fit();
+</script>
+</body>
+</html>
