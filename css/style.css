@@ -360,8 +360,10 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   text-align:center;
 }
 .work .banner h3{ line-height:0 }
-.work .banner h3 img{
+.work .banner h3 img,
+.work .banner h3 svg.tlab{
   display:block; height:auto;
+  color:#000;                            /* 초록 배너 위 검정 글자 (원본 PNG 잉크색) */
   width:calc(var(--u) * var(--tw,1226)/1920);
   max-width:100%;
 }
@@ -520,10 +522,12 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   border-radius:calc(var(--u) * 16/1920);
   padding:calc(var(--u) * 32.25/1920) calc(var(--u) * 62.25/1920);
 }
-.rating .score{
-  font-family:Unbounded,Pretendard,sans-serif; font-weight:800; color:var(--green);
-  font-size:calc(var(--u) * 82/1920); line-height:1.1585;   /* 박스 95 */
+.rating .score{                        /* 피그마는 TLAB — SVG 아웃라인, 잉크 150.44x80.92 */
+  display:block; line-height:0; color:var(--green);
+  width:calc(var(--u) * 150.44/1920);
+  flex:none;
 }
+.rating .score svg.tlab{ display:block;width:100%;height:auto;fill:currentColor }
 .rating .stars{
   display:block; color:var(--green); letter-spacing:.06em;
   font-size:calc(var(--u) * 30/1920); line-height:1.5667;   /* 박스 47 */
@@ -829,12 +833,56 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   top:calc(111.81/256.2266 * 100%);
   width:calc(522/1566 * 100%);height:auto;
 }
+/* 통계 3개 — 피그마 3398:375 을 텍스트+벡터로 재조판 (이미지 아님)
+   숫자 TLAB 144px 자간 -4.32 흰색 · 라벨 TLAB 48px 자간 -1.44 #2CFF05
+   글자상자(피그마 text-center)를 그대로 두고 안에서 잉크를 가운데 맞춘다.
+   그룹 기준 좌표 : 그룹높이 256.2266
+     트로피  숫자 x86.91 66.36x202 · 라벨 x0 y154.23 204.19x102 · 아이콘 x191    y180.64 44x48
+     연차    숫자 x86.87 66.36x202 · 라벨 x0 y154.23 176.75x102 · 아이콘 x148.21 y185.64 69x39.24
+     수료생  숫자 x13.03 285.86x202 · 라벨 x0 y154.23 239.92x102 · 아이콘 x223.89 y184.64 61x43.34 */
 .stats-row .stats{ list-style:none;margin:0;padding:0 }
-.stats-row .stat{ position:absolute;top:0 }
-.stats-row .stat img{ width:100%;height:auto;display:block }
+.stats-row .stat{ position:absolute;top:0;height:100% }
+.stats-row .stat > span{ position:absolute;display:flex;align-items:center;justify-content:center }
+.stats-row .stat svg.tlab{ display:block;width:100%;height:auto;fill:currentColor }
+.stats-row .st-num{ top:0;height:calc(202/256.2266 * 100%);color:#fff }
+.stats-row .st-lab{ top:calc(154.23/256.2266 * 100%);height:calc(102/256.2266 * 100%);color:var(--green) }
+.stats-row .st-ic { color:var(--green) }
+/* SVG viewBox 는 잉크 기준이다. 폭을 안 주면 상자 폭까지 늘어나므로 잉크폭을 명시한다.
+   색은 svg 에 직접 준다 — 전역 svg.tlab{color:var(--green)} 이 부모 상속을 이긴다. */
+.stats-row .st-num svg.tlab,
+.stats-row .st-lab svg.tlab{ height:auto }
+.stats-row .st-num svg.tlab{ color:#fff }
+.stats-row .st-lab svg.tlab{ color:var(--green) }
+.stats-row .st-ic  svg.tlab{ color:var(--green) }
+.stats-row .st-lab{ left:0 }
+
 .stats-row .s-trophies{ left:calc(654/1566 * 100%);    width:calc(235/1566 * 100%) }
+.stats-row .s-trophies .st-num{ left:calc(86.91/235 * 100%);width:calc(66.36/235 * 100%) }
+.stats-row .s-trophies .st-lab{ width:calc(204.19/235 * 100%) }
+.stats-row .s-trophies .st-num svg.tlab{ width:calc(56.16/66.36 * 100%) }
+.stats-row .s-trophies .st-lab svg.tlab{ width:calc(158.16/204.19 * 100%) }
+.stats-row .s-trophies .st-ic {
+  left:calc(191/235 * 100%);top:calc(180.64/256.2266 * 100%);
+  width:calc(44/235 * 100%);height:calc(48/256.2266 * 100%);
+}
 .stats-row .s-years   { left:calc(957.79/1566 * 100%); width:calc(217.21/1566 * 100%) }
+.stats-row .s-years .st-num{ left:calc(86.87/217.21 * 100%);width:calc(66.36/217.21 * 100%) }
+.stats-row .s-years .st-lab{ width:calc(176.75/217.21 * 100%) }
+.stats-row .s-years .st-num svg.tlab{ width:calc(56.16/66.36 * 100%) }
+.stats-row .s-years .st-lab svg.tlab{ width:calc(104.3/176.75 * 100%) }
+.stats-row .s-years .st-ic {
+  left:calc(148.21/217.21 * 100%);top:calc(185.64/256.2266 * 100%);
+  width:calc(69/217.21 * 100%);height:calc(39.24/256.2266 * 100%);
+}
 .stats-row .s-grads   { left:calc(1267.11/1566 * 100%);width:calc(298.89/1566 * 100%) }
+.stats-row .s-grads .st-num{ left:calc(13.03/298.89 * 100%);width:calc(285.86/298.89 * 100%) }
+.stats-row .s-grads .st-lab{ width:calc(239.92/298.89 * 100%) }
+.stats-row .s-grads .st-num svg.tlab{ width:calc(242.62/285.86 * 100%) }
+.stats-row .s-grads .st-lab svg.tlab{ width:calc(186.91/239.92 * 100%) }
+.stats-row .s-grads .st-ic {
+  left:calc(223.89/298.89 * 100%);top:calc(184.64/256.2266 * 100%);
+  width:calc(61/298.89 * 100%);height:calc(43.34/256.2266 * 100%);
+}
 
 /* FILM VISUAL ART 모바일: 잉크폭 공식(993.5/1920)이 360 에서 그대로 맞아 재정의하지 않는다 */
 

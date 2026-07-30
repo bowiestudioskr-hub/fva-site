@@ -285,6 +285,10 @@ SPECS = [
  ('h-num01',         ['01'],                                           'assets/img/offline/b2-num01.png'),
  ('h-num02',         ['02'],                                           'assets/img/offline/b2-num02.png'),
  ('h-num03',         ['03'],                                           'assets/img/offline/b2-num03.png'),
+ ('t-w1', ['2024 BCU 콘텐츠리그 대상 수상'],              'assets/works/title-w1-joyfools.png'),
+ ('t-w2', ['생맥주 프랜차이즈 광고 영상 공모전 대상 수상'],   'assets/works/title-w2-kimboknam.png'),
+ ('t-w3', ['제 11회 신한 29초영화제 최우수상 수상'],          'assets/works/title-w3-shinhan.png'),
+ ('t-w4', ['김밥 프랜차이즈 숏폼 영상 공모전 대상 수상'],     'assets/works/title-w4-yamsem.png'),
 ]
 
 if __name__ == '__main__':
