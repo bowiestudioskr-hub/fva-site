@@ -222,7 +222,8 @@ svg.club-wordmark{
 .club-title .ct2{ left:calc(113.9/1920 * 100%); top:calc(1251.0/4248.56 * 100%); width:calc(1705.5/1920 * 100%) }
 
 /* ── 수강생 만족도 100% + 서브 ── */
-.club-satis,.club-first{ line-height:0 }
+.club-satis,.club-first{ line-height:0   white-space:nowrap;
+}
 .club-satis img,.club-first img{ position:absolute;z-index:2;height:auto }
 .club-satis .cs-icon{ left:calc(149.6/1920 * 100%); top:calc(1926.5/4248.56 * 100%); width:calc(134/1920 * 100%) }
 .club-satis .cs-glow{ left:calc(254.1/1920 * 100%);  top:calc(1893.0/4248.56 * 100%); width:calc(1511.5/1920 * 100%); z-index:1 }
