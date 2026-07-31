@@ -289,6 +289,7 @@ SPECS = [
  ('t-w2', ['생맥주 프랜차이즈 광고 영상 공모전 대상 수상'],   'assets/works/title-w2-kimboknam.png'),
  ('t-w3', ['제 11회 신한 29초영화제 최우수상 수상'],          'assets/works/title-w3-shinhan.png'),
  ('t-w4', ['김밥 프랜차이즈 숏폼 영상 공모전 대상 수상'],     'assets/works/title-w4-yamsem.png'),
+ ('t-recommend',  ['이런 분들에게 추천드려요!'], 'assets/img/offline/_ref-recommend.png'),
 ]
 
 if __name__ == '__main__':
