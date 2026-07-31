@@ -492,3 +492,60 @@
                           margin-top:calc(var(--m) * 22/360) }
   .off-lecture .lc-press img{ height:auto; aspect-ratio:1920/2589.77 }
 }
+
+/* ══ 블록 5 : 감독 성장 스토리 + 커리큘럼 ═══════════════════
+   피그마 3402:181971 y31088.3 1920×24520.2 — 이 페이지에서 가장 큰 블록.
+   전체 구조는 docs/오프라인_블록5_노드지도.md 참고.
+   여기서는 스토리 구간(0~7300)부터 채운다.
+
+   스토리 텍스트 공통 : Pretendard SemiBold 98.233 / 줄간격 120.558 /
+                        자간 -2.947 / 가운데 정렬. 강조는 #2CFF05.
+   사진은 전부 어둡게 깔리고 그 위에 글자가 올라간다.
+   ═══════════════════════════════════════════════════════ */
+.off-story{
+  --u:var(--pagew);
+  --H:24520.2;
+  position:relative;
+  width:100%;
+  aspect-ratio:1920/24520.2;
+  background:var(--black);
+  overflow:hidden;
+}
+.off-story > *{ position:absolute; margin:0 }
+.off-story img{ display:block; max-width:none; width:100%; object-fit:cover }
+
+/* 사진 밴드 */
+.off-story .sb{ left:0; width:100% }
+.off-story .sb1{ top:0;                          height:calc(1473.5/var(--H) * 100%) }
+.off-story .sb2{ top:calc(1377.5/var(--H) * 100%); height:calc(1328.4/var(--H) * 100%) }
+.off-story .sb3{ top:calc(2703.6/var(--H) * 100%); height:calc(1319.3/var(--H) * 100%) }
+.off-story .sb img{ height:100% }
+
+/* 스토리 문장 */
+.off-story .st{
+  left:calc(51.3/1920 * 100%);
+  width:calc(1817.3/1920 * 100%);
+  text-align:center;
+  font-size:calc(var(--u) * 98.233/1920);
+  line-height:calc(var(--u) * 120.558/1920);
+  letter-spacing:calc(var(--u) * -2.947/1920);
+  font-weight:600;
+  color:#fff;
+  z-index:2;
+}
+.off-story .st em{ font-style:normal; color:var(--green) }
+.off-story .st1{ top:calc(553.7/var(--H) * 100%) }
+.off-story .st2{ top:calc(1906.6/var(--H) * 100%) }
+.off-story .st3{ top:calc(3165.8/var(--H) * 100%) }
+
+@media (max-width:820px){
+  .off-story{ aspect-ratio:auto; display:flex; flex-direction:column }
+  .off-story > *{ position:static }
+  .off-story .sb{ height:auto }
+  .off-story .sb img{ height:auto }
+  .off-story .st{
+    width:100%; padding:calc(var(--m) * 22/360) calc(var(--m) * 20/360);
+    font-size:calc(var(--m) * 17/360); line-height:1.45;
+    letter-spacing:-.03em;
+  }
+}
