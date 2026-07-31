@@ -709,8 +709,8 @@
                    width:calc(657.6/1920 * 100%); height:calc(838.7/var(--H) * 100%); z-index:3 }
 .off-story .pz-b3{ left:calc(1172.5/1920 * 100%);top:calc(11286.7/var(--H) * 100%);
                    width:calc(658.0/1920 * 100%); height:calc(838.6/var(--H) * 100%); z-index:4 }
-.off-story .pz-char{ left:calc(1330/1920 * 100%); top:calc(11380/var(--H) * 100%);
-                     width:calc(370/1920 * 100%); height:calc(212/var(--H) * 100%); z-index:5 }
+.off-story .pz-char{ left:calc(1352/1920 * 100%); top:calc(11432/var(--H) * 100%);
+                     width:calc(296/1920 * 100%); height:calc(156/var(--H) * 100%); z-index:5 }
 .off-story .pz-blob img,.off-story .pz-char img,.off-story .pz-title img{ height:100%;object-fit:contain }
 
 .off-story .pz-n{ font-weight:900; color:#000; line-height:1.15; white-space:nowrap;
@@ -727,6 +727,7 @@
   box-shadow:0 0 calc(var(--u)*34/1920) rgba(44,255,5,.55);
   z-index:6;
 }
+/* 흰 라벨은 서로 겹치지 않게 */
 .off-story .pz-tag{
   display:flex; align-items:center; justify-content:center; text-align:center;
   background:#fff; color:#000; font-weight:700;
