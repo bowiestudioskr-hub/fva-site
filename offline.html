@@ -513,6 +513,17 @@
   if(!items.length) return;
 
   var CH = 'https://www.youtube.com/@FVA-ACADEMY';
+  var slider = track.closest('.off-slider');
+
+  /* 재생 중인 카드를 모두 닫고 썸네일로 되돌린다 -> 슬라이드가 다시 흐른다 */
+  function closeAll(){
+    track.querySelectorAll('.off-thumb.playing').forEach(function(b){
+      var d = b.__thumb;
+      if (d) { b.innerHTML = ''; d.forEach(function(n){ b.appendChild(n) }); }
+      b.classList.remove('playing');
+    });
+    slider.classList.remove('has-playing');
+  }
 
   function card(it, dup){
     var li = document.createElement('li');
@@ -540,16 +551,25 @@
     play.textContent = '\u25B6';
 
     btn.appendChild(img); btn.appendChild(tag); btn.appendChild(play);
+    btn.__thumb = [img, tag, play];        // 닫을 때 되돌릴 원래 내용
 
     if (it.youtube) {
       btn.addEventListener('click', function(){
+        // 이미 재생 중인 다른 카드가 있으면 먼저 닫는다
+        closeAll();
         var f = document.createElement('iframe');
         f.src = 'https://www.youtube.com/embed/' + it.youtube + '?autoplay=1&rel=0';
         f.title = it.title;
         f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
         f.allowFullscreen = true;
-        btn.innerHTML = ''; btn.appendChild(f);
-        track.style.animationPlayState = 'paused';
+        var x = document.createElement('button');
+        x.type = 'button'; x.className = 'off-close';
+        x.setAttribute('aria-label', it.title + ' 닫기');
+        x.textContent = '\u00d7';
+        x.addEventListener('click', function(ev){ ev.stopPropagation(); closeAll(); });
+        btn.innerHTML = ''; btn.appendChild(f); btn.appendChild(x);
+        btn.classList.add('playing');
+        slider.classList.add('has-playing');   // 재생 중에만 슬라이드를 세운다
       });
     }
 

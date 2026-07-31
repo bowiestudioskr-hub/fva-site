@@ -50,7 +50,7 @@
 .off-plan .p-cta{ left:calc(2.2/1920 * 100%);top:calc(9495.1/16715.2 * 100%);width:calc(1917.8/1920 * 100%);font-size:calc(var(--u) * 92/1920);line-height:1.2065;color:var(--green) }
 /* CLASS FEATURE — TlabMixCoffee 303.628px 흰색 1줄 (SVG) +
    그 위 FVA ACADEMY 워드마크 */
-.off-plan .p-cf{ left:calc(116.1/1920 * 100%);top:calc(10467.7/16715.2 * 100%);width:calc(1663/1920 * 100%);line-height:0 }
+.off-plan .p-cf{ left:calc(129.5/1920 * 100%);top:calc(10467.7/16715.2 * 100%);width:calc(1663/1920 * 100%);line-height:0 }
 .off-plan .p-cf svg.tlab{ color:#fff;width:100% }
 .off-plan .p-cf-wm{ left:calc(741.6/1920 * 100%);top:calc(10306.7/16715.2 * 100%);width:calc(437/1920 * 100%);line-height:0 }
 .off-plan .p-cf-wm svg{ color:var(--green);width:100%;height:auto;fill:currentColor;display:block }
@@ -69,10 +69,16 @@
 .off-plan .p-b3{ left:calc(425.4/1920 * 100%);top:calc(15405.8/16715.2 * 100%);width:calc(1520.4/1920 * 100%);font-size:calc(var(--u) * 42/1920);line-height:1.674;color:#fff;text-align:left;font-weight:500 }
 .off-plan .p-ai1{ left:calc(0.0/1920 * 100%);top:calc(15955.0/16715.2 * 100%);width:calc(1920.0/1920 * 100%) }
 .off-plan .p-bar1{ left:calc(-17.9/1920 * 100%);top:calc(16259.7/16715.2 * 100%);width:calc(1940.1/1920 * 100%);height:calc(84.8/16715.2 * 100%);background:#08FFD0 }
-.off-plan .p-abt1{ left:calc(272.4/1920 * 100%);top:calc(16244.1/16715.2 * 100%);width:calc(1377.5/1920 * 100%);font-size:calc(var(--u) * 47/1920);line-height:1.95;color:#000;z-index:2 }
+.off-plan .p-abt1{ left:calc(-17.9/1920 * 100%);top:calc(16259.7/16715.2 * 100%);
+                   width:calc(1940.1/1920 * 100%);height:calc(84.8/16715.2 * 100%);
+                   display:flex;align-items:center;justify-content:center;
+                   font-size:calc(var(--u) * 47/1920);line-height:1;color:#000;z-index:2 }
 .off-plan .p-ai2{ left:calc(0.0/1920 * 100%);top:calc(16344.0/16715.2 * 100%);width:calc(1920.0/1920 * 100%) }
 .off-plan .p-bar2{ left:calc(-17.9/1920 * 100%);top:calc(16630.3/16715.2 * 100%);width:calc(1940.1/1920 * 100%);height:calc(84.8/16715.2 * 100%);background:#08FFD0 }
-.off-plan .p-abt2{ left:calc(272.4/1920 * 100%);top:calc(16614.7/16715.2 * 100%);width:calc(1377.5/1920 * 100%);font-size:calc(var(--u) * 47/1920);line-height:1.95;color:#000;z-index:2 }
+.off-plan .p-abt2{ left:calc(-17.9/1920 * 100%);top:calc(16630.3/16715.2 * 100%);
+                   width:calc(1940.1/1920 * 100%);height:calc(84.8/16715.2 * 100%);
+                   display:flex;align-items:center;justify-content:center;
+                   font-size:calc(var(--u) * 47/1920);line-height:1;color:#000;z-index:2 }
 
 /* 인용 — 사진 2장 + 85% 검정 오버레이(원본 밝기의 14.8%) + 흰 인용 */
 .off-plan .p-quote-wrap .pq-l{ position:absolute;left:calc(142.9/2011.5 * 100%);top:calc(104.9/1352.9 * 100%);width:calc(870.7/2011.5 * 100%) }

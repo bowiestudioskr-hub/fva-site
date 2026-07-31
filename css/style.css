@@ -976,6 +976,13 @@ svg.club-wordmark{ color:var(--green) }
   will-change:opacity, filter, transform;
 }
 .reveal.in{ opacity:1; filter:none; transform:none }
+
+/* 아주 천천히 — 촬영현장 사진처럼 크게 깔리는 사진용 (사용자 요청) */
+.reveal.slow{
+  opacity:.42; filter:brightness(.16) saturate(.55);
+  transition:opacity 3.4s ease, filter 4.2s cubic-bezier(.25,.6,.3,1), transform 3.4s ease;
+}
+.reveal.slow.in{ opacity:1; filter:none; transform:none }
 @media (prefers-reduced-motion:reduce){
   .reveal,.reveal.in{ opacity:1;filter:none;transform:none;transition:none }
 }

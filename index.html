@@ -515,7 +515,7 @@
 
   <!-- ── 촬영 현장 사진 (피그마 3398:510 x0 y21969 1918x1243) ── -->
   <section class="bts" aria-label="FVA 촬영 현장">
-    <img data-reveal src="assets/img/bts-set.jpg" width="1918" height="1243" loading="lazy"
+    <img data-reveal="slow" src="assets/img/bts-set.jpg" width="1918" height="1243" loading="lazy"
          alt="FVA 촬영 현장 — 조명 디퓨저와 붐을 세팅하는 수강생들">
   </section>
 
@@ -639,7 +639,7 @@
       entries.forEach(function(e){
         if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    },{ threshold:0.18, rootMargin:'0px 0px -8% 0px' });
+    },{ threshold:0.06, rootMargin:'0px 0px 4% 0px' });
     els.forEach(function(el){ io.observe(el) });
   })();
 </script>
