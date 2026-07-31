@@ -39,6 +39,7 @@ SPECS = [
     ('t-directors',   ['DIRECTOR’S'], 197.489,  -5.9247, None, 'DIRECTOR’S'),
     ('t-profile',     ['PROFILE'],      296.271, -11.8509, None, 'PROFILE'),
     ('t-supervisors', ['SUPERVISOR’S'], 164.817,  -4.9445, None, 'SUPERVISOR’S'),
+    ('t-curriculum',  ['FVA CURRICULUM'], 100.0, -3.0, None, 'FVA CURRICULUM'),
 ]
 
 
