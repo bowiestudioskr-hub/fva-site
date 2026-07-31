@@ -222,8 +222,7 @@ svg.club-wordmark{
 .club-title .ct2{ left:calc(113.9/1920 * 100%); top:calc(1251.0/4248.56 * 100%); width:calc(1705.5/1920 * 100%) }
 
 /* ── 수강생 만족도 100% + 서브 ── */
-.club-satis,.club-first{ line-height:0   white-space:nowrap;
-}
+.club-satis,.club-first{ line-height:0 }
 .club-satis img,.club-first img{ position:absolute;z-index:2;height:auto }
 .club-satis .cs-icon{ left:calc(149.6/1920 * 100%); top:calc(1926.5/4248.56 * 100%); width:calc(134/1920 * 100%) }
 .club-satis .cs-glow{ left:calc(254.1/1920 * 100%);  top:calc(1893.0/4248.56 * 100%); width:calc(1511.5/1920 * 100%); z-index:1 }
@@ -248,6 +247,7 @@ svg.club-wordmark{
   line-height:calc(var(--u) * 120.558/1920);
   letter-spacing:calc(var(--u) * -1.0716/1920);
   font-weight:700;color:#063908;text-align:center;
+  white-space:nowrap;      /* 폭이 좁아지면 "곳" 만 다음 줄로 떨어진다 */
 }
 .club-first em{ font-style:normal;color:var(--green) }
 
