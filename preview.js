@@ -13,8 +13,13 @@ const TYPES = {'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-
   '.mp4':'video/mp4','.xml':'application/xml','.txt':'text/plain; charset=utf-8','.json':'application/json'};
 
 // DNS 리바인딩 방지 — 외부 도메인이 127.0.0.1 로 해석돼 들어오는 요청을 거른다
+// LAN=1 로 켜면 같은 와이파이의 폰에서도 볼 수 있다 (기본은 127.0.0.1 전용)
+const LAN = process.env.LAN === '1';
+const LAN_IP = LAN ? (require('os').networkInterfaces().en0 || [])
+  .filter(i => i.family === 'IPv4' && !i.internal).map(i => i.address)[0] : null;
 const ALLOWED_HOSTS = new Set([
   `127.0.0.1:${PORT}`, `localhost:${PORT}`, `[::1]:${PORT}`,
+  ...(LAN_IP ? [`${LAN_IP}:${PORT}`] : []),
 ]);
 
 const deny = (res, code, msg) => {
@@ -53,4 +58,7 @@ http.createServer((req, res) => {
     'X-Content-Type-Options': 'nosniff',
   });
   fs.createReadStream(real).pipe(res);
-}).listen(PORT, '127.0.0.1', () => console.log(`미리보기 http://127.0.0.1:${PORT}/  (캐시 없음)`));
+}).listen(PORT, LAN ? '0.0.0.0' : '127.0.0.1', () => {
+  console.log(`미리보기 http://127.0.0.1:${PORT}/  (캐시 없음)`);
+  if (LAN_IP) console.log(`폰에서   http://${LAN_IP}:${PORT}/   (같은 와이파이)`);
+});
