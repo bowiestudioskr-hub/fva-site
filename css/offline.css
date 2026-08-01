@@ -373,5 +373,5 @@ svg.club-wordmark{
 /* 오프라인은 글이 길어 좌우 여백을 더 준다 (사용자 요청).
    모바일(≤820)은 mobile.css 가 gutter 0 으로 두므로 건드리지 않는다. */
 @media (min-width:821px){
-  :root{ --gutter:clamp(0px, 6.4vw, 156px) }
+  :root{ --gutter:clamp(0px, 12.8vw, 312px) }
 }
