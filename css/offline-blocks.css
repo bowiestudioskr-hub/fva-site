@@ -848,7 +848,7 @@
                 border-radius:calc(var(--u) * 44/1920);
                 box-sizing:border-box; z-index:2 }
 /* 번호+제목이 얹히는 초록 알약 */
-.off-story .bn-pill{ width:calc(750.1/1920 * 100%); height:calc(96/var(--H) * 100%);
+.off-story .bn-pill{ width:calc(750.1/1920 * 100%);
                      background:var(--green); border-radius:999px; z-index:3 }
 .off-story .bn-n{ font-size:calc(var(--u) * 46/1920); line-height:1.2; font-weight:800;
                   color:#0A2E0C; z-index:4 }
@@ -915,8 +915,9 @@
 .off-sp .sp-note{ font-size:calc(var(--u) * 35/1920); line-height:1.2;
                   color:#8C8C8C; z-index:3 }
 .off-sp .sp-body em{ font-style:normal;color:var(--green) }
+/* 안 채워진 부분을 어둡게 두면 사진 위에 가로선처럼 보인다 -> 투명 */
 .off-sp .sp-bar{ left:0; width:100%; height:calc(6.7/var(--H) * 100%);
-                 background:#2A2A2A; z-index:3 }
+                 background:transparent; z-index:3 }
 .off-sp .sp-bar i{ position:absolute;left:0;top:0;height:100%;
                    width:calc(533.6/1920 * 100%); background:var(--green) }
 
@@ -950,6 +951,11 @@
 .off-elite > *{ position:absolute; margin:0 }
 .off-elite img{ display:block; max-width:none; width:100%; height:100%; object-fit:contain }
 .off-elite .el-bg img{ object-fit:cover }
+/* 사진 아래를 검정으로 녹인다 (피그마 3402:142727 y708.2 1920x439.8).
+   이게 없으면 FVA ELITE 글자가 사진에 딱 붙어 보인다. */
+.off-elite .el-fade{ left:0; top:calc(708.2/var(--H) * 100%); width:100%;
+                     height:calc(439.8/var(--H) * 100%); z-index:1;
+                     background:linear-gradient(to bottom,rgba(0,0,0,0) 0%,#000 88%) }
 
 .off-elite .el-ko{ font-size:calc(var(--u) * 78/1920); line-height:1.2; font-weight:800;
                    letter-spacing:calc(var(--u) * -2.34/1920); color:var(--green);
@@ -970,10 +976,20 @@
 .off-elite .el-cap{ font-size:calc(var(--u) * 32/1920); line-height:1.2; font-weight:700;
                     color:var(--green); z-index:2 }
 .off-elite .el-rule{ height:calc(var(--u) * 2/1920); background:#2A2A2A; border:0; z-index:2 }
+/* 말풍선 — 상자 y7076~7232, 꼬리 7232~7350 (렌더 실측).
+   꼬리를 이미지로 자르면 상자와 분리돼 보여서 CSS 로 붙인다. */
 .off-elite .el-pill{ display:flex; align-items:center; justify-content:center;
-                     background:var(--green); color:#062308; border-radius:calc(var(--u)*20/1920);
+                     background:var(--green); color:#062308;
+                     border-radius:calc(var(--u)*24/1920);
                      font-size:calc(var(--u) * 58/1920); font-weight:800;
                      letter-spacing:calc(var(--u) * -1.74/1920); white-space:nowrap; z-index:3 }
+.off-elite .el-pill::after{
+  content:""; position:absolute; left:50%; top:100%;
+  width:calc(var(--u) * 58/1920); height:calc(var(--u) * 118/1920);
+  margin-left:calc(var(--u) * -29/1920);
+  background:var(--green);
+  clip-path:polygon(0 0, 100% 0, 46% 100%);
+}
 .off-elite .el-done{ font-size:calc(var(--u) * 54/1920); line-height:1.2; font-weight:800;
                      color:var(--green); text-align:center; white-space:nowrap; z-index:2 }
 .off-elite .el-note{ font-size:calc(var(--u) * 34/1920);
@@ -1000,6 +1016,7 @@
                     padding-inline:calc(var(--m) * 20/360) }
   .off-elite .el-cap{ font-size:calc(var(--m) * 9/360); text-align:center }
   .off-elite .el-rule{ height:1px; margin:calc(var(--m) * 12/360) 0 }
+  .off-elite .el-pill::after{ display:none }
   .off-elite .el-pill{ width:calc(var(--m) * 260/360) !important; margin:calc(var(--m)*16/360) auto 0;
                        padding:calc(var(--m) * 8/360); font-size:calc(var(--m) * 12/360);
                        border-radius:calc(var(--m) * 8/360) }

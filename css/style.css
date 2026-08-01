@@ -12,7 +12,7 @@
 :root{
   /* 좌우 여백 — 화면 가장자리에 숨 쉴 틈을 준다.
      모든 섹션의 --u 가 이 폭을 기준으로 계산되므로 비율은 그대로 유지된다. */
-  --gutter:clamp(0px, 2.2vw, 44px);
+  --gutter:clamp(0px, 4.6vw, 112px);   /* 좌우 여백 (사용자 요청으로 확대) */
   --pagew:min(calc(100vw - 2 * var(--gutter)), 1920px);
 
   --green:#2CFF05;
