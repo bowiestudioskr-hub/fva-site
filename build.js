@@ -9,7 +9,7 @@ const path = require('path');
 
 const SITE = 'https://fva.co.kr';
 const PUBL = 'https://www.fva.co.kr/channels/L2NoYW5uZWxzLzIyMDkw'; // 도메인 이전 시 class.fva.co.kr 로 교체
-const REVIEWS = 'https://bowiestudioskr-hub.github.io/fva-reviews/';
+const REVIEWS = '/reviews.html';   // 사이트 안 후기 페이지(정적 렌더). 예전 외부 깃허브 페이지 아님
 const KAKAO = 'https://pf.kakao.com/_nxhyhn/chat';
 
 const NAV = [
@@ -199,6 +199,7 @@ function page({ file, title, desc, active, extraCss = [], jsonld = null, body })
 <link rel="stylesheet" href="css/mobile.css">
 ${extraCss.map(c => `<link rel="stylesheet" href="css/${c}">`).join('\n')}
 ${jsonld ? `<script type="application/ld+json">\n${JSON.stringify(jsonld, null, 2)}\n</script>` : ''}
+  <script src="/js/measure.js" defer></script>
 </head>
 <body>
 ${header(active)}
@@ -222,7 +223,7 @@ const pages = require('./pages');
    피그마 1:1 로 짜둔 조판이 통째로 옛 버전으로 되돌아간다.
    (2026-08-02 에 실제로 curriculum.html·offline.html 이 이렇게 날아갔다.)
    손보려면 pages/ 쪽 본문을 먼저 최신으로 맞춘 뒤 이 목록에서 빼라. */
-const HANDMADE = new Set(['index.html', 'curriculum.html', 'offline.html']);
+const HANDMADE = new Set(['index.html', 'curriculum.html', 'offline.html', 'works.html']);
 
 let built = 0, skipped = 0;
 for (const p of pages({ PUBL, REVIEWS, KAKAO, SITE, read })) {
