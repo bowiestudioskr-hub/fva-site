@@ -442,7 +442,7 @@
     line-height:calc(var(--m) * 35.629/360);
     letter-spacing:calc(var(--m) * -0.48/360);
   }
-  .cta{ padding-bottom:calc(var(--m) * 14/360) }   /* 버튼 아래 여백 (사용자 요청) */
+  .cta{ padding-bottom:calc(var(--m) * 34/360) }   /* 버튼 아래 여백 (사용자 요청) */
   .cta-btn{
     margin-top:calc(var(--m) * 6/360);
     width:calc(var(--m) * 84/360);
