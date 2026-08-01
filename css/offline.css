@@ -371,7 +371,14 @@ svg.club-wordmark{
 }
 
 /* 오프라인은 글이 길어 좌우 여백을 더 준다 (사용자 요청).
-   모바일(≤820)은 mobile.css 가 gutter 0 으로 두므로 건드리지 않는다. */
+   --gutter 를 :root 에서 키우면 헤더·푸터까지 같이 작아지므로,
+   헤더에는 다른 페이지와 같은 값을 되돌려준다.
+   모바일(≤820)은 mobile.css 가 gutter 0 이라 건드리지 않는다. */
 @media (min-width:821px){
   :root{ --gutter:clamp(0px, 12.8vw, 312px) }
+  .site-header,
+  body > footer{
+    --pagew:min(calc(100vw - 2 * clamp(0px, 4.6vw, 112px)), 1920px);
+    --gutter:clamp(0px, 4.6vw, 112px);
+  }
 }
