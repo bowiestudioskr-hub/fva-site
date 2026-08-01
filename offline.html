@@ -19,6 +19,9 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/mobile.css">
 <link rel="stylesheet" href="css/sub.css">
+<link rel="stylesheet" href="css/offline.css">
+<link rel="stylesheet" href="css/offline-plan.css">
+<link rel="stylesheet" href="css/offline-blocks.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -38,15 +41,28 @@
   }
 }
 </script>
-  <script src="/js/measure.js" defer></script>
 </head>
 <body>
 
 <header class="site-header">
   <span class="top-bar" aria-hidden="true"></span>
   <div class="hd">
-    <a class="hd-logo" href="/" aria-label="FVA ACADEMY 홈">
-      <img src="assets/icons/logo-nav.svg" width="184" height="18" alt="FVA ACADEMY">
+    <a class="hd-logo" href="/">
+      <span class="sr-only">FVA ACADEMY</span><svg class="tlab-logo" aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" style="display: block;" viewBox="0 0 184 17.7697" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group">
+<path id="Vector" d="M12.9107 3.72084V0.297209H0V17.4812H3.67108V11.8302H11.4918V8.40659H3.67108V3.72909H12.9107V3.72084Z" fill="currentColor"/>
+<path id="Vector_2" d="M28.1398 0.297209L23.5365 12.5975L18.9331 0.297209H14.8166L21.276 17.4812H25.6814L32.1409 0.297209H28.1233H28.1398Z" fill="currentColor"/>
+<path id="Vector_3" d="M41.6524 0.297209H37.1976L30.7381 17.4812H34.6567L35.7374 14.3958H42.9806L44.1026 17.4812H48.1202L41.6607 0.297209H41.6524ZM36.9006 11.0712L39.3508 4.1168L41.8009 11.0712H36.9089H36.9006Z" fill="currentColor"/>
+<path id="Vector_4" d="M66.4753 0.297209H62.0205L55.6105 17.4812H59.5291L60.6098 14.3958H67.853L68.9337 17.4812H73.0007L66.4918 0.297209H66.4753ZM61.773 11.0712L64.2231 4.1168L66.6733 11.0712H61.7812H61.773Z" fill="currentColor"/>
+<path id="Vector_5" d="M82.8757 14.2472C79.8398 14.2472 77.5381 11.9455 77.5381 8.86017C77.5381 5.7748 79.8398 3.52267 82.8757 3.52267C85.0784 3.52267 86.9428 4.74361 87.6275 6.70703H91.5956C90.7624 2.73894 87.1903 5.03481e-05 82.884 5.03481e-05C77.6949 5.03481e-05 73.7763 3.81963 73.7763 8.86017C73.7763 13.9007 77.6949 17.7697 82.884 17.7697C87.1903 17.7697 90.7624 15.0309 91.5956 11.0628H87.6275C86.9428 13.0179 85.0784 14.2472 82.8757 14.2472Z" fill="currentColor"/>
+<path id="Vector_6" d="M103.195 0.297209H98.7399L92.2804 17.4812H96.199L97.2797 14.3958H104.572L104.506 14.3051L105.653 17.4812H109.671L103.211 0.297209H103.195ZM98.4429 11.0712L100.893 4.1168L103.343 11.0712H98.4511H98.4429Z" fill="currentColor"/>
+<path id="Vector_7" d="M118.952 0.297209H112.196V17.4812H118.952C123.943 17.4812 127.713 13.7607 127.713 8.86862C127.713 3.97657 123.943 0.297209 118.952 0.297209ZM118.862 14.0081H115.875V3.72909H118.862C121.749 3.72909 123.952 5.93174 123.952 8.86862C123.952 11.8055 121.749 14.0081 118.862 14.0081Z" fill="currentColor"/>
+<path id="Vector_8" d="M134.305 14.0079V10.5349H141.16V7.11124H134.305V3.73706H141.994V0.313534H130.683V17.4975H142.093V14.0245H134.305V14.0079Z" fill="currentColor"/>
+<path id="Vector_9" d="M160.101 0.297209L155.11 9.40476L155.011 9.20678L150.16 0.297209H145.508V17.4812H149.179V5.48618L149.377 5.92343L155.102 16.4252L156.133 14.5444L161.075 5.48618V17.4812H164.696V0.297209H160.093H160.101Z" fill="currentColor"/>
+<path id="Vector_10" d="M179.884 0.297209L175.676 7.83741L175.577 7.63942L171.419 0.297209H167.262L173.77 11.558V17.4812H177.442V11.558L184 0.297209H179.892H179.884Z" fill="currentColor"/>
+</g>
+</svg>
+
     </a>
     <button class="nav-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">☰</button>
     <nav class="gnb" id="gnb" aria-label="주 메뉴">
@@ -72,58 +88,620 @@
 
 <main>
 
-  <section class="sub-hero">
-    <div class="wrap">
-      <p class="eyebrow-line">OFFLINE CLASS</p>
-      <h1>직접 팀을 꾸려서<br>완성하는 작품</h1>
-      <p class="lede">서울 마포구 합정동. 현역 감독과 함께 실제 촬영 현장을 만들고, 12주 뒤에는 완성된 포트폴리오 작품을 손에 쥡니다.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="https://pf.kakao.com/_nxhyhn/chat" target="_blank" rel="noopener">수강 문의하기</a>
-        <a class="btn-ghost" href="/curriculum.html">커리큘럼 보기</a>
-      </div>
+  <!-- ══ 오프라인 강의 히어로 ═══════════════════════════════
+       피그마 3398:3432 (오프라인 강의 - 데스크탑)
+       제목 3402:222666 박스 x498 y134 925x369 / 잉크 909x237.5 (상단 199.75)
+       설명 3402:222667 x346 y503 1229x34
+       슬라이드 3402:222140 y599 1920x289.7 · 카드 407.31x263.99 간격 425.41
+       버튼 3402:222663 x832 y996 256.94x72.53
+       ══════════════════════════════════════════════════════ -->
+  <section class="off-hero" aria-labelledby="off-h">
+    <h1 id="off-h" class="display">
+      <span class="sr-only">오프라인 강의</span><svg class="tlab" aria-hidden="true" focusable="false" viewBox="0 0 3497.9 912.0"><g transform="scale(1.00000 1) translate(-20.0 865.0) scale(1 -1)" fill="currentColor"><path d="M280 266C412 266 491 342 491 448V683C491 790 412 865 280 865C148 865 69 790 69 683V448C69 342 148 266 280 266ZM20 -27H540V101H348V248H212V101H20ZM281 393C234 393 204 421 204 481V650C204 710 234 738 281 738C328 738 357 710 357 650V481C357 421 328 393 281 393Z" transform="translate(0.0 -0.0)"/><path d="M37 262H524V389H431L465 693L335 703L302 389H37ZM20 -22H540V106H20ZM125 399 254 413C253 502 242 644 231 703L101 689C111 628 124 490 125 399ZM45 723H516V850H45Z" transform="translate(560.0 -0.0)"/><path d="M359 -41H494V400H557V526H494V862H359V158C332 135 264 125 222 125H160V366H308V850H26V723H174V493H26V-1H211C297 -1 341 32 350 90H359Z" transform="translate(1120.0 -0.0)"/><path d="M178 322C269 322 334 377 334 473V713C334 809 269 864 178 864C87 864 22 809 22 713V473C22 377 87 322 178 322ZM63 -43H528V87H200V266H63ZM178 443C156 443 152 462 152 501V684C152 724 156 743 178 743C201 743 205 724 205 684V501C205 462 201 443 178 443ZM383 204H517V862H383Z" transform="translate(1680.0 -0.0)"/><path d="M202 -47H358C454 -47 520 30 520 131C520 232 454 310 358 310H202C106 310 41 232 41 131C41 30 106 -47 202 -47ZM337 76H223C199 76 178 100 178 131C178 162 199 186 223 186H337C361 186 383 162 383 131C383 100 361 76 337 76ZM17 421 125 336C235 459 308 604 308 773V847H21V725H174C172 633 110 517 17 421ZM365 335H499V522H561V649H499V862H365Z" transform="translate(2439.9 -0.0)"/><path d="M383 -42H518V862H383V147C361 128 314 113 275 113H21V-16H246C334 -16 366 20 375 78H383ZM188 252C279 252 344 307 344 403V714C344 810 279 865 188 865C97 865 32 810 32 714V403C32 307 97 252 188 252ZM188 373C161 373 161 397 161 442V675C161 720 161 744 188 744C215 744 215 720 215 675V442C215 397 215 373 188 373Z" transform="translate(2999.9 -0.0)"/></g></svg>
+    </h1>
+    <p class="off-lede">아래는 수강생이 직접 만든 공모전 수상작·대표작입니다. 슬라이드를 클릭하면 이 자리에서 바로 재생됩니다.</p>
+
+    <div class="off-slider" aria-label="수강생 작품 슬라이드">
+      <ul class="off-track" id="off-track"></ul>
     </div>
+
+    <p class="off-cta-wrap">
+      <a class="off-cta" href="https://smartstore.naver.com/bowiestudios" target="_blank" rel="noopener">
+        지금 신청하러 가기 <span aria-hidden="true">&rarr;</span>
+      </a>
+    </p>
   </section>
 
-  <section class="why">
-    <div class="wrap">
-      <h2 class="sec-title">오프라인에서만 가능한 것</h2>
-      <div class="why-grid">
-        <article><h3>시네마 장비 실전 촬영</h3><p>ARRI ALEXA·FX6·FX3 등 고가 시네마 장비를 직접 만지며 실제 촬영 현장을 만들어봅니다.</p></article>
-        <article><h3>현역 감독의 현장 코칭</h3><p>작품 촬영에 감독이 직접 나와 현장에서 코칭합니다. 3개월 수강권은 수료 후에도 작품 피드백 3회를 받습니다.</p></article>
-        <article><h3>워크샵과 네트워킹 파티</h3><p>촬영·조명 워크샵이 매 분기 열리고, 영상인들이 모여 팀을 꾸리는 네트워킹 파티에 참여할 수 있습니다.</p></article>
-      </div>
+  <!-- 수강생 작품 슬라이드 데이터 — youtube 는 영상 ID.
+       비어 있으면 카드가 유튜브 채널로 이동한다. ID 를 채우면 그 자리에서 재생된다. -->
+  <script type="application/json" id="off-slides">
+  [
+    {
+        "title": "김복남 맥주 BOK PLAY · 영상 공모전 대상",
+        "tag": "공모전 대상",
+        "thumb": "assets/works/off-slide-bokplay.jpg",
+        "youtube": "thMuZvcc4DM"
+    },
+    {
+        "title": "아빠의 입금 · 신한 29초영화제 최우수상",
+        "tag": "29초영화제 최우수상",
+        "thumb": "assets/works/off-slide-appa.jpg",
+        "youtube": "dZT2akXaSbU"
+    },
+    {
+        "title": "잔나비 TOGETHER! 뮤직비디오",
+        "tag": "뮤직비디오",
+        "thumb": "assets/works/off-slide-jannabi.jpg",
+        "youtube": "OSzoHfz1Q1c"
+    },
+    {
+        "title": "The Joyfools · Loser’s Love 뮤직비디오",
+        "tag": "뮤직비디오",
+        "thumb": "assets/works/off-slide-joyfools.jpg",
+        "youtube": "ElboA0aJpzM"
+    },
+    {
+        "title": "아름다운 구속 뮤직비디오",
+        "tag": "뮤직비디오",
+        "thumb": "assets/works/off-slide-arumdaun.jpg",
+        "youtube": "L7Ci9gih_9s"
+    }
+]
+  </script>
+
+
+
+  <!-- ══ SECRET CLUB FOR FILMMAKERS ═════════════════════════
+       피그마 3402:164156 — 섹션 y1201, 1920x4248.56
+       아래 좌표는 전부 이 블록 기준(1920). 텍스트는 실제 텍스트,
+       TLAB 제목만 투명PNG+alt, 캐릭터는 SVG, 사진만 이미지.
+       ══════════════════════════════════════════════════════ -->
+  <section class="off-club" aria-labelledby="off-club-h">
+
+    <div class="club-photo">
+      <img src="assets/img/offline/bts-club.jpg" width="2284" height="1523" loading="lazy"
+           alt="FVA 촬영 현장 — 스튜디오에 카메라와 조명을 세팅한 수강생들">
+      <span class="club-fade" aria-hidden="true"></span>
+      <span class="sr-only">FVA ACADEMY</span><svg class="tlab-logo club-wordmark" aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" style="display: block;" viewBox="0 0 522 50.4119" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group">
+<path id="Vector" d="M36.6271 10.5564V0.84375H0V49.594H10.4147V33.5624H32.6016V23.8497H10.4147V10.5799H36.6271V10.5564Z" fill="currentColor"/>
+<path id="Vector_2" d="M79.8313 0.84375L66.7719 35.7391L53.7125 0.84375H42.0339L60.3592 49.594H72.8569L91.1822 0.84375H79.7845H79.8313Z" fill="currentColor"/>
+<path id="Vector_3" d="M118.167 0.84375H105.528L87.2031 49.594H98.32L101.386 40.841H121.935L125.118 49.594H136.515L118.19 0.84375H118.167ZM104.686 31.4091L111.637 11.6798L118.588 31.4091H104.709H104.686Z" fill="currentColor"/>
+<path id="Vector_4" d="M188.587 0.84375H175.949L157.764 49.594H168.881L171.947 40.841H192.496L195.562 49.594H207.1L188.634 0.84375H188.587ZM175.247 31.4091L182.198 11.6798L189.149 31.4091H175.27H175.247Z" fill="currentColor"/>
+<path id="Vector_5" d="M235.115 40.4187C226.503 40.4187 219.973 33.8889 219.973 25.1359C219.973 16.3828 226.503 9.9936 235.115 9.9936C241.364 9.9936 246.653 13.4573 248.596 19.0275H259.853C257.489 7.77019 247.355 7.34178e-05 235.139 7.34178e-05C220.418 7.34178e-05 209.301 10.8361 209.301 25.1359C209.301 39.4357 220.418 50.4119 235.139 50.4119C247.355 50.4119 257.489 42.6418 259.853 31.3845H248.596C246.653 36.9313 241.364 40.4187 235.115 40.4187Z" fill="currentColor"/>
+<path id="Vector_6" d="M292.759 0.84375H280.12L261.795 49.594H272.912L275.978 40.841H296.667L296.48 40.5836L299.733 49.594H311.131L292.805 0.84375H292.759ZM279.278 31.4091L286.229 11.6798L293.18 31.4091H279.301H279.278Z" fill="currentColor"/>
+<path id="Vector_7" d="M337.462 0.84375H318.294V49.594H337.462C351.621 49.594 362.317 39.039 362.317 25.1605C362.317 11.2819 351.621 0.84375 337.462 0.84375ZM337.205 39.7411H328.732V10.5799H337.205C345.396 10.5799 351.645 16.8287 351.645 25.1605C351.645 33.4923 345.396 39.7411 337.205 39.7411Z" fill="currentColor"/>
+<path id="Vector_8" d="M381.017 39.7411V29.8881H400.466V20.1754H381.017V10.603H402.83V0.890625H370.743V49.6409H403.11V39.7879H381.017V39.7411Z" fill="currentColor"/>
+<path id="Vector_9" d="M454.2 0.84375L440.041 26.6815L439.76 26.1198L425.998 0.84375H412.799V49.594H423.213V15.5646L423.775 16.8051L440.017 46.5982L442.943 41.2624L456.962 15.5646V49.594H467.236V0.84375H454.177H454.2Z" fill="currentColor"/>
+<path id="Vector_10" d="M510.322 0.84375L498.385 22.235L498.105 21.6733L486.309 0.84375H474.513L492.979 32.7902V49.594H503.394V32.7902L522 0.84375H510.345H510.322Z" fill="currentColor"/>
+</g>
+</svg>
+
     </div>
+
+    <h2 id="off-club-h" class="club-title">
+      <span class="sr-only">SECRET CLUB FOR</span><svg class="tlab ct1" aria-hidden="true" focusable="false" viewBox="0 0 5968.8 853.0"><g transform="scale(1.00000 1) translate(-35.8 836.0) scale(1 -1)" fill="currentColor"><path d="M227 -17C349 -17 417 67 417 195C417 326 367 380 321 432L252 509C229 535 185 576 181 648C179 683 198 706 228 706C257 706 273 682 274 650C275 627 275 597 274 574H416C417 596 417 625 416 647C411 760 353 836 227 836C101 836 37 760 37 646C37 552 73 490 111 448L174 379C238 308 272 271 272 177C272 142 257 118 227 118C196 118 186 144 180 180C177 199 179 245 184 274H42C37 233 32 200 40 140C53 43 113 -17 227 -17Z" transform="translate(0.0 -0.0)"/><path d="M45 -1H402V128H190V360H382V489H190V692H394V821H45Z" transform="translate(422.0 -0.0)"/><path d="M248 -17C374 -17 448 62 448 171V305H303V168C303 143 286 116 247 116C210 116 188 143 188 168V650C188 676 210 703 247 703C286 703 303 676 303 650V519H448V647C448 759 374 836 248 836C121 836 43 759 43 647V171C43 62 121 -17 248 -17Z" transform="translate(822.1 -0.0)"/><path d="M45 -1H190V336H239C274 335 301 334 301 275V140C301 89 301 53 307 -1H452C446 52 446 87 446 137V262C446 334 428 361 403 383C390 394 366 408 323 404V414C399 417 444 461 444 549V661C444 753 384 821 277 821H45ZM246 468H190V692H249C278 692 299 667 299 641V520C299 490 275 468 246 468Z" transform="translate(1283.1 -0.0)"/><path d="M45 -1H402V128H190V360H382V489H190V692H394V821H45Z" transform="translate(1732.2 -0.0)"/><path d="M172 -1H317V693H470V821H20V693H172Z" transform="translate(2132.2 -0.0)"/><path d="M248 -17C374 -17 448 62 448 171V305H303V168C303 143 286 116 247 116C210 116 188 143 188 168V650C188 676 210 703 247 703C286 703 303 676 303 650V519H448V647C448 759 374 836 248 836C121 836 43 759 43 647V171C43 62 121 -17 248 -17Z" transform="translate(2762.3 -0.0)"/><path d="M45 -1H414V128H192V821H45Z" transform="translate(3223.3 -0.0)"/><path d="M243 -17C369 -17 438 62 438 171V821H293V168C293 143 281 116 242 116C205 116 188 143 188 168V821H43V171C43 62 116 -17 243 -17Z" transform="translate(3622.4 -0.0)"/><path d="M45 -1H195L187 83H196C205 25 249 -1 305 -1C377 -1 444 56 444 157V301C444 385 385 434 323 432V436C384 439 434 487 434 575V661C434 753 374 821 267 821H45ZM257 128C241 127 206 132 190 138V362H239C276 362 299 345 299 305V188C299 154 289 129 257 128ZM236 494H190V692H239C268 692 289 667 289 641V546C289 516 265 494 236 494Z" transform="translate(4073.4 -0.0)"/><path d="M45 -1H190V360H381V489H190V692H393V821H45Z" transform="translate(4695.5 -0.0)"/><path d="M248 -17C375 -17 453 62 453 171V647C453 759 375 836 248 836C121 836 43 759 43 647V171C43 62 121 -17 248 -17ZM248 116C211 116 188 143 188 168V650C188 676 211 703 248 703C285 703 308 676 308 650V168C308 143 285 116 248 116Z" transform="translate(5086.5 -0.0)"/><path d="M45 -1H190V336H239C274 335 301 334 301 275V140C301 89 301 53 307 -1H452C446 52 446 87 446 137V262C446 334 428 361 403 383C390 394 366 408 323 404V414C399 417 444 461 444 549V661C444 753 384 821 277 821H45ZM246 468H190V692H249C278 692 299 667 299 641V520C299 490 275 468 246 468Z" transform="translate(5552.6 -0.0)"/></g></svg>
+      <span class="sr-only">FILMMAKERS</span><svg class="tlab ct2" aria-hidden="true" focusable="false" viewBox="0 0 4192.5 853.0"><g transform="scale(1.00000 1) translate(-45.0 836.0) scale(1 -1)" fill="currentColor"><path d="M45 -1H190V360H381V489H190V692H393V821H45Z" transform="translate(0.0 -0.0)"/><path d="M50 -1H198V821H50Z" transform="translate(380.4 -0.0)"/><path d="M45 -1H414V128H192V821H45Z" transform="translate(587.8 -0.0)"/><path d="M45 -1H182V495H189L277 -1H341L429 495H435V-1H572V821H391L318 380H314L242 821H45Z" transform="translate(976.2 -0.0)"/><path d="M45 -1H182V495H189L277 -1H341L429 495H435V-1H572V821H391L318 380H314L242 821H45Z" transform="translate(1552.6 -0.0)"/><path d="M18 -1H167L188 205H283L304 -1H453L330 821H141ZM201 334 229 606H242L270 334Z" transform="translate(2128.9 -0.0)"/><path d="M45 -1H190V350C269 356 297 343 297 284V140C297 89 297 53 303 -1H448C442 52 442 87 442 137V281C442 381 396 410 344 410H261V419C293 419 322 424 337 470L454 821H305L198 491H190V821H45Z" transform="translate(2559.3 -0.0)"/><path d="M45 -1H402V128H190V360H382V489H190V692H394V821H45Z" transform="translate(2992.7 -0.0)"/><path d="M45 -1H190V336H239C274 335 301 334 301 275V140C301 89 301 53 307 -1H452C446 52 446 87 446 137V262C446 334 428 361 403 383C390 394 366 408 323 404V414C399 417 444 461 444 549V661C444 753 384 821 277 821H45ZM246 468H190V692H249C278 692 299 667 299 641V520C299 490 275 468 246 468Z" transform="translate(3382.1 -0.0)"/><path d="M227 -17C349 -17 417 67 417 195C417 326 367 380 321 432L252 509C229 535 185 576 181 648C179 683 198 706 228 706C257 706 273 682 274 650C275 627 275 597 274 574H416C417 596 417 625 416 647C411 760 353 836 227 836C101 836 37 760 37 646C37 552 73 490 111 448L174 379C238 308 272 271 272 177C272 142 257 118 227 118C196 118 186 144 180 180C177 199 179 245 184 274H42C37 233 32 200 40 140C53 43 113 -17 227 -17Z" transform="translate(3820.5 -0.0)"/></g></svg>
+    </h2>
+
+    <p class="club-satis">
+      <img class="cs-icon" src="assets/img/offline/icon-camera.svg" width="134" height="182"
+           loading="lazy" alt="" aria-hidden="true">
+      <img class="cs-glow" src="assets/img/offline/h-satisfaction-glow.png" width="1512" height="249"
+           loading="lazy" alt="" aria-hidden="true">
+      <span class="cs-text">수강생 만족도 100%</span>
+    </p>
+    <p class="club-first">영상 제작의 <em>&lsquo;첫 단추&rsquo;</em>를 꿰는 곳</p>
+
+    <ul class="club-quotes">
+      <li class="cq q1">편집툴 정도만 알던 제가 한달만에<br>연출감독이 되어 첫 촬영에 들어갑니다.</li>
+      <li class="cq q2">단순한 영상 학원이 아니라, 현업에서<br>살아남는 법을 가르쳐주는 &lsquo;진짜 학교&rsquo;입니다!</li>
+      <li class="cq q3">책으로는 절대 배울 수 없는 것들,<br>현장에서 수년간 부딪쳐야 알 수 있는<br>감각을 미리 체험할 수 있었어요.</li>
+      <li class="cq q4">수강 전에는 전혀 알지 못했던 영역<br>이었던 &lsquo;제작&rsquo; 파트, 제가 그쪽에 소질이<br>있을거라곤 상상도 못했습니다.</li>
+      <li class="cq q5">다양한 분들과 교류할 수 있고,<br>작품 촬영까지 함께 할 수 있는<br>팀까지 쉽게 꾸릴 수 있었어요!</li>
+      <li class="cq q6">촬영&amp;조명 워크샵을 통해<br>실제 현장처럼 구성된 환경에서<br>직접 장비를 다뤄볼 수 있었어요!</li>
+    </ul>
+
+    <div class="club-mascots" aria-hidden="true">
+      <img class="m m1" src="assets/img/offline/masc1.svg" width="236" height="341" loading="lazy" alt="">
+      <img class="m m2" src="assets/img/offline/masc2.svg" width="238" height="369" loading="lazy" alt="">
+      <img class="m m3" src="assets/img/offline/masc3.svg" width="245" height="290" loading="lazy" alt="">
+      <img class="m m4" src="assets/img/offline/masc4.svg" width="238" height="338" loading="lazy" alt="">
+      <img class="m m5" src="assets/img/offline/masc5.svg" width="278" height="292" loading="lazy" alt="">
+      <img class="m m6" src="assets/img/offline/masc6.svg" width="241" height="291" loading="lazy" alt="">
+    </div>
+
   </section>
 
-  <section class="course-card-sec">
-    <div class="wrap">
-      <article class="course-card">
-        <div class="course-info">
-          <h2>수강 안내</h2>
-          <dl class="course-meta">
-            <div><dt>과정</dt><dd>12주 (1개월 · 2개월 · 3개월 수강권 선택)</dd></div>
-            <div><dt>장소</dt><dd>서울특별시 마포구 독막로6길 6, 5층 (합정동 현영빌딩)</dd></div>
-            <div><dt>개강</dt><dd>기수별 상이 — 카카오 채널로 문의</dd></div>
-            <div><dt>결제</dt><dd>네이버 스마트스토어</dd></div>
-          </dl>
-        </div>
-        <div class="course-buy">
-          <p class="buy-lead">지금 모집 중인 기수를<br>카카오 채널로 안내해 드립니다</p>
-          <a class="btn-primary block" href="https://pf.kakao.com/_nxhyhn/chat" target="_blank" rel="noopener">수강 문의하기</a>
-          <a class="btn-ghost block" href="https://smartstore.naver.com/bowiestudios" target="_blank" rel="noopener">스마트스토어에서 보기</a>
-        </div>
-      </article>
+
+  <!-- ══ 기획 · CLASS FEATURE · AI 특강 ══════════════════════
+       피그마 3402:145856 — 섹션 y5449.6, 1920x16715.2
+       텍스트 44개 전부 실제 텍스트. 사진 콜라주만 원본 렌더 밴드.
+       ══════════════════════════════════════════════════════ -->
+  <section class="off-plan" aria-labelledby="off-plan-h">
+
+    <p class="p-intro">촬영 장비는 상향 평준화 되고<br>생성형 AI 등 최신 기술이 매일 등장하고 있지만</p>
+    <p class="p-lead">기술만으로는 결코 차이를<br>만들 수 없습니다.</p>
+
+    <div class="p-quote-wrap">
+      <img class="pq-l" src="assets/img/offline/b2-quote-l.jpg" width="1300" height="1623" loading="lazy"
+           alt="FVA 오프라인 수업 현장">
+      <img class="pq-r" src="assets/img/offline/b2-quote-r.jpg" width="1300" height="1733" loading="lazy"
+           alt="FVA 수강생 촬영 현장">
+      <span class="pq-dim" aria-hidden="true"></span>
+      <blockquote class="p-quote">&ldquo;변하지 않는 본질,<br>그것은 바로 차별화된<br><em>기획력</em>입니다.&rdquo;</blockquote>
     </div>
+
+    <img class="p-eyes" src="assets/img/offline/b2-eyes.png" width="306" height="233" loading="lazy" alt="" aria-hidden="true">
+    <p class="p-qmark" aria-hidden="true">?</p>
+    <h2 id="off-plan-h" class="p-ask">그래서 대체 <em>&lsquo;기획&rsquo;</em>이 뭔데?</h2>
+
+    <img class="pp-glow" src="assets/img/offline/b2-pre-glow.jpg" width="3043" height="515" loading="lazy" alt="" aria-hidden="true">
+    <p class="pp-text">Pre-Production</p>
+
+    <div class="p-box"></div>
+    <img class="p-pencil" src="assets/img/offline/b2-pencil.webp" width="1340" height="2130" loading="lazy" alt="" aria-hidden="true">
+    <span class="p-rule r1" aria-hidden="true"></span>
+    <span class="p-rule r2" aria-hidden="true"></span>
+    <span class="p-rule r3" aria-hidden="true"></span>
+    <span class="p-rule r4" aria-hidden="true"></span>
+    <ul class="p-keys">
+      <li class="k1">비주얼 디렉팅</li>
+      <li class="k2">이유 있는 촬영 &amp; 조명</li>
+      <li class="k3">캐스팅 &amp; 로케이션</li>
+      <li class="k4">팀 구성 및 역할 분담</li>
+      <li class="k5">예산 및 제작 일정</li>
+      <li class="k6">미술 의상 메이크업</li>
+      <li class="k7">연출 이론</li>
+      <li class="k8">스토리</li>
+    </ul>
+    <p class="p-def">이 모든 것에 대한 정밀한 계획을<br>수립하는 것을 바로 기획이라고 합니다.</p>
+
+    <img class="p-alexa" src="assets/img/offline/b2-alexa.webp" width="1920" height="830" loading="lazy"
+         alt="ARRI ALEXA 시네마 카메라 — FVA 촬영 실습 장비">
+    <p class="p-ask2">&ldquo;당신이 만들고 싶은건 누구나<br>만들 수 있는 평범한 영상인가요,</p>
+    <img class="p-col1" src="assets/img/offline/b2-collage1.jpg" width="1920" height="2043" loading="lazy"
+         alt="FVA 수강생이 제작한 작품 모음 — ※FVA 아카데미 실제 수강생 작품입니다.">
+    <p class="p-ask3">아니면 나만의 시선과 관점을 담은<br>퀄리티 있는 <em>영상 콘텐츠</em>인가요?&rdquo;</p>
+    <p class="p-cta">아직 잘 모르겠다면 혼자 고민하지 말고<br>딱 한번만 제대로 배워보세요.</p>
+
+    <p class="p-cf-wm"><span class="sr-only">FVA ACADEMY</span><svg class="tlab-logo cf-wordmark" aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" style="display: block;" width="522" height="50.4119" viewBox="0 0 522 50.4119" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group">
+<path id="Vector" d="M36.6271 10.5564V0.84375H0V49.594H10.4147V33.5624H32.6016V23.8497H10.4147V10.5799H36.6271V10.5564Z" fill="currentColor"/>
+<path id="Vector_2" d="M79.8313 0.84375L66.7719 35.7391L53.7125 0.84375H42.0339L60.3592 49.594H72.8569L91.1822 0.84375H79.7845H79.8313Z" fill="currentColor"/>
+<path id="Vector_3" d="M118.167 0.84375H105.528L87.2031 49.594H98.32L101.386 40.841H121.935L125.118 49.594H136.515L118.19 0.84375H118.167ZM104.686 31.4091L111.637 11.6798L118.588 31.4091H104.709H104.686Z" fill="currentColor"/>
+<path id="Vector_4" d="M188.587 0.84375H175.949L157.764 49.594H168.881L171.947 40.841H192.496L195.562 49.594H207.1L188.634 0.84375H188.587ZM175.247 31.4091L182.198 11.6798L189.149 31.4091H175.27H175.247Z" fill="currentColor"/>
+<path id="Vector_5" d="M235.115 40.4187C226.503 40.4187 219.973 33.8889 219.973 25.1359C219.973 16.3828 226.503 9.9936 235.115 9.9936C241.364 9.9936 246.653 13.4573 248.596 19.0275H259.853C257.489 7.77019 247.355 7.34178e-05 235.139 7.34178e-05C220.418 7.34178e-05 209.301 10.8361 209.301 25.1359C209.301 39.4357 220.418 50.4119 235.139 50.4119C247.355 50.4119 257.489 42.6418 259.853 31.3845H248.596C246.653 36.9313 241.364 40.4187 235.115 40.4187Z" fill="currentColor"/>
+<path id="Vector_6" d="M292.759 0.84375H280.12L261.795 49.594H272.912L275.978 40.841H296.667L296.48 40.5836L299.733 49.594H311.131L292.805 0.84375H292.759ZM279.278 31.4091L286.229 11.6798L293.18 31.4091H279.301H279.278Z" fill="currentColor"/>
+<path id="Vector_7" d="M337.462 0.84375H318.294V49.594H337.462C351.621 49.594 362.317 39.039 362.317 25.1605C362.317 11.2819 351.621 0.84375 337.462 0.84375ZM337.205 39.7411H328.732V10.5799H337.205C345.396 10.5799 351.645 16.8287 351.645 25.1605C351.645 33.4923 345.396 39.7411 337.205 39.7411Z" fill="currentColor"/>
+<path id="Vector_8" d="M381.017 39.7411V29.8881H400.466V20.1754H381.017V10.603H402.83V0.890625H370.743V49.6409H403.11V39.7879H381.017V39.7411Z" fill="currentColor"/>
+<path id="Vector_9" d="M454.2 0.84375L440.041 26.6815L439.76 26.1198L425.998 0.84375H412.799V49.594H423.213V15.5646L423.775 16.8051L440.017 46.5982L442.943 41.2624L456.962 15.5646V49.594H467.236V0.84375H454.177H454.2Z" fill="currentColor"/>
+<path id="Vector_10" d="M510.322 0.84375L498.385 22.235L498.105 21.6733L486.309 0.84375H474.513L492.979 32.7902V49.594H503.394V32.7902L522 0.84375H510.345H510.322Z" fill="currentColor"/>
+</g>
+</svg>
+</p>
+    <h2 class="p-cf"><span class="sr-only">CLASS FEATURE</span><svg class="tlab" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5476.0 853.0"><g transform="scale(1.00000 1) translate(-43.0 836.0) scale(1 -1)" fill="currentColor"><path d="M248 -17C374 -17 448 62 448 171V305H303V168C303 143 286 116 247 116C210 116 188 143 188 168V650C188 676 210 703 247 703C286 703 303 676 303 650V519H448V647C448 759 374 836 248 836C121 836 43 759 43 647V171C43 62 121 -17 248 -17Z" transform="translate(0.0 -0.0)"/><path d="M45 -1H414V128H192V821H45Z" transform="translate(481.0 -0.0)"/><path d="M18 -1H167L188 205H283L304 -1H453L330 821H141ZM201 334 229 606H242L270 334Z" transform="translate(900.0 -0.0)"/><path d="M227 -17C349 -17 417 67 417 195C417 326 367 380 321 432L252 509C229 535 185 576 181 648C179 683 198 706 228 706C257 706 273 682 274 650C275 627 275 597 274 574H416C417 596 417 625 416 647C411 760 353 836 227 836C101 836 37 760 37 646C37 552 73 490 111 448L174 379C238 308 272 271 272 177C272 142 257 118 227 118C196 118 186 144 180 180C177 199 179 245 184 274H42C37 233 32 200 40 140C53 43 113 -17 227 -17Z" transform="translate(1361.0 -0.0)"/><path d="M227 -17C349 -17 417 67 417 195C417 326 367 380 321 432L252 509C229 535 185 576 181 648C179 683 198 706 228 706C257 706 273 682 274 650C275 627 275 597 274 574H416C417 596 417 625 416 647C411 760 353 836 227 836C101 836 37 760 37 646C37 552 73 490 111 448L174 379C238 308 272 271 272 177C272 142 257 118 227 118C196 118 186 144 180 180C177 199 179 245 184 274H42C37 233 32 200 40 140C53 43 113 -17 227 -17Z" transform="translate(1803.0 -0.0)"/><path d="M45 -1H190V360H381V489H190V692H393V821H45Z" transform="translate(2435.0 -0.0)"/><path d="M45 -1H402V128H190V360H382V489H190V692H394V821H45Z" transform="translate(2846.0 -0.0)"/><path d="M18 -1H167L188 205H283L304 -1H453L330 821H141ZM201 334 229 606H242L270 334Z" transform="translate(3266.0 -0.0)"/><path d="M172 -1H317V693H470V821H20V693H172Z" transform="translate(3697.0 -0.0)"/><path d="M243 -17C369 -17 438 62 438 171V821H293V168C293 143 281 116 242 116C205 116 188 143 188 168V821H43V171C43 62 116 -17 243 -17Z" transform="translate(4177.0 -0.0)"/><path d="M45 -1H190V336H239C274 335 301 334 301 275V140C301 89 301 53 307 -1H452C446 52 446 87 446 137V262C446 334 428 361 403 383C390 394 366 408 323 404V414C399 417 444 461 444 549V661C444 753 384 821 277 821H45ZM246 468H190V692H249C278 692 299 667 299 641V520C299 490 275 468 246 468Z" transform="translate(4648.0 -0.0)"/><path d="M45 -1H402V128H190V360H382V489H190V692H394V821H45Z" transform="translate(5117.0 -0.0)"/></g></svg></h2>
+
+    <img class="p-f1" src="assets/img/offline/b2-feat01.jpg" width="1920" height="847" loading="lazy"
+         alt="FVA 오프라인 수업 — 기획과 연출 강의 현장">
+    <p class="p-n1"><span class="sr-only">01</span><svg class="tlab" aria-hidden="true" focusable="false" viewBox="0 0 717.5 847.0"><g transform="scale(1.00000 1) translate(-35.0 830.0) scale(1 -1)" fill="currentColor"><path d="M230 -17C354 -17 425 53 425 169V644C425 760 354 830 230 830C106 830 35 760 35 644V169C35 53 106 -17 230 -17ZM230 114C194 114 180 132 180 159V654C180 681 194 699 230 699C266 699 280 681 280 654V159C280 132 266 114 230 114Z" transform="translate(0.0 -0.0)"/><path d="M128 0H273V822H134C120 775 72 744 20 742V582C47 581 91 579 120 637L128 635Z" transform="translate(479.6 -0.0)"/></g></svg></p>
+    <h3 class="p-t1">영상 기획과 연출의 현실판 제대로<br>알아가기 + 수업 내 1:1 피드백</h3>
+    <p class="p-b1">FVA 아카데미에선 편집과 카메라를 먼저 알려주지 않습니다. 스텝 1에서는 설득력 있는 기획<br>과 연출을 계획하고, 촬영에 적합한 최적의 현장을 준비하는 것, 그리고 스탭을 구성하는 방법<br>을 배웁니다. 좋은 기획서에는 훌륭한 스탭, 아티스트, 배우들이 반드시 함께하기 마련입니다.</p>
+
+    <img class="p-f2" src="assets/img/offline/b2-feat02.jpg" width="1920" height="867" loading="lazy"
+         alt="FVA 오프라인 수업 — 비주얼 디렉팅 워크샵">
+    <p class="p-n2"><span class="sr-only">02</span><svg class="tlab" aria-hidden="true" focusable="false" viewBox="0 0 834.7 847.0"><g transform="scale(1.00000 1) translate(-35.0 830.0) scale(1 -1)" fill="currentColor"><path d="M230 -17C354 -17 425 53 425 169V644C425 760 354 830 230 830C106 830 35 760 35 644V169C35 53 106 -17 230 -17ZM230 114C194 114 180 132 180 159V654C180 681 194 699 230 699C266 699 280 681 280 654V159C280 132 266 114 230 114Z" transform="translate(0.0 -0.0)"/><path d="M20 19V0H410V133H232C286 263 409 522 409 653C409 760 338 830 214 830C90 830 34 760 29 653C27 609 28 595 30 551H175C173 595 172 609 174 653C175 680 188 698 214 698C240 698 261 680 261 653C261 500 90 174 20 19Z" transform="translate(459.7 -0.0)"/></g></svg></p>
+    <h3 class="p-t2">예쁜 건 기본, 이유있는 비주얼 디렉팅<br>만들기 + 과제 &amp; 수업 내 워크샵</h3>
+    <p class="p-b2">스텝 2에서는 스토리, 촬영과 조명, 미술 의상 메이크업 등의 뚜렷한 계획과 탄탄한 기획,<br>그리고 기획사항이 의도대로 진행되는지 디테일하게 체크하는 과정을 배웁니다. 이때 현장에<br>직접 가서 촬영을 경험해봅니다.</p>
+    <p class="p-note2">(5기 대상 수상작품도 첫 촬영때 찍었답니다!)</p>
+
+    <img class="p-f3" src="assets/img/offline/b2-feat03.jpg" width="1920" height="838" loading="lazy"
+         alt="FVA 오프라인 수업 — 포트폴리오 작품 제작 현장">
+    <p class="p-n3"><span class="sr-only">03</span><svg class="tlab" aria-hidden="true" focusable="false" viewBox="0 0 834.7 847.0"><g transform="scale(1.00000 1) translate(-35.0 830.0) scale(1 -1)" fill="currentColor"><path d="M230 -17C354 -17 425 53 425 169V644C425 760 354 830 230 830C106 830 35 760 35 644V169C35 53 106 -17 230 -17ZM230 114C194 114 180 132 180 159V654C180 681 194 699 230 699C266 699 280 681 280 654V159C280 132 266 114 230 114Z" transform="translate(0.0 -0.0)"/><path d="M214 -17C332 -17 410 54 410 155V289C410 356 364 416 291 422V429C364 441 410 500 410 559V662C410 762 344 830 214 830C92 830 28 758 21 653C19 624 21 594 23 565H168C166 595 164 625 166 655C168 681 180 701 216 701C251 701 265 681 265 655V549C265 514 238 486 193 486H154V363H193C247 363 265 335 265 299V154C265 132 247 114 218 114C189 114 174 132 171 154C165 195 166 223 171 273H33C30 230 25 192 28 152C36 51 89 -17 214 -17Z" transform="translate(459.7 -0.0)"/></g></svg></p>
+    <h3 class="p-t3">개인별 코칭 받으며 포트폴리오<br>작품 제작하기 + 과제 &amp; 포폴 워크샵</h3>
+    <p class="p-b3">스텝 3에서는 특히 <em>&lsquo;연출&rsquo;</em>하는 일에 집중합니다. &lsquo;모두가 쉽게 이해하면서도 목표를 위해<br>함께 촬영 할 수 있는 방법&rsquo;을 배우게 되며, 이는 실제 현장에서 감독이 하는 일과 비슷합니다.<br>이후 희망자에 한해서 두번째 촬영 및 포트폴리오 워크샵을, 혹은 취업 코칭을 진행합니다.</p>
+
+    <img class="p-ai1" src="assets/img/offline/b2-ai1.jpg" width="1920" height="304" loading="lazy"
+         alt="Higgsfield 로 만든 AI 이미지 생성 예제 — 앵글 변화, 의상 변경">
+    <span class="p-bar1" aria-hidden="true"></span>
+    <p class="p-abt1">Higgsfield로 시작하는 AI 이미지 &amp; 영상 제작</p>
+    <img class="p-ai2" src="assets/img/offline/b2-ai2.jpg" width="1920" height="286" loading="lazy"
+         alt="AI 영상 제작 프로세스 예제 — 무드보드, 캐릭터 시트, 배경, 컷 이미지">
+    <span class="p-bar2" aria-hidden="true"></span>
+    <p class="p-abt2">무드보드부터 파이널 샷까지, 생성형 AI 영상 제작 프로세스 알아보기</p>
+
   </section>
 
-  <section class="also">
-    <div class="wrap">
-      <h2 class="sec-title">수강생들이 만든 작품</h2>
-      <p class="also-lede">영상 공모전 5연속 수상. 수강생 팀이 만든 작품이 실제로 상을 받고 있습니다.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="/works.html">수강생 작품 보기</a>
-        <a class="btn-ghost" href="https://bowiestudioskr-hub.github.io/fva-reviews/" target="_blank" rel="noopener">수강 후기 134건</a>
-      </div>
+
+  <!-- ── 블록 3 : AI 디렉팅 프로세스 ────────────────────────
+       피그마 3402:164028 y22164.72 1920x946.6
+       사진 3장(692.09 / 685.40 / 517.95) + 민트 캡션 바 #08FFD0 -->
+  <section class="off-ai" aria-labelledby="off-ai-h">
+    <h2 id="off-ai-h" class="sr-only">AI 디렉팅 프로세스 — 스토리보드에서 파이널 샷까지</h2>
+    <img class="ai-l" src="assets/img/offline/b3-ai-l.jpg" width="1385" height="1728" loading="lazy"
+         alt="AI 스토리보드와 프리비즈 비교 — 1. STORYBOARD 콘티 라인드로잉과 2. PRE-VIZ 생성 이미지">
+    <img class="ai-m" src="assets/img/offline/b3-ai-m.jpg" width="1371" height="1715" loading="lazy"
+         alt="테스트 촬영과 최종 결과 비교 — 3. TEST SHOT 현장 모니터링과 4. FINAL RESULT 남산 서울타워 컷">
+    <img class="ai-r" src="assets/img/offline/b3-ai-r.jpg" width="1032" height="1715" loading="lazy"
+         alt="같은 장면의 AI PREVIZ · TEST SHOT · FINAL SHOT 3단 비교 — 제11회 서울 29초 영화제 대상 수상작">
+    <p class="ai-bar">AI STORYBOARD → AI PREVIZ → FINAL SHOT</p>
+  </section>
+
+
+  <!-- ── 블록 4 : AI 특강 상세 ──────────────────────────────
+       피그마 3402:164040 y23111.32 1920x7976.93
+       ① 특강 인트로 · ② 감독 프로필 · ③ 슈퍼바이저 프로필 · ④ 언론 후기 -->
+  <section class="off-lecture" aria-labelledby="off-lc-h">
+
+    <!-- ① 특강 인트로 -->
+    <p class="lc-badge"><span class="sr-only">특강</span><svg class="tlab" aria-hidden="true" focusable="false" viewBox="0 0 1101.0 910.0"><g transform="scale(1.00000 1) translate(-20.0 862.0) scale(1 -1)" fill="currentColor"><path d="M46 453H518V570H181V599H508V714H181V739H513V856H46ZM380 -48H514V257H46V134H380ZM20 295H540V415H20Z" transform="translate(0.0 -0.0)"/><path d="M202 -47H358C454 -47 520 30 520 131C520 232 454 310 358 310H202C106 310 41 232 41 131C41 30 106 -47 202 -47ZM337 76H223C199 76 178 100 178 131C178 162 199 186 223 186H337C361 186 383 162 383 131C383 100 361 76 337 76ZM17 421 125 336C235 459 308 604 308 773V847H21V725H174C172 633 110 517 17 421ZM365 335H499V522H561V649H499V862H365Z" transform="translate(560.0 -0.0)"/></g></svg></p>
+    <h2 class="lc-title" id="off-lc-h"><b>AI</b> 툴로 스토리보드부터 데모 영상까지,<br>실사·애니메이션 제작 과정 실습</h2>
+    <hr class="lc-rule left">
+    <hr class="lc-rule right">
+    <p class="lc-body">AI 특강에서는 생성형 AI 툴을 활용해 스토리보드, 데모 비디오, 실사·애니메이션 영상 제작 과정을 직접 학습합니다. 실제 영상 제작에 바로 적용할 수 있도록 <em>아이디어를 빠르게 시각화</em>하는 방법부터 결과물의 완성도를 높이는 워크플로우 구축과 <em>실전 활용 노하우</em>까지 함께 다룹니다.</p>
+
+    <div class="lc-box" aria-hidden="true"></div>
+    <p class="lc-cta">영상을 할 수 밖에 없는 환경을<br>만들어주는<span class="wm"><span class="sr-only">FVA</span><svg aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" style="display: block;" viewBox="0 0 223.256 80.8736" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 1000005847">
+<path id="Vector" d="M59.9049 16.1342V0H0V80.8736H17.0466V54.2621H53.3026V38.1277H17.0466V16.1342H59.9049Z" fill="currentColor"/>
+<path id="Vector_2" d="M130.539 0L109.195 57.87L87.8515 0H68.7559L98.751 80.8736H119.184L149.179 0H130.539Z" fill="currentColor"/>
+<path id="Vector_3" d="M193.232 0H172.571L142.576 80.8736H160.761L165.77 66.3557H199.379L204.616 80.8736H223.256L193.261 0H193.232ZM171.205 50.6832L182.56 17.9815L193.915 50.6832H171.205Z" fill="currentColor"/>
+</g>
+</svg>
+</span><span class="w">지금 당장 등록!</span></p>
+    <img class="lc-mascot" src="assets/img/offline/b4-mascot.webp" width="811" height="748" loading="lazy"
+         alt="FVA 캐릭터 마스코트 — FVA 로고 모자와 선글라스를 쓴 초록 몬스터">
+
+    <!-- ② 감독 프로필 (3402:164048) -->
+    <div class="lc-prof">
+      <img class="pf-photo" src="assets/img/offline/b4-prof-director.webp"
+           width="1795" height="3099" loading="lazy"
+           alt="정주 감독 — FVA 수업 현장에서 마이크를 들고 강의하는 모습">
+      <span class="pf-fade" aria-hidden="true"></span>
+      <h3 class="pf-h1"><span class="sr-only">DIRECTOR’S</span><svg class="tlab" aria-hidden="true" focusable="false" viewBox="0 0 3942.0 921.0"><g transform="scale(1.00000 1) translate(-45.0 904.0) scale(1 -1)" fill="currentColor"><path d="M45 -1H195L187 83H196C205 25 249 -1 305 -1C377 -1 439 56 439 157V653C439 755 380 821 269 821H45ZM253 128C237 127 206 132 190 138V692H245C272 692 294 667 294 641V178C294 144 280 129 253 128Z" transform="translate(0.0 -0.0)"/><path d="M50 -1H198V821H50Z" transform="translate(447.0 -0.0)"/><path d="M45 -1H190V336H239C274 335 301 334 301 275V140C301 89 301 53 307 -1H452C446 52 446 87 446 137V262C446 334 428 361 403 383C390 394 366 408 323 404V414C399 417 444 461 444 549V661C444 753 384 821 277 821H45ZM246 468H190V692H249C278 692 299 667 299 641V520C299 490 275 468 246 468Z" transform="translate(665.0 -0.0)"/><path d="M45 -1H402V128H190V360H382V489H190V692H394V821H45Z" transform="translate(1114.0 -0.0)"/><path d="M248 -17C374 -17 448 62 448 171V305H303V168C303 143 286 116 247 116C210 116 188 143 188 168V650C188 676 210 703 247 703C286 703 303 676 303 650V519H448V647C448 759 374 836 248 836C121 836 43 759 43 647V171C43 62 121 -17 248 -17Z" transform="translate(1514.0 -0.0)"/><path d="M172 -1H317V693H470V821H20V693H172Z" transform="translate(1975.0 -0.0)"/><path d="M248 -17C375 -17 453 62 453 171V647C453 759 375 836 248 836C121 836 43 759 43 647V171C43 62 121 -17 248 -17ZM248 116C211 116 188 143 188 168V650C188 676 211 703 248 703C285 703 308 676 308 650V168C308 143 285 116 248 116Z" transform="translate(2435.0 -0.0)"/><path d="M45 -1H190V336H239C274 335 301 334 301 275V140C301 89 301 53 307 -1H452C446 52 446 87 446 137V262C446 334 428 361 403 383C390 394 366 408 323 404V414C399 417 444 461 444 549V661C444 753 384 821 277 821H45ZM246 468H190V692H249C278 692 299 667 299 641V520C299 490 275 468 246 468Z" transform="translate(2901.0 -0.0)"/><path d="M30 633 91 571C158 619 189 701 189 798V904H43V728H87C84 694 67 659 30 633Z" transform="translate(3350.0 -0.0)"/><path d="M227 -17C349 -17 417 67 417 195C417 326 367 380 321 432L252 509C229 535 185 576 181 648C179 683 198 706 228 706C257 706 273 682 274 650C275 627 275 597 274 574H416C417 596 417 625 416 647C411 760 353 836 227 836C101 836 37 760 37 646C37 552 73 490 111 448L174 379C238 308 272 271 272 177C272 142 257 118 227 118C196 118 186 144 180 180C177 199 179 245 184 274H42C37 233 32 200 40 140C53 43 113 -17 227 -17Z" transform="translate(3570.0 -0.0)"/></g></svg></h3>
+      <p class="pf-h2"><span class="sr-only">PROFILE</span><svg class="tlab" aria-hidden="true" focusable="false" viewBox="0 0 2661.0 853.0"><g transform="scale(1.00000 1) translate(-45.0 836.0) scale(1 -1)" fill="currentColor"><path d="M45 -1H190V373H199C208 315 259 289 315 289C387 289 446 346 446 447V653C446 755 387 821 276 821H45ZM260 418C244 417 206 422 190 428V692H252C279 692 301 667 301 641V468C301 434 287 419 260 418Z" transform="translate(0.0 -0.0)"/><path d="M45 -1H190V336H239C274 335 301 334 301 275V140C301 89 301 53 307 -1H452C446 52 446 87 446 137V262C446 334 428 361 403 383C390 394 366 408 323 404V414C399 417 444 461 444 549V661C444 753 384 821 277 821H45ZM246 468H190V692H249C278 692 299 667 299 641V520C299 490 275 468 246 468Z" transform="translate(431.0 -0.0)"/><path d="M248 -17C375 -17 453 62 453 171V647C453 759 375 836 248 836C121 836 43 759 43 647V171C43 62 121 -17 248 -17ZM248 116C211 116 188 143 188 168V650C188 676 211 703 248 703C285 703 308 676 308 650V168C308 143 285 116 248 116Z" transform="translate(870.0 -0.0)"/><path d="M45 -1H190V360H381V489H190V692H393V821H45Z" transform="translate(1326.0 -0.0)"/><path d="M50 -1H198V821H50Z" transform="translate(1707.0 -0.0)"/><path d="M45 -1H414V128H192V821H45Z" transform="translate(1915.0 -0.0)"/><path d="M45 -1H402V128H190V360H382V489H190V692H394V821H45Z" transform="translate(2304.0 -0.0)"/></g></svg></p>
+      <p class="pf-name">정주 감독 <span>(MV, 커머셜 감독 &amp; 아트 디렉터)</span></p>
+      <p class="pf-now">현) BOWIE STUDIOS, FVA ACADEMY 대표</p>
+      <hr class="pf-rule">
+      <p class="pf-sub">주요 이력</p>
+      <ul class="pf-list">
+        <li>· BTS, 멜로망스 등 뮤직비디오 제작</li>
+        <li>· NCT, 스트레이키즈, 검정치마 뮤비 아트 디렉터</li>
+        <li>· 현대, 두산중공업 글로벌 광고 총괄 프로듀서</li>
+        <li>· 나이키, 카카오, 배달의민족 커머셜 비주얼디렉터</li>
+        <li>· 2020 아시아 뮤직어워드 후보 선정(4개 부문)</li>
+      </ul>
+    </div>
+
+    <!-- ③ 슈퍼바이저 프로필 (3402:164073) -->
+    <div class="lc-sup">
+      <img class="sv-photo" src="assets/img/offline/b4-prof-supervisor.webp"
+           width="1920" height="3099" loading="lazy"
+           alt="정주 감독 — 촬영 현장에서 모니터를 보며 연출하는 모습">
+      <span class="sv-fade" aria-hidden="true"></span>
+      <h3 class="sv-h1"><span class="sr-only">SUPERVISOR’S</span><svg class="tlab" aria-hidden="true" focusable="false" viewBox="0 0 4733.2 921.0"><g transform="scale(1.00000 1) translate(-35.8 904.0) scale(1 -1)" fill="currentColor"><path d="M227 -17C349 -17 417 67 417 195C417 326 367 380 321 432L252 509C229 535 185 576 181 648C179 683 198 706 228 706C257 706 273 682 274 650C275 627 275 597 274 574H416C417 596 417 625 416 647C411 760 353 836 227 836C101 836 37 760 37 646C37 552 73 490 111 448L174 379C238 308 272 271 272 177C272 142 257 118 227 118C196 118 186 144 180 180C177 199 179 245 184 274H42C37 233 32 200 40 140C53 43 113 -17 227 -17Z" transform="translate(0.0 -0.0)"/><path d="M243 -17C369 -17 438 62 438 171V821H293V168C293 143 281 116 242 116C205 116 188 143 188 168V821H43V171C43 62 116 -17 243 -17Z" transform="translate(422.0 -0.0)"/><path d="M45 -1H190V373H199C208 315 259 289 315 289C387 289 446 346 446 447V653C446 755 387 821 276 821H45ZM260 418C244 417 206 422 190 428V692H252C279 692 301 667 301 641V468C301 434 287 419 260 418Z" transform="translate(873.0 -0.0)"/><path d="M45 -1H402V128H190V360H382V489H190V692H394V821H45Z" transform="translate(1314.0 -0.0)"/><path d="M45 -1H190V336H239C274 335 301 334 301 275V140C301 89 301 53 307 -1H452C446 52 446 87 446 137V262C446 334 428 361 403 383C390 394 366 408 323 404V414C399 417 444 461 444 549V661C444 753 384 821 277 821H45ZM246 468H190V692H249C278 692 299 667 299 641V520C299 490 275 468 246 468Z" transform="translate(1714.0 -0.0)"/><path d="M137 -1H306L434 821H287L226 248H222L160 821H10Z" transform="translate(2163.0 -0.0)"/><path d="M50 -1H198V821H50Z" transform="translate(2577.0 -0.0)"/><path d="M227 -17C349 -17 417 67 417 195C417 326 367 380 321 432L252 509C229 535 185 576 181 648C179 683 198 706 228 706C257 706 273 682 274 650C275 627 275 597 274 574H416C417 596 417 625 416 647C411 760 353 836 227 836C101 836 37 760 37 646C37 552 73 490 111 448L174 379C238 308 272 271 272 177C272 142 257 118 227 118C196 118 186 144 180 180C177 199 179 245 184 274H42C37 233 32 200 40 140C53 43 113 -17 227 -17Z" transform="translate(2795.0 -0.0)"/><path d="M248 -17C375 -17 453 62 453 171V647C453 759 375 836 248 836C121 836 43 759 43 647V171C43 62 121 -17 248 -17ZM248 116C211 116 188 143 188 168V650C188 676 211 703 248 703C285 703 308 676 308 650V168C308 143 285 116 248 116Z" transform="translate(3217.0 -0.0)"/><path d="M45 -1H190V336H239C274 335 301 334 301 275V140C301 89 301 53 307 -1H452C446 52 446 87 446 137V262C446 334 428 361 403 383C390 394 366 408 323 404V414C399 417 444 461 444 549V661C444 753 384 821 277 821H45ZM246 468H190V692H249C278 692 299 667 299 641V520C299 490 275 468 246 468Z" transform="translate(3683.0 -0.0)"/><path d="M30 633 91 571C158 619 189 701 189 798V904H43V728H87C84 694 67 659 30 633Z" transform="translate(4132.0 -0.0)"/><path d="M227 -17C349 -17 417 67 417 195C417 326 367 380 321 432L252 509C229 535 185 576 181 648C179 683 198 706 228 706C257 706 273 682 274 650C275 627 275 597 274 574H416C417 596 417 625 416 647C411 760 353 836 227 836C101 836 37 760 37 646C37 552 73 490 111 448L174 379C238 308 272 271 272 177C272 142 257 118 227 118C196 118 186 144 180 180C177 199 179 245 184 274H42C37 233 32 200 40 140C53 43 113 -17 227 -17Z" transform="translate(4352.0 -0.0)"/></g></svg></h3>
+      <p class="sv-h2"><span class="sr-only">PROFILE</span><svg class="tlab" aria-hidden="true" focusable="false" viewBox="0 0 2661.0 853.0"><g transform="scale(1.00000 1) translate(-45.0 836.0) scale(1 -1)" fill="currentColor"><path d="M45 -1H190V373H199C208 315 259 289 315 289C387 289 446 346 446 447V653C446 755 387 821 276 821H45ZM260 418C244 417 206 422 190 428V692H252C279 692 301 667 301 641V468C301 434 287 419 260 418Z" transform="translate(0.0 -0.0)"/><path d="M45 -1H190V336H239C274 335 301 334 301 275V140C301 89 301 53 307 -1H452C446 52 446 87 446 137V262C446 334 428 361 403 383C390 394 366 408 323 404V414C399 417 444 461 444 549V661C444 753 384 821 277 821H45ZM246 468H190V692H249C278 692 299 667 299 641V520C299 490 275 468 246 468Z" transform="translate(431.0 -0.0)"/><path d="M248 -17C375 -17 453 62 453 171V647C453 759 375 836 248 836C121 836 43 759 43 647V171C43 62 121 -17 248 -17ZM248 116C211 116 188 143 188 168V650C188 676 211 703 248 703C285 703 308 676 308 650V168C308 143 285 116 248 116Z" transform="translate(870.0 -0.0)"/><path d="M45 -1H190V360H381V489H190V692H393V821H45Z" transform="translate(1326.0 -0.0)"/><path d="M50 -1H198V821H50Z" transform="translate(1707.0 -0.0)"/><path d="M45 -1H414V128H192V821H45Z" transform="translate(1915.0 -0.0)"/><path d="M45 -1H402V128H190V360H382V489H190V692H394V821H45Z" transform="translate(2304.0 -0.0)"/></g></svg></p>
+      <p class="sv-name">정주 감독 <span>(MV, 커머셜 감독 &amp; 아트 디렉터)</span></p>
+      <p class="sv-now">현) BOWIE STUDIOS, FVA ACADEMY 대표</p>
+      <hr class="sv-rule">
+      <p class="sv-sub">주요 이력</p>
+      <ul class="sv-list">
+        <li>· 29초영화제, BCU 초청 연사</li>
+        <li>· TED x 한양 강연, 신한은행 커리어업 담당 강사</li>
+        <li>· Class 101 온라인 클래스 강사</li>
+        <li>· 삼성 디자인 멤버십, 대우건설 유튜브 채널 멘토링</li>
+        <li>· 계원예술대, 서울문화예대, 원광대 등 특별 강연</li>
+      </ul>
+    </div>
+
+    <!-- ④ 언론 보도 (3402:164101) — 기사 캡처 콜라주 -->
+    <div class="lc-press">
+      <h3 class="sr-only">FVA 아카데미 언론 보도</h3>
+      <ul class="sr-only">
+        <li>“29초영화제 새바람” 피바아카데미 수강생들 공모전 연속 수상… 숏폼 선도 (2025-10-01)</li>
+        <li>피바아카데미, 에스엘알렌트와 함께하는 실전 워크숍… 현장 중심 영상교육의 새 지표 (이코노미 IT)</li>
+        <li>케이팝·글로벌 광고를 아우른 정주 감독, ‘영상 기획학원’ 피바아카데미 설립 (중앙SUNDAY)</li>
+      </ul>
+      <img src="assets/img/offline/b4-press.webp" width="2880" height="3885" loading="lazy"
+           alt="피바아카데미 언론 보도 기사 화면 3건 — 29초영화제 수강생 연속 수상, 에스엘알렌트 실전 워크숍, 정주 감독의 영상 기획학원 설립">
+    </div>
+
+  </section>
+
+
+  <!-- ══ 블록 5 : 감독 성장 스토리 (3402:181971 y31088.3 1920x24520.2) ══
+       스토리 구간(0~7300) — 사진 밴드 + 실제 텍스트.
+       나머지 구간(커리큘럼 표·수강권·혜택)은 이어서 채운다. -->
+  <section class="off-story" aria-labelledby="off-story-h">
+    <h2 id="off-story-h" class="sr-only">정주 감독이 걸어온 길</h2>
+    <span class="story-dim" aria-hidden="true"></span>
+
+    <span class="sb sb1"><img src="assets/img/offline/b5-story1.webp" width="1920" height="1474"
+      loading="lazy" alt="카메라 뷰파인더 너머로 촬영을 준비하는 모습"></span>
+    <p class="st st1">그저 영상을 보는 것을<br>좋아했던 평범한 대학생이</p>
+
+    <span class="sb sb2"><img src="assets/img/offline/b5-story2.webp" width="1920" height="1329"
+      loading="lazy" alt="야외 촬영 현장에서 장비를 나르는 스태프들"></span>
+    <p class="st st2"><em>비전공자</em> 출신으로<br>촬영 현장 아르바이트부터 시작해서</p>
+
+    <span class="sb sb3"><img src="assets/img/offline/b5-story3.webp" width="1920" height="1320"
+      loading="lazy" alt="스튜디오에서 붐 마이크와 조명을 세팅하는 촬영 현장"></span>
+    <p class="st st3">대기업 글로벌 광고,<br>뮤직비디오, 커머셜 감독 겸 아트 디렉터로<br><em>해외진출</em>에 성공하기까지-</p>
+
+    <span class="sb sb4"><img src="assets/img/offline/b5-story4.webp" width="1920" height="1907"
+      loading="lazy" alt="여러 촬영 현장을 겹쳐놓은 이미지"></span>
+    <p class="st st4">현업에서 10년동안, 한가지가 아닌<br><em>다양한 장르, 포지션, 컨텐츠를 경험하며</em></p>
+    <div class="radar">
+      <ul class="sr-only">
+        <li>아트/비주얼 디렉터</li><li>조감독</li><li>촬영/조명</li>
+        <li>코디네이터</li><li>의상감독</li><li>프로듀서</li>
+      </ul>
+      <img src="assets/img/offline/b5-radar.webp" width="3222" height="2412" loading="lazy"
+           alt="정주 감독이 경험한 포지션 육각형 도표 — 아트/비주얼 디렉터, 조감독, 촬영/조명, 코디네이터, 의상감독, 프로듀서">
+    </div>
+
+    <span class="sb sb5">
+      <img class="l" src="assets/img/offline/b5-story5l.webp" width="1059" height="728"
+           loading="lazy" alt="촬영 현장에서 장비를 다루는 스태프">
+      <img class="r" src="assets/img/offline/b5-story5r.webp" width="894" height="701"
+           loading="lazy" alt="야간 촬영 현장의 조명 세팅">
+    </span>
+    <p class="st st5">현장에서 구르고 굴러서 쌓은 노하우를</p>
+
+    <span class="sb sb6">
+      <img class="l" src="assets/img/offline/b5-story6l.webp" width="950" height="579"
+           loading="lazy" alt="FVA 수업 현장">
+      <img class="r" src="assets/img/offline/b5-story6r.webp" width="974" height="579"
+           loading="lazy" alt="FVA 워크샵 현장">
+    </span>
+    <p class="st st6">모두 알려드립니다.</p>
+
+    <!-- 커리큘럼 표 (블록5 y7626~10254) -->
+    <h3 class="cur-h"><span class="sr-only">FVA CURRICULUM</span><svg class="tlab" aria-hidden="true" focusable="false" viewBox="0 0 5713.0 853.0"><g transform="scale(1.00000 1) translate(-45.0 836.0) scale(1 -1)" fill="currentColor"><path d="M45 -1H190V360H381V489H190V692H393V821H45Z" transform="translate(0.0 -0.0)"/><path d="M137 -1H306L434 821H287L226 248H222L160 821H10Z" transform="translate(391.0 -0.0)"/><path d="M18 -1H167L188 205H283L304 -1H453L330 821H141ZM201 334 229 606H242L270 334Z" transform="translate(785.0 -0.0)"/><path d="M248 -17C374 -17 448 62 448 171V305H303V168C303 143 286 116 247 116C210 116 188 143 188 168V650C188 676 210 703 247 703C286 703 303 676 303 650V519H448V647C448 759 374 836 248 836C121 836 43 759 43 647V171C43 62 121 -17 248 -17Z" transform="translate(1396.0 -0.0)"/><path d="M243 -17C369 -17 438 62 438 171V821H293V168C293 143 281 116 242 116C205 116 188 143 188 168V821H43V171C43 62 116 -17 243 -17Z" transform="translate(1857.0 -0.0)"/><path d="M45 -1H190V336H239C274 335 301 334 301 275V140C301 89 301 53 307 -1H452C446 52 446 87 446 137V262C446 334 428 361 403 383C390 394 366 408 323 404V414C399 417 444 461 444 549V661C444 753 384 821 277 821H45ZM246 468H190V692H249C278 692 299 667 299 641V520C299 490 275 468 246 468Z" transform="translate(2308.0 -0.0)"/><path d="M45 -1H190V336H239C274 335 301 334 301 275V140C301 89 301 53 307 -1H452C446 52 446 87 446 137V262C446 334 428 361 403 383C390 394 366 408 323 404V414C399 417 444 461 444 549V661C444 753 384 821 277 821H45ZM246 468H190V692H249C278 692 299 667 299 641V520C299 490 275 468 246 468Z" transform="translate(2757.0 -0.0)"/><path d="M50 -1H198V821H50Z" transform="translate(3206.0 -0.0)"/><path d="M248 -17C374 -17 448 62 448 171V305H303V168C303 143 286 116 247 116C210 116 188 143 188 168V650C188 676 210 703 247 703C286 703 303 676 303 650V519H448V647C448 759 374 836 248 836C121 836 43 759 43 647V171C43 62 121 -17 248 -17Z" transform="translate(3424.0 -0.0)"/><path d="M243 -17C369 -17 438 62 438 171V821H293V168C293 143 281 116 242 116C205 116 188 143 188 168V821H43V171C43 62 116 -17 243 -17Z" transform="translate(3885.0 -0.0)"/><path d="M45 -1H414V128H192V821H45Z" transform="translate(4336.0 -0.0)"/><path d="M243 -17C369 -17 438 62 438 171V821H293V168C293 143 281 116 242 116C205 116 188 143 188 168V821H43V171C43 62 116 -17 243 -17Z" transform="translate(4735.0 -0.0)"/><path d="M45 -1H182V495H189L277 -1H341L429 495H435V-1H572V821H391L318 380H314L242 821H45Z" transform="translate(5186.0 -0.0)"/></g></svg></h3>
+    <p class="cur-note">기본적인 커리큘럼이며 개인별 수강 목적에 따라 유동적으로 변경 가능합니다!</p>
+    <span class="cur-head" aria-hidden="true"><svg aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" style="display: block;" viewBox="0 0 1728.09 254" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="Vector" d="M864.045 113.934H173.715L123.505 0H31.4791C14.0874 0 0 20.5548 0 45.9248V254H1728.09V113.934H864.045Z" fill="white"/>
+</svg>
+</span>
+    <div class="cur-table">
+      <span class="cbar" style="top:calc(8689.1/24520.2 * 100%)"></span>
+      <span class="cbar" style="top:calc(9305.3/24520.2 * 100%)"></span>
+      <span class="cbar wide" style="top:calc(9934.9/24520.2 * 100%)"></span>
+      <span class="cdash" aria-hidden="true"></span>
+      <span class="ch" style="left:calc(128.0/1920 * 100%);top:calc(8100.1/24520.2 * 100%)">주차</span>
+      <span class="ch" style="left:calc(844.3/1920 * 100%);top:calc(8100.1/24520.2 * 100%)">학습 주제</span>
+      <span class="ch" style="left:calc(1632.1/1920 * 100%);top:calc(8100.1/24520.2 * 100%)">수강권</span>
+      <span class="cn" style="left:calc(164.4/1920 * 100%);top:calc(8253.5/24520.2 * 100%)">1</span>
+      <span class="ct" style="top:calc(8257.0/24520.2 * 100%)">영상 제작의 기본과 감독, 기획자가 되는 법</span>
+      <span class="cn" style="left:calc(163.7/1920 * 100%);top:calc(8360.1/24520.2 * 100%)">2</span>
+      <span class="ct" style="top:calc(8363.7/24520.2 * 100%)">연출의 기본과 때깔 좋아지는 시나리오</span>
+      <span class="cn" style="left:calc(163.6/1920 * 100%);top:calc(8466.8/24520.2 * 100%)">3</span>
+      <span class="ct" style="top:calc(8470.4/24520.2 * 100%)">레퍼런스를 이용한 콘티, 스토리보드 &amp; 데모 비디오</span>
+      <span class="cn" style="left:calc(161.3/1920 * 100%);top:calc(8573.5/24520.2 * 100%)">4</span>
+      <span class="ct" style="top:calc(8577.1/24520.2 * 100%)">실제 촬영현장 준비</span>
+      <span class="cn con" style="left:calc(165.2/1920 * 100%);top:calc(8715.9/24520.2 * 100%)">5</span>
+      <span class="ct con" style="top:calc(8722.6/24520.2 * 100%)">AI로 스토리보드 &amp; 데모 비디오 만들어보기</span>
+      <span class="cn" style="left:calc(163.0/1920 * 100%);top:calc(8867.7/24520.2 * 100%)">6</span>
+      <span class="ct" style="top:calc(8873.3/24520.2 * 100%)">진짜 현실판 프리프로덕션 시작</span>
+      <span class="cn" style="left:calc(163.0/1920 * 100%);top:calc(8974.9/24520.2 * 100%)">7</span>
+      <span class="ct" style="top:calc(8979.9/24520.2 * 100%)">미장센을 활용해서 주제를 명확히 하는 법</span>
+      <span class="cn" style="left:calc(163.0/1920 * 100%);top:calc(9082.0/24520.2 * 100%)">8</span>
+      <span class="ct" style="top:calc(9086.6/24520.2 * 100%)">촬영에 들어가기 전 꼭 지켜야 할 때깔 좋아지는 디테일</span>
+      <span class="cn" style="left:calc(163.0/1920 * 100%);top:calc(9189.2/24520.2 * 100%)">9</span>
+      <span class="ct" style="top:calc(9193.3/24520.2 * 100%)">촬영을 할 결심</span>
+      <span class="cn con" style="left:calc(154.0/1920 * 100%);top:calc(9329.9/24520.2 * 100%)">10</span>
+      <span class="ct con" style="top:calc(9336.6/24520.2 * 100%)">AI로 실사 &amp; 애니메이션 영상 만들어보기</span>
+      <span class="cn" style="left:calc(149.6/1920 * 100%);top:calc(9481.7/24520.2 * 100%)">11</span>
+      <span class="ct" style="top:calc(9492.2/24520.2 * 100%)">기획, 연출자가 놓치지 말아야 할 100가지</span>
+      <span class="cn" style="left:calc(147.3/1920 * 100%);top:calc(9588.9/24520.2 * 100%)">12</span>
+      <span class="ct" style="top:calc(9598.2/24520.2 * 100%)">어디서도 알려주지 않는 영상업계에 대한 현실적 이해</span>
+      <span class="cn" style="left:calc(151.8/1920 * 100%);top:calc(9694.0/24520.2 * 100%)">13</span>
+      <span class="ct" style="top:calc(9704.9/24520.2 * 100%)">현업에서 선호하는 포트폴리오 &amp; 이력서 제작 방법</span>
+      <span class="cn" style="left:calc(149.6/1920 * 100%);top:calc(9801.5/24520.2 * 100%)">14</span>
+      <span class="ct" style="top:calc(9811.6/24520.2 * 100%)">과제 발표 &amp; 포트폴리오 완성</span>
+      <span class="cn con" style="left:calc(149.6/1920 * 100%);top:calc(9960.3/24520.2 * 100%)">15</span>
+      <span class="ct con" style="top:calc(9967.4/24520.2 * 100%)">촬영 워크샵, 네트워킹 파티 (각 1회)</span>
+      <span class="cpk" style="top:calc(8412.3/24520.2 * 100%)">1개월</span>
+      <span class="cpk" style="top:calc(8925.8/24520.2 * 100%)">2개월<small>(+추가 1회차)</small></span>
+      <span class="cpk" style="top:calc(9588.8/24520.2 * 100%)">3개월</span>
+    </div>
+    <p class="cfoot">• 촬영 워크샵, 네트워킹 파티는 수강 1개월 이후 별도로<br>주말(일요일)에 진행됩니다. 날짜는 사전 공지됩니다.</p>
+
+    <!-- 골라 듣는 수강권 (블록5 y10380~13670) -->
+    <h3 class="pz-title"><span class="sr-only">골라 듣는 수강권</span>
+      <img src="assets/img/offline/b5-pass-title.webp" width="1840" height="818" loading="lazy" alt=""></h3>
+    <span class="pz-arc" aria-hidden="true"><img src="assets/img/offline/b5-pass-arc.webp" width="550" height="170" loading="lazy" alt=""></span>
+
+    <span class="pz-blob pz-b1"><img src="assets/img/offline/b5-pass1.webp" width="1390" height="1749" loading="lazy" alt=""></span>
+    <span class="pz-blob pz-b2"><img src="assets/img/offline/b5-pass2.webp" width="1388" height="1751" loading="lazy" alt=""></span>
+    <span class="pz-blob pz-b3"><img src="assets/img/offline/b5-pass3.webp" width="1389" height="1750" loading="lazy" alt=""></span>
+    <span class="pz-char" aria-hidden="true"><img src="assets/img/offline/b5-pass-char.webp" width="296" height="156" loading="lazy" alt=""></span>
+
+    <p class="pz-n" style="left:calc(180.3/1920 * 100%);top:calc(12169.2/24520.2 * 100%);z-index:6">1개월</p>
+    <p class="pz-s" style="left:calc(237.1/1920 * 100%);top:calc(12412.1/24520.2 * 100%);z-index:6">수강권</p>
+    <p class="pz-n" style="left:calc(712.7/1920 * 100%);top:calc(11890.9/24520.2 * 100%);z-index:6">2개월</p>
+    <p class="pz-s" style="left:calc(767.5/1920 * 100%);top:calc(12126.2/24520.2 * 100%);z-index:6">수강권</p>
+    <p class="pz-n" style="left:calc(1251.4/1920 * 100%);top:calc(11595.7/24520.2 * 100%);z-index:6">3개월</p>
+    <p class="pz-s" style="left:calc(1240.1/1920 * 100%);top:calc(11831.3/24520.2 * 100%);z-index:6">풀코스 수강권</p>
+
+    <p class="pz-bt" style="left:calc(727.8/1920 * 100%);top:calc(11205.2/24520.2 * 100%)">2개월권 혜택</p>
+    <p class="pz-pill" style="left:calc(593.9/1920 * 100%);top:calc(11332.5/24520.2 * 100%);width:calc(571.5/1920 * 100%);height:calc(160.7/24520.2 * 100%)">+추가 1회차</p>
+
+    <p class="pz-bt" style="left:calc(1337.3/1920 * 100%);top:calc(12448.7/24520.2 * 100%)">3개월권 혜택</p>
+    <p class="pz-pill" style="left:calc(1277.0/1920 * 100%);top:calc(12580.5/24520.2 * 100%);width:calc(540.3/1920 * 100%);height:calc(160.7/24520.2 * 100%)">작품 촬영시<br>감독님 현장 코칭</p>
+    <p class="pz-pill" style="left:calc(1277.0/1920 * 100%);top:calc(12797.0/24520.2 * 100%);width:calc(540.3/1920 * 100%);height:calc(160.7/24520.2 * 100%)">수강 종료 후에도<br>작품 피드백(3회)</p>
+    <p class="pz-pill" style="left:calc(1277.0/1920 * 100%);top:calc(13013.6/24520.2 * 100%);width:calc(540.3/1920 * 100%);height:calc(160.7/24520.2 * 100%)">촬영&amp;조명 워크샵,<br>네트워킹 파티 참여</p>
+
+    <p class="pz-tag" style="left:calc(103.3/1920 * 100%);top:calc(12629.4/24520.2 * 100%);transform:rotate(-5deg)">맛보기용 클래스</p>
+    <p class="pz-tag" style="left:calc(782.4/1920 * 100%);top:calc(12409.9/24520.2 * 100%);transform:rotate(-4deg)">이론은 마스터!</p>
+    <p class="pz-tag" style="left:calc(1414.9/1920 * 100%);top:calc(11958/24520.2 * 100%);transform:rotate(-4deg)">현장까지 나가보고</p>
+    <p class="pz-tag" style="left:calc(1176.6/1920 * 100%);top:calc(12087.7/24520.2 * 100%);transform:rotate(-4deg)">감독님과 진로상담 찬스까지~</p>
+
+    <p class="pz-q" style="left:calc(102.3/1920 * 100%);top:calc(13282.0/24520.2 * 100%)">긴</p>
+    <span class="pz-line" aria-hidden="true"></span>
+    <p class="pz-q" style="left:calc(975.2/1920 * 100%);top:calc(13282.0/24520.2 * 100%)">커리큘럼이 부담스러우셨다면?</p>
+    <h3 class="pz-parts"><span class="sr-only">원하는 파트만 수강하세요!</span>
+      <img src="assets/img/offline/b5-parts-title.webp" width="1750" height="270" loading="lazy" alt=""></h3>
+
+    <!-- 포트폴리오 카드 + 클래스 특징 (블록5 y14125~17050) -->
+    <span class="pf-card" aria-hidden="true"></span>
+    <span class="pf-img"><img src="assets/img/offline/b5-portfolio.webp" width="1136" height="1173"
+      loading="lazy" alt="FVA 수강생이 12회차 과정에서 완성한 포트폴리오 작품 모음"></span>
+    <p class="pf-txt">12회차 과정 수료 후, 기획부터 탄탄한<br><em>완성도 높은 포트폴리오 작품</em>을 얻어가실 수 있습니다.</p>
+    <p class="pf-note">*12회차 과정동안 최대 작품 3개까지 진행한 팀도 있었어요!</p>
+    <p class="cf-t">클래스 특징</p>
+    <h3 class="rc-h"><span class="sr-only">이런 분들에게 추천드려요!</span><svg class="tlab" aria-hidden="true" focusable="false" viewBox="0 0 6767.0 930.0"><g transform="scale(1.00000 1) translate(-34.0 883.0) scale(1 -1)" fill="currentColor"><path d="M189 -8C280 -8 344 47 344 143V706C344 802 280 857 189 857C98 857 34 802 34 706V143C34 47 98 -8 189 -8ZM189 118C173 118 165 132 165 182V667C165 717 173 730 189 730C206 730 214 717 214 667V182C214 132 206 118 189 118ZM385 -42H519V862H385Z" transform="translate(0.0 -0.0)"/><path d="M383 189H517V862H383V665H328V538H383V463C356 439 266 429 222 429H158V521H302V855H24V730H168V643H24V304H233C318 304 362 338 371 395H383ZM63 -43H528V87H200V244H63Z" transform="translate(560.5 -0.0)"/><path d="M42 487H518V857H388V779H276C235 779 203 776 179 725H172V857H42ZM44 -43H530V86H181V232H44ZM231 159H368V310H540V437H20V310H231ZM172 608V644C179 658 199 664 212 664H388V608Z" transform="translate(1321.6 -0.0)"/><path d="M41 -47H530V74H176V103H518V362H42V243H383V217H41ZM20 397H540V521H20ZM50 558H512V677H184V741H507V859H50Z" transform="translate(1882.2 -0.0)"/><path d="M287 -26H402V862H287V508H266V700C266 796 232 851 141 851C50 851 17 796 17 700V157C17 61 50 6 141 6C232 6 266 61 266 157V393H287ZM141 127C127 127 129 151 129 186V672C129 707 127 729 141 729C156 729 154 707 154 672V186C154 151 156 127 141 127ZM418 -41H535V862H418Z" transform="translate(2442.7 -0.0)"/><path d="M276 -26H393V862H276V526H247C250 573 252 618 252 662V850H21V732H128V662C128 443 98 233 -3 68L104 0C175 111 215 261 236 413H276ZM411 -41H530V862H411Z" transform="translate(3003.2 -0.0)"/><path d="M31 476 99 363C161 393 232 430 292 473C338 476 391 438 464 375L554 487C515 519 476 543 448 550C423 556 399 551 364 519L359 529C441 609 488 707 488 772V797H324V803C356 806 378 825 378 855V883H219C219 849 224 804 192 797H60V675H313C238 586 139 525 31 476ZM212 -47H348V214H540V339H20V214H212Z" transform="translate(3764.3 -0.0)"/><path d="M228 301 356 309C356 429 357 512 314 529C289 539 274 532 249 501L244 505C287 590 316 684 316 777V798H214V804C243 808 254 821 254 840V879H114C114 858 122 806 87 798H24V678H174C142 560 77 467 -2 389L102 302C138 341 174 387 206 437C232 438 227 357 228 301ZM69 -43H528V87H206V261H69ZM382 193H516V862H382V669H324V542H382Z" transform="translate(4324.9 -0.0)"/><path d="M61 263H500V391H196V724H495V850H61ZM20 -22H540V106H20Z" transform="translate(4885.4 -0.0)"/><path d="M383 -41H518V862H383V657H328V530H383V398H328V271H383V160C356 137 287 126 244 126H171V367H298V851H36V724H164V494H36V0H234C320 0 364 33 373 91H383Z" transform="translate(5445.9 -0.0)"/><path d="M277 276C409 276 488 352 488 458V683C488 790 409 865 277 865C145 865 66 790 66 683V458C66 352 145 276 277 276ZM20 -27H540V101H459V258H322V101H242V258H106V101H20ZM277 403C230 403 200 431 200 492V650C200 710 230 738 277 738C324 738 353 710 353 650V492C353 431 324 403 277 403Z" transform="translate(6006.5 -0.0)"/><path d="M92 197H210L234 862H68ZM77 -34H225V134H77Z" transform="translate(6567.0 -0.0)"/></g></svg></h3>
+
+    <span class="rc-m" style="left:calc(120/1920 * 100%);top:calc(17160/24520.2 * 100%);width:calc(405/1920 * 100%);height:calc(615/24520.2 * 100%)" aria-hidden="true"><img src="assets/img/offline/b5-rec1.webp" width="405" height="615" loading="lazy" alt=""></span>
+    <p class="rc-q" style="left:calc(578.5/1920 * 100%);top:calc(17352.2/24520.2 * 100%)">영상 업계에 관심은 있지만..<br>잘 맞는지 모르겠어요!</p>
+    <p class="rc-d" style="left:calc(580.8/1920 * 100%);top:calc(17617.8/24520.2 * 100%)">원하는 기간만큼 수강가능한 ‘개월별 수강권’을 통해<br>적은 부담으로 가볍게 영상 연출에 대해 알아갈 수 있어요!</p>
+    <span class="rc-m" style="left:calc(1383/1920 * 100%);top:calc(17835/24520.2 * 100%);width:calc(440/1920 * 100%);height:calc(660/24520.2 * 100%)" aria-hidden="true"><img src="assets/img/offline/b5-rec2.webp" width="440" height="660" loading="lazy" alt=""></span>
+    <p class="rc-q" style="left:calc(311.3/1920 * 100%);top:calc(18061.0/24520.2 * 100%)">1대 1 코칭으로 제대로 된<br>포폴 작품을 만들고 싶어요.</p>
+    <p class="rc-d" style="left:calc(69.2/1920 * 100%);top:calc(18324.8/24520.2 * 100%)">그동안 물어볼 선배나 팀원 없이 혼자 작업했었는데... 이제 감독님의<br>집중 피드백을 통해 프로급 영상 포트폴리오를 완성하고 싶어요!</p>
+    <span class="rc-m" style="left:calc(65/1920 * 100%);top:calc(18665/24520.2 * 100%);width:calc(491/1920 * 100%);height:calc(515/24520.2 * 100%)" aria-hidden="true"><img src="assets/img/offline/b5-rec3.webp" width="491" height="515" loading="lazy" alt=""></span>
+    <p class="rc-q" style="left:calc(589.7/1920 * 100%);top:calc(18769.4/24520.2 * 100%)">빠르게 실무 투입 가능한<br>기획력이 ‘당장’ 필요해요.</p>
+    <p class="rc-d" style="left:calc(562.6/1920 * 100%);top:calc(19034.8/24520.2 * 100%)">갑자기 처음 해보는 영상 기획 업무를 맡게 되었거나,<br>업체 외주 없이 사내에서 자체적으로 영상을 제작하고 싶어요!</p>
+    <span class="rc-m" style="left:calc(1378/1920 * 100%);top:calc(19390/24520.2 * 100%);width:calc(410/1920 * 100%);height:calc(510/24520.2 * 100%)" aria-hidden="true"><img src="assets/img/offline/b5-rec4.webp" width="410" height="510" loading="lazy" alt=""></span>
+    <p class="rc-q" style="left:calc(498.6/1920 * 100%);top:calc(19478.5/24520.2 * 100%)">영상 툴, 편집 위주의<br>공장식 수업은 싫어요.</p>
+    <p class="rc-d" style="left:calc(553.7/1920 * 100%);top:calc(19744.7/24520.2 * 100%)">소수 정예 강의로서 영상을 좋아하는 친구들과<br>자유롭고 심도깊게 대화하며 공부해요!</p>
+    <span class="rc-m" style="left:calc(95/1920 * 100%);top:calc(20020/24520.2 * 100%);width:calc(445/1920 * 100%);height:calc(605/24520.2 * 100%)" aria-hidden="true"><img src="assets/img/offline/b5-rec5.webp" width="445" height="605" loading="lazy" alt=""></span>
+    <p class="rc-q" style="left:calc(577.8/1920 * 100%);top:calc(20190.9/24520.2 * 100%)">영상업을 하는데<br>기본기가 부족한것 같아요.</p>
+    <p class="rc-d" style="left:calc(593.0/1920 * 100%);top:calc(20456.9/24520.2 * 100%)">실제 수강생 중에는 촬영기사님, 크리에이터, 그리고 대기업<br>영상팀에서 근무중이셨지만 기본기를 다지러 오신 분도 있어요!</p>
+
+    <!-- FVA만의 특별한 혜택 6장 (블록5 y21012~24305) -->
+    <p class="bn-lead">수강생 모두에게 드리는</p>
+    <h3 class="bn-h"><span class="sr-only">FVA만의 특별한 혜택</span><svg class="tlab" aria-hidden="true" focusable="false" viewBox="0 0 5578.3 927.0"><g transform="scale(1.00000 1) translate(-45.0 879.0) scale(1 -1)" fill="currentColor"><path d="M45 -1H190V360H381V489H190V692H393V821H45Z" transform="translate(0.0 -0.0)"/><path d="M137 -1H306L434 821H287L226 248H222L160 821H10Z" transform="translate(422.2 -0.0)"/><path d="M18 -1H167L188 205H283L304 -1H453L330 821H141ZM201 334 229 606H242L270 334Z" transform="translate(847.4 -0.0)"/><path d="M23 333H325V754C325 805 301 856 245 858C207 859 175 846 157 772L145 775L153 855H23ZM54 -43H509V87H190V271H54ZM153 457V707C157 720 165 726 174 725C191 724 194 713 194 698V457ZM365 204H499V474H561V601H499V862H365Z" transform="translate(1319.6 -0.0)"/><path d="M383 -42H518V862H383V147C361 128 314 113 275 113H21V-16H246C334 -16 366 20 375 78H383ZM188 252C279 252 344 307 344 403V714C344 810 279 865 188 865C97 865 32 810 32 714V403C32 307 97 252 188 252ZM188 373C161 373 161 397 161 442V675C161 720 161 744 188 744C215 744 215 720 215 675V442C215 397 215 373 188 373Z" transform="translate(1880.8 -0.0)"/><path d="M46 453H518V570H181V599H508V714H181V739H513V856H46ZM380 -48H514V257H46V134H380ZM20 295H540V415H20Z" transform="translate(2643.3 -0.0)"/><path d="M383 378H517V862H383V780H327V859H197V727H148V859H18V491C18 440 42 389 98 387C136 386 175 399 193 473L205 470L197 390H327V471H383ZM54 -47H527V74H189V99H515V352H55V233H380V213H54ZM169 520C152 521 148 532 148 547V615H197V538C193 525 182 519 169 520ZM327 594V657H383V594Z" transform="translate(3204.5 -0.0)"/><path d="M365 183H499V454H561V580H499V862H365ZM52 -43H510V86H188V240H52ZM177 276C268 276 330 326 330 422V506C330 602 268 652 177 652C86 652 24 602 24 506V422C24 326 86 276 177 276ZM177 391C156 391 153 410 153 430V500C153 520 156 539 177 539C197 539 200 520 200 500V430C200 410 197 391 177 391ZM12 669H341V792H228V799C257 803 268 816 268 835V879H123C123 851 132 792 86 792H12Z" transform="translate(3765.7 -0.0)"/><path d="M291 -26H406V862H291V502H265C261 587 226 636 141 636C50 636 16 581 16 485V172C16 76 50 21 141 21C232 21 265 76 265 172V176H291ZM141 127C126 127 128 151 128 186V472C128 507 126 529 141 529C155 529 153 507 153 472V186C153 151 155 127 141 127ZM265 286V392H291V286ZM421 -41H538V862H421ZM6 651H275V776H169V782C201 785 229 799 229 828V868H88C88 840 96 784 60 776H6Z" transform="translate(4528.1 -0.0)"/><path d="M281 322H396V532H417V322H534V862H417V644H396V862H281V493C254 469 194 459 170 459H142V545H240V658H142V738H249V854H20V334H131C216 334 260 368 269 425H281ZM400 -48H534V296H48V173H400Z" transform="translate(5089.3 -0.0)"/></g></svg></h3>
+    <span class="bn" style="left:calc(125.0/1920 * 100%);top:calc(21564.3/24520.2 * 100%)" aria-hidden="true"></span>
+    <span class="bn-pill" style="left:calc(154.0/1920 * 100%);top:calc(21555/24520.2 * 100%);height:calc(175/24520.2 * 100%)" aria-hidden="true"></span>
+    <p class="bn-n" style="left:calc(209.9/1920 * 100%);top:calc(21608.9/24520.2 * 100%)">01</p>
+    <p class="bn-t" style="left:calc(319.3/1920 * 100%);top:calc(21611.6/24520.2 * 100%)">다양한 레벨과 협업 가능</p>
+    <span class="bn-i" style="left:calc(295.7/1920 * 100%);top:calc(21736/24520.2 * 100%);width:calc(425.5/1920 * 100%);height:calc(438/24520.2 * 100%)"><img src="assets/img/offline/b5-bn1.webp" width="425" height="438" loading="lazy" alt=""></span>
+    <p class="bn-d" style="left:calc(154.0/1920 * 100%);top:calc(22180.5/24520.2 * 100%);width:calc(750.1/1920 * 100%)">영상, 더 이상 혼자 하지 마세요! 동료 수강생 혹은 타 기수와 협업이 가능하며<br>다양한 레벨의 팀원과 함께 작품을 만들어볼 수 있어요!</p>
+    <span class="bn" style="left:calc(1000.2/1920 * 100%);top:calc(21564.3/24520.2 * 100%)" aria-hidden="true"></span>
+    <span class="bn-pill" style="left:calc(1029.2/1920 * 100%);top:calc(21555/24520.2 * 100%);height:calc(175/24520.2 * 100%)" aria-hidden="true"></span>
+    <p class="bn-n" style="left:calc(1085.0/1920 * 100%);top:calc(21608.9/24520.2 * 100%)">02</p>
+    <p class="bn-t" style="left:calc(1194.4/1920 * 100%);top:calc(21611.6/24520.2 * 100%)">장비 렌탈샵 20% 할인</p>
+    <span class="bn-i" style="left:calc(1087.3/1920 * 100%);top:calc(21736/24520.2 * 100%);width:calc(587.2/1920 * 100%);height:calc(438/24520.2 * 100%)"><img src="assets/img/offline/b5-bn2.webp" width="587" height="438" loading="lazy" alt=""></span>
+    <p class="bn-d" style="left:calc(1029.2/1920 * 100%);top:calc(22180.5/24520.2 * 100%);width:calc(750.1/1920 * 100%)">안그래도 비싼 촬영 장비, FVA 아카데미 제휴 업체(캠즈 렌탈) 할인으로<br>촬영 비용 부담을 덜어내세요! (camzrental.co.kr)</p>
+    <span class="bn" style="left:calc(125.0/1920 * 100%);top:calc(22517.6/24520.2 * 100%)" aria-hidden="true"></span>
+    <span class="bn-pill" style="left:calc(154.0/1920 * 100%);top:calc(22509/24520.2 * 100%);height:calc(175/24520.2 * 100%)" aria-hidden="true"></span>
+    <p class="bn-n" style="left:calc(209.9/1920 * 100%);top:calc(22562.2/24520.2 * 100%)">03</p>
+    <p class="bn-t" style="left:calc(319.3/1920 * 100%);top:calc(22564.9/24520.2 * 100%)">무.제.한. 온라인 피드백</p>
+    <span class="bn-i" style="left:calc(276.8/1920 * 100%);top:calc(22690/24520.2 * 100%);width:calc(520.2/1920 * 100%);height:calc(437/24520.2 * 100%)"><img src="assets/img/offline/b5-bn3.webp" width="520" height="437" loading="lazy" alt=""></span>
+    <p class="bn-d" style="left:calc(154.0/1920 * 100%);top:calc(23133.8/24520.2 * 100%);width:calc(750.1/1920 * 100%)">수강 도중에는 무제한 피드백, 수강 종료 후에는 기한 없이<br>3회 작품 피드백을 받으실 수 있어요!</p>
+    <span class="bn" style="left:calc(1000.2/1920 * 100%);top:calc(22517.6/24520.2 * 100%)" aria-hidden="true"></span>
+    <span class="bn-pill" style="left:calc(1029.2/1920 * 100%);top:calc(22509/24520.2 * 100%);height:calc(175/24520.2 * 100%)" aria-hidden="true"></span>
+    <p class="bn-n" style="left:calc(1085.0/1920 * 100%);top:calc(22562.2/24520.2 * 100%)">04</p>
+    <p class="bn-t" style="left:calc(1194.4/1920 * 100%);top:calc(22564.9/24520.2 * 100%)">촬영시 감독님 현장 코칭</p>
+    <span class="bn-i" style="left:calc(1140.8/1920 * 100%);top:calc(22690/24520.2 * 100%);width:calc(555.9/1920 * 100%);height:calc(437/24520.2 * 100%)"><img src="assets/img/offline/b5-bn4.webp" width="555" height="437" loading="lazy" alt=""></span>
+    <p class="bn-d" style="left:calc(1029.2/1920 * 100%);top:calc(23133.8/24520.2 * 100%);width:calc(750.1/1920 * 100%)">작품 촬영시 정주 감독님의 현장 지도와 즉각적인 피드백을<br>받으실 수 있어요! (3개월 수강권 한정)</p>
+    <span class="bn" style="left:calc(125.0/1920 * 100%);top:calc(23470.9/24520.2 * 100%)" aria-hidden="true"></span>
+    <span class="bn-pill" style="left:calc(154.0/1920 * 100%);top:calc(23470/24520.2 * 100%);height:calc(167/24520.2 * 100%)" aria-hidden="true"></span>
+    <p class="bn-n" style="left:calc(209.9/1920 * 100%);top:calc(23515.5/24520.2 * 100%)">05</p>
+    <p class="bn-t" style="left:calc(319.3/1920 * 100%);top:calc(23518.2/24520.2 * 100%)">협업 가능 촬영감독 연계</p>
+    <span class="bn-i" style="left:calc(292.5/1920 * 100%);top:calc(23643/24520.2 * 100%);width:calc(509.0/1920 * 100%);height:calc(438/24520.2 * 100%)"><img src="assets/img/offline/b5-bn5.webp" width="509" height="438" loading="lazy" alt=""></span>
+    <p class="bn-d" style="left:calc(154.0/1920 * 100%);top:calc(24087.1/24520.2 * 100%);width:calc(750.1/1920 * 100%)">포트폴리오 영상 제작시 협업 가능한<br>촬영감독 리스트를 보유중이에요!</p>
+    <span class="bn" style="left:calc(1000.2/1920 * 100%);top:calc(23470.9/24520.2 * 100%)" aria-hidden="true"></span>
+    <span class="bn-pill" style="left:calc(1029.2/1920 * 100%);top:calc(23470/24520.2 * 100%);height:calc(167/24520.2 * 100%)" aria-hidden="true"></span>
+    <p class="bn-n" style="left:calc(1085.0/1920 * 100%);top:calc(23515.5/24520.2 * 100%)">06</p>
+    <p class="bn-t" style="left:calc(1194.4/1920 * 100%);top:calc(23518.2/24520.2 * 100%)">자유로운 반 이동 가능</p>
+    <span class="bn-i" style="left:calc(1069.4/1920 * 100%);top:calc(23657/24520.2 * 100%);width:calc(669.8/1920 * 100%);height:calc(424/24520.2 * 100%)"><img src="assets/img/offline/b5-bn6.webp" width="669" height="424" loading="lazy" alt=""></span>
+    <p class="bn-d" style="left:calc(1029.2/1920 * 100%);top:calc(24087.1/24520.2 * 100%);width:calc(750.1/1920 * 100%)">부득이한 사유로 해당 주차 수업 참여를 못하실때<br>다른 반(요일) 수업 참여로 대체 가능해요!</p>
+
+
+  </section>
+
+
+  <!-- ══ 블록 6 : SPECIAL PROGRAM (3402:133595 y55608.44 1920x13754.79) ══ -->
+  <section class="off-sp" aria-labelledby="off-sp-h">
+    <h2 id="off-sp-h" class="sr-only">SPECIAL PROGRAM — 촬영 &amp; 조명 워크샵, 영상인들의 비밀 파티</h2>
+    <span class="sp-h" aria-hidden="true"><img src="assets/img/offline/b6-sp.webp" loading="lazy" alt=""></span>
+    <span class="art" style="left:calc(690/1920 * 100%);top:calc(96/13754.79 * 100%);width:calc(540/1920 * 100%);height:calc(70/13754.79 * 100%);z-index:3" aria-hidden="true"><img src="assets/img/offline/b6-logo1.webp" loading="lazy" alt=""></span>
+    <span class="art" style="left:calc(1290/1920 * 100%);top:calc(592/13754.79 * 100%);width:calc(525/1920 * 100%);height:calc(134/13754.79 * 100%);z-index:3" aria-hidden="true"><img src="assets/img/offline/b6-logo2.webp" loading="lazy" alt=""></span>
+    <span class="sp-ico" style="left:calc(105/1920 * 100%);top:calc(632/13754.79 * 100%)" aria-hidden="true"><img src="assets/img/offline/b6-ico1.webp" loading="lazy" alt=""></span>
+    <p class="sp-en" style="left:calc(194.2/1920 * 100%);top:calc(629.6/13754.79 * 100%)">Filming &amp; Lighting Workshop</p>
+    <hr class="sp-rule" style="left:calc(111.6/1920 * 100%);top:calc(743.4/13754.79 * 100%);width:calc(1696.7/1920 * 100%)">
+    <span class="ph" style="left:calc(111.6/1920 * 100%);top:calc(783.6/13754.79 * 100%);width:calc(368.4/1920 * 100%);height:calc(522.4/13754.79 * 100%);z-index:1"><img src="assets/img/offline/b6-slr1.webp" loading="lazy" alt="SLR렌트 협업 워크샵 안내"></span>
+    <span class="ph" style="left:calc(491.2/1920 * 100%);top:calc(783.6/13754.79 * 100%);width:calc(368.4/1920 * 100%);height:calc(522.4/13754.79 * 100%);z-index:1"><img src="assets/img/offline/b6-slr2.webp" loading="lazy" alt="SLR렌트 협업 워크샵 안내"></span>
+    <p class="sp-ko" style="left:calc(960/1920 * 100%);top:calc(933.2/13754.79 * 100%)">촬영 &amp; 조명 워크샵</p>
+    <p class="sp-time" style="left:calc(962.2/1920 * 100%);top:calc(1040.4/13754.79 * 100%)">TIME : 13:00 - 23:00 (10h)</p>
+    <hr class="sp-rule" style="left:calc(960/1920 * 100%);top:calc(1160.9/13754.79 * 100%);width:calc(823.8/1920 * 100%)">
+    <span class="ph" style="left:calc(0/1920 * 100%);top:calc(1469.0/13754.79 * 100%);width:calc(1920/1920 * 100%);height:calc(1086.5/13754.79 * 100%);z-index:1"><img src="assets/img/offline/b6-w1.webp" loading="lazy" alt="촬영 워크샵 현장"></span>
+    <span class="ph" style="left:calc(0/1920 * 100%);top:calc(2554.0/13754.79 * 100%);width:calc(960/1920 * 100%);height:calc(640.7/13754.79 * 100%);z-index:1"><img src="assets/img/offline/b6-w2.webp" loading="lazy" alt="촬영 워크샵 현장"></span>
+    <span class="ph" style="left:calc(960/1920 * 100%);top:calc(2554.0/13754.79 * 100%);width:calc(960/1920 * 100%);height:calc(638.5/13754.79 * 100%);z-index:1"><img src="assets/img/offline/b6-w3.webp" loading="lazy" alt="조명 세팅 실습"></span>
+    <span class="ph" style="left:calc(0/1920 * 100%);top:calc(3192.6/13754.79 * 100%);width:calc(1920/1920 * 100%);height:calc(1086.5/13754.79 * 100%);z-index:1"><img src="assets/img/offline/b6-w4.webp" loading="lazy" alt="시네마 장비 실습"></span>
+    <span class="ph" style="left:calc(0/1920 * 100%);top:calc(4279.8/13754.79 * 100%);width:calc(1920/1920 * 100%);height:calc(1086.5/13754.79 * 100%);z-index:1"><img src="assets/img/offline/b6-w5.webp" loading="lazy" alt="촬영 현장 실습"></span>
+    <span class="sp-bar" style="top:calc(5125.95/13754.79 * 100%)" aria-hidden="true"><i></i></span>
+    <span class="art" style="left:calc(1245/1920 * 100%);top:calc(5228/13754.79 * 100%);width:calc(643/1920 * 100%);height:calc(132/13754.79 * 100%);z-index:3" aria-hidden="true"><img src="assets/img/offline/b6-logo3.webp" loading="lazy" alt=""></span>
+    <p class="sp-en" style="left:calc(113.9/1920 * 100%);top:calc(5539.0/13754.79 * 100%)">Information</p>
+    <hr class="sp-rule" style="left:calc(111.6/1920 * 100%);top:calc(5637.2/13754.79 * 100%);width:calc(1696.7/1920 * 100%)">
+    <p class="sp-body" style="left:calc(111.6/1920 * 100%);top:calc(5710.9/13754.79 * 100%);width:calc(1759.3/1920 * 100%)">기획 이론을 바탕으로 수강생들이 직접 현장을 만들어 볼 수 있는<br><em>촬영 &amp; 조명 워크샵</em>이 매 분기 진행됩니다.</p>
+    <p class="sp-body" style="left:calc(111.6/1920 * 100%);top:calc(5978.8/13754.79 * 100%);width:calc(1640.9/1920 * 100%)">레퍼런스를 직접 구현해보거나 고가의 카메라/조명 장비를 직접 손으로<br>만져보면서 실무 중심적인 촬영 현장 프로세스를 경험해 보실 수 있습니다.</p>
+    <p class="sp-note" style="left:calc(111.6/1920 * 100%);top:calc(6327.1/13754.79 * 100%);width:calc(1154.2/1920 * 100%)">*3개월 FULL COURSE 수강권 / 5주차 이후 진행</p>
+    <span class="sp-ico" style="left:calc(105/1920 * 100%);top:calc(6948/13754.79 * 100%)" aria-hidden="true"><img src="assets/img/offline/b6-ico2.webp" loading="lazy" alt=""></span>
+    <p class="sp-en" style="left:calc(194.2/1920 * 100%);top:calc(6947.7/13754.79 * 100%)">Secret Party for Filmmakers</p>
+    <hr class="sp-rule" style="left:calc(111.6/1920 * 100%);top:calc(7061.6/13754.79 * 100%);width:calc(1696.7/1920 * 100%)">
+    <span class="ph" style="left:calc(111.6/1920 * 100%);top:calc(7168.7/13754.79 * 100%);width:calc(768/1920 * 100%);height:calc(430.9/13754.79 * 100%);z-index:1"><img src="assets/img/offline/b6-p0.webp" loading="lazy" alt="영상인 네트워킹 파티 안내"></span>
+    <p class="sp-ko" style="left:calc(960/1920 * 100%);top:calc(7267.0/13754.79 * 100%)">영상인들의 비밀 파티</p>
+    <p class="sp-time" style="left:calc(962.2/1920 * 100%);top:calc(7374.1/13754.79 * 100%)">TIME : 16:00 - 23:00 (7h)</p>
+    <hr class="sp-rule" style="left:calc(960/1920 * 100%);top:calc(7494.7/13754.79 * 100%);width:calc(823.8/1920 * 100%)">
+    <span class="ph" style="left:calc(0/1920 * 100%);top:calc(7778.2/13754.79 * 100%);width:calc(1920/1920 * 100%);height:calc(1091.6/13754.79 * 100%);z-index:1"><img src="assets/img/offline/b6-p1.webp" loading="lazy" alt="네트워킹 파티 현장"></span>
+    <span class="ph" style="left:calc(0/1920 * 100%);top:calc(8870.0/13754.79 * 100%);width:calc(1920/1920 * 100%);height:calc(1086.5/13754.79 * 100%);z-index:1"><img src="assets/img/offline/b6-p2.webp" loading="lazy" alt="네트워킹 파티 현장"></span>
+    <span class="ph" style="left:calc(0/1920 * 100%);top:calc(9957.2/13754.79 * 100%);width:calc(1920/1920 * 100%);height:calc(1086.5/13754.79 * 100%);z-index:1"><img src="assets/img/offline/b6-p3.webp" loading="lazy" alt="네트워킹 파티 현장"></span>
+    <span class="ph" style="left:calc(0/1920 * 100%);top:calc(11044.5/13754.79 * 100%);width:calc(1920/1920 * 100%);height:calc(1087.3/13754.79 * 100%);z-index:1"><img src="assets/img/offline/b6-p4.webp" loading="lazy" alt="네트워킹 파티 현장"></span>
+    <p class="sp-en" style="left:calc(113.9/1920 * 100%);top:calc(12299.2/13754.79 * 100%)">Information</p>
+    <hr class="sp-rule" style="left:calc(111.6/1920 * 100%);top:calc(12397.4/13754.79 * 100%);width:calc(1696.7/1920 * 100%)">
+    <p class="sp-body" style="left:calc(111.6/1920 * 100%);top:calc(12471.1/13754.79 * 100%);width:calc(1578.4/1920 * 100%)">진행 중인 작품 기획을 공유하고 나만의 팀원을 모집할 수 있는<br>국내 유일 영상인들의 비밀 파티에 초대합니다!</p>
+    <p class="sp-body" style="left:calc(111.6/1920 * 100%);top:calc(12739.0/13754.79 * 100%);width:calc(1754.8/1920 * 100%)">아이디어와 레퍼런스를 공유할 수 있는 발표 시간, 감독님과 함께 고민 상담,<br>영상 현업자 초청 특강, Q&amp;A 등 다양한 프로그램이 준비되어 있습니다.</p>
+    <p class="sp-note" style="left:calc(111.6/1920 * 100%);top:calc(13102.9/13754.79 * 100%);width:calc(1154.2/1920 * 100%)">*3개월 FULL COURSE 수강권 / 5주차 이후 진행</p>
+  </section>
+
+
+  <!-- ══ 블록 7 : 엘리트 심화반 (3402:133762 y69363.2 1920x10213) ══ -->
+  <section class="off-elite" aria-labelledby="off-el-h">
+    <h2 id="off-el-h" class="sr-only">FVA ELITE — 피바아카데미 엘리트 심화반</h2>
+    <span class="el-bg" style="left:calc(0/1920 * 100%);top:calc(0/10213 * 100%);width:calc(1920/1920 * 100%);height:calc(1050/10213 * 100%);z-index:0"><img src="assets/img/offline/b7-bg.webp" loading="lazy" alt="FVA 네트워킹 파티 현장"></span>
+    <span class="el-fade" aria-hidden="true"></span>
+    <span style="left:calc(230/1920 * 100%);top:calc(1050/10213 * 100%);width:calc(1460/1920 * 100%);height:calc(222/10213 * 100%);z-index:2" aria-hidden="true"><img src="assets/img/offline/b7-logo.webp" loading="lazy" alt=""></span>
+    <p class="el-ko" style="left:calc(167.4/1920 * 100%);top:calc(1303.3/10213 * 100%);width:calc(1585.1/1920 * 100%)">피바아카데미 엘리트 심화반</p>
+    <span style="left:calc(85/1920 * 100%);top:calc(1865/10213 * 100%);width:calc(1730/1920 * 100%);height:calc(1060/10213 * 100%);z-index:2">
+      <span class="sr-only">수업을 계속 진행하시겠습니까? — 아카데미를 수료하고 떠나니 아쉬우신가요? / 신입생과 네트워킹 기회를 만들고 싶으신가요? / 더욱 탄탄한 전문가급 포트폴리오를 만들고 싶으신가요?</span>
+      <img src="assets/img/offline/b7-chat.webp" loading="lazy" alt=""></span>
+    <p class="el-lead" style="left:calc(151.8/1920 * 100%);top:calc(3112.7/10213 * 100%);width:calc(1616/1920 * 100%)">감독님의 ‘비주얼 심화 수업 &amp; 집중 피드백’과<br>‘정규 수업 무제한 참여 가능’ 혜택을 포함한<br><em>엘리트 심화반</em>이 신규 개설되었습니다.</p>
+    <span style="left:calc(140/1920 * 100%);top:calc(3965/10213 * 100%);width:calc(1670/1920 * 100%);height:calc(365/10213 * 100%);z-index:2">
+      <span class="sr-only">FVA ELITE SPECIAL BENEFIT</span>
+      <img src="assets/img/offline/b7-benefit.webp" loading="lazy" alt=""></span>
+    <p class="el-num" style="left:calc(113.9/1920 * 100%);top:calc(4554/10213 * 100%)">01</p>
+    <p class="el-t" style="left:calc(570.5/1920 * 100%);top:calc(4584.0/10213 * 100%)">비주얼 디렉팅 심화 수업</p>
+    <p class="el-s" style="left:calc(609.2/1920 * 100%);top:calc(4723.5/10213 * 100%);width:calc(1100/1920 * 100%)">Reference로 나만의 감성과 취향 만들기<br>Cut by Cut으로 미쟝센 뜯어보기<br>영상 실무 A to Z : 어떻게 찍고 제작하는 것일까?</p>
+    <hr class="el-rule" style="left:calc(111.6/1920 * 100%);top:calc(5036.7/10213 * 100%);width:calc(1696.7/1920 * 100%)">
+    <p class="el-num" style="left:calc(113.9/1920 * 100%);top:calc(5089/10213 * 100%)">02</p>
+    <p class="el-t" style="left:calc(570.5/1920 * 100%);top:calc(5125.3/10213 * 100%)">NEW 프로젝트 기획 &amp; 피드백</p>
+    <p class="el-s" style="left:calc(609.2/1920 * 100%);top:calc(5263.8/10213 * 100%);width:calc(1100/1920 * 100%)">정규 수업 도중 아쉬웠던 프로젝트 Develop<br>팀원들과의 지속적인 스터디와 맞춤형 Feedback<br>타 기수 학생들과의 작품 협업 및 공모전 참여</p>
+    <hr class="el-rule" style="left:calc(111.6/1920 * 100%);top:calc(5581.5/10213 * 100%);width:calc(1696.7/1920 * 100%)">
+    <p class="el-num" style="left:calc(113.9/1920 * 100%);top:calc(5633/10213 * 100%)">03</p>
+    <p class="el-cap" style="left:calc(576.6/1920 * 100%);top:calc(5685.2/10213 * 100%)">FVA ACADEMY</p>
+    <p class="el-t" style="left:calc(570.5/1920 * 100%);top:calc(5741.6/10213 * 100%)">정규 수업 무.제.한 참여 가능</p>
+    <p class="el-s" style="left:calc(609.2/1920 * 100%);top:calc(5884.4/10213 * 100%);width:calc(1100/1920 * 100%)">자유롭게 정규 수업에 참여하여 추가 피드백을<br>받거나 타 기수 수강생들과 교류할 수 있습니다.</p>
+    <p class="el-lead" style="left:calc(139/1920 * 100%);top:calc(6553/10213 * 100%);width:calc(1643/1920 * 100%)">정규 과정을 거쳐, 각자의 스킬과 촬영 경험을<br>가진 엘리트반 수강생끼리 힘을 합쳐<br><em>더욱 퀄리티 높은 작품을 만들어보세요!</em></p>
+    <p class="el-pill" style="left:calc(592.3/1920 * 100%);top:calc(7076/10213 * 100%);width:calc(919.8/1920 * 100%);height:calc(156/10213 * 100%)">현장으로 나갈 준비 완료!</p>
+    <span style="left:calc(400/1920 * 100%);top:calc(7370/10213 * 100%);width:calc(1180/1920 * 100%);height:calc(1230/10213 * 100%);z-index:2" aria-hidden="true"><img src="assets/img/offline/b7-char.webp" loading="lazy" alt=""></span>
+    <p class="el-done" style="left:calc(679/1920 * 100%);top:calc(8740.9/10213 * 100%);width:calc(562.6/1920 * 100%)">(FVA 12주 과정 수료)</p>
+    <p class="el-note" style="left:calc(144/1920 * 100%);top:calc(8999.9/10213 * 100%);width:calc(1632/1920 * 100%)">*FVA 엘리트반은 [월 회원권]으로 월 4회, 화요일 저녁에 운영됩니다.<br>*FVA 3개월 FULL-COURSE 수료 학생에 한하여 신청 가능합니다.</p>
+    <p class="el-rf" style="left:calc(388/1920 * 100%);top:calc(9281.2/10213 * 100%);width:calc(1143.3/1920 * 100%)">환불 규정</p>
+    <p class="el-rfb" style="left:calc(347/1920 * 100%);top:calc(9357.9/10213 * 100%);width:calc(1226.2/1920 * 100%)">· 수업이 진행되는 주에 불참하실 경우, 노쇼로 처리되어 환불이 불가합니다.<br>· 전체 수업 일정의 1/2 이상 수강하신 경우 환불이 불가합니다.<br>· 본 환불 규정은 국내 학원법 기준을 따릅니다.</p>
+  </section>
+
+
+
+
+
+  <!-- ══ 하단 : 수강생 작품 슬라이드 (3462:170800 y79625 · 3462:170504 y79909.9) ══ -->
+  <section class="off-tail" aria-labelledby="off-tail-h">
+    <h2 id="off-tail-h" class="tail-h">수강생 작품</h2>
+    <p class="tail-d">수강생이 직접 만든 공모전 수상작·대표작입니다. 슬라이드를 클릭하면 이 자리에서 바로 재생됩니다.</p>
+    <div class="off-slider" aria-label="수강생 작품 슬라이드">
+      <ul class="off-track" id="off-track2"></ul>
     </div>
   </section>
 
@@ -131,7 +709,21 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <img class="ft-logo" src="assets/icons/logo-nav.svg" width="184" height="18" alt="FVA ACADEMY">
+    <span class="sr-only">FVA ACADEMY</span><svg class="tlab-logo ft-logo" aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" style="display: block;" viewBox="0 0 184 17.7697" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group">
+<path id="Vector" d="M12.9107 3.72084V0.297209H0V17.4812H3.67108V11.8302H11.4918V8.40659H3.67108V3.72909H12.9107V3.72084Z" fill="currentColor"/>
+<path id="Vector_2" d="M28.1398 0.297209L23.5365 12.5975L18.9331 0.297209H14.8166L21.276 17.4812H25.6814L32.1409 0.297209H28.1233H28.1398Z" fill="currentColor"/>
+<path id="Vector_3" d="M41.6524 0.297209H37.1976L30.7381 17.4812H34.6567L35.7374 14.3958H42.9806L44.1026 17.4812H48.1202L41.6607 0.297209H41.6524ZM36.9006 11.0712L39.3508 4.1168L41.8009 11.0712H36.9089H36.9006Z" fill="currentColor"/>
+<path id="Vector_4" d="M66.4753 0.297209H62.0205L55.6105 17.4812H59.5291L60.6098 14.3958H67.853L68.9337 17.4812H73.0007L66.4918 0.297209H66.4753ZM61.773 11.0712L64.2231 4.1168L66.6733 11.0712H61.7812H61.773Z" fill="currentColor"/>
+<path id="Vector_5" d="M82.8757 14.2472C79.8398 14.2472 77.5381 11.9455 77.5381 8.86017C77.5381 5.7748 79.8398 3.52267 82.8757 3.52267C85.0784 3.52267 86.9428 4.74361 87.6275 6.70703H91.5956C90.7624 2.73894 87.1903 5.03481e-05 82.884 5.03481e-05C77.6949 5.03481e-05 73.7763 3.81963 73.7763 8.86017C73.7763 13.9007 77.6949 17.7697 82.884 17.7697C87.1903 17.7697 90.7624 15.0309 91.5956 11.0628H87.6275C86.9428 13.0179 85.0784 14.2472 82.8757 14.2472Z" fill="currentColor"/>
+<path id="Vector_6" d="M103.195 0.297209H98.7399L92.2804 17.4812H96.199L97.2797 14.3958H104.572L104.506 14.3051L105.653 17.4812H109.671L103.211 0.297209H103.195ZM98.4429 11.0712L100.893 4.1168L103.343 11.0712H98.4511H98.4429Z" fill="currentColor"/>
+<path id="Vector_7" d="M118.952 0.297209H112.196V17.4812H118.952C123.943 17.4812 127.713 13.7607 127.713 8.86862C127.713 3.97657 123.943 0.297209 118.952 0.297209ZM118.862 14.0081H115.875V3.72909H118.862C121.749 3.72909 123.952 5.93174 123.952 8.86862C123.952 11.8055 121.749 14.0081 118.862 14.0081Z" fill="currentColor"/>
+<path id="Vector_8" d="M134.305 14.0079V10.5349H141.16V7.11124H134.305V3.73706H141.994V0.313534H130.683V17.4975H142.093V14.0245H134.305V14.0079Z" fill="currentColor"/>
+<path id="Vector_9" d="M160.101 0.297209L155.11 9.40476L155.011 9.20678L150.16 0.297209H145.508V17.4812H149.179V5.48618L149.377 5.92343L155.102 16.4252L156.133 14.5444L161.075 5.48618V17.4812H164.696V0.297209H160.093H160.101Z" fill="currentColor"/>
+<path id="Vector_10" d="M179.884 0.297209L175.676 7.83741L175.577 7.63942L171.419 0.297209H167.262L173.77 11.558V17.4812H177.442V11.558L184 0.297209H179.892H179.884Z" fill="currentColor"/>
+</g>
+</svg>
+
     <p>보위스튜디오(bowie studios) ㅣ 대표자 : 정주영 ㅣ 주소 : 서울특별시 마포구 독막로6길 6, 5층(합정동, 현영빌딩) ㅣ 이메일 : bowiestudios.kr@gmail.com</p>
     <p>통신판매업 신고번호 : 2024-서울마포-1965호 ㅣ 사업자 등록 번호 : 285-37-00494 ㅣ 대표 전화번호 : 010-8108-3530</p>
     <p>Copyright ⓒ 2024 FVA ACADEMY. All rights reserved.</p>
@@ -214,6 +806,96 @@
     addEventListener('keydown',function(e){ if(e.key==='Escape'&&!modal.hidden) close(); });
     addEventListener('popstate',function(){ if(!modal.hidden) { modal.classList.remove('on'); modal.hidden=true; document.body.classList.remove('modal-open'); } });
   })();
+</script>
+
+<script>
+/* 수강생 작품 슬라이드 — 카드를 2벌 만들어 이음새 없는 무한 루프.
+   카드를 누르면 그 자리에서 유튜브가 재생된다(영상 ID 가 있을 때). */
+(function(){
+  var data = document.getElementById('off-slides');
+  var tracks = ['off-track','off-track2'].map(function(id){return document.getElementById(id)})
+                 .filter(Boolean);
+  if(!data || !tracks.length) return;
+  var track = tracks[0];
+  var items;
+  try { items = JSON.parse(data.textContent); } catch(e){ return; }
+  if(!items.length) return;
+
+  var CH = 'https://www.youtube.com/@FVA-ACADEMY';
+  /* 재생 중인 카드를 모두 닫고 썸네일로 되돌린다 -> 슬라이드가 다시 흐른다.
+     슬라이더가 2개(상단·하단)라 전역으로 훑는다. */
+  function closeAll(){
+    document.querySelectorAll('.off-thumb.playing').forEach(function(b){
+      var d = b.__thumb;
+      if (d) { b.innerHTML = ''; d.forEach(function(n){ b.appendChild(n) }); }
+      b.classList.remove('playing');
+    });
+    document.querySelectorAll('.off-slider.has-playing')
+            .forEach(function(sl){ sl.classList.remove('has-playing') });
+  }
+
+  function card(it, dup){
+    var li = document.createElement('li');
+    li.className = 'off-card';
+    if (dup) li.setAttribute('aria-hidden','true');
+
+    var fig = document.createElement('figure');
+    var btn = document.createElement(it.youtube ? 'button' : 'a');
+    btn.className = 'off-thumb';
+    if (it.youtube) { btn.type = 'button'; btn.setAttribute('aria-label', it.title + ' 재생'); }
+    else { btn.href = CH; btn.target = '_blank'; btn.rel = 'noopener';
+           btn.setAttribute('aria-label', it.title + ' — 유튜브 채널에서 보기'); }
+    if (dup) btn.tabIndex = -1;
+
+    var img = document.createElement('img');
+    img.src = it.thumb; img.alt = it.title;
+    img.width = 1024; img.height = 576;
+    img.loading = 'lazy';
+
+    var tag = document.createElement('span');
+    tag.className = 'off-tag'; tag.textContent = it.tag;
+
+    var play = document.createElement('span');
+    play.className = 'off-play'; play.setAttribute('aria-hidden','true');
+    play.textContent = '\u25B6';
+
+    btn.appendChild(img); btn.appendChild(tag); btn.appendChild(play);
+    btn.__thumb = [img, tag, play];        // 닫을 때 되돌릴 원래 내용
+
+    if (it.youtube) {
+      btn.addEventListener('click', function(){
+        // 이미 재생 중인 다른 카드가 있으면 먼저 닫는다
+        closeAll();
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube.com/embed/' + it.youtube + '?autoplay=1&rel=0';
+        f.title = it.title;
+        f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
+        f.allowFullscreen = true;
+        var x = document.createElement('button');
+        x.type = 'button'; x.className = 'off-close';
+        x.setAttribute('aria-label', it.title + ' 닫기');
+        x.textContent = '\u00d7';
+        x.addEventListener('click', function(ev){ ev.stopPropagation(); closeAll(); });
+        btn.innerHTML = ''; btn.appendChild(f); btn.appendChild(x);
+        btn.classList.add('playing');
+        var sl = btn.closest('.off-slider');
+        if (sl) sl.classList.add('has-playing');   // 재생 중에만 그 슬라이드를 세운다
+      });
+    }
+
+    var cap = document.createElement('figcaption');
+    cap.textContent = it.title;
+    fig.appendChild(btn); fig.appendChild(cap); li.appendChild(fig);
+    return li;
+  }
+
+  tracks.forEach(function(tk){
+    track = tk;                                  // card() 안 closeAll 이 참조한다
+    items.forEach(function(it){ tk.appendChild(card(it, false)) });
+    items.forEach(function(it){ tk.appendChild(card(it, true))  });
+  });
+  track = tracks[0];
+})();
 </script>
 </body>
 </html>
