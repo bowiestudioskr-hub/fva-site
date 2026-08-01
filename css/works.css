@@ -213,3 +213,86 @@
   }
   .wk-ph::after{ font-size:calc(var(--m) * 10/360) }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   FVA 유튜브 최신 영상 (works.html 하단, <details>)
+   기존 규칙은 건드리지 않는다 — 여기부터 전부 새 선택자(.wkyt-*)다.
+   접힌 상태에서는 summary 한 줄만 차지하므로 위쪽 작품 영역이 밀리지 않는다.
+   ═══════════════════════════════════════════════════════════ */
+.wkyt{
+  width:100%;
+  max-width:1200px;   /* --pagew 로 환산하면 360 화면에서 225px 로 눌린다 */
+  margin:clamp(28px,3vw,58px) auto clamp(40px,4vw,80px);
+  padding-inline:clamp(16px,4vw,32px);
+  color:var(--white,#FDFDFD);
+}
+.wkyt-sum{
+  list-style:none;cursor:pointer;
+  display:flex;align-items:center;gap:.6em;
+  padding:clamp(12px,1.1vw,20px) clamp(14px,1.3vw,24px);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:999px;
+  font-size:clamp(13px,1.05vw,20px);font-weight:700;letter-spacing:-.02em;
+  transition:border-color .2s,color .2s;
+}
+.wkyt-sum::-webkit-details-marker{display:none}
+.wkyt-sum::after{
+  content:"▾";margin-left:auto;font-size:.9em;
+  transition:transform .2s;color:var(--green,#2CFF05);
+}
+.wkyt[open] .wkyt-sum::after{transform:rotate(180deg)}
+.wkyt-sum:hover{border-color:var(--green,#2CFF05);color:var(--green,#2CFF05)}
+.wkyt-cnt{
+  font-size:.8em;font-weight:800;color:#000;
+  background:var(--green,#2CFF05);
+  border-radius:999px;padding:.1em .6em;
+}
+
+.wkyt-list{
+  display:grid;gap:clamp(10px,1vw,18px);
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  margin-top:clamp(14px,1.4vw,26px);
+}
+.wkyt-item{min-width:0}
+.wkyt-link{
+  display:grid;grid-template-columns:clamp(84px,9vw,168px) minmax(0,1fr);
+  gap:clamp(10px,1vw,18px);align-items:center;
+  padding:clamp(8px,.7vw,14px);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:clamp(8px,.7vw,14px);
+  transition:border-color .2s,background .2s;
+}
+.wkyt-link:hover{border-color:var(--green,#2CFF05);background:rgba(44,255,5,.05)}
+.wkyt-thumb{
+  width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;
+  border-radius:clamp(5px,.4vw,9px);display:block;
+}
+.wkyt-body{display:block;min-width:0}
+.wkyt-title{
+  display:block;
+  font-size:clamp(11.5px,.85vw,16px);font-weight:600;line-height:1.5;
+  letter-spacing:-.02em;
+  overflow-wrap:anywhere;
+}
+.wkyt-meta{
+  display:block;margin-top:.45em;
+  font-size:clamp(10px,.72vw,13.5px);font-weight:500;
+  color:var(--muted,#8A8A8A);
+}
+.wkyt-more{margin-top:clamp(14px,1.3vw,24px);text-align:center}
+.wkyt-more a{
+  display:inline-block;
+  font-size:clamp(11.5px,.85vw,16px);font-weight:700;
+  color:var(--green,#2CFF05);
+}
+.wkyt-more a:hover{text-decoration:underline}
+
+@media (max-width:760px){
+  .wkyt-list{grid-template-columns:1fr}
+  .wkyt-link{grid-template-columns:98px minmax(0,1fr)}
+}
+@media (max-width:400px){
+  .wkyt{padding-inline:14px}
+  .wkyt-link{grid-template-columns:86px minmax(0,1fr);gap:9px}
+  .wkyt-title{font-size:11.5px;line-height:1.45}
+}
