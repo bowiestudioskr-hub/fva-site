@@ -965,8 +965,10 @@
                      letter-spacing:calc(var(--u) * -1.86/1920);
                      color:#fff; text-align:center; z-index:2 }
 .off-elite .el-lead em{ font-style:normal; color:var(--green) }
-.off-elite .el-num{ font-size:calc(var(--u) * 150/1920); line-height:1; font-weight:900;
-                    color:#fff; z-index:2 }
+/* 잉크 실측: 01 x128~413 y4593~4800 (207) · 02 y5128~5350 · 03 y5672~5900
+   가로선(5039·5584) 아래에 와야 한다. 150px 로 잡았다가 절반 크기로 나왔다. */
+.off-elite .el-num{ font-size:calc(var(--u) * 280/1920); line-height:1; font-weight:900;
+                    letter-spacing:calc(var(--u) * -8/1920); color:#fff; z-index:2 }
 .off-elite .el-t{ font-size:calc(var(--u) * 62/1920); line-height:1.2; font-weight:800;
                   letter-spacing:calc(var(--u) * -1.86/1920); color:#fff;
                   white-space:nowrap; z-index:2 }
@@ -1009,7 +1011,7 @@
   .off-elite .el-ko{ font-size:calc(var(--m) * 16/360); margin-top:calc(var(--m) * 10/360) }
   .off-elite .el-lead{ font-size:calc(var(--m) * 12/360); line-height:1.7;
                        padding-inline:calc(var(--m) * 20/360); margin-top:calc(var(--m) * 18/360) }
-  .off-elite .el-num{ font-size:calc(var(--m) * 26/360); text-align:center;
+  .off-elite .el-num{ font-size:calc(var(--m) * 34/360); text-align:center; letter-spacing:-.03em;
                       margin-top:calc(var(--m) * 18/360) }
   .off-elite .el-t{ font-size:calc(var(--m) * 14/360); text-align:center; white-space:normal }
   .off-elite .el-s{ font-size:calc(var(--m) * 10.5/360); line-height:1.7; text-align:center;
