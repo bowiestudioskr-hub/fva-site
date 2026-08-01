@@ -286,68 +286,167 @@ svg.club-wordmark{
    데스크탑은 고정비율 절대배치라 좁은 화면에서 글자가 읽을 수 없게 작아진다.
    820px 이하에서는 세로 흐름으로 재배치한다.
    (모바일 피그마 프레임을 받으면 실측으로 다시 맞출 것) */
+/* ══════════════════════════════════════════════════════════
+   모바일 — 피그마 3457:20515 「오프라인 강의 - 모바일」 360x797 실측
+   데스크탑과 구성이 다르다. 헤드라인이 사진 위에 얹히고,
+   후기 카드는 3행 2열로 어긋나게(스태거) 놓이며 좌우로 잘려나간다.
+   마스코트는 각 카드 위쪽에 걸터앉는다.
+   ══════════════════════════════════════════════════════════ */
 @media (max-width:820px){
   .off-club{
     --m:100vw;
-    aspect-ratio:auto;
-    margin-top:calc(var(--m) * 28/360);
-    padding-bottom:calc(var(--m) * 30/360);
+    position:relative;
+    aspect-ratio:360/797;
+    margin-top:0;
+    padding-bottom:0;
+    overflow:hidden;
+    background:#000;
   }
-  .club-photo{ position:relative;inset:auto;height:calc(var(--m) * 214/360);overflow:hidden }
+
+  /* 사진 : left -9.65% / right -9.3% / top -16.33 · 4096x2731 */
+  .club-photo{
+    position:absolute; inset:auto;
+    left:-9.65%; width:118.95%;
+    top:calc(var(--m) * -16.33/360);
+    height:auto; aspect-ratio:4096/2731;
+    overflow:visible;
+  }
   .club-photo > img:first-child{
-    position:absolute;left:50%;top:0;transform:translateX(-50%);
-    width:auto;height:100%;max-width:none;
+    position:absolute; inset:0; left:0; top:0; transform:none;
+    width:100%; height:100%; max-width:none; object-fit:cover;
   }
-  .club-fade{ top:auto;bottom:0;height:45% }
+  /* 상단 어둡게 : 높이 82.465, 아래로 갈수록 투명 */
+  .club-fade{
+    position:absolute; left:0; top:0; bottom:auto;
+    width:100%; height:calc(var(--m) * 82.465/360);
+    background:linear-gradient(to bottom, rgba(0,0,0,.75), rgba(0,0,0,0));
+  }
   .club-photo::after{ display:none }
+
+  /* 잉크 실측 : x131~228(폭 98) y20~28 · 색은 흰빛 초록
+     워드마크는 .club-photo(절대배치) 안에 있어 그 상자가 기준이 된다.
+     사진은 top -16.33 이므로 20 - (-16.33) = 36.33 을 쓴다.
+     선택자를 svg.club-wordmark 로 맞춰야 데스크탑 규칙(0,1,1)을 이긴다. */
+  svg.club-wordmark,
   .club-wordmark{
-    left:50%;transform:translateX(-50%);
-    top:calc(var(--m) * 16/360);
-    width:calc(var(--m) * 132/360);
+    position:absolute; z-index:3;
+    left:50%; transform:translateX(-50%);
+    top:calc(var(--m) * 36.33/360);
+    width:calc(var(--m) * 98/360);
+    color:#d6ffcf;
   }
 
-  .club-title{ text-align:center;margin-top:calc(var(--m) * 26/360) }
-  .club-title img{ position:static;display:inline-block;margin-inline:auto }
-  .club-title .ct1{ width:calc(var(--m) * 236/360) }
-  .club-title .ct2{ width:calc(var(--m) * 302/360);margin-top:calc(var(--m) * 6/360) }
+  /* 헤드라인 — 사진 위에 겹친다 (TLAB 41.86 / 76.186) */
+  .club-title{ position:static; margin:0; line-height:0 }
+  .club-title svg.tlab,
+  .club-title img{
+    position:absolute; z-index:2; height:auto; max-width:none;
+    left:50%; transform:translateX(-50%);
+  }
+  /* 피그마가 주는 336.14/375.07 은 텍스트 "상자" 폭이라 그대로 쓰면 커진다.
+     TLAB 잉크폭 = viewBox/1000 x 글자크기
+       SECRET CLUB FOR : 5968.8/1000 x 41.860 = 249.8  (렌더 실측 249 ✓)
+       FILMMAKERS      : 4192.5/1000 x 76.186 = 319.4  (렌더 실측 319 ✓) */
+  .club-title .ct1{ top:calc(var(--m) * 192/360); width:calc(var(--m) * 249.8/360);
+                    margin-left:calc(var(--m) * 0.2/360) }
+  .club-title .ct2{ top:calc(var(--m) * 234/360); width:calc(var(--m) * 319.4/360);
+                    margin-left:calc(var(--m) * 1/360) }
 
+  /* 수강생 만족도 100% — 33.183px ExtraBold, 뒤에 흐린 초록 글로우 */
   .club-satis{
-    position:relative;display:flex;align-items:center;justify-content:center;
-    gap:calc(var(--m) * 6/360);
-    margin-top:calc(var(--m) * 34/360);
+    position:absolute; z-index:2; left:0; top:calc(var(--m) * 360.42/360);
+    width:100%; height:calc(var(--m) * 38.93/360);
+    display:block; margin:0; padding:0; line-height:0;
   }
   .club-satis .cs-glow{ display:none }
-  .club-satis .cs-icon{ position:static;width:calc(var(--m) * 24/360) }
-  .club-satis .cs-text{
-    position:static;width:auto;
-    font-size:calc(var(--m) * 22/360);
-    line-height:1.2;letter-spacing:-.03em;
+  .club-satis .cs-icon{
+    position:absolute; left:calc(28.05/360 * 100%); top:calc(var(--m) * 0.79/360);
+    width:calc(var(--m) * 25.116/360); height:auto;
   }
-  .club-first{
-    position:static;width:calc(var(--m) * 300/360);
-    margin-top:calc(var(--m) * 8/360);
-    font-size:calc(var(--m) * 13.5/360);line-height:1.3;
-    text-align:center;
+  .club-satis .cs-text{
+    position:absolute; top:0;      /* top 을 안 주면 정적 위치(=18px 아래)로 떨어져 아랫줄과 겹쳤다 */
+    left:calc(50% + calc(var(--m) * 18.84/360));
+    transform:translateX(-50%);
+    width:calc(var(--m) * 297.209/360);
+    font-family:Pretendard,system-ui,sans-serif; font-weight:800;
+    font-size:calc(var(--m) * 33.183/360);
+    line-height:calc(var(--m) * 36.412/360);
+    letter-spacing:calc(var(--m) * -0.9955/360);
+    text-align:center; color:var(--green); white-space:nowrap;
+  }
+  /* 글로우 사본 — 피그마의 blur 4.186 / rgba(44,255,5,.5) */
+  .club-satis .cs-text::after{
+    content:attr(data-glow); position:absolute; left:0; top:0; width:100%;
+    color:rgba(44,255,5,.5); filter:blur(calc(var(--m) * 4.186/360));
+    z-index:-1; pointer-events:none;
   }
 
-  /* 후기 6개 — 1열, 캐릭터를 카드 위에 올린다 */
+  /* 영상 제작의 '첫 단추'를 꿰는 곳 — 20.093px Bold, 한 줄 */
+  .club-first{
+    position:absolute; z-index:2;
+    left:calc(50% + calc(var(--m) * 9.25/360));
+    transform:translateX(-50%);
+    top:calc(var(--m) * 400/360);
+    width:auto; margin:0; padding:0;
+    font-size:calc(var(--m) * 20.093/360);
+    line-height:calc(var(--m) * 22.605/360);
+    letter-spacing:calc(var(--m) * -0.2009/360);
+    font-weight:700; color:#063908; text-align:center; white-space:nowrap;
+  }
+  .club-first em{ font-style:normal; color:var(--green) }
+
+  /* ── 후기 카드 6장 : 159.07x92.093 · radius 6.279 · 테두리 0.628
+     행 top 454.6 / 558.84 / 663.07, 열 중심 (50%±103.81) (50%±67.4)
+     왼쪽 열 #063908 · 오른쪽 열 #052b06 ── */
   .club-quotes{
-    display:flex;flex-direction:column;
-    gap:calc(var(--m) * 46/360);
-    margin-top:calc(var(--m) * 52/360);
-    padding-inline:calc(var(--m) * 18/360);
+    position:static; display:block; margin:0; padding:0;
+    list-style:none;
   }
   .cq{
-    position:static;width:auto;height:auto;
-    padding:calc(var(--m) * 40/360) calc(var(--m) * 16/360) calc(var(--m) * 18/360);
-    border-radius:calc(var(--m) * 12/360);
-    font-size:calc(var(--m) * 12/360);
-    line-height:1.55;
+    position:absolute; z-index:2;
+    box-sizing:border-box;
+    width:calc(var(--m) * 159.07/360);
+    height:calc(var(--m) * 92.093/360);
+    transform:translateX(-50%);
+    border:calc(var(--m) * 0.628/360) solid var(--green);
+    border-radius:calc(var(--m) * 6.279/360);
+    padding:calc(var(--m) * 37.68/360) calc(var(--m) * 2.5/360) 0;  /* 피그마 글줄폭 151.1 이 들어가야 2줄로 앉는다 */
+    font-size:calc(var(--m) * 8.791/360);
+    line-height:calc(var(--m) * 12.558/360);
+    letter-spacing:calc(var(--m) * -0.0837/360);
+    font-weight:600; color:var(--green); text-align:center;
   }
-  .club-mascots{
-    position:absolute;inset:0;pointer-events:none;
+  .cq.q1{ left:calc(50% - calc(var(--m) * 103.81/360)); top:calc(var(--m) * 454.6/360); background:#063908 }
+  .cq.q2{ left:calc(50% + calc(var(--m) *  67.40/360)); top:calc(var(--m) * 454.6/360); background:#052b06 }
+  .cq.q3{ left:calc(50% - calc(var(--m) *  67.39/360)); top:calc(var(--m) * 558.84/360); background:#052b06 }
+  .cq.q4{ left:calc(50% + calc(var(--m) * 103.81/360)); top:calc(var(--m) * 558.84/360); background:#063908 }
+  .cq.q5{ left:calc(50% - calc(var(--m) * 103.81/360)); top:calc(var(--m) * 663.07/360); background:#063908 }
+  .cq.q6{ left:calc(50% + calc(var(--m) *  67.40/360)); top:calc(var(--m) * 663.07/360); background:#052b06 }
+
+  /* 좌우 페이드 — 41.442x331.535, 카드 열이 화면 밖으로 이어지는 느낌 */
+  .club-quotes::before,
+  .club-quotes::after{
+    content:""; position:absolute; z-index:3; pointer-events:none;
+    top:calc(var(--m) * 439.12/360);
+    width:calc(var(--m) * 41.442/360);
+    height:calc(var(--m) * 331.535/360);
   }
-  .club-mascots .m{ display:none }    /* 모바일은 카드 배경 캐릭터를 생략 */
+  .club-quotes::before{ left:0;  background:linear-gradient(to left,  rgba(0,0,0,0), rgba(0,0,0,.55)) }
+  .club-quotes::after { right:calc(var(--m) * -5.86/360);
+                        background:linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,.55)) }
+
+  /* ── 마스코트 : 각 카드 위쪽에 걸터앉는다 ── */
+  .club-mascots{ position:static }
+  .club-mascots .m{
+    position:absolute; z-index:4; display:block; height:auto;
+    transform:translateX(-50%);
+  }
+  .club-mascots .m1{ left:calc(var(--m) *  73.5/360); top:calc(var(--m) * 421.8/360); width:calc(var(--m) * 42.4/360) }
+  .club-mascots .m2{ left:calc(var(--m) * 252.7/360); top:calc(var(--m) * 415.7/360); width:calc(var(--m) * 43.7/360) }
+  .club-mascots .m3{ left:calc(var(--m) * 115.0/360); top:calc(var(--m) * 531.4/360); width:calc(var(--m) * 44.1/360) }
+  .club-mascots .m4{ left:calc(var(--m) * 291.9/360); top:calc(var(--m) * 521.0/360); width:calc(var(--m) * 43.0/360) }
+  .club-mascots .m5{ left:calc(var(--m) *  73.3/360); top:calc(var(--m) * 635.3/360); width:calc(var(--m) * 51.1/360) }
+  .club-mascots .m6{ left:calc(var(--m) * 246.8/360); top:calc(var(--m) * 634.4/360); width:calc(var(--m) * 43.2/360) }
 }
 
 /* ── 하단 수강생 작품 (3462:170800 y79625 · 슬라이드 3462:170504) ── */
@@ -364,10 +463,27 @@ svg.club-wordmark{
 }
 .off-tail .off-slider{ margin-top:calc(var(--u) * 56/1920) }
 @media (max-width:820px){
-  .off-tail{ padding:calc(var(--m) * 26/360) 0 calc(var(--m) * 34/360) }
-  .off-tail .tail-h{ font-size:calc(var(--m) * 15/360) }
-  .off-tail .tail-d{ font-size:calc(var(--m) * 10/360); padding-inline:calc(var(--m) * 20/360) }
-  .off-tail .off-slider{ margin-top:calc(var(--m) * 16/360) }
+  /* 피그마(모바일) 블록 시작 15092.3 기준
+       제목   y10.7 h18   · 부제 y35.7 h24(2줄, 줄간 12)
+       슬라이드 y95.7 h188 · 섹션 전체 348 (그 뒤가 푸터 15440) */
+  .off-tail{ padding:calc(var(--m) * 10.7/360) 0 calc(var(--m) * 64.3/360) }
+  .off-tail .tail-h{
+    font-size:calc(var(--m) * 16/360);
+    line-height:calc(var(--m) * 18/360);
+    margin:0;
+  }
+  .off-tail .tail-d{
+    margin-top:calc(var(--m) * 7/360);
+    font-size:calc(var(--m) * 9/360);
+    line-height:calc(var(--m) * 12/360);
+    padding-inline:calc(var(--m) * 22/360);
+  }
+  .off-tail .off-slider{
+    margin-top:calc(var(--m) * 36/360);
+    height:calc(var(--m) * 188/360);
+  }
+  .off-tail .off-track{ height:100% }
+  .off-tail .off-track > li{ height:100% }
 }
 
 /* 오프라인은 글이 길어 좌우 여백을 더 준다 (사용자 요청).

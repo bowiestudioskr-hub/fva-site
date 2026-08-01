@@ -230,13 +230,9 @@
   color:#fff;font-weight:600;line-height:1.5;letter-spacing:-.02em;
   font-size:calc(var(--u) * 20.728/1920);
 }
-/* BONUS 는 TLAB 아웃라인 SVG. Pretendard 로 대체하면 폭이 넓어져
-   바로 옆 학습주제(x131.5)를 물어 「BONUSAI로…」 로 붙어버린다. */
-.ct-row.bonus .ct-n{
-  left:3.5354%;width:7.7374%;text-align:left;
-  top:calc(var(--u) * 7/1920);
-}
-.ct-row.bonus .ct-n img{width:100%;height:auto}
+/* BONUS 행도 주차 번호(5·10·15)를 그대로 쓴다 — 1~15 가 끊기지 않는다.
+   초록 띠 위라 글자만 검정으로 뒤집는다. */
+.ct-row.bonus .ct-n{color:#000}
 .ct-row.bonus .ct-t{color:#000}
 
 /* BONUS 초록 띠 (3402:222686~688) y3923.59 h43.10 */
@@ -403,13 +399,13 @@
   .cur-feature .cf-block.b1 > img{width:calc(50% - var(--m) * 3/360)}
   .cur-feature .cf-block.b1 > img.cf-1b{margin-left:calc(var(--m) * 6/360)}
 
-  .cur-feature .cf-num{width:23.58%;padding-left:7.46%}
+  .cur-feature .cf-num{width:28%;padding-left:7.46%}
   .cur-feature .cf-num img{width:calc(var(--m) * 40/360)}
   .cur-feature .cf-num.n2 img,
   .cur-feature .cf-num.n3 img{width:calc(var(--m) * 46.5/360)}
 
   .cur-feature .cf-h3{
-    width:76.42%;
+    width:72%;
     font-size:calc(var(--m) * 13/360);
     line-height:1.42;
   }
@@ -418,15 +414,15 @@
     margin:calc(var(--m) * 9/360) 0 calc(var(--m) * 8/360);
     /* 시안은 번호 아래 짧은 선 + 본문 아래 긴 선, 두 도막이다 */
     background:linear-gradient(90deg,
-      transparent 0 7.42%, #242424 7.42% 21.21%,
-      transparent 21.21% 23.42%, #242424 23.42% 92.38%, transparent 92.38%);
+      transparent 0 7.42%, #242424 7.42% 20%,
+      transparent 20% 28%, #242424 28% 92.38%, transparent 92.38%);
   }
   .cur-feature .cf-weeks{
-    width:23.58%;padding-left:7.9%;
+    width:28%;padding-left:7.9%;
     font-size:calc(var(--m) * 11/360);
   }
   .cur-feature .cf-body{
-    width:76.42%;
+    width:72%;
     font-size:calc(var(--m) * 12/360);
     line-height:1.72;
   }
@@ -522,11 +518,7 @@
     font-size:calc(var(--m) * 11/360);line-height:1.4;
   }
   /* 모바일 시안은 BONUS 행도 5·10·15 로 이어서 번호를 매긴다 */
-  .cur-table .ct-row.bonus .ct-n{
-    width:calc(var(--m) * 20/360);padding:0;text-align:center;
-  }
-  .cur-table .ct-row.bonus .ct-n .bonus-mark{display:none}
-  .cur-table .ct-row.bonus .ct-n .bonus-num{display:inline;color:#000;font-weight:800}
+  .cur-table .ct-row.bonus .ct-n{color:#000}
   .cur-table .ct-row.bonus{background:var(--green)}
   .cur-table .ct-col.k3 .ct-row.bonus{background:#08FFD0}
   .cur-table .ct-bar,

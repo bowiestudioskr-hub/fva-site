@@ -49,14 +49,42 @@ http.createServer((req, res) => {
   if (real !== ROOT && !real.startsWith(ROOT + path.sep)) {
     return deny(res, 403, 'forbidden link');
   }
-  if (!fs.statSync(real).isFile()) return deny(res, 404, '404');
+  const st = fs.statSync(real);
+  if (!st.isFile()) return deny(res, 404, '404');
 
-  res.writeHead(200, {
+  const head = {
     'Content-Type': TYPES[path.extname(real).toLowerCase()] || 'application/octet-stream',
     'Cache-Control': 'no-store, no-cache, must-revalidate',
     'Pragma': 'no-cache',
     'X-Content-Type-Options': 'nosniff',
-  });
+    'Accept-Ranges': 'bytes',
+  };
+
+  /* iOS Safari 는 Range(206) 응답을 못 받으면 영상을 아예 재생하지 않는다.
+     이게 없어서 폰에서만 영상이 안 나왔다. */
+  const range = req.headers.range;
+  const m = range && /^bytes=(\d*)-(\d*)$/.exec(range.trim());
+  if (m) {
+    let start = m[1] === '' ? null : parseInt(m[1], 10);
+    let end   = m[2] === '' ? null : parseInt(m[2], 10);
+    if (start === null) {                       // bytes=-N : 끝에서 N 바이트
+      start = Math.max(0, st.size - (end || 0));
+      end = st.size - 1;
+    } else if (end === null || end >= st.size) {
+      end = st.size - 1;
+    }
+    if (start > end || start >= st.size) {
+      res.writeHead(416, { 'Content-Range': `bytes */${st.size}` });
+      return res.end();
+    }
+    head['Content-Range'] = `bytes ${start}-${end}/${st.size}`;
+    head['Content-Length'] = end - start + 1;
+    res.writeHead(206, head);
+    return fs.createReadStream(real, { start, end }).pipe(res);
+  }
+
+  head['Content-Length'] = st.size;
+  res.writeHead(200, head);
   fs.createReadStream(real).pipe(res);
 }).listen(PORT, LAN ? '0.0.0.0' : '127.0.0.1', () => {
   console.log(`미리보기 http://127.0.0.1:${PORT}/  (캐시 없음)`);

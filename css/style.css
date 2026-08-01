@@ -423,6 +423,16 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
 .showreel .wrap{padding-inline:calc(var(--u) * 170/1920)}
 .showreel figure{position:relative}   /* 배경을 빼야 캡션 뒤 회색 띠가 사라진다 */
 .showreel video,.showreel img{width:100%;aspect-ratio:1580/2524;object-fit:cover;display:block;background:#000}
+.reel-play{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:64px; height:64px; border:0; border-radius:50%;
+  background:rgba(0,0,0,.55); color:#fff; font-size:24px; line-height:64px;
+  padding:0 0 0 4px; cursor:pointer; z-index:3;
+  backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
+}
+.reel-play[hidden]{ display:none }
+.reel-play:hover{ background:rgba(0,0,0,.75) }
+
 .showreel figcaption{
   text-align:center;
   margin-top:calc(var(--u) * 10/1920);

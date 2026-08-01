@@ -93,6 +93,7 @@
     margin-top:0;
     aspect-ratio:360/411.19;
     container-type:normal;
+    background:#000;        /* 데스크탑은 전체가 초록이지만 모바일은 패널(347.45)만 초록 */
   }
   /* 초록 패널 : 별도 요소가 없어 .profile 의 가상요소로 깐다 */
   .profile::before{
@@ -141,8 +142,15 @@
   .profile li{ font-size:calc(var(--m) * 7.125/360); font-weight:600; color:#000;
                line-height:calc(var(--m) * 11.96/360);
                letter-spacing:calc(var(--m) * -0.2137/360); white-space:nowrap }
-  .profile .fold.top{ top:-5.7% }
-  .profile .fold.bot{ bottom:-5.7% }
+  /* 지그재그 : 피그마 위 y872(=프로필+9) · 아래 y1226.19~1274(하단 flush)
+     -5.7% 로 두면 아래 톱니가 통째로 검정 위에 얹혀 안 보였다 */
+  /* 지그재그 톱니는 초록/사진 패널을 "물어뜯는" 그래픽이라 패널과 겹쳐야 보인다.
+     피그마(프로필 기준): 패널 32.81~380.26, 위 톱니 9~56.44, 아래 톱니 363.19~411
+       → 위는 패널 위로 23.81 튀어나오고 아래는 패널 아래로 30.74 넘어간다.
+     이 빌드는 패널을 0~347.45 에 두었으므로 그만큼 되돌려 맞춘다.
+     (bottom:0 으로 두면 톱니가 전부 검정 위에 얹혀 평평해 보였다) */
+  .profile .fold.top{ top:calc(-23.81/411.19 * 100%) }
+  .profile .fold.bot{ bottom:calc(33/411.19 * 100%) }
 
   /* ══ 수상 ══ y1274.19 360x555 (트로피 478.87 · 월계관 y37.95)
      프로필 하단에 딱 붙는다 — 데스크탑 margin-top 을 지운다 */
@@ -228,7 +236,7 @@
 
   /* ══ 지그재그 ══ 359.63x47.44 */
   .zig{ aspect-ratio:359.63/47.44 }
-  .profile .fold{ aspect-ratio:360/47.44 }
+  .profile .fold{ aspect-ratio:360/47.81 }
 
   /* ══ 감독 전문성 ══ 제목 박스 x55.5 y2854.53 247.33x54
      본문 y2922.875 251.63x125 — 9px / 줄간격 17.815 / 자간 -0.27px
@@ -375,7 +383,10 @@
     overflow:hidden;
   }
   .review figcaption{
-    margin-top:calc(var(--m) * 7.026/360);
+    /* 피그마 Figcaption 은 y99.31 에서 바로 시작하고 7.026 은 상자 안쪽 여백이다.
+       margin 으로 주면 본문이 5.2px 넘쳐 카드 아래가 잘렸다 */
+    margin-top:0;
+    padding-top:calc(var(--m) * 7.026/360);
     font-size:calc(var(--m) * 8.431/360);
     line-height:calc(var(--m) * 13.489/360);
   }
@@ -420,20 +431,22 @@
        잉크폭 = 6151.3/1000 x 36 = 221.4 (데스크탑 공식의 2배)
      카카오 문구 y6490.21 212x36 — 16px / 35.629 / -0.48px
      Contact y6530.21 84x30.25 — TLAB 13.5px · 패딩 5.625/15 · radius 47.25 */
+  /* 시안 수정됨 : 배너가 136 -> 176 로 커져 버튼이 안 잘린다 (3457:2011)
+     Contact 는 배너 기준 y109 (절대 6534, 배너 6425) */
   .cta{
-    margin-top:calc(var(--m) * 12.94/360);
-    aspect-ratio:360/136;
-    padding:0;
+    margin-top:calc(var(--m) * 14.94/360);
+    aspect-ratio:360/176;
+    padding:0 0 calc(var(--m) * 8/360);
   }
   .cta .cta-bg{
     position:absolute;
     left:calc(-0.56/360 * 100%);
-    top:calc(-24.79/136 * 100%);
+    top:calc(-24.79/176 * 100%);
     width:calc(365.333/360 * 100%);
-    height:calc(205.5/136 * 100%);
+    height:calc(205.5/176 * 100%);
     max-width:none;object-fit:cover;
   }
-  .cta h2{ padding-top:calc(var(--m) * 36.3/360) }
+  .cta h2{ padding-top:calc(var(--m) * 32.2/360) }
   .cta h2 svg.tlab,
   .cta h2 img{ width:calc(var(--m) * 221.4/360); max-width:none }
   .cta p{
@@ -442,9 +455,8 @@
     line-height:calc(var(--m) * 35.629/360);
     letter-spacing:calc(var(--m) * -0.48/360);
   }
-  .cta{ padding-bottom:calc(var(--m) * 34/360) }   /* 버튼 아래 여백 (사용자 요청) */
   .cta-btn{
-    margin-top:calc(var(--m) * 6/360);
+    margin-top:calc(var(--m) * 8/360);
     width:calc(var(--m) * 84/360);
     height:calc(var(--m) * 30.25/360);
     font-size:calc(var(--m) * 13.5/360);

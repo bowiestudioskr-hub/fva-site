@@ -171,6 +171,7 @@ function page({ file, title, desc, active, extraCss = [], jsonld = null, body })
 <link rel="stylesheet" href="css/mobile.css">
 ${extraCss.map(c => `<link rel="stylesheet" href="css/${c}">`).join('\n')}
 ${jsonld ? `<script type="application/ld+json">\n${JSON.stringify(jsonld, null, 2)}\n</script>` : ''}
+  <script src="/js/measure.js" defer></script>
 </head>
 <body>
 ${header(active)}
@@ -201,7 +202,7 @@ const today = new Date().toISOString().slice(0, 10);
 const ND = require('./pages/news-data');
 const NEWS_SLUGS = [...ND.map(n => `news-${n.slug}.html`),
                     ...ND.flatMap(n => n.posts.map((_, i) => `news-${n.slug}-${i+1}.html`))];
-const urls = ['', 'online.html', 'offline.html', 'curriculum.html', 'news.html', 'works.html', ...NEWS_SLUGS];
+const urls = ['', 'online.html', 'offline.html', 'curriculum.html', 'news.html', 'works.html', 'reviews.html', ...NEWS_SLUGS];
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'),
 `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -223,4 +224,8 @@ Sitemap: ${SITE}/sitemap.xml
 
 console.log(`  ✓ sitemap.xml (${urls.length} URL)`);
 console.log(`  ✓ robots.txt`);
+
+/* 후기 134건을 reviews.html 안에 정적으로 심는다.
+   reviews.json 만 갈아 끼우고 이 빌드를 돌리면 HTML 이 따라온다. */
+require('./tools/build_reviews')();
 console.log(`\n${built}개 페이지 생성 완료`);
