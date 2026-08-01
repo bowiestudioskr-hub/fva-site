@@ -326,9 +326,13 @@
   <section class="showreel" aria-labelledby="showreel-h">
     <div class="wrap">
       <figure class="reel">
-        <video id="reel" src="assets/video/students.mp4"
-               autoplay muted loop playsinline preload="metadata"
-               aria-label="FVA 수강생 작품 모음 영상"></video>
+        <video id="reel"
+               autoplay muted loop playsinline webkit-playsinline preload="metadata"
+               aria-label="FVA 수강생 작품 모음 영상">
+          <!-- 폰은 720 판. 원본은 2160x3450 이라 모바일에서 자동재생이 안 된다. -->
+          <source src="assets/video/students-720.mp4" media="(max-width:820px)" type="video/mp4">
+          <source src="assets/video/students.mp4" type="video/mp4">
+        </video>
         <button class="reel-sound" type="button" aria-pressed="false"
                 aria-label="소리 켜기">🔇</button>
         <figcaption id="showreel-h">모든 영상은 수강생 작품입니다.</figcaption>
@@ -641,6 +645,22 @@
       });
     },{ threshold:0.06, rootMargin:'0px 0px 4% 0px' });
     els.forEach(function(el){ io.observe(el) });
+  })();
+
+  /* 모바일 자동재생이 막히는 경우가 있어, 화면에 들어오면 한 번 더 시도한다 */
+  (function(){
+    var v=document.getElementById('reel'); if(!v) return;
+    var kick=function(){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); };
+    v.addEventListener('loadeddata', kick);
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting) kick() });
+      },{threshold:.2}).observe(v);
+    }
+    ['touchstart','click'].forEach(function(ev){
+      document.addEventListener(ev, function once(){ kick();
+        document.removeEventListener(ev, once); }, {once:true, passive:true});
+    });
   })();
 </script>
 </body>

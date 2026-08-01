@@ -115,13 +115,17 @@
     padding:0;
   }
   .profile .copy > *{ position:absolute; margin:0; white-space:nowrap }
-  .profile h2{ position:static }
+  .profile .copy > h2{ position:static }   /* .copy > * 규칙보다 세게 */
   /* TLAB 이라 SVG 아웃라인. 잉크폭 = viewBox폭/1000 x 글자크기
      DIRECTOR’S 3942/1000 x 35.739 = 140.9 · PROFILE 2661/1000 x 53.615 = 142.7 */
   .profile h2 .l1,
   .profile h2 .l2{ position:absolute;left:0;display:block;line-height:0 }
-  .profile h2 .l1{ top:calc(30.2/411.19 * 100%); width:calc(var(--m) * 140.9/360) }
-  .profile h2 .l2{ top:calc(59.4/411.19 * 100%); width:calc(var(--m) * 142.7/360); margin-top:0 }
+  /* 피그마 좌표는 글상자 기준(DIRECTOR’S 30.2~81.2 · PROFILE 59.4~135.4)이고
+     내 SVG 는 잉크라 상자 안에서 가운데로 내려야 겹치지 않는다.
+     DIRECTOR’S 잉크 32.9 -> 30.2+(51-32.9)/2 = 39.3
+     PROFILE   잉크 45.7 -> 59.4+(76-45.7)/2 = 74.6 */
+  .profile h2 .l1{ top:calc(39.3/411.19 * 100%); width:calc(var(--m) * 140.9/360) }
+  .profile h2 .l2{ top:calc(74.6/411.19 * 100%); width:calc(var(--m) * 142.7/360); margin-top:0 }
   .profile h2 svg.tlab{ display:block;width:100%;height:auto;color:#000;fill:currentColor }
   .profile .name{ top:calc(135.4/411.19 * 100%); margin-top:0 }
   .profile .who { font-size:calc(var(--m) * 11.25/360); font-weight:800; color:#000;
@@ -198,11 +202,14 @@
     font-size:calc(var(--m) * 8.5/360);
     line-height:1.4988;                  /* 피그마 부제 박스 12.74 */
   }
+  /* 배너 아래 여백 + 한 줄 유지.
+     360 에서는 8px 로도 들어가지만(290<293) 폰에서 Pretendard 가 안 실리면
+     더 넓은 기본 서체로 떨어져 두 줄이 된다. 폭을 넓히고 글자를 줄여 여유를 둔다. */
   .work .credit{
-    margin:calc(var(--m) * 2.84/360) 0 0 calc(33.68/360 * 100%);
-    width:calc(292.64/360 * 100%);
-    font-size:calc(var(--m) * 8/360);    /* 시안 3.94 · 10 은 너무 크다고 하여 8 */
-    line-height:1.3;
+    margin:calc(var(--m) * 12/360) 0 0 calc(20/360 * 100%);
+    width:calc(320/360 * 100%);
+    font-size:calc(var(--m) * 7.2/360);
+    line-height:1.35;
   }
   .work:last-of-type .credit{ margin-top:calc(var(--m) * 9.61/360) }
   .work .stills.phone{
@@ -435,8 +442,9 @@
     line-height:calc(var(--m) * 35.629/360);
     letter-spacing:calc(var(--m) * -0.48/360);
   }
+  .cta{ padding-bottom:calc(var(--m) * 14/360) }   /* 버튼 아래 여백 (사용자 요청) */
   .cta-btn{
-    margin-top:calc(var(--m) * 0.5/360);   /* 배너 밖으로 나가 잘리던 것 */
+    margin-top:calc(var(--m) * 6/360);
     width:calc(var(--m) * 84/360);
     height:calc(var(--m) * 30.25/360);
     font-size:calc(var(--m) * 13.5/360);
