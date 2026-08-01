@@ -116,15 +116,13 @@
   }
   .profile .copy > *{ position:absolute; margin:0; white-space:nowrap }
   .profile h2{ position:static }
+  /* TLAB 이라 SVG 아웃라인. 잉크폭 = viewBox폭/1000 x 글자크기
+     DIRECTOR’S 3942/1000 x 35.739 = 140.9 · PROFILE 2661/1000 x 53.615 = 142.7 */
   .profile h2 .l1,
-  .profile h2 .l2{
-    position:absolute;left:0;display:block;color:#000;
-    font-family:"Pretendard Variable",Pretendard,sans-serif;font-weight:900;
-  }
-  .profile h2 .l1{ top:calc(30.2/411.19 * 100%); font-size:calc(var(--m) * 35.739/360);
-                   letter-spacing:calc(var(--m) * -1.0722/360); line-height:1 }
-  .profile h2 .l2{ top:calc(59.4/411.19 * 100%); font-size:calc(var(--m) * 53.615/360);
-                   letter-spacing:calc(var(--m) * -2.1446/360); line-height:1; margin-top:0 }
+  .profile h2 .l2{ position:absolute;left:0;display:block;line-height:0 }
+  .profile h2 .l1{ top:calc(30.2/411.19 * 100%); width:calc(var(--m) * 140.9/360) }
+  .profile h2 .l2{ top:calc(59.4/411.19 * 100%); width:calc(var(--m) * 142.7/360); margin-top:0 }
+  .profile h2 svg.tlab{ display:block;width:100%;height:auto;color:#000;fill:currentColor }
   .profile .name{ top:calc(135.4/411.19 * 100%); margin-top:0 }
   .profile .who { font-size:calc(var(--m) * 11.25/360); font-weight:800; color:#000;
                   letter-spacing:calc(var(--m) * -0.225/360) }
