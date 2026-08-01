@@ -1,0 +1,253 @@
+/* 수강 후기 — /Users/gimjeonghwan/Documents/FVA/reviewpage/index.html 의 <style> 를 옮겼다.
+   사이트 공통 CSS 의 .wrap/header/footer 와 부딪치지 않게 전부 body.rv 아래로 묶었다.
+   후기 본문 134건은 assets/data/reviews.json 에 있다. */
+body.rv{
+  --bg: #000000;
+  --s1: #000000;
+  --s2: #0a0a0a;
+  --border: #1a1a1a;
+  --accent: #2CFF05;
+  --text: #e0e0e0;
+  --muted: #555;
+  --sub: #888;
+}*, body.rv main *::before, body.rv main *::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}body.rv{
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}body.rv main .logo img{height:22px;display:block;mix-blend-mode:screen}body.rv main .hd-right{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}body.rv main .live-dot{
+  display:inline-block;width:8px;height:8px;border-radius:50%;
+  background:var(--accent);flex-shrink:0;
+  animation:pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.3;transform:scale(0.6)}
+}body.rv main .stats-row{
+  display:flex;justify-content:center;align-items:center;gap:clamp(32px,6vw,80px);
+  flex-wrap:wrap;margin-top:26px;padding-top:26px;
+}body.rv main .stat-num{
+  font-size:clamp(16px,2.5vw,26px);font-weight:700;
+  color:var(--accent);display:flex;align-items:center;letter-spacing:0;line-height:1;
+}body.rv main .stat-num i{font-style:normal;font-size:0.52em;color:var(--accent);margin-left:6px}body.rv main .stat-label{
+  font-size:10px;color:var(--muted);letter-spacing:0.5px;
+  text-transform:uppercase;margin-top:8px;display:block;
+}body.rv main .filter-bar{
+  display:flex;justify-content:center;gap:0;
+  overflow-x:auto;scrollbar-width:none;
+  background:var(--bg);
+  position:sticky;top:56px;z-index:100;
+}body.rv main .filter-bar::-webkit-scrollbar{display:none}body.rv main .fbtn{
+  background:none;border:none;
+  border-bottom:2px solid transparent;
+  color:var(--muted);
+  font-size:11px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;
+  padding:16px 22px 14px;
+  cursor:pointer;white-space:nowrap;
+  transition:color .2s,border-color .2s;
+  font-family:inherit;margin-bottom:-1px;
+}body.rv main .fbtn:hover{color:var(--sub)}body.rv main .fbtn.on{color:var(--accent);border-bottom-color:var(--accent)}body.rv main .fbtn .n{margin-left:5px;font-size:9px;color:var(--muted)}body.rv main .fbtn.on .n{color:var(--accent)}
+@media(max-width:480px){body.rv main .c-img{margin:6px 6px 0;}body.rv main .c-body{padding:10px 8px 12px;}body.rv main .rev-text{font-size:10px;line-height:1.7;}body.rv main .c-img-char{margin:6px 6px 0;}
+}body.rv main .wrap{max-width:1360px;margin:0 auto;padding:40px 8px 80px}body.rv main .grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+}
+@media(max-width:720px){body.rv main .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:721px) and (max-width:1060px){body.rv main .grid{grid-template-columns:repeat(2,1fr)}
+}body.rv main .card{
+  background:var(--s1);overflow:hidden;
+  transition:background .2s;
+  animation:fadeUp .4s ease both;
+  cursor:pointer;
+}body.rv main .card:hover{background:var(--s2)}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}body.rv main .c-img{position:relative;overflow:hidden;cursor:pointer;border-radius:10px;margin:8px 8px 0;}body.rv main .c-img img{
+  width:100%;aspect-ratio:1;object-fit:cover;display:block;
+  filter:brightness(.9);transition:transform .6s ease,filter .3s;
+}body.rv main .card:hover .c-img img{transform:scale(1.05);filter:brightness(1)}body.rv main .c-img-char{position:relative;overflow:hidden;border-radius:10px;margin:8px 8px 0;aspect-ratio:1;cursor:default;}body.rv main .c-img-char img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:brightness(.28);
+}body.rv main .c-img-over{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.55) 0%,transparent 55%);
+  pointer-events:none;
+}body.rv main .zoom{
+  position:absolute;bottom:12px;right:12px;
+  width:30px;height:30px;
+  background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;color:rgba(255,255,255,.7);
+  opacity:0;transition:opacity .2s;
+}body.rv main .card:hover .zoom{opacity:1}body.rv main .c-body{padding:14px 14px 16px}body.rv main .c-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}body.rv main .stars{color:var(--accent);font-size:12px;letter-spacing:1px}body.rv main .tag{
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--border);padding:3px 9px;
+}body.rv main .rev-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}body.rv main .rev-name{font-size:12px;font-weight:600;color:var(--sub);letter-spacing:.3px}body.rv main .rev-date{font-size:11px;color:var(--muted)}body.rv main .new-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:9px;font-weight:800;letter-spacing:1.5px;
+  color:#000;background:var(--accent);
+  padding:3px 6px;margin-left:6px;
+  vertical-align:middle;line-height:1;
+}body.rv main .sep{height:1px;background:var(--border);margin-bottom:12px}body.rv main .rev-text{font-size:11.5px;color:#888;line-height:1.75;word-break:keep-all}body.rv main .rev-text.clamp{
+  display:-webkit-box;-webkit-line-clamp:8;-webkit-box-orient:vertical;overflow:hidden;
+}body.rv main .more-btn{
+  background:none;border:none;
+  color:var(--accent);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  cursor:pointer;padding:8px 0 0;display:block;font-family:inherit;
+  opacity:.7;transition:opacity .2s;
+}body.rv main .more-btn:hover{opacity:1}body.rv main .lb{
+  display:flex;position:fixed;inset:0;
+  background:rgba(0,0,0,.94);z-index:9999;
+  align-items:center;justify-content:center;
+  padding:48px 40px;
+  cursor:pointer;
+  overflow:hidden;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity 0.25s ease,visibility 0.25s;
+}body.rv main .lb.open{opacity:1;visibility:visible;pointer-events:auto;}body.rv main .lb-inner{
+  display:flex;flex-direction:column;
+  width:100%;max-width:520px;
+  max-height:calc(100vh - 96px);
+  min-height:0;overflow:hidden;
+  cursor:default;
+}body.rv main .lb-img-wrap{flex-shrink:0;width:100%;margin-bottom:22px;}body.rv main .lb-img-wrap img{width:100%;height:auto;max-height:40vh;object-fit:contain;display:block;}body.rv main .lb-inner.no-photo .lb-img-wrap{display:none}body.rv main .lb-meta{flex-shrink:0;width:100%;}body.rv main .lb-scroll-wrap{position:relative;width:100%;}body.rv main .lb-scroll{
+  overflow-y:auto;
+  padding-right:10px;
+  scrollbar-width:thin;
+  scrollbar-color:#444 rgba(255,255,255,0.07);
+}body.rv main .lb-scroll::-webkit-scrollbar{width:4px}body.rv main .lb-scroll::-webkit-scrollbar-thumb{background:#444;border-radius:2px}body.rv main .lb-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,0.05);border-radius:2px}body.rv main .lb-scroll-cue{
+  position:absolute;right:0;top:8%;bottom:8%;
+  width:4px;background:rgba(255,255,255,0.55);border-radius:2px;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.5s ease;
+}body.rv main .lb-scroll-cue.show{opacity:1;transition:none;}body.rv main .lb-stars{font-size:13px;color:var(--accent);letter-spacing:2px;margin-bottom:10px}body.rv main .lb-name-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}body.rv main .lb-name{font-size:13px;font-weight:600;color:var(--sub)}body.rv main .lb-date{font-size:11px;color:var(--muted)}body.rv main .lb-sep{height:1px;background:#1e1e1e;margin-bottom:16px}body.rv main .lb-text{font-size:14px;color:#aaa;line-height:1.9;word-break:keep-all;padding-bottom:8px}body.rv main .lb-x{
+  flex-shrink:0;
+  margin-top:22px;
+  display:flex;align-items:center;gap:7px;
+  font-size:11px;letter-spacing:1px;text-transform:uppercase;
+  color:rgba(255,255,255,0.45);cursor:pointer;transition:color .2s;
+  align-self:center;
+}body.rv main .lb-x:hover{color:#fff}body.rv main .lb-x-icon{
+  width:18px;height:18px;border-radius:50%;
+  background:rgba(255,255,255,0.13);
+  display:flex;align-items:center;justify-content:center;font-size:10px;
+}
+@media(max-width:600px){body.rv main .lb{padding:36px 20px}body.rv main .lb-inner{max-height:calc(100vh - 72px);}body.rv main .lb-text{font-size:13px}body.rv main .lb-img-wrap img{max-height:34vh}
+}body.rv main .ft-logo{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}body.rv main .ft-note{font-size:11px;color:var(--muted)}
+body.rv main .c-product{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px 14px;
+  border-top: 1px solid var(--border);
+  text-decoration: none;
+  transition: background .2s;
+}body.rv main .c-product:hover{ background: rgba(44,255,5,0.04); }body.rv main .c-product-icon{
+  width: 32px; height: 32px;
+  background: var(--border);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}body.rv main .c-product-icon img{ width: 100%; height: 100%; object-fit: cover; }body.rv main .c-product-info{ flex: 1; min-width: 0; }body.rv main .c-product-name{
+  font-size: 10px;
+  color: var(--sub);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  margin-bottom: 3px;
+}body.rv main .c-product-stars{ color: #ff6b35; font-size: 10px; letter-spacing: 1px; }body.rv main .c-product-arrow{
+  font-size: 10px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+/* ── 사용자 요청 (2026-08-02) ─────────────────────────────────
+   후기를 열었을 때 CLOSE 가 너무 어두워 안 보인다 → 초록으로. */
+body.rv main .lb-x{ color:var(--accent) }
+body.rv main .lb-x:hover{ color:#fff }
+body.rv main .lb-x-icon{ color:inherit; border-color:currentColor }
+
+
+/* ── 상단 헤더 (피그마 3462:169832) ─────────────────────────
+   「수강생들의 진짜 후기」는 TLAB 믹스커피다. 유료 폰트이고 fsType=4
+   (임베딩 금지)라 웹폰트로 실을 수 없어서, 정해진 문구만 아웃라인 SVG 로
+   굽고 실제 글자는 .sr-only 로 같이 넣는다 — 사이트 전체가 쓰는 방식.
+   별점·건수·REVIEWS 안내문은 전부 진짜 텍스트다.                     */
+body.rv main .rv-hero{
+  padding:clamp(26px,4vw,72px) 20px clamp(20px,2.4vw,44px);
+  text-align:center;position:relative;
+}
+body.rv main .rv-hero::before{
+  content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);
+  width:min(680px,92vw);height:320px;
+  background:radial-gradient(ellipse,rgba(44,255,5,.045) 0%,transparent 65%);
+  pointer-events:none;
+}
+body.rv main .rv-title{line-height:0;margin:0}
+body.rv main .rv-title svg.tlab{
+  display:inline-block;height:auto;fill:currentColor;color:var(--accent);
+  width:min(48.7vw,1039px);
+}
+
+body.rv main .rv-rate-row{
+  display:flex;align-items:center;
+  gap:clamp(10px,1.6vw,30px);
+  margin-top:clamp(18px,2.6vw,48px);
+}
+body.rv main .rv-rule{
+  flex:1 1 0;min-width:0;height:1px;background:#fff;opacity:.6;position:relative;
+}
+body.rv main .rv-rule.r::after{
+  content:'';position:absolute;right:0;top:50%;
+  width:13px;height:13px;
+  border-top:1px solid #fff;border-right:1px solid #fff;
+  transform:translateY(-50%) rotate(45deg);
+}
+body.rv main .rv-rating{
+  flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;
+  gap:clamp(12px,1.65vw,31px);
+  background:#151515;
+  border-radius:clamp(10px,.85vw,16px);
+  padding:clamp(16px,1.7vw,32px) clamp(22px,3.25vw,62px);
+}
+body.rv main .rv-rating .score{
+  display:block;line-height:0;flex:none;
+  color:var(--accent);
+  width:clamp(90px,7.85vw,150px);
+}
+body.rv main .rv-rating .score svg{display:block;width:100%;height:auto;fill:currentColor}
+body.rv main .rv-rating .stars{
+  display:block;color:var(--accent);letter-spacing:.06em;line-height:1.57;
+  font-size:clamp(17px,1.57vw,30px);
+}
+body.rv main .rv-rating .meta{
+  display:block;white-space:nowrap;color:#C9C9C9;font-weight:500;line-height:2.35;
+  font-size:clamp(11px,1.15vw,22px);
+}
+body.rv main .rv-rating .meta b{color:#fff;font-weight:800}
+
+body.rv main .rv-note{
+  margin-top:clamp(14px,2vw,38px);
+  font-size:clamp(12px,1.15vw,22px);font-weight:600;
+  color:#fff;letter-spacing:-.02em;line-height:1.5;
+}
+body.rv main .rv-note b{color:var(--accent);font-weight:800}
+
+@media(max-width:640px){
+  body.rv main .rv-hero{padding:24px 16px 18px}
+  body.rv main .rv-title svg.tlab{width:min(78vw,420px)}
+  body.rv main .rv-rule{display:none}
+  body.rv main .rv-rate-row{justify-content:center;margin-top:16px}
+  body.rv main .rv-rating{padding:13px 18px;gap:12px}
+  body.rv main .rv-rating .score{width:76px}
+  body.rv main .rv-rating .stars{font-size:15px;line-height:1.4}
+  body.rv main .rv-rating .meta{font-size:11px;line-height:1.6}
+  body.rv main .rv-note{font-size:12px;margin-top:14px}
+}

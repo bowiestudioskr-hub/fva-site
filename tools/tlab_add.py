@@ -39,7 +39,15 @@ SPECS = [
     ('t-directors',   ['DIRECTOR’S'], 197.489,  -5.9247, None, 'DIRECTOR’S'),
     ('t-profile',     ['PROFILE'],      296.271, -11.8509, None, 'PROFILE'),
     ('t-supervisors', ['SUPERVISOR’S'], 164.817,  -4.9445, None, 'SUPERVISOR’S'),
+    # 수강생 작품 (3462:169295 / 3462:169298) — TLAB 200px 자간 0 #2CFF05
+    ('t-works-h1', ['공모전 수상작 · 대표 작품'], 200.0, 0.0, None, '공모전 수상작 · 대표 작품'),
+    ('t-works-h2', ['현업 감독의 영상 분석'],     200.0, 0.0, None, '현업 감독의 영상 분석'),
     ('t-curriculum',  ['FVA CURRICULUM'], 100.0, -3.0, None, 'FVA CURRICULUM'),
+
+    # 커리큘럼 3개월권 혜택 (3402:222751) — TLAB 59.488px 자간 0 #2CFF05
+    ('t-cur-3mo', ['3개월권 혜택'], 59.488, 0.0, None, '3개월권 혜택'),
+    # 커리큘럼 표 BONUS 라벨 (3402:231208/210/212) — TLAB 19.576px 검정
+    ('t-cur-bonus', ['BONUS'], 19.576, 0.0, None, 'BONUS'),
 ]
 
 
