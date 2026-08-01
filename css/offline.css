@@ -369,3 +369,9 @@ svg.club-wordmark{
   .off-tail .tail-d{ font-size:calc(var(--m) * 10/360); padding-inline:calc(var(--m) * 20/360) }
   .off-tail .off-slider{ margin-top:calc(var(--m) * 16/360) }
 }
+
+/* 오프라인은 글이 길어 좌우 여백을 더 준다 (사용자 요청).
+   모바일(≤820)은 mobile.css 가 gutter 0 으로 두므로 건드리지 않는다. */
+@media (min-width:821px){
+  :root{ --gutter:clamp(0px, 6.4vw, 156px) }
+}
