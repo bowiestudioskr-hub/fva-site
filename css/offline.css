@@ -349,3 +349,23 @@ svg.club-wordmark{
   }
   .club-mascots .m{ display:none }    /* 모바일은 카드 배경 캐릭터를 생략 */
 }
+
+/* ── 하단 수강생 작품 (3462:170800 y79625 · 슬라이드 3462:170504) ── */
+.off-tail{ --u:var(--pagew); padding:calc(var(--u) * 48/1920) 0 calc(var(--u) * 120/1920) }
+.off-tail .tail-h{
+  text-align:center; color:#fff;
+  font-size:calc(var(--u) * 62/1920); line-height:1.13; font-weight:800;
+  letter-spacing:calc(var(--u) * -1.86/1920);
+}
+.off-tail .tail-d{
+  text-align:center; color:#9A9A9A;
+  margin-top:calc(var(--u) * 14/1920);
+  font-size:calc(var(--u) * 30/1920); line-height:1.43;
+}
+.off-tail .off-slider{ margin-top:calc(var(--u) * 56/1920) }
+@media (max-width:820px){
+  .off-tail{ padding:calc(var(--m) * 26/360) 0 calc(var(--m) * 34/360) }
+  .off-tail .tail-h{ font-size:calc(var(--m) * 15/360) }
+  .off-tail .tail-d{ font-size:calc(var(--m) * 10/360); padding-inline:calc(var(--m) * 20/360) }
+  .off-tail .off-slider{ margin-top:calc(var(--m) * 16/360) }
+}

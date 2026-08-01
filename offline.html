@@ -691,46 +691,16 @@
     <p class="el-rfb" style="left:calc(347/1920 * 100%);top:calc(9357.9/10213 * 100%);width:calc(1226.2/1920 * 100%)">· 수업이 진행되는 주에 불참하실 경우, 노쇼로 처리되어 환불이 불가합니다.<br>· 전체 수업 일정의 1/2 이상 수강하신 경우 환불이 불가합니다.<br>· 본 환불 규정은 국내 학원법 기준을 따릅니다.</p>
   </section>
 
-  <section class="why">
-    <div class="wrap">
-      <h2 class="sec-title">오프라인에서만 가능한 것</h2>
-      <div class="why-grid">
-        <article><h3>시네마 장비 실전 촬영</h3><p>ARRI ALEXA·FX6·FX3 등 고가 시네마 장비를 직접 만지며 실제 촬영 현장을 만들어봅니다.</p></article>
-        <article><h3>현역 감독의 현장 코칭</h3><p>작품 촬영에 감독이 직접 나와 현장에서 코칭합니다. 3개월 수강권은 수료 후에도 작품 피드백 3회를 받습니다.</p></article>
-        <article><h3>워크샵과 네트워킹 파티</h3><p>촬영·조명 워크샵이 매 분기 열리고, 영상인들이 모여 팀을 꾸리는 네트워킹 파티에 참여할 수 있습니다.</p></article>
-      </div>
-    </div>
-  </section>
 
-  <section class="course-card-sec">
-    <div class="wrap">
-      <article class="course-card">
-        <div class="course-info">
-          <h2>수강 안내</h2>
-          <dl class="course-meta">
-            <div><dt>과정</dt><dd>12주 (1개월 · 2개월 · 3개월 수강권 선택)</dd></div>
-            <div><dt>장소</dt><dd>서울특별시 마포구 독막로6길 6, 5층 (합정동 현영빌딩)</dd></div>
-            <div><dt>개강</dt><dd>기수별 상이 — 카카오 채널로 문의</dd></div>
-            <div><dt>결제</dt><dd>네이버 스마트스토어</dd></div>
-          </dl>
-        </div>
-        <div class="course-buy">
-          <p class="buy-lead">지금 모집 중인 기수를<br>카카오 채널로 안내해 드립니다</p>
-          <a class="btn-primary block" href="https://pf.kakao.com/_nxhyhn/chat" target="_blank" rel="noopener">수강 문의하기</a>
-          <a class="btn-ghost block" href="https://smartstore.naver.com/bowiestudios" target="_blank" rel="noopener">스마트스토어에서 보기</a>
-        </div>
-      </article>
-    </div>
-  </section>
 
-  <section class="also">
-    <div class="wrap">
-      <h2 class="sec-title">수강생들이 만든 작품</h2>
-      <p class="also-lede">영상 공모전 5연속 수상. 수강생 팀이 만든 작품이 실제로 상을 받고 있습니다.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="/works.html">수강생 작품 보기</a>
-        <a class="btn-ghost" href="https://bowiestudioskr-hub.github.io/fva-reviews/" target="_blank" rel="noopener">수강 후기 134건</a>
-      </div>
+
+
+  <!-- ══ 하단 : 수강생 작품 슬라이드 (3462:170800 y79625 · 3462:170504 y79909.9) ══ -->
+  <section class="off-tail" aria-labelledby="off-tail-h">
+    <h2 id="off-tail-h" class="tail-h">수강생 작품</h2>
+    <p class="tail-d">수강생이 직접 만든 공모전 수상작·대표작입니다. 슬라이드를 클릭하면 이 자리에서 바로 재생됩니다.</p>
+    <div class="off-slider" aria-label="수강생 작품 슬라이드">
+      <ul class="off-track" id="off-track2"></ul>
     </div>
   </section>
 
@@ -842,23 +812,25 @@
    카드를 누르면 그 자리에서 유튜브가 재생된다(영상 ID 가 있을 때). */
 (function(){
   var data = document.getElementById('off-slides');
-  var track = document.getElementById('off-track');
-  if(!data || !track) return;
+  var tracks = ['off-track','off-track2'].map(function(id){return document.getElementById(id)})
+                 .filter(Boolean);
+  if(!data || !tracks.length) return;
+  var track = tracks[0];
   var items;
   try { items = JSON.parse(data.textContent); } catch(e){ return; }
   if(!items.length) return;
 
   var CH = 'https://www.youtube.com/@FVA-ACADEMY';
-  var slider = track.closest('.off-slider');
-
-  /* 재생 중인 카드를 모두 닫고 썸네일로 되돌린다 -> 슬라이드가 다시 흐른다 */
+  /* 재생 중인 카드를 모두 닫고 썸네일로 되돌린다 -> 슬라이드가 다시 흐른다.
+     슬라이더가 2개(상단·하단)라 전역으로 훑는다. */
   function closeAll(){
-    track.querySelectorAll('.off-thumb.playing').forEach(function(b){
+    document.querySelectorAll('.off-thumb.playing').forEach(function(b){
       var d = b.__thumb;
       if (d) { b.innerHTML = ''; d.forEach(function(n){ b.appendChild(n) }); }
       b.classList.remove('playing');
     });
-    slider.classList.remove('has-playing');
+    document.querySelectorAll('.off-slider.has-playing')
+            .forEach(function(sl){ sl.classList.remove('has-playing') });
   }
 
   function card(it, dup){
@@ -905,7 +877,8 @@
         x.addEventListener('click', function(ev){ ev.stopPropagation(); closeAll(); });
         btn.innerHTML = ''; btn.appendChild(f); btn.appendChild(x);
         btn.classList.add('playing');
-        slider.classList.add('has-playing');   // 재생 중에만 슬라이드를 세운다
+        var sl = btn.closest('.off-slider');
+        if (sl) sl.classList.add('has-playing');   // 재생 중에만 그 슬라이드를 세운다
       });
     }
 
@@ -915,8 +888,12 @@
     return li;
   }
 
-  items.forEach(function(it){ track.appendChild(card(it, false)); });
-  items.forEach(function(it){ track.appendChild(card(it, true)); });
+  tracks.forEach(function(tk){
+    track = tk;                                  // card() 안 closeAll 이 참조한다
+    items.forEach(function(it){ tk.appendChild(card(it, false)) });
+    items.forEach(function(it){ tk.appendChild(card(it, true))  });
+  });
+  track = tracks[0];
 })();
 </script>
 </body>
