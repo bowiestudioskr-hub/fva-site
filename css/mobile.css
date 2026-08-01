@@ -82,34 +82,63 @@
     font-size:12px;
   }
 
-  /* ══ 감독 프로필 ══ y863 360x411.19 (사진 173.73 / 글 x194.67) */
+  /* ══ 감독 프로필 ══ 피그마 3457:1931 (y863, 360×411.19)
+     안쪽 초록 패널은 360×347.453. 아래 % 는 그 패널 기준.
+     사진 173.727 (마스크) · 글은 x53.89%~ 부터
+     DIRECTOR’S TLAB 35.739 자간 -1.0722 · PROFILE TLAB 53.615 자간 -2.1446
+     정주 감독 ExtraBold 11.25 · (MV…) Bold 7.5 · 현) BOWIE Bold 7.5
+     주요 이력 ExtraBold 8.438 · 이력 SemiBold 7.125 (11줄)
+     ※ cqi 를 쓰면 폭 따라 글자가 커져 글상자를 넘는다. 360 고정 환산으로 간다. */
   .profile{
     margin-top:0;
     aspect-ratio:360/411.19;
-    container-type:inline-size;
+    container-type:normal;
   }
+  /* 초록 패널 : 별도 요소가 없어 .profile 의 가상요소로 깐다 */
+  .profile::before{
+    content:"";position:absolute;left:0;top:0;z-index:0;
+    width:100%;height:calc(347.453/411.19 * 100%);
+    background:var(--green);
+  }
+  .profile .photo,.profile .copy{ z-index:1 }
   .profile .photo{
-    position:absolute;left:0;top:0;height:100%;
-    width:calc(173.73/360 * 100%);
-    object-position:center 20%;
+    position:absolute;left:0;top:0;
+    width:calc(173.727/360 * 100%);
+    height:calc(347.453/411.19 * 100%);
+    object-fit:cover;object-position:center 20%;
   }
   .profile .copy{
     position:absolute;
-    left:calc(194.67/360 * 100%);
-    top:calc(30.19/411.19 * 100%);
-    width:calc(150/360 * 100%);
+    left:calc(53.89/100 * 100%);
+    top:0;width:calc(46.11/100 * 100%);
+    height:100%;            /* 자식들의 top:% 가 411.19 기준으로 풀리게 */
     padding:0;
   }
-  .profile h2 .l1{ font-size:34cqi }
-  .profile h2 .l2{ font-size:50cqi }
-  .profile .name{ margin-top:6.5cqi }
-  .profile .who { font-size:9.5cqi }
-  .profile .role{ font-size:6.2cqi; margin-left:.35em }
-  .profile .org { font-size:6.2cqi; margin-top:.3em }
-  .profile .rule{ height:.5cqi; margin-top:2.4cqi }
-  .profile h3{ margin-top:4.6cqi; font-size:6.6cqi }
-  .profile ul{ margin-top:1.4cqi }
-  .profile li{ font-size:6.2cqi; line-height:1.33 }
+  .profile .copy > *{ position:absolute; margin:0; white-space:nowrap }
+  .profile h2{ position:static }
+  .profile h2 .l1,
+  .profile h2 .l2{
+    position:absolute;left:0;display:block;color:#000;
+    font-family:"Pretendard Variable",Pretendard,sans-serif;font-weight:900;
+  }
+  .profile h2 .l1{ top:calc(30.2/411.19 * 100%); font-size:calc(var(--m) * 35.739/360);
+                   letter-spacing:calc(var(--m) * -1.0722/360); line-height:1 }
+  .profile h2 .l2{ top:calc(59.4/411.19 * 100%); font-size:calc(var(--m) * 53.615/360);
+                   letter-spacing:calc(var(--m) * -2.1446/360); line-height:1; margin-top:0 }
+  .profile .name{ top:calc(135.4/411.19 * 100%); margin-top:0 }
+  .profile .who { font-size:calc(var(--m) * 11.25/360); font-weight:800; color:#000;
+                  letter-spacing:calc(var(--m) * -0.225/360) }
+  .profile .role{ font-size:calc(var(--m) * 7.5/360); font-weight:700; margin-left:.4em }
+  .profile .org { top:calc(150.5/411.19 * 100%); margin-top:0;
+                  font-size:calc(var(--m) * 7.5/360); font-weight:700; color:#000 }
+  .profile .rule{ top:calc(161.3/411.19 * 100%); left:0; width:calc(95.24/100 * 100%);
+                  height:1px; margin-top:0; background:#000 }
+  .profile h3{ top:calc(180.4/411.19 * 100%); margin-top:0;
+               font-size:calc(var(--m) * 8.438/360); font-weight:800; color:#000 }
+  .profile ul{ top:calc(195.6/411.19 * 100%); margin-top:0; padding:0; list-style:none }
+  .profile li{ font-size:calc(var(--m) * 7.125/360); font-weight:600; color:#000;
+               line-height:calc(var(--m) * 11.96/360);
+               letter-spacing:calc(var(--m) * -0.2137/360); white-space:nowrap }
   .profile .fold.top{ top:-5.7% }
   .profile .fold.bot{ bottom:-5.7% }
 
