@@ -157,7 +157,7 @@
 <div class="lb" id="lb" onclick="closeLb()">
   <div class="lb-inner" id="lbInner" onclick="event.stopPropagation()">
     <div class="lb-img-wrap" id="lbImgWrap">
-      <img id="lbImg" src="" alt="">
+      <img id="lbImg" alt="">
     </div>
     <div class="lb-meta">
       <div class="lb-stars" id="lbStars"></div>
@@ -193,7 +193,14 @@
     .then(function(d){
       holder.textContent = JSON.stringify(d);
       document.body.appendChild(holder);
-      var s=document.createElement('script'); s.src='js/reviews.js'; document.body.appendChild(s);
+      /* reviews.js 는 window.FVAReviewCard 를 쓴다 — 카드 틀을 먼저 올린 뒤에 실행한다.
+         (순서가 바뀌면 RC.stars 에서 죽고 필터 탭·더보기가 통째로 멈춘다) */
+      var rc=document.createElement('script'); rc.src='js/review-card.js';
+      rc.onload=function(){
+        var s=document.createElement('script'); s.src='js/reviews.js'; document.body.appendChild(s);
+      };
+      rc.onerror=function(){ console.error('review-card.js 를 불러오지 못했습니다'); };
+      document.body.appendChild(rc);
     })
     .catch(function(e){ console.error('후기를 불러오지 못했습니다', e); });
 })();
