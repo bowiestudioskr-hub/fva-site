@@ -1,0 +1,102 @@
+/* 온라인 강의 페이지 전용 — 커리큘럼·강사·후기·FAQ
+   sub.css 의 clamp 유동 크기 규칙을 그대로 따른다. 기존 클래스는 건드리지 않는다. */
+
+/* ── 커리큘럼 ─────────────────────────────────────────── */
+.ol-curri{ padding:clamp(34px,4.4vw,88px) 0 clamp(30px,3.6vw,72px) }
+.ol-head{ display:flex;flex-wrap:wrap;align-items:baseline;gap:clamp(10px,1.4vw,26px);
+  margin-bottom:clamp(18px,2.2vw,42px) }
+.ol-head .sec-title{ margin-bottom:0 }
+.ol-sum{ font-size:clamp(12px,1.05vw,20px);font-weight:600;color:var(--green) }
+.ol-note{ font-size:clamp(11.5px,.98vw,18px);color:#8A8A8A;line-height:1.7;
+  margin:0 0 clamp(16px,2vw,36px) }
+
+.ol-ch{ border-top:1px solid rgba(255,255,255,.13) }
+.ol-ch:last-of-type{ border-bottom:1px solid rgba(255,255,255,.13) }
+.ol-ch > summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:clamp(10px,1.2vw,22px);
+  padding:clamp(15px,1.7vw,32px) 0;
+}
+.ol-ch > summary::-webkit-details-marker{ display:none }
+.ol-no{
+  flex:0 0 auto;min-width:2.4em;text-align:center;
+  font-family:Unbounded,Pretendard,sans-serif;font-weight:800;
+  font-size:clamp(12px,1.05vw,20px);color:var(--green);
+}
+.ol-ttl{ flex:1 1 auto;font-size:clamp(13.5px,1.32vw,26px);font-weight:700;
+  line-height:1.45;letter-spacing:-.02em;color:#fff }
+.ol-cnt{ flex:0 0 auto;font-size:clamp(11px,.92vw,17px);color:#8A8A8A;white-space:nowrap }
+.ol-arw{ flex:0 0 auto;color:#8A8A8A;font-size:clamp(13px,1.1vw,21px);
+  transition:transform .18s }
+.ol-ch[open] .ol-arw{ transform:rotate(180deg) }
+.ol-ch[open] .ol-ttl{ color:var(--green) }
+
+.ol-ses{ list-style:none;margin:0;padding:0 0 clamp(12px,1.5vw,28px) }
+.ol-ses li{
+  display:flex;align-items:center;gap:clamp(9px,1vw,18px);
+  padding:clamp(8px,.85vw,16px) 0 clamp(8px,.85vw,16px) clamp(34px,3.6vw,68px);
+  font-size:clamp(12.5px,1.08vw,21px);line-height:1.6;color:#C9C9C9;
+}
+.ol-ses li + li{ border-top:1px solid rgba(255,255,255,.06) }
+.ol-sn{ flex:0 0 auto;min-width:3.1em;color:#6E6E6E;font-weight:600;
+  font-size:clamp(11px,.92vw,17px) }
+.ol-st{ flex:1 1 auto }
+.ol-dur{ flex:0 0 auto;color:#6E6E6E;font-variant-numeric:tabular-nums;
+  font-size:clamp(11px,.92vw,17px) }
+.ol-free{
+  flex:0 0 auto;background:var(--green);color:#000;font-weight:800;
+  font-size:clamp(9.5px,.76vw,14px);padding:.32em .8em;border-radius:999px;
+}
+
+/* ── 강사 ─────────────────────────────────────────────── */
+.ol-tutor{ padding:clamp(34px,4.4vw,88px) 0;border-top:1px solid rgba(255,255,255,.1) }
+.ol-tutor-grid{ display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(20px,3vw,64px);align-items:start }
+.ol-tutor-grid img{ width:100%;height:auto;border-radius:clamp(12px,1.2vw,22px);display:block }
+.ol-tutor h3{ font-size:clamp(17px,1.85vw,36px);font-weight:800;color:#fff;
+  letter-spacing:-.02em;margin-bottom:clamp(12px,1.4vw,26px) }
+.ol-tutor p{ font-size:clamp(12.5px,1.1vw,21px);line-height:1.85;color:#B9B9B9 }
+.ol-tutor p + p{ margin-top:clamp(10px,1.1vw,20px) }
+.ol-cred{ list-style:none;margin:clamp(16px,2vw,36px) 0 0;padding:0;
+  display:flex;flex-wrap:wrap;gap:clamp(7px,.8vw,14px) }
+.ol-cred li{ border:1px solid rgba(255,255,255,.22);border-radius:999px;
+  padding:.5em 1.05em;font-size:clamp(11px,.95vw,18px);color:#EAEAEA }
+
+/* ── 후기 ─────────────────────────────────────────────── */
+.ol-rev{ padding:clamp(34px,4.4vw,88px) 0;border-top:1px solid rgba(255,255,255,.1) }
+.ol-score{ display:flex;align-items:baseline;gap:clamp(8px,.9vw,16px);
+  margin-bottom:clamp(6px,.7vw,12px) }
+.ol-score b{ font-family:Unbounded,Pretendard,sans-serif;font-weight:800;
+  font-size:clamp(26px,3vw,58px);color:var(--green);line-height:1 }
+.ol-score span{ font-size:clamp(12px,1.05vw,20px);color:#8A8A8A }
+.ol-rev-grid{ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(12px,1.4vw,26px);margin-top:clamp(18px,2.2vw,42px) }
+.ol-rev-card{ background:var(--ink);border:1px solid rgba(255,255,255,.1);
+  border-radius:clamp(12px,1.2vw,22px);padding:clamp(16px,1.9vw,38px);
+  display:flex;flex-direction:column;gap:clamp(10px,1.1vw,20px) }
+.ol-stars{ color:var(--green);font-size:clamp(12px,1vw,19px);letter-spacing:.12em }
+.ol-rev-card p{ flex:1 1 auto;font-size:clamp(12px,1.02vw,20px);line-height:1.8;color:#C9C9C9 }
+.ol-rev-meta{ font-size:clamp(10.5px,.88vw,16px);color:#6E6E6E;line-height:1.6 }
+.ol-rev-meta em{ font-style:normal;display:block;margin-top:.35em;color:#5A5A5A }
+
+/* ── FAQ ──────────────────────────────────────────────── */
+.ol-faq{ padding:clamp(34px,4.4vw,88px) 0;border-top:1px solid rgba(255,255,255,.1) }
+.ol-faq details{ border-bottom:1px solid rgba(255,255,255,.13) }
+.ol-faq summary{ list-style:none;cursor:pointer;position:relative;
+  padding:clamp(15px,1.7vw,32px) clamp(30px,2.6vw,50px) clamp(15px,1.7vw,32px) 0;
+  font-size:clamp(13px,1.2vw,24px);font-weight:700;color:#fff;line-height:1.5 }
+.ol-faq summary::-webkit-details-marker{ display:none }
+.ol-faq summary::after{ content:'+';position:absolute;right:0;top:50%;
+  transform:translateY(-50%);color:var(--green);font-weight:700;
+  font-size:clamp(15px,1.3vw,26px) }
+.ol-faq details[open] summary::after{ content:'−' }
+.ol-faq .answer{ padding:0 0 clamp(16px,1.9vw,36px);
+  font-size:clamp(12.5px,1.08vw,21px);line-height:1.85;color:#B9B9B9;max-width:78ch }
+.ol-faq .answer a{ color:var(--green);text-decoration:underline;text-underline-offset:3px }
+
+@media (max-width:900px){
+  .ol-tutor-grid{ grid-template-columns:1fr;gap:clamp(16px,4vw,28px) }
+  .ol-rev-grid{ grid-template-columns:1fr }
+  .ol-ses li{ flex-wrap:wrap;padding-left:clamp(18px,5vw,34px) }
+  .ol-st{ flex:1 1 60% }
+  .ol-cnt{ display:none }
+}
