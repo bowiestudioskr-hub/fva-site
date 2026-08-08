@@ -144,27 +144,6 @@
 }
 .ol-hero .lede{ color:#D2D2D2 }
 
-/* ── 맛보기 배너 ─────────────────────────────────────── */
-.ol-taste{ padding:0 0 clamp(24px,3vw,56px) }
-.ol-taste-box{
-  display:grid; grid-template-columns:1fr minmax(0,.72fr); align-items:center;
-  gap:clamp(16px,2.4vw,48px);
-  background:var(--ink); border:1px solid rgba(255,255,255,.1);
-  border-radius:clamp(14px,1.4vw,26px); overflow:hidden;
-  padding:clamp(22px,2.8vw,56px); padding-right:0;
-}
-.ol-taste-txt{ padding-right:clamp(8px,1vw,20px) }
-.ol-taste-kicker{
-  font-family:Unbounded,Pretendard,sans-serif; font-weight:800;
-  font-size:clamp(10.5px,.86vw,16px); letter-spacing:.16em; color:var(--green);
-  margin-bottom:clamp(10px,1.1vw,20px);
-}
-.ol-taste-box h2{
-  font-size:clamp(19px,2.2vw,42px); font-weight:800; line-height:1.28;
-  letter-spacing:-.03em; color:#fff; margin-bottom:clamp(10px,1.2vw,22px);
-}
-.ol-taste-box p{ font-size:clamp(12.5px,1.05vw,20px); line-height:1.8; color:#B9B9B9 }
-.ol-taste-box > img{ width:100%; height:auto; display:block; align-self:end }
 
 @media (max-width:900px){
   .ol-taste-box{ grid-template-columns:1fr; padding-right:clamp(22px,2.8vw,56px) }
@@ -184,12 +163,10 @@
   max-width:calc(100% - 16px);
 }
 .ol-head{ align-items:center }
-.ol-taste-sub{
   font-size:clamp(13px,1.25vw,24px); font-weight:700; color:#fff;
   letter-spacing:-.02em; line-height:1.4;
   margin:clamp(10px,1.1vw,20px) 0 clamp(10px,1.2vw,22px);
 }
-.ol-h-left svg.tlab{ color:var(--green) }
 
 /* 히어로 — 사진 때문에 위가 너무 높아졌다. 높이를 줄이고 사진을 밝게. */
 .ol-hero{ padding:clamp(34px,4vw,84px) 0 clamp(26px,3vw,58px) }
@@ -225,10 +202,6 @@
 .ol-tutor p{ font-size:clamp(12px,1.02vw,19px); line-height:1.75 }
 .ol-cred{ margin-top:clamp(12px,1.3vw,24px) }
 
-/* 맛보기 배너 — 마스코트가 너무 컸다 */
-.ol-taste{ padding:0 0 clamp(18px,2vw,40px) }
-.ol-taste-box{ grid-template-columns:1fr minmax(0,.5fr); padding:clamp(18px,2vw,40px); padding-right:0 }
-.ol-taste-box p{ font-size:clamp(12px,1vw,18px) }
 
 /* 후기·FAQ 여백 */
 .ol-rev-grid{ margin-top:clamp(12px,1.4vw,26px); gap:clamp(10px,1.1vw,20px) }
@@ -251,7 +224,6 @@
   padding:calc(var(--u) * 150/1920) 0 calc(var(--u) * 60/1920);
   border-top:0;                       /* 홈은 섹션 사이에 선을 긋지 않는다 */
 }
-.ol-taste{ --u:var(--pagew); padding:calc(var(--u) * 60/1920) 0 }
 
 /* 제목 — 홈과 같은 가운데 정렬 큰 잉크 */
 .ol-h{ text-align:center; line-height:0; margin:0 }
@@ -278,15 +250,9 @@
 .ol-score{ justify-content:center; margin-bottom:calc(var(--u) * 10/1920) }
 .ol-rev .hero-actions{ justify-content:center }
 
-/* 맛보기 — 가운데 제목 + 아래 좌우 2단 */
-.ol-taste-box{
   grid-template-columns:1fr minmax(0,.55fr);
   padding:calc(var(--u) * 46/1920); padding-right:0;
 }
-.ol-h-left{ text-align:left }
-.ol-h-left svg.tlab{ color:var(--green) }
-.ol-taste-kicker{ margin-bottom:calc(var(--u) * 14/1920) }
-.ol-taste-sub{ margin-top:calc(var(--u) * 18/1920) }
 
 /* 강사 — 사진을 작게, 글을 넓게 */
 .ol-tutor-grid{ grid-template-columns:minmax(0,.42fr) minmax(0,1fr) }
@@ -295,4 +261,55 @@
   .ol-curri,.ol-tutor,.ol-rev,.ol-faq{ padding:clamp(30px,9vw,60px) 0 clamp(16px,4vw,32px) }
   .ol-taste-box{ grid-template-columns:1fr; padding:clamp(18px,5vw,34px) }
   .ol-note{ margin-bottom:clamp(14px,4vw,26px) }
+}
+
+/* ══════════════════════════════════════════════════════════
+   맛보기 배너 — 간격을 하나의 단위(--gap)로만 쌓는다.
+   여기저기서 margin 을 따로 주면 정렬이 어긋나므로
+   세로 간격은 flex + gap 하나로만 만든다.
+   ══════════════════════════════════════════════════════════ */
+.ol-taste{ --u:var(--pagew); padding:calc(var(--u) * 40/1920) 0 }
+.ol-taste-box{
+  --pad:calc(var(--u) * 56/1920);
+  --gap:calc(var(--u) * 20/1920);
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.62fr);
+  align-items:center; gap:calc(var(--u) * 40/1920);
+  background:var(--ink); border:1px solid rgba(255,255,255,.1);
+  border-radius:clamp(14px,1.4vw,26px);
+  padding:var(--pad);
+}
+.ol-taste-txt{
+  display:flex; flex-direction:column; align-items:flex-start; gap:var(--gap);
+}
+/* 제목 — 글 컬럼 폭에 맞춰 억제한다 */
+.ol-taste-h{ line-height:0; margin:0; max-width:100% }
+.ol-taste-h svg.tlab{
+  display:block; height:auto; fill:currentColor; color:var(--green);
+  width:calc(var(--pagew) * var(--dwn, 300)/1920); max-width:100%;
+}
+.ol-taste-lead{
+  font-size:clamp(15px,1.32vw,26px); font-weight:700; line-height:1.45;
+  letter-spacing:-.02em; color:#fff;
+}
+.ol-taste-body{
+  font-size:clamp(12.5px,1.05vw,19px); line-height:1.8; color:#A8A8A8;
+  max-width:34ch;
+}
+.ol-taste-btn{ margin-top:calc(var(--u) * 8/1920) }
+.ol-taste-art{ display:flex; justify-content:flex-end; align-items:center }
+.ol-taste-art img{
+  width:100%; max-width:calc(var(--u) * 420/1920); height:auto; display:block;
+  border-radius:clamp(10px,1vw,18px);
+}
+
+@media (max-width:900px){
+  .ol-taste{ padding:clamp(14px,4vw,28px) 0 }
+  .ol-taste-box{
+    --pad:clamp(20px,5.5vw,34px); --gap:clamp(12px,3.4vw,20px);
+    grid-template-columns:1fr; gap:clamp(18px,5vw,28px);
+  }
+  .ol-taste-h svg.tlab{ width:min(62%, 240px) }
+  .ol-taste-body{ max-width:none }
+  .ol-taste-art{ justify-content:center }
+  .ol-taste-art img{ max-width:min(74%, 300px) }
 }
