@@ -173,3 +173,30 @@
   .ol-shots{ flex-wrap:wrap }
   .ol-shots img{ flex:1 1 calc(50% - 5px); max-width:calc(50% - 5px) }
 }
+
+/* ── 섹션 제목을 TLAB 잉크로 (사이트 다른 페이지와 같은 방식) ── */
+.ol-h{
+  line-height:0; text-align:left; margin-bottom:0;
+}
+.ol-h svg.tlab{
+  display:inline-block; height:auto; fill:currentColor; color:#fff;
+  width:calc(var(--pagew) * var(--dwn, 400)/1920);
+  max-width:calc(100% - 16px);
+}
+.ol-head{ align-items:center }
+.ol-taste-sub{
+  font-size:clamp(13px,1.25vw,24px); font-weight:700; color:#fff;
+  letter-spacing:-.02em; line-height:1.4;
+  margin:clamp(10px,1.1vw,20px) 0 clamp(10px,1.2vw,22px);
+}
+.ol-h-left svg.tlab{ color:var(--green) }
+
+/* 히어로 — 사진 때문에 위가 너무 높아졌다. 높이를 줄이고 사진을 밝게. */
+.ol-hero{ padding:clamp(34px,4vw,84px) 0 clamp(26px,3vw,58px) }
+.ol-hero-bg{ opacity:.55 }
+.ol-hero::after{
+  background:linear-gradient(180deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,.72) 58%, var(--black) 100%);
+}
+.ol-hero h1{ font-size:clamp(24px,3.4vw,64px) }
+.ol-hero .lede{ margin-top:clamp(12px,1.4vw,26px); max-width:52ch }
+.ol-hero .hero-actions{ margin-top:clamp(18px,2vw,38px) }
