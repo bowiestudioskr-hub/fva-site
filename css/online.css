@@ -10,33 +10,63 @@
 .ol-note{ font-size:clamp(11.5px,.98vw,18px);color:#8A8A8A;line-height:1.7;
   margin:0 0 clamp(16px,2vw,36px) }
 
-.ol-ch{ border-top:1px solid rgba(255,255,255,.13) }
-.ol-ch:last-of-type{ border-bottom:1px solid rgba(255,255,255,.13) }
-.ol-ch > summary{
-  list-style:none;cursor:pointer;display:flex;align-items:center;gap:clamp(10px,1.2vw,22px);
-  padding:clamp(15px,1.7vw,32px) 0;
+/* 챕터 한 칸 = 카드. 줄줄이 선만 있는 목록보다 정돈돼 보인다. */
+.ol-ch{
+  background:var(--ink); border:1px solid rgba(255,255,255,.09);
+  border-radius:clamp(12px,1.2vw,20px); overflow:hidden;
+  transition:border-color .18s, background .18s;
 }
+.ol-ch + .ol-ch{ margin-top:clamp(8px,.9vw,16px) }
+.ol-ch[open]{ border-color:rgba(44,255,5,.32) }
+.ol-ch > summary{
+  list-style:none; cursor:pointer;
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto auto;
+  align-items:center; gap:clamp(12px,1.4vw,26px);
+  padding:clamp(14px,1.5vw,26px) clamp(16px,1.8vw,34px);
+}
+.ol-ch > summary:hover{ background:rgba(255,255,255,.028) }
+.ol-ch > summary:focus-visible{ outline:2px solid var(--green); outline-offset:-3px }
 .ol-ch > summary::-webkit-details-marker{ display:none }
 .ol-no{
-  flex:0 0 auto;min-width:2.4em;text-align:center;
-  font-family:Unbounded,Pretendard,sans-serif;font-weight:800;
-  font-size:clamp(12px,1.05vw,20px);color:var(--green);
+  font-family:Unbounded,Pretendard,sans-serif; font-weight:800;
+  font-size:clamp(13px,1.15vw,22px); color:var(--green);
+  min-width:1.4em; text-align:center; font-variant-numeric:tabular-nums;
 }
-.ol-ttl{ flex:1 1 auto;font-size:clamp(13.5px,1.32vw,26px);font-weight:700;
-  line-height:1.45;letter-spacing:-.02em;color:#fff }
-.ol-cnt{ flex:0 0 auto;font-size:clamp(11px,.92vw,17px);color:#8A8A8A;white-space:nowrap }
-.ol-arw{ flex:0 0 auto;color:#8A8A8A;font-size:clamp(13px,1.1vw,21px);
-  transition:transform .18s }
-.ol-ch[open] .ol-arw{ transform:rotate(180deg) }
+.ol-ttl{ font-size:clamp(13.5px,1.3vw,25px); font-weight:700;
+  line-height:1.45; letter-spacing:-.02em; color:#fff }
+.ol-cnt{ font-size:clamp(11px,.9vw,17px); color:#7E7E7E; white-space:nowrap }
+.ol-arw{ color:#7E7E7E; font-size:clamp(13px,1.1vw,21px); transition:transform .2s }
+.ol-ch[open] .ol-arw{ transform:rotate(180deg); color:var(--green) }
 .ol-ch[open] .ol-ttl{ color:var(--green) }
 
-.ol-ses{ list-style:none;margin:0;padding:0 0 clamp(12px,1.5vw,28px) }
-.ol-ses li{
-  display:flex;align-items:center;gap:clamp(9px,1vw,18px);
-  padding:clamp(8px,.85vw,16px) 0 clamp(8px,.85vw,16px) clamp(34px,3.6vw,68px);
-  font-size:clamp(12.5px,1.08vw,21px);line-height:1.6;color:#C9C9C9;
+/* 챕터별 강의 화면 4컷 — 접혀 있어도 보이는 자리 */
+/* 컷 수가 4개가 아닌 챕터(0장 1컷, 1장 3컷)도 빈칸 없이 꽉 차게 — 그리드 대신 플렉스 */
+.ol-shots{
+  grid-column:1 / -1; display:flex; gap:clamp(5px,.55vw,10px);
+  margin-bottom:clamp(12px,1.3vw,22px);
 }
-.ol-ses li + li{ border-top:1px solid rgba(255,255,255,.06) }
+.ol-shots img{
+  /* 컷이 1개든 4개든 한 컷의 크기는 항상 같게 — 챕터마다 높이가 들쭉날쭉하면 지저분해진다 */
+  flex:1 1 0; min-width:0; max-width:calc(25% - clamp(4px,.42vw,8px));
+  width:100%; height:auto; display:block;
+  aspect-ratio:16/9; object-fit:cover;
+  border-radius:clamp(5px,.5vw,9px);
+  filter:saturate(.88) brightness(.82); transition:filter .2s;
+}
+.ol-ch[open] .ol-shots img,
+.ol-ch > summary:hover .ol-shots img{ filter:none }
+
+.ol-ses{
+  list-style:none; margin:0;
+  padding:0 clamp(16px,1.8vw,34px) clamp(12px,1.4vw,24px);
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.ol-ses li{
+  display:flex; align-items:center; gap:clamp(9px,1vw,18px);
+  padding:clamp(9px,.9vw,17px) 0;
+  font-size:clamp(12.5px,1.06vw,20px); line-height:1.6; color:#C9C9C9;
+}
+.ol-ses li + li{ border-top:1px solid rgba(255,255,255,.055) }
 .ol-sn{ flex:0 0 auto;min-width:3.1em;color:#6E6E6E;font-weight:600;
   font-size:clamp(11px,.92vw,17px) }
 .ol-st{ flex:1 1 auto }
@@ -96,9 +126,10 @@
 @media (max-width:900px){
   .ol-tutor-grid{ grid-template-columns:1fr;gap:clamp(16px,4vw,28px) }
   .ol-rev-grid{ grid-template-columns:1fr }
-  .ol-ses li{ flex-wrap:wrap;padding-left:clamp(18px,5vw,34px) }
-  .ol-st{ flex:1 1 60% }
+  .ol-ses li{ flex-wrap:wrap }
+  .ol-ch > summary{ grid-template-columns:auto minmax(0,1fr) auto; gap:10px }
   .ol-cnt{ display:none }
+  .ol-st{ flex:1 1 60% }
 }
 
 /* ── 히어로에 강의 커버 깔기 (오프라인 페이지처럼 사진이 먼저 보이게) ── */
@@ -135,19 +166,10 @@
 .ol-taste-box p{ font-size:clamp(12.5px,1.05vw,20px); line-height:1.8; color:#B9B9B9 }
 .ol-taste-box > img{ width:100%; height:auto; display:block; align-self:end }
 
-/* ── 챕터 썸네일 ─────────────────────────────────────── */
-.ol-th{
-  flex:0 0 auto; width:clamp(84px,9vw,164px); height:auto; display:block;
-  border-radius:clamp(6px,.6vw,11px); border:1px solid rgba(255,255,255,.12);
-  transition:filter .18s, border-color .18s;
-  filter:saturate(.9) brightness(.88);
-}
-.ol-ch[open] .ol-th{ filter:none; border-color:rgba(44,255,5,.5) }
-.ol-ch > summary:hover .ol-th{ filter:none }
-
 @media (max-width:900px){
   .ol-taste-box{ grid-template-columns:1fr; padding-right:clamp(22px,2.8vw,56px) }
   .ol-taste-box > img{ max-width:340px; margin:0 auto }
   .ol-hero-bg{ opacity:.34 }
-  .ol-th{ width:clamp(66px,20vw,96px) }
+  .ol-shots{ flex-wrap:wrap }
+  .ol-shots img{ flex:1 1 calc(50% - 5px); max-width:calc(50% - 5px) }
 }
