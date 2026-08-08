@@ -100,3 +100,54 @@
   .ol-st{ flex:1 1 60% }
   .ol-cnt{ display:none }
 }
+
+/* ── 히어로에 강의 커버 깔기 (오프라인 페이지처럼 사진이 먼저 보이게) ── */
+.ol-hero{ position:relative; overflow:hidden; isolation:isolate }
+.ol-hero-bg{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  z-index:-1; opacity:.42; filter:saturate(.85);
+}
+.ol-hero::after{            /* 글자가 사진 위에서 읽히도록 아래를 어둡게 */
+  content:''; position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.78) 62%, var(--black) 100%);
+}
+.ol-hero .lede{ color:#D2D2D2 }
+
+/* ── 맛보기 배너 ─────────────────────────────────────── */
+.ol-taste{ padding:0 0 clamp(24px,3vw,56px) }
+.ol-taste-box{
+  display:grid; grid-template-columns:1fr minmax(0,.72fr); align-items:center;
+  gap:clamp(16px,2.4vw,48px);
+  background:var(--ink); border:1px solid rgba(255,255,255,.1);
+  border-radius:clamp(14px,1.4vw,26px); overflow:hidden;
+  padding:clamp(22px,2.8vw,56px); padding-right:0;
+}
+.ol-taste-txt{ padding-right:clamp(8px,1vw,20px) }
+.ol-taste-kicker{
+  font-family:Unbounded,Pretendard,sans-serif; font-weight:800;
+  font-size:clamp(10.5px,.86vw,16px); letter-spacing:.16em; color:var(--green);
+  margin-bottom:clamp(10px,1.1vw,20px);
+}
+.ol-taste-box h2{
+  font-size:clamp(19px,2.2vw,42px); font-weight:800; line-height:1.28;
+  letter-spacing:-.03em; color:#fff; margin-bottom:clamp(10px,1.2vw,22px);
+}
+.ol-taste-box p{ font-size:clamp(12.5px,1.05vw,20px); line-height:1.8; color:#B9B9B9 }
+.ol-taste-box > img{ width:100%; height:auto; display:block; align-self:end }
+
+/* ── 챕터 썸네일 ─────────────────────────────────────── */
+.ol-th{
+  flex:0 0 auto; width:clamp(84px,9vw,164px); height:auto; display:block;
+  border-radius:clamp(6px,.6vw,11px); border:1px solid rgba(255,255,255,.12);
+  transition:filter .18s, border-color .18s;
+  filter:saturate(.9) brightness(.88);
+}
+.ol-ch[open] .ol-th{ filter:none; border-color:rgba(44,255,5,.5) }
+.ol-ch > summary:hover .ol-th{ filter:none }
+
+@media (max-width:900px){
+  .ol-taste-box{ grid-template-columns:1fr; padding-right:clamp(22px,2.8vw,56px) }
+  .ol-taste-box > img{ max-width:340px; margin:0 auto }
+  .ol-hero-bg{ opacity:.34 }
+  .ol-th{ width:clamp(66px,20vw,96px) }
+}
