@@ -17,7 +17,9 @@
 
   // 목적지 분류 — 어디로 나갔는지 사람이 읽을 수 있게
   var DEST = [
-    { re: /fva\.co\.kr\/channels|class\.fva\.co\.kr/i, name: '온라인강의_신청', kind: '퍼블' },
+    /* 퍼블 수강페이지. 도메인을 옮기면 fva.co.kr/channels 가 죽으므로
+       퍼블 기본 주소(app.publr.co)도 같이 잡아야 집계가 끊기지 않는다. */
+    { re: /app\.publr\.co\/channels|fva\.co\.kr\/channels|class\.fva\.co\.kr/i, name: '온라인강의_신청', kind: '퍼블' },
     { re: /smartstore\.naver\.com/i,                   name: '스마트스토어_수강권', kind: '구매' },
     { re: /pf\.kakao\.com/i,                           name: '카카오_즉시상담', kind: '상담' },
     { re: /litt\.ly/i,                                 name: '리틀리_링크모음', kind: 'SNS' },
