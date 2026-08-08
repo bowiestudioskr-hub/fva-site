@@ -313,3 +313,26 @@
   .ol-taste-art{ justify-content:center }
   .ol-taste-art img{ max-width:min(74%, 300px) }
 }
+
+/* ══════════════════════════════════════════════════════════
+   커리큘럼을 2열로 — curriculum.html 이 표를 3열로 놓아 압축한 것과 같은 방식.
+   8개 챕터가 세로로만 쌓여 전체 높이의 3분의 1을 차지하고 있었다.
+   ══════════════════════════════════════════════════════════ */
+.ol-list{
+  display:grid; grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:calc(var(--u) * 14/1920); align-items:start;
+}
+.ol-list .ol-ch + .ol-ch{ margin-top:0 }
+.ol-shots img{ max-width:calc(25% - clamp(4px,.42vw,8px)) }
+
+/* 섹션 여백 — curriculum.html 처럼 촘촘하게 */
+.ol-curri,.ol-tutor,.ol-rev,.ol-faq{ padding:calc(var(--u) * 96/1920) 0 calc(var(--u) * 30/1920) }
+.ol-head{ margin-bottom:calc(var(--u) * 26/1920) }
+.ol-note{ margin-bottom:calc(var(--u) * 30/1920) }
+.ol-rev .ol-h,.ol-tutor .ol-h,.ol-faq .ol-h{ margin-bottom:calc(var(--u) * 26/1920) }
+.ol-tutor-grid{ grid-template-columns:minmax(0,.34fr) minmax(0,1fr) }
+
+@media (max-width:900px){
+  .ol-list{ grid-template-columns:1fr; gap:8px }
+  .ol-tutor-grid{ grid-template-columns:1fr }
+}
