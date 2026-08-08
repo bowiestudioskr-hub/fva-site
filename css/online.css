@@ -241,3 +241,58 @@
   .ol-tutor-grid img{ aspect-ratio:16/10; max-height:44vw }
   .ol-shots img{ max-width:calc(50% - 5px) }
 }
+
+/* ══════════════════════════════════════════════════════════
+   홈(index.html)의 리듬을 그대로 가져온다.
+   홈은 제목을 크게 가운데 두고, 섹션 여백을 페이지 폭에 비례시킨다.
+   ══════════════════════════════════════════════════════════ */
+.ol-curri,.ol-tutor,.ol-rev,.ol-faq{
+  --u:var(--pagew);
+  padding:calc(var(--u) * 150/1920) 0 calc(var(--u) * 60/1920);
+  border-top:0;                       /* 홈은 섹션 사이에 선을 긋지 않는다 */
+}
+.ol-taste{ --u:var(--pagew); padding:calc(var(--u) * 60/1920) 0 }
+
+/* 제목 — 홈과 같은 가운데 정렬 큰 잉크 */
+.ol-h{ text-align:center; line-height:0; margin:0 }
+.ol-h svg.tlab{
+  display:inline-block; height:auto; fill:currentColor; color:#fff;
+  width:calc(var(--pagew) * var(--dwn, 900)/1920);
+  max-width:calc(100% - 16px);
+}
+.ol-head{
+  display:block; text-align:center;
+  margin-bottom:calc(var(--u) * 40/1920);
+}
+.ol-sum{
+  display:block; margin-top:calc(var(--u) * 22/1920);
+  font-size:clamp(12px,1.05vw,20px); font-weight:600; color:var(--green);
+}
+.ol-note{
+  text-align:center; max-width:62ch; margin:0 auto calc(var(--u) * 44/1920);
+  font-size:clamp(11.5px,.98vw,18px); color:#8A8A8A;
+}
+.ol-rev .ol-h,.ol-tutor .ol-h,.ol-faq .ol-h{ margin-bottom:calc(var(--u) * 40/1920) }
+
+/* 후기 점수 — 제목 아래 가운데 */
+.ol-score{ justify-content:center; margin-bottom:calc(var(--u) * 10/1920) }
+.ol-rev .hero-actions{ justify-content:center }
+
+/* 맛보기 — 가운데 제목 + 아래 좌우 2단 */
+.ol-taste-box{
+  grid-template-columns:1fr minmax(0,.55fr);
+  padding:calc(var(--u) * 46/1920); padding-right:0;
+}
+.ol-h-left{ text-align:left }
+.ol-h-left svg.tlab{ color:var(--green) }
+.ol-taste-kicker{ margin-bottom:calc(var(--u) * 14/1920) }
+.ol-taste-sub{ margin-top:calc(var(--u) * 18/1920) }
+
+/* 강사 — 사진을 작게, 글을 넓게 */
+.ol-tutor-grid{ grid-template-columns:minmax(0,.42fr) minmax(0,1fr) }
+
+@media (max-width:900px){
+  .ol-curri,.ol-tutor,.ol-rev,.ol-faq{ padding:clamp(30px,9vw,60px) 0 clamp(16px,4vw,32px) }
+  .ol-taste-box{ grid-template-columns:1fr; padding:clamp(18px,5vw,34px) }
+  .ol-note{ margin-bottom:clamp(14px,4vw,26px) }
+}
