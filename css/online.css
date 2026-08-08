@@ -200,3 +200,44 @@
 .ol-hero h1{ font-size:clamp(24px,3.4vw,64px) }
 .ol-hero .lede{ margin-top:clamp(12px,1.4vw,26px); max-width:52ch }
 .ol-hero .hero-actions{ margin-top:clamp(18px,2vw,38px) }
+
+/* ── 전체 압축 — 스크롤을 짧게 ────────────────────────────
+   섹션 여백·이미지 크기를 한 번에 줄인다. 위의 규칙보다 뒤에 있어 이긴다. */
+.ol-curri,.ol-tutor,.ol-rev,.ol-faq{ padding:clamp(24px,2.6vw,52px) 0 }
+.ol-hero{ padding:clamp(26px,2.8vw,58px) 0 clamp(18px,2vw,40px) }
+.ol-hero h1{ font-size:clamp(21px,2.6vw,48px) }
+.ol-hero .lede{ font-size:clamp(12.5px,1.05vw,19px); margin-top:clamp(10px,1vw,18px) }
+.ol-hero .hero-actions{ margin-top:clamp(14px,1.5vw,28px) }
+
+/* 강의 화면 컷 — 한 단 더 작게 */
+.ol-shots{ margin-bottom:clamp(9px,.95vw,16px) }
+.ol-shots img{ max-width:calc(20% - clamp(4px,.42vw,8px)) }
+.ol-ch > summary{ padding:clamp(11px,1.15vw,20px) clamp(13px,1.4vw,26px) }
+.ol-ch + .ol-ch{ margin-top:clamp(6px,.65vw,11px) }
+.ol-ses li{ padding:clamp(7px,.7vw,13px) 0 }
+.ol-note{ margin-bottom:clamp(12px,1.3vw,24px) }
+.ol-head{ margin-bottom:clamp(12px,1.4vw,26px) }
+
+/* 강사 — 세로로 긴 사진이 화면을 잡아먹었다. 폭을 줄이고 높이를 잘라 가로형으로. */
+.ol-tutor-grid{ grid-template-columns:minmax(0,.52fr) minmax(0,1fr); gap:clamp(16px,2vw,40px) }
+.ol-tutor-grid img{ aspect-ratio:4/5; object-fit:cover; object-position:50% 22% }
+.ol-tutor h3{ font-size:clamp(15px,1.5vw,28px); margin-bottom:clamp(9px,1vw,18px) }
+.ol-tutor p{ font-size:clamp(12px,1.02vw,19px); line-height:1.75 }
+.ol-cred{ margin-top:clamp(12px,1.3vw,24px) }
+
+/* 맛보기 배너 — 마스코트가 너무 컸다 */
+.ol-taste{ padding:0 0 clamp(18px,2vw,40px) }
+.ol-taste-box{ grid-template-columns:1fr minmax(0,.5fr); padding:clamp(18px,2vw,40px); padding-right:0 }
+.ol-taste-box p{ font-size:clamp(12px,1vw,18px) }
+
+/* 후기·FAQ 여백 */
+.ol-rev-grid{ margin-top:clamp(12px,1.4vw,26px); gap:clamp(10px,1.1vw,20px) }
+.ol-rev-card{ padding:clamp(14px,1.5vw,28px); gap:clamp(8px,.9vw,15px) }
+.ol-faq summary{ padding:clamp(12px,1.3vw,24px) clamp(30px,2.6vw,50px) clamp(12px,1.3vw,24px) 0 }
+.ol-faq .answer{ padding-bottom:clamp(12px,1.4vw,26px) }
+
+@media (max-width:900px){
+  .ol-tutor-grid{ grid-template-columns:1fr }
+  .ol-tutor-grid img{ aspect-ratio:16/10; max-height:44vw }
+  .ol-shots img{ max-width:calc(50% - 5px) }
+}
