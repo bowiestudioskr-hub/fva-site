@@ -43,6 +43,10 @@ body{
   letter-spacing:var(--ls);
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
+  /* 한글은 브라우저 기본값이 글자 단위로 줄을 바꿔서 「열/람과」처럼 단어가 쪼개진다.
+     띄어쓰기에서만 넘어가게 하고, 끊을 데가 없는 긴 문자열(URL 등)만 예외로 둔다. */
+  word-break:keep-all;
+  overflow-wrap:break-word;
 }
 
 img,svg,video{display:block;max-width:100%}
