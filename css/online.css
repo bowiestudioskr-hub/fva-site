@@ -375,3 +375,28 @@
 .ol-note,.ol-taste-lead,.ol-taste-body,.ol-tutor h3,.ol-sum,
 .sub-hero .lede,.also-lede,.sec-title{ text-wrap:balance }
 .ol-faq summary{ text-wrap:balance }
+
+/* ── 제목과 본문 사이 숨 트이게 · 모바일 제목 한 단 축소 ── */
+.ol-curri,.ol-tutor,.ol-rev,.ol-faq{ --u:var(--pagew) }
+.ol-head,
+.ol-rev .ol-h,.ol-tutor .ol-h,.ol-faq .ol-h{
+  margin-bottom:calc(var(--u) * 56/1920);
+}
+.ol-score{ margin-top:calc(var(--u) * 10/1920) }
+.ol-note{ margin-top:calc(var(--u) * 18/1920); margin-bottom:calc(var(--u) * 52/1920) }
+.ol-rev-grid{ margin-top:calc(var(--u) * 40/1920) }
+.ol-tutor-grid{ margin-top:calc(var(--u) * 12/1920) }
+.ol-faq details:first-of-type{ border-top:1px solid rgba(255,255,255,.13) }
+
+@media (max-width:900px){
+  /* 제목이 여전히 컸다. 한 단 더 줄인다. */
+  .ol-h svg.tlab, .ol-taste-h svg.tlab{ width:min(48%, 190px) }
+  /* 제목 → 본문 간격을 넉넉히 */
+  .ol-head,
+  .ol-rev .ol-h,.ol-tutor .ol-h,.ol-faq .ol-h{ margin-bottom:clamp(20px,6vw,34px) }
+  .ol-note{ margin-top:clamp(10px,3vw,18px); margin-bottom:clamp(20px,6vw,34px) }
+  .ol-rev-grid{ margin-top:clamp(18px,5vw,30px) }
+  .ol-score{ margin-top:clamp(8px,2.5vw,14px); margin-bottom:clamp(4px,1.5vw,10px) }
+  .ol-tutor-grid{ margin-top:clamp(10px,3vw,18px) }
+  .ol-curri,.ol-tutor,.ol-rev,.ol-faq{ padding:clamp(38px,11vw,72px) 0 clamp(18px,5vw,34px) }
+}
