@@ -336,3 +336,42 @@
   .ol-list{ grid-template-columns:1fr; gap:8px }
   .ol-tutor-grid{ grid-template-columns:1fr }
 }
+
+/* ══════════════════════════════════════════════════════════
+   모바일 보정
+   ══════════════════════════════════════════════════════════ */
+@media (max-width:900px){
+  /* 제목 — 데스크탑 비례식(--dwn)을 그대로 쓰면 좁은 화면에서 너무 작아진다.
+     「맛보기 강의」와 같은 크기로 맞춘다. */
+  .ol-h svg.tlab{ width:min(62%, 250px) }
+  .ol-taste-h svg.tlab{ width:min(62%, 250px) }
+  .ol-h{ overflow:visible }                 /* 위아래 잘림 방지 */
+  .ol-h svg.tlab{ overflow:visible }
+
+  /* 강사 — 얼굴이 화면을 꽉 채워 답답했다. 가로형으로 눕히고 위쪽을 남긴다. */
+  .ol-tutor-grid img{
+    aspect-ratio:5/4; object-fit:cover; object-position:50% 26%;
+    max-height:52vw; width:100%;
+  }
+  .ol-tutor-grid{ gap:clamp(14px,4vw,24px) }
+}
+
+/* 별점 — 흰색이라 눈에 안 띄었다. 브랜드 그린으로 크게. */
+.ol-stars{
+  color:var(--green); font-size:clamp(15px,1.35vw,24px);
+  letter-spacing:.16em; line-height:1;
+  text-shadow:0 0 14px rgba(44,255,5,.45);
+}
+.ol-score b{ text-shadow:0 0 20px rgba(44,255,5,.4) }
+
+/* 버튼 — 한글은 글자 아래 여백이 커서 위로 치우쳐 보인다.
+   inline-flex 로 세로 가운데를 강제한다. */
+.btn-primary,.btn-ghost{
+  display:inline-flex; align-items:center; justify-content:center;
+  line-height:1; padding-top:.95em; padding-bottom:.95em;
+}
+
+/* 줄바꿈 — 마지막 줄만 짧게 남는 걸 막는다. 브라우저가 줄 길이를 고르게 나눈다. */
+.ol-note,.ol-taste-lead,.ol-taste-body,.ol-tutor h3,.ol-sum,
+.sub-hero .lede,.also-lede,.sec-title{ text-wrap:balance }
+.ol-faq summary{ text-wrap:balance }
