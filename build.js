@@ -8,7 +8,11 @@ const fs = require('fs');
 const path = require('path');
 
 const SITE = 'https://fva.co.kr';
-const PUBL = 'https://www.fva.co.kr/channels/L2NoYW5uZWxzLzIyMDkw'; // 도메인 이전 시 class.fva.co.kr 로 교체
+// ⚠ 결제 페이지. 여기를 잘못 두면 「수강 신청하기」가 전부 죽는다.
+//   www.fva.co.kr/channels/... 로 바꿔뒀던 적이 있는데 그 주소는 404 다
+//   (www 는 fva.co.kr 로 301 되고 GitHub Pages 에는 /channels 가 없다).
+//   도메인 이전이 실제로 끝나기 전까지는 app.publr.co 를 그대로 쓴다.
+const PUBL = 'https://app.publr.co/channels/L2NoYW5uZWxzLzIyMDkw';
 const REVIEWS = '/reviews.html';   // 사이트 안 후기 페이지(정적 렌더). 예전 외부 깃허브 페이지 아님
 const KAKAO = 'https://pf.kakao.com/_nxhyhn/chat';
 
