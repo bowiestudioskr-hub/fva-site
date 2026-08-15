@@ -127,6 +127,12 @@
 
 <script>
 const $ = s => document.querySelector(s);
+/* stats.json 의 문자열은 전부 바깥에서 온 값이다.
+   서치콘솔 검색어는 남이 친 말 그대로이고, GA4 페이지 경로에는
+   누가 fva.co.kr/?<img onerror=...> 로 들어오면 그 문자열이 그대로 실린다.
+   innerHTML 에 넣기 전에 반드시 통과시킬 것. */
+const esc = v => String(v ?? '').replace(/[&<>"']/g,
+  c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const nf = n => (n ?? 0).toLocaleString('ko-KR');
 const dur = s => { s = Math.round(s || 0);
   const m = Math.floor(s / 60); return m ? `${m}분 ${s % 60}초` : `${s}초`; };
@@ -155,7 +161,7 @@ function table(el, rows, cols, emptyMsg) {
   if (!rows || !rows.length) { el.innerHTML = `<div class="empty">${emptyMsg}</div>`; return; }
   const max = Math.max(...rows.map(r => r[cols.barKey] || 0)) || 1;
   el.innerHTML = `<table><thead><tr>${cols.head.map((h, i) =>
-      `<th${i ? ' class="n"' : ''}>${h}</th>`).join('')}</tr></thead><tbody>${
+      `<th${i ? ' class="n"' : ''}>${esc(h)}</th>`).join('')}</tr></thead><tbody>${
     rows.map(r => `<tr>
       <td>${cols.label(r)}${cols.bar ? `<div class="bar" style="width:${
         Math.max(3, Math.round((r[cols.barKey] || 0) / max * 100))}%"></div>` : ''}</td>
@@ -169,25 +175,25 @@ function render() {
 
   table($('#pages'), d?.pages, {
     head: ['페이지', '조회', '평균 체류'], barKey: 'views', bar: true,
-    label: r => `<span class="muted">${r.path}</span>`,
+    label: r => `<span class="muted">${esc(r.path)}</span>`,
     cells: r => [nf(r.views), dur(r.avgEngagement)],
   }, '아직 데이터가 없습니다.<br>GA4는 설치 후 최대 <b>48시간</b> 뒤부터 쌓입니다.');
 
   table($('#events'), d?.events, {
     head: ['버튼', '클릭', '어느 페이지에서'], barKey: 'count', bar: true,
-    label: r => r.label,
-    cells: r => [nf(r.count), `<span class="muted">${r.topPage || '—'}</span>`],
+    label: r => esc(r.label),
+    cells: r => [nf(r.count), `<span class="muted">${esc(r.topPage || '—')}</span>`],
   }, '아직 클릭이 없습니다.<br>온라인 강의 · 상담 버튼을 누르면 여기에 쌓입니다.');
 
   table($('#sources'), d?.sources, {
     head: ['유입 경로', '방문자', '비중'], barKey: 'users', bar: true,
-    label: r => r.name,
-    cells: r => [nf(r.users), (r.share ?? 0) + '%'],
+    label: r => esc(r.name),
+    cells: r => [nf(r.users), (Number(r.share) || 0) + '%'],
   }, '아직 데이터가 없습니다.');
 
   table($('#search'), d?.queries, {
     head: ['검색어', '클릭', '노출'], barKey: 'clicks', bar: true,
-    label: r => r.query,
+    label: r => esc(r.query),
     cells: r => [nf(r.clicks), nf(r.impressions)],
   }, '서치콘솔 연동 전이거나, 아직 검색 유입이 없습니다.<br>등록 직후에는 며칠 걸립니다.');
 }
@@ -196,7 +202,7 @@ fetch('data/stats.json?t=' + Date.now())
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(j => {
     DATA = j;
-    $('#updated').textContent = j.updated ? `업데이트 ${j.updated}` : '';
+    $('#updated').textContent = j.updated ? `업데이트 ${String(j.updated).slice(0, 40)}` : '';
     render();
   })
   .catch(() => {
