@@ -212,6 +212,12 @@ const SEARCH_TAGS = `<meta name="naver-site-verification" content="c4bbb7024041c
       gtag('event', 'kakao_consult_click', {
         link_text: text, from_page: location.pathname
       });
+    } else if (href.indexOf('smartstore.naver.com') > -1) {
+      // 오프라인 수강권은 스마트스토어에서 판다. 사이트를 떠나는 클릭이라
+      // 이름을 붙여두지 않으면 어디서 몇 명이 넘어갔는지 알 수 없다.
+      gtag('event', 'offline_store_click', {
+        link_text: text, link_url: href, from_page: location.pathname
+      });
     }
   }, true);
 </script>`;

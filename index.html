@@ -30,6 +30,10 @@
       gtag('event', 'kakao_consult_click', {
         link_text: text, from_page: location.pathname
       });
+    } else if (href.indexOf('smartstore.naver.com') > -1) {
+      gtag('event', 'offline_store_click', {
+        link_text: text, link_url: href, from_page: location.pathname
+      });
     }
   }, true);
 </script>

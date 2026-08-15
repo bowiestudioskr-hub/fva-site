@@ -30,6 +30,10 @@
       gtag('event', 'kakao_consult_click', {
         link_text: text, from_page: location.pathname
       });
+    } else if (href.indexOf('smartstore.naver.com') > -1) {
+      gtag('event', 'offline_store_click', {
+        link_text: text, link_url: href, from_page: location.pathname
+      });
     }
   }, true);
 </script>
@@ -157,7 +161,9 @@
     </div>
 
     <p class="off-cta-wrap">
-      <a class="off-cta" href="https://smartstore.naver.com/bowiestudios" target="_blank" rel="noopener">
+      <!-- 스토어 대문이 아니라 3개월 풀코스 상품으로 직행시킨다.
+           「신청하러 가기」를 눌렀는데 상품 목록이 나오면 한 단계 더 찾게 된다. -->
+      <a class="off-cta" href="https://smartstore.naver.com/bowiestudios/products/12653524153" target="_blank" rel="noopener">
         지금 신청하러 가기 <span aria-hidden="true">&rarr;</span>
       </a>
     </p>
