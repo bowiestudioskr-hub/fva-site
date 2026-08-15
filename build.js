@@ -185,6 +185,23 @@ const footer = () => `
      www      c4bbb70…  (2026-02 등록분)
      non-www  0ee823b…  (정식 주소)
    GA4 측정 ID G-79SFDWBK3L — 계정 FVA 피바아카데미 / 속성 fva.co.kr */
+const META_PIXEL = `
+<!-- Meta 픽셀 — 데이터세트 771478541518631 (계정 fvaAD 835470185019366)
+     인스타 광고가 사이트에서 무슨 일을 만들었는지 세려면 이게 있어야 한다.
+     없으면 메타는 「프로필 방문」처럼 싸고 의미 없는 지표만 사다 준다. -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','771478541518631');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></noscript>
+`;
+
 const SEARCH_TAGS = `<meta name="naver-site-verification" content="c4bbb7024041cad14985b579d3c6128fb16a3b62">
 <meta name="naver-site-verification" content="0ee823beb2ceccadce51966746eead96618a3573">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-79SFDWBK3L"></script>
@@ -220,7 +237,7 @@ const SEARCH_TAGS = `<meta name="naver-site-verification" content="c4bbb7024041c
       });
     }
   }, true);
-</script>`;
+</script>` + META_PIXEL;
 
 
 /* 검색결과에 'fva.co.kr › 온라인 강의' 처럼 경로를 띄우는 구조화 데이터.
