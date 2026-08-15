@@ -246,6 +246,16 @@ ${header(active)}
 ${body}
 </main>
 ${footer()}
+
+<!-- 네이버 애널리틱스 — 발급ID 2a4873e8881b40 (Bowie / jjy3530)
+     네이버 유입 검색어는 GA4 가 못 잡는다. 그건 여기서만 보인다.
+     네이버 가이드대로 </body> 바로 앞에 둔다. -->
+<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "2a4873e8881b40";
+if(window.wcs) { wcs_do(); }
+</script>
 </body>
 </html>
 `;
