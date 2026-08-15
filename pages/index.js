@@ -317,6 +317,10 @@ ${YT.latest.slice(0,8).map(v => `        <li>
     desc: '촬영 & 조명 워크샵, 영상인들의 네트워킹 파티, 수강생 작품 촬영 비하인드, 초청 연사 아카이브. FVA 아카데미에서 실제로 벌어지는 일들을 기록합니다.',
     extraCss: ['news.css'],
     body: `
+  <!-- 이 페이지는 시리즈 카드만 있고 큰 제목이 없어 h1 이 비어 있었다.
+       디자인을 건드리지 않도록 사이트 공통 .sr-only 방식으로만 넣는다. -->
+  <h1 class="sr-only">피바뉴스 — 촬영 &amp; 조명 워크샵, 네트워킹 파티, 수강생 작품 촬영 비하인드, 초청 연사 아카이브</h1>
+
   <section class="news-index">
 ${NEWS.map(s => `    <article class="series-row">
       <div class="series-copy">

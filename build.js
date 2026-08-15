@@ -175,6 +175,22 @@ const footer = () => `
   })();
 </script>`;
 
+/* 검색엔진 소유확인 + 분석 스크립트.
+   ⚠ 여기를 지우면 서치어드바이저 소유확인이 풀리고 통계가 끊긴다.
+   네이버는 www 와 non-www 를 다른 사이트로 보므로 코드가 각각 다르다.
+     www      c4bbb70…  (2026-02 등록분)
+     non-www  0ee823b…  (정식 주소)
+   GA4 측정 ID G-79SFDWBK3L — 계정 FVA 피바아카데미 / 속성 fva.co.kr */
+const SEARCH_TAGS = `<meta name="naver-site-verification" content="c4bbb7024041cad14985b579d3c6128fb16a3b62">
+<meta name="naver-site-verification" content="0ee823beb2ceccadce51966746eead96618a3573">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-79SFDWBK3L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-79SFDWBK3L');
+</script>`;
+
 function page({ file, title, desc, active, extraCss = [], jsonld = null, body }) {
   const url = `${SITE}/${file === 'index.html' ? '' : file}`;
   return `<!doctype html>
@@ -182,6 +198,7 @@ function page({ file, title, desc, active, extraCss = [], jsonld = null, body })
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+${SEARCH_TAGS}
 <title>${title}</title>
 <meta name="description" content="${desc}">
 <link rel="canonical" href="${url}">
@@ -255,9 +272,16 @@ ${urls.map(u => `  <url>
 </urlset>
 `);
 
+// AI 검색·답변 엔진은 이름을 박아 명시적으로 허용한다.
+// 와일드카드로도 통과하지만 이 봇들은 개별 규칙을 먼저 보므로 못을 박아둔다.
+const AI_BOTS = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-User',
+                 'Claude-SearchBot', 'PerplexityBot', 'Perplexity-User',
+                 'Google-Extended', 'Applebot-Extended', 'Bingbot', 'Yeti'];
 fs.writeFileSync(path.join(__dirname, 'robots.txt'),
 `User-agent: *
 Allow: /
+
+${AI_BOTS.map(b => `User-agent: ${b}\nAllow: /`).join('\n\n')}
 
 Sitemap: ${SITE}/sitemap.xml
 `);
