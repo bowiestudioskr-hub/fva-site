@@ -11,6 +11,27 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-79SFDWBK3L');
+
+  /* 사이트 밖으로 나가는 두 갈래만 이름 붙여 센다.
+     GA4 향상된 측정도 outbound click 을 잡지만 전부 'click' 한 덩어리라
+     보고서에서 갈라 보기 어렵다. 이름을 주면 바로 집계된다.
+       online_class_click  — 온라인 강의 구매/맛보기 (app.publr.co)
+       kakao_consult_click — 즉시 상담 (pf.kakao.com)
+     페이지별 체류시간은 GA4 「참여도 > 페이지 및 화면」에서 자동으로 나온다. */
+  document.addEventListener('click', function (e) {
+    var el = e.target instanceof Element ? e.target.closest('a[href]') : null;
+    if (!el) return;
+    var href = el.href || '', text = (el.textContent || '').trim().slice(0, 40);
+    if (href.indexOf('app.publr.co') > -1) {
+      gtag('event', 'online_class_click', {
+        link_text: text, link_url: href, from_page: location.pathname
+      });
+    } else if (href.indexOf('pf.kakao.com') > -1) {
+      gtag('event', 'kakao_consult_click', {
+        link_text: text, from_page: location.pathname
+      });
+    }
+  }, true);
 </script>
 <title>Ethanol Production 신윤철 감독 — 초청 연사 아카이브 | FVA 피바아카데미</title>
 <meta name="description" content="FVA 13·14기 초청 연사 · 초청 연사 아카이브 · FVA 피바아카데미">
