@@ -400,3 +400,57 @@
   .ol-tutor-grid{ margin-top:clamp(10px,3vw,18px) }
   .ol-curri,.ol-tutor,.ol-rev,.ol-faq{ padding:clamp(38px,11vw,72px) 0 clamp(18px,5vw,34px) }
 }
+
+/* ══════════════════════════════════════════════════════════
+   섹션 제목 높이 통일 (1024px 아래)
+   ──────────────────────────────────────────────────────────
+   제목이 SVG 잉크라 「폭」을 맞추면 글자 수가 적은 제목일수록
+   세로로 커진다. 실측: 390px 에서 강사 183px vs 수강생후기 70px.
+   폭이 아니라 「높이」를 고정해야 네 제목이 나란히 보인다.
+   ══════════════════════════════════════════════════════════ */
+@media (max-width:1023px){
+  .ol-curri .ol-h svg.tlab,
+  .ol-tutor .ol-h svg.tlab,
+  .ol-rev   .ol-h svg.tlab,
+  .ol-faq   .ol-h svg.tlab{
+    width:auto;
+    height:clamp(34px, 9.5vw, 76px);
+    max-width:calc(100% - 24px);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   본문 호흡 — 행간과 문단 간격을 넓힌다 (사용자 요청)
+   ══════════════════════════════════════════════════════════ */
+.ol-tutor p{ line-height:2.0 }
+.ol-tutor p + p{ margin-top:clamp(16px,1.7vw,30px) }
+.ol-tutor h3{ line-height:1.45; margin-bottom:clamp(14px,1.5vw,26px) }
+.ol-cred{ margin-top:clamp(18px,2vw,34px); line-height:2.0 }
+.ol-note{ line-height:1.95 }
+.ol-faq .answer{ line-height:2.0 }
+.ol-rev-card p{ line-height:1.95 }
+.ol-hero .lede{ line-height:1.9 }
+
+/* ══════════════════════════════════════════════════════════
+   강사 사진 — 얼굴이 너무 크게 잡혀 부담스럽다는 피드백
+   ──────────────────────────────────────────────────────────
+   원본 1440×2775(세로 1:1.93)을 4/5 로 자르니 세로의 65%만 보이고
+   그 안에서 얼굴이 절반을 차지했다. 액자를 세로로 늘려 더 많이
+   보여주면 같은 사진이라도 얼굴 비중이 내려간다.
+   ══════════════════════════════════════════════════════════ */
+.ol-tutor-grid img{
+  aspect-ratio:3/5;              /* 4/5 → 3/5 : 세로 86% 노출 */
+  object-fit:cover;
+  object-position:50% 30%;       /* 22% → 30% : 상체를 더 넣는다 */
+}
+@media (max-width:900px){
+  .ol-tutor-grid img{
+    aspect-ratio:4/5;            /* 16/10 은 얼굴만 잘려 나온다 */
+    max-height:none;
+    object-position:50% 28%;
+    /* 1단이 되면 폭을 다 먹어 사진만 화면을 채운다. 실측 768px 에서
+       704×879 까지 커졌다. 가운데 정렬로 묶어둔다. */
+    max-width:min(100%, 340px);
+    margin-inline:auto;
+  }
+}
