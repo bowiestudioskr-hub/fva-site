@@ -68,7 +68,8 @@ function collect(days) {
   });
   r.pages = (pg.rows || []).map(function (row) {
     const v = row.metricValues.map(numOf);
-    return { path: row.dimensionValues[0].value, views: v[0],
+    const p = row.dimensionValues[0].value;
+    return { path: p, name: pageName(p), views: v[0],
              avgEngagement: v[2] ? v[1] / v[2] : 0 };
   });
 
@@ -169,6 +170,24 @@ function numOf(mv) { return Number(mv.value) || 0; }
 
 function ymd(d) { return Utilities.formatDate(d, 'Asia/Seoul', 'yyyy-MM-dd'); }
 
+/* 경로만 봐서는 어느 페이지인지 안 보인다. 한글 이름을 붙인다. */
+function pageName(p) {
+  const base = String(p).split('?')[0].replace(/\/index\.html$/, '/');
+  const m = {
+    '/': '홈',
+    '/online.html': '온라인 강의',
+    '/offline.html': '오프라인 강의',
+    '/curriculum.html': '커리큘럼',
+    '/reviews.html': '수강 후기',
+    '/works.html': '수강생 작품',
+    '/news.html': '피바뉴스',
+  };
+  if (m[base]) return m[base];
+  if (/^\/news-/.test(base)) return '피바뉴스 · ' + base.replace(/^\/news-|\.html$/g, '');
+  if (/^\/stats-/.test(base)) return '통계 대시보드';
+  return base;
+}
+
 /* sessionSourceMedium 은 'naver / organic' 같은 모양이라 사람이 읽게 다듬는다 */
 function pretty(v) {
   const m = {
@@ -182,6 +201,15 @@ function pretty(v) {
     'blog.naver.com / referral':   '네이버 블로그',
     'youtube.com / referral': '유튜브',
     'litt.ly / referral': '리틀리',
+    'bowiestudioskr-hub.github.io / referral': '옛 후기 페이지(리다이렉트)',
+    'pf.kakao.com / referral': '카카오톡 채널',
+    'app.publr.co / referral': '퍼블 수강 페이지',
+    '(not set)': '경로 불명',
+    '(direct) / (not set)': '직접 유입 · 즐겨찾기',
   };
-  return m[v] || v;
+  if (m[v]) return m[v];
+  // 'xxx / organic' 같은 미등록 조합도 읽기 쉽게 풀어준다
+  const parts = String(v).split(' / ');
+  const kind = { organic: '검색', referral: '링크 타고', cpc: '광고', social: 'SNS', none: '직접' }[parts[1]];
+  return kind ? parts[0] + ' ' + kind : v;
 }

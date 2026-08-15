@@ -47,6 +47,8 @@
   td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
   .bar{height:4px;background:var(--accent);border-radius:2px;margin-top:5px;opacity:.75}
   .muted{color:var(--dim)}
+  .path{color:var(--dim2);font-size:12px;margin-left:8px}
+  @media (max-width:620px){ .path{display:block;margin:2px 0 0} }
 
   .empty{padding:26px 18px;text-align:center;color:var(--dim);font-size:14px;line-height:1.75}
   .empty b{color:var(--fg)}
@@ -187,7 +189,7 @@ function render() {
 
   table($('#pages'), d?.pages, {
     head: ['페이지', '조회', '평균 체류'], barKey: 'views', bar: true,
-    label: r => `<span class="muted">${esc(r.path)}</span>`,
+    label: r => `${esc(r.name || r.path)}<span class="path">${esc(r.path)}</span>`,
     sub: r => '평균 체류 ' + dur(r.avgEngagement),
     cells: r => [nf(r.views), dur(r.avgEngagement)],
   }, (DAYS===1 ? '오늘은 아직 방문이 없습니다.' : '아직 데이터가 없습니다.<br>GA4는 설치 후 최대 <b>48시간</b> 뒤부터 쌓입니다.'));
