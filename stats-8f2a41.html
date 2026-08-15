@@ -61,7 +61,17 @@
   .links .d{color:var(--dim2);font-size:12px;margin-top:3px}
 
   .note{color:var(--dim2);font-size:12.5px;line-height:1.8;margin-top:28px;border-top:1px solid var(--line);padding-top:18px}
-  @media (max-width:600px){ th:nth-child(3),td:nth-child(3){display:none} }
+  /* 좁은 화면에서 3열을 그냥 숨기면 정보가 사라진다.
+     열은 접되 값은 첫 칸 아래에 한 줄로 붙여 보여준다. */
+  .sub{display:none}
+  @media (max-width:620px){
+    th:nth-child(3),td:nth-child(3){display:none}
+    .sub{display:block;color:var(--dim2);font-size:12px;margin-top:3px}
+    th,td{padding:10px 13px}
+    .kpi{padding:13px 15px}
+    .kpi .num{font-size:26px}
+    body{padding-left:12px;padding-right:12px}
+  }
 </style>
 </head>
 <body>
@@ -72,7 +82,8 @@
   </header>
 
   <div class="range" id="range">
-    <button data-d="7"  aria-pressed="true">최근 7일</button>
+    <button data-d="1"  aria-pressed="true">오늘</button>
+    <button data-d="7"  aria-pressed="false">최근 7일</button>
     <button data-d="28" aria-pressed="false">최근 28일</button>
     <button data-d="90" aria-pressed="false">최근 90일</button>
   </div>
@@ -137,7 +148,7 @@ const nf = n => (n ?? 0).toLocaleString('ko-KR');
 const dur = s => { s = Math.round(s || 0);
   const m = Math.floor(s / 60); return m ? `${m}분 ${s % 60}초` : `${s}초`; };
 
-let DATA = null, DAYS = 7;
+let DATA = null, DAYS = 1;
 
 function bucket() {
   if (!DATA) return null;
@@ -163,7 +174,8 @@ function table(el, rows, cols, emptyMsg) {
   el.innerHTML = `<table><thead><tr>${cols.head.map((h, i) =>
       `<th${i ? ' class="n"' : ''}>${esc(h)}</th>`).join('')}</tr></thead><tbody>${
     rows.map(r => `<tr>
-      <td>${cols.label(r)}${cols.bar ? `<div class="bar" style="width:${
+      <td>${cols.label(r)}${cols.sub ? `<span class="sub">${cols.sub(r)}</span>` : ''}${
+        cols.bar ? `<div class="bar" style="width:${
         Math.max(3, Math.round((r[cols.barKey] || 0) / max * 100))}%"></div>` : ''}</td>
       ${cols.cells(r).map(c => `<td class="n">${c}</td>`).join('')}
     </tr>`).join('')}</tbody></table>`;
@@ -176,24 +188,28 @@ function render() {
   table($('#pages'), d?.pages, {
     head: ['페이지', '조회', '평균 체류'], barKey: 'views', bar: true,
     label: r => `<span class="muted">${esc(r.path)}</span>`,
+    sub: r => '평균 체류 ' + dur(r.avgEngagement),
     cells: r => [nf(r.views), dur(r.avgEngagement)],
-  }, '아직 데이터가 없습니다.<br>GA4는 설치 후 최대 <b>48시간</b> 뒤부터 쌓입니다.');
+  }, (DAYS===1 ? '오늘은 아직 방문이 없습니다.' : '아직 데이터가 없습니다.<br>GA4는 설치 후 최대 <b>48시간</b> 뒤부터 쌓입니다.'));
 
   table($('#events'), d?.events, {
     head: ['버튼', '클릭', '어느 페이지에서'], barKey: 'count', bar: true,
     label: r => esc(r.label),
+    sub: r => esc(r.topPage || '—') + ' 에서 가장 많이',
     cells: r => [nf(r.count), `<span class="muted">${esc(r.topPage || '—')}</span>`],
   }, '아직 클릭이 없습니다.<br>온라인 강의 · 상담 버튼을 누르면 여기에 쌓입니다.');
 
   table($('#sources'), d?.sources, {
     head: ['유입 경로', '방문자', '비중'], barKey: 'users', bar: true,
     label: r => esc(r.name),
+    sub: r => '비중 ' + (Number(r.share) || 0) + '%',
     cells: r => [nf(r.users), (Number(r.share) || 0) + '%'],
   }, '아직 데이터가 없습니다.');
 
   table($('#search'), d?.queries, {
     head: ['검색어', '클릭', '노출'], barKey: 'clicks', bar: true,
     label: r => esc(r.query),
+    sub: r => '노출 ' + nf(r.impressions),
     cells: r => [nf(r.clicks), nf(r.impressions)],
   }, '서치콘솔 검색어는 아직 연결 전입니다.<br>등록한 지 얼마 안 돼 데이터도 며칠 뒤부터 쌓입니다.');
 }

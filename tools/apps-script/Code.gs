@@ -24,7 +24,7 @@
 
 const GA4_PROPERTY = '550057103';        // fva.co.kr 속성 (측정 ID G-79SFDWBK3L)
 const SC_SITE      = 'https://fva.co.kr/'; // 서치콘솔 속성 (URL 접두어, non-www)
-const RANGES       = [7, 28, 90];
+const RANGES       = [1, 7, 28, 90];   // 1 = 오늘
 
 function doGet() {
   const out = { updated: stamp(), ranges: {} };
@@ -42,7 +42,8 @@ function stamp() {
 }
 
 function collect(days) {
-  const start = days + 'daysAgo';
+  // days=1 은 「오늘 하루」. GA4 는 today~today 로 받는다.
+  const start = days === 1 ? 'today' : days + 'daysAgo';
   const r = {};
 
   // ── 전체 요약 ──────────────────────────────────────────
@@ -123,7 +124,7 @@ function collect(days) {
   // ── 서치콘솔 검색어 ────────────────────────────────────
   try {
     const to = new Date(), from = new Date();
-    from.setDate(to.getDate() - days);
+    if (days > 1) from.setDate(to.getDate() - days);
     const q = sc({
       startDate: ymd(from), endDate: ymd(to),
       dimensions: ['query'], rowLimit: 12,
