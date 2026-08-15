@@ -250,13 +250,13 @@ module.exports = ({ PUBL, REVIEWS, KAKAO, SITE, read }) => [
       </article>
 
       <article class="work">
-        <div class="stills"><img src="assets/works/work2-kimboknam.jpg" width="1924" height="469" loading="lazy" alt="김복남 맥주 광고 영상 스틸컷"></div>
+        <div class="stills"><img src="assets/works/work2-kimboknam.webp" width="1924" height="469" loading="lazy" alt="김복남 맥주 광고 영상 스틸컷"></div>
         <div class="banner"><h3>생맥주 프랜차이즈 광고 영상 공모전 대상 수상</h3><p>BRAND - 김복남 맥주 Kimboknam Beer</p></div>
         <p class="credit">* FVA 5기 [지OO], 7기[박OO], 8기[김OO, 정OO, 오OO, 이OO, 김OO, 김OO, 모OOO 아OO] 수강생 작품</p>
       </article>
 
       <article class="work">
-        <div class="stills"><img src="assets/works/work3-shinhan.jpg" width="1924" height="522" loading="lazy" alt="제11회 신한 29초영화제 최우수상 수상작 스틸컷"></div>
+        <div class="stills"><img src="assets/works/work3-shinhan.webp" width="1924" height="522" loading="lazy" alt="제11회 신한 29초영화제 최우수상 수상작 스틸컷"></div>
         <div class="banner"><h3>제 11회 신한 29초영화제 최우수상 수상</h3></div>
         <p class="credit">* FVA 8기 [남OO, 김OO, 김OO, 김OO, 김OO, 오OO] 수강생 작품</p>
       </article>
