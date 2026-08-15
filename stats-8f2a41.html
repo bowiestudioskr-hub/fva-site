@@ -195,12 +195,12 @@ function render() {
     head: ['검색어', '클릭', '노출'], barKey: 'clicks', bar: true,
     label: r => esc(r.query),
     cells: r => [nf(r.clicks), nf(r.impressions)],
-  }, '서치콘솔 연동 전이거나, 아직 검색 유입이 없습니다.<br>등록 직후에는 며칠 걸립니다.');
+  }, '서치콘솔 검색어는 아직 연결 전입니다.<br>등록한 지 얼마 안 돼 데이터도 며칠 뒤부터 쌓입니다.');
 }
 
 /* Apps Script 웹 앱 주소. tools/apps-script/Code.gs 를 배포하고 받은 URL 을 넣는다.
    비어 있으면 data/stats.json(정적 파일)로 넘어간다. */
-const FEED = '';
+const FEED = 'https://script.google.com/macros/s/AKfycbxX5u3DZXo45__8_7a3XHPjIbD_utCHYeyK7l2lmuvA3b4dENQS_y4ncVgnSHb5RYA/exec';
 
 fetch((FEED || 'data/stats.json') + (FEED ? '' : '?t=' + Date.now()))
   .then(r => r.ok ? r.json() : Promise.reject(r.status))

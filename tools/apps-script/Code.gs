@@ -10,12 +10,15 @@
  * ── 설치 ────────────────────────────────────────────────
  * 1. script.google.com → 새 프로젝트
  * 2. 이 파일 내용을 통째로 붙여넣기
- * 3. 왼쪽 「서비스 +」 → Google Analytics Data API 추가 (식별자 AnalyticsData)
- *                    → Search Console API 추가        (식별자 Searchconsole)
- * 4. 배포 → 새 배포 → 유형 「웹 앱」
+ * 3. 배포 → 새 배포 → 유형 「웹 앱」
  *      실행 계정  : 나
- *      액세스 권한: 링크가 있는 모든 사용자
- * 5. 나온 웹 앱 URL 을 대시보드에 넣으면 끝
+ *      액세스 권한: 모든 사용자   ← 「Google 계정이 있는」이 아니라 「모든」
+ * 4. 나온 웹 앱 URL 을 대시보드에 넣으면 끝
+ *
+ * 고급 서비스(AnalyticsData/Searchconsole)는 쓰지 않는다. 편집기에서
+ * 일일이 추가해야 하고 clasp 로 올린 매니페스트만으로는 안 붙는다.
+ * 그래서 REST 를 UrlFetchApp 으로 직접 친다. 권한은 매니페스트의
+ * oauthScopes 로 선언해 둔다.
  * ────────────────────────────────────────────────────────
  */
 
@@ -121,11 +124,11 @@ function collect(days) {
   try {
     const to = new Date(), from = new Date();
     from.setDate(to.getDate() - days);
-    const sc = Searchconsole.Searchanalytics.query({
+    const q = sc({
       startDate: ymd(from), endDate: ymd(to),
       dimensions: ['query'], rowLimit: 12,
-    }, SC_SITE);
-    r.queries = (sc.rows || []).map(function (row) {
+    });
+    r.queries = (q.rows || []).map(function (row) {
       return { query: row.keys[0], clicks: row.clicks, impressions: row.impressions };
     });
   } catch (e) {
@@ -135,9 +138,30 @@ function collect(days) {
   return r;
 }
 
-/* GA4 Data API 한 방 호출 */
+/* GA4 Data API — 고급 서비스 대신 REST 직접 호출 */
 function ga(body) {
-  return AnalyticsData.Properties.runReport(body, 'properties/' + GA4_PROPERTY);
+  return post('https://analyticsdata.googleapis.com/v1beta/properties/'
+              + GA4_PROPERTY + ':runReport', body);
+}
+
+/* 서치콘솔 Search Analytics */
+function sc(body) {
+  return post('https://searchconsole.googleapis.com/webmasters/v3/sites/'
+              + encodeURIComponent(SC_SITE) + '/searchAnalytics/query', body);
+}
+
+function post(url, body) {
+  const res = UrlFetchApp.fetch(url, {
+    method: 'post',
+    contentType: 'application/json',
+    headers: { Authorization: 'Bearer ' + ScriptApp.getOAuthToken() },
+    payload: JSON.stringify(body),
+    muteHttpExceptions: true,
+  });
+  const code = res.getResponseCode();
+  const text = res.getContentText();
+  if (code !== 200) throw new Error('HTTP ' + code + ' ' + text.slice(0, 200));
+  return JSON.parse(text);
 }
 
 function numOf(mv) { return Number(mv.value) || 0; }
