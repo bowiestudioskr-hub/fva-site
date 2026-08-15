@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /stats-8f2a41.html
+Disallow: /data/
 
 # AI 검색·답변 엔진 — 이름을 박아 명시적으로 허용한다.
 # 위 와일드카드로도 허용되지만, 이 봇들은 개별 규칙을 먼저 보므로

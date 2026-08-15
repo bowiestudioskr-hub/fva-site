@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>FVA 유입 현황</title>
+<link rel="icon" href="/favicon.ico">
+<style>
+  :root{
+    --bg:#0B0B0B; --panel:#151515; --line:#242424; --fg:#EDEDED;
+    --dim:#8A8A8A; --dim2:#5E5E5E; --accent:#B6FF3B; --warn:#FFB84D;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",Pretendard,sans-serif;
+    padding:clamp(18px,3vw,44px) clamp(14px,3vw,32px) 80px;
+    -webkit-font-smoothing:antialiased;
+  }
+  main{max-width:1080px;margin:0 auto}
+
+  header.top{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+  h1{font-size:clamp(20px,2.4vw,28px);font-weight:800;letter-spacing:-.02em;margin:0}
+  .updated{color:var(--dim2);font-size:13px}
+  .range{display:flex;gap:6px;margin:18px 0 26px;flex-wrap:wrap}
+  .range button{
+    font:inherit;font-size:13px;font-weight:600;background:var(--panel);color:var(--dim);
+    border:1px solid var(--line);border-radius:999px;padding:7px 15px;cursor:pointer;
+  }
+  .range button[aria-pressed="true"]{background:var(--accent);color:#0B0B0B;border-color:var(--accent)}
+
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:12px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .kpi .label{color:var(--dim);font-size:13px;margin-bottom:6px}
+  .kpi .num{font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+  .kpi .sub{color:var(--dim2);font-size:12px;margin-top:4px}
+  .kpi.hi .num{color:var(--accent)}
+
+  section{margin-top:26px}
+  h2{font-size:14px;font-weight:700;color:var(--dim);margin:0 0 10px;letter-spacing:.02em}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--line)}
+  th{color:var(--dim2);font-weight:600;font-size:12px}
+  tr:last-child td{border-bottom:0}
+  td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .bar{height:4px;background:var(--accent);border-radius:2px;margin-top:5px;opacity:.75}
+  .muted{color:var(--dim)}
+
+  .empty{padding:26px 18px;text-align:center;color:var(--dim);font-size:14px;line-height:1.75}
+  .empty b{color:var(--fg)}
+
+  .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+  .links a{
+    display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:15px 17px;text-decoration:none;color:var(--fg);
+  }
+  .links a:hover{border-color:var(--accent)}
+  .links .t{font-weight:700;font-size:14px}
+  .links .d{color:var(--dim2);font-size:12px;margin-top:3px}
+
+  .note{color:var(--dim2);font-size:12.5px;line-height:1.8;margin-top:28px;border-top:1px solid var(--line);padding-top:18px}
+  @media (max-width:600px){ th:nth-child(3),td:nth-child(3){display:none} }
+</style>
+</head>
+<body>
+<main>
+  <header class="top">
+    <h1>FVA 유입 현황</h1>
+    <span class="updated" id="updated">불러오는 중…</span>
+  </header>
+
+  <div class="range" id="range">
+    <button data-d="7"  aria-pressed="true">최근 7일</button>
+    <button data-d="28" aria-pressed="false">최근 28일</button>
+    <button data-d="90" aria-pressed="false">최근 90일</button>
+  </div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <section>
+    <h2>페이지별 — 얼마나 보고 얼마나 머물렀나</h2>
+    <div class="panel" id="pages"></div>
+  </section>
+
+  <section>
+    <h2>버튼 클릭 — 온라인 강의 · 상담</h2>
+    <div class="panel" id="events"></div>
+  </section>
+
+  <section>
+    <h2>어디서 들어왔나</h2>
+    <div class="panel" id="sources"></div>
+  </section>
+
+  <section>
+    <h2>검색 유입 (구글 서치콘솔)</h2>
+    <div class="panel" id="search"></div>
+  </section>
+
+  <section>
+    <h2>네이버 — 여기는 직접 확인해야 합니다</h2>
+    <div class="links">
+      <a href="https://analytics.naver.com/" target="_blank" rel="noopener">
+        <div class="t">네이버 애널리틱스 ↗</div>
+        <div class="d">네이버 유입 검색어는 여기서만 보입니다</div>
+      </a>
+      <a href="https://searchadvisor.naver.com/console/board" target="_blank" rel="noopener">
+        <div class="t">서치어드바이저 ↗</div>
+        <div class="d">색인 현황 · 수집 요청</div>
+      </a>
+      <a href="https://searchad.naver.com/" target="_blank" rel="noopener">
+        <div class="t">네이버 검색광고 ↗</div>
+        <div class="d">광고 집행하면 이 수치도 여기로 끌어옵니다</div>
+      </a>
+    </div>
+  </section>
+
+  <p class="note">
+    네이버 애널리틱스는 데이터를 밖으로 빼는 API가 없어서 자동으로 못 가져옵니다. 그래서 바로가기만 뒀습니다.<br>
+    방문자 수 · 체류시간 · 버튼 클릭은 <b>네이버로 들어온 사람까지 포함해</b> 위 표에 전부 잡힙니다.
+    네이버 애널리틱스가 따로 필요한 건 <b>네이버에서 뭘 검색하고 들어왔는지</b> 하나뿐입니다.<br>
+    이 페이지는 검색에 안 걸리게 막아뒀습니다(<code>noindex</code> + robots 차단). 주소를 아는 사람은 볼 수 있으니 링크 공유는 조심하세요.
+  </p>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const nf = n => (n ?? 0).toLocaleString('ko-KR');
+const dur = s => { s = Math.round(s || 0);
+  const m = Math.floor(s / 60); return m ? `${m}분 ${s % 60}초` : `${s}초`; };
+
+let DATA = null, DAYS = 7;
+
+function bucket() {
+  if (!DATA) return null;
+  return DATA.ranges?.[String(DAYS)] || null;
+}
+
+function renderKpis(d) {
+  const k = [
+    ['방문자', nf(d?.users), '순 방문자 수', true],
+    ['조회수', nf(d?.views), '전체 페이지 조회'],
+    ['평균 체류', dur(d?.avgEngagement), '한 명이 머문 시간'],
+    ['온라인 강의 클릭', nf(d?.onlineClicks), '구매 사이트로 이동', true],
+    ['상담 클릭', nf(d?.kakaoClicks), '카카오톡 채널'],
+  ];
+  $('#kpis').innerHTML = k.map(([l, v, s, hi]) =>
+    `<div class="kpi${hi ? ' hi' : ''}"><div class="label">${l}</div>
+     <div class="num">${v}</div><div class="sub">${s}</div></div>`).join('');
+}
+
+function table(el, rows, cols, emptyMsg) {
+  if (!rows || !rows.length) { el.innerHTML = `<div class="empty">${emptyMsg}</div>`; return; }
+  const max = Math.max(...rows.map(r => r[cols.barKey] || 0)) || 1;
+  el.innerHTML = `<table><thead><tr>${cols.head.map((h, i) =>
+      `<th${i ? ' class="n"' : ''}>${h}</th>`).join('')}</tr></thead><tbody>${
+    rows.map(r => `<tr>
+      <td>${cols.label(r)}${cols.bar ? `<div class="bar" style="width:${
+        Math.max(3, Math.round((r[cols.barKey] || 0) / max * 100))}%"></div>` : ''}</td>
+      ${cols.cells(r).map(c => `<td class="n">${c}</td>`).join('')}
+    </tr>`).join('')}</tbody></table>`;
+}
+
+function render() {
+  const d = bucket();
+  renderKpis(d);
+
+  table($('#pages'), d?.pages, {
+    head: ['페이지', '조회', '평균 체류'], barKey: 'views', bar: true,
+    label: r => `<span class="muted">${r.path}</span>`,
+    cells: r => [nf(r.views), dur(r.avgEngagement)],
+  }, '아직 데이터가 없습니다.<br>GA4는 설치 후 최대 <b>48시간</b> 뒤부터 쌓입니다.');
+
+  table($('#events'), d?.events, {
+    head: ['버튼', '클릭', '어느 페이지에서'], barKey: 'count', bar: true,
+    label: r => r.label,
+    cells: r => [nf(r.count), `<span class="muted">${r.topPage || '—'}</span>`],
+  }, '아직 클릭이 없습니다.<br>온라인 강의 · 상담 버튼을 누르면 여기에 쌓입니다.');
+
+  table($('#sources'), d?.sources, {
+    head: ['유입 경로', '방문자', '비중'], barKey: 'users', bar: true,
+    label: r => r.name,
+    cells: r => [nf(r.users), (r.share ?? 0) + '%'],
+  }, '아직 데이터가 없습니다.');
+
+  table($('#search'), d?.queries, {
+    head: ['검색어', '클릭', '노출'], barKey: 'clicks', bar: true,
+    label: r => r.query,
+    cells: r => [nf(r.clicks), nf(r.impressions)],
+  }, '서치콘솔 연동 전이거나, 아직 검색 유입이 없습니다.<br>등록 직후에는 며칠 걸립니다.');
+}
+
+fetch('data/stats.json?t=' + Date.now())
+  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(j => {
+    DATA = j;
+    $('#updated').textContent = j.updated ? `업데이트 ${j.updated}` : '';
+    render();
+  })
+  .catch(() => {
+    $('#updated').textContent = '데이터 파일 없음';
+    render();
+  });
+
+$('#range').addEventListener('click', e => {
+  const b = e.target.closest('button[data-d]'); if (!b) return;
+  DAYS = +b.dataset.d;
+  [...$('#range').children].forEach(x => x.setAttribute('aria-pressed', x === b));
+  render();
+});
+</script>
+</body>
+</html>
