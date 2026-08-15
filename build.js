@@ -216,6 +216,37 @@ const SEARCH_TAGS = `<meta name="naver-site-verification" content="c4bbb7024041c
   }, true);
 </script>`;
 
+
+/* 검색결과에 'fva.co.kr › 온라인 강의' 처럼 경로를 띄우는 구조화 데이터.
+   홈은 경로가 없으므로 만들지 않는다. */
+const CRUMB_TOP = {
+  'online.html': '온라인 강의', 'offline.html': '오프라인 강의',
+  'curriculum.html': '커리큘럼', 'reviews.html': '수강 후기',
+  'works.html': '수강생 작품', 'news.html': '피바뉴스',
+};
+const CRUMB_SERIES = {
+  workshop: '촬영 & 조명 워크샵', party: '네트워킹 파티',
+  behind: '수강생 작품 촬영 비하인드', speakers: '초청 연사 아카이브',
+};
+function breadcrumb(file) {
+  let items = null;
+  if (CRUMB_TOP[file]) items = [['홈', '/'], [CRUMB_TOP[file], '/' + file]];
+  const m = /^news-([a-z]+)(?:-(\d+))?\.html$/.exec(file);
+  if (m && CRUMB_SERIES[m[1]]) {
+    items = [['홈', '/'], ['피바뉴스', '/news.html'], [CRUMB_SERIES[m[1]], `/news-${m[1]}.html`]];
+    if (m[2]) items.push([`${CRUMB_SERIES[m[1]]} ${m[2]}편`, '/' + file]);
+  }
+  if (!items) return '';
+  return `<script type="application/ld+json">
+${JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: items.map(([name, path], i) =>
+    ({ '@type': 'ListItem', position: i + 1, name, item: SITE + path })),
+}, null, 2)}
+</script>
+`;
+}
+
 function page({ file, title, desc, active, extraCss = [], jsonld = null, body }) {
   const url = `${SITE}/${file === 'index.html' ? '' : file}`;
   return `<!doctype html>
@@ -226,7 +257,7 @@ function page({ file, title, desc, active, extraCss = [], jsonld = null, body })
 ${SEARCH_TAGS}
 <title>${title}</title>
 <meta name="description" content="${desc}">
-<link rel="canonical" href="${url}">
+${breadcrumb(file)}<link rel="canonical" href="${url}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FVA ACADEMY">
 <meta property="og:title" content="${title}">
