@@ -24,7 +24,21 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-79SFDWBK3L');
+  // 네이버 검색광고는 클릭도 referrer 가 search.naver.com 이라 자연 검색과 구분되지 않는다.
+  // 광고 URL 에 붙인 utm_* 로 출처를 잡고, 네이버 자동추적이 붙여주는 n_keyword·n_query 로
+  // 「어떤 검색어로 들어왔는지」까지 잡는다. 둘 다 없으면 그냥 평소대로 동작한다.
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var nkw = q.get('n_keyword') || q.get('n_query');
+    var cfg = {};
+    if (nkw && !q.get('utm_term')) cfg.campaign_term = nkw;
+    if (nkw && !q.get('utm_source')) {
+      cfg.campaign_source = 'naver';
+      cfg.campaign_medium = 'cpc';
+      cfg.campaign_name = 'powerlink';
+    }
+    gtag('config', 'G-79SFDWBK3L', cfg);
+  })();
 
   /* 사이트 밖으로 나가는 두 갈래만 이름 붙여 센다.
      GA4 향상된 측정도 outbound click 을 잡지만 전부 'click' 한 덩어리라

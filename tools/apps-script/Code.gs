@@ -46,6 +46,15 @@ function collect(days) {
   const start = days === 1 ? 'today' : days + 'daysAgo';
   const r = {};
 
+  // 「최근 7일」만 적어두면 그게 언제부터 언제까지인지 알 수 없다. 날짜를 같이 내보낸다.
+  const to = new Date(), from = new Date();
+  if (days > 1) from.setDate(to.getDate() - (days - 1));
+  r.from = ymd(from);
+  r.to   = ymd(to);
+  r.label = days === 1
+    ? label(to)
+    : label(from) + ' ~ ' + label(to);
+
   // ── 전체 요약 ──────────────────────────────────────────
   const tot = ga({
     dateRanges: [{ startDate: start, endDate: 'today' }],
@@ -122,6 +131,72 @@ function collect(days) {
     x.share = Math.round(x.users / sum * 100); return x;
   });
 
+  // ── 광고 유입 ──────────────────────────────────────────
+  // 네이버는 utm_* 를 붙여야 자연 검색과 갈린다. 구글은 자동 태깅(gclid)이 처리한다.
+  r.ads = { naver: [], google: [], spendNote: '' };
+  try {
+    const nv = ga({
+      dateRanges: [{ startDate: start, endDate: 'today' }],
+      dimensions: [{ name: 'sessionManualTerm' }],
+      metrics: [{ name: 'totalUsers' }, { name: 'sessions' }],
+      dimensionFilter: { filter: { fieldName: 'sessionSourceMedium',
+        stringFilter: { matchType: 'CONTAINS', value: 'naver / cpc' } } },
+      orderBys: [{ desc: true, metric: { metricName: 'totalUsers' } }],
+      limit: 20,
+    });
+    r.ads.naver = (nv.rows || []).map(function (row) {
+      const k = row.dimensionValues[0].value;
+      return { keyword: (k && k !== '(not set)') ? k : '검색어 미확인',
+               users: numOf(row.metricValues[0]), sessions: numOf(row.metricValues[1]) };
+    });
+  } catch (e) { r.ads.naverError = String(e).slice(0, 160); }
+
+  try {
+    const gg = ga({
+      dateRanges: [{ startDate: start, endDate: 'today' }],
+      dimensions: [{ name: 'sessionGoogleAdsKeyword' }],
+      metrics: [{ name: 'totalUsers' }, { name: 'sessions' }],
+      orderBys: [{ desc: true, metric: { metricName: 'totalUsers' } }],
+      limit: 20,
+    });
+    r.ads.google = (gg.rows || []).filter(function (row) {
+      const k = row.dimensionValues[0].value;
+      return k && k !== '(not set)' && k !== '(organic)';
+    }).map(function (row) {
+      return { keyword: row.dimensionValues[0].value,
+               users: numOf(row.metricValues[0]), sessions: numOf(row.metricValues[1]) };
+    });
+  } catch (e) { r.ads.googleError = String(e).slice(0, 160); }
+
+  // ── 누가 보고 있나 (성별·연령·지역) ──────────────────────
+  // 성별·연령은 「Google 신호 데이터」를 켜야 값이 들어온다. 안 켜면 전부 (not set).
+  r.who = { gender: [], age: [], country: [], city: [] };
+  const demo = [
+    ['gender',  'userGender'],
+    ['age',     'userAgeBracket'],
+    ['country', 'country'],
+    ['city',    'city'],
+  ];
+  demo.forEach(function (pair) {
+    try {
+      const d = ga({
+        dateRanges: [{ startDate: start, endDate: 'today' }],
+        dimensions: [{ name: pair[1] }],
+        metrics: [{ name: 'totalUsers' }],
+        orderBys: [{ desc: true, metric: { metricName: 'totalUsers' } }],
+        limit: 12,
+      });
+      const rows = (d.rows || []).map(function (row) {
+        return { name: human(pair[0], row.dimensionValues[0].value),
+                 users: numOf(row.metricValues[0]) };
+      });
+      const tot = rows.reduce(function (a, b) { return a + b.users; }, 0) || 1;
+      r.who[pair[0]] = rows.map(function (x) {
+        x.share = Math.round(x.users / tot * 100); return x;
+      });
+    } catch (e) { r.who[pair[0]] = []; }
+  });
+
   // ── 서치콘솔 검색어 ────────────────────────────────────
   try {
     const to = new Date(), from = new Date();
@@ -169,6 +244,21 @@ function post(url, body) {
 function numOf(mv) { return Number(mv.value) || 0; }
 
 function ymd(d) { return Utilities.formatDate(d, 'Asia/Seoul', 'yyyy-MM-dd'); }
+
+function label(d) { return Utilities.formatDate(d, 'Asia/Seoul', 'M월 d일'); }
+
+/* GA4 가 주는 값은 영어이거나 (not set) 이다. 사람이 읽는 말로 바꾼다. */
+function human(kind, v) {
+  if (!v || v === '(not set)' || v === 'unknown') return '알 수 없음';
+  if (kind === 'gender') return { male: '남성', female: '여성' }[v] || v;
+  if (kind === 'age')    return v.replace('age', '').replace('_', '~') + '세';
+  if (kind === 'country') return { 'South Korea': '대한민국', 'United States': '미국',
+    'Japan': '일본', 'China': '중국', 'Canada': '캐나다', 'Vietnam': '베트남' }[v] || v;
+  if (kind === 'city') return { Seoul: '서울', Incheon: '인천', Busan: '부산', Daegu: '대구',
+    Daejeon: '대전', Gwangju: '광주', Suwon: '수원', Seongnam: '성남',
+    Goyang: '고양', Yongin: '용인', Bucheon: '부천' }[v] || v;
+  return v;
+}
 
 /* 경로만 봐서는 어느 페이지인지 안 보인다. 한글 이름을 붙인다. */
 function pageName(p) {

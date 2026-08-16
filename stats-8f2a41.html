@@ -2,240 +2,291 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <title>FVA 유입 현황</title>
 <link rel="icon" href="/favicon.ico">
 <style>
+  /* 흰 종이에 검정 글씨. 색은 브랜드 초록만, 문서 뒤에 흐리게 깔아 은은하게 쓴다. */
   :root{
-    --bg:#0B0B0B; --panel:#151515; --line:#242424; --fg:#EDEDED;
-    --dim:#8A8A8A; --dim2:#5E5E5E; --accent:#B6FF3B; --warn:#FFB84D;
+    --ink:#000; --sub:#6E6E6E; --line:#E7E7E7; --hair:#F2F2F2; --bg:#fff;
+    --green:#2CFF05; --cyan:#08FFD0;
+    --pad:clamp(16px,4vw,40px);
   }
-  *{box-sizing:border-box}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%}
   body{
-    margin:0; background:var(--bg); color:var(--fg);
-    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",Pretendard,sans-serif;
-    padding:clamp(18px,3vw,44px) clamp(14px,3vw,32px) 80px;
+    font-family:Pretendard,"Apple SD Gothic Neo",-apple-system,BlinkMacSystemFont,sans-serif;
+    background:var(--bg); color:var(--ink);
+    font-size:15px; line-height:1.55; letter-spacing:-.01em;
+    padding:var(--pad) var(--pad) 90px; position:relative; overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
   }
-  main{max-width:1080px;margin:0 auto}
-
-  header.top{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;justify-content:space-between;margin-bottom:6px}
-  h1{font-size:clamp(20px,2.4vw,28px);font-weight:800;letter-spacing:-.02em;margin:0}
-  .updated{color:var(--dim2);font-size:13px}
-  .range{display:flex;gap:6px;margin:18px 0 26px;flex-wrap:wrap}
-  .range button{
-    font:inherit;font-size:13px;font-weight:600;background:var(--panel);color:var(--dim);
-    border:1px solid var(--line);border-radius:999px;padding:7px 15px;cursor:pointer;
+  /* 네온 블러 — 글자는 건드리지 않고 뒤에서만 빛난다 */
+  body::before,body::after{
+    content:"";position:fixed;border-radius:50%;z-index:-1;pointer-events:none;
+    filter:blur(90px);opacity:.17;
   }
-  .range button[aria-pressed="true"]{background:var(--accent);color:#0B0B0B;border-color:var(--accent)}
+  body::before{width:46vmax;height:46vmax;top:-15vmax;right:-13vmax;background:var(--green)}
+  body::after {width:38vmax;height:38vmax;bottom:-15vmax;left:-13vmax;background:var(--cyan)}
 
-  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:12px}
-  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
-  .kpi .label{color:var(--dim);font-size:13px;margin-bottom:6px}
-  .kpi .num{font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.02em;line-height:1.15}
-  .kpi .sub{color:var(--dim2);font-size:12px;margin-top:4px}
-  .kpi.hi .num{color:var(--accent)}
+  a{color:inherit}
+  .wrap{max-width:920px;margin:0 auto}
 
-  section{margin-top:26px}
-  h2{font-size:14px;font-weight:700;color:var(--dim);margin:0 0 10px;letter-spacing:.02em}
-  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  header{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  h1{font-size:clamp(21px,5vw,28px);font-weight:800;letter-spacing:-.035em}
+  .stamp{font-size:12px;color:var(--sub)}
+
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0 8px}
+  .tabs button{
+    font:inherit;font-size:13.5px;font-weight:600;color:var(--sub);
+    background:#fff;border:1px solid var(--line);border-radius:999px;
+    padding:7px 15px;cursor:pointer;transition:.15s;
+  }
+  .tabs button:hover{border-color:#bbb;color:var(--ink)}
+  .tabs button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+
+  .period{font-size:13.5px;color:var(--sub);margin-bottom:6px}
+  .period b{color:var(--ink);font-weight:700}
+
+  h2{font-size:11.5px;font-weight:700;letter-spacing:.07em;color:var(--sub);
+     margin:34px 0 11px;text-transform:uppercase}
+
+  .kpis{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+  .kpi{border:1px solid var(--line);border-radius:14px;padding:15px 17px;background:#fff}
+  .kpi .t{font-size:12.5px;color:var(--sub);margin-bottom:4px}
+  .kpi .v{font-size:clamp(24px,5.5vw,32px);font-weight:800;letter-spacing:-.035em;line-height:1.12}
+  .kpi .u{font-size:14px;font-weight:600;color:var(--sub);margin-left:3px}
+  .kpi.hi{box-shadow:0 0 0 1.5px rgba(44,255,5,.55),0 8px 26px -14px rgba(44,255,5,.9)}
+
+  .card{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;margin-bottom:10px}
   table{width:100%;border-collapse:collapse;font-size:14px}
-  th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--line)}
-  th{color:var(--dim2);font-weight:600;font-size:12px}
-  tr:last-child td{border-bottom:0}
-  td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-  .bar{height:4px;background:var(--accent);border-radius:2px;margin-top:5px;opacity:.75}
-  .muted{color:var(--dim)}
-  .path{color:var(--dim2);font-size:12px;margin-left:8px}
-  @media (max-width:620px){ .path{display:block;margin:2px 0 0} }
+  th,td{padding:11px 16px;text-align:left;vertical-align:middle}
+  thead th{font-size:11.5px;font-weight:600;color:var(--sub);letter-spacing:.03em;
+           border-bottom:1px solid var(--line);white-space:nowrap}
+  tbody tr+tr td{border-top:1px solid var(--hair)}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .name{font-weight:600}
+  .sub{display:block;font-size:12px;color:var(--sub);font-weight:400;margin-top:1px}
 
-  .empty{padding:26px 18px;text-align:center;color:var(--dim);font-size:14px;line-height:1.75}
-  .empty b{color:var(--fg)}
+  .bar{height:5px;border-radius:3px;background:#F1F1F1;margin-top:6px;overflow:hidden;max-width:420px}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--cyan))}
 
-  .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
-  .links a{
-    display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;
-    padding:15px 17px;text-decoration:none;color:var(--fg);
-  }
-  .links a:hover{border-color:var(--accent)}
-  .links .t{font-weight:700;font-size:14px}
-  .links .d{color:var(--dim2);font-size:12px;margin-top:3px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-size:12.5px;border:1px solid var(--line);border-radius:8px;
+        padding:5px 10px;background:#FAFAFA;white-space:nowrap}
+  .chip b{font-weight:700}
+  .chip .w{color:var(--sub);margin-left:3px}
+  .chip.off{opacity:.42}
 
-  .note{color:var(--dim2);font-size:12.5px;line-height:1.8;margin-top:28px;border-top:1px solid var(--line);padding-top:18px}
-  /* 좁은 화면에서 3열을 그냥 숨기면 정보가 사라진다.
-     열은 접되 값은 첫 칸 아래에 한 줄로 붙여 보여준다. */
-  .sub{display:none}
+  .live{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;
+        border-radius:999px;padding:3px 9px;background:#EDFFE8;color:#1C7A00;vertical-align:middle}
+  .live.off{background:#F3F3F3;color:#8A8A8A}
+  .live i{width:6px;height:6px;border-radius:50%;background:currentColor;display:block}
+
+  .empty{padding:24px 18px;color:var(--sub);font-size:13.5px;text-align:center}
+  .note{font-size:12.5px;color:var(--sub);line-height:1.65;margin-top:8px}
+  .note b{color:var(--ink);font-weight:600}
+
+  footer{margin-top:46px;font-size:12px;color:var(--sub);line-height:1.75}
+
   @media (max-width:620px){
-    th:nth-child(3),td:nth-child(3){display:none}
-    .sub{display:block;color:var(--dim2);font-size:12px;margin-top:3px}
-    th,td{padding:10px 13px}
-    .kpi{padding:13px 15px}
-    .kpi .num{font-size:26px}
-    body{padding-left:12px;padding-right:12px}
+    th.opt,td.opt{display:none}
+    th,td{padding:10px 12px}
   }
 </style>
 </head>
 <body>
-<main>
-  <header class="top">
+<div class="wrap">
+  <header>
     <h1>FVA 유입 현황</h1>
-    <span class="updated" id="updated">불러오는 중…</span>
+    <span class="stamp" id="stamp"></span>
   </header>
 
-  <div class="range" id="range">
-    <button data-d="1"  aria-pressed="true">오늘</button>
-    <button data-d="7"  aria-pressed="false">최근 7일</button>
-    <button data-d="28" aria-pressed="false">최근 28일</button>
-    <button data-d="90" aria-pressed="false">최근 90일</button>
+  <div class="tabs" id="tabs">
+    <button data-d="1" aria-selected="true">오늘</button>
+    <button data-d="7">최근 7일</button>
+    <button data-d="28">최근 28일</button>
+    <button data-d="90">최근 90일</button>
   </div>
+  <div class="period" id="period"></div>
 
-  <div class="kpis" id="kpis"></div>
+  <div id="body"></div>
 
-  <section>
-    <h2>페이지별 — 얼마나 보고 얼마나 머물렀나</h2>
-    <div class="panel" id="pages"></div>
-  </section>
-
-  <section>
-    <h2>버튼 클릭 — 온라인 강의 · 상담</h2>
-    <div class="panel" id="events"></div>
-  </section>
-
-  <section>
-    <h2>어디서 들어왔나</h2>
-    <div class="panel" id="sources"></div>
-  </section>
-
-  <section>
-    <h2>검색 유입 (구글 서치콘솔)</h2>
-    <div class="panel" id="search"></div>
-  </section>
-
-  <section>
-    <h2>네이버 — 여기는 직접 확인해야 합니다</h2>
-    <div class="links">
-      <a href="https://analytics.naver.com/" target="_blank" rel="noopener">
-        <div class="t">네이버 애널리틱스 ↗</div>
-        <div class="d">네이버 유입 검색어는 여기서만 보입니다</div>
-      </a>
-      <a href="https://searchadvisor.naver.com/console/board" target="_blank" rel="noopener">
-        <div class="t">서치어드바이저 ↗</div>
-        <div class="d">색인 현황 · 수집 요청</div>
-      </a>
-      <a href="https://searchad.naver.com/" target="_blank" rel="noopener">
-        <div class="t">네이버 검색광고 ↗</div>
-        <div class="d">광고 집행하면 이 수치도 여기로 끌어옵니다</div>
-      </a>
-    </div>
-  </section>
-
-  <p class="note">
-    네이버 애널리틱스는 데이터를 밖으로 빼는 API가 없어서 자동으로 못 가져옵니다. 그래서 바로가기만 뒀습니다.<br>
-    방문자 수 · 체류시간 · 버튼 클릭은 <b>네이버로 들어온 사람까지 포함해</b> 위 표에 전부 잡힙니다.
-    네이버 애널리틱스가 따로 필요한 건 <b>네이버에서 뭘 검색하고 들어왔는지</b> 하나뿐입니다.<br>
-    이 페이지는 검색에 안 걸리게 막아뒀습니다(<code>noindex</code> + robots 차단). 주소를 아는 사람은 볼 수 있으니 링크 공유는 조심하세요.
-  </p>
-</main>
+  <footer>
+    <div>검색에 잡히지 않는 페이지입니다. 주소를 아는 사람만 볼 수 있습니다.</div>
+    <div id="foot"></div>
+  </footer>
+</div>
 
 <script>
-const $ = s => document.querySelector(s);
-/* stats.json 의 문자열은 전부 바깥에서 온 값이다.
-   서치콘솔 검색어는 남이 친 말 그대로이고, GA4 페이지 경로에는
-   누가 fva.co.kr/?<img onerror=...> 로 들어오면 그 문자열이 그대로 실린다.
-   innerHTML 에 넣기 전에 반드시 통과시킬 것. */
+/* 서치콘솔 검색어와 GA4 경로는 바깥에서 들어오는 값이다. 그대로 넣으면 안 된다. */
 const esc = v => String(v ?? '').replace(/[&<>"']/g,
-  c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const nf = n => (n ?? 0).toLocaleString('ko-KR');
-const dur = s => { s = Math.round(s || 0);
-  const m = Math.floor(s / 60); return m ? `${m}분 ${s % 60}초` : `${s}초`; };
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const num = n => (n ?? 0).toLocaleString('ko-KR');
+const won = n => num(Math.round(n ?? 0)) + '원';
+const dur = s => { s = Math.round(s||0);
+  return s < 60 ? s+'초' : Math.floor(s/60)+'분 '+(s%60)+'초'; };
 
-let DATA = null, DAYS = 1;
-
-function bucket() {
-  if (!DATA) return null;
-  return DATA.ranges?.[String(DAYS)] || null;
-}
-
-function renderKpis(d) {
-  const k = [
-    ['방문자', nf(d?.users), '순 방문자 수', true],
-    ['조회수', nf(d?.views), '전체 페이지 조회'],
-    ['평균 체류', dur(d?.avgEngagement), '한 명이 머문 시간'],
-    ['온라인 강의 클릭', nf(d?.onlineClicks), '구매 사이트로 이동', true],
-    ['상담 클릭', nf(d?.kakaoClicks), '카카오톡 채널'],
-  ];
-  $('#kpis').innerHTML = k.map(([l, v, s, hi]) =>
-    `<div class="kpi${hi ? ' hi' : ''}"><div class="label">${l}</div>
-     <div class="num">${v}</div><div class="sub">${s}</div></div>`).join('');
-}
-
-function table(el, rows, cols, emptyMsg) {
-  if (!rows || !rows.length) { el.innerHTML = `<div class="empty">${emptyMsg}</div>`; return; }
-  const max = Math.max(...rows.map(r => r[cols.barKey] || 0)) || 1;
-  el.innerHTML = `<table><thead><tr>${cols.head.map((h, i) =>
-      `<th${i ? ' class="n"' : ''}>${esc(h)}</th>`).join('')}</tr></thead><tbody>${
-    rows.map(r => `<tr>
-      <td>${cols.label(r)}${cols.sub ? `<span class="sub">${cols.sub(r)}</span>` : ''}${
-        cols.bar ? `<div class="bar" style="width:${
-        Math.max(3, Math.round((r[cols.barKey] || 0) / max * 100))}%"></div>` : ''}</td>
-      ${cols.cells(r).map(c => `<td class="n">${c}</td>`).join('')}
-    </tr>`).join('')}</tbody></table>`;
-}
-
-function render() {
-  const d = bucket();
-  renderKpis(d);
-
-  table($('#pages'), d?.pages, {
-    head: ['페이지', '조회', '평균 체류'], barKey: 'views', bar: true,
-    label: r => `${esc(r.name || r.path)}<span class="path">${esc(r.path)}</span>`,
-    sub: r => '평균 체류 ' + dur(r.avgEngagement),
-    cells: r => [nf(r.views), dur(r.avgEngagement)],
-  }, (DAYS===1 ? '오늘은 아직 방문이 없습니다.' : '아직 데이터가 없습니다.<br>GA4는 설치 후 최대 <b>48시간</b> 뒤부터 쌓입니다.'));
-
-  table($('#events'), d?.events, {
-    head: ['버튼', '클릭', '어느 페이지에서'], barKey: 'count', bar: true,
-    label: r => esc(r.label),
-    sub: r => esc(r.topPage || '—') + ' 에서 가장 많이',
-    cells: r => [nf(r.count), `<span class="muted">${esc(r.topPage || '—')}</span>`],
-  }, '아직 클릭이 없습니다.<br>온라인 강의 · 상담 버튼을 누르면 여기에 쌓입니다.');
-
-  table($('#sources'), d?.sources, {
-    head: ['유입 경로', '방문자', '비중'], barKey: 'users', bar: true,
-    label: r => esc(r.name),
-    sub: r => '비중 ' + (Number(r.share) || 0) + '%',
-    cells: r => [nf(r.users), (Number(r.share) || 0) + '%'],
-  }, '아직 데이터가 없습니다.');
-
-  table($('#search'), d?.queries, {
-    head: ['검색어', '클릭', '노출'], barKey: 'clicks', bar: true,
-    label: r => esc(r.query),
-    sub: r => '노출 ' + nf(r.impressions),
-    cells: r => [nf(r.clicks), nf(r.impressions)],
-  }, '서치콘솔 검색어는 아직 연결 전입니다.<br>등록한 지 얼마 안 돼 데이터도 며칠 뒤부터 쌓입니다.');
-}
-
-/* Apps Script 웹 앱 주소. tools/apps-script/Code.gs 를 배포하고 받은 URL 을 넣는다.
-   비어 있으면 data/stats.json(정적 파일)로 넘어간다. */
 const FEED = 'https://script.google.com/macros/s/AKfycbxX5u3DZXo45__8_7a3XHPjIbD_utCHYeyK7l2lmuvA3b4dENQS_y4ncVgnSHb5RYA/exec';
+let DATA = null, ADS = null, DAYS = 1;
+const cur = () => DATA?.ranges?.[String(DAYS)] || null;
 
-fetch((FEED || 'data/stats.json') + (FEED ? '' : '?t=' + Date.now()))
-  .then(r => r.ok ? r.json() : Promise.reject(r.status))
-  .then(j => {
-    DATA = j;
-    $('#updated').textContent = j.updated ? `업데이트 ${String(j.updated).slice(0, 40)}` : '';
-    render();
-  })
-  .catch(() => {
-    $('#updated').textContent = '데이터 파일 없음';
-    render();
-  });
+const kpi = (t,v,u,hi) => `<div class="kpi${hi?' hi':''}"><div class="t">${t}</div>
+  <div class="v">${v}${u?`<span class="u">${u}</span>`:''}</div></div>`;
 
-$('#range').addEventListener('click', e => {
-  const b = e.target.closest('button[data-d]'); if (!b) return;
+const tbl = (head,rows,empty) => rows.length
+  ? `<div class="card"><table><thead><tr>${head}</tr></thead><tbody>${rows.join('')}</tbody></table></div>`
+  : `<div class="card"><div class="empty">${empty}</div></div>`;
+
+const badge = on => on
+  ? '<span class="live"><i></i>운영 중</span>'
+  : '<span class="live off"><i></i>정지</span>';
+
+function render(){
+  const r = cur(), el = document.getElementById('body');
+  document.getElementById('stamp').textContent = DATA?.updated ? DATA.updated + ' 기준' : '';
+  document.getElementById('period').innerHTML = r?.label
+    ? `<b>${esc(r.label)}</b>` + (r.from && r.to && r.from !== r.to ? ` &nbsp;${esc(r.from)} ~ ${esc(r.to)}` : '')
+    : '';
+  if(!r){ el.innerHTML = `<div class="card"><div class="empty">데이터를 불러오지 못했습니다.</div></div>`; return; }
+
+  let h = '';
+
+  h += `<h2>한눈에</h2><div class="kpis">
+    ${kpi('방문자', num(r.users), '명')}
+    ${kpi('페이지 조회', num(r.views), '회')}
+    ${kpi('머문 시간', dur(r.avgEngagement))}
+    ${kpi('온라인 강의 클릭', num(r.onlineClicks), '회', r.onlineClicks>0)}
+    ${kpi('상담 클릭', num(r.kakaoClicks), '회', r.kakaoClicks>0)}
+  </div>`;
+
+  if (ADS) h += ads(r);
+
+  h += `<h2>어디서 들어왔나</h2>` + tbl(
+    `<th>유입 경로</th><th class="n">방문자</th>`,
+    (r.sources||[]).map(s => `<tr>
+      <td><span class="name">${esc(s.name)}</span><div class="bar"><i style="width:${s.share}%"></i></div></td>
+      <td class="n">${num(s.users)}명<span class="sub">${s.share}%</span></td></tr>`),
+    '아직 유입 경로가 잡히지 않았습니다.');
+  if ((r.sources||[]).some(s => /알 수 없음|경로 불명|not available|not set/i.test(s.name)))
+    h += `<div class="note">※ <b>경로 불명</b>은 구글이 아직 출처를 확정하지 못한 방문입니다.
+          당일 데이터에서 특히 많이 잡히고, 하루이틀 지나면 대부분 제자리를 찾습니다.</div>`;
+
+  h += `<h2>어떤 페이지를 봤나</h2>` + tbl(
+    `<th>페이지</th><th class="n">조회</th><th class="n opt">머문 시간</th>`,
+    (r.pages||[]).map(p => `<tr>
+      <td><span class="name">${esc(p.name)}</span><span class="sub">${esc(p.path)}</span></td>
+      <td class="n">${num(p.views)}<span class="sub">${dur(p.avgEngagement)}</span></td>
+      <td class="n opt">${dur(p.avgEngagement)}</td></tr>`),
+    '아직 조회된 페이지가 없습니다.');
+
+  if (r.who) h += who(r.who);
+
+  h += `<h2>어떤 버튼을 눌렀나</h2>` + tbl(
+    `<th>버튼</th><th class="n">클릭</th>`,
+    (r.events||[]).map(e => `<tr>
+      <td><span class="name">${esc(e.label)}</span><span class="sub">주로 ${esc(e.topPage)}</span></td>
+      <td class="n">${num(e.count)}회</td></tr>`),
+    '아직 클릭이 없습니다.');
+
+  h += `<h2>자연 검색 유입 (구글 서치콘솔)</h2>` + tbl(
+    `<th>검색어</th><th class="n">클릭</th><th class="n opt">노출</th>`,
+    (r.queries||[]).map(q => `<tr>
+      <td><span class="name">${esc(q.query)}</span></td>
+      <td class="n">${num(q.clicks)}<span class="sub">노출 ${num(q.impressions)}</span></td>
+      <td class="n opt">${num(q.impressions)}</td></tr>`),
+    '서치콘솔은 등록 직후 며칠간 비어 있습니다.');
+
+  el.innerHTML = h;
+}
+
+/* ── 광고 ─────────────────────────────────────────── */
+function ads(r){
+  const n = ADS.naver;
+  let h = `<h2>광고 집행 현황</h2><div class="kpis">
+    ${kpi('네이버 집행액', won(n.cost), '', n.cost>0)}
+    ${kpi('네이버 클릭', num(n.clk), '회')}
+    ${kpi('네이버 노출', num(n.imp), '회')}
+    ${kpi('남은 예산', won(n.balance))}
+  </div>
+  <div class="note">
+    네이버 <b>${esc(n.start)}</b>부터 · 하루 최대 <b>${won(n.dailyBudget)}</b> · ${badge(n.live)}<br>
+    구글 <b>${esc(ADS.google.start)}</b>부터 ·
+    <a href="${esc(ADS.google.console)}" target="_blank" rel="noopener">구글애즈에서 집행액 확인</a>
+  </div>`;
+
+  h += `<h2>네이버 — 등록한 키워드</h2>`;
+  h += (n.groups||[]).map(g => {
+    const perf = g.keywords.filter(k => k.imp || k.clk);
+    return `<div class="card">
+      <table><thead><tr>
+        <th>${esc(g.name)} ${badge(g.live)}</th>
+        <th class="n">노출</th><th class="n">클릭</th><th class="n opt">평균순위</th>
+      </tr></thead><tbody>
+        <tr><td colspan="4">
+          <div class="chips">${g.keywords.map(k =>
+            `<span class="chip${k.live?'':' off'}"><b>${esc(k.word)}</b><span class="w">${num(k.bid)}원</span></span>`).join('')}</div>
+          <span class="sub">클릭당 최대 ${num(g.bid)}원 · 도착 ${esc((g.landing||'').replace(/^https?:\/\/[^/]+/,'').split('?')[0] || '/')}</span>
+        </td></tr>
+        ${perf.length ? perf.map(k => `<tr>
+          <td><span class="name">${esc(k.word)}</span></td>
+          <td class="n">${num(k.imp)}</td><td class="n">${num(k.clk)}</td>
+          <td class="n opt">${k.rank ?? '-'}</td></tr>`).join('')
+        : `<tr><td colspan="4" class="empty" style="padding:14px">아직 노출 실적이 없습니다. 네이버 집계는 15분 단위입니다.</td></tr>`}
+      </tbody></table></div>`;
+  }).join('');
+
+  const gk = r?.ads?.google || [];
+  h += `<h2>구글 — 실제로 들어온 검색어</h2>` + tbl(
+    `<th>검색어</th><th class="n">방문자</th>`,
+    gk.map(k => `<tr><td><span class="name">${esc(k.keyword)}</span></td>
+      <td class="n">${num(k.users)}명</td></tr>`),
+    '아직 광고 유입이 없거나, 구글애즈–GA4 데이터가 도착하지 않았습니다.');
+
+  const nk = r?.ads?.naver || [];
+  if (nk.length) h += `<h2>네이버 — 실제로 들어온 검색어</h2>` + tbl(
+    `<th>검색어</th><th class="n">방문자</th>`,
+    nk.map(k => `<tr><td><span class="name">${esc(k.keyword)}</span></td>
+      <td class="n">${num(k.users)}명</td></tr>`), '');
+
+  return h;
+}
+
+/* ── 누가 보고 있나 ───────────────────────────────── */
+function who(w){
+  const box = (title, rows) => !rows?.length ? '' : `<div class="card"><table>
+    <thead><tr><th>${title}</th><th class="n">방문자</th></tr></thead><tbody>
+    ${rows.map(x => `<tr>
+      <td><span class="name">${esc(x.name)}</span><div class="bar"><i style="width:${x.share}%"></i></div></td>
+      <td class="n">${num(x.users)}명<span class="sub">${x.share}%</span></td></tr>`).join('')}
+    </tbody></table></div>`;
+
+  if (!['gender','age','country','city'].some(k => (w[k]||[]).length)) return '';
+  const blind = [...(w.gender||[]), ...(w.age||[])].every(x => x.name === '알 수 없음');
+
+  return `<h2>누가 보고 있나</h2>`
+    + box('성별', w.gender) + box('연령대', w.age)
+    + box('국가', w.country) + box('도시', w.city)
+    + (blind ? `<div class="note">※ 성별·연령이 「알 수 없음」뿐이면 GA4에서
+        <b>관리 → 데이터 수집 및 수정 → Google 신호 데이터</b>를 켜야 합니다.
+        켠 뒤 며칠부터 값이 들어옵니다.</div>` : '');
+}
+
+Promise.all([
+  fetch(FEED).then(r => r.json()).catch(() => null),
+  fetch('data/ads.json?t=' + Date.now()).then(r => r.json()).catch(() => null),
+]).then(([feed, adsData]) => {
+  DATA = feed; ADS = adsData;
+  document.getElementById('foot').textContent =
+    adsData?.updated ? '광고 수치 ' + adsData.updated + ' 기준' : '';
+  render();
+});
+
+document.getElementById('tabs').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
   DAYS = +b.dataset.d;
-  [...$('#range').children].forEach(x => x.setAttribute('aria-pressed', x === b));
+  [...e.currentTarget.children].forEach(x => x.setAttribute('aria-selected', x === b));
   render();
 });
 </script>
