@@ -383,7 +383,7 @@ const AI_BOTS = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude
 fs.writeFileSync(path.join(__dirname, 'robots.txt'),
 `User-agent: *
 Allow: /
-Disallow: /stats-8f2a41.html
+Disallow: /adminmonitor.html
 Disallow: /data/
 
 ${AI_BOTS.map(b => `User-agent: ${b}\nAllow: /`).join('\n\n')}

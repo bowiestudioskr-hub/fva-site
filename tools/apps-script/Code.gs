@@ -281,7 +281,7 @@ function pageName(p) {
   };
   if (m[base]) return m[base];
   if (/^\/news-/.test(base)) return '피바뉴스 · ' + base.replace(/^\/news-|\.html$/g, '');
-  if (/^\/stats-/.test(base)) return '통계 대시보드';
+  if (/^\/adminmonitor/.test(base)) return '통계 대시보드';
   return base;
 }
 
