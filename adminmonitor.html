@@ -276,7 +276,7 @@ function who(w){
 function load(){
   return Promise.all([
     fetch(FEED + '?t=' + Date.now()).then(r => r.json()).catch(() => null),
-    fetch('data/ads.json?t=' + Date.now()).then(r => r.json()).catch(() => null),
+    fetch('data/ads-9c4e17.json?t=' + Date.now()).then(r => r.json()).catch(() => null),
   ]).then(([feed, adsData]) => {
     if (feed) DATA = feed;
     if (adsData) ADS = adsData;
