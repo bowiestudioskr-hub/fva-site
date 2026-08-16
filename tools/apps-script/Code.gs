@@ -254,9 +254,16 @@ function human(kind, v) {
   if (kind === 'age')    return v.replace('age', '').replace('_', '~') + '세';
   if (kind === 'country') return { 'South Korea': '대한민국', 'United States': '미국',
     'Japan': '일본', 'China': '중국', 'Canada': '캐나다', 'Vietnam': '베트남' }[v] || v;
-  if (kind === 'city') return { Seoul: '서울', Incheon: '인천', Busan: '부산', Daegu: '대구',
-    Daejeon: '대전', Gwangju: '광주', Suwon: '수원', Seongnam: '성남',
-    Goyang: '고양', Yongin: '용인', Bucheon: '부천' }[v] || v;
+  if (kind === 'city') {
+    const m = { Seoul: '서울', Incheon: '인천', Busan: '부산', Daegu: '대구', Daejeon: '대전',
+      Gwangju: '광주', Ulsan: '울산', Sejong: '세종', Jeju: '제주' }[v];
+    if (m) return m;
+    // GA4 는 「Hamyang-gun」 「Cheonan-si」 처럼 로마자 행정구역을 준다. 접미사를 한글로 돌린다.
+    const T = { si: '시', gun: '군', gu: '구', eup: '읍', myeon: '면', do: '도' };
+    const p = String(v).split('-');
+    if (p.length === 2 && T[p[1]]) return p[0] + T[p[1]];
+    return v;
+  }
   return v;
 }
 

@@ -273,15 +273,26 @@ function who(w){
         켠 뒤 며칠부터 값이 들어옵니다.</div>` : '');
 }
 
-Promise.all([
-  fetch(FEED).then(r => r.json()).catch(() => null),
-  fetch('data/ads.json?t=' + Date.now()).then(r => r.json()).catch(() => null),
-]).then(([feed, adsData]) => {
-  DATA = feed; ADS = adsData;
-  document.getElementById('foot').textContent =
-    adsData?.updated ? '광고 수치 ' + adsData.updated + ' 기준' : '';
-  render();
-});
+function load(){
+  return Promise.all([
+    fetch(FEED + '?t=' + Date.now()).then(r => r.json()).catch(() => null),
+    fetch('data/ads.json?t=' + Date.now()).then(r => r.json()).catch(() => null),
+  ]).then(([feed, adsData]) => {
+    if (feed) DATA = feed;
+    if (adsData) ADS = adsData;
+    document.getElementById('foot').textContent =
+      (ADS?.updated ? '광고 수치 ' + ADS.updated + ' 기준 · ' : '') +
+      '3분마다 자동 갱신';
+    render();
+  });
+}
+load();
+
+/* GA4 는 열 때마다 새로 묻고, 광고 수치는 맥에서 15분마다 갱신된다.
+   화면을 켜둔 채로 두는 일이 많아 3분마다 스스로 다시 읽는다.
+   탭이 뒤에 있을 때는 쉬고, 돌아오면 바로 한 번 읽는다. */
+setInterval(() => { if (!document.hidden) load(); }, 180000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) load(); });
 
 document.getElementById('tabs').addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
