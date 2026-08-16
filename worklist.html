@@ -55,6 +55,8 @@
   .wait .txt{color:var(--sub)}
   /* 설명을 블록으로 두면 항목마다 줄이 하나씩 더 생겨 목록이 두 배로 길어진다.
      문장 뒤에 이어 붙여 남는 자리를 쓰게 한다. */
+  /* 쉬운 말 뒤에 정식 명칭. 나중에 검색하거나 남에게 말할 때 이 이름이 필요하다. */
+  .term{color:var(--pend);font-size:12.5px;font-weight:600;margin-left:5px;white-space:nowrap}
   .why{color:var(--sub);font-size:13.5px}
   .why::before{content:" — "}
 
@@ -96,25 +98,25 @@
       <li class="done"><span class="mark"></span><span class="txt">퍼블 사이트 간소화<span class="why">겹치던 내용을 정리하고 온라인 강의만 남김</span></span></li>
       <li class="done"><span class="mark"></span><span class="txt">강사 소개 글씨 크기·줄 간격 조정</span></li>
       <li class="done"><span class="mark"></span><span class="txt">강사 사진 잘리는 부분 수정</span></li>
-      <li class="done"><span class="mark"></span><span class="txt">사진 용량 줄이기<span class="why">화질은 그대로</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">사진 용량 줄이기<span class="term">(이미지 최적화)</span><span class="why">화질은 그대로</span></span></li>
       <li class="done"><span class="mark"></span><span class="txt">온라인 강의 페이지 설명 보강</span></li>
       <li class="done"><span class="mark"></span><span class="txt">오프라인 신청 버튼을 3개월 과정으로 바로 연결<span class="why">전에는 스토어 첫 화면에서 상품을 또 찾아야 했음</span></span></li>
-      <li class="done"><span class="mark"></span><span class="txt">검색 결과에 과정·평점·자주 묻는 질문이 함께 뜨도록 정리</span></li>
-      <li class="done"><span class="mark"></span><span class="txt">ChatGPT 같은 AI 검색이 사이트를 읽을 수 있게 허용</span></li>
-      <li class="done"><span class="mark"></span><span class="txt">없어진 옛 후기 페이지 주소 정리<span class="why">들어오면 새 주소로 넘어가게</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">검색 결과에 과정·평점·자주 묻는 질문이 함께 뜨도록 정리<span class="term">(구조화 데이터)</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">ChatGPT 같은 AI 검색이 사이트를 읽을 수 있게 허용<span class="term">(AI 크롤러 허용 · llms.txt)</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">없어진 옛 후기 페이지 주소 정리<span class="term">(리다이렉트)</span><span class="why">들어오면 새 주소로 넘어가게</span></span></li>
     </ul>
   </section>
 
   <section>
     <h2>측정</h2>
     <ul>
-      <li class="done"><span class="mark"></span><span class="txt">방문 분석 설치<span class="why">온라인 강의·상담·스토어 버튼을 누른 횟수까지 집계</span></span></li>
-      <li class="done"><span class="mark"></span><span class="txt">네이버 방문 분석 설치</span></li>
-      <li class="done"><span class="mark"></span><span class="txt">인스타 광고 성과 측정 설치<span class="why">만들어만 두고 사이트엔 안 붙어 있었음</span></span></li>
-      <li class="done"><span class="mark"></span><span class="txt">구글 광고 성과 측정 설치</span></li>
+      <li class="done"><span class="mark"></span><span class="txt">방문 분석 설치<span class="term">(GA4)</span><span class="why">온라인 강의·상담·스토어 버튼을 누른 횟수까지 집계</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">네이버 방문 분석 설치<span class="term">(네이버 애널리틱스)</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">인스타 광고 성과 측정 설치<span class="term">(메타 픽셀)</span><span class="why">만들어만 두고 사이트엔 안 붙어 있었음</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">구글 광고 성과 측정 설치<span class="term">(구글애즈 전환 태그)</span></span></li>
       <li class="done"><span class="mark"></span><span class="txt">유입 현황 대시보드 제작</span></li>
       <li class="done"><span class="mark"></span><span class="txt">대시보드 자동 갱신<span class="why">화면 3분 · 광고 수치 15분</span></span></li>
-      <li class="done"><span class="mark"></span><span class="txt">대시보드 주소 정리 · 외부 노출 차단<span class="why">광고비와 입찰가가 누구나 볼 수 있는 상태였음</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">대시보드 주소 정리 · 외부 노출 차단<span class="term">(noindex · robots.txt)</span><span class="why">광고비와 입찰가가 누구나 볼 수 있는 상태였음</span></span></li>
     </ul>
   </section>
 
@@ -122,23 +124,23 @@
     <h2>네이버 검색광고</h2>
     <ul>
       <li class="done"><span class="mark"></span><span class="txt">기존 광고 문제 진단<span class="why">「피바아카데미」를 이미 아는 사람만 잡는 검색어 1,000개뿐이었음</span></span></li>
-      <li class="done"><span class="mark"></span><span class="txt">실제 검색량을 재서 검색어 17개 선별</span></li>
-      <li class="done"><span class="mark"></span><span class="txt">검색어를 세 갈래로 나눔<span class="why">기획 · AI영상 · 학원/포트폴리오</span></span></li>
-      <li class="done"><span class="mark"></span><span class="txt">갈래마다 광고 문구를 따로 쓰고 도착 페이지도 분리</span></li>
-      <li class="done"><span class="mark"></span><span class="txt">광고로 들어온 사람을 따로 집계<span class="why">네이버는 그냥 두면 검색으로 들어온 것과 구분이 안 됨</span></span></li>
-      <li class="done"><span class="mark"></span><span class="txt">어떤 검색어로 들어왔는지까지 수집</span></li>
-      <li class="done"><span class="mark"></span><span class="txt">하루 예산 조정 후 광고 시작</span></li>
+      <li class="done"><span class="mark"></span><span class="txt">실제 검색량을 재서 검색어 17개 선별<span class="term">(키워드)</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">검색어를 세 갈래로 나눔<span class="term">(광고그룹)</span><span class="why">기획 · AI영상 · 학원/포트폴리오</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">갈래마다 광고 문구를 따로 쓰고 도착 페이지도 분리<span class="term">(소재 · 랜딩 페이지)</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">광고로 들어온 사람을 따로 집계<span class="term">(UTM)</span><span class="why">네이버는 그냥 두면 검색으로 들어온 것과 구분이 안 됨</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">어떤 검색어로 들어왔는지까지 수집<span class="term">(네이버 자동추적)</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">하루 예산 조정 후 광고 시작<span class="term">(일예산)</span></span></li>
     </ul>
   </section>
 
   <section>
     <h2>구글 광고</h2>
     <ul>
-      <li class="done"><span class="mark"></span><span class="txt">성과가 0으로 찍히던 원인 진단<span class="why">「페이지를 열었나」만 보고 있었고 그마저 고장난 상태</span></span></li>
-      <li class="done"><span class="mark"></span><span class="txt">엉뚱한 곳에 광고가 나가던 설정 해제</span></li>
-      <li class="done"><span class="mark"></span><span class="txt">광고에 걸린 죽은 주소 수정</span></li>
-      <li class="done"><span class="mark"></span><span class="txt">「상담 버튼 클릭」을 성과로 잡도록 설정</span></li>
-      <li class="done"><span class="mark"></span><span class="txt">광고가 그 성과를 보도록 목표 교체</span></li>
+      <li class="done"><span class="mark"></span><span class="txt">성과가 0으로 찍히던 원인 진단<span class="term">(전환 추적)</span><span class="why">「페이지를 열었나」만 보고 있었고 그마저 고장난 상태</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">엉뚱한 곳에 광고가 나가던 설정 해제<span class="term">(디스플레이 · 검색파트너)</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">광고에 걸린 죽은 주소 수정<span class="term">(사이트링크)</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">「상담 버튼 클릭」을 성과로 잡도록 설정<span class="term">(전환 액션)</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">광고가 그 성과를 보도록 목표 교체<span class="term">(캠페인 전환 목표)</span></span></li>
     </ul>
   </section>
 
@@ -147,7 +149,7 @@
     <ul>
       <li class="done"><span class="mark"></span><span class="txt">진짜 광고 계정 확인<span class="why">빈 계정을 보고 있었음 · 실제로는 광고 267개가 돌고 있었음</span></span></li>
       <li class="done"><span class="mark"></span><span class="txt">광고마다 비용이 23배까지 벌어진 것 파악<span class="why">잘 되는 건 현장·결과물, 안 되는 건 파티·행사</span></span></li>
-      <li class="done"><span class="mark"></span><span class="txt">성과 측정 설치</span></li>
+      <li class="done"><span class="mark"></span><span class="txt">성과 측정 설치<span class="term">(메타 픽셀)</span></span></li>
     </ul>
   </section>
 
@@ -156,7 +158,7 @@
     <ul>
       <li class="done"><span class="mark"></span><span class="txt">광고 문구 작성<span class="why">실제 게시판에서 폭을 재가며 — PC 한 줄, 모바일 두 줄</span></span></li>
       <li class="done"><span class="mark"></span><span class="txt">캐릭터 썸네일 제작<span class="why">배경 네 가지를 실제 화면에 얹어 비교</span></span></li>
-      <li class="done"><span class="mark"></span><span class="txt">도착 페이지를 오프라인 강의로 바꾸고 유입 집계 연결</span></li>
+      <li class="done"><span class="mark"></span><span class="txt">도착 페이지를 오프라인 강의로 바꾸고 유입 집계 연결<span class="term">(랜딩 URL · UTM)</span></span></li>
       <li class="done"><span class="mark"></span><span class="txt">게시판에 어떻게 보이는지 미리보기 제작</span></li>
       <li class="done"><span class="mark"></span><span class="txt">결제 · 집행 접수</span></li>
     </ul>
@@ -178,8 +180,8 @@
   <section>
     <h2>AI 검색 노출</h2>
     <ul>
-      <li class="done"><span class="mark"></span><span class="txt">ChatGPT가 사이트를 못 찾던 원인 진단<span class="why">제미나이는 찾음 — ChatGPT가 쓰는 빙에 사이트가 안 올라가 있었음</span></span></li>
-      <li class="done"><span class="mark"></span><span class="txt">빙에 사이트 주소 24개 직접 제출</span></li>
+      <li class="done"><span class="mark"></span><span class="txt">ChatGPT가 사이트를 못 찾던 원인 진단<span class="term">(빙 색인)</span><span class="why">제미나이는 찾음 — ChatGPT가 쓰는 빙에 사이트가 안 올라가 있었음</span></span></li>
+      <li class="done"><span class="mark"></span><span class="txt">빙에 사이트 주소 24개 직접 제출<span class="term">(IndexNow)</span></span></li>
     </ul>
   </section>
 
@@ -193,11 +195,11 @@
   <section class="rest">
     <h2>남은 것</h2>
     <ul>
-      <li class="wait"><span class="mark"></span><span class="txt"><b class="from">네이버 검색광고</b>성과 보고 검색어 넓히기<span class="why">후보와 판단 기준은 정리해둠</span></span></li>
-      <li class="wait"><span class="mark"></span><span class="txt"><b class="from">구글 광고</b>상담을 많이 만드는 쪽으로 입찰 전환<span class="why">구글이 배울 데이터가 쌓인 뒤</span></span></li>
-      <li class="wait"><span class="mark"></span><span class="txt"><b class="from">메타 · 인스타 광고</b>돈만 쓰는 광고 정리</span></li>
-      <li class="wait"><span class="mark"></span><span class="txt"><b class="from">메타 · 인스타 광고</b>인스타에서 사이트로 보내는 광고 시험</span></li>
-      <li class="wait"><span class="mark"></span><span class="txt"><b class="from">AI 검색 노출</b>빙에 올라갔는지 확인</span></li>
+      <li class="wait"><span class="mark"></span><span class="txt"><b class="from">네이버 검색광고</b>성과 보고 검색어 넓히기<span class="term">(키워드 확장)</span><span class="why">후보와 판단 기준은 정리해둠</span></span></li>
+      <li class="wait"><span class="mark"></span><span class="txt"><b class="from">구글 광고</b>상담을 많이 만드는 쪽으로 입찰 전환<span class="term">(전환수 최대화)</span><span class="why">구글이 배울 데이터가 쌓인 뒤</span></span></li>
+      <li class="wait"><span class="mark"></span><span class="txt"><b class="from">메타 · 인스타 광고</b>돈만 쓰는 광고 정리<span class="term">(결과당 비용 기준)</span></span></li>
+      <li class="wait"><span class="mark"></span><span class="txt"><b class="from">메타 · 인스타 광고</b>인스타에서 사이트로 보내는 광고 시험<span class="term">(트래픽 캠페인)</span></span></li>
+      <li class="wait"><span class="mark"></span><span class="txt"><b class="from">AI 검색 노출</b>빙에 올라갔는지 확인<span class="term">(색인 반영)</span></span></li>
     </ul>
     <p class="tail">다섯 가지 모두 <b>데이터가 쌓이길 기다리는 일</b>입니다. 지금 손대면 판단이 틀립니다.</p>
   </section>
