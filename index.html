@@ -38,6 +38,8 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
       cfg.campaign_name = 'powerlink';
     }
     gtag('config', 'G-79SFDWBK3L', cfg);
+    // 구글애즈 전환 측정. 이 줄이 없으면 아래 conversion 이벤트가 갈 곳을 모른다.
+    gtag('config', 'AW-18168213469');
   })();
 
   /* 사이트 밖으로 나가는 두 갈래만 이름 붙여 센다.
@@ -58,6 +60,8 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
       gtag('event', 'kakao_consult_click', {
         link_text: text, from_page: location.pathname
       });
+      // 구글애즈 전환 「상담 클릭」. GA4 이벤트와 별개로 광고 계정에 직접 보낸다.
+      gtag('event', 'conversion', { send_to: 'AW-18168213469/tn3YCK-gtuIcEN3fo9dD' });
     } else if (href.indexOf('smartstore.naver.com') > -1) {
       gtag('event', 'offline_store_click', {
         link_text: text, link_url: href, from_page: location.pathname
