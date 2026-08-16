@@ -18,7 +18,7 @@
   body{
     font-family:Pretendard,"Apple SD Gothic Neo",-apple-system,BlinkMacSystemFont,sans-serif;
     background:var(--bg); color:var(--ink);
-    font-size:13px; line-height:1.45; letter-spacing:-.01em;
+    font-size:14px; line-height:1.5; letter-spacing:-.01em;
     padding:14px 16px 40px; position:relative; overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
   }
@@ -48,45 +48,43 @@
   /* ── 큰 숫자 한 줄 ── */
   .kpis{display:grid;gap:7px;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));margin-bottom:10px}
   .kpi{border:1px solid var(--line);border-radius:11px;padding:9px 11px;background:#fff}
-  .kpi .t{font-size:11px;color:var(--sub);margin-bottom:1px;white-space:nowrap;
+  .kpi .t{font-size:12px;color:var(--sub);margin-bottom:1px;white-space:nowrap;
           overflow:hidden;text-overflow:ellipsis}
-  .kpi .v{font-size:20px;font-weight:800;letter-spacing:-.04em;line-height:1.15}
-  .kpi .u{font-size:11.5px;font-weight:600;color:var(--sub);margin-left:2px}
+  .kpi .v{font-size:22px;font-weight:800;letter-spacing:-.04em;line-height:1.15}
+  .kpi .u{font-size:12px;font-weight:600;color:var(--sub);margin-left:2px}
   .kpi.hi{box-shadow:0 0 0 1.4px rgba(44,255,5,.6),0 6px 18px -12px rgba(44,255,5,.9)}
 
   /* ── 카테고리 ── 판이 그냥 나열되면 어디까지가 한 덩어리인지 안 보인다.
      묶음마다 제목 줄을 세우고, 그 아래 판들만 격자로 흐르게 한다. */
-  .cat{margin-bottom:16px}
+  .cat{margin-bottom:26px}
   .cat > .ct{
-    display:flex;align-items:center;gap:8px;margin:0 0 7px;
-    font-size:12px;font-weight:800;letter-spacing:-.01em;color:var(--ink);
+    font-size:20px;font-weight:800;letter-spacing:-.035em;
+    color:var(--ink);margin:0 0 10px;line-height:1.2;
   }
-  .cat > .ct::after{content:"";flex:1;height:1px;background:var(--line)}
-  .cat > .ct .dot{width:6px;height:6px;border-radius:2px;background:var(--green);flex:none}
   .grid{display:grid;gap:9px;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));align-items:start}
   .panel{border:1px solid var(--line);border-radius:11px;background:#fff;overflow:hidden;
          display:flex;flex-direction:column}
   .panel.wide{grid-column:span 2}
   @media (max-width:700px){ .panel.wide{grid-column:span 1} }
-  .ph{display:flex;align-items:baseline;gap:6px;padding:8px 11px 6px;border-bottom:1px solid var(--hair)}
-  .ph h2{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--sub);text-transform:uppercase}
-  .ph .more{margin-left:auto;font-size:11px;color:var(--sub)}
+  /* 판 제목. 대문자 변환·자간 확장 같은 장식을 걷어내고 굵기만으로 구분한다. */
+  .ph{display:flex;align-items:baseline;gap:8px;padding:10px 12px 8px}
+  .ph h2{font-size:14px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+  .ph .more{margin-left:auto;font-size:12px;color:var(--sub)}
   .pb{overflow:auto;max-height:232px}
   .pb::-webkit-scrollbar{width:5px;height:5px}
   .pb::-webkit-scrollbar-thumb{background:#DDD;border-radius:3px}
 
-  table{width:100%;border-collapse:collapse;font-size:12.5px}
-  td{padding:5px 11px;vertical-align:middle}
-  tr+tr td{border-top:1px solid var(--hair)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  td{padding:4px 12px;vertical-align:middle}
   td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--sub)}
-  td.n b{color:var(--ink);font-weight:700}
-  .nm{font-weight:600;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
-  .sm{font-size:11px;color:var(--sub);font-weight:400}
+  td.n b{color:var(--ink);font-weight:800}
+  .nm{font-weight:400;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+  .sm{font-size:12px;color:var(--sub);font-weight:400}
   .bar{height:3px;border-radius:2px;background:#F0F0F1;margin-top:3px;overflow:hidden}
   .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--cyan))}
 
   .chips{display:flex;flex-wrap:wrap;gap:4px;padding:8px 11px}
-  .chip{font-size:11.5px;border:1px solid var(--line);border-radius:6px;padding:2px 7px;
+  .chip{font-size:12.5px;border:1px solid var(--line);border-radius:6px;padding:2px 7px;
         background:#FAFAFA;white-space:nowrap}
   .chip b{font-weight:700}
   .chip .w{color:var(--sub);margin-left:2px}
@@ -97,19 +95,18 @@
   .live.off{background:#F3F3F4;color:#8A8A90}
   .live i{width:5px;height:5px;border-radius:50%;background:currentColor;display:block}
 
-  .empty{padding:16px 11px;color:var(--sub);font-size:12px;text-align:center}
-  .note{padding:7px 11px;font-size:11px;color:var(--sub);line-height:1.5;border-top:1px solid var(--hair)}
+  .empty{padding:16px 12px;color:var(--sub);font-size:12.5px;text-align:center}
+  .note{padding:8px 12px 10px;font-size:12px;color:var(--sub);line-height:1.5}
   .note b{color:var(--ink);font-weight:600}
   footer{margin-top:14px;font-size:11px;color:var(--sub);display:flex;gap:10px;flex-wrap:wrap}
 
   @media (max-width:520px){
     body{padding:12px 12px 32px}
     /* 모바일은 한 줄로 쌓이니 묶음 사이를 벌리고 제목을 키워야 구분이 된다 */
-    .cat{margin-bottom:24px}
-    .cat > .ct{font-size:13.5px;margin-bottom:9px}
-    .cat + .cat{padding-top:16px;border-top:1px solid var(--line)}
+    .cat{margin-bottom:30px}
+    .cat > .ct{font-size:19px;margin-bottom:11px}
     .kpis{grid-template-columns:repeat(auto-fit,minmax(104px,1fr))}
-    .kpi .v{font-size:18px}
+    .kpi .v{font-size:20px}
     .pb{max-height:200px}
   }
 </style>
@@ -262,7 +259,7 @@ function render(){
 
   G.innerHTML = CATS.map(c => {
     const body = c.items.filter(Boolean).join('');
-    return body ? `<div class="cat"><div class="ct"><span class="dot"></span>${c.name}</div>
+    return body ? `<div class="cat"><div class="ct">${c.name}</div>
       <div class="grid">${body}</div></div>` : '';
   }).join('');
 }
