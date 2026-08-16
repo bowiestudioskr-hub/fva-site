@@ -8,6 +8,10 @@ const fs = require('fs');
 const path = require('path');
 
 const SITE = 'https://fva.co.kr';
+// IndexNow — 검색엔진에 「이 주소 바뀌었다」고 직접 알리는 표준.
+// 빙(=ChatGPT 웹검색의 뒷단)·야심·시넘 등이 받는다. 키 파일이 사이트에 있어야 인증된다.
+// 지우면 색인 요청이 전부 거부되므로 건드리지 말 것.
+const INDEXNOW_KEY = 'f00cd97c0ae0470f921060c135f7a3bd';
 // ⚠ 결제 페이지. 여기를 잘못 두면 「수강 신청하기」가 전부 죽는다.
 //   www.fva.co.kr/channels/... 로 바꿔뒀던 적이 있는데 그 주소는 404 다
 //   (www 는 fva.co.kr 로 301 되고 GitHub Pages 에는 /channels 가 없다).
