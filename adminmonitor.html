@@ -54,7 +54,15 @@
   .kpi .u{font-size:11.5px;font-weight:600;color:var(--sub);margin-left:2px}
   .kpi.hi{box-shadow:0 0 0 1.4px rgba(44,255,5,.6),0 6px 18px -12px rgba(44,255,5,.9)}
 
-  /* ── 판 여러 개를 벽돌처럼 ── */
+  /* ── 카테고리 ── 판이 그냥 나열되면 어디까지가 한 덩어리인지 안 보인다.
+     묶음마다 제목 줄을 세우고, 그 아래 판들만 격자로 흐르게 한다. */
+  .cat{margin-bottom:16px}
+  .cat > .ct{
+    display:flex;align-items:center;gap:8px;margin:0 0 7px;
+    font-size:12px;font-weight:800;letter-spacing:-.01em;color:var(--ink);
+  }
+  .cat > .ct::after{content:"";flex:1;height:1px;background:var(--line)}
+  .cat > .ct .dot{width:6px;height:6px;border-radius:2px;background:var(--green);flex:none}
   .grid{display:grid;gap:9px;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));align-items:start}
   .panel{border:1px solid var(--line);border-radius:11px;background:#fff;overflow:hidden;
          display:flex;flex-direction:column}
@@ -96,6 +104,10 @@
 
   @media (max-width:520px){
     body{padding:12px 12px 32px}
+    /* 모바일은 한 줄로 쌓이니 묶음 사이를 벌리고 제목을 키워야 구분이 된다 */
+    .cat{margin-bottom:24px}
+    .cat > .ct{font-size:13.5px;margin-bottom:9px}
+    .cat + .cat{padding-top:16px;border-top:1px solid var(--line)}
     .kpis{grid-template-columns:repeat(auto-fit,minmax(104px,1fr))}
     .kpi .v{font-size:18px}
     .pb{max-height:200px}
@@ -116,7 +128,7 @@
   </div>
 
   <div id="kpis" class="kpis"></div>
-  <div id="grid" class="grid"></div>
+  <div id="cats"></div>
 
   <footer>
     <span id="stamp"></span><span id="foot"></span>
@@ -157,7 +169,7 @@ function render(){
   const r = cur();
   document.getElementById('stamp').textContent = DATA?.updated ? DATA.updated + ' 기준' : '';
   document.getElementById('period').innerHTML = r?.label ? `<b>${esc(r.label)}</b>` : '';
-  const K = document.getElementById('kpis'), G = document.getElementById('grid');
+  const K = document.getElementById('kpis'), G = document.getElementById('cats');
   if(!r){ K.innerHTML=''; G.innerHTML = `<section class="panel"><div class="empty">데이터를 불러오지 못했습니다.</div></section>`; return; }
 
   K.innerHTML =
@@ -169,7 +181,11 @@ function render(){
     (ADS ? kpi('네이버 집행', won(ADS.naver.cost), '', ADS.naver.cost>0) +
            kpi('남은 예산', won(ADS.naver.balance)) : '');
 
-  const P = [];
+  const CATS = [
+    {name:'방문', items:[]}, {name:'광고', items:[]},
+    {name:'검색어', items:[]}, {name:'누가 보고 있나', items:[]},
+  ];
+  const P = CATS[0].items;
 
   /* 유입 경로 */
   P.push(panel('어디서 들어왔나',
@@ -195,12 +211,13 @@ function render(){
     '아직 클릭이 없습니다.'));
 
   /* 광고 */
-  if (ADS) P.push(adsPanel(r));
+  const A = CATS[1].items;
+  if (ADS) A.push(adsPanel(r));
 
   /* 네이버 등록 키워드 — 그룹별로 한 판씩 */
   if (ADS) for (const g of ADS.naver.groups || []) {
     const perf = g.keywords.filter(k => k.imp || k.clk);
-    P.push(`<section class="panel">
+    A.push(`<section class="panel">
       <div class="ph"><h2>${esc(g.name)}</h2><span class="more">${badge(g.live)} 입찰 ${num(g.bid)}원</span></div>
       <div class="chips">${g.keywords.map(k =>
         `<span class="chip${k.live?'':' off'}"><b>${esc(k.word)}</b><span class="w">${num(k.bid)}</span></span>`).join('')}</div>
@@ -213,11 +230,12 @@ function render(){
 
   /* 광고 검색어 */
   const gk = r.ads?.google || [], nk = r.ads?.naver || [];
-  P.push(panel('구글 — 실제 검색어',
+  const S = CATS[2].items;
+  S.push(panel('구글 — 실제 검색어',
     gk.slice(0,8).map(k => `<tr><td><span class="nm">${esc(k.keyword)}</span></td>
       <td class="n"><b>${num(k.users)}</b>명</td></tr>`),
     '광고 유입이 아직 없거나 데이터가 도착 전입니다.'));
-  if (nk.length) P.push(panel('네이버 — 실제 검색어',
+  if (nk.length) S.push(panel('네이버 — 실제 검색어',
     nk.slice(0,8).map(k => `<tr><td><span class="nm">${esc(k.keyword)}</span></td>
       <td class="n"><b>${num(k.users)}</b>명</td></tr>`), ''));
 
@@ -228,20 +246,25 @@ function render(){
       <td><span class="nm">${esc(x.name)}</span><div class="bar"><i style="width:${x.share}%"></i></div></td>
       <td class="n"><b>${num(x.users)}</b>명<span class="sm"> ${x.share}%</span></td></tr>`), '') : '';
   const blind = [...(w.gender||[]), ...(w.age||[])].every(x => x.name === '알 수 없음');
-  P.push(demo('성별', w.gender)); P.push(demo('연령대', w.age));
-  P.push(demo('국가', w.country)); P.push(demo('도시', w.city));
+  const W = CATS[3].items;
+  W.push(demo('성별', w.gender)); W.push(demo('연령대', w.age));
+  W.push(demo('국가', w.country)); W.push(demo('도시', w.city));
   if (blind && (w.gender||[]).length)
-    P.push(`<section class="panel"><div class="ph"><h2>성별·연령이 비어 있다면</h2></div>
+    W.push(`<section class="panel"><div class="ph"><h2>성별·연령이 비어 있다면</h2></div>
       <div class="note" style="border-top:0">GA4 <b>관리 → 데이터 수집 및 수정 → Google 신호 데이터</b>를
       켜야 값이 들어옵니다. 켠 뒤 며칠 걸립니다.</div></section>`);
 
   /* 자연 검색 */
-  P.push(panel('자연 검색 유입 (서치콘솔)',
+  S.push(panel('자연 검색 유입 (서치콘솔)',
     (r.queries||[]).slice(0,8).map(q => `<tr><td><span class="nm">${esc(q.query)}</span></td>
       <td class="n">클릭 <b>${num(q.clicks)}</b> · 노출 ${num(q.impressions)}</td></tr>`),
     '서치콘솔은 등록 직후 며칠간 비어 있습니다.'));
 
-  G.innerHTML = P.filter(Boolean).join('');
+  G.innerHTML = CATS.map(c => {
+    const body = c.items.filter(Boolean).join('');
+    return body ? `<div class="cat"><div class="ct"><span class="dot"></span>${c.name}</div>
+      <div class="grid">${body}</div></div>` : '';
+  }).join('');
 }
 
 function adsPanel(r){
