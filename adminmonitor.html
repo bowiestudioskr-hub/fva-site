@@ -86,6 +86,22 @@
   .chart .ax{display:flex;justify-content:space-between;margin-top:7px;
              font-size:11px;color:var(--dim);font-variant-numeric:tabular-nums}
 
+  /* 막대에 손을 올리면 그 칸이 언제·몇 명인지 띄운다.
+     브라우저 기본 title 풍선은 1초쯤 기다려야 뜨고 손가락으로는 아예 안 뜬다. */
+  .chart{position:relative}
+  .tip{
+    position:absolute;z-index:3;pointer-events:none;opacity:0;transform:translate(-50%,-100%);
+    background:rgba(58,58,60,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-radius:9px;padding:6px 9px;white-space:nowrap;
+    font-size:12px;font-weight:600;line-height:1.35;color:var(--ink);
+    transition:opacity .1s;box-shadow:0 6px 18px rgba(0,0,0,.5);
+  }
+  .tip.on{opacity:1}
+  .tip b{display:block;font-size:11px;font-weight:700;color:var(--sub);margin-bottom:1px}
+  .tip em{font-style:normal;color:var(--visit);font-weight:800}
+  .bars .b{cursor:default}
+  .bars .b.sel{opacity:1;box-shadow:0 0 0 1.5px rgba(255,255,255,.5)}
+
   /* ── 묶음 ── */
   .cat{display:flex;flex-direction:column;gap:11px}
   .cat > .ct{display:flex;flex-direction:column;gap:1px}
@@ -126,6 +142,32 @@
   .pill{font-size:11px;font-weight:800;border-radius:99px;padding:2px 8px;
         background:rgba(44,255,5,.16);color:var(--visit)}
   .pill.off{background:rgba(255,255,255,.08);color:var(--dim)}
+
+  /* ── 불러오는 중 ──
+     피드가 GA4 를 스무 번 넘게 부르는 터라 첫 로딩이 길다. 빈 화면만 보이면
+     고장난 줄 안다. 들어올 자리에 회색 덩어리를 깔아 「오는 중」임을 알린다. */
+  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:.7}}
+  .sk{background:var(--card);border-radius:16px;animation:pulse 1.3s ease-in-out infinite}
+  .sk.h1{height:78px}
+  .sk.h2{height:132px}
+  .sk.h3{height:210px}
+  .loading{
+    display:flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;color:var(--sub);
+  }
+  .loading i{
+    width:13px;height:13px;border-radius:50%;flex:none;
+    border:2px solid rgba(255,255,255,.18);border-top-color:var(--visit);
+    animation:spin .7s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  /* 자동 갱신 때는 화면을 지우지 않는다. 보던 숫자가 사라지면 더 답답하다.
+     대신 머리말 옆에 점 하나만 돌려 「지금 새로 받는 중」을 알린다. */
+  .date.busy::after{
+    content:'';display:inline-block;width:9px;height:9px;margin-left:7px;
+    border-radius:50%;border:1.5px solid rgba(255,255,255,.18);border-top-color:var(--visit);
+    animation:spin .7s linear infinite;vertical-align:-1px;
+  }
 
   .none{padding:16px;color:var(--dim);font-size:13px}
   .memo{padding:0 16px 13px;color:var(--dim);font-size:12px;line-height:1.5}
@@ -240,19 +282,57 @@ const chart = (s) => {
   const max = Math.max(...p.map(x => x.users), 1);
   const peak = p.reduce((a, b) => (b.users > a.users ? b : a), p[0]);
   const unit = s.unit === 'hour' ? '시간대별' : '날짜별';
-  const bars = p.map(x => {
+  const bars = p.map((x, i) => {
     const h = x.users ? Math.max(Math.round(x.users / max * 100), 5) : 4;
     const hi = x.users === max && max > 0 ? ' hi' : '';
-    return `<div class="b${x.users ? hi : ' z'}" style="height:${h}%"
-              title="${esc(x.t)} · 방문 ${num(x.users)}명 · 조회 ${num(x.views)}회"></div>`;
+    return `<div class="b${x.users ? hi : ' z'}" style="height:${h}%" data-i="${i}"></div>`;
   }).join('');
-  return `<div class="chart">
+  return `<div class="chart" id="chartbox">
     <div class="top"><b>방문자 ${unit}</b>
       <span class="pk">${peak.users ? `가장 많았던 때 ${esc(peak.t)} <em>${num(peak.users)}명</em>` : ''}</span></div>
     <div class="bars">${bars}</div>
     <div class="ax"><span>${esc(p[0].t)}</span><span>${esc(p[p.length-1].t)}</span></div>
+    <div class="tip" id="tip"></div>
   </div>`;
 };
+
+/* 막대 위 풍선. 막대가 얇아 정확히 짚기 어려우므로, 가로 위치로 가장 가까운
+   막대를 골라준다 — 칸 사이 틈에 손이 놓여도 값이 끊기지 않는다. */
+function bindChart(points) {
+  const box = document.getElementById('chartbox');
+  if (!box || !points?.length) return;
+  const bars = [...box.querySelectorAll('.bars .b')];
+  const tip = document.getElementById('tip');
+  const wrap = box.querySelector('.bars');
+  let last = -1;
+
+  const show = (clientX) => {
+    const r = wrap.getBoundingClientRect();
+    const idx = Math.max(0, Math.min(bars.length - 1,
+      Math.floor((clientX - r.left) / r.width * bars.length)));
+    if (idx !== last) {
+      bars.forEach((b, i) => b.classList.toggle('sel', i === idx));
+      const p = points[idx];
+      tip.innerHTML = `<b>${esc(p.t)}</b>방문 <em>${num(p.users)}명</em> · 조회 ${num(p.views)}회`;
+      last = idx;
+    }
+    // 풍선이 카드 밖으로 삐져나가지 않게 양 끝에서 붙잡는다.
+    const bx = bars[idx].getBoundingClientRect();
+    const br = box.getBoundingClientRect();
+    const half = tip.offsetWidth / 2;
+    const x = Math.max(half + 6, Math.min(br.width - half - 6, bx.left + bx.width / 2 - br.left));
+    tip.style.left = x + 'px';
+    tip.style.top = (bx.top - br.top - 8) + 'px';
+    tip.classList.add('on');
+  };
+  const hide = () => { tip.classList.remove('on'); bars.forEach(b => b.classList.remove('sel')); last = -1; };
+
+  wrap.addEventListener('pointermove', e => show(e.clientX));
+  wrap.addEventListener('pointerdown', e => show(e.clientX));
+  wrap.addEventListener('pointerleave', hide);
+  // 손가락으로 짚었을 때는 떼면 지운다. 마우스와 달리 leave 가 안 온다.
+  wrap.addEventListener('pointerup', () => setTimeout(hide, 1600));
+}
 
 const pill = on => on ? '<span class="pill">운영 중</span>'
                       : '<span class="pill off">정지</span>';
@@ -275,6 +355,7 @@ function render(){
            stat('남은 예산','var(--ads)', won(ADS.naver.balance), '', 'ad') : '');
 
   G.innerHTML = chart(r.series);
+  bindChart(r.series?.points);
 
   const CATS = [
     { k:'TRAFFIC',  t:'방문',           c:'var(--visit)', items:[] },
@@ -368,7 +449,21 @@ document.getElementById('tabbar').addEventListener('click', e => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+/* 첫 로딩용 자리 채우기. 들어올 카드와 같은 모양으로 깔아둔다. */
+function skeleton(){
+  document.getElementById('date').innerHTML = '<span class="loading"><i></i>불러오는 중</span>';
+  document.getElementById('stats').innerHTML = '<div class="sk h1"></div>'.repeat(4);
+  document.getElementById('chart').innerHTML = '<div class="sk h2"></div>';
+  document.getElementById('cats').innerHTML =
+    '<div class="cards">' + '<div class="sk h3"></div>'.repeat(2) + '</div>';
+  document.getElementById('foot').textContent = '';
+}
+
 function load(){
+  const first = !DATA;
+  if (first) skeleton();
+  else document.getElementById('date').classList.add('busy');
+
   return Promise.all([
     fetch(FEED + '?t=' + Date.now()).then(r => r.json()).catch(() => null),
     fetch('data/ads-9c4e17.json?t=' + Date.now()).then(r => r.json()).catch(() => null),
@@ -378,6 +473,11 @@ function load(){
     document.getElementById('foot').textContent =
       (ADS?.updated ? '광고 ' + ADS.updated + ' 기준 · ' : '') + '3분마다 자동 갱신';
     render();
+  }).catch(() => {
+    if (first) document.getElementById('cats').innerHTML =
+      '<div class="card"><div class="none">데이터를 불러오지 못했습니다. 잠시 후 다시 시도합니다.</div></div>';
+  }).finally(() => {
+    document.getElementById('date').classList.remove('busy');
   });
 }
 load();

@@ -26,15 +26,37 @@ const GA4_PROPERTY = '550057103';        // fva.co.kr 속성 (측정 ID G-79SFDW
 const SC_SITE      = 'https://fva.co.kr/'; // 서치콘솔 속성 (URL 접두어, non-www)
 const RANGES       = [1, 7, 28, 90];   // 1 = 오늘
 
-function doGet() {
+/* 기간 네 개를 매번 새로 계산하면 GA4 를 스무 번 넘게 부르게 되어 8~10초가 걸린다.
+   대시보드는 3분마다 다시 읽으므로 그 사이에는 같은 값을 줘도 된다. 캐시로 받아둔다.
+   ?fresh=1 을 붙이면 캐시를 건너뛴다 — 방금 고친 게 반영됐는지 확인할 때 쓴다. */
+const CACHE_KEY  = 'feed-v3';
+const CACHE_SECS = 170;   // 대시보드 갱신 주기(180초)보다 살짝 짧게
+
+function doGet(e) {
+  const fresh = !!(e && e.parameter && e.parameter.fresh);
+  const cache = CacheService.getScriptCache();
+
+  if (!fresh) {
+    const hit = cache.get(CACHE_KEY);
+    if (hit) return json(hit);
+  }
+
   const out = { updated: stamp(), ranges: {} };
   RANGES.forEach(function (d) {
     try { out.ranges[String(d)] = collect(d); }
     catch (err) { out.ranges[String(d)] = null; out.error = String(err).slice(0, 300); }
   });
-  return ContentService
-    .createTextOutput(JSON.stringify(out))
-    .setMimeType(ContentService.MimeType.JSON);
+
+  const body = JSON.stringify(out);
+  // 캐시 한 칸은 100KB 까지다. 넘치면 넣지 않고 그냥 내보낸다.
+  if (body.length < 95000) {
+    try { cache.put(CACHE_KEY, body, CACHE_SECS); } catch (err) { /* 캐시 실패는 무시 */ }
+  }
+  return json(body);
+}
+
+function json(body) {
+  return ContentService.createTextOutput(body).setMimeType(ContentService.MimeType.JSON);
 }
 
 function stamp() {
