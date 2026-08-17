@@ -449,6 +449,18 @@ document.getElementById('tabbar').addEventListener('click', e => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+/* 광고 수치는 사이트가 아니라 저장소의 data 브랜치에서 읽는다.
+   main 에 올리면 15분마다 사이트 전체가 다시 지어져서(하루 96번) 깃허브가
+   429 를 내며 배포를 거른다 — 2026-08-17 에 실제로 났다.
+   data 브랜치는 Pages 가 안 보므로 올려도 사이트를 다시 짓지 않는다.
+   raw 가 막히거나 늦을 때를 대비해 사이트 안의 옛 파일로 물러선다. */
+const ADS_RAW = 'https://raw.githubusercontent.com/bowiestudioskr-hub/fva-site/data/data/ads-9c4e17.json';
+const fetchAds = () =>
+  fetch(ADS_RAW + '?t=' + Date.now())
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .catch(() => fetch('data/ads-9c4e17.json?t=' + Date.now())
+      .then(r => r.json()).catch(() => null));
+
 /* 첫 로딩용 자리 채우기. 들어올 카드와 같은 모양으로 깔아둔다. */
 function skeleton(){
   document.getElementById('date').innerHTML = '<span class="loading"><i></i>불러오는 중</span>';
@@ -466,7 +478,7 @@ function load(){
 
   return Promise.all([
     fetch(FEED + '?t=' + Date.now()).then(r => r.json()).catch(() => null),
-    fetch('data/ads-9c4e17.json?t=' + Date.now()).then(r => r.json()).catch(() => null),
+    fetchAds(),
   ]).then(([feed, adsData]) => {
     if (feed) DATA = feed;
     if (adsData) ADS = adsData;
