@@ -138,6 +138,9 @@
         border-radius:7px;padding:4px 9px;white-space:nowrap;color:var(--ink)}
   .chip span{color:var(--dim);font-weight:600;margin-left:3px}
   .chip.off{opacity:.35}
+  .chip.wait{opacity:.7}
+  .chip b{font-weight:800;font-size:10.5px;color:var(--ads);margin-left:4px}
+  .chip.wait b{color:var(--who)}
 
   .pill{font-size:11px;font-weight:800;border-radius:99px;padding:2px 8px;
         background:rgba(44,255,5,.16);color:var(--visit)}
@@ -392,7 +395,11 @@ function render(){
       plainRow('구글', `${esc(ADS.google.start)}부터`,
                `<a href="${esc(ADS.google.console)}" target="_blank" rel="noopener">계정 열기</a>`),
       plainRow('남은 예산', '', won(n.balance)),
-    ], '', { right: pill(n.live) }));
+    ], '', { right: pill(n.live),
+      memo: n.campaignClk != null && (n.campaignImp !== n.imp)
+        ? `위 수치는 <b>새로 짠 세 그룹</b>만 센 것입니다. 같은 캠페인 안에 옛 브랜드 그룹이 남아 있어 `
+          + `계정에서는 노출 ${num(n.campaignImp)} · 클릭 ${num(n.campaignClk)} · ${won(n.campaignCost)}로 보입니다.`
+        : '' }));
 
     for (const g of n.groups || []) {
       const perf = g.keywords.filter(k => k.imp || k.clk);
@@ -400,8 +407,13 @@ function render(){
         perf.map(k => plainRow(esc(k.word), '', `${num(k.imp)}<em>노출 · 클릭 ${num(k.clk)}</em>`)),
         '아직 노출 실적 없음 · 집계는 15분 단위',
         { right: `${pill(g.live)}<span>입찰 ${num(g.bid)}원</span>`,
-          chips: `<div class="chips">${g.keywords.map(k =>
-            `<span class="chip${k.live?'':' off'}">${esc(k.word)}<span>${num(k.bid)}</span></span>`).join('')}</div>` }));
+          chips: `<div class="chips">${g.keywords.map(k => {
+            // 정지와 검토중은 다르다. 검토중은 곧 나갈 것이라 「왜 안 나가지」 하고 헤매지 않게 표시한다.
+            const st = k.state || (k.live ? '운영' : '정지');
+            const cls = st === '운영' ? '' : st === '검토중' ? ' wait' : ' off';
+            const tag = st === '운영' ? '' : `<b>${esc(st)}</b>`;
+            return `<span class="chip${cls}">${esc(k.word)}${tag}<span>${num(k.bid)}</span></span>`;
+          }).join('')}</div>` }));
     }
   }
 

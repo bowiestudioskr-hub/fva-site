@@ -29,7 +29,7 @@ const RANGES       = [1, 7, 28, 90];   // 1 = 오늘
 /* 기간 네 개를 매번 새로 계산하면 GA4 를 스무 번 넘게 부르게 되어 8~10초가 걸린다.
    대시보드는 3분마다 다시 읽으므로 그 사이에는 같은 값을 줘도 된다. 캐시로 받아둔다.
    ?fresh=1 을 붙이면 캐시를 건너뛴다 — 방금 고친 게 반영됐는지 확인할 때 쓴다. */
-const CACHE_KEY  = 'feed-v5';
+const CACHE_KEY  = 'feed-v7';
 // 캐시가 비면 처음 연 사람이 15초를 그대로 기다린다. 그래서 짧게 두지 않고,
 // 맥에서 15분마다 도는 자동 갱신(ads_sync.sh)이 ?fresh=1 로 미리 데워둔다.
 // 20분으로 잡아 그 주기보다 넉넉히 길게 —— 한 번 걸러도 캐시가 안 비도록.
@@ -159,38 +159,79 @@ function collect(days) {
   // ── 광고 유입 ──────────────────────────────────────────
   // 네이버는 utm_* 를 붙여야 자연 검색과 갈린다. 구글은 자동 태깅(gclid)이 처리한다.
   r.ads = { naver: [], google: [], spendNote: '' };
-  try {
-    const nv = ga({
+
+  /* 검색어별로 몇 명 왔는지만 봐서는 그 검색어가 쓸모 있는지 알 수 없다.
+     들어와서 30초 만에 나갔는지, 커리큘럼을 읽고 상담을 눌렀는지가 판단 근거다.
+     그래서 사람 수와 함께 「머문 시간」과 「무엇을 눌렀나」를 같이 뽑는다.
+     ⚠ 광고 검색어 차원은 세션 단위라 이벤트와 붙일 때 표본이 작으면 GA4 가 값을 가린다.
+        그 경우 conv 는 0 으로 온다 — 실제로 0인 것과 구분되지 않으니 단정하지 말 것. */
+  function adKeywords(dim, filter) {
+    const q = {
       dateRanges: [{ startDate: start, endDate: 'today' }],
-      dimensions: [{ name: 'sessionManualTerm' }],
-      metrics: [{ name: 'totalUsers' }, { name: 'sessions' }],
-      dimensionFilter: { filter: { fieldName: 'sessionSourceMedium',
-        stringFilter: { matchType: 'CONTAINS', value: 'naver / cpc' } } },
+      dimensions: [{ name: dim }],
+      // ⚠ userEngagementDuration·screenPageViews 는 사용자 단위라 광고 검색어(세션 단위)와
+      //   같이 뽑으면 GA4 가 0 을 준다. 세션 단위 지표로 물어야 값이 들어온다.
+      metrics: [{ name: 'totalUsers' }, { name: 'sessions' },
+                { name: 'averageSessionDuration' }, { name: 'screenPageViewsPerSession' },
+                { name: 'engagementRate' }],
       orderBys: [{ desc: true, metric: { metricName: 'totalUsers' } }],
       limit: 20,
-    });
-    r.ads.naver = (nv.rows || []).map(function (row) {
+    };
+    if (filter) q.dimensionFilter = filter;
+    const d = ga(q);
+
+    // 같은 조건으로 「무엇을 눌렀나」를 따로 센다. 한 번에 뽑으면 이벤트가 있는 세션만 남는다.
+    const hits = {};
+    try {
+      const e = ga({
+        dateRanges: [{ startDate: start, endDate: 'today' }],
+        dimensions: [{ name: dim }, { name: 'eventName' }],
+        metrics: [{ name: 'eventCount' }],
+        dimensionFilter: filter ? {
+          andGroup: { expressions: [filter, {
+            filter: { fieldName: 'eventName',
+              inListFilter: { values: ['online_class_click', 'kakao_consult_click'] } } }] },
+        } : {
+          filter: { fieldName: 'eventName',
+            inListFilter: { values: ['online_class_click', 'kakao_consult_click'] } },
+        },
+        limit: 50,
+      });
+      (e.rows || []).forEach(function (row) {
+        const k = row.dimensionValues[0].value;
+        const name = row.dimensionValues[1].value;
+        if (!hits[k]) hits[k] = { online: 0, kakao: 0 };
+        if (name === 'online_class_click') hits[k].online += numOf(row.metricValues[0]);
+        else hits[k].kakao += numOf(row.metricValues[0]);
+      });
+    } catch (err) { /* 이벤트 조인이 실패해도 사람 수는 내보낸다 */ }
+
+    return (d.rows || []).filter(function (row) {
       const k = row.dimensionValues[0].value;
-      return { keyword: (k && k !== '(not set)') ? k : '검색어 미확인',
-               users: numOf(row.metricValues[0]), sessions: numOf(row.metricValues[1]) };
+      return k && k !== '(organic)';
+    }).map(function (row) {
+      const k = row.dimensionValues[0].value;
+      const v = row.metricValues.map(numOf);
+      const h = hits[k] || { online: 0, kakao: 0 };
+      return {
+        keyword: (k && k !== '(not set)') ? k : '검색어 미확인',
+        users: v[0], sessions: v[1],
+        engage: v[2],          // 세션당 평균 체류(초) — GA4 가 이미 나눠서 준다
+        pages: v[3],           // 세션당 본 페이지 수
+        engaged: v[4],         // 참여 세션 비율(0~1). 낮으면 들어오자마자 나간 것
+        kakao: h.kakao, online: h.online,
+      };
     });
+  }
+
+  try {
+    r.ads.naver = adKeywords('sessionManualTerm',
+      { filter: { fieldName: 'sessionSourceMedium',
+                  stringFilter: { matchType: 'CONTAINS', value: 'naver / cpc' } } });
   } catch (e) { r.ads.naverError = String(e).slice(0, 160); }
 
   try {
-    const gg = ga({
-      dateRanges: [{ startDate: start, endDate: 'today' }],
-      dimensions: [{ name: 'sessionGoogleAdsKeyword' }],
-      metrics: [{ name: 'totalUsers' }, { name: 'sessions' }],
-      orderBys: [{ desc: true, metric: { metricName: 'totalUsers' } }],
-      limit: 20,
-    });
-    r.ads.google = (gg.rows || []).filter(function (row) {
-      const k = row.dimensionValues[0].value;
-      return k && k !== '(not set)' && k !== '(organic)';
-    }).map(function (row) {
-      return { keyword: row.dimensionValues[0].value,
-               users: numOf(row.metricValues[0]), sessions: numOf(row.metricValues[1]) };
-    });
+    r.ads.google = adKeywords('sessionGoogleAdsKeyword', null);
   } catch (e) { r.ads.googleError = String(e).slice(0, 160); }
 
   // ── 시간 흐름 ────────────────────────────────────────────
