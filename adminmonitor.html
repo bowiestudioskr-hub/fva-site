@@ -129,6 +129,11 @@
   .vn em{font-style:normal;font-size:12.5px;font-weight:600;color:var(--sub);margin-left:3px}
 
   /* 막대 — 애플의 링 대신 가로 막대. 색은 묶음 색을 그대로 물려받는다. */
+  /* 막대 밑에 「그래서 뭘 했나」를 한 줄로. 사람 수만으로는 채널을 비교할 수 없다. */
+  .sub{font-size:11.5px;color:var(--dim);margin-top:5px;line-height:1.35;
+       overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .sub b{color:var(--sub);font-weight:700}
+  .sub .go{color:var(--visit);font-weight:800}
   .track{height:5px;border-radius:3px;background:rgba(255,255,255,.1);margin-top:6px;overflow:hidden}
   .track i{display:block;height:100%;border-radius:3px;background:currentColor}
   .rowbar{flex:1;min-width:0}
@@ -262,10 +267,11 @@ const card = (title, rows, none, {right='', chips='', memo=''} = {}) => `
     ${memo?`<div class="memo">${memo}</div>`:''}
   </div>`;
 
-const barRow = (name, share, right) => `<li>
+const barRow = (name, share, right, sub) => `<li>
   <div class="rowbar">
     <div class="nm">${name}</div>
     <div class="track"><i style="width:${Math.max(share,2)}%"></i></div>
+    ${sub ? `<div class="sub">${sub}</div>` : ''}
   </div>
   <div class="vn">${right}</div></li>`;
 
@@ -369,9 +375,22 @@ function render(){
   const [V, A, Q, W] = CATS.map(c => c.items);
 
   /* 방문 */
+  /* 경로마다 「머문 시간 · 본 페이지 · 누른 것 · 도착지」를 막대 밑에 붙인다.
+     싸게 많이 데려와도 3초 만에 나가면 소용이 없고, 적게 와도 상담을 누르면 값어치가 있다. */
+  const srcSub = (x) => {
+    const bits = [];
+    if (x.engage) bits.push(dur(x.engage));
+    if (x.pages) bits.push(`${x.pages.toFixed(1)}쪽`);
+    const acts = [];
+    if (x.kakao) acts.push(`상담 ${num(x.kakao)}`);
+    if (x.online) acts.push(`온라인 ${num(x.online)}`);
+    if (acts.length) bits.push(`<span class="go">${acts.join(' · ')}</span>`);
+    if (x.landing) bits.push(esc(x.landing) + '로 도착');
+    return bits.join(' · ');
+  };
   V.push(card('어디서 들어왔나',
-    (r.sources||[]).slice(0,7).map(s =>
-      barRow(esc(s.name), s.share, `${num(s.users)}<em>명 ${s.share}%</em>`)),
+    (r.sources||[]).slice(0,8).map(s =>
+      barRow(esc(s.name), s.share, `${num(s.users)}<em>명 ${s.share}%</em>`, srcSub(s))),
     '아직 유입이 잡히지 않았습니다.',
     { memo: (r.sources||[]).some(s=>/알 수 없음|경로 불명|not available|not set/i.test(s.name))
         ? '<b>경로 불명</b>은 구글이 아직 출처를 확정 못 한 방문입니다. 하루이틀이면 제자리를 찾습니다.' : '' }));
@@ -419,11 +438,23 @@ function render(){
 
   /* 검색어 */
   const gk = r.ads?.google || [], nk = r.ads?.naver || [];
+  /* 검색어도 사람 수만 보면 안 된다. 「AI 영상제작」은 4명이 왔지만 전원 13초 만에
+     나갔고, 「영상 학원」은 3명 중 1명이 상담을 눌렀다. 머문 시간이 그 차이를 보여준다. */
+  const kwSub = (k) => {
+    const bits = [];
+    if (k.engage) bits.push(dur(k.engage));
+    if (k.pages) bits.push(`${k.pages.toFixed(1)}쪽`);
+    const acts = [];
+    if (k.kakao) acts.push(`상담 ${num(k.kakao)}`);
+    if (k.online) acts.push(`온라인 ${num(k.online)}`);
+    if (acts.length) bits.push(`<span class="go">${acts.join(' · ')}</span>`);
+    return bits.join(' · ') || '아직 행동 없음';
+  };
   Q.push(card('구글 광고로 들어온 검색어',
-    gk.slice(0,7).map(k => plainRow(esc(k.keyword), '', `${num(k.users)}<em>명</em>`)),
+    gk.slice(0,7).map(k => barRow(esc(k.keyword), 100, `${num(k.users)}<em>명</em>`, kwSub(k))),
     '광고 유입이 아직 없거나 데이터가 도착 전입니다.'));
   if (nk.length) Q.push(card('네이버 광고로 들어온 검색어',
-    nk.slice(0,7).map(k => plainRow(esc(k.keyword), '', `${num(k.users)}<em>명</em>`)), ''));
+    nk.slice(0,7).map(k => barRow(esc(k.keyword), 100, `${num(k.users)}<em>명</em>`, kwSub(k))), ''));
   Q.push(card('자연 검색',
     (r.queries||[]).slice(0,7).map(q =>
       plainRow(esc(q.query), '', `${num(q.clicks)}<em>클릭 · 노출 ${num(q.impressions)}</em>`)),

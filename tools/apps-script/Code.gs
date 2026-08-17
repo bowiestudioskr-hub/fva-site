@@ -29,7 +29,7 @@ const RANGES       = [1, 7, 28, 90];   // 1 = 오늘
 /* 기간 네 개를 매번 새로 계산하면 GA4 를 스무 번 넘게 부르게 되어 8~10초가 걸린다.
    대시보드는 3분마다 다시 읽으므로 그 사이에는 같은 값을 줘도 된다. 캐시로 받아둔다.
    ?fresh=1 을 붙이면 캐시를 건너뛴다 — 방금 고친 게 반영됐는지 확인할 때 쓴다. */
-const CACHE_KEY  = 'feed-v7';
+const CACHE_KEY  = 'feed-v8';
 // 캐시가 비면 처음 연 사람이 15초를 그대로 기다린다. 그래서 짧게 두지 않고,
 // 맥에서 15분마다 도는 자동 갱신(ads_sync.sh)이 ?fresh=1 로 미리 데워둔다.
 // 20분으로 잡아 그 주기보다 넉넉히 길게 —— 한 번 걸러도 캐시가 안 비도록.
@@ -141,15 +141,72 @@ function collect(days) {
   r.kakaoClicks  = acc.kakao_consult_click ? acc.kakao_consult_click.count : 0;
 
   // ── 유입 경로 ──────────────────────────────────────────
+  /* 몇 명 왔는지만으로는 채널을 비교할 수 없다. 싸게 많이 데려와도 3초 만에
+     나가면 소용이 없고, 적게 와도 상담을 누르면 값어치가 있다.
+     그래서 경로마다 「얼마나 머물렀나 · 몇 장 봤나 · 뭘 눌렀나 · 어디로 들어왔나」를 같이 낸다.
+     ⚠ 세션 단위 지표(averageSessionDuration 등)를 써야 한다. 사용자 단위 지표는
+        sessionSourceMedium 과 궁합이 안 맞아 0 으로 돌아온다. 한 번 겪었다. */
   const src = ga({
     dateRanges: [{ startDate: start, endDate: 'today' }],
     dimensions: [{ name: 'sessionSourceMedium' }],
-    metrics: [{ name: 'totalUsers' }],
+    metrics: [{ name: 'totalUsers' }, { name: 'sessions' },
+              { name: 'averageSessionDuration' }, { name: 'screenPageViewsPerSession' },
+              { name: 'engagementRate' }, { name: 'bounceRate' }],
     orderBys: [{ desc: true, metric: { metricName: 'totalUsers' } }],
-    limit: 10,
+    limit: 12,
   });
+
+  // 경로별로 무엇을 눌렀나
+  const srcHits = {};
+  try {
+    const eh = ga({
+      dateRanges: [{ startDate: start, endDate: 'today' }],
+      dimensions: [{ name: 'sessionSourceMedium' }, { name: 'eventName' }],
+      metrics: [{ name: 'eventCount' }],
+      dimensionFilter: { filter: { fieldName: 'eventName',
+        inListFilter: { values: ['online_class_click', 'kakao_consult_click'] } } },
+      limit: 60,
+    });
+    (eh.rows || []).forEach(function (row) {
+      const k = row.dimensionValues[0].value;
+      const n = row.dimensionValues[1].value;
+      if (!srcHits[k]) srcHits[k] = { online: 0, kakao: 0 };
+      if (n === 'online_class_click') srcHits[k].online += numOf(row.metricValues[0]);
+      else srcHits[k].kakao += numOf(row.metricValues[0]);
+    });
+  } catch (e) { /* 눌린 게 없으면 그냥 비어 있다 */ }
+
+  // 경로별로 어디에 도착했나 — 광고가 어느 페이지로 보내고 있는지 드러난다
+  const srcLand = {};
+  try {
+    const lp = ga({
+      dateRanges: [{ startDate: start, endDate: 'today' }],
+      dimensions: [{ name: 'sessionSourceMedium' }, { name: 'landingPage' }],
+      metrics: [{ name: 'sessions' }],
+      orderBys: [{ desc: true, metric: { metricName: 'sessions' } }],
+      limit: 60,
+    });
+    (lp.rows || []).forEach(function (row) {
+      const k = row.dimensionValues[0].value;
+      if (srcLand[k]) return;                 // 정렬돼 있으므로 첫 줄이 가장 많은 곳
+      srcLand[k] = pageName(row.dimensionValues[1].value);
+    });
+  } catch (e) { /* 도착 페이지는 없어도 나머지는 낸다 */ }
+
   const rows = (src.rows || []).map(function (row) {
-    return { name: pretty(row.dimensionValues[0].value), users: numOf(row.metricValues[0]) };
+    const raw = row.dimensionValues[0].value;
+    const v = row.metricValues.map(numOf);
+    const h = srcHits[raw] || { online: 0, kakao: 0 };
+    return {
+      name: pretty(raw), raw: raw,
+      users: v[0], sessions: v[1],
+      engage: v[2],            // 세션당 평균 체류(초)
+      pages: v[3],             // 세션당 본 페이지 수
+      engaged: v[4],           // 참여 세션 비율 (0~1)
+      bounce: v[5],            // 바로 나간 비율 (0~1)
+      kakao: h.kakao, online: h.online,
+      landing: srcLand[raw] || '',
+    };
   });
   const sum = rows.reduce(function (a, b) { return a + b.users; }, 0) || 1;
   r.sources = rows.map(function (x) {
