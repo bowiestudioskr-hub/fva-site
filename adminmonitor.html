@@ -427,8 +427,8 @@ function render(){
   // 피드가 사유를 같이 보내주므로 그걸 그대로 적는다.
   const off = !(w.gender||[]).length && !(w.age||[]).length && (w.genderNote || w.ageNote);
   if (off) W.push(card('성별 · 연령', [], '',
-    { memo: 'GA4 <b>관리 → 데이터 수집 및 수정 → 데이터 수집 → Google 신호 데이터</b>가 꺼져 있습니다. '
-          + '켜야 값이 들어오고, 켠 뒤에도 며칠은 모여야 보입니다.' }));
+    { memo: '<b>2026년 8월 17일</b>에 GA4 「Google 신호 데이터」를 켰습니다. '
+          + '켠 시점부터 쌓이므로 며칠 지나야 값이 보입니다. 그전까지는 비어 있는 게 정상입니다.' }));
 
   const live = CATS.filter(c => c.items.filter(Boolean).length);
   C.innerHTML = live.map((c, i) => `<section class="cat${i===TAB?' on':''}" style="color:${c.c}">

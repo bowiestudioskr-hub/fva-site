@@ -29,7 +29,7 @@ const RANGES       = [1, 7, 28, 90];   // 1 = 오늘
 /* 기간 네 개를 매번 새로 계산하면 GA4 를 스무 번 넘게 부르게 되어 8~10초가 걸린다.
    대시보드는 3분마다 다시 읽으므로 그 사이에는 같은 값을 줘도 된다. 캐시로 받아둔다.
    ?fresh=1 을 붙이면 캐시를 건너뛴다 — 방금 고친 게 반영됐는지 확인할 때 쓴다. */
-const CACHE_KEY  = 'feed-v3';
+const CACHE_KEY  = 'feed-v4';
 const CACHE_SECS = 170;   // 대시보드 갱신 주기(180초)보다 살짝 짧게
 
 function doGet(e) {
@@ -261,11 +261,12 @@ function collect(days) {
       r.who[pair[0] + 'Note'] = String(e).slice(0, 200);
     }
   });
-  // 성별·연령은 Google 신호 데이터가 꺼져 있으면 오류 없이 그냥 빈 칸으로 온다.
-  // 그 경우도 이유를 남긴다. 방문자가 있는데 비어 있으면 설정 문제다.
+  // 성별·연령은 Google 신호 데이터가 있어야 채워진다. 데이터 API 로는 그 설정이
+  // 켜졌는지 알 수 없고, 켠 직후에도 며칠은 빈 칸으로 온다. 그래서 「꺼졌다」고
+  // 단정하지 않고 「아직 안 들어왔다」고만 알린다. 단정했다가 틀리면 엉뚱한 데를 뒤지게 된다.
   ['gender', 'age'].forEach(function (k) {
     if (!r.who[k].length && !r.who[k + 'Note'] && r.users > 0) {
-      r.who[k + 'Note'] = 'Google 신호 데이터 꺼짐';
+      r.who[k + 'Note'] = '아직 값 없음';
     }
   });
 
