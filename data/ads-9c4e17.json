@@ -1,15 +1,19 @@
 {
-  "updated": "2026. 8. 17. PM 11:50:21",
+  "updated": "2026. 8. 18. AM 12:20:57",
   "naver": {
     "start": "2026-08-16",
     "live": true,
-    "dailyBudget": 15000,
+    "dailyBudget": 8000,
     "balance": 99578,
-    "imp": 5113,
-    "clk": 3,
-    "cost": 330,
+    "imp": 2264,
+    "clk": 0,
+    "cost": 0,
+    "campaignImp": 5113,
+    "campaignClk": 3,
+    "campaignCost": 330,
     "groups": [
       {
+        "id": "grp-a001-01-000000071921583",
         "name": "프리프로덕션·기획",
         "code": "A",
         "live": true,
@@ -18,8 +22,9 @@
         "keywords": [
           {
             "word": "스토리보드",
-            "bid": 200,
+            "bid": 900,
             "live": true,
+            "state": "운영",
             "imp": 74,
             "clk": 0,
             "cost": 0,
@@ -27,8 +32,9 @@
           },
           {
             "word": "프리프로덕션",
-            "bid": 200,
+            "bid": 250,
             "live": true,
+            "state": "운영",
             "imp": 20,
             "clk": 0,
             "cost": 0,
@@ -36,8 +42,9 @@
           },
           {
             "word": "영상기획",
-            "bid": 200,
+            "bid": 600,
             "live": true,
+            "state": "운영",
             "imp": 15,
             "clk": 0,
             "cost": 0,
@@ -46,7 +53,8 @@
           {
             "word": "콘티",
             "bid": 200,
-            "live": true,
+            "live": false,
+            "state": "정지",
             "imp": 2100,
             "clk": 0,
             "cost": 0,
@@ -54,8 +62,9 @@
           },
           {
             "word": "영상연출",
-            "bid": 200,
+            "bid": 600,
             "live": true,
+            "state": "운영",
             "imp": 21,
             "clk": 0,
             "cost": 0,
@@ -63,8 +72,59 @@
           },
           {
             "word": "영상시나리오",
-            "bid": 200,
+            "bid": 500,
             "live": true,
+            "state": "운영",
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
+          },
+          {
+            "word": "영상연출학원",
+            "bid": 300,
+            "live": false,
+            "state": "검토중",
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
+          },
+          {
+            "word": "영상제작교육",
+            "bid": 300,
+            "live": false,
+            "state": "검토중",
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
+          },
+          {
+            "word": "영상제작강의",
+            "bid": 300,
+            "live": false,
+            "state": "검토중",
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
+          },
+          {
+            "word": "영상제작배우기",
+            "bid": 300,
+            "live": false,
+            "state": "검토중",
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
+          },
+          {
+            "word": "영상독학",
+            "bid": 300,
+            "live": false,
+            "state": "검토중",
             "imp": 0,
             "clk": 0,
             "cost": 0,
@@ -73,6 +133,7 @@
         ]
       },
       {
+        "id": "grp-a001-01-000000071921584",
         "name": "AI영상",
         "code": "B",
         "live": true,
@@ -82,7 +143,8 @@
           {
             "word": "AI영상제작",
             "bid": 200,
-            "live": true,
+            "live": false,
+            "state": "정지",
             "imp": 0,
             "clk": 0,
             "cost": 0,
@@ -91,7 +153,8 @@
           {
             "word": "AI영상만들기",
             "bid": 200,
-            "live": true,
+            "live": false,
+            "state": "정지",
             "imp": 5,
             "clk": 0,
             "cost": 0,
@@ -100,7 +163,8 @@
           {
             "word": "AI영상",
             "bid": 200,
-            "live": true,
+            "live": false,
+            "state": "정지",
             "imp": 7,
             "clk": 0,
             "cost": 0,
@@ -108,8 +172,9 @@
           },
           {
             "word": "AI영상편집",
-            "bid": 200,
+            "bid": 8000,
             "live": true,
+            "state": "운영",
             "imp": 2,
             "clk": 0,
             "cost": 0,
@@ -118,15 +183,37 @@
           {
             "word": "AI동영상만들기",
             "bid": 200,
-            "live": true,
+            "live": false,
+            "state": "정지",
             "imp": 11,
             "clk": 0,
             "cost": 0,
             "rank": 8.2
+          },
+          {
+            "word": "AI영상교육",
+            "bid": 7500,
+            "live": false,
+            "state": "검토중",
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
+          },
+          {
+            "word": "AI영상강의",
+            "bid": 5000,
+            "live": false,
+            "state": "검토중",
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
           }
         ]
       },
       {
+        "id": "grp-a001-01-000000071921585",
         "name": "학원·포트폴리오",
         "code": "C",
         "live": true,
@@ -136,7 +223,8 @@
           {
             "word": "영상학원",
             "bid": 250,
-            "live": true,
+            "live": false,
+            "state": "정지",
             "imp": 1,
             "clk": 0,
             "cost": 0,
@@ -144,8 +232,9 @@
           },
           {
             "word": "영상제작학원",
-            "bid": 250,
+            "bid": 9900,
             "live": true,
+            "state": "운영",
             "imp": 0,
             "clk": 0,
             "cost": 0,
@@ -154,7 +243,8 @@
           {
             "word": "포트폴리오학원",
             "bid": 250,
-            "live": true,
+            "live": false,
+            "state": "정지",
             "imp": 0,
             "clk": 0,
             "cost": 0,
@@ -162,8 +252,9 @@
           },
           {
             "word": "영상포트폴리오",
-            "bid": 250,
+            "bid": 7900,
             "live": true,
+            "state": "운영",
             "imp": 0,
             "clk": 0,
             "cost": 0,
@@ -171,8 +262,9 @@
           },
           {
             "word": "연출학원",
-            "bid": 250,
+            "bid": 7500,
             "live": true,
+            "state": "운영",
             "imp": 1,
             "clk": 0,
             "cost": 0,
@@ -181,11 +273,52 @@
           {
             "word": "영상편집학원",
             "bid": 250,
-            "live": true,
+            "live": false,
+            "state": "정지",
             "imp": 1,
             "clk": 0,
             "cost": 0,
             "rank": 3
+          },
+          {
+            "word": "영상편집배우기",
+            "bid": 8900,
+            "live": false,
+            "state": "검토중",
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
+          },
+          {
+            "word": "영상아카데미",
+            "bid": 6800,
+            "live": false,
+            "state": "검토중",
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
+          },
+          {
+            "word": "방송아카데미",
+            "bid": 5200,
+            "live": false,
+            "state": "검토중",
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
+          },
+          {
+            "word": "미디어학원",
+            "bid": 500,
+            "live": false,
+            "state": "검토중",
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
           }
         ]
       }
