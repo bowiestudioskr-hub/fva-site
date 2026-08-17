@@ -361,6 +361,7 @@ function render(){
     stat('상담 클릭','var(--query)', num(r.kakaoClicks), '회') +
     stat('온라인 강의','var(--query)', num(r.onlineClicks), '회', 'ad') +
     (ADS ? stat('네이버 집행','var(--ads)', won(ADS.naver.cost), '', 'ad') +
+           stat('구글 집행','var(--ads)', won(ADS.google?.cost), '', 'ad') +
            stat('남은 예산','var(--ads)', won(ADS.naver.balance), '', 'ad') : '');
 
   G.innerHTML = chart(r.series);
@@ -411,18 +412,32 @@ function render(){
   /* 광고 */
   if (ADS){
     const n = ADS.naver;
+    const G = ADS.google || {};
     A.push(card('집행 현황', [
       plainRow('네이버', `${esc(n.start)}부터 · 하루 최대 ${won(n.dailyBudget)}`,
                `${won(n.cost)}<em>노출 ${num(n.imp)} · 클릭 ${num(n.clk)}</em>`),
-      plainRow('구글', `${esc(ADS.google.start)}부터`,
-               `<a href="${esc(ADS.google.console)}" target="_blank" rel="noopener">계정 열기</a>`),
-      plainRow('남은 예산', '', won(n.balance)),
+      // 구글은 API 를 못 써서 로그인된 크롬 화면을 읽어온다. 언제 읽은 것인지 같이 적는다.
+      plainRow('구글', G.updated ? `${esc(G.period || '')} · ${esc(G.updated)} 기준`
+                                 : '<a href="' + esc(G.console) + '" target="_blank" rel="noopener">계정 열기</a>',
+               G.cost != null ? `${won(G.cost)}<em>노출 ${num(G.imp)} · 클릭 ${num(G.clk)} · 평균 ${won(G.cpc)}</em>` : ''),
+      plainRow('남은 예산', '네이버', won(n.balance)),
     ], '', { right: pill(n.live),
       memo: n.campaignClk != null && (n.campaignImp !== n.imp)
         ? `위 수치는 <b>새로 짠 세 그룹</b>만 센 것입니다. 같은 캠페인 안에 옛 브랜드 그룹이 남아 있어 `
           + `계정에서는 노출 ${num(n.campaignImp)} · 클릭 ${num(n.campaignClk)} · ${won(n.campaignCost)}로 보입니다.`
         : '' }));
 
+    if ((G.keywords || []).length) {
+      A.push(card('구글 검색어별 집행',
+        G.keywords.map(k => plainRow(
+          esc(k.keyword) + (k.note ? ` <b style="color:var(--ads);font-size:11px">${esc(k.note)}</b>` : ''),
+          `노출 ${num(k.imp)} · CTR ${k.ctr}%`,
+          `${won(k.cost)}<em>${num(k.clk)}클릭 · ${won(k.cpc)}</em>`)),
+        '', { right: `평균 ${won(G.cpc)}`,
+              memo: G.conv === 0
+                ? '전환이 0인 건 <b>측정을 8월 16일에 붙였기</b> 때문입니다. 그 전 클릭은 전환으로 안 잡힙니다.'
+                : '' }));
+    }
     for (const g of n.groups || []) {
       const perf = g.keywords.filter(k => k.imp || k.clk);
       A.push(card(esc(g.name),
