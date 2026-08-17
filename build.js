@@ -101,6 +101,7 @@ const footer = () => `
 
     <p>보위스튜디오(bowie studios) ㅣ 대표자 : 정주영 ㅣ 주소 : 서울특별시 마포구 독막로6길 6, 5층(합정동, 현영빌딩) ㅣ 이메일 : bowiestudios.kr@gmail.com</p>
     <p>통신판매업 신고번호 : 2024-서울마포-1965호 ㅣ 사업자 등록 번호 : 285-37-00494 ㅣ 대표 전화번호 : 010-8108-3530</p>
+    <p><a class="ft-privacy" href="/privacy.html">개인정보처리방침</a></p>
     <p>Copyright ⓒ 2024 FVA ACADEMY. All rights reserved.</p>
   </div>
 </footer>
@@ -375,7 +376,7 @@ const today = new Date().toISOString().slice(0, 10);
 const ND = require('./pages/news-data');
 const NEWS_SLUGS = [...ND.map(n => `news-${n.slug}.html`),
                     ...ND.flatMap(n => n.posts.map((_, i) => `news-${n.slug}-${i+1}.html`))];
-const urls = ['', 'online.html', 'offline.html', 'curriculum.html', 'news.html', 'works.html', 'reviews.html', ...NEWS_SLUGS];
+const urls = ['', 'online.html', 'offline.html', 'curriculum.html', 'news.html', 'works.html', 'reviews.html', 'privacy.html', ...NEWS_SLUGS];
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'),
 `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

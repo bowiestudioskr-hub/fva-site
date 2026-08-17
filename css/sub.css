@@ -205,3 +205,27 @@ a.news-card:hover{border-color:rgba(44,255,5,.45);transform:translateY(-2px)}
 
 @media (max-width:1024px){ .yt-grid{grid-template-columns:1fr 1fr} }
 @media (max-width:700px){ .yt-grid,.yt-list{grid-template-columns:1fr} }
+
+/* ── 문서형 페이지 (개인정보처리방침 등) ──
+   읽으라고 만든 페이지지 훑으라고 만든 게 아니다. 한 줄을 짧게 잡고
+   제목과 본문 사이를 넉넉히 둔다. 한글은 어절 단위로만 끊는다. */
+.doc{padding:56px 0 96px}
+.doc .wrap{max-width:720px}
+.doc h2{
+  font-size:19px;font-weight:800;letter-spacing:-.03em;
+  margin:44px 0 12px;line-height:1.35;
+}
+.doc h2:first-child{margin-top:0}
+.doc p{margin:0 0 14px;line-height:1.75;word-break:keep-all;text-wrap:pretty}
+.doc ul{margin:0 0 14px;padding-left:18px}
+.doc li{margin:0 0 8px;line-height:1.7;word-break:keep-all}
+.doc b{font-weight:700}
+.doc a{text-decoration:underline;text-underline-offset:2px}
+.doc .doc-date{margin-top:44px;font-size:14px;opacity:.6}
+.sub-lede{margin-top:14px;line-height:1.7;word-break:keep-all;max-width:44ch}
+.ft-privacy{text-decoration:underline;text-underline-offset:2px}
+
+@media (max-width:720px){
+  .doc{padding:36px 0 72px}
+  .doc h2{font-size:17px;margin:34px 0 10px}
+}
