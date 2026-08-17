@@ -455,6 +455,16 @@ document.getElementById('tabbar').addEventListener('click', e => {
    data 브랜치는 Pages 가 안 보므로 올려도 사이트를 다시 짓지 않는다.
    raw 가 막히거나 늦을 때를 대비해 사이트 안의 옛 파일로 물러선다. */
 const ADS_RAW = 'https://raw.githubusercontent.com/bowiestudioskr-hub/fva-site/data/data/ads-9c4e17.json';
+
+/* 「2026. 8. 17. PM 11:50:12」 형식이라 Date 가 그냥은 못 읽는다. 손으로 뜯는다.
+   못 읽으면 null 을 주고, 그때는 낡았다고 단정하지 않는다. */
+const adsAgeMin = (txt) => {
+  const m = String(txt || '').match(/(\d+)\.\s*(\d+)\.\s*(\d+)\.\s*(AM|PM)\s*(\d+):(\d+)/);
+  if (!m) return null;
+  let h = +m[5] % 12; if (m[4] === 'PM') h += 12;
+  const t = new Date(+m[1], +m[2] - 1, +m[3], h, +m[6]);
+  return (Date.now() - t.getTime()) / 60000;
+};
 const fetchAds = () =>
   fetch(ADS_RAW + '?t=' + Date.now())
     .then(r => r.ok ? r.json() : Promise.reject(r.status))
@@ -482,10 +492,19 @@ function load(){
   ]).then(([feed, adsData]) => {
     if (feed) DATA = feed;
     if (adsData) ADS = adsData;
-    // 화면은 3분마다 다시 읽지만 수치 자체는 15분마다 새로 만들어진다.
-    // 「3분마다 갱신」만 적으면 3분 전 숫자라고 오해한다.
-    document.getElementById('foot').textContent =
+    // 광고 수치가 멈춰도 화면은 멀쩡해 보인다. 그러면 옛 숫자를 오늘 숫자로 읽는다.
+    // 한 시간 넘게 안 들어왔으면 그 사실을 적어둔다 — 틀린 숫자를 조용히 보여주느니
+    // 「멈춰 있다」고 말하는 편이 낫다. (맥이 꺼졌거나 깃허브가 아플 때 그렇게 된다.)
+    const foot = document.getElementById('foot');
+    const stale = adsAgeMin(ADS?.updated);
+    foot.textContent =
       (ADS?.updated ? '광고 ' + ADS.updated + ' 기준 · ' : '') + '수치는 15분마다 새로 집계';
+    if (stale != null && stale > 60) {
+      foot.textContent += ` · ⚠ 광고 수치가 ${Math.round(stale / 60)}시간째 멈춰 있음`;
+      foot.style.color = 'var(--ads)';
+    } else {
+      foot.style.color = '';
+    }
     render();
   }).catch(() => {
     if (first) document.getElementById('cats').innerHTML =
