@@ -168,6 +168,44 @@ function collect(days) {
     });
   } catch (e) { r.ads.googleError = String(e).slice(0, 160); }
 
+  // ── 시간 흐름 ────────────────────────────────────────────
+  // 숫자 하나만 보면 늘었는지 줄었는지를 알 수 없다. 「오늘」은 시간대별,
+  // 나머지 기간은 날짜별로 뽑아 대시보드에서 막대로 그린다.
+  // 값이 0 인 칸도 채워서 내보낸다. 빈 칸을 빼면 그래프가 실제보다 고르게 보인다.
+  r.series = { unit: days === 1 ? 'hour' : 'day', points: [] };
+  try {
+    const dim = days === 1 ? 'hour' : 'date';
+    const s = ga({
+      dateRanges: [{ startDate: start, endDate: 'today' }],
+      dimensions: [{ name: dim }],
+      metrics: [{ name: 'totalUsers' }, { name: 'screenPageViews' }],
+      orderBys: [{ dimension: { dimensionName: dim } }],
+      limit: 200,
+    });
+    const got = {};
+    (s.rows || []).forEach(function (row) {
+      const v = row.metricValues.map(numOf);
+      got[row.dimensionValues[0].value] = { users: v[0], views: v[1] };
+    });
+
+    if (days === 1) {
+      const nowH = Number(Utilities.formatDate(new Date(), 'Asia/Seoul', 'HH'));
+      for (let h = 0; h <= nowH; h++) {
+        const k = (h < 10 ? '0' : '') + h;
+        const g = got[k] || { users: 0, views: 0 };
+        r.series.points.push({ k: k, t: h + '시', users: g.users, views: g.views });
+      }
+    } else {
+      const d = new Date(from.getTime());
+      while (ymd(d) <= r.to) {
+        const k = Utilities.formatDate(d, 'Asia/Seoul', 'yyyyMMdd');
+        const g = got[k] || { users: 0, views: 0 };
+        r.series.points.push({ k: k, t: label(d), users: g.users, views: g.views });
+        d.setDate(d.getDate() + 1);
+      }
+    }
+  } catch (e) { r.series.points = []; }
+
   // ── 누가 보고 있나 (성별·연령·지역) ──────────────────────
   // 성별·연령은 「Google 신호 데이터」를 켜야 값이 들어온다. 안 켜면 전부 (not set).
   r.who = { gender: [], age: [], country: [], city: [] };
@@ -194,7 +232,19 @@ function collect(days) {
       r.who[pair[0]] = rows.map(function (x) {
         x.share = Math.round(x.users / tot * 100); return x;
       });
-    } catch (e) { r.who[pair[0]] = []; }
+    } catch (e) {
+      r.who[pair[0]] = [];
+      // 빈 칸만 보이면 「방문자가 없어서」인지 「설정이 꺼져서」인지 구분이 안 된다.
+      // GA4 가 돌려준 말을 그대로 실어 보내 대시보드가 이유를 적게 한다.
+      r.who[pair[0] + 'Note'] = String(e).slice(0, 200);
+    }
+  });
+  // 성별·연령은 Google 신호 데이터가 꺼져 있으면 오류 없이 그냥 빈 칸으로 온다.
+  // 그 경우도 이유를 남긴다. 방문자가 있는데 비어 있으면 설정 문제다.
+  ['gender', 'age'].forEach(function (k) {
+    if (!r.who[k].length && !r.who[k + 'Note'] && r.users > 0) {
+      r.who[k + 'Note'] = 'Google 신호 데이터 꺼짐';
+    }
   });
 
   // ── 서치콘솔 검색어 ────────────────────────────────────
@@ -247,22 +297,92 @@ function ymd(d) { return Utilities.formatDate(d, 'Asia/Seoul', 'yyyy-MM-dd'); }
 
 function label(d) { return Utilities.formatDate(d, 'Asia/Seoul', 'M월 d일'); }
 
+/* GA4 가 주는 로마자 도시명 → 한글.
+   전국 시·군을 담았다. 표가 길어 보여도 이게 없으면 「Hamyang-gun」이 그대로 뜬다.
+   접미사(-si/-gun)가 붙은 형태와 안 붙은 형태를 둘 다 넣는다 — GA4 가 섞어서 준다. */
+const CITY_KO = (function () {
+  const m = {
+    Seoul: '서울', Busan: '부산', Daegu: '대구', Incheon: '인천', Gwangju: '광주',
+    Daejeon: '대전', Ulsan: '울산', Sejong: '세종', Jeju: '제주', Seogwipo: '서귀포',
+
+    Suwon: '수원', Seongnam: '성남', Uijeongbu: '의정부', Anyang: '안양', Bucheon: '부천',
+    Gwangmyeong: '광명', Pyeongtaek: '평택', Dongducheon: '동두천', Ansan: '안산',
+    Goyang: '고양', Gwacheon: '과천', Guri: '구리', Namyangju: '남양주', Osan: '오산',
+    Siheung: '시흥', Gunpo: '군포', Uiwang: '의왕', Hanam: '하남', Yongin: '용인',
+    Paju: '파주', Icheon: '이천', Anseong: '안성', Gimpo: '김포', Hwaseong: '화성',
+    Yangju: '양주', Pocheon: '포천', Yeoju: '여주', Yeoncheon: '연천', Gapyeong: '가평',
+    Yangpyeong: '양평',
+
+    Chuncheon: '춘천', Wonju: '원주', Gangneung: '강릉', Donghae: '동해', Taebaek: '태백',
+    Sokcho: '속초', Samcheok: '삼척', Hongcheon: '홍천', Hoengseong: '횡성',
+    Yeongwol: '영월', Pyeongchang: '평창', Jeongseon: '정선', Cheorwon: '철원',
+    Hwacheon: '화천', Yanggu: '양구', Inje: '인제', Goseong: '고성', Yangyang: '양양',
+
+    Cheongju: '청주', Chungju: '충주', Jecheon: '제천', Boeun: '보은', Okcheon: '옥천',
+    Yeongdong: '영동', Jeungpyeong: '증평', Jincheon: '진천', Goesan: '괴산',
+    Eumseong: '음성', Danyang: '단양',
+
+    Cheonan: '천안', Gongju: '공주', Boryeong: '보령', Asan: '아산', Seosan: '서산',
+    Nonsan: '논산', Gyeryong: '계룡', Dangjin: '당진', Geumsan: '금산', Buyeo: '부여',
+    Seocheon: '서천', Cheongyang: '청양', Hongseong: '홍성', Yesan: '예산', Taean: '태안',
+
+    Jeonju: '전주', Gunsan: '군산', Iksan: '익산', Jeongeup: '정읍', Namwon: '남원',
+    Gimje: '김제', Wanju: '완주', Jinan: '진안', Muju: '무주', Jangsu: '장수',
+    Imsil: '임실', Sunchang: '순창', Gochang: '고창', Buan: '부안',
+
+    Mokpo: '목포', Yeosu: '여수', Suncheon: '순천', Naju: '나주', Gwangyang: '광양',
+    Damyang: '담양', Gokseong: '곡성', Gurye: '구례', Goheung: '고흥', Boseong: '보성',
+    Hwasun: '화순', Jangheung: '장흥', Gangjin: '강진', Haenam: '해남', Yeongam: '영암',
+    Muan: '무안', Hampyeong: '함평', Yeonggwang: '영광', Jangseong: '장성',
+    Wando: '완도', Jindo: '진도', Sinan: '신안',
+
+    Pohang: '포항', Gyeongju: '경주', Gimcheon: '김천', Andong: '안동', Gumi: '구미',
+    Yeongju: '영주', Yeongcheon: '영천', Sangju: '상주', Mungyeong: '문경',
+    Gyeongsan: '경산', Gunwi: '군위', Uiseong: '의성', Cheongsong: '청송',
+    Yeongyang: '영양', Yeongdeok: '영덕', Cheongdo: '청도', Goryeong: '고령',
+    Seongju: '성주', Chilgok: '칠곡', Yecheon: '예천', Bonghwa: '봉화', Uljin: '울진',
+    Ulleung: '울릉',
+
+    Changwon: '창원', Jinju: '진주', Tongyeong: '통영', Sacheon: '사천', Gimhae: '김해',
+    Miryang: '밀양', Geoje: '거제', Yangsan: '양산', Uiryeong: '의령', Haman: '함안',
+    Changnyeong: '창녕', Namhae: '남해', Hadong: '하동', Sancheong: '산청',
+    Hamyang: '함양', Geochang: '거창', Hapcheon: '합천',
+  };
+  // 「-si」 「-gun」 이 붙은 형태도 같은 값으로 등록해 둔다.
+  const out = {};
+  Object.keys(m).forEach(function (k) {
+    out[k] = m[k];
+    out[k + '-si'] = m[k];
+    out[k + '-gun'] = m[k];
+  });
+  return out;
+})();
+
 /* GA4 가 주는 값은 영어이거나 (not set) 이다. 사람이 읽는 말로 바꾼다. */
 function human(kind, v) {
   if (!v || v === '(not set)' || v === 'unknown') return '알 수 없음';
   if (kind === 'gender') return { male: '남성', female: '여성' }[v] || v;
   if (kind === 'age')    return v.replace('age', '').replace('_', '~') + '세';
-  if (kind === 'country') return { 'South Korea': '대한민국', 'United States': '미국',
-    'Japan': '일본', 'China': '중국', 'Canada': '캐나다', 'Vietnam': '베트남' }[v] || v;
+  if (kind === 'country') return {
+    'South Korea': '대한민국', 'United States': '미국', 'Japan': '일본',
+    'China': '중국', 'Taiwan': '대만', 'Hong Kong': '홍콩', 'Singapore': '싱가포르',
+    'Canada': '캐나다', 'Australia': '호주', 'Vietnam': '베트남', 'Thailand': '태국',
+    'Philippines': '필리핀', 'Indonesia': '인도네시아', 'Malaysia': '말레이시아',
+    'India': '인도', 'United Kingdom': '영국', 'Germany': '독일', 'France': '프랑스',
+    'Netherlands': '네덜란드', 'Spain': '스페인', 'Italy': '이탈리아',
+    'United Arab Emirates': '아랍에미리트', 'Russia': '러시아', 'Brazil': '브라질',
+    'Mexico': '멕시코', 'New Zealand': '뉴질랜드',
+  }[v] || v;
+
   if (kind === 'city') {
-    const m = { Seoul: '서울', Incheon: '인천', Busan: '부산', Daegu: '대구', Daejeon: '대전',
-      Gwangju: '광주', Ulsan: '울산', Sejong: '세종', Jeju: '제주' }[v];
-    if (m) return m;
-    // GA4 는 「Hamyang-gun」 「Cheonan-si」 처럼 로마자 행정구역을 준다. 접미사를 한글로 돌린다.
-    const T = { si: '시', gun: '군', gu: '구', eup: '읍', myeon: '면', do: '도' };
-    const p = String(v).split('-');
-    if (p.length === 2 && T[p[1]]) return p[0] + T[p[1]];
-    return v;
+    // GA4 는 도시를 로마자로 준다. 「Hamyang-gun」 「Chuncheon-si」 같은 식이다.
+    // 접미사만 한글로 바꾸면 「Hamyang군」이 되어 더 이상해진다. 이름째로 대조한다.
+    const K = CITY_KO[v];
+    if (K) return K;
+    // 접미사를 뗀 이름으로 한 번 더 찾는다. GA4 가 「Bucheon」처럼 줄 때가 있다.
+    const bare = String(v).replace(/-(si|gun|gu|eup|myeon|do)$/, '');
+    if (CITY_KO[bare]) return CITY_KO[bare];
+    return v;   // 외국 도시는 그대로 둔다
   }
   return v;
 }

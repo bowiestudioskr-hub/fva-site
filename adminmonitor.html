@@ -68,6 +68,24 @@
   }
   .stat .vl span{font-size:15px;font-weight:700;color:var(--sub);margin-left:2px}
 
+  /* ── 흐름 그래프 ──
+     숫자 하나로는 늘었는지 줄었는지를 알 수 없다. 「오늘」은 시간대별,
+     나머지 기간은 날짜별 막대. 눈금선은 긋지 않는다 — 막대 높이만으로 읽는다. */
+  .chart{background:var(--card);border-radius:16px;padding:14px 16px 12px}
+  .chart .top{display:flex;align-items:baseline;gap:8px;margin-bottom:10px}
+  .chart .top b{font-size:13px;font-weight:700;color:var(--sub)}
+  .chart .top .pk{margin-left:auto;font-size:12px;color:var(--dim);font-variant-numeric:tabular-nums}
+  .chart .top .pk em{font-style:normal;color:var(--visit);font-weight:800}
+  .bars{display:flex;align-items:flex-end;gap:2px;height:82px}
+  .bars .b{
+    flex:1;min-width:0;border-radius:3px 3px 1px 1px;
+    background:var(--visit);opacity:.85;transition:opacity .12s;
+  }
+  .bars .b.z{background:rgba(255,255,255,.09)}   /* 값이 0 인 칸도 자리를 남긴다 */
+  .bars .b.hi{opacity:1}
+  .chart .ax{display:flex;justify-content:space-between;margin-top:7px;
+             font-size:11px;color:var(--dim);font-variant-numeric:tabular-nums}
+
   /* ── 묶음 ── */
   .cat{display:flex;flex-direction:column;gap:11px}
   .cat > .ct{display:flex;flex-direction:column;gap:1px}
@@ -142,13 +160,17 @@
   }
   @media (max-width:560px){
     body{padding:max(16px,env(safe-area-inset-top)) 14px 48px}
-    .wrap{gap:24px}
+    .wrap{gap:18px}
     h1{font-size:28px}
     .stats{grid-template-columns:1fr 1fr;gap:8px}
     .stat{padding:12px 14px 13px;border-radius:15px}
     .stat .vl{font-size:26px}
     .cards{grid-template-columns:1fr;gap:8px}
     .cat > .ct .t{font-size:23px}
+    /* 광고비는 광고 탭에 같은 내용이 또 있다. 맨 위에서는 뺀다 —
+       요약 칸이 넷이면 두 줄, 여섯이면 세 줄이라 그만큼 스크롤이 길어진다. */
+    .stat.ad{display:none}
+    .bars{height:66px}
   }
 </style>
 </head>
@@ -166,6 +188,7 @@
   </div>
 
   <div id="stats" class="stats"></div>
+  <div id="chart"></div>
   <div id="cats" style="display:flex;flex-direction:column;gap:26px"></div>
 
   <footer><span id="stamp"></span><span id="foot"></span></footer>
@@ -205,9 +228,31 @@ const plainRow = (name, sub, right) => `<li>
   <div class="nm">${name}${sub?`<small>${sub}</small>`:''}</div>
   <div class="vn">${right}</div></li>`;
 
-const stat = (label, color, value, unit) => `<div class="stat">
+const stat = (label, color, value, unit, cls='') => `<div class="stat ${cls}">
   <div class="lb" style="color:${color}"><i></i>${label}</div>
   <div class="vl">${value}${unit?`<span>${unit}</span>`:''}</div></div>`;
+
+/* 흐름 그래프. 막대 높이는 방문자 수 기준이고, 가장 높은 칸만 진하게 둔다.
+   막대를 하나하나 라벨링하면 글자가 겹친다. 양 끝과 봉우리만 적는다. */
+const chart = (s) => {
+  const p = s?.points || [];
+  if (p.length < 2) return '';
+  const max = Math.max(...p.map(x => x.users), 1);
+  const peak = p.reduce((a, b) => (b.users > a.users ? b : a), p[0]);
+  const unit = s.unit === 'hour' ? '시간대별' : '날짜별';
+  const bars = p.map(x => {
+    const h = x.users ? Math.max(Math.round(x.users / max * 100), 5) : 4;
+    const hi = x.users === max && max > 0 ? ' hi' : '';
+    return `<div class="b${x.users ? hi : ' z'}" style="height:${h}%"
+              title="${esc(x.t)} · 방문 ${num(x.users)}명 · 조회 ${num(x.views)}회"></div>`;
+  }).join('');
+  return `<div class="chart">
+    <div class="top"><b>방문자 ${unit}</b>
+      <span class="pk">${peak.users ? `가장 많았던 때 ${esc(peak.t)} <em>${num(peak.users)}명</em>` : ''}</span></div>
+    <div class="bars">${bars}</div>
+    <div class="ax"><span>${esc(p[0].t)}</span><span>${esc(p[p.length-1].t)}</span></div>
+  </div>`;
+};
 
 const pill = on => on ? '<span class="pill">운영 중</span>'
                       : '<span class="pill off">정지</span>';
@@ -217,16 +262,19 @@ function render(){
   document.getElementById('stamp').textContent = DATA?.updated ? DATA.updated + ' 기준' : '';
   document.getElementById('date').textContent = r?.label || '';
   const S = document.getElementById('stats'), C = document.getElementById('cats');
-  if(!r){ S.innerHTML=''; C.innerHTML = `<div class="card"><div class="none">데이터를 불러오지 못했습니다.</div></div>`; return; }
+  const G = document.getElementById('chart');
+  if(!r){ S.innerHTML=''; G.innerHTML=''; C.innerHTML = `<div class="card"><div class="none">데이터를 불러오지 못했습니다.</div></div>`; return; }
 
   S.innerHTML =
     stat('방문자','var(--visit)', num(r.users), '명') +
     stat('조회','var(--visit)', num(r.views), '회') +
     stat('머문 시간','var(--visit)', dur(r.avgEngagement)) +
-    stat('온라인 강의','var(--query)', num(r.onlineClicks), '회') +
     stat('상담 클릭','var(--query)', num(r.kakaoClicks), '회') +
-    (ADS ? stat('네이버 집행','var(--ads)', won(ADS.naver.cost)) +
-           stat('남은 예산','var(--ads)', won(ADS.naver.balance)) : '');
+    stat('온라인 강의','var(--query)', num(r.onlineClicks), '회', 'ad') +
+    (ADS ? stat('네이버 집행','var(--ads)', won(ADS.naver.cost), '', 'ad') +
+           stat('남은 예산','var(--ads)', won(ADS.naver.balance), '', 'ad') : '');
+
+  G.innerHTML = chart(r.series);
 
   const CATS = [
     { k:'TRAFFIC',  t:'방문',           c:'var(--visit)', items:[] },
@@ -292,12 +340,14 @@ function render(){
   const w = r.who || {};
   const demo = (t, rows) => rows?.length ? card(t,
     rows.slice(0,5).map(x => barRow(esc(x.name), x.share, `${num(x.users)}<em>명 ${x.share}%</em>`)), '') : '';
-  const blind = [...(w.gender||[]), ...(w.age||[])].every(x => x.name === '알 수 없음');
   W.push(demo('성별', w.gender)); W.push(demo('연령대', w.age));
   W.push(demo('국가', w.country)); W.push(demo('도시', w.city));
-  if (blind && (w.gender||[]).length)
-    W.push(card('성별·연령이 비어 있다면', [], '',
-      { memo: 'GA4 <b>관리 → 데이터 수집 및 수정 → Google 신호 데이터</b>를 켜야 값이 들어옵니다. 켠 뒤 며칠 걸립니다.' }));
+  // 빈 칸만 보이면 「방문자가 없어서」인지 「설정이 꺼져서」인지 알 수 없다.
+  // 피드가 사유를 같이 보내주므로 그걸 그대로 적는다.
+  const off = !(w.gender||[]).length && !(w.age||[]).length && (w.genderNote || w.ageNote);
+  if (off) W.push(card('성별 · 연령', [], '',
+    { memo: 'GA4 <b>관리 → 데이터 수집 및 수정 → 데이터 수집 → Google 신호 데이터</b>가 꺼져 있습니다. '
+          + '켜야 값이 들어오고, 켠 뒤에도 며칠은 모여야 보입니다.' }));
 
   const live = CATS.filter(c => c.items.filter(Boolean).length);
   C.innerHTML = live.map((c, i) => `<section class="cat${i===TAB?' on':''}" style="color:${c.c}">
