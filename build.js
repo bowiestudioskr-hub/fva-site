@@ -350,9 +350,13 @@ const pages = require('./pages');
 /* ⚠ 손으로 정밀 조판한 페이지는 빌드가 덮어쓰면 안 된다.
    pages/ 안의 본문이 실제 파일보다 낡아 있어서, 빌드를 돌리는 순간
    피그마 1:1 로 짜둔 조판이 통째로 옛 버전으로 되돌아간다.
-   (2026-08-02 에 실제로 curriculum.html·offline.html 이 이렇게 날아갔다.)
-   손보려면 pages/ 쪽 본문을 먼저 최신으로 맞춘 뒤 이 목록에서 빼라. */
-const HANDMADE = new Set(['index.html', 'curriculum.html', 'offline.html', 'works.html']);
+   (2026-08-02 에 실제로 curriculum.html·offline.html 이 이렇게 날아갔다.
+    2026-08-16 에는 online.html 이 같은 식으로 날아갔다 — 강사 소개·24개 세션
+    목차·후기·FAQ 다섯 덩어리와 css/online.css 링크, 그리고 검색결과용
+    평점·FAQ 구조화 데이터까지 통째로. 목록에 없으면 이 일이 또 난다.) */
+const HANDMADE = new Set([
+  'index.html', 'curriculum.html', 'offline.html', 'works.html', 'online.html',
+]);
 
 let built = 0, skipped = 0;
 for (const p of pages({ PUBL, REVIEWS, KAKAO, SITE, read })) {
