@@ -470,8 +470,10 @@ function load(){
   ]).then(([feed, adsData]) => {
     if (feed) DATA = feed;
     if (adsData) ADS = adsData;
+    // 화면은 3분마다 다시 읽지만 수치 자체는 15분마다 새로 만들어진다.
+    // 「3분마다 갱신」만 적으면 3분 전 숫자라고 오해한다.
     document.getElementById('foot').textContent =
-      (ADS?.updated ? '광고 ' + ADS.updated + ' 기준 · ' : '') + '3분마다 자동 갱신';
+      (ADS?.updated ? '광고 ' + ADS.updated + ' 기준 · ' : '') + '수치는 15분마다 새로 집계';
     render();
   }).catch(() => {
     if (first) document.getElementById('cats').innerHTML =

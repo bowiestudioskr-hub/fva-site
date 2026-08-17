@@ -29,8 +29,11 @@ const RANGES       = [1, 7, 28, 90];   // 1 = 오늘
 /* 기간 네 개를 매번 새로 계산하면 GA4 를 스무 번 넘게 부르게 되어 8~10초가 걸린다.
    대시보드는 3분마다 다시 읽으므로 그 사이에는 같은 값을 줘도 된다. 캐시로 받아둔다.
    ?fresh=1 을 붙이면 캐시를 건너뛴다 — 방금 고친 게 반영됐는지 확인할 때 쓴다. */
-const CACHE_KEY  = 'feed-v4';
-const CACHE_SECS = 170;   // 대시보드 갱신 주기(180초)보다 살짝 짧게
+const CACHE_KEY  = 'feed-v5';
+// 캐시가 비면 처음 연 사람이 15초를 그대로 기다린다. 그래서 짧게 두지 않고,
+// 맥에서 15분마다 도는 자동 갱신(ads_sync.sh)이 ?fresh=1 로 미리 데워둔다.
+// 20분으로 잡아 그 주기보다 넉넉히 길게 —— 한 번 걸러도 캐시가 안 비도록.
+const CACHE_SECS = 1200;
 
 function doGet(e) {
   const fresh = !!(e && e.parameter && e.parameter.fresh);
