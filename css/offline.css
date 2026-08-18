@@ -505,111 +505,117 @@ svg.club-wordmark{
 
    리틀리는 이모지를 쓰지만 사이트 쪽은 안 쓴다. 정보 구조만 가져오고
    표기는 이 페이지의 말투(검정 바탕·초록 강조·Pretendard)로 맞춘다.
-   ⚠ 개강일이 박혀 있다. 기수가 넘어가면 여기부터 고칠 것.
+   원본이 화면을 꽉 채우는 굵은 표라 그 인상을 살린다 — 작게 만들면 공지가 아니라 각주가 된다.
+   ⚠ 개강일·기수가 박혀 있다. 20기로 넘어가면 여기부터 고칠 것.
    ───────────────────────────────────────────────────────────── */
 .off-notice{
   --u:var(--pagew);
-  padding:calc(var(--u) * 64/1920) 0 calc(var(--u) * 40/1920);
+  --w:clamp(320px, calc(var(--u) * 1180/1920), 1180px);   /* 표와 박스 공통 폭 */
+  padding:clamp(28px, calc(var(--u) * 88/1920), 88px) 0 clamp(24px, calc(var(--u) * 56/1920), 56px);
   text-align:center;
 }
 .off-notice .loc{
-  font-size:clamp(13px, calc(var(--u) * 20/1920), 20px);
+  font-size:clamp(13px, calc(var(--u) * 22/1920), 22px);
   font-weight:600; color:var(--muted); letter-spacing:-.02em;
 }
 .off-notice .loc b{ color:var(--white); font-weight:700 }
 
 .nt-news{
-  margin-top:clamp(20px, calc(var(--u) * 44/1920), 44px);
+  margin-top:clamp(22px, calc(var(--u) * 52/1920), 52px);
   display:flex; flex-direction:column; align-items:center;
-  gap:clamp(7px, calc(var(--u) * 12/1920), 12px);
+  gap:clamp(7px, calc(var(--u) * 13/1920), 13px);
 }
 .nt-news .cap{
-  font-size:clamp(12px, calc(var(--u) * 17/1920), 17px);
-  font-weight:800; letter-spacing:.16em; color:var(--green);
+  font-size:clamp(12px, calc(var(--u) * 18/1920), 18px);
+  font-weight:800; letter-spacing:.18em; color:var(--green);
+  margin-bottom:clamp(2px, calc(var(--u) * 6/1920), 6px);
 }
 .nt-news p{
-  font-size:clamp(14px, calc(var(--u) * 23/1920), 23px);
-  font-weight:600; color:var(--white); letter-spacing:-.025em;
-  line-height:1.45; word-break:keep-all; max-width:44ch;
+  font-size:clamp(14.5px, calc(var(--u) * 27/1920), 27px);
+  font-weight:600; color:var(--white); letter-spacing:-.028em;
+  line-height:1.45; word-break:keep-all; max-width:46ch;
 }
 .nt-news p b{ color:var(--green); font-weight:800 }
 
 /* ── 기수 표 — 이 블록의 주인공 ── */
 .nt-open{
-  margin-top:clamp(28px, calc(var(--u) * 58/1920), 58px);
-  display:inline-flex; flex-direction:column; align-items:center;
-  gap:clamp(12px, calc(var(--u) * 18/1920), 18px);
-  max-width:calc(100% - 24px);
+  margin-top:clamp(30px, calc(var(--u) * 70/1920), 70px);
+  display:flex; flex-direction:column; align-items:center;
+  gap:clamp(14px, calc(var(--u) * 24/1920), 24px);
 }
 .nt-open .head{
   display:flex; align-items:baseline; justify-content:center;
-  gap:clamp(9px, calc(var(--u) * 18/1920), 18px); flex-wrap:wrap;
+  gap:clamp(10px, calc(var(--u) * 22/1920), 22px); flex-wrap:wrap;
 }
 .nt-open .head strong{
-  font-size:clamp(26px, calc(var(--u) * 58/1920), 58px);
-  font-weight:800; letter-spacing:-.045em; line-height:1; color:var(--green);
+  font-size:clamp(28px, calc(var(--u) * 76/1920), 76px);
+  font-weight:800; letter-spacing:-.05em; line-height:1; color:var(--green);
 }
 .nt-open .head span{
-  font-size:clamp(13px, calc(var(--u) * 22/1920), 22px);
-  font-weight:700; color:var(--white); letter-spacing:-.025em;
+  font-size:clamp(13px, calc(var(--u) * 26/1920), 26px);
+  font-weight:700; color:var(--white); letter-spacing:-.028em;
 }
 
 .nt-table{
-  width:clamp(300px, calc(var(--u) * 860/1920), 860px);
-  max-width:100%;
-  border-top:2px solid var(--white); border-bottom:2px solid var(--white);
+  width:var(--w); max-width:calc(100% - 24px);
+  border-top:3px solid var(--white); border-bottom:3px solid var(--white);
 }
 .nt-row{
-  display:grid; grid-template-columns:auto 1fr auto; align-items:center;
-  gap:clamp(10px, calc(var(--u) * 26/1920), 26px);
-  padding:clamp(11px, calc(var(--u) * 18/1920), 18px) clamp(10px, calc(var(--u) * 20/1920), 20px);
+  display:grid; grid-template-columns:minmax(0,auto) 1fr minmax(0,auto);
+  align-items:center;
+  gap:clamp(10px, calc(var(--u) * 30/1920), 30px);
+  padding:clamp(13px, calc(var(--u) * 24/1920), 24px) clamp(12px, calc(var(--u) * 26/1920), 26px);
 }
-.nt-row + .nt-row{ border-top:1px solid rgba(253,253,253,.28) }
+.nt-row + .nt-row{ border-top:1px solid rgba(253,253,253,.3) }
 .nt-row .cls{
-  font-size:clamp(15px, calc(var(--u) * 30/1920), 30px);
-  font-weight:800; letter-spacing:-.035em; color:var(--white); white-space:nowrap;
+  font-size:clamp(16px, calc(var(--u) * 40/1920), 40px);
+  font-weight:800; letter-spacing:-.045em; color:var(--white); white-space:nowrap;
 }
 .nt-row .time{
-  font-size:clamp(15px, calc(var(--u) * 30/1920), 30px);
-  font-weight:800; letter-spacing:-.02em; color:var(--white);
+  font-size:clamp(16px, calc(var(--u) * 40/1920), 40px);
+  font-weight:800; letter-spacing:-.03em; color:var(--white);
   font-variant-numeric:tabular-nums; white-space:nowrap;
 }
 .nt-row .start{
-  font-size:clamp(12px, calc(var(--u) * 21/1920), 21px);
-  font-weight:700; color:var(--green); white-space:nowrap;
+  font-size:clamp(12.5px, calc(var(--u) * 25/1920), 25px);
+  font-weight:800; color:var(--green); white-space:nowrap;
   font-variant-numeric:tabular-nums;
 }
 
 /* ── 신청·연장 방법 ── */
 .nt-how{
-  margin-top:clamp(22px, calc(var(--u) * 40/1920), 40px);
+  margin-top:clamp(24px, calc(var(--u) * 48/1920), 48px);
   display:flex; flex-direction:column; align-items:center;
-  gap:clamp(9px, calc(var(--u) * 14/1920), 14px);
+  gap:clamp(9px, calc(var(--u) * 15/1920), 15px);
 }
 .nt-how div{
-  width:clamp(300px, calc(var(--u) * 860/1920), 860px); max-width:calc(100% - 24px);
+  width:var(--w); max-width:calc(100% - 24px);
   background:var(--green); color:#06150A;
-  border-radius:clamp(8px, calc(var(--u) * 14/1920), 14px);
-  padding:clamp(11px, calc(var(--u) * 17/1920), 17px) clamp(14px, calc(var(--u) * 24/1920), 24px);
-  font-size:clamp(12.5px, calc(var(--u) * 20/1920), 20px);
-  font-weight:600; line-height:1.5; letter-spacing:-.025em;
+  border-radius:clamp(9px, calc(var(--u) * 16/1920), 16px);
+  padding:clamp(12px, calc(var(--u) * 20/1920), 20px) clamp(15px, calc(var(--u) * 28/1920), 28px);
+  font-size:clamp(13px, calc(var(--u) * 22/1920), 22px);
+  font-weight:600; line-height:1.5; letter-spacing:-.028em;
   word-break:keep-all; text-wrap:pretty;
+  text-align:left;                 /* 절차라 왼쪽에서 읽어야 순서가 보인다 */
 }
-.nt-how div b{ font-weight:800 }
+.nt-how div b{
+  font-weight:800; display:inline-block; margin-right:.5em;
+  padding:1px 8px; border-radius:5px; background:rgba(6,21,10,.14);
+}
 
 /* ── 버튼 두 개 ── */
 .nt-btns{
-  margin-top:clamp(24px, calc(var(--u) * 44/1920), 44px);
-  display:flex; justify-content:center; gap:clamp(9px, calc(var(--u) * 16/1920), 16px);
+  margin-top:clamp(26px, calc(var(--u) * 52/1920), 52px);
+  display:flex; justify-content:center; gap:clamp(10px, calc(var(--u) * 18/1920), 18px);
   flex-wrap:wrap;
 }
 .nt-btn{
   display:inline-flex; align-items:center; justify-content:center; gap:.4em;
-  min-width:clamp(150px, calc(var(--u) * 244/1920), 244px);
-  padding:clamp(12px, calc(var(--u) * 20/1920), 20px) clamp(18px, calc(var(--u) * 30/1920), 30px);
+  min-width:clamp(160px, calc(var(--u) * 290/1920), 290px);
+  padding:clamp(13px, calc(var(--u) * 24/1920), 24px) clamp(20px, calc(var(--u) * 36/1920), 36px);
   border-radius:999px;
-  font-size:clamp(14px, calc(var(--u) * 23/1920), 23px);
-  font-weight:800; letter-spacing:-.025em; line-height:1;
+  font-size:clamp(15px, calc(var(--u) * 26/1920), 26px);
+  font-weight:800; letter-spacing:-.028em; line-height:1;
   transition:filter .15s, transform .12s, background .15s, color .15s;
 }
 .nt-btn.solid{ background:var(--green); color:#06150A }
@@ -623,7 +629,20 @@ svg.club-wordmark{
   .nt-btn:hover{ transform:none }
 }
 
-@media (max-width:640px){
-  .nt-row{ grid-template-columns:auto 1fr; row-gap:4px }
-  .nt-row .start{ grid-column:1 / -1; text-align:left }
+/* ── 좁은 화면 ──
+   반 이름과 시간을 한 줄에 두면 시간이 눌려 읽히지 않는다.
+   개강일을 이름 밑으로 내리고, 버튼은 세로로 쌓아 손가락이 빗나가지 않게 한다. */
+@media (max-width:680px){
+  .nt-row{
+    grid-template-columns:1fr auto; row-gap:3px;
+    padding:14px 12px;
+  }
+  .nt-row .cls{ font-size:19px }
+  .nt-row .time{ font-size:19px; text-align:right }
+  .nt-row .start{ grid-column:1 / -1; text-align:left; font-size:13px }
+  .nt-how div{ font-size:13.5px; line-height:1.55 }
+  .nt-btns{ flex-direction:column; align-items:stretch; padding:0 12px }
+  .nt-btn{ width:100%; min-width:0 }
+  .nt-open .head{ gap:6px }
+  .nt-open .head span{ font-size:14px }
 }
