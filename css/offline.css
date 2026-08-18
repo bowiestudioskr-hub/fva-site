@@ -641,7 +641,9 @@ svg.club-wordmark{
     grid-template-columns:1fr auto; row-gap:2px;
     padding:14px 12px;
   }
-  .nt-row .cls{ font-size:19px; grid-column:1; grid-row:1 }
+  /* 블록 전체가 가운데 정렬이라 반 이름도 가운데로 뜬다.
+     바로 밑 개강일은 왼쪽이라 둘이 어긋나 보인다. 왼쪽으로 맞춘다. */
+  .nt-row .cls{ font-size:19px; grid-column:1; grid-row:1; text-align:left }
   /* 반 이름과 개강일이 두 줄인데 시간이 첫 줄에만 맞으면 위로 쏠려 보인다.
      두 줄에 걸치게 두고 그 안에서 가운데 정렬한다. */
   .nt-row .time{
