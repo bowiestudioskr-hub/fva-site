@@ -423,11 +423,15 @@ function render(){
   if (ADS){
     const n = ADS.naver;
     const G = ADS.google || {};
+    /* ⚠ 광고 집행액은 기간 탭을 따라가야 한다. 고정값을 쓰면 오늘·어제·7일이
+       모두 같은 숫자로 보여 「왜 같냐」가 된다. 실제로 그랬다.
+       네이버는 기간별 수치를 받아 쓰고, 구글은 화면에서 읽는 30일 고정이라 그렇게 밝힌다. */
+    const nP = (n.byPeriod && n.byPeriod[DAYS]) || { imp: n.imp, clk: n.clk, cost: n.cost };
 
     /* 채널을 나란히 놓지 않으면 어디에 돈을 더 넣을지 판단할 수 없다.
        사람 수가 아니라 「클릭 하나에 얼마인가」가 결정을 만든다. */
     const per = (cost, clk) => clk ? Math.round(cost / clk) : null;
-    const nCpc = per(n.cost, n.clk), gCpc = G.cpc || per(G.cost, G.clk);
+    const nCpc = per(nP.cost, nP.clk), gCpc = G.cpc || per(G.cost, G.clk);
     if (nCpc || gCpc) {
       const worst = Math.max(nCpc || 0, gCpc || 0) || 1;
       const line = (name, cpc, cost, clk, note) => `<li>
@@ -438,17 +442,17 @@ function render(){
         </div>
         <div class="vn">${cpc ? won(cpc) : '—'}<em>클릭당</em></div></li>`;
       A.push(card('클릭 하나에 얼마인가', [
-        line('<span class="ch gg">구글</span>구글', gCpc, G.cost, G.clk, G.period ? '30일' : ''),
-        line('<span class="ch nv">네이버</span>네이버', nCpc, n.cost, n.clk, n.start + '부터'),
-      ], '', { memo: (nCpc && gCpc && nCpc > gCpc * 3)
-        ? `네이버가 구글보다 <b>${Math.round(nCpc / gCpc)}배</b> 비쌉니다. `
-          + '같은 돈이면 구글에서 훨씬 많은 사람을 데려옵니다.'
-        : '' }));
+        line('<span class="ch gg">구글</span>구글', gCpc, G.cost, G.clk, '최근 30일 고정'),
+        line('<span class="ch nv">네이버</span>네이버', nCpc, nP.cost, nP.clk, esc(r.label)),
+      ], '', { memo: ((nCpc && gCpc && nCpc > gCpc * 3)
+          ? `네이버가 구글보다 <b>${Math.round(nCpc / gCpc)}배</b> 비쌉니다. 같은 돈이면 구글에서 훨씬 많은 사람을 데려옵니다. `
+          : '')
+        + '네이버는 선택한 기간, <b>구글은 최근 30일 고정</b>입니다 — 구글은 계정 화면에서 읽어오는 값이라 기간을 나눌 수 없습니다.' }));
     }
 
     A.push(card('집행 현황', [
-      plainRow('<span class="ch nv">네이버</span>네이버', `${esc(n.start)}부터 · 하루 최대 ${won(n.dailyBudget)}`,
-               `${won(n.cost)}<em>노출 ${num(n.imp)} · 클릭 ${num(n.clk)}</em>`),
+      plainRow('<span class="ch nv">네이버</span>네이버', `${esc(r.label)} · 하루 최대 ${won(n.dailyBudget)}`,
+               `${won(nP.cost)}<em>노출 ${num(nP.imp)} · 클릭 ${num(nP.clk)}</em>`),
       // 구글은 API 를 못 써서 로그인된 크롬 화면을 읽어온다. 언제 읽은 것인지 같이 적는다.
       plainRow('<span class="ch gg">구글</span>구글', G.updated ? `${esc(G.period || '')} · ${esc(G.updated)} 기준`
                                  : '<a href="' + esc(G.console) + '" target="_blank" rel="noopener">계정 열기</a>',
