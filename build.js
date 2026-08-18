@@ -357,6 +357,9 @@ const pages = require('./pages');
     평점·FAQ 구조화 데이터까지 통째로. 목록에 없으면 이 일이 또 난다.) */
 const HANDMADE = new Set([
   'index.html', 'curriculum.html', 'offline.html', 'works.html', 'online.html',
+  // adlog·worklist·adminmonitor 는 pages/ 에 본문이 없는 손조판 문서다.
+  // 목록에 없으면 빌드가 지우지는 않지만, 나중에 pages/ 에 동명 항목이 생기면 덮어쓴다.
+  'adlog.html', 'worklist.html', 'adminmonitor.html',
 ]);
 
 let built = 0, skipped = 0;

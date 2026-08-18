@@ -1,0 +1,276 @@
+<!doctype html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>FVA 광고 운영 로그</title>
+<link rel="icon" href="/favicon.ico">
+<style>
+  /* 체크리스트(worklist)와 같은 집안. 흰 종이에 먹, 브랜드 초록은 표시에만.
+     다만 이건 「한 일」이 아니라 「무엇을 보고 왜 그렇게 했나」를 남기는 문서라
+     날짜 축이 왼쪽에 서고 근거 수치가 본문에 박힌다. */
+  :root{
+    --ground:#FFFFFF; --ink:#0B0F0A; --sub:#6B7268; --dim:#9AA196;
+    --line:#E5E9E2; --card:#F7F9F5;
+    --green:#1D6B39;      /* 인쇄용 초록 — 네온은 글자로 못 쓴다 */
+    --flag:#A83A2C;
+    --gg:#3B6FD4; --nv:#118A46;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0C0F0B; --ink:#E9EEE6; --sub:#98A093; --dim:#6A7268;
+      --line:#212720; --card:#141812;
+      --green:#4FD07A; --flag:#E28270; --gg:#7BA5F0; --nv:#3FD183;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0C0F0B; --ink:#E9EEE6; --sub:#98A093; --dim:#6A7268;
+    --line:#212720; --card:#141812;
+    --green:#4FD07A; --flag:#E28270; --gg:#7BA5F0; --nv:#3FD183;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--ground); color:var(--ink);
+    font-family:Pretendard,"Apple SD Gothic Neo",-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:15px; line-height:1.62; letter-spacing:-.012em;
+    -webkit-font-smoothing:antialiased;
+    padding:clamp(30px,6vw,64px) clamp(18px,5vw,36px) 96px;
+  }
+  .page{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(30px,5vw,44px)}
+
+  header h1{font-size:clamp(27px,5.5vw,35px);font-weight:800;letter-spacing:-.045em;line-height:1.14}
+  header .lede{color:var(--sub);margin-top:11px;max-width:54ch;word-break:keep-all}
+  .tally{
+    margin-top:18px;padding-top:15px;border-top:1px solid var(--line);
+    display:flex;flex-wrap:wrap;gap:5px 22px;
+    font-variant-numeric:tabular-nums;color:var(--sub);font-size:13.5px;
+  }
+  .tally b{color:var(--ink);font-weight:800}
+
+  h2{font-size:clamp(19px,3.6vw,22px);font-weight:800;letter-spacing:-.035em;line-height:1.25}
+  .lead{color:var(--sub);margin-top:7px;max-width:60ch;word-break:keep-all;font-size:14px}
+
+  /* 날짜 축 */
+  .day{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start}
+  .day + .day{margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
+  .day .d{
+    font-variant-numeric:tabular-nums;font-weight:800;font-size:14px;
+    letter-spacing:-.02em;padding-top:1px;
+  }
+  .day .d span{display:block;font-size:11.5px;font-weight:600;color:var(--dim);letter-spacing:.02em}
+  .day ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .day li{word-break:keep-all}
+  .day li b{font-weight:700}
+  .day li p{color:var(--sub);font-size:13.5px;line-height:1.6;margin-top:2px}
+  .tag{
+    display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.04em;
+    border-radius:3px;padding:1.5px 6px;margin-right:7px;vertical-align:1.5px;
+  }
+  .tag.nv{background:rgba(17,138,70,.13);color:var(--nv)}
+  .tag.gg{background:rgba(59,111,212,.13);color:var(--gg)}
+  .tag.site{background:rgba(107,114,104,.14);color:var(--sub)}
+
+  /* 수치 표 */
+  .scroll{overflow-x:auto;border:1px solid var(--line);border-radius:4px}
+  table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+  th,td{padding:8px 11px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  thead th{font-size:11px;font-weight:700;color:var(--dim);letter-spacing:.06em;background:var(--card)}
+  tbody td{font-size:13.5px}
+  tbody tr:last-child td{border-bottom:0}
+  .bad{color:var(--flag);font-weight:700}
+  .ok{color:var(--green);font-weight:700}
+  .sm{display:block;font-size:11.5px;font-weight:400;color:var(--flag);margin-top:1px}
+
+  /* 판단 상자 */
+  .call{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:clamp(15px,2.6vw,20px)}
+  .call h3{font-size:15px;font-weight:800;letter-spacing:-.03em;margin-bottom:7px}
+  .call p{color:var(--sub);font-size:13.5px;word-break:keep-all}
+  .call p + p{margin-top:7px}
+  .call b{color:var(--ink);font-weight:700}
+
+  /* 배운 것 */
+  .learn{display:flex;flex-direction:column;gap:12px}
+  .learn li{list-style:none;padding-left:15px;position:relative;word-break:keep-all}
+  .learn li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--flag)}
+  .learn li b{font-weight:700}
+  .learn li p{color:var(--sub);font-size:13.5px;margin-top:2px;line-height:1.6}
+
+  footer{margin-top:14px;padding-top:15px;border-top:1px solid var(--line);
+         color:var(--dim);font-size:12.5px;display:flex;flex-wrap:wrap;gap:5px 18px}
+  a{color:var(--green);text-underline-offset:2px}
+  a:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+
+  @media (max-width:560px){
+    .day{grid-template-columns:52px 1fr;gap:12px}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>광고 운영 로그</h1>
+    <p class="lede">네이버·구글 검색광고를 다시 짜면서 무엇을 보고 왜 그렇게 판단했는지 남긴 기록입니다.
+      숫자는 전부 계정에서 그대로 읽은 값입니다.</p>
+    <div class="tally">
+      <span>기록 시작 <b>8월 15일</b></span>
+      <span>마지막 갱신 <b>8월 19일</b></span>
+      <span>운영 채널 <b>4</b></span>
+    </div>
+  </header>
+
+  <!-- ── 지금 수치 ─────────────────────────── -->
+  <section>
+    <h2>지금 어떤 상태인가</h2>
+    <p class="lead">두 채널의 클릭 단가가 7배 차이 납니다. 이게 지금 모든 판단의 출발점입니다.</p>
+    <div class="scroll" style="margin-top:14px">
+      <table>
+        <thead><tr><th>채널</th><th>집행</th><th>클릭</th><th>클릭당</th><th>기간</th></tr></thead>
+        <tbody>
+          <tr><td>구글</td><td>₩60,911</td><td>133</td><td class="ok">₩458</td><td>30일</td></tr>
+          <tr><td>네이버</td><td>₩23,774</td><td>12</td><td class="bad">₩1,981</td><td>7일</td></tr>
+          <tr><td>네이버 <span style="color:var(--dim)">(8/18 하루)</span></td><td>₩18,047</td><td>6</td><td class="bad">₩3,008</td><td>1일</td></tr>
+          <tr><td>필름메이커스</td><td>₩69,300</td><td>53명 유입</td><td class="ok">₩1,308</td><td>8/17~23</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 품질 진단 ─────────────────────────── -->
+  <section>
+    <h2>구글 품질 진단</h2>
+    <p class="lead">구글은 입찰가에 품질을 곱해 순위를 정합니다. 돈을 더 써도 품질이 낮으면 노출이 늘지 않습니다.</p>
+    <div class="scroll" style="margin-top:14px">
+      <table>
+        <thead><tr><th>검색어</th><th>노출</th><th>CTR</th><th>집행</th><th>광고 관련성</th></tr></thead>
+        <tbody>
+          <tr><td>AI 영상제작<span class="sm">거의 게재되지 않음</span></td><td>408</td><td>8.33%</td><td>₩17,697</td><td class="bad">평균 미만</td></tr>
+          <tr><td>영상 학원</td><td>772</td><td>4.02%</td><td>₩21,142</td><td class="bad">평균 미만</td></tr>
+          <tr><td>영상 강의 <span style="color:var(--dim)">(중지)</span></td><td>1,655</td><td>0.97%</td><td>₩6,205</td><td class="ok">평균 이상</td></tr>
+          <tr><td>영상온라인강의</td><td>1,263</td><td>1.50%</td><td>₩8,051</td><td>—</td></tr>
+          <tr><td>편집 학원 <span style="color:var(--dim)">(중지)</span></td><td>438</td><td>2.28%</td><td>₩2,101</td><td class="bad">품질 낮음</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="call" style="margin-top:16px">
+      <h3>「AI 영상제작」이 억눌린 이유 — 돈이 아니라 문구입니다</h3>
+      <p>클릭률은 <b>8.33%</b>로 오히려 높습니다. 문제는 <b>광고 관련성이 평균 미만</b>이라는 것입니다.
+        지금 구글 광고 문구에 <b>「AI」라는 말이 한 번도 안 나옵니다.</b>
+        「국내 유일 영상종합아카데미 · 영상 기획 강의」로만 되어 있고, 도착지도 홈입니다.</p>
+      <p>AI 영상 제작을 찾아 들어온 34명이 <b>평균 13초</b> 만에 나갔고 전환은 0입니다.
+        구글이 「이 광고는 그 검색에 답하지 못한다」고 판단해 게재를 줄인 것입니다.</p>
+      <p><b>예산을 올려도 해결되지 않습니다.</b> 광고 제목에 AI를 넣고 도착지를 커리큘럼으로 바꾸는 것이 먼저입니다.</p>
+    </div>
+  </section>
+
+  <!-- ── 날짜별 기록 ─────────────────────────── -->
+  <section>
+    <h2>무엇을 언제 바꿨나</h2>
+
+    <div class="day">
+      <div class="d">8/19<span>화</span></div>
+      <ul>
+        <li><span class="tag gg">구글</span><b>하루 예산 5,000 → 15,000원</b>
+          <p>병목이 입찰가가 아니라 예산이었습니다. 「클릭수 최대화」는 예산 안에서 구글이 알아서 입찰하므로, 예산이 상한이면 입찰을 올려도 변화가 없습니다.</p></li>
+        <li><span class="tag gg">구글</span><b>최대 CPC 한도 1,000 → 2,000원</b>
+          <p>한도가 걸려 있어 「입찰가 설정이 제한됨」이 떠 있었습니다. 평균 458원이라 평소엔 안 걸리지만 경쟁이 붙으면 천장이 됩니다.</p></li>
+        <li><span class="tag gg">구글</span><b>제외 키워드 17개</b>
+          <p>편집·모션그래픽·자막·프리미어·다빈치·애프터이펙트·캡컷·포토샵 / 무료·다운로드·템플릿 / 채용·구인·알바 / 입시·연극영화과·자격증.
+            키워드가 전부 확장검색이라 「영상 학원」을 걸어도 「영상편집 학원」에 뜨고 있었습니다.</p></li>
+        <li><span class="tag site">대시보드</span><b>어제 탭 · 채널 배지 · 기간 연동 · 일별 집행</b>
+          <p>집행액이 고정값이라 오늘·어제가 같은 금액으로 보이던 것을 고쳤습니다. 네이버는 기간을 따라가고, 구글은 30일 고정이라 이름에 명시했습니다.</p></li>
+      </ul>
+    </div>
+
+    <div class="day">
+      <div class="d">8/18<span>월</span></div>
+      <ul>
+        <li><span class="tag nv">네이버</span><b>검색어 26개로 재편</b>
+          <p>콘티(2,100노출 0클릭)·영상편집배우기(안 가르침)·영상학원(5위 13,330원으로 예산 초과) 등 8개 제외.
+            기획·연출·촬영·뮤비·포트폴리오·공모전 쪽으로 다시 채웠습니다.</p></li>
+        <li><span class="tag nv">네이버</span><b>문구를 후킹형으로</b>
+          <p>「영상 하는 사람들 여기 다 모인다던데? 공모전 8회 연속 수상」.
+            필름메이커스에서 통했던 말투 — 소문처럼 흘리고 물음표로 끝낸 뒤 숫자로 받칩니다.</p></li>
+        <li><span class="tag nv">네이버</span><b>서브링크 4개 · 캐릭터 이미지 3장</b>
+          <p>추가 비용 0원인데 광고 면적이 네 배가 됩니다. 「수강 신청」은 스마트스토어로 직접 보냅니다.</p></li>
+        <li><span class="tag nv">네이버</span><b>하루 예산 8,000 → 20,000원</b>
+          <p>문구를 바꾼 당일 8,000원을 다 써서 광고가 멈췄습니다. 그 전 이틀 동안은 651원이었습니다.</p></li>
+        <li><span class="tag gg">구글</span><b>낭비 3개 중지</b>
+          <p>모션 그래픽 학원(안 가르침) · 편집 학원(품질 낮아 게재 안 됨) · 영상 강의(1,846노출에 CTR 0.98%).</p></li>
+      </ul>
+    </div>
+
+    <div class="day">
+      <div class="d">8/17<span>일</span></div>
+      <ul>
+        <li><span class="tag site">사이트</span><b>온라인 강의 페이지 복구</b>
+          <p>빌드가 손으로 짠 페이지를 덮어써서 강사 소개·24개 세션 목차·후기·FAQ 다섯 덩어리가 사라져 있었습니다.
+            본문 3,059자 → 728자. 가격만 있고 그 값을 납득시킬 내용이 없는 상태로 하루 동안 광고가 들어왔습니다.</p></li>
+        <li><span class="tag site">사이트</span><b>개인정보처리방침 신설</b>
+          <p>아예 없었습니다. 통신판매업 신고 사업자는 게시 의무가 있고, GA4 신호 데이터를 켜려면 「필요한 사항을 공개했다」는 확약이 필요합니다.</p></li>
+        <li><span class="tag site">측정</span><b>광고 수치 자동 갱신 부활</b>
+          <p>22시간 멈춰 있었습니다. 원인 두 겹 — 한글 폴더를 launchd가 못 열고, 맥이 문서 폴더에서 git을 막습니다.</p></li>
+        <li><span class="tag site">플레이스</span><b>네이버 플레이스에 홈페이지·스토어 링크</b>
+          <p>주당 76명이 보는데 그중 72명이 아무것도 못 하고 나갔습니다. 갈 곳이 없었습니다.</p></li>
+      </ul>
+    </div>
+
+    <div class="day">
+      <div class="d">8/15<span>금</span><br><span>~16</span></div>
+      <ul>
+        <li><span class="tag site">측정</span><b>측정 기반 전부 신설</b>
+          <p>GA4 · 네이버 애널리틱스 · 메타 픽셀 · 구글 전환 태그. 구글애즈는 14만원을 쓰고도 전환 0으로 보였는데, 전환 추적 자체가 없어서였습니다.</p></li>
+        <li><span class="tag nv">네이버</span><b>검색광고 개시</b>
+          <p>기존 광고는 「피바아카데미」를 이미 아는 사람만 잡는 검색어 1,000개뿐이었습니다.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── 배운 것 ─────────────────────────── -->
+  <section>
+    <h2>겪고 나서 알게 된 것</h2>
+    <ul class="learn">
+      <li><b>검색량이 큰 검색어가 좋은 검색어는 아니다</b>
+        <p>「콘티」는 2,100번 노출됐지만 클릭 0이었습니다. 무료 양식을 찾는 사람이었습니다.
+          「AI 영상제작」은 클릭은 잘 되지만 13초 만에 나갑니다. 툴을 찾는 사람이지 학원을 찾는 사람이 아닙니다.</p></li>
+      <li><b>키워드는 많을수록 좋은 게 아니다</b>
+        <p>구글 키워드 8개가 광고그룹 하나에 뭉쳐 있어 문구 하나로 전부 대응하고 있습니다.
+          어느 검색어에도 딱 맞지 않으니 관련성이 평균 미만으로 떨어졌습니다. 적은 키워드에 맞는 문구가 이깁니다.</p></li>
+      <li><b>네이버는 돈 순서, 구글은 품질 곱하기</b>
+        <p>네이버 파워링크는 사실상 입찰가 순입니다. 「영상편집학원」은 5위에 19,540원이 필요합니다.
+          구글은 품질이 좋으면 적게 내고도 올라갑니다 — 같은 검색어가 25배 쌉니다.</p></li>
+      <li><b>단정하기 전에 반대 증거를 한 번 더 찾을 것</b>
+        <p>스마트플레이스 「24시간 연중무휴」를 잘못된 값이라 단정했는데 실제 운영이 그랬고,
+          「미장센」을 화장품 브랜드로 단정했는데 영화 용어가 맞았습니다. 둘 다 자료를 덜 보고 결론을 냈습니다.</p></li>
+    </ul>
+  </section>
+
+  <!-- ── 다음 ─────────────────────────── -->
+  <section>
+    <h2>다음에 할 것</h2>
+    <div class="call">
+      <h3>1 · 구글 광고 문구에 AI와 학원을 넣는다</h3>
+      <p>지금 문구에 「AI」가 없어서 AI 검색어의 관련성이 평균 미만입니다. 광고 제목을 보강하면
+        예산을 늘리지 않고도 노출이 회복됩니다. <b>이것이 가장 먼저입니다.</b></p>
+    </div>
+    <div class="call" style="margin-top:12px">
+      <h3>2 · 광고그룹을 셋으로 나눈다</h3>
+      <p>AI · 학원 · 온라인으로 갈라 그룹마다 문구와 도착 페이지를 맞춥니다.
+        네이버에서 이미 한 방식입니다. 문구 보강으로 효과가 확인되면 그다음 단계입니다.</p>
+    </div>
+    <div class="call" style="margin-top:12px">
+      <h3>3 · 네이버 예산을 낮춘다</h3>
+      <p>클릭당 3,000원이 넘고 잔액은 4일치입니다. 브랜드 방어에 필요한 만큼만 남기고
+        나머지는 구글로 옮기는 것이 산술적으로 맞습니다.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>FVA ACADEMY · 광고 운영 로그</span>
+    <span>실시간 현황 → <a href="/adminmonitor.html">유입 현황</a></span>
+    <span>정비 내역 → <a href="/worklist.html">체크리스트</a></span>
+  </footer>
+</div>
+</body></html>
