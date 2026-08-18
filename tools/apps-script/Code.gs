@@ -24,12 +24,14 @@
 
 const GA4_PROPERTY = '550057103';        // fva.co.kr 속성 (측정 ID G-79SFDWBK3L)
 const SC_SITE      = 'https://fva.co.kr/'; // 서치콘솔 속성 (URL 접두어, non-www)
-const RANGES       = [1, 7, 28, 90];   // 1 = 오늘
+// 1 = 오늘, 'y' = 어제 하루. 어제는 하루가 끝난 값이라 오늘과 달리 흔들리지 않는다 —
+// 「어제 얼마나 왔나」를 보려면 오늘 진행 중인 숫자와 섞이면 안 된다.
+const RANGES       = [1, 'y', 7, 28, 90];
 
 /* 기간 네 개를 매번 새로 계산하면 GA4 를 스무 번 넘게 부르게 되어 8~10초가 걸린다.
    대시보드는 3분마다 다시 읽으므로 그 사이에는 같은 값을 줘도 된다. 캐시로 받아둔다.
    ?fresh=1 을 붙이면 캐시를 건너뛴다 — 방금 고친 게 반영됐는지 확인할 때 쓴다. */
-const CACHE_KEY  = 'feed-v10';
+const CACHE_KEY  = 'feed-v11';
 // 캐시가 비면 처음 연 사람이 15초를 그대로 기다린다.
 // 맥에서 15분마다 도는 자동 갱신(ads_sync.sh)이 ?fresh=1 로 미리 데우지만,
 // **맥이 잠들면 그것도 멈춘다.** 새벽에 폰으로 열었을 때 느린 이유가 그것이다.
@@ -100,22 +102,25 @@ function stamp() {
 }
 
 function collect(days) {
-  // days=1 은 「오늘 하루」. GA4 는 today~today 로 받는다.
-  const start = days === 1 ? 'today' : days + 'daysAgo';
+  // days=1 은 「오늘 하루」, 'y' 는 「어제 하루」(시작도 끝도 어제).
+  const yday = days === 'y';
+  const start = yday ? '1daysAgo' : (days === 1 ? 'today' : days + 'daysAgo');
+  const end   = yday ? '1daysAgo' : 'today';
   const r = {};
 
   // 「최근 7일」만 적어두면 그게 언제부터 언제까지인지 알 수 없다. 날짜를 같이 내보낸다.
   const to = new Date(), from = new Date();
-  if (days > 1) from.setDate(to.getDate() - (days - 1));
+  if (yday) { to.setDate(to.getDate() - 1); from.setDate(from.getDate() - 1); }
+  else if (days > 1) from.setDate(to.getDate() - (days - 1));
   r.from = ymd(from);
   r.to   = ymd(to);
-  r.label = days === 1
+  r.label = (yday || days === 1)
     ? label(to)
     : label(from) + ' ~ ' + label(to);
 
   // ── 전체 요약 ──────────────────────────────────────────
   const tot = ga({
-    dateRanges: [{ startDate: start, endDate: 'today' }],
+    dateRanges: [{ startDate: start, endDate: end }],
     metrics: [{ name: 'totalUsers' }, { name: 'screenPageViews' },
               { name: 'userEngagementDuration' }],
   });
@@ -126,7 +131,7 @@ function collect(days) {
 
   // ── 페이지별 ───────────────────────────────────────────
   const pg = ga({
-    dateRanges: [{ startDate: start, endDate: 'today' }],
+    dateRanges: [{ startDate: start, endDate: end }],
     dimensions: [{ name: 'pagePath' }],
     metrics: [{ name: 'screenPageViews' }, { name: 'userEngagementDuration' },
               { name: 'totalUsers' }],
@@ -147,7 +152,7 @@ function collect(days) {
     kakao_consult_click: '즉시 상담 (카카오톡)',
   };
   const ev = ga({
-    dateRanges: [{ startDate: start, endDate: 'today' }],
+    dateRanges: [{ startDate: start, endDate: end }],
     dimensions: [{ name: 'eventName' }, { name: 'pagePath' }],
     metrics: [{ name: 'eventCount' }],
     dimensionFilter: {
@@ -180,7 +185,7 @@ function collect(days) {
      ⚠ 세션 단위 지표(averageSessionDuration 등)를 써야 한다. 사용자 단위 지표는
         sessionSourceMedium 과 궁합이 안 맞아 0 으로 돌아온다. 한 번 겪었다. */
   const src = ga({
-    dateRanges: [{ startDate: start, endDate: 'today' }],
+    dateRanges: [{ startDate: start, endDate: end }],
     dimensions: [{ name: 'sessionSourceMedium' }],
     metrics: [{ name: 'totalUsers' }, { name: 'sessions' },
               { name: 'averageSessionDuration' }, { name: 'screenPageViewsPerSession' },
@@ -193,7 +198,7 @@ function collect(days) {
   const srcHits = {};
   try {
     const eh = ga({
-      dateRanges: [{ startDate: start, endDate: 'today' }],
+      dateRanges: [{ startDate: start, endDate: end }],
       dimensions: [{ name: 'sessionSourceMedium' }, { name: 'eventName' }],
       metrics: [{ name: 'eventCount' }],
       dimensionFilter: { filter: { fieldName: 'eventName',
@@ -213,7 +218,7 @@ function collect(days) {
   const srcLand = {};
   try {
     const lp = ga({
-      dateRanges: [{ startDate: start, endDate: 'today' }],
+      dateRanges: [{ startDate: start, endDate: end }],
       dimensions: [{ name: 'sessionSourceMedium' }, { name: 'landingPage' }],
       metrics: [{ name: 'sessions' }],
       orderBys: [{ desc: true, metric: { metricName: 'sessions' } }],
@@ -257,7 +262,7 @@ function collect(days) {
         그 경우 conv 는 0 으로 온다 — 실제로 0인 것과 구분되지 않으니 단정하지 말 것. */
   function adKeywords(dim, filter) {
     const q = {
-      dateRanges: [{ startDate: start, endDate: 'today' }],
+      dateRanges: [{ startDate: start, endDate: end }],
       dimensions: [{ name: dim }],
       // ⚠ userEngagementDuration·screenPageViews 는 사용자 단위라 광고 검색어(세션 단위)와
       //   같이 뽑으면 GA4 가 0 을 준다. 세션 단위 지표로 물어야 값이 들어온다.
@@ -274,7 +279,7 @@ function collect(days) {
     const hits = {};
     try {
       const e = ga({
-        dateRanges: [{ startDate: start, endDate: 'today' }],
+        dateRanges: [{ startDate: start, endDate: end }],
         dimensions: [{ name: dim }, { name: 'eventName' }],
         metrics: [{ name: 'eventCount' }],
         dimensionFilter: filter ? {
@@ -333,11 +338,11 @@ function collect(days) {
   // 숫자 하나만 보면 늘었는지 줄었는지를 알 수 없다. 「오늘」은 시간대별,
   // 나머지 기간은 날짜별로 뽑아 대시보드에서 막대로 그린다.
   // 값이 0 인 칸도 채워서 내보낸다. 빈 칸을 빼면 그래프가 실제보다 고르게 보인다.
-  r.series = { unit: days === 1 ? 'hour' : 'day', points: [] };
+  r.series = { unit: (days === 1 || yday) ? 'hour' : 'day', points: [] };
   try {
-    const dim = days === 1 ? 'hour' : 'date';
+    const dim = (days === 1 || yday) ? 'hour' : 'date';
     const s = ga({
-      dateRanges: [{ startDate: start, endDate: 'today' }],
+      dateRanges: [{ startDate: start, endDate: end }],
       dimensions: [{ name: dim }],
       metrics: [{ name: 'totalUsers' }, { name: 'screenPageViews' }],
       orderBys: [{ dimension: { dimensionName: dim } }],
@@ -349,8 +354,9 @@ function collect(days) {
       got[row.dimensionValues[0].value] = { users: v[0], views: v[1] };
     });
 
-    if (days === 1) {
-      const nowH = Number(Utilities.formatDate(new Date(), 'Asia/Seoul', 'HH'));
+    if (days === 1 || yday) {
+      // 어제는 하루가 다 끝났으니 24칸 전부, 오늘은 지금 시각까지만.
+      const nowH = yday ? 23 : Number(Utilities.formatDate(new Date(), 'Asia/Seoul', 'HH'));
       for (let h = 0; h <= nowH; h++) {
         const k = (h < 10 ? '0' : '') + h;
         const g = got[k] || { users: 0, views: 0 };
@@ -379,7 +385,7 @@ function collect(days) {
   demo.forEach(function (pair) {
     try {
       const d = ga({
-        dateRanges: [{ startDate: start, endDate: 'today' }],
+        dateRanges: [{ startDate: start, endDate: end }],
         dimensions: [{ name: pair[1] }],
         metrics: [{ name: 'totalUsers' }],
         orderBys: [{ desc: true, metric: { metricName: 'totalUsers' } }],
@@ -412,7 +418,8 @@ function collect(days) {
   // ── 서치콘솔 검색어 ────────────────────────────────────
   try {
     const to = new Date(), from = new Date();
-    if (days > 1) from.setDate(to.getDate() - days);
+    if (yday) { to.setDate(to.getDate() - 1); from.setDate(from.getDate() - 1); }
+    else if (days > 1) from.setDate(to.getDate() - days);
     const q = sc({
       startDate: ymd(from), endDate: ymd(to),
       dimensions: ['query'], rowLimit: 12,
