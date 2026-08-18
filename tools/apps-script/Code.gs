@@ -29,15 +29,48 @@ const RANGES       = [1, 7, 28, 90];   // 1 = 오늘
 /* 기간 네 개를 매번 새로 계산하면 GA4 를 스무 번 넘게 부르게 되어 8~10초가 걸린다.
    대시보드는 3분마다 다시 읽으므로 그 사이에는 같은 값을 줘도 된다. 캐시로 받아둔다.
    ?fresh=1 을 붙이면 캐시를 건너뛴다 — 방금 고친 게 반영됐는지 확인할 때 쓴다. */
-const CACHE_KEY  = 'feed-v9';
-// 캐시가 비면 처음 연 사람이 15초를 그대로 기다린다. 그래서 짧게 두지 않고,
-// 맥에서 15분마다 도는 자동 갱신(ads_sync.sh)이 ?fresh=1 로 미리 데워둔다.
-// 20분으로 잡아 그 주기보다 넉넉히 길게 —— 한 번 걸러도 캐시가 안 비도록.
-const CACHE_SECS = 1200;
+const CACHE_KEY  = 'feed-v10';
+// 캐시가 비면 처음 연 사람이 15초를 그대로 기다린다.
+// 맥에서 15분마다 도는 자동 갱신(ads_sync.sh)이 ?fresh=1 로 미리 데우지만,
+// **맥이 잠들면 그것도 멈춘다.** 새벽에 폰으로 열었을 때 느린 이유가 그것이다.
+// 그래서 1시간까지 살려둔다 — 맥이 자도 그 사이엔 바로 뜬다.
+// (CacheService 최대는 6시간. 더 늘리면 너무 낡은 숫자를 오늘 것처럼 보여주게 된다.)
+const CACHE_SECS = 3600;
+
+/* 구글이 스스로 5분마다 데우게 하는 함수.
+   ⚠ 웹앱에서 ?install=1 로는 안 걸린다 — ScriptApp.newTrigger 는 script.scriptapp 권한이
+     필요한데 웹앱 실행에는 그 권한이 없어 구글 동의 화면이 대신 돌아온다.
+     걸고 싶으면 **편집기에서 installTrigger 를 한 번 직접 실행**하면 된다.
+     지금은 캐시 수명을 1시간으로 늘려 대신하고 있다. */
+function warm() {
+  const out = { updated: stamp(), ranges: {} };
+  RANGES.forEach(function (d) {
+    try { out.ranges[String(d)] = collect(d); } catch (err) { out.ranges[String(d)] = null; }
+  });
+  const body = JSON.stringify(out);
+  if (body.length < 95000) CacheService.getScriptCache().put(CACHE_KEY, body, CACHE_SECS);
+  return body.length;
+}
+
+function installTrigger() {
+  // 같은 트리거가 여러 개 쌓이면 할당량을 헛되이 쓴다. 있으면 지우고 하나만 건다.
+  ScriptApp.getProjectTriggers().forEach(function (t) {
+    if (t.getHandlerFunction() === 'warm') ScriptApp.deleteTrigger(t);
+  });
+  ScriptApp.newTrigger('warm').timeBased().everyMinutes(5).create();
+  return ScriptApp.getProjectTriggers().filter(function (t) {
+    return t.getHandlerFunction() === 'warm';
+  }).length;
+}
 
 function doGet(e) {
   const fresh = !!(e && e.parameter && e.parameter.fresh);
   const cache = CacheService.getScriptCache();
+
+  if (e && e.parameter && e.parameter.install) {
+    const n = installTrigger();
+    return json(JSON.stringify({ installed: n, note: '5분마다 캐시를 미리 만든다' }));
+  }
 
   if (!fresh) {
     const hit = cache.get(CACHE_KEY);
