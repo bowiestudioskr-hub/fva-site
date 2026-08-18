@@ -453,6 +453,20 @@ function render(){
         + '네이버는 선택한 기간, <b>구글은 최근 30일 고정</b>입니다 — 구글은 계정 화면에서 읽어오는 값이라 기간을 나눌 수 없습니다.' }));
     }
 
+    /* 하루씩 얼마 나갔는지. 합계만 보면 예산을 올린 날 소진 속도가 어떻게 달라졌는지 안 보인다. */
+    if ((n.daily || []).some(d => d.cost)) {
+      const days = n.daily.filter(d => d.imp || d.cost);
+      const max = Math.max(...days.map(d => d.cost), 1);
+      A.push(card('<span class="ch nv">네이버</span>하루에 얼마 나갔나',
+        days.slice().reverse().map(d => {
+          const md = d.d.slice(5).replace('-', '월 ') + '일';
+          return barRow(md, Math.round(d.cost / max * 100),
+            `${won(d.cost)}<em>${num(d.clk)}클릭</em>`,
+            d.clk ? `클릭당 ${won(Math.round(d.cost / d.clk))} · 노출 ${num(d.imp)}` : `노출 ${num(d.imp)} · 클릭 없음`);
+        }),
+        '', { right: `하루 최대 ${won(n.dailyBudget)}` }));
+    }
+
     A.push(card('집행 현황', [
       plainRow('<span class="ch nv">네이버</span>네이버', `${esc(r.label)} · 하루 최대 ${won(n.dailyBudget)}`,
                `${won(nP.cost)}<em>노출 ${num(nP.imp)} · 클릭 ${num(nP.clk)}</em>`),
