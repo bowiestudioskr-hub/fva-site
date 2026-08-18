@@ -370,8 +370,11 @@ function render(){
     stat('머문 시간','var(--visit)', dur(r.avgEngagement)) +
     stat('상담 클릭','var(--query)', num(r.kakaoClicks), '회') +
     stat('온라인 강의','var(--query)', num(r.onlineClicks), '회', 'ad') +
-    (ADS ? stat('네이버 집행','var(--ads)', won(ADS.naver.cost), '', 'ad') +
-           stat('구글 집행','var(--ads)', won(ADS.google?.cost), '', 'ad') +
+    // ⚠ 요약 칸도 기간을 따라가야 한다. 카드만 고치고 여기를 빠뜨려서
+    //   오늘·어제가 같은 금액으로 떴다. 구글은 30일 고정이라 이름에 그렇게 박는다.
+    (ADS ? stat('네이버 집행','var(--ads)',
+                won((ADS.naver.byPeriod && ADS.naver.byPeriod[DAYS] || ADS.naver).cost), '', 'ad') +
+           stat('구글 30일','var(--ads)', won(ADS.google?.cost), '', 'ad') +
            stat('남은 예산','var(--ads)', won(ADS.naver.balance), '', 'ad') : '');
 
   G.innerHTML = chart(r.series);
