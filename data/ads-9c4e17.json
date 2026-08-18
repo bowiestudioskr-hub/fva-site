@@ -1,22 +1,22 @@
 {
-  "updated": "2026. 8. 18. AM 9:41:07",
+  "updated": "2026. 8. 18. AM 9:56:37",
   "naver": {
     "start": "2026-08-16",
-    "live": false,
-    "dailyBudget": 8000,
+    "live": true,
+    "dailyBudget": 20000,
     "balance": 89640,
-    "imp": 2768,
+    "imp": 2877,
     "clk": 2,
     "cost": 651,
-    "campaignImp": 6166,
-    "campaignClk": 7,
-    "campaignCost": 1135,
+    "campaignImp": 6331,
+    "campaignClk": 8,
+    "campaignCost": 1212,
     "groups": [
       {
         "id": "grp-a001-01-000000071921583",
         "name": "프리프로덕션·기획",
         "code": "A",
-        "live": false,
+        "live": true,
         "bid": 200,
         "landing": "https://fva.co.kr/online.html?utm_source=naver&utm_medium=cpc&utm_campaign=powerlink&utm_content=a_preproduction",
         "keywords": [
@@ -25,7 +25,7 @@
             "bid": 900,
             "live": true,
             "state": "운영",
-            "imp": 104,
+            "imp": 106,
             "clk": 0,
             "cost": 0,
             "rank": 4.6
@@ -45,10 +45,10 @@
             "bid": 600,
             "live": true,
             "state": "운영",
-            "imp": 21,
+            "imp": 23,
             "clk": 0,
             "cost": 0,
-            "rank": 3.7
+            "rank": 3.5
           },
           {
             "word": "콘티",
@@ -176,7 +176,7 @@
         "id": "grp-a001-01-000000071921584",
         "name": "AI영상",
         "code": "B",
-        "live": false,
+        "live": true,
         "bid": 200,
         "landing": "https://fva.co.kr/curriculum.html?utm_source=naver&utm_medium=cpc&utm_campaign=powerlink&utm_content=b_ai",
         "keywords": [
@@ -215,7 +215,7 @@
             "bid": 8000,
             "live": true,
             "state": "운영",
-            "imp": 20,
+            "imp": 21,
             "clk": 0,
             "cost": 0,
             "rank": 1.9
@@ -256,7 +256,7 @@
         "id": "grp-a001-01-000000071921585",
         "name": "학원·포트폴리오",
         "code": "C",
-        "live": false,
+        "live": true,
         "bid": 250,
         "landing": "https://fva.co.kr/offline.html?utm_source=naver&utm_medium=cpc&utm_campaign=powerlink&utm_content=c_academy",
         "keywords": [
@@ -305,10 +305,10 @@
             "bid": 7500,
             "live": true,
             "state": "운영",
-            "imp": 3,
+            "imp": 5,
             "clk": 0,
             "cost": 0,
-            "rank": 4
+            "rank": 3.4
           },
           {
             "word": "영상편집학원",
@@ -375,7 +375,7 @@
             "bid": 8500,
             "live": true,
             "state": "운영",
-            "imp": 100,
+            "imp": 170,
             "clk": 0,
             "cost": 0,
             "rank": 1
@@ -395,27 +395,27 @@
             "bid": 2600,
             "live": true,
             "state": "운영",
-            "imp": 0,
-            "clk": 0,
-            "cost": 0,
-            "rank": null
-          },
-          {
-            "word": "영상공모전",
-            "bid": 800,
-            "live": true,
-            "state": "운영",
             "imp": 1,
             "clk": 0,
             "cost": 0,
             "rank": 2
           },
           {
+            "word": "영상공모전",
+            "bid": 800,
+            "live": true,
+            "state": "운영",
+            "imp": 27,
+            "clk": 0,
+            "cost": 0,
+            "rank": 4.5
+          },
+          {
             "word": "촬영감독",
             "bid": 300,
             "live": true,
             "state": "운영",
-            "imp": 1,
+            "imp": 3,
             "clk": 0,
             "cost": 0,
             "rank": 3
@@ -435,10 +435,10 @@
             "bid": 300,
             "live": true,
             "state": "운영",
-            "imp": 0,
+            "imp": 1,
             "clk": 0,
             "cost": 0,
-            "rank": null
+            "rank": 2
           },
           {
             "word": "숏폼제작",
@@ -455,10 +455,10 @@
             "bid": 600,
             "live": true,
             "state": "운영",
-            "imp": 0,
+            "imp": 2,
             "clk": 0,
             "cost": 0,
-            "rank": null
+            "rank": 5
           }
         ]
       }
