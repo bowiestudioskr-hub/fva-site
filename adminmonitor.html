@@ -147,6 +147,15 @@
   .chip b{font-weight:800;font-size:10.5px;color:var(--ads);margin-left:4px}
   .chip.wait b{color:var(--who)}
 
+  /* 채널 배지 — 네이버는 초록, 구글은 파랑. 검색어만 나열하면 어디 것인지 안 보인다. */
+  .ch{
+    font-size:10.5px;font-weight:800;letter-spacing:.02em;border-radius:4px;
+    padding:2px 6px;margin-right:7px;flex:none;
+  }
+  .ch.nv{background:rgba(3,199,90,.16);color:#03C75A}
+  .ch.gg{background:rgba(66,133,244,.18);color:#6BA0F8}
+  .card > h3 .ch{margin-right:0}
+
   .pill{font-size:11px;font-weight:800;border-radius:99px;padding:2px 8px;
         background:rgba(44,255,5,.16);color:var(--visit)}
   .pill.off{background:rgba(255,255,255,.08);color:var(--dim)}
@@ -429,8 +438,8 @@ function render(){
         </div>
         <div class="vn">${cpc ? won(cpc) : '—'}<em>클릭당</em></div></li>`;
       A.push(card('클릭 하나에 얼마인가', [
-        line('구글', gCpc, G.cost, G.clk, G.period ? '30일' : ''),
-        line('네이버', nCpc, n.cost, n.clk, n.start + '부터'),
+        line('<span class="ch gg">구글</span>구글', gCpc, G.cost, G.clk, G.period ? '30일' : ''),
+        line('<span class="ch nv">네이버</span>네이버', nCpc, n.cost, n.clk, n.start + '부터'),
       ], '', { memo: (nCpc && gCpc && nCpc > gCpc * 3)
         ? `네이버가 구글보다 <b>${Math.round(nCpc / gCpc)}배</b> 비쌉니다. `
           + '같은 돈이면 구글에서 훨씬 많은 사람을 데려옵니다.'
@@ -438,10 +447,10 @@ function render(){
     }
 
     A.push(card('집행 현황', [
-      plainRow('네이버', `${esc(n.start)}부터 · 하루 최대 ${won(n.dailyBudget)}`,
+      plainRow('<span class="ch nv">네이버</span>네이버', `${esc(n.start)}부터 · 하루 최대 ${won(n.dailyBudget)}`,
                `${won(n.cost)}<em>노출 ${num(n.imp)} · 클릭 ${num(n.clk)}</em>`),
       // 구글은 API 를 못 써서 로그인된 크롬 화면을 읽어온다. 언제 읽은 것인지 같이 적는다.
-      plainRow('구글', G.updated ? `${esc(G.period || '')} · ${esc(G.updated)} 기준`
+      plainRow('<span class="ch gg">구글</span>구글', G.updated ? `${esc(G.period || '')} · ${esc(G.updated)} 기준`
                                  : '<a href="' + esc(G.console) + '" target="_blank" rel="noopener">계정 열기</a>',
                G.cost != null ? `${won(G.cost)}<em>노출 ${num(G.imp)} · 클릭 ${num(G.clk)} · 평균 ${won(G.cpc)}</em>` : ''),
       plainRow('남은 예산', '네이버', won(n.balance)),
@@ -452,7 +461,7 @@ function render(){
         : '' }));
 
     if ((G.keywords || []).length) {
-      A.push(card('구글 검색어별 집행',
+      A.push(card('<span class="ch gg">구글</span>구글 검색어별 집행',
         G.keywords.map(k => plainRow(
           esc(k.keyword) + (k.note ? ` <b style="color:var(--ads);font-size:11px">${esc(k.note)}</b>` : ''),
           `노출 ${num(k.imp)} · CTR ${k.ctr}%`,
@@ -464,7 +473,7 @@ function render(){
     }
     for (const g of n.groups || []) {
       const perf = g.keywords.filter(k => k.imp || k.clk);
-      A.push(card(esc(g.name),
+      A.push(card('<span class="ch nv">네이버</span>' + esc(g.name),
         perf.map(k => plainRow(esc(k.word), '', `${num(k.imp)}<em>노출 · 클릭 ${num(k.clk)}</em>`)),
         '아직 노출 실적 없음 · 집계는 15분 단위',
         { right: `${pill(g.live)}<span>입찰 ${num(g.bid)}원</span>`,
@@ -492,11 +501,16 @@ function render(){
     if (acts.length) bits.push(`<span class="go">${acts.join(' · ')}</span>`);
     return bits.join(' · ') || '아직 행동 없음';
   };
-  Q.push(card('구글 광고로 들어온 검색어',
-    gk.slice(0,7).map(k => barRow(esc(k.keyword), 100, `${num(k.users)}<em>명</em>`, kwSub(k))),
+  // 두 채널의 검색어를 나란히 두면 어디 것인지 헷갈린다. 카드 제목과 줄마다 배지를 박는다.
+  const kwRow = (k, ch) => barRow(
+    `<span class="ch ${ch === '네이버' ? 'nv' : 'gg'}">${ch}</span>${esc(k.keyword)}`,
+    100, `${num(k.users)}<em>명</em>`, kwSub(k));
+  Q.push(card('<span class="ch gg">구글</span>구글 광고로 들어온 검색어',
+    gk.slice(0,8).map(k => kwRow(k, '구글')),
     '광고 유입이 아직 없거나 데이터가 도착 전입니다.'));
-  if (nk.length) Q.push(card('네이버 광고로 들어온 검색어',
-    nk.slice(0,7).map(k => barRow(esc(k.keyword), 100, `${num(k.users)}<em>명</em>`, kwSub(k))), ''));
+  Q.push(card('<span class="ch nv">네이버</span>네이버 광고로 들어온 검색어',
+    nk.slice(0,8).map(k => kwRow(k, '네이버')),
+    '아직 네이버 광고 유입이 없습니다.'));
   Q.push(card('자연 검색',
     (r.queries||[]).slice(0,7).map(q =>
       plainRow(esc(q.query), '', `${num(q.clicks)}<em>클릭 · 노출 ${num(q.impressions)}</em>`)),
