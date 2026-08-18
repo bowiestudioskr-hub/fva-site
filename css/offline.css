@@ -498,3 +498,132 @@ svg.club-wordmark{
     --gutter:clamp(0px, 4.6vw, 112px);
   }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   맨 위 공지 블록 — 리틀리에 있던 개강 정보를 그대로 옮겼다.
+   상담이 이 내용으로 몰려서 페이지 첫 화면에 박는다.
+
+   리틀리는 이모지를 쓰지만 사이트 쪽은 안 쓴다. 정보 구조만 가져오고
+   표기는 이 페이지의 말투(검정 바탕·초록 강조·Pretendard)로 맞춘다.
+   ⚠ 개강일이 박혀 있다. 기수가 넘어가면 여기부터 고칠 것.
+   ───────────────────────────────────────────────────────────── */
+.off-notice{
+  --u:var(--pagew);
+  padding:calc(var(--u) * 64/1920) 0 calc(var(--u) * 40/1920);
+  text-align:center;
+}
+.off-notice .loc{
+  font-size:clamp(13px, calc(var(--u) * 20/1920), 20px);
+  font-weight:600; color:var(--muted); letter-spacing:-.02em;
+}
+.off-notice .loc b{ color:var(--white); font-weight:700 }
+
+.nt-news{
+  margin-top:clamp(20px, calc(var(--u) * 44/1920), 44px);
+  display:flex; flex-direction:column; align-items:center;
+  gap:clamp(7px, calc(var(--u) * 12/1920), 12px);
+}
+.nt-news .cap{
+  font-size:clamp(12px, calc(var(--u) * 17/1920), 17px);
+  font-weight:800; letter-spacing:.16em; color:var(--green);
+}
+.nt-news p{
+  font-size:clamp(14px, calc(var(--u) * 23/1920), 23px);
+  font-weight:600; color:var(--white); letter-spacing:-.025em;
+  line-height:1.45; word-break:keep-all; max-width:44ch;
+}
+.nt-news p b{ color:var(--green); font-weight:800 }
+
+/* ── 기수 표 — 이 블록의 주인공 ── */
+.nt-open{
+  margin-top:clamp(28px, calc(var(--u) * 58/1920), 58px);
+  display:inline-flex; flex-direction:column; align-items:center;
+  gap:clamp(12px, calc(var(--u) * 18/1920), 18px);
+  max-width:calc(100% - 24px);
+}
+.nt-open .head{
+  display:flex; align-items:baseline; justify-content:center;
+  gap:clamp(9px, calc(var(--u) * 18/1920), 18px); flex-wrap:wrap;
+}
+.nt-open .head strong{
+  font-size:clamp(26px, calc(var(--u) * 58/1920), 58px);
+  font-weight:800; letter-spacing:-.045em; line-height:1; color:var(--green);
+}
+.nt-open .head span{
+  font-size:clamp(13px, calc(var(--u) * 22/1920), 22px);
+  font-weight:700; color:var(--white); letter-spacing:-.025em;
+}
+
+.nt-table{
+  width:clamp(300px, calc(var(--u) * 860/1920), 860px);
+  max-width:100%;
+  border-top:2px solid var(--white); border-bottom:2px solid var(--white);
+}
+.nt-row{
+  display:grid; grid-template-columns:auto 1fr auto; align-items:center;
+  gap:clamp(10px, calc(var(--u) * 26/1920), 26px);
+  padding:clamp(11px, calc(var(--u) * 18/1920), 18px) clamp(10px, calc(var(--u) * 20/1920), 20px);
+}
+.nt-row + .nt-row{ border-top:1px solid rgba(253,253,253,.28) }
+.nt-row .cls{
+  font-size:clamp(15px, calc(var(--u) * 30/1920), 30px);
+  font-weight:800; letter-spacing:-.035em; color:var(--white); white-space:nowrap;
+}
+.nt-row .time{
+  font-size:clamp(15px, calc(var(--u) * 30/1920), 30px);
+  font-weight:800; letter-spacing:-.02em; color:var(--white);
+  font-variant-numeric:tabular-nums; white-space:nowrap;
+}
+.nt-row .start{
+  font-size:clamp(12px, calc(var(--u) * 21/1920), 21px);
+  font-weight:700; color:var(--green); white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
+
+/* ── 신청·연장 방법 ── */
+.nt-how{
+  margin-top:clamp(22px, calc(var(--u) * 40/1920), 40px);
+  display:flex; flex-direction:column; align-items:center;
+  gap:clamp(9px, calc(var(--u) * 14/1920), 14px);
+}
+.nt-how div{
+  width:clamp(300px, calc(var(--u) * 860/1920), 860px); max-width:calc(100% - 24px);
+  background:var(--green); color:#06150A;
+  border-radius:clamp(8px, calc(var(--u) * 14/1920), 14px);
+  padding:clamp(11px, calc(var(--u) * 17/1920), 17px) clamp(14px, calc(var(--u) * 24/1920), 24px);
+  font-size:clamp(12.5px, calc(var(--u) * 20/1920), 20px);
+  font-weight:600; line-height:1.5; letter-spacing:-.025em;
+  word-break:keep-all; text-wrap:pretty;
+}
+.nt-how div b{ font-weight:800 }
+
+/* ── 버튼 두 개 ── */
+.nt-btns{
+  margin-top:clamp(24px, calc(var(--u) * 44/1920), 44px);
+  display:flex; justify-content:center; gap:clamp(9px, calc(var(--u) * 16/1920), 16px);
+  flex-wrap:wrap;
+}
+.nt-btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.4em;
+  min-width:clamp(150px, calc(var(--u) * 244/1920), 244px);
+  padding:clamp(12px, calc(var(--u) * 20/1920), 20px) clamp(18px, calc(var(--u) * 30/1920), 30px);
+  border-radius:999px;
+  font-size:clamp(14px, calc(var(--u) * 23/1920), 23px);
+  font-weight:800; letter-spacing:-.025em; line-height:1;
+  transition:filter .15s, transform .12s, background .15s, color .15s;
+}
+.nt-btn.solid{ background:var(--green); color:#06150A }
+.nt-btn.ghost{ background:transparent; color:var(--white); box-shadow:inset 0 0 0 2px rgba(253,253,253,.55) }
+.nt-btn:hover{ filter:brightness(1.07); transform:translateY(-2px) }
+.nt-btn.ghost:hover{ background:var(--white); color:#06150A; box-shadow:none; filter:none }
+.nt-btn:focus-visible{ outline:3px solid var(--green); outline-offset:3px }
+
+@media (prefers-reduced-motion: reduce){
+  .nt-btn{ transition:none }
+  .nt-btn:hover{ transform:none }
+}
+
+@media (max-width:640px){
+  .nt-row{ grid-template-columns:auto 1fr; row-gap:4px }
+  .nt-row .start{ grid-column:1 / -1; text-align:left }
+}
