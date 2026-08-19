@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 8. 20. AM 1:37:42",
+  "updated": "2026. 8. 20. AM 1:54:15",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 7791,
     "dailyBudget": 20000,
     "balance": 68433,
-    "imp": 4221,
+    "imp": 4279,
     "clk": 6,
     "cost": 30917,
     "byPeriod": {
       "1": {
-        "imp": 0,
+        "imp": 58,
         "clk": 0,
         "cost": 0
       },
       "7": {
-        "imp": 10086,
+        "imp": 10144,
         "clk": 14,
         "cost": 31643
       },
       "28": {
-        "imp": 10086,
+        "imp": 10144,
         "clk": 14,
         "cost": 31643
       },
       "90": {
-        "imp": 154835,
+        "imp": 154893,
         "clk": 190,
         "cost": 45916
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-08-20",
-        "imp": 0,
+        "imp": 58,
         "clk": 0,
         "cost": 0
       }
     ],
-    "campaignImp": 10086,
+    "campaignImp": 10144,
     "campaignClk": 14,
     "campaignCost": 31643,
     "groups": [
@@ -142,7 +142,7 @@
             "bid": 900,
             "live": true,
             "state": "운영",
-            "imp": 266,
+            "imp": 285,
             "clk": 0,
             "cost": 0,
             "rank": 3.7
@@ -454,10 +454,10 @@
             "bid": 6800,
             "live": true,
             "state": "운영",
-            "imp": 0,
+            "imp": 1,
             "clk": 0,
             "cost": 0,
-            "rank": null
+            "rank": 2
           },
           {
             "word": "방송아카데미",
@@ -494,7 +494,7 @@
             "bid": 8500,
             "live": true,
             "state": "운영",
-            "imp": 1049,
+            "imp": 1083,
             "clk": 1,
             "cost": 9223,
             "rank": 1
@@ -524,7 +524,7 @@
             "bid": 800,
             "live": true,
             "state": "운영",
-            "imp": 120,
+            "imp": 121,
             "clk": 0,
             "cost": 0,
             "rank": 3.4
@@ -534,7 +534,7 @@
             "bid": 300,
             "live": true,
             "state": "운영",
-            "imp": 50,
+            "imp": 51,
             "clk": 0,
             "cost": 0,
             "rank": 4.3
@@ -554,20 +554,20 @@
             "bid": 300,
             "live": true,
             "state": "운영",
-            "imp": 13,
+            "imp": 14,
             "clk": 0,
             "cost": 0,
-            "rank": 2.2
+            "rank": 2.1
           },
           {
             "word": "숏폼제작",
             "bid": 6200,
             "live": true,
             "state": "운영",
-            "imp": 5,
+            "imp": 6,
             "clk": 0,
             "cost": 0,
-            "rank": 2
+            "rank": 2.5
           },
           {
             "word": "숏폼만들기",
@@ -688,7 +688,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 20. AM 1:37:37",
+    "updated": "2026. 8. 20. AM 1:54:09",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -698,30 +698,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 207,
+        "visit": 210,
         "click": 20,
-        "unique": 85,
-        "ctr": 9.7,
+        "unique": 86,
+        "ctr": 9.5,
         "dwell": 13
       },
       "7": {
-        "visit": 1601,
+        "visit": 1604,
         "click": 325,
-        "unique": 92,
+        "unique": 93,
         "ctr": 20.3,
         "dwell": 40
       },
       "28": {
-        "visit": 2614,
+        "visit": 2617,
         "click": 926,
-        "unique": 92,
+        "unique": 93,
         "ctr": 35.4,
         "dwell": 40
       },
       "90": {
-        "visit": 6161,
+        "visit": 6164,
         "click": 3065,
-        "unique": 92,
+        "unique": 93,
         "ctr": 49.7,
         "dwell": 40
       },
@@ -733,9 +733,9 @@
         "dwell": 80
       },
       "all": {
-        "visit": 34056,
+        "visit": 34059,
         "click": 14073,
-        "unique": 92,
+        "unique": 93,
         "ctr": 41.3,
         "dwell": 40
       }
@@ -3149,9 +3149,9 @@
       },
       {
         "d": "2026-08-20",
-        "visit": 17,
+        "visit": 20,
         "click": 0,
-        "unique": 1
+        "unique": 2
       }
     ],
     "sources": [
@@ -3167,7 +3167,7 @@
       {
         "name": "인스타 (앱 미리보기)",
         "host": "instagram.com",
-        "visit": 3561,
+        "visit": 3562,
         "click": 32,
         "unique": 44,
         "ctr": 0.9,
@@ -3185,9 +3185,9 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 693,
+        "visit": 695,
         "click": 0,
-        "unique": 22,
+        "unique": 23,
         "ctr": 0,
         "dwell": 6
       },
@@ -3697,11 +3697,11 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 1848,
+        "visit": 1850,
         "click": 1173,
-        "unique": 86,
+        "unique": 87,
         "dwell": 7,
-        "ctr": 63.5
+        "ctr": 63.4
       },
       {
         "name": "데스크탑",
@@ -3849,9 +3849,9 @@
       },
       {
         "name": "VN",
-        "visit": 15,
+        "visit": 17,
         "click": 0,
-        "unique": 1,
+        "unique": 2,
         "dwell": 22,
         "ctr": 0,
         "code": "VN"
@@ -4090,7 +4090,7 @@
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 97,
+            "visit": 98,
             "click": 0,
             "unique": 43,
             "ctr": 0,
@@ -4099,9 +4099,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 62,
+            "visit": 64,
             "click": 0,
-            "unique": 18,
+            "unique": 19,
             "ctr": 0,
             "dwell": 5
           },
@@ -4145,9 +4145,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 91,
+            "visit": 93,
             "click": 1,
-            "unique": 80,
+            "unique": 81,
             "dwell": 7,
             "ctr": 1.1
           },
@@ -4169,6 +4169,15 @@
             "dwell": 22,
             "ctr": 1.1,
             "code": "KR"
+          },
+          {
+            "name": "VN",
+            "visit": 3,
+            "click": 0,
+            "unique": 2,
+            "dwell": 22,
+            "ctr": 0,
+            "code": "VN"
           },
           {
             "name": "NP",
@@ -4205,15 +4214,6 @@
             "dwell": 7,
             "ctr": 0,
             "code": "IN"
-          },
-          {
-            "name": "VN",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 22,
-            "ctr": 0,
-            "code": "VN"
           }
         ],
         "city": [
@@ -4243,6 +4243,15 @@
             "dwell": 0,
             "ctr": 0,
             "code": "SA"
+          },
+          {
+            "name": "Vũng Tàu",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "VN"
           },
           {
             "name": "Sydney",
@@ -4370,7 +4379,7 @@
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 538,
+            "visit": 539,
             "click": 6,
             "unique": 44,
             "ctr": 1.1,
@@ -4379,9 +4388,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 523,
+            "visit": 525,
             "click": 0,
-            "unique": 22,
+            "unique": 23,
             "ctr": 0,
             "dwell": 6
           },
@@ -4497,9 +4506,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 563,
+            "visit": 565,
             "click": 71,
-            "unique": 86,
+            "unique": 87,
             "dwell": 7,
             "ctr": 12.6
           },
@@ -4621,6 +4630,15 @@
             "code": "TH"
           },
           {
+            "name": "VN",
+            "visit": 4,
+            "click": 0,
+            "unique": 2,
+            "dwell": 22,
+            "ctr": 0,
+            "code": "VN"
+          },
+          {
             "name": "NP",
             "visit": 3,
             "click": 0,
@@ -4655,15 +4673,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "PK"
-          },
-          {
-            "name": "VN",
-            "visit": 2,
-            "click": 0,
-            "unique": 1,
-            "dwell": 22,
-            "ctr": 0,
-            "code": "VN"
           },
           {
             "name": "AU",
@@ -4973,7 +4982,7 @@
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 709,
+            "visit": 710,
             "click": 8,
             "unique": 44,
             "ctr": 1.1,
@@ -4982,9 +4991,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 544,
+            "visit": 546,
             "click": 0,
-            "unique": 22,
+            "unique": 23,
             "ctr": 0,
             "dwell": 6
           },
@@ -5118,11 +5127,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 761,
+            "visit": 763,
             "click": 262,
-            "unique": 86,
+            "unique": 87,
             "dwell": 7,
-            "ctr": 34.4
+            "ctr": 34.3
           },
           {
             "name": "데스크탑",
@@ -5206,6 +5215,15 @@
             "code": "HK"
           },
           {
+            "name": "VN",
+            "visit": 5,
+            "click": 0,
+            "unique": 2,
+            "dwell": 22,
+            "ctr": 0,
+            "code": "VN"
+          },
+          {
             "name": "IN",
             "visit": 4,
             "click": 0,
@@ -5267,15 +5285,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "NP"
-          },
-          {
-            "name": "VN",
-            "visit": 3,
-            "click": 0,
-            "unique": 1,
-            "dwell": 22,
-            "ctr": 0,
-            "code": "VN"
           },
           {
             "name": "BR",
@@ -5626,7 +5635,7 @@
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 1185,
+            "visit": 1186,
             "click": 32,
             "unique": 44,
             "ctr": 2.7,
@@ -5635,9 +5644,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 610,
+            "visit": 612,
             "click": 0,
-            "unique": 22,
+            "unique": 23,
             "ctr": 0,
             "dwell": 6
           },
@@ -5807,9 +5816,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1447,
+            "visit": 1449,
             "click": 879,
-            "unique": 86,
+            "unique": 87,
             "dwell": 7,
             "ctr": 60.7
           },
@@ -5913,6 +5922,15 @@
             "code": "GB"
           },
           {
+            "name": "VN",
+            "visit": 6,
+            "click": 0,
+            "unique": 2,
+            "dwell": 22,
+            "ctr": 0,
+            "code": "VN"
+          },
+          {
             "name": "DK",
             "visit": 5,
             "click": 7,
@@ -5938,15 +5956,6 @@
             "dwell": 12,
             "ctr": 50,
             "code": "AU"
-          },
-          {
-            "name": "VN",
-            "visit": 4,
-            "click": 0,
-            "unique": 1,
-            "dwell": 22,
-            "ctr": 0,
-            "code": "VN"
           },
           {
             "name": "PH",
@@ -6347,7 +6356,7 @@
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 3561,
+            "visit": 3562,
             "click": 32,
             "unique": 44,
             "ctr": 0.9,
@@ -6365,9 +6374,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 693,
+            "visit": 695,
             "click": 0,
-            "unique": 22,
+            "unique": 23,
             "ctr": 0,
             "dwell": 6
           },
@@ -6555,11 +6564,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1848,
+            "visit": 1850,
             "click": 1173,
-            "unique": 86,
+            "unique": 87,
             "dwell": 7,
-            "ctr": 63.5
+            "ctr": 63.4
           },
           {
             "name": "데스크탑",
@@ -6707,9 +6716,9 @@
           },
           {
             "name": "VN",
-            "visit": 15,
+            "visit": 17,
             "click": 0,
-            "unique": 1,
+            "unique": 2,
             "dwell": 22,
             "ctr": 0,
             "code": "VN"
@@ -7270,7 +7279,7 @@
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 97,
+            "visit": 98,
             "click": 0,
             "unique": 43,
             "ctr": 0,
@@ -7279,9 +7288,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 62,
+            "visit": 64,
             "click": 0,
-            "unique": 18,
+            "unique": 19,
             "ctr": 0,
             "dwell": 5
           },
@@ -7325,9 +7334,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 91,
+            "visit": 93,
             "click": 1,
-            "unique": 80,
+            "unique": 81,
             "dwell": 7,
             "ctr": 1.1
           },
@@ -7349,6 +7358,15 @@
             "dwell": 22,
             "ctr": 1.1,
             "code": "KR"
+          },
+          {
+            "name": "VN",
+            "visit": 3,
+            "click": 0,
+            "unique": 2,
+            "dwell": 22,
+            "ctr": 0,
+            "code": "VN"
           },
           {
             "name": "NP",
@@ -7385,15 +7403,6 @@
             "dwell": 7,
             "ctr": 0,
             "code": "IN"
-          },
-          {
-            "name": "VN",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 22,
-            "ctr": 0,
-            "code": "VN"
           }
         ],
         "city": [
@@ -7423,6 +7432,15 @@
             "dwell": 0,
             "ctr": 0,
             "code": "SA"
+          },
+          {
+            "name": "Vũng Tàu",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "VN"
           },
           {
             "name": "Sydney",
