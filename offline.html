@@ -14,8 +14,12 @@ n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
 n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','771478541518631');
-fbq('track','PageView');
+/* ⚠ 자동 점검 도구가 인스타 광고 성과에 섞이면 안 된다. gtag 와 같은 이유로 막는다. */
+if (!/HeadlessChrome|bot|crawler|spider|Lighthouse|PhantomJS/i.test(navigator.userAgent)
+    && navigator.webdriver !== true) {
+  fbq('init','771478541518631');
+  fbq('track','PageView');
+}
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></noscript>
