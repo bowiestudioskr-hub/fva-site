@@ -25,6 +25,10 @@
     --ads:#FF375F;     /* 광고 */
     --query:#0AFFE7;   /* 검색어 */
     --who:#FFD60A;     /* 누가 보고 있나 */
+
+    /* 원칙은 「선을 긋지 않는다」이지만, 리틀리 표는 칸이 다섯이라
+       면만으로는 행이 안 갈린다. 거기서만 아주 옅은 선을 쓴다. */
+    --line:#2C2C2E;
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html{-webkit-text-size-adjust:100%}
@@ -53,6 +57,43 @@
     transition:background .15s;
   }
   .seg button[aria-selected="true"]{background:var(--card2)}
+
+  /* ── 화면 전환 (사이트 ↔ 리틀리) ──
+     기간 고르는 칸(.seg)과 헷갈리면 안 되므로 생김새를 다르게 뒀다.
+     이건 「무엇을 보는가」이고 아래는 「언제 것을 보는가」다. */
+  .modes{display:flex;gap:6px;margin-bottom:9px}
+  .modes button{
+    flex:1;font:inherit;font-size:13.5px;font-weight:700;letter-spacing:-.01em;
+    color:var(--dim);background:transparent;border:1px solid var(--line);
+    border-radius:999px;padding:8px 6px;cursor:pointer;
+    transition:background .15s,color .15s,border-color .15s;
+  }
+  .modes button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+  /* 리틀리 표 — 칸 이름을 리틀리 화면과 맞춰 두 곳을 번갈아 봐도 안 헷갈리게 */
+  .lt-tbl{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .lt-tbl table{width:100%;border-collapse:collapse;font-size:13px;min-width:440px}
+  .lt-tbl th{
+    text-align:left;font-weight:600;font-size:11px;color:var(--dim);letter-spacing:.02em;
+    padding:7px 9px 7px 0;border-bottom:1px solid var(--line);
+  }
+  .lt-tbl th:first-child{padding-left:11px}
+  .lt-tbl th.n,.lt-tbl td.n{text-align:right}
+  .lt-tbl td{padding:9px 9px 9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  .lt-tbl td:first-child{padding-left:11px}
+  .lt-tbl tr:last-child td{border-bottom:0}
+  .lt-nm{font-weight:600}
+  .lt-sub{display:block;color:var(--dim);font-size:11px;font-weight:400;margin-top:1px}
+  .lt-pct{color:var(--dim);font-size:11px}
+  .lt-bar{height:3px;border-radius:2px;background:var(--line);margin-top:5px;overflow:hidden;max-width:240px}
+  .lt-bar i{display:block;height:100%;background:var(--query)}
+  .lt-ig .lt-nm{color:#E86FB4}
+  .lt-ig .lt-bar i{background:#E86FB4}
+  .lt-gone{color:var(--dim);font-weight:400}
+  .lt-more{
+    margin:10px 0 0;border:1px solid var(--line);background:transparent;color:var(--dim);
+    padding:7px 14px;border-radius:999px;font:inherit;font-size:12.5px;cursor:pointer;
+  }
 
   /* ── 큰 숫자 ── */
   .stats{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
@@ -237,7 +278,14 @@
 <div class="wrap">
 
   <div class="hd">
-    <div class="row"><h1>유입 현황</h1><span class="date" id="date"></span></div>
+    <div class="row"><h1 id="h1">유입 현황</h1><span class="date" id="date"></span></div>
+    <!-- 사이트와 리틀리는 완전히 다른 세계다. 인스타 → 리틀리 → 스마트스토어는
+         우리 사이트를 한 번도 안 거치므로 한 화면에 섞으면 숫자를 잘못 읽는다.
+         그래서 섞지 않고 좌우로 갈아 끼운다. 손가락으로 쓸어도 넘어간다. -->
+    <div class="modes" id="modes" role="tablist" aria-label="화면">
+      <button data-m="site" role="tab" aria-selected="true">사이트</button>
+      <button data-m="littly" role="tab" aria-selected="false">리틀리</button>
+    </div>
     <div class="seg" id="seg">
       <button data-d="1" aria-selected="true">오늘</button>
       <button data-d="y">어제</button>
@@ -247,9 +295,12 @@
     </div>
   </div>
 
-  <div id="stats" class="stats"></div>
-  <div id="chart"></div>
-  <div id="cats" style="display:flex;flex-direction:column;gap:26px"></div>
+  <div id="site">
+    <div id="stats" class="stats"></div>
+    <div id="chart"></div>
+    <div id="cats" style="display:flex;flex-direction:column;gap:26px"></div>
+  </div>
+  <div id="littly" hidden></div>
 
   <footer><span id="stamp"></span><span id="foot"></span></footer>
 </div>
@@ -704,12 +755,148 @@ load();
 setInterval(() => { if (!document.hidden) load(); }, 180000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden) load(); });
 
+/* ══ 리틀리 화면 ══════════════════════════════════════════
+   인스타 프로필 링크의 종착지다. 인스타 → 리틀리 → 스마트스토어가 제일 큰
+   구매 동선인데 우리 사이트를 한 번도 안 거쳐 GA4 로는 영영 안 보인다.
+   ⚠ 리틀리 무료 화면은 「최근 일주일 · 상위 5개」만 준다. 곧 유료로 넘어간다.
+     그래서 15분마다 받아 우리 쪽에 날짜별로 쌓는다 — 화면이 잠겨도 기록은 남는다.
+   ⚠ 사이트 수치와 절대 합치지 말 것. 리틀리 방문은 우리 사이트 방문이 아니다. */
+let ltBlkAll = false;
+
+const ltDur = s => !s ? '—' : (s >= 60 ? Math.floor(s / 60) + '분 ' + Math.round(s % 60) + '초' : Math.round(s) + '초');
+const LT_KO = { KR:'대한민국', US:'미국', JP:'일본', GB:'영국', CA:'캐나다', DE:'독일', FR:'프랑스',
+  AU:'호주', CN:'중국', VN:'베트남', TW:'대만', SG:'싱가포르', UA:'우크라이나', AT:'오스트리아',
+  NL:'네덜란드', IN:'인도', TH:'태국', PH:'필리핀', ID:'인도네시아', HK:'홍콩', MY:'말레이시아',
+  IE:'아일랜드', RU:'러시아', BR:'브라질', ES:'스페인', IT:'이탈리아', SE:'스웨덴', PL:'폴란드' };
+
+function ltTable(rows, head, minw) {
+  if (!rows.length) return '<div class="none">아직 없습니다.</div>';
+  return `<div class="lt-tbl"><table${minw ? ` style="min-width:${minw}px"` : ''}><thead><tr>${
+    head.map(h => `<th${h[1] ? ' class="n"' : ''}>${h[0]}</th>`).join('')
+  }</tr></thead><tbody>${rows.join('')}</tbody></table></div>`;
+}
+/* 이름 · 방문 · 클릭 · 재방문 · 체류 — 리틀리 화면과 같은 칸 구성 */
+function ltRows(list, label) {
+  const max = Math.max(1, ...list.map(x => x.visit));
+  return list.map(x => {
+    const ig = /인스타/.test(x.name);
+    return `<tr${ig ? ' class="lt-ig"' : ''}>
+      <td><span class="lt-nm">${esc(label ? label(x) : x.name)}</span>
+          ${x.host ? `<span class="lt-sub">${esc(x.host)}</span>` : ''}
+          <div class="lt-bar"><i style="width:${Math.round(x.visit / max * 100)}%"></i></div></td>
+      <td class="n"><b>${num(x.visit)}</b></td>
+      <td class="n">${num(x.click)}<span class="lt-pct"> (${x.ctr}%)</span></td>
+      <td class="n">${num(x.unique)}</td>
+      <td class="n">${ltDur(x.dwell)}</td></tr>`;
+  });
+}
+const LT_HEAD = f => [[f, 0], ['방문', 1], ['클릭', 1], ['재방문', 1], ['체류', 1]];
+
+function renderLittly() {
+  const box = document.getElementById('littly');
+  const L = ADS && ADS.littly;
+  if (!L) { box.innerHTML = '<div class="none">리틀리 수치가 아직 없습니다.</div>'; return; }
+  const p = (L.byPeriod && L.byPeriod[DAYS]) || {};
+  const d = (L.byPeriodDetail && L.byPeriodDetail[DAYS]) || (L.byPeriodDetail && L.byPeriodDetail.all) || L;
+
+  const A = [];
+  A.push(`<div class="stats">
+    ${stat('페이지 뷰','var(--visit)', num(p.visit), '회')}
+    ${stat('클릭 수','var(--query)', num(p.click), '회')}
+    ${stat('클릭율','var(--query)', p.ctr == null ? '—' : p.ctr + '%', '')}
+    ${stat('재방문','var(--who)', num(p.unique), '명')}
+    ${stat('체류','var(--who)', ltDur(p.dwell), '')}
+  </div>`);
+
+  // 날마다 — 사이트 쪽 그래프와 같은 그림틀을 쓴다
+  const span = { '1': 14, 'y': 14, '7': 14, '28': 28, '90': 90 }[DAYS] || 28;
+  const dd = (L.daily || []).slice(-span);
+  if (dd.length) {
+    A.push(`<div class="card"><h3>날마다
+      <span class="r" style="color:var(--dim);font-weight:400">${esc(dd[0].d)} ~ ${esc(dd[dd.length-1].d)}</span></h3>
+      ${ltChart(dd)}</div>`);
+  }
+
+  if ((d.blocks || []).length) {
+    const b = ltBlkAll ? d.blocks : d.blocks.slice(0, 8);
+    const max = Math.max(1, ...d.blocks.map(x => x.clicks));
+    A.push(card('무엇을 눌렀나 <span style="color:var(--dim);font-weight:400">버튼별</span>',
+      b.map(x => `<li>
+        <div class="nm"><span class="lt-nm${x.gone ? ' lt-gone' : ''}">${esc(x.name)}</span>
+          ${x.gone ? '<small>지금은 없는 버튼</small>' : ''}
+          <div class="lt-bar"><i style="width:${Math.round(x.clicks / max * 100)}%"></i></div></div>
+        <div class="vn">${num(x.clicks)}<em>회</em></div></li>`),
+      '', { memo: '스마트스토어로 나간 클릭은 <b>우리 사이트를 거치지 않습니다</b> — 여기서만 보입니다.'
+              + (d.blocks.length > 8 ? ` <button class="lt-more" id="ltmore">${ltBlkAll ? '접기' : `나머지 ${d.blocks.length - 8}개 더 보기`}</button>` : '') }));
+  }
+  box.innerHTML = A.join('')
+    + `<div class="card"><h3>유입 채널</h3>${ltTable(ltRows(d.sources || []), LT_HEAD('채널'), 520)}
+        <div class="memo"><b>인스타 링크 눌러 옴</b>이 진짜입니다. <b>인스타 (앱 미리보기)</b>는
+        앱이 미리 불러본 것이라 1%만 누르고 4초 만에 사라집니다 — 둘을 합치면 안 됩니다.</div></div>`
+    + `<div class="card"><h3>유입 국가</h3>${ltTable(ltRows((d.country || []).slice(0, 10), x => LT_KO[x.code] || x.code), LT_HEAD('국가'), 500)}</div>`
+    + `<div class="card"><h3>유입 도시</h3>${ltTable(ltRows((d.city || []).slice(0, 10)), LT_HEAD('도시'), 500)}</div>`
+    + `<div class="card"><h3>유입 기기</h3>${ltTable(ltRows(d.device || []), LT_HEAD('기기'), 500)}</div>`
+    + `<div class="memo" style="margin-top:4px">리틀리 ${esc(L.updated || '')} 기준 ·
+        보관 ${esc((L.기간 && L.기간.처음) || '')} ~ ${esc((L.기간 && L.기간.마지막) || '')}
+        (${num(L.기간 && L.기간.일수)}일) · 리틀리 무료 화면은 일주일치만 보여주므로 여기에 쌓고 있습니다.</div>`;
+
+  const m = document.getElementById('ltmore');
+  if (m) m.onclick = () => { ltBlkAll = !ltBlkAll; renderLittly(); };
+}
+
+/* 리틀리 일별 그래프 — 사이트 쪽 chart() 와 같은 눈금·같은 손맛 */
+function ltChart(d) {
+  const W = 720, H = 132, PAD = 4, BOT = 8;
+  const max = Math.max(1, ...d.map(x => x.visit));
+  const px = i => PAD + i * (W - PAD * 2) / Math.max(1, d.length - 1);
+  const py = v => H - BOT - (v / max) * (H - BOT - 12);
+  const path = k => d.map((x, i) => (i ? 'L' : 'M') + px(i).toFixed(1) + ' ' + py(x[k]).toFixed(1)).join(' ');
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"
+      style="width:100%;height:132px;display:block" role="img" aria-label="날짜별 페이지 뷰와 클릭">
+      <path d="${path('visit')}" fill="none" stroke="var(--visit)" stroke-width="2"/>
+      <path d="${path('click')}" fill="none" stroke="var(--query)" stroke-width="2"/></svg>
+    <div class="memo"><span style="color:var(--visit)">■</span> 페이지 뷰 (최대 ${num(max)})
+      &nbsp; <span style="color:var(--query)">■</span> 클릭</div>`;
+}
+
+/* ══ 화면 전환 ══ */
+let MODE = (location.hash === '#littly' ? 'littly' : 'site');
+function applyMode() {
+  document.getElementById('site').hidden = MODE !== 'site';
+  document.getElementById('littly').hidden = MODE === 'site';
+  document.getElementById('tabbar').hidden = MODE !== 'site';
+  document.getElementById('h1').textContent = MODE === 'site' ? '유입 현황' : '리틀리 현황';
+  [...document.getElementById('modes').children].forEach(b =>
+    b.setAttribute('aria-selected', b.dataset.m === MODE));
+  history.replaceState(null, '', MODE === 'littly' ? '#littly' : location.pathname);
+  if (MODE === 'littly') renderLittly();
+  window.scrollTo(0, 0);
+}
+document.getElementById('modes').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  MODE = b.dataset.m; applyMode();
+});
+/* 손가락으로 좌우로 쓸어도 넘어간다. 세로로 긋는 스크롤과 헷갈리지 않게
+   가로 이동이 세로보다 확실히 클 때만 받는다. */
+(() => {
+  let x0 = null, y0 = null;
+  addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+  addEventListener('touchend', e => {
+    if (x0 == null) return;
+    const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+    x0 = null;
+    if (Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.8) return;
+    const next = dx < 0 ? 'littly' : 'site';
+    if (next !== MODE) { MODE = next; applyMode(); }
+  }, { passive: true });
+})();
+
 document.getElementById('seg').addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   // 「어제」는 숫자가 아니라 'y' 다. 숫자로 바꾸면 NaN 이 되어 화면이 빈다.
   DAYS = b.dataset.d;
   [...e.currentTarget.children].forEach(x => x.setAttribute('aria-selected', x === b));
-  render();
+  if (MODE === 'littly') renderLittly(); else render();
 });
 </script>
 </body>
