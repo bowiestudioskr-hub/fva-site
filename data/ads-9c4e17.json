@@ -1,13 +1,13 @@
 {
-  "updated": "2026. 8. 20. AM 2:10:37",
+  "updated": "2026. 8. 20. AM 2:27:02",
   "naver": {
     "start": "2026-08-16",
     "live": true,
     "state": "운영",
-    "charged": 0,
-    "pending": 7791,
+    "charged": 77,
+    "pending": 77,
     "dailyBudget": 20000,
-    "balance": 68433,
+    "balance": 68356,
     "imp": 4279,
     "clk": 6,
     "cost": 30917,
@@ -688,7 +688,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 20. AM 2:10:32",
+    "updated": "2026. 8. 20. AM 2:26:56",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -698,32 +698,32 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 212,
+        "visit": 218,
         "click": 21,
-        "unique": 87,
-        "ctr": 9.9,
+        "unique": 88,
+        "ctr": 9.6,
         "dwell": 13
       },
       "7": {
-        "visit": 1606,
+        "visit": 1612,
         "click": 326,
-        "unique": 94,
-        "ctr": 20.3,
-        "dwell": 40
+        "unique": 95,
+        "ctr": 20.2,
+        "dwell": 39
       },
       "28": {
-        "visit": 2619,
+        "visit": 2625,
         "click": 927,
-        "unique": 94,
-        "ctr": 35.4,
-        "dwell": 40
+        "unique": 95,
+        "ctr": 35.3,
+        "dwell": 39
       },
       "90": {
-        "visit": 6166,
+        "visit": 6172,
         "click": 3066,
-        "unique": 94,
+        "unique": 95,
         "ctr": 49.7,
-        "dwell": 40
+        "dwell": 39
       },
       "y": {
         "visit": 217,
@@ -733,11 +733,11 @@
         "dwell": 80
       },
       "all": {
-        "visit": 34061,
+        "visit": 34067,
         "click": 14074,
-        "unique": 94,
+        "unique": 95,
         "ctr": 41.3,
-        "dwell": 40
+        "dwell": 39
       }
     },
     "daily": [
@@ -3149,25 +3149,25 @@
       },
       {
         "d": "2026-08-20",
-        "visit": 22,
+        "visit": 28,
         "click": 1,
-        "unique": 3
+        "unique": 4
       }
     ],
     "sources": [
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 15297,
+        "visit": 15299,
         "click": 3044,
         "unique": 11,
         "ctr": 19.9,
-        "dwell": 23
+        "dwell": 22
       },
       {
         "name": "인스타 (앱 미리보기)",
         "host": "instagram.com",
-        "visit": 3563,
+        "visit": 3565,
         "click": 32,
         "unique": 45,
         "ctr": 0.9,
@@ -3185,9 +3185,9 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 695,
+        "visit": 697,
         "click": 0,
-        "unique": 23,
+        "unique": 24,
         "ctr": 0,
         "dwell": 6
       },
@@ -3697,9 +3697,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 1851,
+        "visit": 1853,
         "click": 1174,
-        "unique": 88,
+        "unique": 89,
         "dwell": 7,
         "ctr": 63.4
       },
@@ -3795,11 +3795,11 @@
       },
       {
         "name": "GB",
-        "visit": 33,
+        "visit": 35,
         "click": 5,
-        "unique": 0,
+        "unique": 1,
         "dwell": 0,
-        "ctr": 15.2,
+        "ctr": 14.3,
         "code": "GB"
       },
       {
@@ -4090,7 +4090,7 @@
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 99,
+            "visit": 101,
             "click": 0,
             "unique": 44,
             "ctr": 0,
@@ -4099,20 +4099,20 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 64,
+            "visit": 66,
             "click": 0,
-            "unique": 19,
+            "unique": 20,
             "ctr": 0,
             "dwell": 5
           },
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 23,
+            "visit": 25,
             "click": 15,
             "unique": 11,
-            "ctr": 65.2,
-            "dwell": 14
+            "ctr": 60,
+            "dwell": 13
           },
           {
             "name": "우리 사이트",
@@ -4145,9 +4145,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 94,
+            "visit": 96,
             "click": 2,
-            "unique": 82,
+            "unique": 83,
             "dwell": 7,
             "ctr": 2.1
           },
@@ -4178,6 +4178,15 @@
             "dwell": 22,
             "ctr": 0,
             "code": "VN"
+          },
+          {
+            "name": "GB",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "GB"
           },
           {
             "name": "NP",
@@ -4225,6 +4234,15 @@
             "dwell": 22,
             "ctr": 0,
             "code": "KR"
+          },
+          {
+            "name": "Bradford",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "GB"
           },
           {
             "name": "Seongnam-si",
@@ -4388,7 +4406,7 @@
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 540,
+            "visit": 542,
             "click": 6,
             "unique": 45,
             "ctr": 1.1,
@@ -4397,20 +4415,20 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 525,
+            "visit": 527,
             "click": 0,
-            "unique": 23,
+            "unique": 24,
             "ctr": 0,
             "dwell": 6
           },
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 335,
+            "visit": 337,
             "click": 233,
             "unique": 11,
-            "ctr": 69.6,
-            "dwell": 23
+            "ctr": 69.1,
+            "dwell": 22
           },
           {
             "name": "리틀리 안에서",
@@ -4515,9 +4533,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 566,
+            "visit": 568,
             "click": 72,
-            "unique": 88,
+            "unique": 89,
             "dwell": 7,
             "ctr": 12.7
           },
@@ -4558,6 +4576,15 @@
             "code": "US"
           },
           {
+            "name": "GB",
+            "visit": 10,
+            "click": 1,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 10,
+            "code": "GB"
+          },
+          {
             "name": "UA",
             "visit": 9,
             "click": 0,
@@ -4565,15 +4592,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "UA"
-          },
-          {
-            "name": "GB",
-            "visit": 8,
-            "click": 1,
-            "unique": 0,
-            "dwell": 0,
-            "ctr": 12.5,
-            "code": "GB"
           },
           {
             "name": "JP",
@@ -4803,6 +4821,15 @@
             "code": "GB"
           },
           {
+            "name": "Bradford",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "GB"
+          },
+          {
             "name": "Mumbai",
             "visit": 2,
             "click": 0,
@@ -4891,15 +4918,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "TH"
-          },
-          {
-            "name": "Songkhla",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "TH"
           }
         ],
         "blocks": [
@@ -4982,16 +5000,16 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 874,
+            "visit": 876,
             "click": 669,
             "unique": 11,
-            "ctr": 76.5,
-            "dwell": 23
+            "ctr": 76.4,
+            "dwell": 22
           },
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 711,
+            "visit": 713,
             "click": 8,
             "unique": 45,
             "ctr": 1.1,
@@ -5000,9 +5018,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 546,
+            "visit": 548,
             "click": 0,
-            "unique": 23,
+            "unique": 24,
             "ctr": 0,
             "dwell": 6
           },
@@ -5136,11 +5154,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 764,
+            "visit": 766,
             "click": 263,
-            "unique": 88,
+            "unique": 89,
             "dwell": 7,
-            "ctr": 34.4
+            "ctr": 34.3
           },
           {
             "name": "데스크탑",
@@ -5197,6 +5215,15 @@
             "code": "UA"
           },
           {
+            "name": "GB",
+            "visit": 11,
+            "click": 1,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 9.1,
+            "code": "GB"
+          },
+          {
             "name": "DE",
             "visit": 9,
             "click": 0,
@@ -5204,15 +5231,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "DE"
-          },
-          {
-            "name": "GB",
-            "visit": 9,
-            "click": 1,
-            "unique": 0,
-            "dwell": 0,
-            "ctr": 11.1,
-            "code": "GB"
           },
           {
             "name": "HK",
@@ -5478,6 +5496,15 @@
             "code": "SG"
           },
           {
+            "name": "Bradford",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "GB"
+          },
+          {
             "name": "알 수 없음",
             "visit": 2,
             "click": 0,
@@ -5511,15 +5538,6 @@
             "unique": 0,
             "dwell": 0,
             "ctr": 100,
-            "code": "KR"
-          },
-          {
-            "name": "Busan",
-            "visit": 2,
-            "click": 0,
-            "unique": 0,
-            "dwell": 0,
-            "ctr": 0,
             "code": "KR"
           }
         ],
@@ -5635,16 +5653,16 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2916,
+            "visit": 2918,
             "click": 2277,
             "unique": 11,
-            "ctr": 78.1,
-            "dwell": 23
+            "ctr": 78,
+            "dwell": 22
           },
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 1187,
+            "visit": 1189,
             "click": 32,
             "unique": 45,
             "ctr": 2.7,
@@ -5653,9 +5671,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 612,
+            "visit": 614,
             "click": 0,
-            "unique": 23,
+            "unique": 24,
             "ctr": 0,
             "dwell": 6
           },
@@ -5825,11 +5843,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1450,
+            "visit": 1452,
             "click": 880,
-            "unique": 88,
+            "unique": 89,
             "dwell": 7,
-            "ctr": 60.7
+            "ctr": 60.6
           },
           {
             "name": "데스크탑",
@@ -5904,6 +5922,15 @@
             "code": "CA"
           },
           {
+            "name": "GB",
+            "visit": 11,
+            "click": 1,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 9.1,
+            "code": "GB"
+          },
+          {
             "name": "HK",
             "visit": 10,
             "click": 0,
@@ -5920,15 +5947,6 @@
             "dwell": 0,
             "ctr": 30,
             "code": "SG"
-          },
-          {
-            "name": "GB",
-            "visit": 9,
-            "click": 1,
-            "unique": 0,
-            "dwell": 0,
-            "ctr": 11.1,
-            "code": "GB"
           },
           {
             "name": "VN",
@@ -6356,16 +6374,16 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 15297,
+            "visit": 15299,
             "click": 3044,
             "unique": 11,
             "ctr": 19.9,
-            "dwell": 23
+            "dwell": 22
           },
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 3563,
+            "visit": 3565,
             "click": 32,
             "unique": 45,
             "ctr": 0.9,
@@ -6383,9 +6401,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 695,
+            "visit": 697,
             "click": 0,
-            "unique": 23,
+            "unique": 24,
             "ctr": 0,
             "dwell": 6
           },
@@ -6573,9 +6591,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1851,
+            "visit": 1853,
             "click": 1174,
-            "unique": 88,
+            "unique": 89,
             "dwell": 7,
             "ctr": 63.4
           },
@@ -6671,11 +6689,11 @@
           },
           {
             "name": "GB",
-            "visit": 33,
+            "visit": 35,
             "click": 5,
-            "unique": 0,
+            "unique": 1,
             "dwell": 0,
-            "ctr": 15.2,
+            "ctr": 14.3,
             "code": "GB"
           },
           {
@@ -7288,7 +7306,7 @@
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 99,
+            "visit": 101,
             "click": 0,
             "unique": 44,
             "ctr": 0,
@@ -7297,20 +7315,20 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 64,
+            "visit": 66,
             "click": 0,
-            "unique": 19,
+            "unique": 20,
             "ctr": 0,
             "dwell": 5
           },
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 23,
+            "visit": 25,
             "click": 15,
             "unique": 11,
-            "ctr": 65.2,
-            "dwell": 14
+            "ctr": 60,
+            "dwell": 13
           },
           {
             "name": "우리 사이트",
@@ -7343,9 +7361,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 94,
+            "visit": 96,
             "click": 2,
-            "unique": 82,
+            "unique": 83,
             "dwell": 7,
             "ctr": 2.1
           },
@@ -7376,6 +7394,15 @@
             "dwell": 22,
             "ctr": 0,
             "code": "VN"
+          },
+          {
+            "name": "GB",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "GB"
           },
           {
             "name": "NP",
@@ -7423,6 +7450,15 @@
             "dwell": 22,
             "ctr": 0,
             "code": "KR"
+          },
+          {
+            "name": "Bradford",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "GB"
           },
           {
             "name": "Seongnam-si",
