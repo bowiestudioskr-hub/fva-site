@@ -742,6 +742,9 @@ function load(){
       foot.style.color = '';
     }
     render();
+    // 주소에 #littly 를 달고 들어오면 리틀리 화면으로 연다.
+    // ⚠ applyMode 는 수치가 도착한 뒤에 불러야 한다 — 리틀리 화면은 ADS 를 읽는다.
+    if (typeof applyMode === 'function') applyMode();
   }).catch(() => {
     if (first) document.getElementById('cats').innerHTML =
       '<div class="card"><div class="none">데이터를 불러오지 못했습니다. 잠시 후 다시 시도합니다.</div></div>';
@@ -872,6 +875,11 @@ function applyMode() {
   if (MODE === 'littly') renderLittly();
   window.scrollTo(0, 0);
 }
+// 뒤로가기로 주소가 바뀌어도 화면이 따라간다
+addEventListener('hashchange', () => {
+  const want = location.hash === '#littly' ? 'littly' : 'site';
+  if (want !== MODE) { MODE = want; applyMode(); }
+});
 document.getElementById('modes').addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   MODE = b.dataset.m; applyMode();
