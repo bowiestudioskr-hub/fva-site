@@ -404,6 +404,10 @@ function render(){
     if (x.pages) bits.push(`${x.pages.toFixed(1)}쪽`);
     const acts = [];
     if (x.kakao) acts.push(`상담 ${num(x.kakao)}`);
+    // 스마트스토어로 넘어간 클릭이 실제 결제에 가장 가깝다. 경로별로 보여야
+    // 「어느 채널이 돈을 만드나」를 판단할 수 있다.
+    if (x.store) acts.push(`수강권 ${num(x.store)}`);
+    if (x.littly) acts.push(`리틀리 ${num(x.littly)}`);
     if (x.online) acts.push(`온라인 ${num(x.online)}`);
     if (acts.length) bits.push(`<span class="go">${acts.join(' · ')}</span>`);
     if (x.landing) bits.push(esc(x.landing) + '로 도착');

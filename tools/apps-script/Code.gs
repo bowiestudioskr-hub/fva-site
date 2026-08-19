@@ -31,7 +31,7 @@ const RANGES       = [1, 'y', 7, 28, 90];
 /* 기간 네 개를 매번 새로 계산하면 GA4 를 스무 번 넘게 부르게 되어 8~10초가 걸린다.
    대시보드는 3분마다 다시 읽으므로 그 사이에는 같은 값을 줘도 된다. 캐시로 받아둔다.
    ?fresh=1 을 붙이면 캐시를 건너뛴다 — 방금 고친 게 반영됐는지 확인할 때 쓴다. */
-const CACHE_KEY  = 'feed-v14';
+const CACHE_KEY  = 'feed-v15';
 // 캐시가 비면 처음 연 사람이 15초를 그대로 기다린다.
 // 맥에서 15분마다 도는 자동 갱신(ads_sync.sh)이 ?fresh=1 로 미리 데우지만,
 // **맥이 잠들면 그것도 멈춘다.** 새벽에 폰으로 열었을 때 느린 이유가 그것이다.
@@ -209,15 +209,19 @@ function collect(days) {
       dimensions: [{ name: 'sessionSourceMedium' }, { name: 'eventName' }],
       metrics: [{ name: 'eventCount' }],
       dimensionFilter: { filter: { fieldName: 'eventName',
-        inListFilter: { values: ['online_class_click', 'kakao_consult_click'] } } },
-      limit: 60,
+        inListFilter: { values: ['online_class_click', 'kakao_consult_click',
+                                 'offline_store_click', 'littly_click'] } } },
+      limit: 90,
     });
     (eh.rows || []).forEach(function (row) {
       const k = row.dimensionValues[0].value;
       const n = row.dimensionValues[1].value;
-      if (!srcHits[k]) srcHits[k] = { online: 0, kakao: 0 };
-      if (n === 'online_class_click') srcHits[k].online += numOf(row.metricValues[0]);
-      else srcHits[k].kakao += numOf(row.metricValues[0]);
+      const v = numOf(row.metricValues[0]);
+      if (!srcHits[k]) srcHits[k] = { online: 0, kakao: 0, store: 0, littly: 0 };
+      if (n === 'online_class_click') srcHits[k].online += v;
+      else if (n === 'offline_store_click') srcHits[k].store += v;
+      else if (n === 'littly_click') srcHits[k].littly += v;
+      else srcHits[k].kakao += v;
     });
   } catch (e) { /* 눌린 게 없으면 그냥 비어 있다 */ }
 
@@ -241,7 +245,7 @@ function collect(days) {
   const rows = (src.rows || []).map(function (row) {
     const raw = row.dimensionValues[0].value;
     const v = row.metricValues.map(numOf);
-    const h = srcHits[raw] || { online: 0, kakao: 0 };
+    const h = srcHits[raw] || { online: 0, kakao: 0, store: 0, littly: 0 };
     return {
       name: pretty(raw), raw: raw,
       users: v[0], sessions: v[1],
@@ -249,7 +253,7 @@ function collect(days) {
       pages: v[3],             // 세션당 본 페이지 수
       engaged: v[4],           // 참여 세션 비율 (0~1)
       bounce: v[5],            // 바로 나간 비율 (0~1)
-      kakao: h.kakao, online: h.online,
+      kakao: h.kakao, online: h.online, store: h.store, littly: h.littly,
       landing: srcLand[raw] || '',
     };
   });
@@ -267,6 +271,7 @@ function collect(days) {
     a.engaged= (a.engaged* a.users + x.engaged* x.users) / u;
     a.bounce = (a.bounce * a.users + x.bounce * x.users) / u;
     a.sessions += x.sessions; a.kakao += x.kakao; a.online += x.online;
+    a.store = (a.store || 0) + (x.store || 0); a.littly = (a.littly || 0) + (x.littly || 0);
     a.users = u;
     a.landing = a.landing || x.landing;
   });
