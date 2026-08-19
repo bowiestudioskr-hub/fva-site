@@ -676,49 +676,68 @@ svg.club-wordmark{
 
 /* ── 마감 임박 띠 ──
    이 페이지에서 가장 큰 소리를 내는 자리다. 그래서 하나만 둔다.
-   초록을 꽉 채워 바탕을 뒤집고, 나머지는 조용히 둔다. */
+   초록 일색인 페이지에서 초록으로 소리치면 묻힌다. 빨강으로 바탕을 뒤집고
+   양 끝에 현장 경고 테이프 무늬를 둘러 「지금 아니면 안 된다」를 형태로도 말한다.
+   ⚠ 빨강은 여기서만 쓴다. 다른 데로 번지면 이 띠가 특별해 보이지 않는다. */
+.off-notice{ --alert:#E01B00; --alert-ink:#FFF }
 .off-notice .nt-urgent{
+  position:relative; overflow:hidden;
   display:flex; align-items:center; justify-content:center;
   flex-wrap:wrap;
   gap:clamp(8px, calc(var(--u) * 18/1920), 18px);
   width:var(--w); max-width:calc(100% - 24px);
   margin:0 auto clamp(24px, calc(var(--u) * 44/1920), 44px);
-  padding:clamp(13px, calc(var(--u) * 22/1920), 22px) clamp(16px, calc(var(--u) * 30/1920), 30px);
-  background:var(--green); color:#06150A;
-  border-radius:999px;
+  padding:clamp(14px, calc(var(--u) * 24/1920), 24px) clamp(52px, calc(var(--u) * 92/1920), 92px);
+  background:var(--alert); color:var(--alert-ink);
+  border-radius:clamp(10px, calc(var(--u) * 16/1920), 16px);
+  box-shadow:0 0 0 1px rgba(255,255,255,.10), 0 10px 34px rgba(224,27,0,.28);
 }
+/* 양 끝 경고 테이프 */
+.off-notice .nt-urgent::before,
+.off-notice .nt-urgent::after{
+  content:""; position:absolute; top:0; bottom:0;
+  width:clamp(20px, calc(var(--u) * 34/1920), 34px);
+  background:repeating-linear-gradient(-45deg,
+    rgba(255,255,255,.92) 0 9px, transparent 9px 18px);
+  opacity:.85;
+}
+.off-notice .nt-urgent::before{ left:0 }
+.off-notice .nt-urgent::after{ right:0 }
+
 .nt-urgent .flare{
   font-size:clamp(12px, calc(var(--u) * 21/1920), 21px);
   font-weight:800; letter-spacing:.02em;
   padding:clamp(3px,calc(var(--u)*6/1920),6px) clamp(9px,calc(var(--u)*15/1920),15px);
-  border-radius:999px; background:#06150A; color:var(--green);
+  border-radius:999px; background:var(--alert-ink); color:var(--alert);
   white-space:nowrap;
-  animation:nt-blink 1.6s ease-in-out infinite;
+  animation:nt-blink 1.5s ease-in-out infinite;
 }
 .nt-urgent strong{
-  font-size:clamp(15px, calc(var(--u) * 30/1920), 30px);
+  font-size:clamp(15px, calc(var(--u) * 31/1920), 31px);
   font-weight:800; letter-spacing:-.035em; line-height:1.25;
   word-break:keep-all; text-wrap:balance;
 }
 .nt-urgent strong b{
-  font-weight:800;
-  box-shadow:inset 0 -.38em 0 rgba(6,21,10,.16);   /* 형광펜 자국 */
+  font-weight:800; color:var(--green);   /* 브랜드 초록은 여기 한 단어에만 */
 }
 .nt-urgent .dday{
   font-size:clamp(12.5px, calc(var(--u) * 22/1920), 22px);
   font-weight:800; letter-spacing:-.02em; white-space:nowrap;
-  padding:clamp(3px,calc(var(--u)*6/1920),6px) clamp(10px,calc(var(--u)*16/1920),16px);
-  border-radius:999px; background:rgba(6,21,10,.13);
+  padding:clamp(4px,calc(var(--u)*7/1920),7px) clamp(11px,calc(var(--u)*17/1920),17px);
+  border-radius:999px; background:rgba(0,0,0,.26);
   font-variant-numeric:tabular-nums;
 }
-@keyframes nt-blink{ 0%,100%{opacity:1} 50%{opacity:.42} }
+@keyframes nt-blink{ 0%,100%{opacity:1} 50%{opacity:.4} }
 @media (prefers-reduced-motion: reduce){
   .nt-urgent .flare{ animation:none }
 }
 @media (max-width:680px){
   .off-notice .nt-urgent{
-    border-radius:clamp(12px,3vw,18px);
-    padding:13px 14px; gap:7px;
+    padding:14px clamp(26px,7vw,34px); gap:8px;
+    box-shadow:0 0 0 1px rgba(255,255,255,.10), 0 8px 22px rgba(224,27,0,.26);
   }
-  .nt-urgent strong{ font-size:16px; width:100% }
+  .off-notice .nt-urgent::before,
+  .off-notice .nt-urgent::after{ width:14px }
+  .nt-urgent strong{ font-size:16.5px; width:100% }
+  .nt-urgent .flare{ font-size:12px }
 }
