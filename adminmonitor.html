@@ -101,6 +101,15 @@
     .lt-tbl th:nth-child(5),.lt-tbl td:nth-child(5){display:none}
     .lt-m{display:block;color:var(--dim);font-size:11px;font-weight:400;margin-top:2px}
   }
+  /* 버튼 썸네일 — 리틀리에 올린 그림 그대로. 글자보다 훨씬 빨리 읽힌다.
+     ⚠ 리틀리가 잠겨도 남도록 우리 쪽(assets/img/littly)에 받아 두었다.
+       버튼 그림을 바꾸면 그 파일도 다시 받아야 한다. */
+  .lt-row{display:flex;align-items:center;gap:11px}
+  .lt-th{
+    width:52px;height:52px;flex:none;border-radius:9px;object-fit:cover;
+    background:var(--card2);
+  }
+  .lt-th.none{display:block}
   .lttip{
     position:absolute;top:-4px;left:0;transform:translateX(-50%);
     background:var(--card2);color:var(--ink);font-size:11.5px;white-space:nowrap;
@@ -881,7 +890,9 @@ function renderLittly() {
     const b = ltBlkAll ? d.blocks : d.blocks.slice(0, 8);
     const max = Math.max(1, ...d.blocks.map(x => x.clicks));
     A.push(card('무엇을 눌렀나 <span style="color:var(--dim);font-weight:400">버튼별</span>',
-      b.map(x => `<li>
+      b.map(x => `<li class="lt-row">
+        ${x.img ? `<img class="lt-th" src="/assets/img/littly/${esc(x.key)}.webp" alt="" loading="lazy"
+             width="52" height="52" onerror="this.remove()">` : '<span class="lt-th none"></span>'}
         <div class="nm"><span class="lt-tag ${x.kind || 'etc'}">${LT_KIND[x.kind] || '그 밖'}</span><span class="lt-nm${x.gone ? ' lt-gone' : ''}">${esc(x.name)}</span>
           ${x.gone ? '<small>지금은 없는 버튼</small>' : ''}
           <div class="lt-bar"><i style="width:${Math.round(x.clicks / max * 100)}%"></i></div></div>
