@@ -689,36 +689,35 @@ svg.club-wordmark{
 /* ── 마감 임박 띠 ──
    이 페이지에서 가장 큰 소리를 내는 자리다. 그래서 하나만 둔다.
    초록 일색인 페이지에서 초록으로 소리치면 묻힌다. 빨강으로 바탕을 뒤집고
-   양 끝에 현장 경고 테이프 무늬를 둘러 「지금 아니면 안 된다」를 형태로도 말한다.
-   ⚠ 빨강은 여기서만 쓴다. 다른 데로 번지면 이 띠가 특별해 보이지 않는다. */
+   캐릭터를 띠 위로 세워 받침처럼 쓴다.
+   ⚠ 빨강은 여기서만 쓴다. 다른 데로 번지면 이 띠가 특별해 보이지 않는다.
+   ⚠ 캐릭터가 위로 넘치므로 .off-notice 의 padding-top 이 그 자리를 비워둔다. */
 .off-notice{ --alert:#E01B00; --alert-ink:#FFF }
 .off-notice .nt-urgent{
-  position:relative; overflow:hidden;
-  display:flex; align-items:center; justify-content:center;
-  flex-wrap:wrap;
-  gap:clamp(8px, calc(var(--u) * 18/1920), 18px);
+  position:relative;
+  display:flex; align-items:flex-end; justify-content:center;
+  gap:clamp(10px, calc(var(--u) * 26/1920), 26px);
   width:var(--w); max-width:calc(100% - 24px);
   margin:0 auto clamp(24px, calc(var(--u) * 44/1920), 44px);
-  padding:clamp(12px, calc(var(--u) * 20/1920), 20px) clamp(18px, calc(var(--u) * 34/1920), 34px);
+  padding:clamp(12px, calc(var(--u) * 20/1920), 20px) clamp(20px, calc(var(--u) * 40/1920), 40px);
   background:var(--alert); color:var(--alert-ink);
-  border-radius:clamp(10px, calc(var(--u) * 16/1920), 16px);
-  box-shadow:0 0 0 1px rgba(255,255,255,.10), 0 10px 34px rgba(224,27,0,.28);
+  border-radius:clamp(12px, calc(var(--u) * 20/1920), 20px);
+  box-shadow:0 10px 34px rgba(224,27,0,.30);
 }
-/* 캐릭터가 띠 왼쪽에서 고개를 내민다.
-   사선 테이프를 둘렀더니 빨강+초록이 크리스마스로 읽혔다 — 무늬를 걷고
-   우리 캐릭터를 세운다. 브랜드 물건이면서 시선도 잡는다. */
-/* 캐릭터를 띠 밖으로 크게 세운다. 띠 안에 얌전히 넣으면 아이콘이 되고,
-   위로 넘치게 두면 띠가 캐릭터를 받치는 받침이 된다.
-   ⚠ 넘치는 만큼 위에 자리를 비워둬야 헤더에 겹친다. .off-notice 의 padding-top 이 그 자리다. */
+/* 캐릭터 — 띠 위로 솟는다. 안에 얌전히 넣으면 아이콘이 되고,
+   넘치게 두면 띠가 캐릭터를 받치는 받침이 된다. */
 .nt-urgent .face{
-  height:clamp(78px, calc(var(--u) * 168/1920), 168px);
+  height:clamp(96px, calc(var(--u) * 210/1920), 210px);
   width:auto; flex:none;
-  margin-top:calc(-1 * clamp(40px, calc(var(--u) * 86/1920), 86px));
-  margin-bottom:calc(-1 * clamp(10px, calc(var(--u) * 16/1920), 16px));
-  align-self:flex-end;
-  filter:drop-shadow(0 6px 18px rgba(0,0,0,.42));
+  margin-top:calc(-1 * clamp(46px, calc(var(--u) * 104/1920), 104px));
+  margin-bottom:calc(-1 * clamp(11px, calc(var(--u) * 19/1920), 19px));
+  filter:drop-shadow(0 8px 20px rgba(0,0,0,.45));
 }
-
+.nt-urgent .say{
+  display:flex; align-items:center; justify-content:center;
+  flex-wrap:wrap; gap:clamp(8px, calc(var(--u) * 16/1920), 16px);
+  padding-bottom:clamp(2px, calc(var(--u) * 6/1920), 6px);
+}
 .nt-urgent .flare{
   font-size:clamp(12px, calc(var(--u) * 21/1920), 21px);
   font-weight:800; letter-spacing:.02em;
@@ -728,13 +727,11 @@ svg.club-wordmark{
   animation:nt-blink 1.5s ease-in-out infinite;
 }
 .nt-urgent strong{
-  font-size:clamp(15px, calc(var(--u) * 31/1920), 31px);
-  font-weight:800; letter-spacing:-.035em; line-height:1.25;
+  font-size:clamp(16px, calc(var(--u) * 34/1920), 34px);
+  font-weight:800; letter-spacing:-.035em; line-height:1.24;
   word-break:keep-all; text-wrap:balance;
 }
-.nt-urgent strong b{
-  font-weight:800; color:var(--green);   /* 브랜드 초록은 여기 한 단어에만 */
-}
+.nt-urgent strong b{ font-weight:800; color:var(--green) }   /* 브랜드 초록은 이 한 단어에만 */
 .nt-urgent .dday{
   font-size:clamp(12.5px, calc(var(--u) * 22/1920), 22px);
   font-weight:800; letter-spacing:-.02em; white-space:nowrap;
@@ -743,16 +740,16 @@ svg.club-wordmark{
   font-variant-numeric:tabular-nums;
 }
 @keyframes nt-blink{ 0%,100%{opacity:1} 50%{opacity:.4} }
-@media (prefers-reduced-motion: reduce){
-  .nt-urgent .flare{ animation:none }
-}
+@media (prefers-reduced-motion: reduce){ .nt-urgent .flare{ animation:none } }
+
 @media (max-width:680px){
   .off-notice .nt-urgent{
-    padding:10px 14px; gap:7px;
-    margin-bottom:18px;
-    box-shadow:0 0 0 1px rgba(255,255,255,.10), 0 8px 22px rgba(224,27,0,.26);
+    padding:10px 14px 12px; gap:9px; margin-bottom:18px;
+    border-radius:16px;
   }
-  .nt-urgent strong{ font-size:16.5px; width:100% }
+  .nt-urgent .face{ height:88px; margin-top:-42px; margin-bottom:-8px }
+  .nt-urgent .say{ gap:5px }
+  .nt-urgent strong{ font-size:16px; width:100% }
   .nt-urgent .flare{ font-size:11.5px }
-  .nt-urgent .face{ height:76px; margin-top:-38px; margin-bottom:-8px }
+  .nt-urgent .dday{ font-size:12px }
 }
