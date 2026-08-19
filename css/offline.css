@@ -699,22 +699,20 @@ svg.club-wordmark{
   gap:clamp(8px, calc(var(--u) * 18/1920), 18px);
   width:var(--w); max-width:calc(100% - 24px);
   margin:0 auto clamp(24px, calc(var(--u) * 44/1920), 44px);
-  padding:clamp(14px, calc(var(--u) * 24/1920), 24px) clamp(52px, calc(var(--u) * 92/1920), 92px);
+  padding:clamp(12px, calc(var(--u) * 20/1920), 20px) clamp(18px, calc(var(--u) * 34/1920), 34px);
   background:var(--alert); color:var(--alert-ink);
   border-radius:clamp(10px, calc(var(--u) * 16/1920), 16px);
   box-shadow:0 0 0 1px rgba(255,255,255,.10), 0 10px 34px rgba(224,27,0,.28);
 }
-/* 양 끝 경고 테이프 */
-.off-notice .nt-urgent::before,
-.off-notice .nt-urgent::after{
-  content:""; position:absolute; top:0; bottom:0;
-  width:clamp(20px, calc(var(--u) * 34/1920), 34px);
-  background:repeating-linear-gradient(-45deg,
-    rgba(255,255,255,.92) 0 9px, transparent 9px 18px);
-  opacity:.85;
+/* 캐릭터가 띠 왼쪽에서 고개를 내민다.
+   사선 테이프를 둘렀더니 빨강+초록이 크리스마스로 읽혔다 — 무늬를 걷고
+   우리 캐릭터를 세운다. 브랜드 물건이면서 시선도 잡는다. */
+.nt-urgent .face{
+  height:clamp(46px, calc(var(--u) * 92/1920), 92px);
+  width:auto; flex:none;
+  margin:calc(-1 * clamp(10px, calc(var(--u) * 18/1920), 18px)) 0;  /* 띠 위아래로 살짝 넘치게 */
+  filter:drop-shadow(0 3px 10px rgba(0,0,0,.32));
 }
-.off-notice .nt-urgent::before{ left:0 }
-.off-notice .nt-urgent::after{ right:0 }
 
 .nt-urgent .flare{
   font-size:clamp(12px, calc(var(--u) * 21/1920), 21px);
@@ -745,12 +743,11 @@ svg.club-wordmark{
 }
 @media (max-width:680px){
   .off-notice .nt-urgent{
-    padding:12px clamp(24px,6.5vw,32px); gap:6px;
+    padding:10px 14px; gap:7px;
     margin-bottom:18px;
     box-shadow:0 0 0 1px rgba(255,255,255,.10), 0 8px 22px rgba(224,27,0,.26);
   }
-  .off-notice .nt-urgent::before,
-  .off-notice .nt-urgent::after{ width:14px }
   .nt-urgent strong{ font-size:16.5px; width:100% }
-  .nt-urgent .flare{ font-size:12px }
+  .nt-urgent .flare{ font-size:11.5px }
+  .nt-urgent .face{ height:42px; margin:-8px 0 }
 }
