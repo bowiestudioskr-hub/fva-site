@@ -1,10 +1,10 @@
 {
-  "updated": "2026. 8. 20. AM 12:01:26",
+  "updated": "2026. 8. 20. AM 12:04:24",
   "naver": {
     "start": "2026-08-16",
-    "live": false,
-    "state": "오늘 예산 소진",
-    "charged": 13099,
+    "live": true,
+    "state": "운영",
+    "charged": 0,
     "pending": 7791,
     "dailyBudget": 20000,
     "balance": 68433,
@@ -132,8 +132,8 @@
         "id": "grp-a001-01-000000071921583",
         "name": "프리프로덕션·기획",
         "code": "A",
-        "live": false,
-        "state": "예산 소진",
+        "live": true,
+        "state": "운영",
         "bid": 200,
         "landing": "https://fva.co.kr/online.html?utm_source=naver&utm_medium=cpc&utm_campaign=powerlink&utm_content=a_preproduction",
         "keywords": [
@@ -293,8 +293,8 @@
         "id": "grp-a001-01-000000071921584",
         "name": "AI영상",
         "code": "B",
-        "live": false,
-        "state": "예산 소진",
+        "live": true,
+        "state": "운영",
         "bid": 200,
         "landing": "https://fva.co.kr/curriculum.html?utm_source=naver&utm_medium=cpc&utm_campaign=powerlink&utm_content=b_ai",
         "keywords": [
@@ -374,8 +374,8 @@
         "id": "grp-a001-01-000000071921585",
         "name": "학원·포트폴리오",
         "code": "C",
-        "live": false,
-        "state": "예산 소진",
+        "live": true,
+        "state": "운영",
         "bid": 250,
         "landing": "https://fva.co.kr/offline.html?utm_source=naver&utm_medium=cpc&utm_campaign=powerlink&utm_content=c_academy",
         "keywords": [
@@ -584,7 +584,7 @@
     ]
   },
   "google": {
-    "updated": "2026. 8. 20. AM 12:01:19",
+    "updated": "2026. 8. 20. AM 12:04:19",
     "period": "2026년 7월 20일 ~ 8월 18일",
     "imp": 5119,
     "clk": 133,
@@ -688,7 +688,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 20. AM 12:01:20",
+    "updated": "2026. 8. 20. AM 12:04:19",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -3372,6 +3372,7 @@
         "name": "커리큘럼 — 12주 영상 기획·연출 과정 | FVA 피바아카데미",
         "gone": false,
         "kind": "site",
+        "img": true,
         "clicks": 2971
       },
       {
@@ -3379,6 +3380,7 @@
         "name": "온라인 강의 페이지",
         "gone": false,
         "kind": "site",
+        "img": true,
         "clicks": 1735
       },
       {
@@ -3386,6 +3388,7 @@
         "name": "🙋 카카오 채널로 수강상담 하러가기",
         "gone": false,
         "kind": "chat",
+        "img": false,
         "clicks": 1021
       },
       {
@@ -3393,6 +3396,7 @@
         "name": "지운 블럭 (00OQVPe)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 888
       },
       {
@@ -3400,6 +3404,7 @@
         "name": "지운 블럭 (0bSSo5p)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 847
       },
       {
@@ -3407,6 +3412,7 @@
         "name": "지운 블럭 (AdQye9o)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 834
       },
       {
@@ -3414,6 +3420,7 @@
         "name": "지운 블럭 (V65EW4n)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 623
       },
       {
@@ -3421,6 +3428,7 @@
         "name": "지운 블럭 (sWOeLTu)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 620
       },
       {
@@ -3428,6 +3436,7 @@
         "name": "수강 후기 페이지",
         "gone": false,
         "kind": "site",
+        "img": true,
         "clicks": 474
       },
       {
@@ -3435,6 +3444,7 @@
         "name": "지운 블럭 (RxyICGs)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 429
       },
       {
@@ -3442,6 +3452,7 @@
         "name": "지운 블럭 (LZFqEZ3)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 425
       },
       {
@@ -3449,6 +3460,7 @@
         "name": "지운 블럭 (tQY0nGt)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 332
       },
       {
@@ -3456,6 +3468,7 @@
         "name": "수강생 작품보기 (유튜브)",
         "gone": false,
         "kind": "site",
+        "img": true,
         "clicks": 317
       },
       {
@@ -3463,6 +3476,7 @@
         "name": "지운 블럭 (ZP63A49)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 294
       },
       {
@@ -3470,6 +3484,7 @@
         "name": "지운 블럭 (hPz8a5Y)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 254
       },
       {
@@ -3477,6 +3492,7 @@
         "name": "지운 블럭 (OPjnbdZ)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 241
       },
       {
@@ -3484,6 +3500,7 @@
         "name": "지운 블럭 (VyMYshW)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 239
       },
       {
@@ -3491,6 +3508,7 @@
         "name": "지운 블럭 (9vgNefU)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 216
       },
       {
@@ -3498,6 +3516,7 @@
         "name": "지운 블럭 (eg5RtRF)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 181
       },
       {
@@ -3505,6 +3524,7 @@
         "name": "스마트스토어 · 3개월 풀코스 *추천*",
         "gone": false,
         "kind": "store",
+        "img": true,
         "clicks": 179
       },
       {
@@ -3512,6 +3532,7 @@
         "name": "지운 블럭 (QuhY7oT)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 122
       },
       {
@@ -3519,6 +3540,7 @@
         "name": "지운 블럭 (7B6wmTP)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 110
       },
       {
@@ -3526,6 +3548,7 @@
         "name": "지운 블럭 (36mN2eP)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 101
       },
       {
@@ -3533,6 +3556,7 @@
         "name": "지운 블럭 (435zt6v)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 87
       },
       {
@@ -3540,6 +3564,7 @@
         "name": "지운 블럭 (DtYx6j6)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 85
       },
       {
@@ -3547,6 +3572,7 @@
         "name": "지운 블럭 (h7RwpdG)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 78
       },
       {
@@ -3554,6 +3580,7 @@
         "name": "지운 블럭 (0WbAbRh)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 55
       },
       {
@@ -3561,6 +3588,7 @@
         "name": "스마트스토어 · 1개월",
         "gone": false,
         "kind": "store",
+        "img": true,
         "clicks": 55
       },
       {
@@ -3568,6 +3596,7 @@
         "name": "지운 블럭 (jOpIvqx)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 55
       },
       {
@@ -3575,6 +3604,7 @@
         "name": "지운 블럭 (YkF5Zg2)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 49
       },
       {
@@ -3582,6 +3612,7 @@
         "name": "지운 블럭 (IU3UTlE)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 38
       },
       {
@@ -3589,6 +3620,7 @@
         "name": "지운 블럭 (hehH1Nr)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 30
       },
       {
@@ -3596,6 +3628,7 @@
         "name": "스마트스토어 · [수료생 전용] 재입학 풀코스",
         "gone": false,
         "kind": "store",
+        "img": true,
         "clicks": 25
       },
       {
@@ -3603,6 +3636,7 @@
         "name": "지운 블럭 (J5hVodz)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 17
       },
       {
@@ -3610,6 +3644,7 @@
         "name": "지운 블럭 (6pwavVl)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 16
       },
       {
@@ -3617,6 +3652,7 @@
         "name": "스마트스토어 · 2개월",
         "gone": false,
         "kind": "store",
+        "img": true,
         "clicks": 14
       },
       {
@@ -3624,6 +3660,7 @@
         "name": "퍼블 수강 페이지",
         "gone": false,
         "kind": "site",
+        "img": true,
         "clicks": 7
       },
       {
@@ -3631,6 +3668,7 @@
         "name": "지운 블럭 (MTPIinD)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 4
       },
       {
@@ -3638,6 +3676,7 @@
         "name": "지운 블럭 (wE3qbQv)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 4
       },
       {
@@ -3645,6 +3684,7 @@
         "name": "지운 블럭 (Z3xTvl4)",
         "gone": true,
         "kind": "etc",
+        "img": false,
         "clicks": 1
       }
     ],
@@ -4241,6 +4281,7 @@
             "name": "수강생 작품보기 (유튜브)",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 6
           },
           {
@@ -4248,6 +4289,7 @@
             "name": "온라인 강의 페이지",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 3
           },
           {
@@ -4255,6 +4297,7 @@
             "name": "스마트스토어 · 3개월 풀코스 *추천*",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 3
           },
           {
@@ -4262,6 +4305,7 @@
             "name": "커리큘럼 — 12주 영상 기획·연출 과정 | FVA 피바아카데미",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 2
           },
           {
@@ -4269,6 +4313,7 @@
             "name": "수강 후기 페이지",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 2
           },
           {
@@ -4276,6 +4321,7 @@
             "name": "스마트스토어 · 1개월",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 1
           },
           {
@@ -4283,6 +4329,7 @@
             "name": "🙋 카카오 채널로 수강상담 하러가기",
             "gone": false,
             "kind": "chat",
+            "img": false,
             "clicks": 1
           },
           {
@@ -4290,6 +4337,7 @@
             "name": "스마트스토어 · 2개월",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 1
           },
           {
@@ -4297,6 +4345,7 @@
             "name": "스마트스토어 · [수료생 전용] 재입학 풀코스",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 1
           }
         ]
@@ -4826,6 +4875,7 @@
             "name": "스마트스토어 · 3개월 풀코스 *추천*",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 98
           },
           {
@@ -4833,6 +4883,7 @@
             "name": "커리큘럼 — 12주 영상 기획·연출 과정 | FVA 피바아카데미",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 66
           },
           {
@@ -4840,6 +4891,7 @@
             "name": "수강생 작품보기 (유튜브)",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 45
           },
           {
@@ -4847,6 +4899,7 @@
             "name": "스마트스토어 · 1개월",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 34
           },
           {
@@ -4854,6 +4907,7 @@
             "name": "수강 후기 페이지",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 28
           },
           {
@@ -4861,6 +4915,7 @@
             "name": "온라인 강의 페이지",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 25
           },
           {
@@ -4868,6 +4923,7 @@
             "name": "🙋 카카오 채널로 수강상담 하러가기",
             "gone": false,
             "kind": "chat",
+            "img": false,
             "clicks": 11
           },
           {
@@ -4875,6 +4931,7 @@
             "name": "스마트스토어 · [수료생 전용] 재입학 풀코스",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 10
           },
           {
@@ -4882,6 +4939,7 @@
             "name": "스마트스토어 · 2개월",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 8
           }
         ]
@@ -5438,6 +5496,7 @@
             "name": "커리큘럼 — 12주 영상 기획·연출 과정 | FVA 피바아카데미",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 217
           },
           {
@@ -5445,6 +5504,7 @@
             "name": "스마트스토어 · 3개월 풀코스 *추천*",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 179
           },
           {
@@ -5452,6 +5512,7 @@
             "name": "수강생 작품보기 (유튜브)",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 120
           },
           {
@@ -5459,6 +5520,7 @@
             "name": "온라인 강의 페이지",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 94
           },
           {
@@ -5466,6 +5528,7 @@
             "name": "지운 블럭 (LZFqEZ3)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 77
           },
           {
@@ -5473,6 +5536,7 @@
             "name": "수강 후기 페이지",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 62
           },
           {
@@ -5480,6 +5544,7 @@
             "name": "스마트스토어 · 1개월",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 55
           },
           {
@@ -5487,6 +5552,7 @@
             "name": "🙋 카카오 채널로 수강상담 하러가기",
             "gone": false,
             "kind": "chat",
+            "img": false,
             "clicks": 35
           },
           {
@@ -5494,6 +5560,7 @@
             "name": "스마트스토어 · [수료생 전용] 재입학 풀코스",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 25
           },
           {
@@ -5501,6 +5568,7 @@
             "name": "지운 블럭 (OPjnbdZ)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 23
           },
           {
@@ -5508,6 +5576,7 @@
             "name": "지운 블럭 (7B6wmTP)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 22
           },
           {
@@ -5515,6 +5584,7 @@
             "name": "스마트스토어 · 2개월",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 14
           },
           {
@@ -5522,6 +5592,7 @@
             "name": "지운 블럭 (YkF5Zg2)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 3
           }
         ]
@@ -6114,6 +6185,7 @@
             "name": "커리큘럼 — 12주 영상 기획·연출 과정 | FVA 피바아카데미",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 658
           },
           {
@@ -6121,6 +6193,7 @@
             "name": "온라인 강의 페이지",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 464
           },
           {
@@ -6128,6 +6201,7 @@
             "name": "지운 블럭 (LZFqEZ3)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 425
           },
           {
@@ -6135,6 +6209,7 @@
             "name": "수강생 작품보기 (유튜브)",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 317
           },
           {
@@ -6142,6 +6217,7 @@
             "name": "지운 블럭 (OPjnbdZ)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 241
           },
           {
@@ -6149,6 +6225,7 @@
             "name": "수강 후기 페이지",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 193
           },
           {
@@ -6156,6 +6233,7 @@
             "name": "스마트스토어 · 3개월 풀코스 *추천*",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 179
           },
           {
@@ -6163,6 +6241,7 @@
             "name": "지운 블럭 (eg5RtRF)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 132
           },
           {
@@ -6170,6 +6249,7 @@
             "name": "지운 블럭 (7B6wmTP)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 110
           },
           {
@@ -6177,6 +6257,7 @@
             "name": "🙋 카카오 채널로 수강상담 하러가기",
             "gone": false,
             "kind": "chat",
+            "img": false,
             "clicks": 89
           },
           {
@@ -6184,6 +6265,7 @@
             "name": "지운 블럭 (DtYx6j6)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 65
           },
           {
@@ -6191,6 +6273,7 @@
             "name": "스마트스토어 · 1개월",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 55
           },
           {
@@ -6198,6 +6281,7 @@
             "name": "지운 블럭 (YkF5Zg2)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 49
           },
           {
@@ -6205,6 +6289,7 @@
             "name": "지운 블럭 (jOpIvqx)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 33
           },
           {
@@ -6212,6 +6297,7 @@
             "name": "스마트스토어 · [수료생 전용] 재입학 풀코스",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 25
           },
           {
@@ -6219,6 +6305,7 @@
             "name": "지운 블럭 (J5hVodz)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 16
           },
           {
@@ -6226,6 +6313,7 @@
             "name": "스마트스토어 · 2개월",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 14
           }
         ]
@@ -6845,6 +6933,7 @@
             "name": "커리큘럼 — 12주 영상 기획·연출 과정 | FVA 피바아카데미",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 2971
           },
           {
@@ -6852,6 +6941,7 @@
             "name": "온라인 강의 페이지",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 1735
           },
           {
@@ -6859,6 +6949,7 @@
             "name": "🙋 카카오 채널로 수강상담 하러가기",
             "gone": false,
             "kind": "chat",
+            "img": false,
             "clicks": 1021
           },
           {
@@ -6866,6 +6957,7 @@
             "name": "지운 블럭 (00OQVPe)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 888
           },
           {
@@ -6873,6 +6965,7 @@
             "name": "지운 블럭 (0bSSo5p)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 847
           },
           {
@@ -6880,6 +6973,7 @@
             "name": "지운 블럭 (AdQye9o)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 834
           },
           {
@@ -6887,6 +6981,7 @@
             "name": "지운 블럭 (V65EW4n)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 623
           },
           {
@@ -6894,6 +6989,7 @@
             "name": "지운 블럭 (sWOeLTu)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 620
           },
           {
@@ -6901,6 +6997,7 @@
             "name": "수강 후기 페이지",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 474
           },
           {
@@ -6908,6 +7005,7 @@
             "name": "지운 블럭 (RxyICGs)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 429
           },
           {
@@ -6915,6 +7013,7 @@
             "name": "지운 블럭 (LZFqEZ3)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 425
           },
           {
@@ -6922,6 +7021,7 @@
             "name": "지운 블럭 (tQY0nGt)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 332
           },
           {
@@ -6929,6 +7029,7 @@
             "name": "수강생 작품보기 (유튜브)",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 317
           },
           {
@@ -6936,6 +7037,7 @@
             "name": "지운 블럭 (ZP63A49)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 294
           },
           {
@@ -6943,6 +7045,7 @@
             "name": "지운 블럭 (hPz8a5Y)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 254
           },
           {
@@ -6950,6 +7053,7 @@
             "name": "지운 블럭 (OPjnbdZ)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 241
           },
           {
@@ -6957,6 +7061,7 @@
             "name": "지운 블럭 (VyMYshW)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 239
           },
           {
@@ -6964,6 +7069,7 @@
             "name": "지운 블럭 (9vgNefU)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 216
           },
           {
@@ -6971,6 +7077,7 @@
             "name": "지운 블럭 (eg5RtRF)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 181
           },
           {
@@ -6978,6 +7085,7 @@
             "name": "스마트스토어 · 3개월 풀코스 *추천*",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 179
           },
           {
@@ -6985,6 +7093,7 @@
             "name": "지운 블럭 (QuhY7oT)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 122
           },
           {
@@ -6992,6 +7101,7 @@
             "name": "지운 블럭 (7B6wmTP)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 110
           },
           {
@@ -6999,6 +7109,7 @@
             "name": "지운 블럭 (36mN2eP)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 101
           },
           {
@@ -7006,6 +7117,7 @@
             "name": "지운 블럭 (435zt6v)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 87
           },
           {
@@ -7013,6 +7125,7 @@
             "name": "지운 블럭 (DtYx6j6)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 85
           },
           {
@@ -7020,6 +7133,7 @@
             "name": "지운 블럭 (h7RwpdG)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 78
           },
           {
@@ -7027,6 +7141,7 @@
             "name": "지운 블럭 (0WbAbRh)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 55
           },
           {
@@ -7034,6 +7149,7 @@
             "name": "스마트스토어 · 1개월",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 55
           },
           {
@@ -7041,6 +7157,7 @@
             "name": "지운 블럭 (jOpIvqx)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 55
           },
           {
@@ -7048,6 +7165,7 @@
             "name": "지운 블럭 (YkF5Zg2)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 49
           },
           {
@@ -7055,6 +7173,7 @@
             "name": "지운 블럭 (IU3UTlE)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 38
           },
           {
@@ -7062,6 +7181,7 @@
             "name": "지운 블럭 (hehH1Nr)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 30
           },
           {
@@ -7069,6 +7189,7 @@
             "name": "스마트스토어 · [수료생 전용] 재입학 풀코스",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 25
           },
           {
@@ -7076,6 +7197,7 @@
             "name": "지운 블럭 (J5hVodz)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 17
           },
           {
@@ -7083,6 +7205,7 @@
             "name": "지운 블럭 (6pwavVl)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 16
           },
           {
@@ -7090,6 +7213,7 @@
             "name": "스마트스토어 · 2개월",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 14
           },
           {
@@ -7097,6 +7221,7 @@
             "name": "퍼블 수강 페이지",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 7
           },
           {
@@ -7104,6 +7229,7 @@
             "name": "지운 블럭 (MTPIinD)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 4
           },
           {
@@ -7111,6 +7237,7 @@
             "name": "지운 블럭 (wE3qbQv)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 4
           },
           {
@@ -7118,6 +7245,7 @@
             "name": "지운 블럭 (Z3xTvl4)",
             "gone": true,
             "kind": "etc",
+            "img": false,
             "clicks": 1
           }
         ]
@@ -7324,6 +7452,7 @@
             "name": "수강생 작품보기 (유튜브)",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 6
           },
           {
@@ -7331,6 +7460,7 @@
             "name": "온라인 강의 페이지",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 3
           },
           {
@@ -7338,6 +7468,7 @@
             "name": "스마트스토어 · 3개월 풀코스 *추천*",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 3
           },
           {
@@ -7345,6 +7476,7 @@
             "name": "커리큘럼 — 12주 영상 기획·연출 과정 | FVA 피바아카데미",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 2
           },
           {
@@ -7352,6 +7484,7 @@
             "name": "수강 후기 페이지",
             "gone": false,
             "kind": "site",
+            "img": true,
             "clicks": 2
           },
           {
@@ -7359,6 +7492,7 @@
             "name": "스마트스토어 · 1개월",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 1
           },
           {
@@ -7366,6 +7500,7 @@
             "name": "🙋 카카오 채널로 수강상담 하러가기",
             "gone": false,
             "kind": "chat",
+            "img": false,
             "clicks": 1
           },
           {
@@ -7373,6 +7508,7 @@
             "name": "스마트스토어 · 2개월",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 1
           },
           {
@@ -7380,6 +7516,7 @@
             "name": "스마트스토어 · [수료생 전용] 재입학 풀코스",
             "gone": false,
             "kind": "store",
+            "img": true,
             "clicks": 1
           }
         ]
