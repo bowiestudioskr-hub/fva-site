@@ -742,14 +742,20 @@ svg.club-wordmark{
 @keyframes nt-blink{ 0%,100%{opacity:1} 50%{opacity:.4} }
 @media (prefers-reduced-motion: reduce){ .nt-urgent .flare{ animation:none } }
 
+/* 좁은 화면에서도 캐릭터가 띠 위로 솟게 둔다. 다만 옆으로 나란히 두면
+   글자가 눌리므로 캐릭터를 윗줄에 세우고 글은 아래로 내린다. */
 @media (max-width:680px){
   .off-notice .nt-urgent{
-    padding:10px 14px 12px; gap:9px; margin-bottom:18px;
+    flex-direction:column; align-items:center;
+    padding:0 14px 13px; gap:6px; margin-bottom:18px;
     border-radius:16px;
   }
-  .nt-urgent .face{ height:88px; margin-top:-42px; margin-bottom:-8px }
-  .nt-urgent .say{ gap:5px }
-  .nt-urgent strong{ font-size:16px; width:100% }
+  .nt-urgent .face{
+    height:118px; margin-top:-58px; margin-bottom:-2px;
+    align-self:center;
+  }
+  .nt-urgent .say{ gap:5px; padding-bottom:0 }
+  .nt-urgent strong{ font-size:16.5px; width:100% }
   .nt-urgent .flare{ font-size:11.5px }
   .nt-urgent .dday{ font-size:12px }
 }
