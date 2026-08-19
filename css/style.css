@@ -698,6 +698,10 @@ body > main{ max-width:calc(1920px + 2 * var(--gutter)); margin-inline:auto }
   color:#4C4C4C;font-weight:700;letter-spacing:-.02em;
 }
 .site-footer .ft-name{ letter-spacing:.02em }
+/* 개인정보처리방침 링크. sub.css 에만 있어서 홈에서는 밑줄이 안 그어졌다.
+   푸터는 모든 페이지에 있으므로 규칙도 공통 파일에 둔다. */
+.site-footer .ft-privacy{ text-decoration:underline; text-underline-offset:2px; color:inherit }
+.site-footer .ft-privacy:hover{ color:var(--green) }
 
 /* ══════════════════════════════════════════════════════════
    태블릿 · 모바일

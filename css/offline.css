@@ -628,17 +628,32 @@ svg.club-wordmark{
 .nt-btn{
   display:inline-flex; align-items:center; justify-content:center; gap:.4em;
   min-width:clamp(160px, calc(var(--u) * 290/1920), 290px);
+  /* 손가락으로 짚는 자리다. 애플·구글 권장이 44px 이라 그 아래로 안 내려가게 잡는다. */
+  min-height:clamp(52px, calc(var(--u) * 74/1920), 74px);
   padding:clamp(13px, calc(var(--u) * 24/1920), 24px) clamp(20px, calc(var(--u) * 36/1920), 36px);
   border-radius:999px;
   font-size:clamp(15px, calc(var(--u) * 26/1920), 26px);
   font-weight:800; letter-spacing:-.028em; line-height:1;
-  transition:filter .15s, transform .12s, background .15s, color .15s;
+  transition:filter .15s, transform .12s, background .15s, color .15s, box-shadow .15s;
 }
-.nt-btn.solid{ background:var(--green); color:#06150A }
-.nt-btn.ghost{ background:transparent; color:var(--white); box-shadow:inset 0 0 0 2px rgba(253,253,253,.55) }
+.nt-btn.solid{
+  background:var(--green); color:#06150A;
+  box-shadow:0 6px 20px rgba(122,255,102,.28);
+}
+/* 테두리만 있는 버튼은 「눌러도 되나」 싶게 보인다. 면을 살짝 깔고 테두리를 또렷하게
+   해서 두 번째 버튼도 버튼으로 읽히게 한다. */
+.nt-btn.ghost{
+  background:rgba(253,253,253,.10); color:var(--white);
+  box-shadow:inset 0 0 0 2px var(--white);
+}
 .nt-btn:hover{ filter:brightness(1.07); transform:translateY(-2px) }
+.nt-btn.solid:hover{ box-shadow:0 10px 26px rgba(122,255,102,.4) }
 .nt-btn.ghost:hover{ background:var(--white); color:#06150A; box-shadow:none; filter:none }
+.nt-btn:active{ transform:translateY(0) scale(.985) }
 .nt-btn:focus-visible{ outline:3px solid var(--green); outline-offset:3px }
+/* 화살표는 눌렀을 때 어디로 가는지 알려주는 표시다. 마우스를 올리면 살짝 나아간다. */
+.nt-btn span{ transition:transform .15s }
+.nt-btn:hover span{ transform:translateX(3px) }
 
 @media (prefers-reduced-motion: reduce){
   .nt-btn{ transition:none }
@@ -659,7 +674,10 @@ svg.club-wordmark{
   .nt-open{ margin-top:20px; gap:11px }
   .nt-how{ margin-top:16px; gap:7px }
   .nt-how div{ padding:11px 13px }
-  .nt-btns{ margin-top:18px }
+  /* 좁은 화면에서는 두 버튼이 같은 폭으로 화면을 꽉 채우게 둔다.
+     폭이 넓어야 엄지로 짚기 쉽고, 두 개가 나란해야 둘 다 버튼으로 읽힌다. */
+  .nt-btns{ margin-top:18px; gap:9px }
+  .nt-btn{ flex:1 1 0; min-width:0; min-height:52px; padding:14px 10px; font-size:15px }
 
   .nt-row{
     grid-template-columns:1fr auto; row-gap:2px;

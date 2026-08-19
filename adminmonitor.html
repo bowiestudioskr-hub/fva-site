@@ -353,8 +353,11 @@ function bindChart(points) {
   wrap.addEventListener('pointerup', () => setTimeout(hide, 1600));
 }
 
-const pill = on => on ? '<span class="pill">운영 중</span>'
-                      : '<span class="pill off">정지</span>';
+// ⚠ 「정지」만 뜨면 누가 껐는지 예산을 다 쓴 건지 알 수 없다. 이유를 그대로 적는다.
+//   네이버는 확정 과금에 아직 안 잡힌 예상 과금을 더해 일예산과 견주므로,
+//   집행액이 예산보다 적어 보이는데도 멈춘다. 그때 「오늘 예산 소진」이 뜬다.
+const pill = (on, why) => on ? '<span class="pill">운영 중</span>'
+  : `<span class="pill off">${why && why !== '정지' ? why : '정지'}</span>`;
 
 function render(){
   const r = cur();
@@ -374,7 +377,8 @@ function render(){
     //   오늘·어제가 같은 금액으로 떴다. 구글은 30일 고정이라 이름에 그렇게 박는다.
     (ADS ? stat('네이버 집행','var(--ads)',
                 won((ADS.naver.byPeriod && ADS.naver.byPeriod[DAYS] || ADS.naver).cost), '', 'ad') +
-           stat('구글 30일','var(--ads)', won(ADS.google?.cost), '', 'ad') +
+           stat((adsAgeMin(ADS.google?.updated) ?? 0) > 180 ? '구글 30일 ⚠멈춤' : '구글 30일',
+                'var(--ads)', won(ADS.google?.cost), '', 'ad') +
            stat('남은 예산','var(--ads)', won(ADS.naver.balance), '', 'ad') : '');
 
   G.innerHTML = chart(r.series);
@@ -467,15 +471,21 @@ function render(){
         '', { right: `하루 최대 ${won(n.dailyBudget)}` }));
     }
 
+    const gStale = adsAgeMin(G.updated) ?? 0;
     A.push(card('집행 현황', [
       plainRow('<span class="ch nv">네이버</span>네이버', `${esc(r.label)} · 하루 최대 ${won(n.dailyBudget)}`,
                `${won(nP.cost)}<em>노출 ${num(nP.imp)} · 클릭 ${num(nP.clk)}</em>`),
       // 구글은 API 를 못 써서 로그인된 크롬 화면을 읽어온다. 언제 읽은 것인지 같이 적는다.
-      plainRow('<span class="ch gg">구글</span>구글', G.updated ? `${esc(G.period || '')} · ${esc(G.updated)} 기준`
+      // 구글은 크롬 화면을 읽는 방식이라 크롬이 최소화돼 있으면 조용히 멈춘다.
+      // 파일 전체(updated)는 네이버가 15분마다 갱신하므로 아래쪽 경고에 안 걸린다.
+      // 그래서 구글 줄에서 따로 나이를 잰다.
+      plainRow('<span class="ch gg">구글</span>구글', G.updated
+                                 ? `${esc(G.period || '')} · ${esc(G.updated)} 기준`
+                                   + (gStale > 180 ? ` <b style="color:var(--ads)">⚠ ${Math.round(gStale/60)}시간째 멈춤 — 크롬 창을 띄워두세요</b>` : '')
                                  : '<a href="' + esc(G.console) + '" target="_blank" rel="noopener">계정 열기</a>',
                G.cost != null ? `${won(G.cost)}<em>노출 ${num(G.imp)} · 클릭 ${num(G.clk)} · 평균 ${won(G.cpc)}</em>` : ''),
       plainRow('남은 예산', '네이버', won(n.balance)),
-    ], '', { right: pill(n.live),
+    ], '', { right: pill(n.live, n.state),
       memo: n.campaignClk != null && (n.campaignImp !== n.imp)
         ? `위 수치는 <b>새로 짠 세 그룹</b>만 센 것입니다. 같은 캠페인 안에 옛 브랜드 그룹이 남아 있어 `
           + `계정에서는 노출 ${num(n.campaignImp)} · 클릭 ${num(n.campaignClk)} · ${won(n.campaignCost)}로 보입니다.`
@@ -485,7 +495,10 @@ function render(){
       A.push(card('<span class="ch gg">구글</span>구글 검색어별 집행',
         G.keywords.map(k => plainRow(
           esc(k.keyword) + (k.note ? ` <b style="color:var(--ads);font-size:11px">${esc(k.note)}</b>` : ''),
-          `노출 ${num(k.imp)} · CTR ${k.ctr}%`,
+          // 광고 관련성이 「평균 미만」이면 입찰을 올려도 노출이 안 는다.
+          // 예산 탓을 하다 하루를 버렸던 자리라, 검색어 옆에 바로 보이게 둔다.
+          `노출 ${num(k.imp)} · CTR ${k.ctr}%`
+            + (k.rel ? ` · 관련성 <b style="color:${k.rel === '평균 미만' ? 'var(--ads)' : 'inherit'}">${esc(k.rel)}</b>` : ''),
           `${won(k.cost)}<em>${num(k.clk)}클릭 · ${won(k.cpc)}</em>`)),
         '', { right: `평균 ${won(G.cpc)}`,
               memo: G.conv === 0
@@ -497,7 +510,7 @@ function render(){
       A.push(card('<span class="ch nv">네이버</span>' + esc(g.name),
         perf.map(k => plainRow(esc(k.word), '', `${num(k.imp)}<em>노출 · 클릭 ${num(k.clk)}</em>`)),
         '아직 노출 실적 없음 · 집계는 15분 단위',
-        { right: `${pill(g.live)}<span>입찰 ${num(g.bid)}원</span>`,
+        { right: `${pill(g.live, g.state)}<span>입찰 ${num(g.bid)}원</span>`,
           chips: `<div class="chips">${g.keywords.map(k => {
             // 정지와 검토중은 다르다. 검토중은 곧 나갈 것이라 「왜 안 나가지」 하고 헤매지 않게 표시한다.
             const st = k.state || (k.live ? '운영' : '정지');

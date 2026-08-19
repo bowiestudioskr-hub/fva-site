@@ -22,6 +22,9 @@ const END = '<!-- /BUILD:REVIEWS -->';
 function build() {
   const reviews = JSON.parse(fs.readFileSync(path.join(SITE, 'assets/data/reviews.json'), 'utf8'));
   const file = path.join(SITE, 'reviews.html');
+  // ⚠ 이 파일은 reviews.html 을 읽어 후기 목록만 갈아 끼운다. <head> 는 그대로 둔다.
+  //    그래서 캐시 버전(?v=)이 빌드로 안 따라온다 — 버전을 올릴 때 손조판 8개와 함께
+  //    reviews.html 도 같이 바꿔야 한다. 한 번 빠뜨려서 옛 CSS 가 나갔다.
   let html = fs.readFileSync(file, 'utf8');
 
   const cards = RC.list(reviews);
