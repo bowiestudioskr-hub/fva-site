@@ -886,12 +886,15 @@ function renderLittly() {
   // 날마다 — 사이트 쪽 그래프와 같은 그림틀을 쓴다
   const span = { '1': 14, 'y': 14, '7': 14, '28': 28, '90': 90 }[DAYS] || 28;
   const dd = (L.daily || []).slice(-span);
+  // ⚠ 그리는 폭과 짚는 폭이 같아야 한다. 아래 bindLtChart 도 이 값을 쓰므로
+  //   블록 밖에 둔다(안에 두면 참조 못 해 그래프가 통째로 죽는다).
+  const cw = Math.max(320, Math.round(document.getElementById('littly').clientWidth || 720));
   if (dd.length) {
     // ⚠ 위 숫자는 고른 기간 것인데 그래프는 늘 흐름을 보여준다.
     //   「오늘」을 눌렀는데 2주치 선이 나오면 잘못 읽는다. 제목에 며칠치인지 박는다.
     A.push(`<div class="card"><h3>최근 ${dd.length}일 흐름
       <span class="r" style="color:var(--dim);font-weight:400">${esc(dd[0].d)} ~ ${esc(dd[dd.length-1].d)}</span></h3>
-      ${ltChart(dd)}</div>`);
+      ${ltChart(dd, cw)}</div>`);
   }
 
   if ((d.blocks || []).length) {
@@ -925,19 +928,19 @@ function renderLittly() {
 
   const m = document.getElementById('ltmore');
   if (m) m.onclick = () => { ltBlkAll = !ltBlkAll; renderLittly(); };
-  bindLtChart(dd);
+  bindLtChart(dd, cw);
 }
 
 /* 그래프 위에 손을 대면 그 날짜와 수치가 바로 뜬다.
    ⚠ 마우스는 leave 가 오지만 손가락은 안 온다. 떼면 지우도록 따로 걸어 둔다. */
-function bindLtChart(d) {
+function bindLtChart(d, W) {
   const wrap = document.querySelector('#littly .ltwrap');
   if (!wrap || !d || !d.length) return;
   const svg = wrap.querySelector('svg');
   const tip = wrap.querySelector('.lttip');
   const gl = wrap.querySelector('.ltgl');
   const d1 = wrap.querySelector('.ltd1'), d2 = wrap.querySelector('.ltd2');
-  const W = 720, L = 34, R = 8, H = 190, T = 12, B = 26;
+  const L = 34, R = 8, H = 190, T = 12, B = 26;
   const max = Math.max(1, ...d.map(z => z.visit));
   const step = Math.pow(10, Math.floor(Math.log10(max || 1)));
   const nice = Math.ceil(max / (step / 2)) * (step / 2);
@@ -971,11 +974,14 @@ function bindLtChart(d) {
 }
 
 /* 리틀리 일별 그래프 — 사이트 쪽 chart() 와 같은 눈금·같은 손맛 */
-function ltChart(d) {
+function ltChart(d, W) {
   /* 리틀리 화면처럼 눈금과 점을 같이 그린다. 선만 있으면 「대충 이 정도」밖에 안 읽힌다.
-     ⚠ preserveAspectRatio 를 none 으로 늘리면 점이 타원이 된다. 그래서 늘리지 않고
-       가로 폭을 넉넉히 잡아 화면 폭에 맞춘다. */
-  const W = 720, H = 190, L = 34, R = 8, T = 12, B = 26;
+     ⚠ 좌표가 어긋나던 자리다.
+       preserveAspectRatio 를 none 으로 늘리면 점이 타원이 된다. 그래서 기본값(meet)을 쓰는데,
+       그러면 넓은 화면에서 그림이 viewBox 폭 그대로 **가운데로 몰린다**.
+       화면 폭을 기준으로 계산하면 짚은 자리와 뜨는 값이 어긋난다(넓을수록 심해진다).
+       그래서 viewBox 폭을 「실제 그려질 폭」으로 준다 — 배율이 늘 1 이라 어긋날 여지가 없다. */
+  const H = 190, L = 34, R = 8, T = 12, B = 26;
   const max = Math.max(1, ...d.map(x => x.visit));
   // 눈금은 100·200·300 처럼 떨어지는 수로. 300.7 같은 수는 눈금 구실을 못 한다.
   const step = Math.pow(10, Math.floor(Math.log10(max || 1)));
@@ -1008,6 +1014,14 @@ function ltChart(d) {
     <div class="memo"><span style="color:var(--visit)">■</span> 페이지 뷰
       &nbsp; <span style="color:var(--query)">■</span> 클릭 &nbsp;·&nbsp; 그래프를 짚으면 그 날 수치가 나옵니다</div>`;
 }
+
+/* 창 폭이 바뀌면 그래프도 다시 그린다 — 폭이 곧 좌표계다. */
+let ltResizeT = null;
+addEventListener('resize', () => {
+  if (MODE !== 'littly') return;
+  clearTimeout(ltResizeT);
+  ltResizeT = setTimeout(renderLittly, 200);
+});
 
 /* ══ 화면 전환 ══ */
 let MODE = (location.hash === '#littly' ? 'littly' : 'site');
