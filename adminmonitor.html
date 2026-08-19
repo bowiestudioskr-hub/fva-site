@@ -101,6 +101,26 @@
     .lt-tbl th:nth-child(5),.lt-tbl td:nth-child(5){display:none}
     .lt-m{display:block;color:var(--dim);font-size:11px;font-weight:400;margin-top:2px}
   }
+  .lttip{
+    position:absolute;top:-4px;left:0;transform:translateX(-50%);
+    background:var(--card2);color:var(--ink);font-size:11.5px;white-space:nowrap;
+    padding:5px 9px;border-radius:8px;opacity:0;transition:opacity .1s;pointer-events:none;
+  }
+  /* 종류별 묶음 — 어디로 나가는 클릭인지 한눈에 */
+  .lt-sum{display:flex;gap:7px;flex-wrap:wrap;padding:0 11px 11px}
+  .lt-sum span{
+    font-size:12px;padding:5px 10px;border-radius:999px;
+    background:var(--card2);color:var(--sub);
+  }
+  .lt-sum b{color:var(--ink);font-weight:700}
+  .lt-tag{
+    display:inline-block;font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:5px;
+    margin-right:5px;vertical-align:1px;
+  }
+  .lt-tag.store{background:#0C3B1E;color:#3FD183}
+  .lt-tag.site{background:#0B2E3A;color:#0AFFE7}
+  .lt-tag.chat{background:#3A3210;color:#FFD60A}
+  .lt-tag.etc{background:var(--card2);color:var(--dim)}
   .lt-more{
     margin:10px 0 0;border:1px solid var(--line);background:transparent;color:var(--dim);
     padding:7px 14px;border-radius:999px;font:inherit;font-size:12.5px;cursor:pointer;
@@ -820,6 +840,17 @@ function ltRows(list, label) {
   });
 }
 const LT_HEAD = f => [[f, 0], ['방문', 1], ['클릭', 1], ['재방문', 1], ['체류', 1]];
+const LT_KIND = { store: '스토어', site: '사이트', chat: '상담', etc: '그 밖' };
+/* 종류별로 얼마나 나갔는지 — 버튼 목록 위에 먼저 보여준다 */
+function ltSum(list) {
+  const t = { store: 0, site: 0, chat: 0, etc: 0 };
+  (list || []).forEach(x => { t[x.kind || 'etc'] = (t[x.kind || 'etc'] || 0) + x.clicks; });
+  const all = t.store + t.site + t.chat + t.etc || 1;
+  return `<div class="lt-sum">` + Object.entries(t).filter(([, v]) => v)
+    .sort((a, b) => b[1] - a[1])
+    .map(([k, v]) => `<span><span class="lt-tag ${k}">${LT_KIND[k]}</span><b>${num(v)}</b>회 · ${Math.round(v / all * 100)}%</span>`)
+    .join('') + `</div>`;
+}
 
 function renderLittly() {
   const box = document.getElementById('littly');
@@ -851,11 +882,15 @@ function renderLittly() {
     const max = Math.max(1, ...d.blocks.map(x => x.clicks));
     A.push(card('무엇을 눌렀나 <span style="color:var(--dim);font-weight:400">버튼별</span>',
       b.map(x => `<li>
-        <div class="nm"><span class="lt-nm${x.gone ? ' lt-gone' : ''}">${esc(x.name)}</span>
+        <div class="nm"><span class="lt-tag ${x.kind || 'etc'}">${LT_KIND[x.kind] || '그 밖'}</span><span class="lt-nm${x.gone ? ' lt-gone' : ''}">${esc(x.name)}</span>
           ${x.gone ? '<small>지금은 없는 버튼</small>' : ''}
           <div class="lt-bar"><i style="width:${Math.round(x.clicks / max * 100)}%"></i></div></div>
         <div class="vn">${num(x.clicks)}<em>회</em></div></li>`),
-      '', { memo: '스마트스토어로 나간 클릭은 <b>우리 사이트를 거치지 않습니다</b> — 여기서만 보입니다.'
+      '', { chips: ltSum(d.blocks),
+            memo: '<b class="lt-tag store">스토어</b> 는 스마트스토어(결제)로, '
+              + '<b class="lt-tag site">사이트</b> 는 fva.co.kr 로, '
+              + '<b class="lt-tag chat">상담</b> 은 카카오로 나간 클릭입니다. '
+              + '스토어로 나간 클릭은 <b>우리 사이트를 거치지 않아</b> 유입 현황에는 안 잡힙니다.'
               + (d.blocks.length > 8 ? ` <button class="lt-more" id="ltmore">${ltBlkAll ? '접기' : `나머지 ${d.blocks.length - 8}개 더 보기`}</button>` : '') }));
   }
   box.innerHTML = A.join('')
@@ -871,6 +906,34 @@ function renderLittly() {
 
   const m = document.getElementById('ltmore');
   if (m) m.onclick = () => { ltBlkAll = !ltBlkAll; renderLittly(); };
+  bindLtChart(dd);
+}
+
+/* 그래프 위에 손을 대면 그 날짜와 수치가 바로 뜬다.
+   ⚠ 마우스는 leave 가 오지만 손가락은 안 온다. 떼면 지우도록 따로 걸어 둔다. */
+function bindLtChart(d) {
+  const wrap = document.querySelector('#littly .ltwrap');
+  if (!wrap || !d || !d.length) return;
+  const svg = wrap.querySelector('svg');
+  const tip = wrap.querySelector('.lttip');
+  const gl = wrap.querySelector('.ltgl');
+  const show = (clientX) => {
+    const r = svg.getBoundingClientRect();
+    const t = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+    const i = Math.round(t * (d.length - 1));
+    const x = d[i];
+    tip.innerHTML = `<b>${esc(x.d)}</b> 페이지 뷰 <b style="color:var(--visit)">${num(x.visit)}</b>`
+      + ` · 클릭 <b style="color:var(--query)">${num(x.click)}</b>`;
+    tip.style.opacity = 1;
+    tip.style.left = Math.min(Math.max(t * r.width, 82), r.width - 82) + 'px';
+    gl.setAttribute('opacity', '.5');
+    gl.setAttribute('x1', t * 720); gl.setAttribute('x2', t * 720);
+  };
+  const hide = () => { tip.style.opacity = 0; gl.setAttribute('opacity', 0); };
+  wrap.addEventListener('pointermove', e => show(e.clientX));
+  wrap.addEventListener('pointerdown', e => show(e.clientX));
+  wrap.addEventListener('pointerleave', hide);
+  wrap.addEventListener('pointerup', () => setTimeout(hide, 1600));
 }
 
 /* 리틀리 일별 그래프 — 사이트 쪽 chart() 와 같은 눈금·같은 손맛 */
@@ -880,12 +943,17 @@ function ltChart(d) {
   const px = i => PAD + i * (W - PAD * 2) / Math.max(1, d.length - 1);
   const py = v => H - BOT - (v / max) * (H - BOT - 12);
   const path = k => d.map((x, i) => (i ? 'L' : 'M') + px(i).toFixed(1) + ' ' + py(x[k]).toFixed(1)).join(' ');
-  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"
-      style="width:100%;height:132px;display:block" role="img" aria-label="날짜별 페이지 뷰와 클릭">
-      <path d="${path('visit')}" fill="none" stroke="var(--visit)" stroke-width="2"/>
-      <path d="${path('click')}" fill="none" stroke="var(--query)" stroke-width="2"/></svg>
+  return `<div class="ltwrap" style="position:relative">
+      <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"
+        style="width:100%;height:132px;display:block" role="img" aria-label="날짜별 페이지 뷰와 클릭">
+        <line class="ltgl" x1="0" y1="0" x2="0" y2="${H}" stroke="var(--dim)" stroke-width="1" opacity="0"/>
+        <path d="${path('visit')}" fill="none" stroke="var(--visit)" stroke-width="2"/>
+        <path d="${path('click')}" fill="none" stroke="var(--query)" stroke-width="2"/>
+      </svg>
+      <div class="lttip"></div>
+    </div>
     <div class="memo"><span style="color:var(--visit)">■</span> 페이지 뷰 (최대 ${num(max)})
-      &nbsp; <span style="color:var(--query)">■</span> 클릭</div>`;
+      &nbsp; <span style="color:var(--query)">■</span> 클릭 &nbsp;·&nbsp; 그래프를 짚으면 그 날 수치가 나옵니다</div>`;
 }
 
 /* ══ 화면 전환 ══ */
