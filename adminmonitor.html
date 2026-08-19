@@ -69,6 +69,8 @@
     transition:background .15s,color .15s,border-color .15s;
   }
   .modes button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  /* ⚠ hidden 은 display 를 지정한 요소에는 안 먹는다. 아래 탭바가 계속 떠 있었다. */
+  .tabbar[hidden]{display:none}
 
   /* 리틀리 표 — 칸 이름을 리틀리 화면과 맞춰 두 곳을 번갈아 봐도 안 헷갈리게 */
   .lt-tbl{overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -90,6 +92,15 @@
   .lt-ig .lt-nm{color:#E86FB4}
   .lt-ig .lt-bar i{background:#E86FB4}
   .lt-gone{color:var(--dim);font-weight:400}
+  /* 좁은 화면에서 칸 다섯을 다 세우면 마지막 둘이 화면 밖으로 밀린다.
+     가로로 밀어서 볼 수는 있지만 그러면 안 본다. 이름 밑으로 내린다. */
+  .lt-m{display:none}
+  @media (max-width:560px){
+    .lt-tbl table{min-width:0 !important}
+    .lt-tbl th:nth-child(4),.lt-tbl td:nth-child(4),
+    .lt-tbl th:nth-child(5),.lt-tbl td:nth-child(5){display:none}
+    .lt-m{display:block;color:var(--dim);font-size:11px;font-weight:400;margin-top:2px}
+  }
   .lt-more{
     margin:10px 0 0;border:1px solid var(--line);background:transparent;color:var(--dim);
     padding:7px 14px;border-radius:999px;font:inherit;font-size:12.5px;cursor:pointer;
@@ -767,6 +778,20 @@ document.addEventListener('visibilitychange', () => { if (!document.hidden) load
 let ltBlkAll = false;
 
 const ltDur = s => !s ? '—' : (s >= 60 ? Math.floor(s / 60) + '분 ' + Math.round(s % 60) + '초' : Math.round(s) + '초');
+/* 리틀리는 도시를 영어로 준다. 서울·부산이 Seoul·Busan 으로 뜨면 눈에 안 들어온다.
+   ⚠ 뒤에 붙는 -si/-gun 까지 같이 적어야 한다. 접미사만 바꾸면 「Hamyang군」이 된다. */
+const LT_CITY = {
+  Seoul:'서울', Busan:'부산', Incheon:'인천', Daegu:'대구', Daejeon:'대전',
+  Gwangju:'광주', Ulsan:'울산', Sejong:'세종', 'Suwon-si':'수원', Suwon:'수원',
+  'Seongnam-si':'성남', Seongnam:'성남', 'Goyang-si':'고양', Goyang:'고양',
+  'Yongin-si':'용인', Yongin:'용인', 'Bucheon-si':'부천', Bucheon:'부천',
+  'Ansan-si':'안산', Ansan:'안산', 'Anyang-si':'안양', Anyang:'안양',
+  'Cheongju-si':'청주', Cheongju:'청주', 'Jeonju':'전주', 'Cheonan-si':'천안', Cheonan:'천안',
+  'Hwaseong-si':'화성', Hwaseong:'화성', 'Namyangju-si':'남양주', 'Gimpo-si':'김포',
+  'Pyeongtaek-si':'평택', 'Uijeongbu-si':'의정부', 'Paju-si':'파주', 'Gwangmyeong-si':'광명',
+  'Jeju City':'제주', Jeju:'제주', Pohang:'포항', Changwon:'창원', Gimhae:'김해',
+  'Guri-si':'구리', 'Osan-si':'오산', 'Icheon-si':'이천', 'Gunpo-si':'군포',
+};
 const LT_KO = { KR:'대한민국', US:'미국', JP:'일본', GB:'영국', CA:'캐나다', DE:'독일', FR:'프랑스',
   AU:'호주', CN:'중국', VN:'베트남', TW:'대만', SG:'싱가포르', UA:'우크라이나', AT:'오스트리아',
   NL:'네덜란드', IN:'인도', TH:'태국', PH:'필리핀', ID:'인도네시아', HK:'홍콩', MY:'말레이시아',
@@ -786,6 +811,7 @@ function ltRows(list, label) {
     return `<tr${ig ? ' class="lt-ig"' : ''}>
       <td><span class="lt-nm">${esc(label ? label(x) : x.name)}</span>
           ${x.host ? `<span class="lt-sub">${esc(x.host)}</span>` : ''}
+          <span class="lt-m">재방문 ${num(x.unique)} · 체류 ${ltDur(x.dwell)}</span>
           <div class="lt-bar"><i style="width:${Math.round(x.visit / max * 100)}%"></i></div></td>
       <td class="n"><b>${num(x.visit)}</b></td>
       <td class="n">${num(x.click)}<span class="lt-pct"> (${x.ctr}%)</span></td>
@@ -837,7 +863,7 @@ function renderLittly() {
         <div class="memo"><b>인스타 링크 눌러 옴</b>이 진짜입니다. <b>인스타 (앱 미리보기)</b>는
         앱이 미리 불러본 것이라 1%만 누르고 4초 만에 사라집니다 — 둘을 합치면 안 됩니다.</div></div>`
     + `<div class="card"><h3>유입 국가</h3>${ltTable(ltRows((d.country || []).slice(0, 10), x => LT_KO[x.code] || x.code), LT_HEAD('국가'), 500)}</div>`
-    + `<div class="card"><h3>유입 도시</h3>${ltTable(ltRows((d.city || []).slice(0, 10)), LT_HEAD('도시'), 500)}</div>`
+    + `<div class="card"><h3>유입 도시</h3>${ltTable(ltRows((d.city || []).slice(0, 10), x => LT_CITY[x.name] || x.name), LT_HEAD('도시'), 500)}</div>`
     + `<div class="card"><h3>유입 기기</h3>${ltTable(ltRows(d.device || []), LT_HEAD('기기'), 500)}</div>`
     + `<div class="memo" style="margin-top:4px">리틀리 ${esc(L.updated || '')} 기준 ·
         보관 ${esc((L.기간 && L.기간.처음) || '')} ~ ${esc((L.기간 && L.기간.마지막) || '')}
