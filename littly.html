@@ -157,6 +157,7 @@
 
   <section>
     <h2>유입 채널</h2>
+    <p class="note" id="ynote" hidden></p>
     <p class="note">
       <b class="ig">인스타 링크 눌러 옴</b>이 진짜입니다.
       <b>인스타 (앱 미리보기)</b>는 앱이 미리 불러본 것이라 1%만 누르고 4초 만에 사라집니다 — 둘을 합치면 안 됩니다.
@@ -276,7 +277,7 @@ function metricRows(list, label) {
 const HEAD = (first) => [[first, 0], ['방문', 1], ['클릭', 1], ['재방문', 1], ['체류', 1]];
 
 function blocks() {
-  let b = (L.blocks || []);
+  let b = (detail().blocks || L.blocks || []);
   if (blkQ) b = b.filter(x => x.name.toLowerCase().includes(blkQ));
   const shown = blkAll ? b : b.slice(0, 10);
   const max = Math.max(1, ...b.map(x => x.clicks));
@@ -292,14 +293,28 @@ function blocks() {
   if (m) m.onclick = () => { blkAll = !blkAll; blocks(); };
 }
 
+/* 기간 탭을 바꾸면 채널·국가·도시·기기·버튼 표도 같이 바뀌어야 한다.
+   전체 기간 수치를 「7일」 밑에 두면 그냥 틀린 화면이다. */
+function detail() {
+  return (L.byPeriodDetail && L.byPeriodDetail[DAYS]) || L.byPeriodDetail?.all || {
+    sources: L.sources, country: L.country, city: L.city, device: L.device, blocks: L.blocks,
+  };
+}
+
 function render() {
+  const d = detail();
+  // 리틀리 API 는 시작일만 받는다. 그래서 「어제」의 세부 표는 오늘까지 섞인다.
+  const yn = document.getElementById('ynote');
+  yn.hidden = DAYS !== 'y';
+  yn.innerHTML = '⚠ <b>어제</b> 탭의 위 숫자는 어제 하루치지만, 아래 채널·국가·도시·기기·버튼 표는 '
+    + '리틀리가 시작일만 받는 탓에 <b>오늘까지 섞여</b> 있습니다.';
   tiles(); chart(); blocks();
-  document.getElementById('src').innerHTML = table(metricRows(L.sources || []), HEAD('채널'), 560);
+  document.getElementById('src').innerHTML = table(metricRows(d.sources || []), HEAD('채널'), 560);
   document.getElementById('ctry').innerHTML =
-    table(metricRows((L.country || []).slice(0, 12), x => KO[x.code] || x.code), HEAD('국가'), 520);
+    table(metricRows((d.country || []).slice(0, 12), x => KO[x.code] || x.code), HEAD('국가'), 520);
   document.getElementById('city').innerHTML =
-    table(metricRows((L.city || []).slice(0, 15)), HEAD('도시'), 520);
-  document.getElementById('dev').innerHTML = table(metricRows(L.device || []), HEAD('기기'), 520);
+    table(metricRows((d.city || []).slice(0, 15)), HEAD('도시'), 520);
+  document.getElementById('dev').innerHTML = table(metricRows(d.device || []), HEAD('기기'), 520);
 }
 
 document.getElementById('blkfind').addEventListener('input', e => {
