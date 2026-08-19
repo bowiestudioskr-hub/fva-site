@@ -41,6 +41,11 @@
     padding:max(18px,env(safe-area-inset-top)) 16px 56px;
   }
   .wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:26px}
+  /* ⚠ 요약칸·그래프·카드 사이 간격은 .wrap 의 gap 이 만들고 있었다.
+     사이트/리틀리를 갈아 끼우려고 #site 로 한 번 감쌌더니 셋이 한 덩어리가 되면서
+     그 간격이 통째로 사라졌다(요약칸 밑면이 그래프 상자에 딱 붙었다).
+     감싼 상자에도 같은 간격을 준다. */
+  #site, #littly{display:flex;flex-direction:column;gap:26px}
   a{color:inherit;text-decoration:none}
 
   /* ── 머리 ── */
@@ -142,11 +147,8 @@
   }
 
   /* ── 큰 숫자 ── */
-  /* ⚠ 모서리 굴림이 칸 사이 틈보다 크면, 위아래 끝에서 틈이 26px 까지 벌어져
-     「검은 네모가 끼어든 것」처럼 보인다. 실제로 그렇게 보인다는 말을 들었다.
-     굴림을 틈보다 작게 잡으면 그 벌어짐이 눈에 안 띈다. (겹친 것이 아니다 — 재보면 늘 10px 다.) */
-  .stats{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
-  .stat{background:var(--card);border-radius:11px;padding:14px 16px 15px}
+  .stats{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .stat{background:var(--card);border-radius:16px;padding:14px 16px 15px}
   .stat .lb{
     font-size:12px;font-weight:700;letter-spacing:.02em;margin-bottom:3px;
     display:flex;align-items:center;gap:5px;
@@ -309,10 +311,10 @@
   }
   @media (max-width:560px){
     body{padding:max(16px,env(safe-area-inset-top)) 14px 48px}
-    .wrap{gap:18px}
+    .wrap, #site, #littly{gap:18px}
     h1{font-size:28px}
-    .stats{grid-template-columns:1fr 1fr;gap:10px}
-    .stat{padding:12px 14px 13px;border-radius:10px}
+    .stats{grid-template-columns:1fr 1fr;gap:8px}
+    .stat{padding:12px 14px 13px;border-radius:15px}
     .stat .vl{font-size:26px}
     .cards{grid-template-columns:1fr;gap:8px}
     .cat > .ct .t{font-size:23px}
@@ -349,7 +351,7 @@
     <div id="chart"></div>
     <div id="cats" style="display:flex;flex-direction:column;gap:26px"></div>
   </div>
-  <div id="littly" style="display:flex;flex-direction:column;gap:10px" hidden></div>
+  <div id="littly" hidden></div>
 
   <footer><span id="stamp"></span><span id="foot"></span></footer>
 </div>
