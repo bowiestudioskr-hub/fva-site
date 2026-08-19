@@ -220,7 +220,10 @@ async function browser() {
           //   그냥 재면 멀쩡한 이미지가 죄다 걸린다. 실제로 그렇게 걸렸다.
           oversize: [...document.images].filter(i => {
             const r = i.getBoundingClientRect();
-            return r.width > 20 && !/\.svg(\?|$)/i.test(i.currentSrc)
+            // ⚠ 여기 정규식을 쓰면 안 된다. 이 코드는 백틱 안에 담겨 브라우저로 건너가는데
+            //   \\. 이 그냥 . 로 풀려 (?| 같은 깨진 정규식이 된다. 두 번 당했다.
+            const u = (i.currentSrc || '').toLowerCase().split('?')[0];
+            return r.width > 20 && u.slice(-4) !== '.svg'
                    && i.naturalWidth > r.width * 6;
           }).slice(0, 4).map(i => {
             const r = i.getBoundingClientRect();
@@ -251,7 +254,12 @@ async function browserPass() {
       const tag = p;
       if (r.errs?.length) add('심각', '자바스크립트', `${tag}: ${r.errs[0]}`.slice(0, 200));
       for (const n of [...new Set(r.net || [])].slice(0, 3)) add('심각', '자산', `${tag}: ${n}`);
-      if (!r.text || r.text < 300) add('심각', '화면', `${tag} 본문이 ${r.text}자 — 안 그려졌다`);
+      if (r.text === undefined) {
+        add('심각', '점검기', `${tag} 를 읽는 코드가 브라우저에서 실패했다 — 결과를 믿으면 안 된다`,
+          '아래 다른 항목도 함께 의심할 것');
+        continue;
+      }
+      if (r.text < 300) add('심각', '화면', `${tag} 본문이 ${r.text}자 — 안 그려졌다`);
       if (r.imgs?.length) add('보통', '이미지', `${tag} 깨진 이미지 ${r.imgs.length}장: ${r.imgs[0]}`);
       for (const b of r.ld || []) {
         try { JSON.parse(b); } catch (e) { add('보통', '구조화데이터', `${tag}: ${String(e.message).slice(0, 60)}`); }

@@ -498,6 +498,44 @@ function render(){
           + `계정에서는 노출 ${num(n.campaignImp)} · 클릭 ${num(n.campaignClk)} · ${won(n.campaignCost)}로 보입니다.`
         : '' }));
 
+    // ── 리틀리 ────────────────────────────────────────────
+    // 인스타 프로필 링크의 종착지다. 인스타 → 리틀리 → 스마트스토어가 제일 큰
+    // 구매 동선인데 우리 사이트를 안 거쳐 GA4 로는 영영 안 보인다.
+    // ⚠ 리틀리 무료 화면은 일주일치·상위 5개만 준다. 곧 유료로 넘어간다.
+    //   그래서 매 15분 받아 우리 쪽에 날짜별로 쌓는다. 화면이 잠겨도 기록은 남는다.
+    const L = ADS.littly;
+    if (L) {
+      const lp = (L.byPeriod && L.byPeriod[DAYS]) || L.byPeriod?.['7'] || { visit: 0, click: 0 };
+      A.push(card('리틀리 — 인스타 프로필 링크',
+        [ plainRow('방문', esc(r.label), `${num(lp.visit)}<em>회</em>`),
+          plainRow('링크 누름', '리틀리 안에서 다음으로 넘어간 횟수',
+            `${num(lp.click)}<em>회 · ${lp.visit ? Math.round(lp.click / lp.visit * 100) : 0}%</em>`),
+        ],
+        '', { right: `보관 ${num(L.기간?.일수 || 0)}일치`,
+          memo: `리틀리 무료 화면은 <b>일주일치·상위 5개</b>만 보여주고 곧 유료로 넘어갑니다. `
+              + `그래서 15분마다 받아 우리 쪽에 쌓고 있습니다 — 지금 <b>${esc(L.기간?.처음 || '')}</b>부터 `
+              + `${num(L.기간?.일수 || 0)}일치를 갖고 있습니다.` }));
+
+      if ((L.sources || []).length) {
+        A.push(card('리틀리 — 어디서 왔나',
+          L.sources.slice(0, 7).map(x => plainRow(
+            esc(x.name),
+            `${x.ctr}% 가 눌렀고 ${dur(x.dwell)} 머물렀습니다`,
+            `${num(x.visit)}<em>회 · 누름 ${num(x.click)}</em>`)),
+          '',
+          { memo: '<b>인스타 링크 눌러 옴</b>이 진짜입니다. <b>인스타 (앱 미리보기)</b>는 '
+                + '앱이 미리 불러본 것이라 1%만 누르고 4초 만에 사라집니다. 둘을 합치면 안 됩니다.' }));
+      }
+      if ((L.blocks || []).length) {
+        A.push(card('리틀리 — 무엇을 눌렀나',
+          L.blocks.slice(0, 7).map(x => plainRow(
+            esc(x.name), x.gone ? '지금은 없는 블럭' : '', `${num(x.clicks)}<em>회</em>`)),
+          '',
+          { memo: '스마트스토어로 넘어간 클릭은 <b>우리 사이트를 거치지 않습니다</b>. '
+                + '유입 현황의 방문자 수에는 안 잡히는 사람들입니다.' }));
+      }
+    }
+
     if ((G.keywords || []).length) {
       A.push(card('<span class="ch gg">구글</span>구글 검색어별 집행',
         G.keywords.map(k => plainRow(
