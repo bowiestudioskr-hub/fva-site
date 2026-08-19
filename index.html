@@ -93,8 +93,8 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=23a81d4-25">
-<link rel="stylesheet" href="css/mobile.css?v=23a81d4-25">
+<link rel="stylesheet" href="css/style.css?v=34da49d-26">
+<link rel="stylesheet" href="css/mobile.css?v=34da49d-26">
 
 <script type="application/ld+json">
 {
@@ -223,7 +223,7 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
   ]
 }
 </script>
-  <script src="/js/measure.js?v=23a81d4-25" defer></script>
+  <script src="/js/measure.js?v=34da49d-26" defer></script>
 </head>
 <body>
 
@@ -497,7 +497,7 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
     <div class="wrap">
       <figure class="reel">
         <video id="reel"
-               autoplay muted loop playsinline webkit-playsinline preload="auto"
+               autoplay muted loop playsinline webkit-playsinline preload="none"
                poster="assets/img/reel-poster.jpg"
                data-src-sm="assets/video/students-720.mp4"
                data-src-lg="assets/video/students.mp4"
@@ -829,8 +829,25 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
     v.muted=true; v.defaultMuted=true;
     v.setAttribute('muted',''); v.setAttribute('playsinline','');
     v.setAttribute('webkit-playsinline','');
-    v.src = (innerWidth <= 820 ? v.dataset.srcSm : v.dataset.srcLg);
-    v.load();
+    /* ⚠ 영상은 문서 한참 아래(11화면쯤)에 있는데 preload="auto" 로 페이지를 열자마자
+       9.5MB 를 통째로 받고 있었다. 첫 화면과 아무 상관없는 짐이다.
+       가까이 왔을 때 붙인다 — 화질은 그대로고 첫 로딩만 가벼워진다. */
+    var pick = function(){ return innerWidth <= 820 ? v.dataset.srcSm : v.dataset.srcLg; };
+    var attached = false;
+    var attach = function(){
+      if (attached) return; attached = true;
+      v.preload = 'auto';
+      v.src = pick();
+      v.load();
+    };
+    if ('IntersectionObserver' in window) {
+      // 화면 두 개 앞에서 미리 붙여, 스크롤해서 닿았을 때는 이미 준비돼 있게 한다.
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){ if (e.isIntersecting) attach(); });
+      }, { rootMargin: '200% 0px' }).observe(v);
+    } else {
+      attach();   // 옛 브라우저는 그냥 예전처럼
+    }
 
     var kick=function(){
       var p=v.play();

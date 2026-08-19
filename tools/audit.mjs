@@ -232,6 +232,11 @@ async function browser() {
           }),
           ld, text: (document.body.innerText || '').length,
           overflowX: document.documentElement.scrollWidth > innerWidth + 1,
+          /* ⚠ hidden 은 display 를 지정한 요소에는 안 먹는다. 두 번 당했다 —
+             숨긴 줄 알았던 것이 그대로 보여 「눌러도 안 바뀐다」가 됐다. 자동으로 잡는다. */
+          hiddenShown: [...document.querySelectorAll('[hidden]')]
+            .filter(e => e.getBoundingClientRect().height > 2)
+            .slice(0, 4).map(e => (e.id || e.tagName) + '.' + String(e.className || '').split(' ')[0]),
           wide,
           ga: !!window.gtag, dataLayer: Array.isArray(window.dataLayer),
           tags: (document.documentElement.innerHTML.match(/G-[A-Z0-9]{8,}|AW-\\d{9,}/g) || [])
@@ -260,6 +265,9 @@ async function browserPass() {
         continue;
       }
       if (r.text < 300) add('심각', '화면', `${tag} 본문이 ${r.text}자 — 안 그려졌다`);
+      if ((r.hiddenShown || []).length)
+        add('심각', '화면', `${tag}: 숨겼는데 그대로 보이는 것 — ${r.hiddenShown.join(', ')}`,
+          'display 를 지정한 요소에는 hidden 이 안 먹는다. [hidden]{display:none} 을 같이 적을 것');
       if (r.imgs?.length) add('보통', '이미지', `${tag} 깨진 이미지 ${r.imgs.length}장: ${r.imgs[0]}`);
       for (const b of r.ld || []) {
         try { JSON.parse(b); } catch (e) { add('보통', '구조화데이터', `${tag}: ${String(e.message).slice(0, 60)}`); }
