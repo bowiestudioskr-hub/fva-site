@@ -427,6 +427,24 @@ async function pipePass() {
     const g = age(j.google?.updated);
     if (g != null && g > 180) add('보통', '수치', `구글 수치가 ${Math.round(g / 60)}시간째 멈춰 있다 — 크롬 창을 띄워둘 것`);
     if (!j.naver?.byPeriod) add('보통', '수치', '광고 JSON 에 기간별 집계(byPeriod)가 없다');
+
+    /* ⚠ 날짜를 UTC 로 세면 새벽 0~9시 사이에 하루가 통째로 밀린다.
+       실제로 리틀리 「오늘」이 어제치와 합쳐져 나왔다(38 이어야 하는데 228).
+       요약값과 날짜별 값이 서로 맞는지 대조해 그 부류를 잡는다. */
+    const L = j.littly;
+    if (L?.daily?.length && L.byPeriod) {
+      const kst = (n = 0) => new Date(Date.now() + 9 * 3600e3 - n * 864e5).toISOString().slice(0, 10);
+      const byDate = Object.fromEntries(L.daily.map(x => [x.d, x]));
+      const chk = (key, date, label) => {
+        const want = byDate[date]?.visit;
+        const got = L.byPeriod[key]?.visit;
+        if (want != null && got != null && want !== got)
+          add('심각', '수치', `리틀리 ${label} 숫자가 안 맞는다 — 요약 ${got} vs 날짜별 ${want} (${date})`,
+            '날짜를 한국 시각으로 세고 있는지 확인할 것');
+      };
+      chk('1', kst(0), '오늘');
+      chk('y', kst(1), '어제');
+    }
   } catch (e) { add('심각', '수치', '광고 JSON 을 못 읽는다: ' + String(e.message).slice(0, 80)); }
 
   const FEED = 'https://script.google.com/macros/s/AKfycbxX5u3DZXo45__8_7a3XHPjIbD_utCHYeyK7l2lmuvA3b4dENQS_y4ncVgnSHb5RYA/exec';
