@@ -110,11 +110,17 @@
     background:var(--card2);
   }
   .lt-th.none{display:block}
+  .ltwrap{position:relative}
   .lttip{
-    position:absolute;top:-4px;left:0;transform:translateX(-50%);
-    background:var(--card2);color:var(--ink);font-size:11.5px;white-space:nowrap;
-    padding:5px 9px;border-radius:8px;opacity:0;transition:opacity .1s;pointer-events:none;
+    position:absolute;top:0;left:0;transform:translateX(-50%);
+    background:#000;color:#fff;font-size:11.5px;white-space:nowrap;
+    padding:7px 10px;border-radius:9px;opacity:0;transition:opacity .1s;pointer-events:none;
+    box-shadow:0 4px 16px rgba(0,0,0,.6);line-height:1.5;
   }
+  .lttip b{display:block;font-weight:700;margin-bottom:2px}
+  .lttip span{display:block;color:#C9C9CE}
+  .lttip span b{display:inline;color:#fff;margin:0 0 0 3px}
+  .lttip i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:-1px}
   /* 종류별 묶음 — 어디로 나가는 클릭인지 한눈에 */
   .lt-sum{display:flex;gap:7px;flex-wrap:wrap;padding:0 11px 11px}
   .lt-sum span{
@@ -340,7 +346,7 @@
     <div id="chart"></div>
     <div id="cats" style="display:flex;flex-direction:column;gap:26px"></div>
   </div>
-  <div id="littly" hidden></div>
+  <div id="littly" style="display:flex;flex-direction:column;gap:10px" hidden></div>
 
   <footer><span id="stamp"></span><span id="foot"></span></footer>
 </div>
@@ -881,7 +887,9 @@ function renderLittly() {
   const span = { '1': 14, 'y': 14, '7': 14, '28': 28, '90': 90 }[DAYS] || 28;
   const dd = (L.daily || []).slice(-span);
   if (dd.length) {
-    A.push(`<div class="card"><h3>날마다
+    // ⚠ 위 숫자는 고른 기간 것인데 그래프는 늘 흐름을 보여준다.
+    //   「오늘」을 눌렀는데 2주치 선이 나오면 잘못 읽는다. 제목에 며칠치인지 박는다.
+    A.push(`<div class="card"><h3>최근 ${dd.length}일 흐름
       <span class="r" style="color:var(--dim);font-weight:400">${esc(dd[0].d)} ~ ${esc(dd[dd.length-1].d)}</span></h3>
       ${ltChart(dd)}</div>`);
   }
@@ -928,19 +936,34 @@ function bindLtChart(d) {
   const svg = wrap.querySelector('svg');
   const tip = wrap.querySelector('.lttip');
   const gl = wrap.querySelector('.ltgl');
+  const d1 = wrap.querySelector('.ltd1'), d2 = wrap.querySelector('.ltd2');
+  const W = 720, L = 34, R = 8, H = 190, T = 12, B = 26;
+  const max = Math.max(1, ...d.map(z => z.visit));
+  const step = Math.pow(10, Math.floor(Math.log10(max || 1)));
+  const nice = Math.ceil(max / (step / 2)) * (step / 2);
+  const px = i => L + i * (W - L - R) / Math.max(1, d.length - 1);
+  const py = v => H - B - (v / nice) * (H - B - T);
   const show = (clientX) => {
     const r = svg.getBoundingClientRect();
-    const t = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+    // 그래프 안쪽(눈금 글자 뺀 자리)을 기준으로 날짜를 고른다
+    const inner = (clientX - r.left) / r.width * W;
+    const t = Math.max(0, Math.min(1, (inner - L) / (W - L - R)));
     const i = Math.round(t * (d.length - 1));
     const x = d[i];
-    tip.innerHTML = `<b>${esc(x.d)}</b> 페이지 뷰 <b style="color:var(--visit)">${num(x.visit)}</b>`
-      + ` · 클릭 <b style="color:var(--query)">${num(x.click)}</b>`;
+    tip.innerHTML = `<b>${esc(x.d)}</b>`
+      + `<span><i style="background:var(--visit)"></i>페이지 뷰 <b>${num(x.visit)}</b></span>`
+      + `<span><i style="background:var(--query)"></i>클릭 <b>${num(x.click)}</b></span>`;
     tip.style.opacity = 1;
-    tip.style.left = Math.min(Math.max(t * r.width, 82), r.width - 82) + 'px';
-    gl.setAttribute('opacity', '.5');
-    gl.setAttribute('x1', t * 720); gl.setAttribute('x2', t * 720);
+    const leftPx = px(i) / W * r.width;
+    tip.style.left = Math.min(Math.max(leftPx, 74), r.width - 74) + 'px';
+    tip.style.top = Math.max(2, py(x.visit) / H * r.height - 78) + 'px';
+    gl.setAttribute('opacity', '.45');
+    gl.setAttribute('x1', px(i)); gl.setAttribute('x2', px(i));
+    d1.setAttribute('cx', px(i)); d1.setAttribute('cy', py(x.visit)); d1.setAttribute('opacity', 1);
+    d2.setAttribute('cx', px(i)); d2.setAttribute('cy', py(x.click)); d2.setAttribute('opacity', 1);
   };
-  const hide = () => { tip.style.opacity = 0; gl.setAttribute('opacity', 0); };
+  const hide = () => { tip.style.opacity = 0; gl.setAttribute('opacity', 0);
+    d1.setAttribute('opacity', 0); d2.setAttribute('opacity', 0); };
   wrap.addEventListener('pointermove', e => show(e.clientX));
   wrap.addEventListener('pointerdown', e => show(e.clientX));
   wrap.addEventListener('pointerleave', hide);
@@ -949,21 +972,40 @@ function bindLtChart(d) {
 
 /* 리틀리 일별 그래프 — 사이트 쪽 chart() 와 같은 눈금·같은 손맛 */
 function ltChart(d) {
-  const W = 720, H = 132, PAD = 4, BOT = 8;
+  /* 리틀리 화면처럼 눈금과 점을 같이 그린다. 선만 있으면 「대충 이 정도」밖에 안 읽힌다.
+     ⚠ preserveAspectRatio 를 none 으로 늘리면 점이 타원이 된다. 그래서 늘리지 않고
+       가로 폭을 넉넉히 잡아 화면 폭에 맞춘다. */
+  const W = 720, H = 190, L = 34, R = 8, T = 12, B = 26;
   const max = Math.max(1, ...d.map(x => x.visit));
-  const px = i => PAD + i * (W - PAD * 2) / Math.max(1, d.length - 1);
-  const py = v => H - BOT - (v / max) * (H - BOT - 12);
+  // 눈금은 100·200·300 처럼 떨어지는 수로. 300.7 같은 수는 눈금 구실을 못 한다.
+  const step = Math.pow(10, Math.floor(Math.log10(max || 1)));
+  const nice = Math.ceil(max / (step / 2)) * (step / 2);
+  const px = i => L + i * (W - L - R) / Math.max(1, d.length - 1);
+  const py = v => H - B - (v / nice) * (H - B - T);
   const path = k => d.map((x, i) => (i ? 'L' : 'M') + px(i).toFixed(1) + ' ' + py(x[k]).toFixed(1)).join(' ');
-  return `<div class="ltwrap" style="position:relative">
-      <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"
-        style="width:100%;height:132px;display:block" role="img" aria-label="날짜별 페이지 뷰와 클릭">
-        <line class="ltgl" x1="0" y1="0" x2="0" y2="${H}" stroke="var(--dim)" stroke-width="1" opacity="0"/>
+  const ticks = [0, nice / 2, nice].map(v =>
+    `<line x1="${L}" y1="${py(v)}" x2="${W - R}" y2="${py(v)}" stroke="var(--card2)" stroke-width="1"/>
+     <text x="${L - 6}" y="${py(v) + 4}" text-anchor="end" font-size="11" fill="var(--dim)">${num(Math.round(v))}</text>`).join('');
+  const every = Math.max(1, Math.round(d.length / 4));
+  const dates = d.map((x, i) => (i % every === 0 || i === d.length - 1)
+    ? `<text x="${px(i)}" y="${H - 8}" text-anchor="middle" font-size="10.5" fill="var(--dim)">${x.d.slice(5)}</text>` : '').join('');
+  const dots = k => d.map((x, i) =>
+    `<circle cx="${px(i).toFixed(1)}" cy="${py(x[k]).toFixed(1)}" r="2.6"
+      fill="var(--bg)" stroke="${k === 'visit' ? 'var(--visit)' : 'var(--query)'}" stroke-width="2"/>`).join('');
+  return `<div class="ltwrap">
+      <svg viewBox="0 0 ${W} ${H}" style="width:100%;height:190px;display:block"
+        role="img" aria-label="날짜별 페이지 뷰와 클릭">
+        ${ticks}${dates}
+        <line class="ltgl" x1="0" y1="${T}" x2="0" y2="${H - B}" stroke="var(--sub)" stroke-width="1" opacity="0"/>
         <path d="${path('visit')}" fill="none" stroke="var(--visit)" stroke-width="2"/>
         <path d="${path('click')}" fill="none" stroke="var(--query)" stroke-width="2"/>
+        ${dots('visit')}${dots('click')}
+        <circle class="ltd1" r="4.5" fill="var(--visit)" opacity="0"/>
+        <circle class="ltd2" r="4.5" fill="var(--query)" opacity="0"/>
       </svg>
       <div class="lttip"></div>
     </div>
-    <div class="memo"><span style="color:var(--visit)">■</span> 페이지 뷰 (최대 ${num(max)})
+    <div class="memo"><span style="color:var(--visit)">■</span> 페이지 뷰
       &nbsp; <span style="color:var(--query)">■</span> 클릭 &nbsp;·&nbsp; 그래프를 짚으면 그 날 수치가 나옵니다</div>`;
 }
 
