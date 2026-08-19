@@ -46,6 +46,11 @@
      그 간격이 통째로 사라졌다(요약칸 밑면이 그래프 상자에 딱 붙었다).
      감싼 상자에도 같은 간격을 준다. */
   #site, #littly{display:flex;flex-direction:column;gap:26px}
+  /* ⚠⚠ display 를 지정하면 hidden 이 무력해진다. 이 함정에 두 번 걸렸다 —
+     처음엔 하단 탭바가 리틀리 화면에서도 남았고, 다음엔 여기에 display:flex 를 주는 순간
+     사이트 화면이 hidden 인데도 그대로 보여 「눌러도 내용이 안 바뀐다」가 됐다.
+     display 를 준 요소에는 반드시 [hidden] 규칙을 같이 적을 것. */
+  #site[hidden], #littly[hidden]{display:none}
   a{color:inherit;text-decoration:none}
 
   /* ── 머리 ── */
