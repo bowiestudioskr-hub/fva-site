@@ -511,7 +511,7 @@ svg.club-wordmark{
 .off-notice{
   --u:var(--pagew);
   --w:clamp(320px, calc(var(--u) * 1180/1920), 1180px);   /* 표와 박스 공통 폭 */
-  padding:clamp(28px, calc(var(--u) * 88/1920), 88px) 0 clamp(24px, calc(var(--u) * 56/1920), 56px);
+  padding:clamp(52px, calc(var(--u) * 118/1920), 118px) 0 clamp(24px, calc(var(--u) * 56/1920), 56px);
   text-align:center;
 }
 .off-notice .loc{
@@ -651,7 +651,7 @@ svg.club-wordmark{
 @media (max-width:680px){
   /* 공지가 한 화면을 넘기면 그 아래가 있다는 걸 모른 채 나간다.
      정보는 그대로 두고 여백만 깎아 첫 화면 안에 들어오게 한다. */
-  .off-notice{ padding:16px 0 18px }
+  .off-notice{ padding:44px 0 18px }
   .off-notice .loc{ font-size:12.5px }
   .nt-news{ margin-top:16px; gap:5px }
   .nt-news .lead-news{ font-size:19px; margin-bottom:1px }
@@ -707,11 +707,16 @@ svg.club-wordmark{
 /* 캐릭터가 띠 왼쪽에서 고개를 내민다.
    사선 테이프를 둘렀더니 빨강+초록이 크리스마스로 읽혔다 — 무늬를 걷고
    우리 캐릭터를 세운다. 브랜드 물건이면서 시선도 잡는다. */
+/* 캐릭터를 띠 밖으로 크게 세운다. 띠 안에 얌전히 넣으면 아이콘이 되고,
+   위로 넘치게 두면 띠가 캐릭터를 받치는 받침이 된다.
+   ⚠ 넘치는 만큼 위에 자리를 비워둬야 헤더에 겹친다. .off-notice 의 padding-top 이 그 자리다. */
 .nt-urgent .face{
-  height:clamp(46px, calc(var(--u) * 92/1920), 92px);
+  height:clamp(78px, calc(var(--u) * 168/1920), 168px);
   width:auto; flex:none;
-  margin:calc(-1 * clamp(10px, calc(var(--u) * 18/1920), 18px)) 0;  /* 띠 위아래로 살짝 넘치게 */
-  filter:drop-shadow(0 3px 10px rgba(0,0,0,.32));
+  margin-top:calc(-1 * clamp(40px, calc(var(--u) * 86/1920), 86px));
+  margin-bottom:calc(-1 * clamp(10px, calc(var(--u) * 16/1920), 16px));
+  align-self:flex-end;
+  filter:drop-shadow(0 6px 18px rgba(0,0,0,.42));
 }
 
 .nt-urgent .flare{
@@ -749,5 +754,5 @@ svg.club-wordmark{
   }
   .nt-urgent strong{ font-size:16.5px; width:100% }
   .nt-urgent .flare{ font-size:11.5px }
-  .nt-urgent .face{ height:42px; margin:-8px 0 }
+  .nt-urgent .face{ height:76px; margin-top:-38px; margin-bottom:-8px }
 }
