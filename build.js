@@ -359,7 +359,7 @@ const HANDMADE = new Set([
   'index.html', 'curriculum.html', 'offline.html', 'works.html', 'online.html',
   // adlog·worklist·adminmonitor 는 pages/ 에 본문이 없는 손조판 문서다.
   // 목록에 없으면 빌드가 지우지는 않지만, 나중에 pages/ 에 동명 항목이 생기면 덮어쓴다.
-  'adlog.html', 'worklist.html', 'adminmonitor.html',
+  'adlog.html', 'worklist.html', 'adminmonitor.html', 'littly.html',
 ]);
 
 let built = 0, skipped = 0;

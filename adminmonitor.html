@@ -511,7 +511,7 @@ function render(){
           plainRow('링크 누름', '리틀리 안에서 다음으로 넘어간 횟수',
             `${num(lp.click)}<em>회 · ${lp.visit ? Math.round(lp.click / lp.visit * 100) : 0}%</em>`),
         ],
-        '', { right: `보관 ${num(L.기간?.일수 || 0)}일치`,
+        '', { right: `<a href="/littly.html" style="color:inherit">자세히 →</a>`,
           memo: `리틀리 무료 화면은 <b>일주일치·상위 5개</b>만 보여주고 곧 유료로 넘어갑니다. `
               + `그래서 15분마다 받아 우리 쪽에 쌓고 있습니다 — 지금 <b>${esc(L.기간?.처음 || '')}</b>부터 `
               + `${num(L.기간?.일수 || 0)}일치를 갖고 있습니다.` }));
