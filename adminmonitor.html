@@ -539,12 +539,19 @@ function render(){
   const kwRow = (k, ch) => barRow(
     `<span class="ch ${ch === '네이버' ? 'nv' : 'gg'}">${ch}</span>${esc(k.keyword)}`,
     100, `${num(k.users)}<em>명</em>`, kwSub(k));
-  Q.push(card('<span class="ch gg">구글</span>구글 광고로 들어온 검색어',
+  // ⚠ 여기 뜨는 말은 「우리가 산 검색어」가 아니라 「그 사람이 실제로 친 말」이다.
+  //   네이버 자동추적이 붙여주는 n_query 를, 구글은 gclid 로 받는다.
+  //   확장검색이라 산 적 없는 말로도 광고가 나가므로 둘이 다르다.
+  //   「FVA아카데미가 왜 여기 있냐」는 물음이 실제로 나왔다 — 이름으로 구분해 둔다.
+  Q.push(card('<span class="ch gg">구글</span>구글 광고 — 사람이 친 말',
     gk.slice(0,8).map(k => kwRow(k, '구글')),
-    '광고 유입이 아직 없거나 데이터가 도착 전입니다.'));
-  Q.push(card('<span class="ch nv">네이버</span>네이버 광고로 들어온 검색어',
+    '광고 유입이 아직 없거나 데이터가 도착 전입니다.',
+    { memo: '우리가 등록한 검색어가 아니라 <b>방문자가 실제로 검색창에 친 말</b>입니다. '
+          + '확장검색이라 등록하지 않은 말로도 광고가 나갑니다.' }));
+  Q.push(card('<span class="ch nv">네이버</span>네이버 광고 — 사람이 친 말',
     nk.slice(0,8).map(k => kwRow(k, '네이버')),
-    '아직 네이버 광고 유입이 없습니다.'));
+    '아직 네이버 광고 유입이 없습니다.',
+    { memo: '우리가 등록한 검색어가 아니라 <b>방문자가 실제로 검색창에 친 말</b>입니다.' }));
   Q.push(card('자연 검색',
     (r.queries||[]).slice(0,7).map(q =>
       plainRow(esc(q.query), '', `${num(q.clicks)}<em>클릭 · 노출 ${num(q.impressions)}</em>`)),
