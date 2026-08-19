@@ -26,13 +26,18 @@ const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (
 const WANT_ADS = process.argv.includes('--ads');
 
 const issues = [];
-const add = (sev, area, msg, hint) => issues.push({ sev, area, msg, hint });
+/* human:true 는 사람만 할 수 있는 것이다 — 결제, 계정 인증, 네이버·구글의 심사 결과.
+   이런 것까지 실패로 치면 「없을 때까지 돌리기」가 영원히 안 끝난다.
+   숨기지는 않고 따로 모아 보여준 뒤, 종료코드에서만 뺀다. */
+const add = (sev, area, msg, hint, human) => issues.push({ sev, area, msg, hint, human });
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 /* 사람이 보는 공개 페이지와, 검색에서 빼야 하는 내부 화면을 나눠 둔다. */
 const PUBLIC = ['', 'index.html', 'offline.html', 'online.html', 'curriculum.html',
   'works.html', 'reviews.html', 'privacy.html', 'news.html'];
 const PRIVATE = ['adminmonitor.html', 'worklist.html', 'adlog.html'];
+/* 뉴스 낱개 글도 검색에 잡히는 공개 페이지다. 사이트맵에 다 들어 있으므로 같이 본다. */
+const NEWS = ['news-workshop.html', 'news-party.html', 'news-behind.html', 'news-speakers.html'];
 
 /* 광고가 실제로 떨어지는 자리. 여기가 깨지면 돈이 샌다. */
 const LANDING = ['offline.html', 'online.html', 'curriculum.html', 'index.html'];
@@ -212,7 +217,7 @@ async function browserPass() {
       for (const b of r.ld || []) {
         try { JSON.parse(b); } catch (e) { add('보통', '구조화데이터', `${tag}: ${String(e.message).slice(0, 60)}`); }
       }
-      if (PUBLIC.includes(p)) {
+      if (PUBLIC.includes(p) || NEWS.includes(p)) {
         if (!r.title) add('보통', '노출', `${tag} 에 제목(title)이 없다`);
         if (!r.desc) add('보통', '노출', `${tag} 에 설명(description)이 없다`);
         if (!r.canonical) add('낮음', '노출', `${tag} 에 canonical 이 없다`);
@@ -245,9 +250,10 @@ async function adsPass() {
       const bz = await api.get('/billing/bizmoney');
       const bal = Math.round(bz.bizmoney ?? bz.balance ?? 0);
       const days = cmp.dailyBudget ? bal / cmp.dailyBudget : 99;
-      if (bal <= 0) add('심각', '광고', '네이버 비즈머니가 0원 — 광고가 안 나간다');
-      else if (days < 2) add('심각', '광고', `네이버 잔액 ${bal.toLocaleString()}원 — ${days.toFixed(1)}일치뿐`);
-      else if (days < 5) add('보통', '광고', `네이버 잔액 ${bal.toLocaleString()}원 — ${days.toFixed(1)}일치`);
+      const money = (sev, msg) => add(sev, '광고', msg, '충전은 계정 주인만 할 수 있다', true);
+      if (bal <= 0) money('심각', '네이버 비즈머니가 0원 — 광고가 안 나간다');
+      else if (days < 2) money('심각', `네이버 잔액 ${bal.toLocaleString()}원 — ${days.toFixed(1)}일치뿐`);
+      else if (days < 5) money('보통', `네이버 잔액 ${bal.toLocaleString()}원 — ${days.toFixed(1)}일치`);
 
       const groups = await api.get('/ncc/adgroups', { nccCampaignId: cmp.nccCampaignId });
       for (const g of groups) {
@@ -257,7 +263,12 @@ async function adsPass() {
         const bad = kws.filter(k => k.statusReason === 'KEYWORD_DISAPPROVED' && !k.userLock);
         if (bad.length) add(g.userLock ? '낮음' : '심각', '광고',
           `네이버 「${g.name}」${g.userLock ? '(꺼둠)' : ''}에 검수 거절된 검색어 ${bad.length}개: ${bad.slice(0, 5).map(k => k.keyword).join(', ')}`,
-          '거절이면 아무리 켜둬도 안 나간다');
+          '거절은 네이버가 정한다. 지우고 다시 넣으면 재검수는 걸 수 있다', true);
+        // 재검수 중인 것은 곧 결론이 난다. 실패로 칠 일이 아니다.
+        const rev = kws.filter(k => k.inspectStatus === 'UNDER_REVIEW' && !k.userLock);
+        if (rev.length) add('낮음', '광고',
+          `네이버 「${g.name}」에 검수 대기중 ${rev.length}개: ${rev.slice(0, 5).map(k => k.keyword).join(', ')}`,
+          '보통 하루면 결론이 난다', true);
         // 켜져 있는데 우리가 짠 그룹이 아니면 알린다. 예전 대행사 그룹이 살아 있으면
         // 브랜드 검색까지 돈을 내고, 도착지도 우리가 정한 곳이 아니다.
         if (!mine && !g.userLock && g.status !== 'PAUSED_BY_USER')
@@ -370,6 +381,61 @@ async function pipePass() {
   } catch { add('낮음', '수치', '동기화 로그를 못 읽는다'); }
 }
 
+// ── 5.5 도메인 기본기 ──────────────────────────────────────
+async function domainPass(pages) {
+  // http 로 와도 https 로 가야 한다. 안 그러면 브라우저가 「안전하지 않음」을 띄운다.
+  try {
+    const r = await fetch('http://fva.co.kr/', { headers: { 'User-Agent': UA }, redirect: 'manual' });
+    const loc = r.headers.get('location') || '';
+    if (r.status < 300 || r.status >= 400 || !/^https:/.test(loc))
+      add('보통', '노출', `http 접속이 https 로 안 넘어간다 (${r.status})`,
+        '클라우드플레어 → SSL/TLS → Edge Certificates → Always Use HTTPS 를 켜면 된다. '
+        + '⚠ 깃허브 쪽 Enforce HTTPS 를 대신 켜면 안 된다 — 클라우드플레어가 Flexible 이면 무한 리다이렉트가 난다', true);
+  } catch (e) { add('낮음', '노출', 'http 접속 확인 실패: ' + String(e.message).slice(0, 60)); }
+
+  // www 도 열려야 한다. 명함·전단에 www 를 적는 사람이 있다.
+  const w = await head('https://www.fva.co.kr/');
+  if (w.status !== 200) add('보통', '노출', `www.fva.co.kr 이 ${w.status} — www 로 들어오면 못 본다`);
+
+  // 없는 주소는 404 를 줘야 한다. 200 을 주면 검색엔진이 빈 페이지를 색인한다.
+  const nf = await head(`${BASE}/이런페이지는-없다-${Date.now()}.html`);
+  if (nf.status === 200) add('보통', '노출', '없는 주소인데 200 을 준다 — 검색엔진이 빈 페이지를 담는다');
+
+  // 파비콘
+  const fav = await head(`${BASE}/favicon.ico`);
+  const fpng = await head(`${BASE}/assets/icons/favicon.png`);
+  if (fav.status !== 200 && fpng.status !== 200) add('낮음', '노출', '파비콘을 못 찾았다');
+
+  // http:// 로 부르는 자산이 있으면 브라우저가 막는다
+  for (const [p, html] of Object.entries(pages)) {
+    if (!html || !p.endsWith('.html')) continue;
+    const mixed = [...html.matchAll(/(?:src|href)="(http:\/\/[^"]+)"/g)].map(m => m[1]);
+    if (mixed.length) add('심각', '자산', `${p} 가 http:// 로 부르는 것이 있다: ${mixed[0].slice(0, 60)}`);
+  }
+
+  // 제목·설명이 겹치면 검색에서 서로를 깎아먹는다
+  const titles = {}, descs = {};
+  for (const p of PUBLIC) {
+    const h = pages[p]; if (!h) continue;
+    const t = (h.match(/<title>([^<]*)<\/title>/) || [])[1];
+    const d = (h.match(/<meta name="description" content="([^"]*)"/) || [])[1];
+    if (t) (titles[t] = titles[t] || []).push(p || '/');
+    if (d) (descs[d] = descs[d] || []).push(p || '/');
+  }
+  for (const [t, ps] of Object.entries(titles))
+    if (ps.length > 1 && !(ps.length === 2 && ps.includes('/') && ps.includes('index.html')))
+      add('보통', '노출', `제목이 겹친다 「${t.slice(0, 40)}」: ${ps.join(', ')}`);
+  for (const [d, ps] of Object.entries(descs))
+    if (ps.length > 1 && !(ps.length === 2 && ps.includes('/') && ps.includes('index.html')))
+      add('낮음', '노출', `설명이 겹친다: ${ps.join(', ')}`);
+
+  // 메타 픽셀 — 인스타 광고가 제일 크다. 빠지면 그쪽 성과를 못 센다.
+  for (const p of LANDING) {
+    if (pages[p] && !/771478541518631/.test(pages[p]))
+      add('보통', '광고', `${p} 에 메타 픽셀이 없다 — 인스타 광고 성과를 못 센다`);
+  }
+}
+
 // ── 6. 캐시 버전 ───────────────────────────────────────────
 function versionPass() {
   const files = ['index.html', 'curriculum.html', 'offline.html', 'works.html', 'online.html',
@@ -401,6 +467,8 @@ await browserPass();
 console.log('  브라우저 확인');
 await pipePass();
 console.log('  수치 배관 확인');
+await domainPass(pages);
+console.log('  도메인 기본기 확인');
 if (WANT_ADS) { await adsPass(); console.log('  광고 계정 확인'); }
 
 const order = { 심각: 0, 보통: 1, 낮음: 2 };
@@ -410,11 +478,23 @@ if (!issues.length) {
   console.log('문제 없음 ✓');
   process.exit(0);
 }
-const hard = issues.filter(i => i.sev !== '낮음').length;
-for (const i of issues) {
-  console.log(`[${i.sev}] ${i.area} — ${i.msg}`);
-  if (i.hint) console.log(`        ${i.hint}`);
+const mine = issues.filter(i => !i.human);
+const yours = issues.filter(i => i.human);
+const hard = mine.filter(i => i.sev !== '낮음').length;
+if (mine.length) {
+  console.log('■ 고쳐야 할 것');
+  for (const i of mine) {
+    console.log(`  [${i.sev}] ${i.area} — ${i.msg}`);
+    if (i.hint) console.log(`          ${i.hint}`);
+  }
+} else console.log('■ 고쳐야 할 것 — 없음 ✓');
+if (yours.length) {
+  console.log('\n■ 사람이 해야 할 것 (결제·계정 인증·바깥 심사)');
+  for (const i of yours) {
+    console.log(`  [${i.sev}] ${i.area} — ${i.msg}`);
+    if (i.hint) console.log(`          ${i.hint}`);
+  }
 }
 console.log('─'.repeat(58));
-console.log(`심각 ${issues.filter(i => i.sev === '심각').length} · 보통 ${issues.filter(i => i.sev === '보통').length} · 낮음 ${issues.filter(i => i.sev === '낮음').length}`);
+console.log(`고칠 것 ${mine.length}건 (심각 ${mine.filter(i=>i.sev==='심각').length}) · 사람 몫 ${yours.length}건`);
 process.exit(hard ? 1 : 0);
