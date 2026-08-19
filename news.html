@@ -7,8 +7,15 @@
 <meta name="naver-site-verification" content="0ee823beb2ceccadce51966746eead96618a3573">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-79SFDWBK3L"></script>
 <script>
+  /* ⚠ 자동 점검 도구(헤드리스 크롬)가 방문자로 잡히면 수치가 통째로 오염된다.
+     2026-08-19 에 실제로 그랬다 — 그날 89명 중 57명(64%)이 「출처 없음」이었고
+     그 대부분이 내가 사이트를 점검하려고 띄운 창이었다.
+     헤드리스는 UA 에 HeadlessChrome 이 박히고, 자동조종은 navigator.webdriver 가 true 다.
+     둘 중 하나라도 걸리면 아무것도 보내지 않는다. 사람 브라우저는 둘 다 해당 없다. */
+  var __bot = /HeadlessChrome|bot|crawler|spider|Lighthouse|PhantomJS/i.test(navigator.userAgent)
+              || navigator.webdriver === true;
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){ if (__bot) return; dataLayer.push(arguments); }
   gtag('js', new Date());
   // 네이버 검색광고는 클릭도 referrer 가 search.naver.com 이라 자연 검색과 구분되지 않는다.
   // 광고 URL 에 붙인 utm_* 로 출처를 잡고, 네이버 자동추적이 붙여주는 n_keyword·n_query 로

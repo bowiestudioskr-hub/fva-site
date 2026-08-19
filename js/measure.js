@@ -45,6 +45,13 @@
     return null;
   }
 
+  /* ⚠ 자동 점검 도구(헤드리스 크롬)를 방문자로 세면 수치가 오염된다.
+     2026-08-19 에 그날 방문 89명 중 57명이 내 점검 창이었다.
+     페이지에 박힌 태그(build.js)와 여기 둘 다 막아야 한다. */
+  var IS_BOT = /HeadlessChrome|bot|crawler|spider|Lighthouse|PhantomJS/i.test(navigator.userAgent)
+               || navigator.webdriver === true;
+  if (IS_BOT) return;
+
   // ── GA4 ──
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
