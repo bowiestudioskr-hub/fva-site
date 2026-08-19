@@ -649,9 +649,21 @@ svg.club-wordmark{
    반 이름과 시간을 한 줄에 두면 시간이 눌려 읽히지 않는다.
    개강일을 이름 밑으로 내리고, 버튼은 세로로 쌓아 손가락이 빗나가지 않게 한다. */
 @media (max-width:680px){
+  /* 공지가 한 화면을 넘기면 그 아래가 있다는 걸 모른 채 나간다.
+     정보는 그대로 두고 여백만 깎아 첫 화면 안에 들어오게 한다. */
+  .off-notice{ padding:16px 0 18px }
+  .off-notice .loc{ font-size:12.5px }
+  .nt-news{ margin-top:16px; gap:5px }
+  .nt-news .lead-news{ font-size:19px; margin-bottom:1px }
+  .nt-news p{ font-size:13.5px; line-height:1.4 }
+  .nt-open{ margin-top:20px; gap:11px }
+  .nt-how{ margin-top:16px; gap:7px }
+  .nt-how div{ padding:11px 13px }
+  .nt-btns{ margin-top:18px }
+
   .nt-row{
     grid-template-columns:1fr auto; row-gap:2px;
-    padding:14px 12px;
+    padding:11px 12px;
   }
   /* 블록 전체가 가운데 정렬이라 반 이름도 가운데로 뜬다.
      바로 밑 개강일은 왼쪽이라 둘이 어긋나 보인다. 왼쪽으로 맞춘다. */
@@ -664,12 +676,12 @@ svg.club-wordmark{
   }
   .nt-row .start{ grid-column:1; grid-row:2; text-align:left; font-size:13px }
   .nt-how div{
-    font-size:13.5px; line-height:1.55;
-    grid-template-columns:1fr; gap:7px;   /* 라벨을 윗줄로 내린다 */
+    font-size:13px; line-height:1.5;
+    grid-template-columns:1fr; gap:5px;   /* 라벨을 윗줄로 내린다 */
   }
   .nt-how div b{ justify-self:start }
-  .nt-btns{ flex-direction:column; align-items:stretch; padding:0 12px }
-  .nt-btn{ width:100%; min-width:0 }
+  .nt-btns{ padding:0 12px; gap:8px }
+  .nt-btn{ flex:1; min-width:0; padding:13px 10px; font-size:14px }
   .nt-open .head{ gap:6px }
   .nt-open .head span{ font-size:14px }
 }
@@ -733,7 +745,8 @@ svg.club-wordmark{
 }
 @media (max-width:680px){
   .off-notice .nt-urgent{
-    padding:14px clamp(26px,7vw,34px); gap:8px;
+    padding:12px clamp(24px,6.5vw,32px); gap:6px;
+    margin-bottom:18px;
     box-shadow:0 0 0 1px rgba(255,255,255,.10), 0 8px 22px rgba(224,27,0,.26);
   }
   .off-notice .nt-urgent::before,
