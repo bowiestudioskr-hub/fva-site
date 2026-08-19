@@ -164,6 +164,17 @@ async function browser() {
       };
       handlers.push(h);
       await S('Page.enable'); await S('Runtime.enable'); await S('Network.enable');
+      // ⚠ LCP 는 getEntriesByType 으로는 헤드리스에서 늘 0 이 나온다.
+      //   그러면 「4초 넘으면 알린다」는 검사가 영원히 통과한다 — 없느니만 못하다.
+      //   문서가 만들어지기 전에 관찰자를 심어야 진짜 값이 잡힌다.
+      await S('Page.addScriptToEvaluateOnNewDocument', { source: `
+        window.__lcp = 0;
+        try {
+          new PerformanceObserver(l => {
+            const e = l.getEntries(); window.__lcp = e[e.length - 1].startTime;
+          }).observe({ type: 'largest-contentful-paint', buffered: true });
+        } catch (e) {}
+      ` });
       await S('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: width < 600 });
       await S('Page.navigate', { url });
       await sleep(wait);
@@ -179,7 +190,7 @@ async function browser() {
           .sort((a, b) => b.transferSize - a.transferSize).slice(0, 3)
           .map(r => Math.round(r.transferSize / 1024) + 'KB ' + r.name.split('/').pop().slice(0, 40));
         return { load: Math.round(nav.loadEventEnd || 0),
-                 lcp: Math.round(l.length ? l[l.length - 1].startTime : 0),
+                 lcp: Math.round(window.__lcp || (l.length ? l[l.length - 1].startTime : 0)),
                  kb: Math.round(bytes / 1024), heavy };
       })()` }).catch(() => null);
       const probe = await S('Runtime.evaluate', {
@@ -203,6 +214,19 @@ async function browser() {
                   .filter(i => i.getAttribute('src') && i.complete && i.naturalWidth === 0)
                   .slice(0, 5).map(i => i.currentSrc || i.src),
           noalt: [...document.images].filter(i => !i.hasAttribute('alt')).length,
+          // 보이는 크기의 3배가 넘는 원본을 받는 이미지. 광고로 온 사람의 데이터를 태운다.
+          // ⚠ SVG 는 원본 크기가 의미 없다(벡터라 확대해도 안 깨지고 용량도 안 는다). 뺀다.
+          //   그리고 2배 화면 사용자를 기준으로 재야 한다. 검사창은 1배라
+          //   그냥 재면 멀쩡한 이미지가 죄다 걸린다. 실제로 그렇게 걸렸다.
+          oversize: [...document.images].filter(i => {
+            const r = i.getBoundingClientRect();
+            return r.width > 20 && !/\.svg(\?|$)/i.test(i.currentSrc)
+                   && i.naturalWidth > r.width * 6;
+          }).slice(0, 4).map(i => {
+            const r = i.getBoundingClientRect();
+            return i.currentSrc.split('/').pop().slice(0, 32)
+                   + ' ' + i.naturalWidth + '→' + Math.round(r.width) + 'px';
+          }),
           ld, text: (document.body.innerText || '').length,
           overflowX: document.documentElement.scrollWidth > innerWidth + 1,
           wide,
@@ -245,6 +269,10 @@ async function browserPass() {
         if (!t.some(x => x.startsWith('G-'))) add('심각', '광고', `${tag} 에 GA4 태그가 없다 — 유입을 못 센다`);
         if (!t.some(x => x.startsWith('AW-'))) add('심각', '광고', `${tag} 에 구글애즈 전환 태그가 없다`);
       }
+      if (LANDING.includes(p) && (r.oversize || []).length)
+        add('낮음', '속도', `${tag} 에 화면보다 훨씬 큰 이미지: ${r.oversize.join(', ')}`,
+          '보이는 크기의 3배가 넘는다 — 모바일 데이터를 태운다');
+
       // 속도 — 광고 도착지만 깐깐하게 본다
       const pf = r.perf;
       if (pf && LANDING.includes(p)) {
