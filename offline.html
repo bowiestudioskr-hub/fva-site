@@ -102,12 +102,12 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4c07262-5">
-<link rel="stylesheet" href="css/mobile.css?v=4c07262-5">
-<link rel="stylesheet" href="css/sub.css?v=4c07262-5">
-<link rel="stylesheet" href="css/offline.css?v=4c07262-5">
-<link rel="stylesheet" href="css/offline-plan.css?v=4c07262-5">
-<link rel="stylesheet" href="css/offline-blocks.css?v=4c07262-5">
+<link rel="stylesheet" href="css/style.css?v=4ce269f-6">
+<link rel="stylesheet" href="css/mobile.css?v=4ce269f-6">
+<link rel="stylesheet" href="css/sub.css?v=4ce269f-6">
+<link rel="stylesheet" href="css/offline.css?v=4ce269f-6">
+<link rel="stylesheet" href="css/offline-plan.css?v=4ce269f-6">
+<link rel="stylesheet" href="css/offline-blocks.css?v=4ce269f-6">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -127,7 +127,7 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
   }
 }
 </script>
-  <script src="/js/measure.js?v=4c07262-5" defer></script>
+  <script src="/js/measure.js?v=4ce269f-6" defer></script>
 </head>
 <body>
 
@@ -185,6 +185,15 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
   <!-- 리틀리에 있던 개강 정보를 맨 위로. 상담이 이 내용으로 몰려서 첫 화면에 둔다.
        ⚠ 개강일·기수가 박혀 있다. 20기로 넘어가면 여기부터 고칠 것. -->
   <section class="off-notice" aria-labelledby="nt-h">
+    <!-- 마감 임박 띠. 남은 날짜는 개강일에서 자동으로 센다 —
+         「마감임박」을 손으로 적어두면 지나고도 안 고쳐서 거짓말이 된다.
+         개강일이 지나면 스스로 사라진다. -->
+    <div class="nt-urgent" id="nt-urgent" hidden>
+      <span class="flare">마감 임박</span>
+      <strong>19기 수강신청 <b>이번 주</b> 마감</strong>
+      <span class="dday" id="nt-dday"></span>
+    </div>
+
     <p class="loc">Location. <b>서울 마포구 독막로 6길 6, 현영빌딩 5F</b></p>
 
     <div class="nt-news">
@@ -1040,6 +1049,30 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 if(!wcs_add) var wcs_add = {};
 wcs_add["wa"] = "2a4873e8881b40";
 if(window.wcs) { wcs_do(); }
+</script>
+<script>
+/* 마감 임박 띠. 개강일에서 남은 날을 세어 넣는다.
+   ⚠ 20기로 넘어가면 아래 두 날짜를 바꿀 것. 지나면 띠가 스스로 숨는다. */
+(function () {
+  var 개강 = [
+    { 반: '금 저녁반', 날: '2026-08-21' },
+    { 반: '토 점심반', 날: '2026-08-22' }
+  ];
+  var 오늘 = new Date(); 오늘.setHours(0, 0, 0, 0);
+  var 남은 = 개강
+    .map(function (x) {
+      var d = new Date(x.날 + 'T00:00:00');
+      return { 반: x.반, d: Math.round((d - 오늘) / 864e5) };
+    })
+    .filter(function (x) { return x.d >= 0; });
+
+  if (!남은.length) return;            // 다 지났으면 띠를 띄우지 않는다
+  var 가장가까움 = 남은[0];
+  document.getElementById('nt-dday').textContent =
+    가장가까움.d === 0 ? '오늘 개강'
+    : 가장가까움.반 + ' 개강까지 ' + 가장가까움.d + '일';
+  document.getElementById('nt-urgent').hidden = false;
+})();
 </script>
 </body>
 </html>
