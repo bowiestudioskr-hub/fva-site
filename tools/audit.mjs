@@ -167,6 +167,21 @@ async function browser() {
       await S('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: width < 600 });
       await S('Page.navigate', { url });
       await sleep(wait);
+      // 광고가 떨어지는 자리는 빨라야 한다. 느리면 사람이 나가고,
+      // 구글은 「방문 페이지 만족도」를 깎아 같은 돈으로 노출을 덜 준다.
+      const perf = await S('Runtime.evaluate', {
+        returnByValue: true, expression: `(() => {
+        const nav = performance.getEntriesByType('navigation')[0] || {};
+        const l = performance.getEntriesByType('largest-contentful-paint') || [];
+        const res = performance.getEntriesByType('resource') || [];
+        const bytes = res.reduce((a, r) => a + (r.transferSize || 0), 0);
+        const heavy = res.filter(r => (r.transferSize || 0) > 700000)
+          .sort((a, b) => b.transferSize - a.transferSize).slice(0, 3)
+          .map(r => Math.round(r.transferSize / 1024) + 'KB ' + r.name.split('/').pop().slice(0, 40));
+        return { load: Math.round(nav.loadEventEnd || 0),
+                 lcp: Math.round(l.length ? l[l.length - 1].startTime : 0),
+                 kb: Math.round(bytes / 1024), heavy };
+      })()` }).catch(() => null);
       const probe = await S('Runtime.evaluate', {
         returnByValue: true, expression: `(() => {
         const q = s => document.querySelector(s);
@@ -198,7 +213,7 @@ async function browser() {
       })()` });
       handlers.splice(handlers.indexOf(h), 1);
       await send('Target.closeTarget', { targetId });
-      return { errs, net, ...(probe.result.value || {}) };
+      return { errs, net, perf: (perf && perf.result && perf.result.value) || null, ...(probe.result.value || {}) };
     },
   };
 }
@@ -230,6 +245,16 @@ async function browserPass() {
         if (!t.some(x => x.startsWith('G-'))) add('심각', '광고', `${tag} 에 GA4 태그가 없다 — 유입을 못 센다`);
         if (!t.some(x => x.startsWith('AW-'))) add('심각', '광고', `${tag} 에 구글애즈 전환 태그가 없다`);
       }
+      // 속도 — 광고 도착지만 깐깐하게 본다
+      const pf = r.perf;
+      if (pf && LANDING.includes(p)) {
+        if (pf.lcp > 4000) add('보통', '속도',
+          `${tag} 의 가장 큰 요소가 뜨는 데 ${(pf.lcp / 1000).toFixed(1)}초 (LCP)`,
+          '광고 도착지가 느리면 구글이 방문 페이지 점수를 깎는다');
+        if (pf.kb > 6000) add('보통', '속도',
+          `${tag} 가 ${(pf.kb / 1024).toFixed(1)}MB 를 받는다`, (pf.heavy || []).join(' / '));
+      }
+
       // 모바일 가로 넘침
       const m = await B.open(url, { width: 390, height: 844, wait: 11000 });
       if (m.overflowX) add('보통', '모바일', `${tag} 가 가로로 삐져나온다: ${(m.wide || []).join(', ')}`);
