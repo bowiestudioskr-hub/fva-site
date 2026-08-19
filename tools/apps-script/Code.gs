@@ -31,7 +31,7 @@ const RANGES       = [1, 'y', 7, 28, 90];
 /* 기간 네 개를 매번 새로 계산하면 GA4 를 스무 번 넘게 부르게 되어 8~10초가 걸린다.
    대시보드는 3분마다 다시 읽으므로 그 사이에는 같은 값을 줘도 된다. 캐시로 받아둔다.
    ?fresh=1 을 붙이면 캐시를 건너뛴다 — 방금 고친 게 반영됐는지 확인할 때 쓴다. */
-const CACHE_KEY  = 'feed-v11';
+const CACHE_KEY  = 'feed-v13';
 // 캐시가 비면 처음 연 사람이 15초를 그대로 기다린다.
 // 맥에서 15분마다 도는 자동 갱신(ads_sync.sh)이 ?fresh=1 로 미리 데우지만,
 // **맥이 잠들면 그것도 멈춘다.** 새벽에 폰으로 열었을 때 느린 이유가 그것이다.
@@ -246,10 +246,26 @@ function collect(days) {
       landing: srcLand[raw] || '',
     };
   });
-  const sum = rows.reduce(function (a, b) { return a + b.users; }, 0) || 1;
-  r.sources = rows.map(function (x) {
-    x.share = Math.round(x.users / sum * 100); return x;
+  // 같은 이름으로 풀리는 원본값이 둘 이상이면 한 줄로 합친다.
+  // (not set) 과 (data not available) 이 둘 다 「아직 집계 중」이라 두 줄로 뜨던 것.
+  const merged = [];
+  const at = {};
+  rows.forEach(function (x) {
+    const i = at[x.name];
+    if (i === undefined) { at[x.name] = merged.length; merged.push(x); return; }
+    const a = merged[i], u = a.users + x.users || 1;
+    // 평균값은 사람 수로 가중해 섞는다. 그냥 더하면 시간이 두 배로 뛴다.
+    a.engage = (a.engage * a.users + x.engage * x.users) / u;
+    a.pages  = (a.pages  * a.users + x.pages  * x.users) / u;
+    a.engaged= (a.engaged* a.users + x.engaged* x.users) / u;
+    a.bounce = (a.bounce * a.users + x.bounce * x.users) / u;
+    a.sessions += x.sessions; a.kakao += x.kakao; a.online += x.online;
+    a.users = u;
+    a.landing = a.landing || x.landing;
   });
+  const sum = merged.reduce(function (a, b) { return a + b.users; }, 0) || 1;
+  r.sources = merged.sort(function (a, b) { return b.users - a.users; })
+    .map(function (x) { x.share = Math.round(x.users / sum * 100); return x; });
 
   // ── 광고 유입 ──────────────────────────────────────────
   // 네이버는 utm_* 를 붙여야 자연 검색과 갈린다. 구글은 자동 태깅(gclid)이 처리한다.
@@ -600,7 +616,11 @@ function pretty(v) {
     'bowiestudioskr-hub.github.io / referral': '옛 후기 페이지(리다이렉트)',
     'pf.kakao.com / referral': '카카오톡 채널',
     'app.publr.co / referral': '퍼블 수강 페이지',
-    '(not set)': '경로 불명',
+    // ⚠ 오늘치는 GA4 가 출처를 다 못 붙인다. 하루 지나면 제자리를 찾는다.
+    //   2026-08-19 오늘 65명 중 41명(63%)이 이 둘이었는데 어제치는 0명이었다.
+    //   「경로 불명」이라고만 쓰면 영영 모르는 유입으로 읽혀서, 집계 중이라고 밝힌다.
+    '(not set)': '아직 집계 중 (오늘치)',
+    '(data not available)': '아직 집계 중 (오늘치)',
     '(direct) / (not set)': '직접 유입 · 즐겨찾기',
   };
   if (m[v]) return m[v];
