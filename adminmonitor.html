@@ -372,6 +372,9 @@ function render(){
     stat('조회','var(--visit)', num(r.views), '회') +
     stat('머문 시간','var(--visit)', dur(r.avgEngagement)) +
     stat('상담 클릭','var(--query)', num(r.kakaoClicks), '회') +
+    // 사이트를 떠나 「사는 쪽」으로 간 클릭. 오프라인 페이지의 두 버튼이 여기로 잡힌다.
+    stat('수강권 클릭','var(--query)', num(r.storeClicks), '회') +
+    stat('리틀리 클릭','var(--query)', num(r.littlyClicks), '회') +
     stat('온라인 강의','var(--query)', num(r.onlineClicks), '회', 'ad') +
     // ⚠ 요약 칸도 기간을 따라가야 한다. 카드만 고치고 여기를 빠뜨려서
     //   오늘·어제가 같은 금액으로 떴다. 구글은 30일 고정이라 이름에 그렇게 박는다.

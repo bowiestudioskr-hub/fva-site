@@ -31,7 +31,7 @@ const RANGES       = [1, 'y', 7, 28, 90];
 /* 기간 네 개를 매번 새로 계산하면 GA4 를 스무 번 넘게 부르게 되어 8~10초가 걸린다.
    대시보드는 3분마다 다시 읽으므로 그 사이에는 같은 값을 줘도 된다. 캐시로 받아둔다.
    ?fresh=1 을 붙이면 캐시를 건너뛴다 — 방금 고친 게 반영됐는지 확인할 때 쓴다. */
-const CACHE_KEY  = 'feed-v13';
+const CACHE_KEY  = 'feed-v14';
 // 캐시가 비면 처음 연 사람이 15초를 그대로 기다린다.
 // 맥에서 15분마다 도는 자동 갱신(ads_sync.sh)이 ?fresh=1 로 미리 데우지만,
 // **맥이 잠들면 그것도 멈춘다.** 새벽에 폰으로 열었을 때 느린 이유가 그것이다.
@@ -147,9 +147,14 @@ function collect(days) {
 
   // ── 버튼 클릭 ──────────────────────────────────────────
   // build.js 에서 심은 이름표. 이름이 바뀌면 여기도 같이 고칠 것.
+  /* 사이트를 떠나 「사는 쪽」으로 가는 클릭이 진짜 성과다.
+     ⚠ offline_store_click 은 페이지에 박힌 스크립트가, littly_click 은 measure.js 가 쏜다.
+       두 곳이 같은 이름을 쏘면 두 번 잡히므로 이름을 겹치지 않게 나눠 뒀다. */
   const LABEL = {
-    online_class_click:  '온라인 강의 (구매·맛보기)',
-    kakao_consult_click: '즉시 상담 (카카오톡)',
+    online_class_click:   '온라인 강의 (구매·맛보기)',
+    kakao_consult_click:  '즉시 상담 (카카오톡)',
+    offline_store_click:  '오프라인 수강권 (스마트스토어)',
+    littly_click:         '리틀리 (코스 전체 보기)',
   };
   const ev = ga({
     dateRanges: [{ startDate: start, endDate: end }],
@@ -177,6 +182,8 @@ function collect(days) {
                    .sort(function (a, b) { return b.count - a.count; });
   r.onlineClicks = acc.online_class_click ? acc.online_class_click.count : 0;
   r.kakaoClicks  = acc.kakao_consult_click ? acc.kakao_consult_click.count : 0;
+  r.storeClicks  = acc.offline_store_click ? acc.offline_store_click.count : 0;
+  r.littlyClicks = acc.littly_click ? acc.littly_click.count : 0;
 
   // ── 유입 경로 ──────────────────────────────────────────
   /* 몇 명 왔는지만으로는 채널을 비교할 수 없다. 싸게 많이 데려와도 3초 만에

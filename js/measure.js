@@ -16,6 +16,18 @@
   // ─────────────────────────────────────────────
 
   // 목적지 분류 — 어디로 나갔는지 사람이 읽을 수 있게
+  /* ⚠ 이벤트 이름을 따로 준다.
+     GA4 Data API 는 이벤트 「매개변수」(destination 같은)를 맞춤 측정기준으로 등록해야만
+     읽을 수 있다. 등록을 안 해두면 outbound_click 이 한 덩어리로만 잡혀
+     「스마트스토어로 몇 명 갔나」를 영영 못 센다. 이름을 나눠 두면 등록 없이도 센다. */
+  /* ⚠ 여기에 스마트스토어·퍼블·카카오를 넣으면 안 된다.
+     그 셋은 페이지 안에 박힌 스크립트(build.js 가 심는다)가 이미
+     offline_store_click / online_class_click / kakao_consult_click 으로 쏘고 있다.
+     같은 이름을 여기서 또 쏘면 한 번 누른 것이 두 번으로 잡힌다. */
+  var EVENT_NAME = {
+    '리틀리_링크모음': 'littly_click'
+  };
+
   var DEST = [
     /* 퍼블 수강페이지. 도메인을 옮기면 fva.co.kr/channels 가 죽으므로
        퍼블 기본 주소(app.publr.co)도 같이 잡아야 집계가 끊기지 않는다. */
@@ -107,6 +119,9 @@
         link_url: href,
         page_path: location.pathname
       });
+      // 목적지별 전용 이벤트도 같이 쏜다(위 주석 참고)
+      var en = EVENT_NAME[d.name];
+      if (en) gtag('event', en, { page_path: location.pathname, link_url: href });
       // 퍼블·스마트스토어로 나가는 것은 별도 전환 이벤트로도 기록
       if (d.kind === '퍼블' || d.kind === '구매' || d.kind === '상담') {
         gtag('event', 'lead_exit', { destination: d.name, page_path: location.pathname });
