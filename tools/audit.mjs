@@ -371,6 +371,15 @@ async function adsPass() {
     w.onmessage = e => { const m = JSON.parse(e.data); if (m.id && pd.has(m.id)) { const p = pd.get(m.id); pd.delete(m.id); p(m.result); } };
     const S = (m, p = {}) => new Promise(r => { const n = ++i; pd.set(n, r); w.send(JSON.stringify({ id: n, method: m, params: p })); });
     const js = async e => (await S('Runtime.evaluate', { returnByValue: true, expression: e }))?.result?.value;
+    /* ⚠ 크롬이 최소화돼 있으면 탭이 얼어 본문이 1,000자에서 멎는다.
+       창을 띄우라고 부탁하는 대신 탭만 깨운다 — 창이 튀어나오지 않는다.
+       google_report.mjs 도 같은 방법을 쓴다. 두 곳이 어긋나면 검사기만 실패한다. */
+    const wake = async () => {
+      await S('Page.setWebLifecycleState', { state: 'active' }).catch(() => {});
+      await S('Emulation.setFocusEmulationEnabled', { enabled: true }).catch(() => {});
+      await sleep(1500);
+    };
+    await wake();
     await js(`location.href='https://ads.google.com/aw/ads?ocid=8245188401'`);
     // 도착 주소는 행에 마우스를 올려야 생기는 연필의 aria-label 안에 들어 있다.
     let ok = false, len = 0;
@@ -378,9 +387,10 @@ async function adsPass() {
       const d = await js(`(()=>({len:(document.body.innerText||'').length,
         ok:(document.body.innerText||'').indexOf('반응형 검색 광고')>=0}))()`).catch(() => null);
       if (d) { len = d.len; if (d.ok) { ok = true; break; } }
+      if (n % 2 === 1) await wake();
       await sleep(5000);
     }
-    if (!ok) { add('낮음', '광고', `구글애즈 화면이 안 그려짐(본문 ${len}자) — 크롬 창을 띄워두면 검사된다`); w.close(); return; }
+    if (!ok) { add('낮음', '광고', `구글애즈 화면이 안 깨어남(본문 ${len}자) — 크롬이 완전히 잠들었을 수 있다`); w.close(); return; }
     // 연필을 꺼내려면 진짜 마우스 움직임이 필요하다. JS 이벤트로는 안 나온다.
     for (const dx of [-80, -40, 0, 40]) {
       await S('Input.dispatchMouseEvent', { type: 'mouseMoved', x: 607 + dx, y: 583, buttons: 0 });
