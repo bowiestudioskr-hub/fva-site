@@ -423,7 +423,9 @@ async function pipePass() {
     };
     const a = age(j.updated);
     if (a == null) add('보통', '수치', `광고 JSON 시각을 못 읽는다: ${j.updated}`);
-    else if (a > 60) add('심각', '수치', `광고 수치가 ${Math.round(a / 60)}시간째 멈춰 있다`);
+    // 한 주기(15분) 실패는 흔하다. 두 번 연속 놓쳐야 진짜 멈춘 것으로 본다.
+    else if (a > 75) add('심각', '수치', `광고 수치가 ${Math.round(a / 60)}시간째 멈춰 있다`);
+    else if (a > 45) add('낮음', '수치', `광고 수치가 ${Math.round(a)}분째 안 들어왔다 — 잠깐 끊긴 것일 수 있다`);
     const g = age(j.google?.updated);
     if (g != null && g > 180) add('보통', '수치', `구글 수치가 ${Math.round(g / 60)}시간째 멈춰 있다 — 크롬 창을 띄워둘 것`);
     if (!j.naver?.byPeriod) add('보통', '수치', '광고 JSON 에 기간별 집계(byPeriod)가 없다');
