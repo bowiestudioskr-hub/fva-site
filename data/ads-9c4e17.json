@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 8. 22. AM 1:32:53",
+  "updated": "2026. 8. 22. AM 2:04:26",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 10066,
     "dailyBudget": 5000,
     "balance": 40302,
-    "imp": 4795,
+    "imp": 4840,
     "clk": 12,
     "cost": 59048,
     "byPeriod": {
       "1": {
-        "imp": 0,
+        "imp": 45,
         "clk": 0,
         "cost": 0
       },
       "7": {
-        "imp": 10660,
+        "imp": 10705,
         "clk": 20,
         "cost": 59774
       },
       "28": {
-        "imp": 10660,
+        "imp": 10705,
         "clk": 20,
         "cost": 59774
       },
       "90": {
-        "imp": 150760,
+        "imp": 150805,
         "clk": 186,
         "cost": 73209
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-08-22",
-        "imp": 0,
+        "imp": 45,
         "clk": 0,
         "cost": 0
       }
     ],
-    "campaignImp": 10660,
+    "campaignImp": 10705,
     "campaignClk": 20,
     "campaignCost": 59774,
     "groups": [
@@ -142,7 +142,7 @@
             "bid": 900,
             "live": true,
             "state": "운영",
-            "imp": 355,
+            "imp": 365,
             "clk": 0,
             "cost": 0,
             "rank": 3.7
@@ -152,7 +152,7 @@
             "bid": 250,
             "live": true,
             "state": "운영",
-            "imp": 31,
+            "imp": 33,
             "clk": 0,
             "cost": 0,
             "rank": 1.1
@@ -162,7 +162,7 @@
             "bid": 600,
             "live": true,
             "state": "운영",
-            "imp": 58,
+            "imp": 60,
             "clk": 0,
             "cost": 0,
             "rank": 3
@@ -333,7 +333,7 @@
             "bid": 1500,
             "live": true,
             "state": "운영",
-            "imp": 73,
+            "imp": 76,
             "clk": 0,
             "cost": 0,
             "rank": 2.7
@@ -494,7 +494,7 @@
             "bid": 1500,
             "live": true,
             "state": "운영",
-            "imp": 1451,
+            "imp": 1467,
             "clk": 2,
             "cost": 9394,
             "rank": 1
@@ -524,7 +524,7 @@
             "bid": 800,
             "live": true,
             "state": "운영",
-            "imp": 132,
+            "imp": 133,
             "clk": 1,
             "cost": 867,
             "rank": 3.3
@@ -534,10 +534,10 @@
             "bid": 300,
             "live": true,
             "state": "운영",
-            "imp": 57,
+            "imp": 67,
             "clk": 0,
             "cost": 0,
-            "rank": 4.2
+            "rank": 4
           },
           {
             "word": "뮤직비디오감독",
@@ -554,7 +554,7 @@
             "bid": 300,
             "live": true,
             "state": "운영",
-            "imp": 18,
+            "imp": 19,
             "clk": 0,
             "cost": 0,
             "rank": 2.1
@@ -688,40 +688,40 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 22. AM 1:32:47",
+    "updated": "2026. 8. 22. AM 2:04:20",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
       "처음": "2025-07-15",
-      "마지막": "2026-08-21",
-      "일수": 403
+      "마지막": "2026-08-22",
+      "일수": 404
     },
     "byPeriod": {
       "1": {
-        "visit": 0,
+        "visit": 1,
         "click": 0,
-        "unique": 0,
+        "unique": 1,
         "ctr": 0,
         "dwell": 0
       },
       "7": {
-        "visit": 1441,
+        "visit": 1442,
         "click": 248,
-        "unique": 142,
+        "unique": 143,
         "ctr": 17.2,
         "dwell": 27
       },
       "28": {
-        "visit": 2840,
+        "visit": 2841,
         "click": 914,
-        "unique": 142,
+        "unique": 143,
         "ctr": 32.2,
         "dwell": 27
       },
       "90": {
-        "visit": 6286,
+        "visit": 6287,
         "click": 2981,
-        "unique": 142,
+        "unique": 143,
         "ctr": 47.4,
         "dwell": 27
       },
@@ -733,9 +733,9 @@
         "dwell": 12
       },
       "all": {
-        "visit": 34383,
+        "visit": 34384,
         "click": 14127,
-        "unique": 142,
+        "unique": 143,
         "ctr": 41.1,
         "dwell": 27
       }
@@ -3158,6 +3158,12 @@
         "visit": 101,
         "click": 10,
         "unique": 44
+      },
+      {
+        "d": "2026-08-22",
+        "visit": 1,
+        "click": 0,
+        "unique": 1
       }
     ],
     "sources": [
@@ -3743,11 +3749,11 @@
       },
       {
         "name": "데스크탑",
-        "visit": 290,
+        "visit": 291,
         "click": 146,
-        "unique": 8,
+        "unique": 9,
         "dwell": 72,
-        "ctr": 50.3
+        "ctr": 50.2
       },
       {
         "name": "태블릿",
@@ -3770,9 +3776,9 @@
       },
       {
         "name": "US",
-        "visit": 1119,
+        "visit": 1120,
         "click": 7,
-        "unique": 1,
+        "unique": 2,
         "dwell": 5,
         "ctr": 0.6,
         "code": "US"
@@ -3954,7 +3960,7 @@
         "name": "알 수 없음",
         "visit": 1040,
         "click": 0,
-        "unique": 0,
+        "unique": 1,
         "dwell": 0,
         "ctr": 0,
         "code": "US"
@@ -4125,9 +4131,38 @@
     "byPeriodDetail": {
       "1": {
         "sources": [],
-        "device": [],
-        "country": [],
-        "city": [],
+        "device": [
+          {
+            "name": "데스크탑",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0
+          }
+        ],
+        "country": [
+          {
+            "name": "US",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "US"
+          }
+        ],
+        "city": [
+          {
+            "name": "알 수 없음",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "US"
+          }
+        ],
         "blocks": []
       },
       "7": {
@@ -4252,11 +4287,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 34,
+            "visit": 35,
             "click": 13,
-            "unique": 8,
+            "unique": 9,
             "dwell": 72,
-            "ctr": 38.2
+            "ctr": 37.1
           },
           {
             "name": "태블릿",
@@ -4287,6 +4322,15 @@
             "code": "JP"
           },
           {
+            "name": "US",
+            "visit": 8,
+            "click": 0,
+            "unique": 2,
+            "dwell": 5,
+            "ctr": 0,
+            "code": "US"
+          },
+          {
             "name": "GB",
             "visit": 7,
             "click": 0,
@@ -4294,15 +4338,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "GB"
-          },
-          {
-            "name": "US",
-            "visit": 7,
-            "click": 0,
-            "unique": 1,
-            "dwell": 5,
-            "ctr": 0,
-            "code": "US"
           },
           {
             "name": "TH",
@@ -4514,6 +4549,15 @@
             "code": "HK"
           },
           {
+            "name": "알 수 없음",
+            "visit": 3,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "US"
+          },
+          {
             "name": "Bradford",
             "visit": 2,
             "click": 0,
@@ -4611,15 +4655,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "TH"
-          },
-          {
-            "name": "알 수 없음",
-            "visit": 2,
-            "click": 0,
-            "unique": 0,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "US"
           },
           {
             "name": "Boston",
@@ -4905,11 +4940,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 109,
+            "visit": 110,
             "click": 51,
-            "unique": 8,
+            "unique": 9,
             "dwell": 72,
-            "ctr": 46.8
+            "ctr": 46.4
           },
           {
             "name": "태블릿",
@@ -4932,11 +4967,11 @@
           },
           {
             "name": "US",
-            "visit": 28,
+            "visit": 29,
             "click": 1,
-            "unique": 1,
+            "unique": 2,
             "dwell": 5,
-            "ctr": 3.6,
+            "ctr": 3.4,
             "code": "US"
           },
           {
@@ -5123,12 +5158,12 @@
           },
           {
             "name": "알 수 없음",
-            "visit": 13,
+            "visit": 14,
             "click": 0,
-            "unique": 0,
+            "unique": 1,
             "dwell": 0,
             "ctr": 0,
-            "code": "UA"
+            "code": "US"
           },
           {
             "name": "알 수 없음",
@@ -5137,7 +5172,7 @@
             "unique": 0,
             "dwell": 0,
             "ctr": 0,
-            "code": "US"
+            "code": "UA"
           },
           {
             "name": "Dallas",
@@ -5618,11 +5653,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 250,
+            "visit": 251,
             "click": 125,
-            "unique": 8,
+            "unique": 9,
             "dwell": 72,
-            "ctr": 50
+            "ctr": 49.8
           },
           {
             "name": "태블릿",
@@ -5645,9 +5680,9 @@
           },
           {
             "name": "US",
-            "visit": 66,
+            "visit": 67,
             "click": 3,
-            "unique": 1,
+            "unique": 2,
             "dwell": 5,
             "ctr": 4.5,
             "code": "US"
@@ -5836,9 +5871,9 @@
           },
           {
             "name": "알 수 없음",
-            "visit": 32,
+            "visit": 33,
             "click": 0,
-            "unique": 0,
+            "unique": 1,
             "dwell": 0,
             "ctr": 0,
             "code": "US"
@@ -6398,11 +6433,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 290,
+            "visit": 291,
             "click": 146,
-            "unique": 8,
+            "unique": 9,
             "dwell": 72,
-            "ctr": 50.3
+            "ctr": 50.2
           },
           {
             "name": "태블릿",
@@ -6425,9 +6460,9 @@
           },
           {
             "name": "US",
-            "visit": 1119,
+            "visit": 1120,
             "click": 7,
-            "unique": 1,
+            "unique": 2,
             "dwell": 5,
             "ctr": 0.6,
             "code": "US"
@@ -6609,7 +6644,7 @@
             "name": "알 수 없음",
             "visit": 1040,
             "click": 0,
-            "unique": 0,
+            "unique": 1,
             "dwell": 0,
             "ctr": 0,
             "code": "US"
@@ -7134,9 +7169,38 @@
       },
       "y": {
         "sources": [],
-        "device": [],
-        "country": [],
-        "city": [],
+        "device": [
+          {
+            "name": "데스크탑",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0
+          }
+        ],
+        "country": [
+          {
+            "name": "US",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "US"
+          }
+        ],
+        "city": [
+          {
+            "name": "알 수 없음",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "US"
+          }
+        ],
         "blocks": []
       }
     }
