@@ -389,7 +389,9 @@ const stat = (label, color, value, unit) => `<div class="stat">
    ⚠ 고칠 수 있는 건 세 가지뿐이다(서버에서도 막아 뒀다).
      아무 속성이나 열어두면 갱신 토큰이나 열쇠까지 화면에서 갈아치울 수 있게 된다. */
 const 손님화면 = 'https://oh501.surge.sh/';
-const 카카오채널 = 'http://pf.kakao.com/_oh501';
+/* ⚠ _ediSX 는 채널 고유 코드다. 검색용 아이디(oh501)와 다르다.
+   pf.kakao.com/_oh501 은 우리 채널이 아니라 남의 페이지로 간다. */
+const 카카오채널 = 'https://pf.kakao.com/_ediSX';
 
 async function renderGuest() {
   let d;
@@ -406,7 +408,7 @@ async function renderGuest() {
     <h3>손님 화면<span class="r">oh501.surge.sh</span></h3>
     <div class="go">
       <a class="hi" href="${손님화면}" target="_blank" rel="noopener">입실 안내 열기</a>
-      <a href="${카카오채널}" target="_blank" rel="noopener">카카오 채널 @oh501</a>
+      <a href="${카카오채널}" target="_blank" rel="noopener">카카오 채널 오공일501</a>
       <a href="https://center-pf.kakao.com" target="_blank" rel="noopener">채널 관리</a>
     </div>
     <details><summary>비밀번호·문의 문구 고치기</summary>
