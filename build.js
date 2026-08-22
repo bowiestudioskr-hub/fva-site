@@ -402,7 +402,7 @@ const today = new Date().toISOString().slice(0, 10);
 const ND = require('./pages/news-data');
 const NEWS_SLUGS = [...ND.map(n => `news-${n.slug}.html`),
                     ...ND.flatMap(n => n.posts.map((_, i) => `news-${n.slug}-${i+1}.html`))];
-const urls = ['', 'online.html', 'offline.html', 'curriculum.html', 'news.html', 'works.html', 'reviews.html', 'privacy.html', ...NEWS_SLUGS];
+const urls = ['', 'online.html', 'offline.html', 'basic.html', 'curriculum.html', 'news.html', 'works.html', 'reviews.html', 'privacy.html', ...NEWS_SLUGS];
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'),
 `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
