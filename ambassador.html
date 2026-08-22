@@ -54,7 +54,7 @@
   .vid .fb{width:100%;margin-top:9px;background:#0F0F11;color:var(--ink);
     border:1px solid var(--line);border-radius:10px;padding:10px 12px;
     font:inherit;font-size:13px;line-height:1.65;resize:vertical;min-height:88px;
-    white-space:pre-wrap}
+    white-space:pre-wrap;overflow:hidden}
   .row2{display:flex;gap:7px;align-items:center;margin-top:8px;flex-wrap:wrap}
   .row2 select,.row2 button{background:var(--card2);color:var(--ink);border:0;border-radius:9px;
     padding:8px 12px;font:inherit;font-size:12.5px;font-weight:700;cursor:pointer}
@@ -166,6 +166,12 @@ function render(d) {
       <div class="prog">${bar}</div>
       ${vids}</div><div style="height:14px"></div>`;
   }).join('');
+
+  /* ⚠ 피드백이 길면 칸 안에 갇혀 안 보인다. 내용만큼 늘려 준다. */
+  const 늘리기 = ta => { ta.style.height = 'auto'; ta.style.height = (ta.scrollHeight + 4) + 'px'; };
+  document.querySelectorAll('.vid .fb').forEach(ta => {
+    늘리기(ta); ta.addEventListener('input', () => 늘리기(ta));
+  });
 
   /* 저장 */
   document.querySelectorAll('.vid .save').forEach(b => b.onclick = async () => {
