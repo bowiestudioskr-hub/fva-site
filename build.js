@@ -371,9 +371,10 @@ const HANDMADE = new Set([
   // adlog·worklist·adminmonitor 는 pages/ 에 본문이 없는 손조판 문서다.
   // 목록에 없으면 빌드가 지우지는 않지만, 나중에 pages/ 에 동명 항목이 생기면 덮어쓴다.
   'adlog.html', 'worklist.html', 'adminmonitor.html', 'littly.html',
-  // ⚠ 오공일501 은 여기 없다. 아카데미와 다른 사업이라 도메인부터 갈라 뒀다.
-  //   손님용 oh501.surge.sh · 운영자용 oh501.surge.sh/monitor/
-  //   (원본 ~/Documents/FVA/501/site/, 배포는 npx surge ./ oh501.surge.sh)
+  // singleroom501/ — 오공일501 예약 현황(운영자용). 사업은 다르지만 주소만 여기 둔다.
+  // ⚠ 손님 화면은 oh501.surge.sh 다. 이 파일 안에서 '/' 로 걸면 아카데미 첫 화면으로 간다.
+  //   원본은 ~/Documents/FVA/501/site/monitor/index.html — 고칠 땐 두 곳을 같이 고칠 것.
+  'singleroom501/index.html',
   // adminambassador.html — 19기 앰버서더 제작 영상·피드백 화면. 비밀번호 없다.
   // ⚠ 한때 ambassador.html 로 뒀다가 사고가 났다 — 깃허브 페이지가 슬래시 없는
   //   fva.co.kr/ambassador 를 그 파일로 잡아버려, DM 으로 뿌린 「앰버서더 콘텐츠 예시」
