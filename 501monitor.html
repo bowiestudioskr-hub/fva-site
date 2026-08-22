@@ -33,7 +33,7 @@
   body{
     background:var(--bg); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,system-ui,sans-serif;
-    font-size:15px; line-height:1.5; padding:22px 16px 80px;
+    font-size:15px; line-height:1.5; padding:22px 16px 82px;
     font-variant-numeric:tabular-nums;
   }
   .wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
@@ -162,8 +162,20 @@
            padding:13px 16px;font-size:13px;color:var(--sub);line-height:1.55}
   .warnbox b{color:var(--ink)}
   footer{color:var(--dim);font-size:12px;padding-top:6px;line-height:1.7}
+
+  /* ── 하단 바 ─────────────────────────────────────
+     ⚠ body 아래 여백(padding-bottom)을 바 높이만큼 줘야 마지막 줄이 가려지지 않는다. */
+  .bar{position:fixed;left:0;right:0;bottom:0;z-index:20;
+       display:flex;background:rgba(20,20,22,.94);backdrop-filter:blur(14px);
+       box-shadow:inset 0 .5px 0 rgba(255,255,255,.1);
+       padding-bottom:env(safe-area-inset-bottom)}
+  .bar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;
+         padding:9px 4px 8px;text-decoration:none;color:var(--sub);
+         font-size:10.5px;font-weight:600;letter-spacing:-.02em}
+  .bar a:active{background:rgba(255,255,255,.06)}
+  .bar i{font-style:normal;font-size:17px;line-height:1}
   @media (max-width:560px){
-    body{padding:18px 12px 60px}
+    body{padding:18px 12px 74px}
     h1{font-size:20px}
     .stat .vl{font-size:25px}
     .stats{grid-template-columns:1fr 1fr;gap:8px}
@@ -183,12 +195,7 @@
 <div class="wrap">
   <div class="hd">
     <div class="row"><h1>오공일501</h1><span class="date" id="date">불러오는 중…</span></div>
-    <p class="lede">
-      합정 프라이빗 영화관 · 새 예약이 잡히면 입실 안내가 자동으로 나갑니다
-      · <a href="https://oh501.surge.sh/" target="_blank" rel="noopener">손님 조회 화면</a>
-      · <a href="https://partner.spacecloud.kr/reservation-calendar?product=97637&amp;space=58874" target="_blank" rel="noopener">호스트센터</a>
-      · <a href="/adminmonitor.html">유입 현황</a>
-    </p>
+    <p class="lede">합정 프라이빗 영화관 · 새 예약이 잡히면 입실 안내가 자동으로 나갑니다</p>
   </div>
 
   <div class="cal">
@@ -219,6 +226,19 @@
 
   <footer id="foot"></footer>
 </div>
+
+<!-- ⚠ 폰에서 화면을 넘기지 않고도 갈 수 있게 아래에 고정한다.
+     예전엔 손님 화면·카카오 링크가 달력 아래 카드에만 있어서
+     열 때마다 두 화면쯤 긁어내려야 했다. -->
+<nav class="bar">
+  <a href="https://oh501.surge.sh/" target="_blank" rel="noopener">
+    <i>🔑</i><span>입실 안내</span></a>
+  <a href="https://pf.kakao.com/_ediSX" target="_blank" rel="noopener">
+    <i>💬</i><span>카카오 채널</span></a>
+  <a href="https://partner.spacecloud.kr/reservation-calendar?product=97637&amp;space=58874"
+     target="_blank" rel="noopener"><i>📅</i><span>호스트센터</span></a>
+  <a href="/adminmonitor.html"><i>📈</i><span>유입 현황</span></a>
+</nav>
 
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
@@ -415,9 +435,7 @@ async function renderGuest() {
   $('guestcard').innerHTML = `<div class="card">
     <h3>손님 화면<span class="r">oh501.surge.sh</span></h3>
     <div class="go">
-      <a class="hi" href="${손님화면}" target="_blank" rel="noopener">입실 안내 열기</a>
-      <a href="${카카오채널}" target="_blank" rel="noopener">카카오 채널 오공일501</a>
-      <a href="https://center-pf.kakao.com" target="_blank" rel="noopener">채널 관리</a>
+      <a href="https://business.kakao.com/_ediSX/dashboard" target="_blank" rel="noopener">카카오 채널 관리</a>
     </div>
     <details><summary>비밀번호·문의 문구 고치기</summary>
       ${row('DOOR_CODE', '출입문 비번', v.DOOR_CODE || '', '3530')}
