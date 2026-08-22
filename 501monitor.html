@@ -99,7 +99,9 @@
   .day.on{display:block}
   .day h4{font-size:13.5px;font-weight:800;margin-bottom:8px}
   .day ol{list-style:none;display:flex;flex-direction:column;gap:7px}
-  .day li{display:flex;gap:9px;align-items:baseline;font-size:13.5px}
+  .day li{display:flex;gap:9px;align-items:flex-start;font-size:13.5px}
+  .day .who2{flex:1;min-width:0}
+  .day .who2 b{font-weight:700}
   .day .t{color:var(--sub);font-size:12.5px;min-width:74px;white-space:nowrap}
   .day .k{font-weight:700}
   .day .none{color:var(--dim);font-size:13px}
@@ -414,6 +416,7 @@ function renderDay() {
     t: `${r.시작}시 ~ ${r.끝}시`, k: r.이름 || '손님',
     s: `예약 ${r.id} · ${r.상태}${r.인원 ? ' · ' + r.인원 + '명' : ''}` +
        `${r.금액 ? ' · ' + num(r.금액) + '원' : ''}`,
+    tel: r.연락처 || '',
     c: kindOf(r)[0] === 'void' ? 'var(--done)' : `var(--${kindOf(r)[0]})`,
   });
   for (const s of (day?.일정 || [])) items.push({
@@ -427,8 +430,10 @@ function renderDay() {
   box.innerHTML = `<h4>${ymd.slice(4,6)}월 ${ymd.slice(6,8)}일</h4>` +
     (items.length
       ? `<ol>${items.map(i => `<li><span class="t">${esc(i.t)}</span>` +
-          `<span class="k" style="color:${i.c}">${esc(i.k)}</span>` +
-          `<span style="color:var(--sub);font-size:12.5px">${esc(i.s)}</span></li>`).join('')}</ol>`
+          `<span class="who2"><b style="color:${i.c}">${esc(i.k)}</b>` +
+          `<span style="color:var(--sub);font-size:12.5px"> ${esc(i.s)}</span>` +
+          (i.tel !== undefined ? `<span class="telrow">${전화(i.tel)}</span>` : '') +
+          `</span></li>`).join('')}</ol>`
       : `<div class="none">이날은 비어 있습니다.</div>`);
   box.classList.add('on');
 }
