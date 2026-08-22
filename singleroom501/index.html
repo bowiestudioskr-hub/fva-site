@@ -35,7 +35,7 @@
   body{
     background:var(--bg); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,system-ui,sans-serif;
-    font-size:15px; line-height:1.5; padding:22px 16px 82px;
+    font-size:15px; line-height:1.5; padding:22px 16px 40px;
     font-variant-numeric:tabular-nums;
   }
   .wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
@@ -203,14 +203,16 @@
 
   /* ── 하단 바 ─────────────────────────────────────
      ⚠ body 아래 여백(padding-bottom)을 바 높이만큼 줘야 마지막 줄이 가려지지 않는다. */
-  .bar{position:fixed;left:0;right:0;bottom:0;z-index:20;
-       display:flex;background:rgba(20,20,22,.94);backdrop-filter:blur(14px);
-       box-shadow:inset 0 .5px 0 rgba(255,255,255,.1);
-       padding-bottom:env(safe-area-inset-bottom)}
-  .bar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
-         padding:10px 4px 9px;border:0;background:none;cursor:pointer;color:var(--dim);
+  /* ⚠ 아래에 고정하면 안 된다. 카톡·네이버 인앱 브라우저가 화면 아래를 자기 툴바로
+     덮어버려 바가 통째로 안 보인다(2026-08-23 확인). 위에 붙인다. */
+  .bar{position:sticky;top:0;z-index:20;display:flex;
+       margin:0 -16px 2px;padding:0 16px;background:var(--bg);
+       box-shadow:0 .5px 0 var(--line)}
+  .bar button{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;
+         padding:10px 3px 9px;border:0;border-bottom:2px solid transparent;background:none;
+         cursor:pointer;color:var(--dim);
          font-family:inherit;font-size:10.5px;font-weight:700;letter-spacing:-.02em}
-  .bar button.on{color:var(--ink)}
+  .bar button.on{color:var(--ink);border-bottom-color:var(--ink)}
   .bar button.on i{filter:none}
   .bar i{font-style:normal;font-size:18px;line-height:1;filter:grayscale(1) opacity(.55)}
   .bar button:active{background:rgba(255,255,255,.06)}
@@ -219,7 +221,7 @@
   .tabpane{display:flex;flex-direction:column;gap:20px}
   .tabpane[hidden]{display:none !important}
   @media (max-width:560px){
-    body{padding:18px 12px 74px}
+    body{padding:18px 12px 36px}
     h1{font-size:20px}
     .stat .vl{font-size:25px}
     .stats{grid-template-columns:1fr 1fr;gap:8px}
@@ -244,13 +246,11 @@
        transform:translateX(-50%) 만 살아남아 바가 화면 왼쪽으로 밀려 잘린다.
        (2026-08-23 실제로 그렇게 났다. right:auto 를 넣어도 소용없었던 이유다.) */
   @media (min-width:900px){
-    body{padding:30px 24px 90px}
     .wrap{max-width:1080px;gap:24px}
     .cell{min-height:118px}
     .ev{font-size:10.5px}
     .rid{font-size:9.5px;margin-left:15px}
-    .bar{left:50%;right:auto;transform:translateX(-50%);width:min(560px,92vw);
-         bottom:18px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+    body{padding:30px 24px 40px}
   }
 </style>
 </head>
@@ -260,6 +260,12 @@
     <div class="row"><h1>오공일501</h1><span class="date" id="date">불러오는 중…</span></div>
     <p class="lede">합정 프라이빗 영화관 · 새 예약이 잡히면 입실 안내가 자동으로 나갑니다</p>
   </div>
+
+<nav class="bar">
+  <button type="button" data-tab="cal"><i>📅</i><span>달력</span></button>
+  <button type="button" data-tab="book"><i>📖</i><span>예약</span></button>
+  <button type="button" data-tab="set"><i>⚙️</i><span>관리</span></button>
+</nav>
 
   <div class="tabpane" id="pane-cal">
   <div class="cal">
@@ -308,11 +314,7 @@
 <!-- ⚠ 이 바는 「링크 모음」이 아니라 **화면 전환**이다.
      한 화면에 달력·예약·관리를 다 쌓으니 폰에서 두 화면 넘게 긁어야 했다.
      셋으로 갈라 한 번에 하나만 보여준다. 바깥 링크는 관리 탭 안으로 넣었다. -->
-<nav class="bar">
-  <button type="button" data-tab="cal"><i>📅</i><span>달력</span></button>
-  <button type="button" data-tab="book"><i>📖</i><span>예약</span></button>
-  <button type="button" data-tab="set"><i>⚙️</i><span>관리</span></button>
-</nav>
+
 
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
