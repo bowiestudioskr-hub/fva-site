@@ -77,7 +77,6 @@
   <div class="hd">
     <div class="row"><h1>19기 앰버서더</h1><span class="date" id="date">불러오는 중…</span></div>
     <p class="lede">제작 영상은 구글 드라이브에서 자동으로 읽어옵니다 ·
-      <a href="/501monitor.html">오공일501</a> ·
       <a href="/adminmonitor.html">유입 현황</a></p>
   </div>
   <div id="alarm"></div>
@@ -91,9 +90,11 @@ const $ = id => document.getElementById(id);
 const esc = v => String(v ?? '').replace(/[&<>"']/g,
   c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-/* 501monitor 와 같은 비밀번호를 쓴다. 주소 뒤 #k=… 로 들고 오거나 화면에서 한 번 친다.
+/* ⚠ 501monitor 와 **다른** 비밀번호를 쓴다. 오공일501 과 피바아카데미는 다른 사업이다.
+   기기에 적어두는 이름도 따로 둔다 — 같이 쓰면 한쪽을 열 때 다른 쪽 비번을 덮어쓴다.
+   주소 뒤 #k=… 로 들고 오거나 화면에서 한 번 친다.
    ⚠ # 뒤는 서버로 전송되지 않아 저장소·로그 어디에도 안 남는다. */
-const KEYNAME = 'fva501key';
+const KEYNAME = 'fvaambkey';
 function getKey() {
   const m = (location.hash || '').match(/k=([A-Za-z0-9_-]+)/);
   if (m) { try { localStorage.setItem(KEYNAME, m[1]); } catch {}
