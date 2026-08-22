@@ -129,6 +129,27 @@
   .memo b{color:var(--sub)}
   .none{color:var(--dim);font-size:13.5px;padding:16px}
 
+  /* 손님 화면 관리 */
+  .kv{display:flex;align-items:center;gap:10px;padding:10px 16px;flex-wrap:wrap}
+  .kv+.kv{box-shadow:inset 0 .5px 0 rgba(255,255,255,.07)}
+  .kv label{font-size:13px;color:var(--sub);font-weight:700;min-width:104px}
+  .kv input{flex:1;min-width:150px;background:#0F0F11;color:var(--ink);border:1px solid var(--line);
+            border-radius:9px;padding:9px 11px;font:inherit;font-size:14px}
+  .kv button{background:var(--card2);color:var(--ink);border:0;border-radius:9px;
+             padding:9px 14px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+  .kv button:active{opacity:.6}
+  .kv .said{font-size:12px;color:var(--rsv)}
+  .go{display:flex;gap:8px;padding:13px 16px 4px;flex-wrap:wrap}
+  .go a{flex:1;min-width:140px;text-align:center;text-decoration:none;
+        background:var(--card2);color:var(--ink);border-radius:11px;padding:12px;
+        font-size:13.5px;font-weight:700}
+  .go a.hi{background:#fff;color:#000}
+  details{padding:10px 16px 16px}
+  summary{font-size:13px;color:var(--sub);cursor:pointer}
+  details pre{white-space:pre-wrap;word-break:keep-all;font:inherit;font-size:12.5px;
+              line-height:1.7;color:var(--sub);background:#141416;border-radius:11px;
+              padding:13px;margin-top:10px}
+
   .warnbox{background:var(--card);border-radius:14px;border-left:3px solid var(--warn);
            padding:13px 16px;font-size:13px;color:var(--sub);line-height:1.55}
   .warnbox b{color:var(--ink)}
@@ -178,6 +199,7 @@
   </div>
 
   <div id="alarm"></div>
+  <div id="guestcard"></div>
   <div id="stats" class="stats"></div>
   <div id="list"></div>
 
@@ -350,6 +372,54 @@ const stat = (label, color, value, unit) => `<div class="stat">
   <div class="lb" style="color:${color}"><i></i>${label}</div>
   <div class="vl">${value}${unit ? `<span>${unit}</span>` : ''}</div></div>`;
 
+/* ── 손님 화면 관리 ──────────────────────────────────────
+   비밀번호가 바뀌면 여기서 고친다. 스크립트도 페이지도 안 건드린다.
+   ⚠ 고칠 수 있는 건 세 가지뿐이다(서버에서도 막아 뒀다).
+     아무 속성이나 열어두면 갱신 토큰이나 열쇠까지 화면에서 갈아치울 수 있게 된다. */
+const 손님화면 = 'https://oh501.surge.sh/';
+const 카카오채널 = 'http://pf.kakao.com/_oh501';
+
+async function renderGuest() {
+  let d;
+  try { d = await (await fetch(feed('preview=1'))).json(); } catch { return; }
+  if (!d.ok) return;
+  const v = d.값 || {};
+  const row = (k, label, val, ph) => `<div class="kv">
+    <label for="f_${k}">${label}</label>
+    <input id="f_${k}" value="${esc(val)}" placeholder="${ph}" autocomplete="off">
+    <button type="button" data-k="${k}">저장</button>
+    <span class="said" id="s_${k}"></span></div>`;
+
+  $('guestcard').innerHTML = `<div class="card">
+    <h3>손님 화면<span class="r">oh501.surge.sh</span></h3>
+    <div class="go">
+      <a class="hi" href="${손님화면}" target="_blank" rel="noopener">입실 안내 열기</a>
+      <a href="${카카오채널}" target="_blank" rel="noopener">카카오 채널 @oh501</a>
+      <a href="https://center-pf.kakao.com" target="_blank" rel="noopener">채널 관리</a>
+    </div>
+    ${row('DOOR_CODE', '출입문 비번', v.DOOR_CODE || '', '3530')}
+    ${row('WIFI_PW', '와이파이 비번', v.WIFI_PW || '', '')}
+    ${row('CONTACT_LINE', '문의 안내', v.CONTACT_LINE || '', '')}
+    <details><summary>손님에게 나가는 안내문 그대로 보기</summary>
+      <pre>${esc(d.안내 || '')}</pre></details>
+  </div>`;
+
+  $('guestcard').querySelectorAll('button[data-k]').forEach(b => {
+    b.onclick = async () => {
+      const k = b.dataset.k, val = $('f_' + k).value.trim();
+      if (!val) return;
+      b.disabled = true; $('s_' + k).textContent = '저장 중';
+      try {
+        const r = await (await fetch(feed(`set=${k}&val=${encodeURIComponent(val)}`))).json();
+        $('s_' + k).textContent = r.ok ? '바꿨습니다' : (r.오류 || '실패');
+      } catch { $('s_' + k).textContent = '실패'; }
+      b.disabled = false;
+      setTimeout(() => { $('s_' + k).textContent = ''; }, 4000);
+      renderGuest();
+    };
+  });
+}
+
 function render(d) {
   $('date').textContent = d.updated + ' 기준';
 
@@ -416,6 +486,7 @@ function render(d) {
 if (!KEY) askKey();
 else {
   loadCal(Math.floor(TODAY / 10000), Math.floor(TODAY / 100) % 100);
+  renderGuest();
   fetch(feed('t=' + Date.now()))
   .then(r => r.json())
   .then(d => { if (d.열쇠필요) { try { localStorage.removeItem(KEYNAME); } catch {} return askKey(); } render(d); })
