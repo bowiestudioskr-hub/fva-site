@@ -144,8 +144,14 @@
         background:var(--card2);color:var(--ink);border-radius:11px;padding:12px;
         font-size:13.5px;font-weight:700}
   .go a.hi{background:#fff;color:#000}
-  details{padding:10px 16px 16px}
-  summary{font-size:13px;color:var(--sub);cursor:pointer}
+  details{padding:0}
+  summary{font-size:13px;color:var(--sub);cursor:pointer;padding:12px 16px;list-style:none;
+          display:flex;align-items:center;gap:8px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:'＋';margin-left:auto;color:var(--dim)}
+  details[open] summary::after{content:'－'}
+  summary.sum{font-size:14px;font-weight:700;color:var(--ink);padding:15px 16px 11px}
+  details>.kv:first-of-type{padding-top:2px}
   details pre{white-space:pre-wrap;word-break:keep-all;font:inherit;font-size:12.5px;
               line-height:1.7;color:var(--sub);background:#141416;border-radius:11px;
               padding:13px;margin-top:10px}
@@ -159,9 +165,15 @@
     h1{font-size:20px}
     .stat .vl{font-size:25px}
     .stats{grid-template-columns:1fr 1fr;gap:8px}
-    .cal{padding:12px 8px 10px}
+    .cal{padding:11px 7px 9px}
     .grid{gap:3px}
-    .cell{min-height:52px;border-radius:8px}
+    .cell{min-height:76px;border-radius:8px;padding:3px 2px}
+    .ev{font-size:9px}
+    .ev b{width:11px;height:11px;font-size:8px}
+    .legend{gap:4px 9px;font-size:10.5px}
+    .lede{font-size:12.5px}
+    .card>h3,.sum{padding:13px 14px 10px}
+    li.row{padding:10px 14px}
   }
 </style>
 </head>
@@ -397,9 +409,10 @@ async function renderGuest() {
       <a href="${카카오채널}" target="_blank" rel="noopener">카카오 채널 @oh501</a>
       <a href="https://center-pf.kakao.com" target="_blank" rel="noopener">채널 관리</a>
     </div>
-    ${row('DOOR_CODE', '출입문 비번', v.DOOR_CODE || '', '3530')}
-    ${row('WIFI_PW', '와이파이 비번', v.WIFI_PW || '', '')}
-    ${row('CONTACT_LINE', '문의 안내', v.CONTACT_LINE || '', '')}
+    <details><summary>비밀번호·문의 문구 고치기</summary>
+      ${row('DOOR_CODE', '출입문 비번', v.DOOR_CODE || '', '3530')}
+      ${row('WIFI_PW', '와이파이 비번', v.WIFI_PW || '', '')}
+      ${row('CONTACT_LINE', '문의 안내', v.CONTACT_LINE || '', '')}</details>
     <details><summary>손님에게 나가는 안내문 그대로 보기</summary>
       <pre>${esc(d.안내 || '')}</pre></details>
   </div>`;
@@ -476,9 +489,10 @@ function render(d) {
        <div class="memo">「안내 나감」은 <b>이 시스템이 보냈다</b>는 뜻입니다.
          「설치 전」은 자동화를 켜기 전부터 잡혀 있던 예약이라 <b>직접 안내</b>하셔야 합니다.</div></div>
      <div style="height:12px"></div>
-     <div class="card"><h3>지난 예약<span class="r">${뒤.length}건</span></h3>
+     <div class="card"><details><summary class="sum">지난 예약
+         <span class="r">${뒤.length}건</span></summary>
        ${뒤.length ? `<ul>${뒤.slice(0, 20).map(row).join('')}</ul>` : '<div class="none">없습니다.</div>'}
-       ${뒤.length > 20 ? `<div class="memo">최근 20건만 보여줍니다.</div>` : ''}</div>`;
+       ${뒤.length > 20 ? `<div class="memo">최근 20건만 보여줍니다.</div>` : ''}</details></div>`;
 
   $('foot').innerHTML =
     '5분마다 스페이스클라우드에서 새로 읽습니다 · 연락처는 가려서 표시합니다<br>' +
