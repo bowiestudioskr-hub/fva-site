@@ -434,8 +434,10 @@ function render(d) {
         그때가 되면 자동 안내가 멈춥니다. 크롬에서 <b>partner.spacecloud.kr</b> 에 한 번 로그인해 주세요.</div>`);
     if (/미연결/.test(d.알림톡 || ''))
       A.push(`<div class="warnbox"><b>알림톡은 아직 연결 전입니다.</b>
-        지금은 새 예약이 잡히면 <b>메일로</b> 알려드리고, 손님은
-        <a href="https://oh501.surge.sh/" style="color:var(--ink)">oh501.surge.sh</a> 에서 예약번호로 직접 확인합니다.</div>`);
+        새 예약은 <b>메일로</b> 알려드리고, 손님은
+        <a href="https://oh501.surge.sh/" style="color:var(--ink)">oh501.surge.sh</a> 에서 예약번호로 직접 확인합니다.
+        문의는 카카오 채널 <b>@oh501</b> 로 옵니다.
+        알림톡까지 붙이려면 채널을 <b>비즈니스 채널로 전환</b>해야 합니다(사업자 증빙 필요).</div>`);
   }
   $('alarm').innerHTML = A.join('');
 
