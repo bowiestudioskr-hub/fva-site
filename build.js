@@ -376,6 +376,8 @@ const HANDMADE = new Set([
   //   손님에게 fva.co.kr 을 알려줄 이유가 없다. oh501.surge.sh 에 따로 있다
   //   (~/Documents/FVA/501예약알림/site/, 배포는 npx surge ./ oh501.surge.sh).
   '501monitor.html',
+  // ambassador.html — 19기 앰버서더 제작 영상 모으고 피드백 적는 화면(운영자용).
+  'ambassador.html',
 ]);
 
 let built = 0, skipped = 0;
