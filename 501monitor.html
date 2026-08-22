@@ -37,6 +37,16 @@
     font-variant-numeric:tabular-nums;
   }
   .wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+  /* ⚠ 폰을 먼저 맞췄지만 데스크탑에서도 봐야 한다. 넓으면 달력을 키우고 바를 가운데로 모은다. */
+  @media (min-width:900px){
+    body{padding:30px 24px 90px}
+    .wrap{max-width:1080px;gap:24px}
+    .cell{min-height:118px}
+    .ev{font-size:10.5px}
+    .rid{font-size:9.5px;margin-left:15px}
+    .bar{left:50%;transform:translateX(-50%);max-width:560px;bottom:16px;
+         border-radius:16px;box-shadow:0 6px 28px rgba(0,0,0,.55)}
+  }
 
   .hd .row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
   h1{font-size:24px;letter-spacing:-.03em;font-weight:800}
@@ -123,6 +133,8 @@
   .nm{flex:1;min-width:0}
   .nm b{font-size:15px;font-weight:700}
   .nm small{display:block;font-size:12px;color:var(--dim);margin-top:2px}
+  /* 예약번호는 손님이 불러주는 값이라 눈에 걸려야 한다. 이름·전화와 같은 무게로. */
+  b.rno{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.01em}
   /* 전화번호는 누르는 것이다. 누를 수 있게 보여야 하고, 손가락이 닿을 만해야 한다. */
   .telrow{display:block;margin-top:4px}   /* ⚠ inline 이면 앞 글자에 붙어 「30,000원번호 없음」이 된다 */
   a.tel{display:inline-block;color:var(--ink);font-size:13.5px;font-weight:700;
@@ -414,7 +426,7 @@ function renderDay() {
   const items = [];
   for (const r of (day?.예약 || [])) items.push({
     t: `${r.시작}시 ~ ${r.끝}시`, k: r.이름 || '손님',
-    s: `예약 ${r.id} · ${r.상태}${r.인원 ? ' · ' + r.인원 + '명' : ''}` +
+    s: `예약 <b class="rno">${r.id}</b> · ${r.상태}${r.인원 ? ' · ' + r.인원 + '명' : ''}` +
        `${r.금액 ? ' · ' + num(r.금액) + '원' : ''}`,
     tel: r.연락처 || '',
     c: kindOf(r)[0] === 'void' ? 'var(--done)' : `var(--${kindOf(r)[0]})`,
@@ -431,7 +443,7 @@ function renderDay() {
     (items.length
       ? `<ol>${items.map(i => `<li><span class="t">${esc(i.t)}</span>` +
           `<span class="who2"><b style="color:${i.c}">${esc(i.k)}</b>` +
-          `<span style="color:var(--sub);font-size:12.5px"> ${esc(i.s)}</span>` +
+          `<span style="color:var(--sub);font-size:12.5px"> ${i.s}</span>` +
           (i.tel !== undefined ? `<span class="telrow">${전화(i.tel)}</span>` : '') +
           `</span></li>`).join('')}</ol>`
       : `<div class="none">이날은 비어 있습니다.</div>`);
@@ -580,7 +592,7 @@ function render(d) {
       : '<span class="pill wait">안내 대기</span>';
     return `<li class="row">
       <div class="nm"><b>${esc(r.이름)}</b> ${pill}
-        <small>${esc(r.날짜)} · 예약 ${r.id}</small>
+        <small>${esc(r.날짜)} · 예약 <b class="rno">${r.id}</b></small>
         <small class="telrow">${전화(r.연락처)}</small></div>
       <div class="vn">${num(r.금액)}<em>원</em></div></li>`;
   };
