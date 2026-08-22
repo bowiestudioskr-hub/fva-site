@@ -428,14 +428,16 @@ function renderDay() {
   const items = [];
   for (const r of (day?.예약 || [])) items.push({
     t: `${r.시작}시 ~ ${r.끝}시`, k: r.이름 || '손님',
-    s: `예약 <b class="rno">${r.id}</b> · ${r.상태}${r.인원 ? ' · ' + r.인원 + '명' : ''}` +
+    s: `예약 <b class="rno">${esc(r.id)}</b> · ${esc(r.상태)}` +
+       `${r.인원 ? ' · ' + esc(r.인원) + '명' : ''}` +
        `${r.금액 ? ' · ' + num(r.금액) + '원' : ''}`,
     tel: r.연락처 || '',
     c: kindOf(r)[0] === 'void' ? 'var(--done)' : `var(--${kindOf(r)[0]})`,
   });
   for (const s of (day?.일정 || [])) items.push({
     t: `${s.시작}시 ~ ${s.끝}시`, k: isClean(s) ? '청소' : (s.이름 || '일정'),
-    s: s.메모 && !/청소/.test(s.메모) ? s.메모 : (isClean(s) ? '' : '직접 넣은 일정'),
+    /* ⚠ 메모는 호스트센터에서 손으로 적는 값이다. 통째로 innerHTML 에 들어가므로 반드시 막는다. */
+    s: esc(s.메모 && !/청소/.test(s.메모) ? s.메모 : (isClean(s) ? '' : '직접 넣은 일정')),
     c: isClean(s) ? 'var(--clean)' : 'var(--add)',
   });
   items.sort((a, b) => parseInt(a.t) - parseInt(b.t));
@@ -444,7 +446,7 @@ function renderDay() {
   box.innerHTML = `<h4>${ymd.slice(4,6)}월 ${ymd.slice(6,8)}일</h4>` +
     (items.length
       ? `<ol>${items.map(i => `<li><span class="t">${esc(i.t)}</span>` +
-          `<span class="who2"><b style="color:${i.c}">${esc(i.k)}</b>` +
+          `<span class="who2"><b style="color:${esc(i.c)}">${esc(i.k)}</b>` +
           `<span style="color:var(--sub);font-size:12.5px"> ${i.s}</span>` +
           (i.tel !== undefined ? `<span class="telrow">${전화(i.tel)}</span>` : '') +
           `</span></li>`).join('')}</ol>`
@@ -594,7 +596,7 @@ function render(d) {
       : '<span class="pill wait">안내 대기</span>';
     return `<li class="row">
       <div class="nm"><b>${esc(r.이름)}</b> ${pill}
-        <small>${esc(r.날짜)} · 예약 <b class="rno">${r.id}</b></small>
+        <small>${esc(r.날짜)} · 예약 <b class="rno">${esc(r.id)}</b></small>
         <small class="telrow">${전화(r.연락처)}</small></div>
       <div class="vn">${num(r.금액)}<em>원</em></div></li>`;
   };
