@@ -711,6 +711,11 @@ svg.club-wordmark{
    ⚠ 빨강은 여기서만 쓴다. 다른 데로 번지면 이 띠가 특별해 보이지 않는다.
    ⚠ 캐릭터가 위로 넘치므로 .off-notice 의 padding-top 이 그 자리를 비워둔다. */
 .off-notice{ --alert:#E01B00; --alert-ink:#FFF }
+/* ⚠ display 를 지정한 요소에는 hidden 속성이 안 먹는다 (UA 의 display:none 보다
+   클래스 규칙이 세다). 이 한 줄이 없으면 개강일이 지나 스크립트가 hidden 을
+   그대로 둬도 띠가 계속 떠서 「마감 임박」이 거짓말이 된다.
+   2026-08-23 실제로 그렇게 떠 있었다 — 19기 개강 다음날인데 D-day 는 빈칸. */
+.off-notice .nt-urgent[hidden]{ display:none }
 .off-notice .nt-urgent{
   position:relative;
   display:flex; align-items:flex-end; justify-content:center;

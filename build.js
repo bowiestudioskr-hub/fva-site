@@ -373,7 +373,7 @@ const HANDMADE = new Set([
   'adlog.html', 'worklist.html', 'adminmonitor.html', 'littly.html',
   // singleroom501/ — 오공일501 예약 현황(운영자용). 사업은 다르지만 주소만 여기 둔다.
   // ⚠ 손님 화면은 oh501.surge.sh 다. 이 파일 안에서 '/' 로 걸면 아카데미 첫 화면으로 간다.
-  //   원본은 ~/Documents/FVA/501/site/monitor/index.html — 고칠 땐 두 곳을 같이 고칠 것.
+  //   원본은 이 파일 하나다 (예전에 501/site/monitor/ 에도 사본이 있었으나 지웠다).
   'singleroom501/index.html',
   // adminambassador.html — 19기 앰버서더 제작 영상·피드백 화면. 비밀번호 없다.
   // ⚠ 한때 ambassador.html 로 뒀다가 사고가 났다 — 깃허브 페이지가 슬래시 없는
