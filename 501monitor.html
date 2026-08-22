@@ -451,7 +451,7 @@ function render(d) {
       A.push(`<div class="warnbox"><b>알림톡은 아직 연결 전입니다.</b>
         새 예약은 <b>메일로</b> 알려드리고, 손님은
         <a href="https://oh501.surge.sh/" style="color:var(--ink)">oh501.surge.sh</a> 에서 예약번호로 직접 확인합니다.
-        문의는 카카오 채널 <b>@oh501</b> 로 옵니다.
+        문의는 카카오 채널 <b>오공일501</b> 로 옵니다.
         알림톡까지 붙이려면 채널을 <b>비즈니스 채널로 전환</b>해야 합니다(사업자 증빙 필요).</div>`);
   }
   $('alarm').innerHTML = A.join('');
@@ -483,8 +483,12 @@ function render(d) {
       <div class="vn">${num(r.금액)}<em>원</em></div></li>`;
   };
 
-  const 앞 = rs.filter(r => !r.지남);
-  const 뒤 = rs.filter(r => r.지남).reverse();
+  /* ⚠ 날짜만 보면 「오늘 끝난 예약」이 계속 다가오는 칸에 남는다.
+     이용이 끝났거나 취소된 것은 날짜와 상관없이 지난 쪽으로 보낸다.
+     (안 그러면 위 타일의 3건과 아래 목록의 4건이 어긋나 보인다.) */
+  const 끝난 = r => r.지남 || r.상태 === '이용완료' || r.상태 === '취소환불';
+  const 앞 = rs.filter(r => !끝난(r));
+  const 뒤 = rs.filter(끝난).reverse();
   $('list').innerHTML =
     `<div class="card"><h3>다가오는 예약<span class="r">${앞.length}건</span></h3>
        ${앞.length ? `<ul>${앞.map(row).join('')}</ul>` : '<div class="none">예정된 예약이 없습니다.</div>'}
