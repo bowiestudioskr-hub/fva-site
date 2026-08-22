@@ -376,11 +376,12 @@ const HANDMADE = new Set([
   //   손님에게 fva.co.kr 을 알려줄 이유가 없다. oh501.surge.sh 에 따로 있다
   //   (~/Documents/FVA/501예약알림/site/, 배포는 npx surge ./ oh501.surge.sh).
   '501monitor.html',
-  // ambmonitor.html — 19기 앰버서더 제작 영상 모으고 피드백 적는 화면(운영자용).
-  // ⚠ ambassador.html 로 두면 안 된다. DM 에 적어 보낸 공개 주소가 fva.co.kr/ambassador 인데
-  //   깃허브 페이지가 슬래시 없는 주소를 ambassador.html 로 잡아버려 후보가 비밀번호 창을 본다.
-  //   공개용은 ambassador/index.html 이고 그건 건드리지 않는다.
-  'ambmonitor.html',
+  // manage/ 아래는 운영자용 화면이다. 손님·후보에게 보이는 곳이 아니다.
+  // ⚠ 한때 이걸 ambassador.html 로 뒀다가 사고가 났다 — 깃허브 페이지가
+  //   슬래시 없는 fva.co.kr/ambassador 를 그 파일로 잡아버려서,
+  //   DM 으로 뿌린 「기존 앰버서더 콘텐츠 예시」 링크가 비밀번호 창으로 갔다.
+  //   공개용 ambassador/ 와 이름이 겹치지 않는 자리에 둔다.
+  'manage/ambassador/index.html',
 ]);
 
 let built = 0, skipped = 0;
