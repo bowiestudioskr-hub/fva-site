@@ -1,13 +1,13 @@
 {
-  "updated": "2026. 8. 22. PM 9:31:21",
+  "updated": "2026. 8. 22. PM 9:46:58",
   "naver": {
     "start": "2026-08-16",
     "live": true,
     "state": "운영",
-    "charged": 191,
-    "pending": 190,
+    "charged": 307,
+    "pending": 115,
     "dailyBudget": 5000,
-    "balance": 40111,
+    "balance": 39995,
     "imp": 5577,
     "clk": 13,
     "cost": 59238,
@@ -584,7 +584,7 @@
     ]
   },
   "google": {
-    "updated": "2026. 8. 22. PM 9:31:13",
+    "updated": "2026. 8. 22. PM 9:46:51",
     "period": "2026년 7월 23일 ~ 8월 21일",
     "imp": 4690,
     "clk": 161,
@@ -688,7 +688,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 22. PM 9:31:14",
+    "updated": "2026. 8. 22. PM 9:46:52",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -698,29 +698,29 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 12,
-        "click": 4,
+        "visit": 15,
+        "click": 5,
         "unique": 2,
         "ctr": 33.3,
-        "dwell": 10
+        "dwell": 13
       },
       "7": {
-        "visit": 1453,
-        "click": 252,
+        "visit": 1456,
+        "click": 253,
         "unique": 144,
-        "ctr": 17.3,
+        "ctr": 17.4,
         "dwell": 26
       },
       "28": {
-        "visit": 2852,
-        "click": 918,
+        "visit": 2855,
+        "click": 919,
         "unique": 144,
         "ctr": 32.2,
         "dwell": 26
       },
       "90": {
-        "visit": 6298,
-        "click": 2985,
+        "visit": 6301,
+        "click": 2986,
         "unique": 144,
         "ctr": 47.4,
         "dwell": 26
@@ -733,8 +733,8 @@
         "dwell": 12
       },
       "all": {
-        "visit": 34395,
-        "click": 14131,
+        "visit": 34398,
+        "click": 14132,
         "unique": 144,
         "ctr": 41.1,
         "dwell": 26
@@ -3161,8 +3161,8 @@
       },
       {
         "d": "2026-08-22",
-        "visit": 12,
-        "click": 4,
+        "visit": 15,
+        "click": 5,
         "unique": 2
       }
     ],
@@ -3170,7 +3170,7 @@
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 15226,
+        "visit": 15227,
         "click": 3085,
         "unique": 17,
         "ctr": 20.3,
@@ -3224,11 +3224,11 @@
       {
         "name": "우리 사이트",
         "host": "fva.co.kr",
-        "visit": 166,
-        "click": 136,
+        "visit": 168,
+        "click": 137,
         "unique": 8,
-        "ctr": 81.9,
-        "dwell": 55
+        "ctr": 81.5,
+        "dwell": 53
       },
       {
         "name": "구글 검색",
@@ -3695,7 +3695,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 4
+        "clicks": 5
       },
       {
         "key": "MTPIinD",
@@ -4134,11 +4134,20 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 9,
+            "visit": 10,
             "click": 4,
             "unique": 0,
-            "ctr": 44.4,
-            "dwell": 10
+            "ctr": 40,
+            "dwell": 11
+          },
+          {
+            "name": "우리 사이트",
+            "host": "fva.co.kr",
+            "visit": 2,
+            "click": 1,
+            "unique": 0,
+            "ctr": 50,
+            "dwell": 23
           },
           {
             "name": "페이스북",
@@ -4227,6 +4236,14 @@
             "clicks": 2
           },
           {
+            "key": "0ryi6XM",
+            "name": "스마트스토어 · 1개월",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
+          },
+          {
             "key": "dVgRn4o",
             "name": "스마트스토어 · 3개월 풀코스 *할인적용",
             "gone": false,
@@ -4267,20 +4284,20 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 259,
+            "visit": 260,
             "click": 166,
             "unique": 17,
-            "ctr": 64.1,
+            "ctr": 63.8,
             "dwell": 20
           },
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 23,
-            "click": 13,
+            "visit": 25,
+            "click": 14,
             "unique": 8,
-            "ctr": 56.5,
-            "dwell": 55
+            "ctr": 56,
+            "dwell": 53
           },
           {
             "name": "리틀리 안에서",
@@ -4832,7 +4849,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 4
+            "clicks": 5
           },
           {
             "key": "UdvVjcj",
@@ -4857,10 +4874,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 886,
+            "visit": 887,
             "click": 665,
             "unique": 17,
-            "ctr": 75.1,
+            "ctr": 75,
             "dwell": 20
           },
           {
@@ -4884,11 +4901,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 41,
-            "click": 39,
+            "visit": 43,
+            "click": 40,
             "unique": 8,
-            "ctr": 95.1,
-            "dwell": 55
+            "ctr": 93,
+            "dwell": 53
           },
           {
             "name": "m.place.naver.com",
@@ -5509,7 +5526,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 4
+            "clicks": 5
           },
           {
             "key": "UdvVjcj",
@@ -5534,7 +5551,7 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2819,
+            "visit": 2820,
             "click": 2190,
             "unique": 17,
             "ctr": 77.7,
@@ -5561,11 +5578,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 166,
-            "click": 136,
+            "visit": 168,
+            "click": 137,
             "unique": 8,
-            "ctr": 81.9,
-            "dwell": 55
+            "ctr": 81.5,
+            "dwell": 53
           },
           {
             "name": "리틀리 안에서",
@@ -6262,7 +6279,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 4
+            "clicks": 5
           },
           {
             "key": "UdvVjcj",
@@ -6287,7 +6304,7 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 15226,
+            "visit": 15227,
             "click": 3085,
             "unique": 17,
             "ctr": 20.3,
@@ -6341,11 +6358,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 166,
-            "click": 136,
+            "visit": 168,
+            "click": 137,
             "unique": 8,
-            "ctr": 81.9,
-            "dwell": 55
+            "ctr": 81.5,
+            "dwell": 53
           },
           {
             "name": "구글 검색",
@@ -7202,7 +7219,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 4
+            "clicks": 5
           },
           {
             "key": "MTPIinD",
@@ -7251,11 +7268,20 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 9,
+            "visit": 10,
             "click": 4,
             "unique": 0,
-            "ctr": 44.4,
-            "dwell": 10
+            "ctr": 40,
+            "dwell": 11
+          },
+          {
+            "name": "우리 사이트",
+            "host": "fva.co.kr",
+            "visit": 2,
+            "click": 1,
+            "unique": 0,
+            "ctr": 50,
+            "dwell": 23
           },
           {
             "name": "페이스북",
@@ -7342,6 +7368,14 @@
             "kind": "chat",
             "img": false,
             "clicks": 2
+          },
+          {
+            "key": "0ryi6XM",
+            "name": "스마트스토어 · 1개월",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
           },
           {
             "key": "dVgRn4o",
