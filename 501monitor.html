@@ -310,12 +310,12 @@ const FEED = 'https://script.google.com/macros/s/AKfycbxWKkz5rS112O8ePWYgFqEl9S5
 
 const $ = id => document.getElementById(id);
 
-/* ── 열쇠 ────────────────────────────────────────────────
-   사이트 저장소가 공개라 파일에 열쇠를 박을 수 없다. 대신 주소 뒤에 붙여 온다.
-       https://fva.co.kr/501monitor.html#k=XXXXXXXX
+/* ── 비밀번호 ────────────────────────────────────────────
+   사이트 저장소가 공개라 파일에 비밀번호를 박을 수 없다. 대신 주소 뒤에 붙여 오거나
+   화면에서 한 번 친다.   https://fva.co.kr/501monitor.html#k=비밀번호
    ⚠ # 뒤는 서버로 전송되지 않는다. 그래서 GitHub·서버 로그 어디에도 안 남는다.
-   한 번 열면 이 기기에만 저장해 두고, 다음부터는 주소만으로 열린다.
-   ⚠ 다른 사람 컴퓨터에서 열었다면 「열쇠 지우기」로 지울 것. */
+   한 번 열면 이 기기에 저장해 두고, 다음부터는 안 물어본다.
+   ⚠ 남의 컴퓨터에서 열었다면 브라우저 데이터를 지울 것. 손님 연락처가 그대로 보인다. */
 const KEYNAME = 'fva501key';
 function getKey() {
   const m = (location.hash || '').match(/k=([A-Za-z0-9_-]+)/);
@@ -332,16 +332,16 @@ const feed = q => `${FEED}?${q}&key=${encodeURIComponent(KEY)}`;
 function askKey() {
   document.querySelector('.wrap').innerHTML =
     `<div class="hd"><h1>오공일501</h1>
-       <p class="lede">이 화면은 열쇠가 있어야 열립니다.</p></div>
+       <p class="lede">이 화면은 비밀번호가 있어야 열립니다.</p></div>
      <div class="card" style="padding:16px;display:flex;flex-direction:column;gap:11px">
-       <input id="kin" placeholder="열쇠 붙여넣기" autocomplete="off"
+       <input id="kin" type="password" placeholder="비밀번호" autocomplete="current-password"
          style="background:#0F0F11;color:#fff;border:1px solid var(--line);border-radius:11px;
                 padding:13px 14px;font:inherit;font-size:15px">
        <button id="kgo" style="background:#fff;color:#000;border:0;border-radius:11px;
          padding:13px;font:inherit;font-size:15px;font-weight:800;cursor:pointer">열기</button>
        <p style="font-size:12.5px;color:var(--dim);line-height:1.6">
-         열쇠는 주소 뒤에 <b style="color:var(--sub)">#k=…</b> 로 붙여 두면 다음부터 안 물어봅니다.
-         손님용 <a href="https://oh501.surge.sh/" style="color:var(--sub)">입실 안내 화면</a>은 열쇠 없이 열립니다.</p>
+         비밀번호는 주소 뒤에 <b style="color:var(--sub)">#k=…</b> 로 붙여 두면 다음부터 안 물어봅니다.
+         손님용 <a href="https://oh501.surge.sh/" style="color:var(--sub)">입실 안내 화면</a>은 비밀번호 없이 열립니다.</p>
      </div>`;
   const go = () => {
     const v = document.getElementById('kin').value.trim();
@@ -518,7 +518,7 @@ goTab((() => { try { return localStorage.getItem('fva501tab'); } catch { return 
 /* ── 손님 화면 관리 ──────────────────────────────────────
    비밀번호가 바뀌면 여기서 고친다. 스크립트도 페이지도 안 건드린다.
    ⚠ 고칠 수 있는 건 세 가지뿐이다(서버에서도 막아 뒀다).
-     아무 속성이나 열어두면 갱신 토큰이나 열쇠까지 화면에서 갈아치울 수 있게 된다. */
+     아무 속성이나 열어두면 갱신 토큰이나 비밀번호까지 화면에서 갈아치울 수 있게 된다. */
 const 손님화면 = 'https://oh501.surge.sh/';
 /* ⚠ _ediSX 는 채널 고유 코드다. 검색용 아이디(oh501)와 다르다.
    pf.kakao.com/_oh501 은 우리 채널이 아니라 남의 페이지로 간다. */
