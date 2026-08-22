@@ -375,8 +375,6 @@ const HANDMADE = new Set([
   // ⚠ 손님 화면은 oh501.surge.sh 다. 이 파일 안에서 '/' 로 걸면 아카데미 첫 화면으로 간다.
   //   원본은 ~/Documents/FVA/501/site/monitor/index.html — 고칠 땐 두 곳을 같이 고칠 것.
   'singleroom501/index.html',
-  // 501monitor.html — 옛 주소. /singleroom501/ 로 넘겨준다(#k= 조각도 같이).
-  '501monitor.html',
   // adminambassador.html — 19기 앰버서더 제작 영상·피드백 화면. 비밀번호 없다.
   // ⚠ 한때 ambassador.html 로 뒀다가 사고가 났다 — 깃허브 페이지가 슬래시 없는
   //   fva.co.kr/ambassador 를 그 파일로 잡아버려, DM 으로 뿌린 「앰버서더 콘텐츠 예시」
