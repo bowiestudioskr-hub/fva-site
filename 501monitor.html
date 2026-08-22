@@ -79,9 +79,10 @@
   /* ⚠ 시간은 줄 끝에서 「13~1 / 5」로 쪼개지면 안 읽힌다. 제 줄에 통째로 둔다. */
   .ev .tm{display:block;white-space:nowrap;color:var(--sub);font-variant-numeric:tabular-nums;
           font-size:9px}
+  /* ⚠ 이름·시간은 왼쪽인데 번호만 오른쪽이면 줄기가 둘로 갈려 어수선하다. 같이 왼쪽. */
   .rid{display:block;white-space:nowrap;color:var(--dim);font-size:8.5px;line-height:1.3;
        font-variant-numeric:tabular-nums;letter-spacing:-.04em;
-       margin:-1px 0 3px;text-align:right}
+       margin:-1px 0 4px 15px}
   .ev b{flex:none;width:12px;height:12px;border-radius:3px;font-size:8.5px;font-weight:800;
         display:grid;place-items:center;color:#101014;margin-top:.5px}
   .ev.void{color:#5A5A60;text-decoration:line-through}
@@ -188,9 +189,12 @@
     .stats{grid-template-columns:1fr 1fr;gap:8px}
     .cal{padding:11px 7px 9px}
     .grid{gap:3px}
-    .cell{min-height:86px;border-radius:8px;padding:3px 2px}
-    .ev{font-size:9px}
+    .cell{min-height:74px;border-radius:8px;padding:3px 2px}
+    .ev{font-size:9px;line-height:1.25;gap:2px}
     .ev b{width:11px;height:11px;font-size:8px}
+    .ev .tm{font-size:8.5px}
+    .rid{font-size:8px;margin:0 0 3px 13px}
+    .more{font-size:8.5px}
     .legend{gap:4px 9px;font-size:10.5px}
     .lede{font-size:12.5px}
     .card>h3,.sum{padding:13px 14px 10px}
@@ -327,6 +331,11 @@ function evOf(x, isSched) {
 
 let cal = null, curY = 0, curM = 0, sel = '';
 
+/* ⚠ 한 줄의 키는 그 줄에서 가장 많은 칸에 맞춰 늘어난다. 폰에서 세 개를 다 보이면
+   그 주만 키가 두 배로 뛰어 달력이 들쭉날쭉해진다. 좁을 땐 두 개까지만 보이고
+   나머지는 「+N」으로 접는다(눌러서 그날 전체를 본다). */
+const MAX = matchMedia('(max-width:560px)').matches ? 2 : 3;
+
 function renderCal() {
   if (!cal) return;
   $('calmon').textContent = `${curY}년 ${curM}월`;
@@ -349,13 +358,13 @@ function renderCal() {
        스페이스클라우드도 그렇게 보여준다. 그대로 둔다. */
     const evs = [...day.예약.map(r => evOf(r, false)), ...day.일정.map(s => evOf(s, true))]
       .sort((a, b) => a.sort - b.sort);
-    const shown = evs.slice(0, 3).map(e =>
+    const shown = evs.slice(0, MAX).map(e =>
       `<div class="ev ${e.cls}"><b>${e.badge}</b><span>${esc(e.who)}` +
       `<span class="tm">${esc(e.t)}</span></span></div>` +
       /* ⚠ 예약번호는 조각 안에 넣으면 폭이 모자라 「10377…」로 잘린다.
          뱃지·여백을 빼고 나면 30px 남짓뿐이다. 칸 전체를 쓰도록 제 줄로 뺀다. */
       (e.id ? `<div class="rid">${esc(e.id)}</div>` : '')).join('');
-    const rest = evs.length > 3 ? `<div class="more">+${evs.length - 3}</div>` : '';
+    const rest = evs.length > MAX ? `<div class="more">+${evs.length - MAX}</div>` : '';
     h += `<div class="cell${dow === 0 ? ' sun' : dow === 6 ? ' sat' : ''}` +
          `${Number(ymd) === TODAY ? ' now' : ''}${ymd === sel ? ' sel' : ''}" data-ymd="${ymd}">` +
          `<div class="d">${d}</div>${shown}${rest}</div>`;
