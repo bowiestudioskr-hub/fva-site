@@ -374,12 +374,11 @@ const HANDMADE = new Set([
   // ⚠ 오공일501 은 여기 없다. 아카데미와 다른 사업이라 도메인부터 갈라 뒀다.
   //   손님용 oh501.surge.sh · 운영자용 oh501.surge.sh/monitor/
   //   (원본 ~/Documents/FVA/501/site/, 배포는 npx surge ./ oh501.surge.sh)
-  // manage/ 아래는 운영자용 화면이다. 손님·후보에게 보이는 곳이 아니다.
-  // ⚠ 한때 이걸 ambassador.html 로 뒀다가 사고가 났다 — 깃허브 페이지가
-  //   슬래시 없는 fva.co.kr/ambassador 를 그 파일로 잡아버려서,
-  //   DM 으로 뿌린 「기존 앰버서더 콘텐츠 예시」 링크가 비밀번호 창으로 갔다.
-  //   공개용 ambassador/ 와 이름이 겹치지 않는 자리에 둔다.
-  'manage/ambassador/index.html',
+  // adminambassador.html — 19기 앰버서더 제작 영상·피드백 화면. 비밀번호 없다.
+  // ⚠ 한때 ambassador.html 로 뒀다가 사고가 났다 — 깃허브 페이지가 슬래시 없는
+  //   fva.co.kr/ambassador 를 그 파일로 잡아버려, DM 으로 뿌린 「앰버서더 콘텐츠 예시」
+  //   링크가 관리 화면으로 갔다. 공개용 ambassador/ 와 이름이 겹치지 않게 둘 것.
+  'adminambassador.html',
 ]);
 
 let built = 0, skipped = 0;

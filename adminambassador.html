@@ -90,34 +90,11 @@ const $ = id => document.getElementById(id);
 const esc = v => String(v ?? '').replace(/[&<>"']/g,
   c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-/* ⚠ 501monitor 와 **다른** 비밀번호를 쓴다. 오공일501 과 피바아카데미는 다른 사업이다.
-   기기에 적어두는 이름도 따로 둔다 — 같이 쓰면 한쪽을 열 때 다른 쪽 비번을 덮어쓴다.
-   주소 뒤 #k=… 로 들고 오거나 화면에서 한 번 친다.
-   ⚠ # 뒤는 서버로 전송되지 않아 저장소·로그 어디에도 안 남는다. */
-const KEYNAME = 'fvaambkey';
-function getKey() {
-  const m = (location.hash || '').match(/k=([A-Za-z0-9_-]+)/);
-  if (m) { try { localStorage.setItem(KEYNAME, m[1]); } catch {}
-    history.replaceState(null, '', location.pathname); return m[1]; }
-  try { return localStorage.getItem(KEYNAME) || ''; } catch { return ''; }
-}
-let KEY = getKey();
-const feed = q => `${FEED}?${q}&key=${encodeURIComponent(KEY)}`;
-
-function askKey() {
-  document.querySelector('.wrap').innerHTML =
-    `<div class="hd"><h1>19기 앰버서더</h1><p class="lede">비밀번호가 있어야 열립니다.</p></div>
-     <div class="card" style="padding:16px;display:flex;flex-direction:column;gap:11px">
-       <input id="kin" type="password" placeholder="비밀번호" autocomplete="current-password"
-         style="background:#0F0F11;color:#fff;border:1px solid var(--line);border-radius:11px;
-                padding:13px 14px;font:inherit;font-size:15px">
-       <button id="kgo" style="background:#fff;color:#000;border:0;border-radius:11px;
-         padding:13px;font:inherit;font-size:15px;font-weight:800;cursor:pointer">열기</button></div>`;
-  const go = () => { const v = $('kin').value.trim();
-    if (v) { try { localStorage.setItem(KEYNAME, v); } catch {} location.reload(); } };
-  $('kgo').onclick = go;
-  $('kin').addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
-}
+/* ⚠ 비밀번호 없이 연다(2026-08-23 지시). adminmonitor 와 같은 방식이다.
+   주소를 아는 사람은 누구나 열고 **피드백도 고칠 수 있다.** 주소를 아무 데나 적지 말 것.
+   ⚠ 그래서 앰버서더 연락처는 이 화면에 내려보내지 않는다 — 남의 개인정보다.
+     번호는 계약서 폴더(~/Documents/FVA/20260822_앰버서더/)에 있다. */
+const feed = q => `${FEED}?${q}`;
 
 const 상태들 = ['대기', '검수중', '수정요청', '게시완료'];
 
@@ -200,11 +177,9 @@ function render(d) {
     '피드백은 이 화면에만 저장되며 앰버서더에게 자동으로 가지 않습니다';
 }
 
-if (!KEY) askKey();
-else fetch(feed('amb=1'))
+fetch(feed('amb=1'))
   .then(r => r.json())
-  .then(d => { if (d.열쇠필요) { try { localStorage.removeItem(KEYNAME); } catch {} return askKey(); }
-               render(d); })
+  .then(render)
   .catch(() => { $('alarm').innerHTML =
     `<div class="warnbox"><b>연결하지 못했습니다.</b></div>`; $('date').textContent = '연결 실패'; });
 </script>
