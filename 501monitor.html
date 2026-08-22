@@ -447,6 +447,8 @@ function renderDay() {
     (items.length
       ? `<ol>${items.map(i => `<li><span class="t">${esc(i.t)}</span>` +
           `<span class="who2"><b style="color:${esc(i.c)}">${esc(i.k)}</b>` +
+          /* i.s 는 위에서 조각마다 esc 를 씌워 만든 것이다. 태그(<b class=rno>)를 살려야 해서
+             여기서 또 씌우지 않는다. ⚠ i.s 를 만드는 자리를 고칠 땐 esc 를 빼먹지 말 것. */
           `<span style="color:var(--sub);font-size:12.5px"> ${i.s}</span>` +
           (i.tel !== undefined ? `<span class="telrow">${전화(i.tel)}</span>` : '') +
           `</span></li>`).join('')}</ol>`
