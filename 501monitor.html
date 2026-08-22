@@ -153,6 +153,14 @@
   .pill.wait{background:#3A3210;color:var(--wait)}
   .pill.done{background:var(--card2);color:var(--done)}
 
+  .master{margin:0 16px 12px;padding:12px 14px;border-radius:12px;background:var(--card2);
+          font-size:12.5px;color:var(--sub);line-height:1.6}
+  .master>b{color:var(--ink);font-size:13.5px}
+  .master .mk{display:block;margin-top:6px;font-size:15px;color:var(--ink);
+              font-variant-numeric:tabular-nums;letter-spacing:.02em}
+  .master .mk b{font-weight:800}
+  .master .warn2{display:block;margin-top:5px;font-size:11.5px;color:var(--warn)}
+
   .memo{font-size:12px;color:var(--dim);padding:0 16px 14px;line-height:1.5}
   .memo b{color:var(--sub)}
   .none{color:var(--dim);font-size:13.5px;padding:16px}
@@ -571,10 +579,21 @@ async function renderGuest() {
     <div class="go">
       <a href="https://business.kakao.com/_ediSX/dashboard" target="_blank" rel="noopener">카카오 채널 관리</a>
     </div>
+    <!-- ⚠ 만능키는 실제 예약이 없어도 손님 화면을 여는 번호다. 손님에게 주면 안 된다.
+         그래서 접어두지 않고 여기 적어 두되, 무엇인지 한 줄로 못박아 둔다. -->
+    <div class="master">
+      <b>만능키</b> — 손님 화면을 그대로 열어볼 때 씁니다
+      <span class="mk">예약번호 <b>${esc(v.MASTER_CODE || '없음')}</b>
+        · 휴대폰 뒤 4자리 <b>${esc(v.MASTER_TAIL || '없음')}</b></span>
+      <span class="warn2">실제 예약이 없어도, 날짜와 상관없이 열립니다. 손님에게 알려주지 마세요.</span>
+    </div>
+
     <details><summary>비밀번호·문의 문구 고치기</summary>
       ${row('DOOR_CODE', '출입문 비번', v.DOOR_CODE || '', '3530')}
       ${row('WIFI_PW', '와이파이 비번', v.WIFI_PW || '', '')}
-      ${row('CONTACT_LINE', '문의 안내', v.CONTACT_LINE || '', '손님 안내문 맨 아래에 들어갑니다', true)}</details>
+      ${row('CONTACT_LINE', '문의 안내', v.CONTACT_LINE || '', '손님 안내문 맨 아래에 들어갑니다', true)}
+      ${row('MASTER_CODE', '만능키 번호', v.MASTER_CODE || '', '')}
+      ${row('MASTER_TAIL', '만능키 뒤4', v.MASTER_TAIL || '', '')}</details>
     <details><summary>손님에게 나가는 안내문 그대로 보기</summary>
       <pre>${esc(d.안내 || '')}</pre></details>
   </div>`;
