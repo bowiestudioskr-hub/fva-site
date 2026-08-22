@@ -166,6 +166,15 @@
               line-height:1.7;color:var(--sub);background:#141416;border-radius:11px;
               padding:13px;margin-top:10px}
 
+  /* ⚠ 토큰이 죽으면 자동 안내가 통째로 멈춘다. 그래서 남은 날을 늘 맨 위에 띄운다.
+     예전엔 7일 전에야 알려줬는데, 그러면 「그날이 언제였지」를 기억해야 한다. */
+  .tok{display:flex;align-items:center;gap:9px;background:var(--card);border-radius:14px;
+       padding:11px 15px;font-size:13px;color:var(--sub);line-height:1.5}
+  .tok i{font-style:normal;font-size:15px;flex:none}
+  .tok b{color:var(--ink)}
+  .tok.warn{border-left:3px solid var(--warn)}
+  .tok.warn b{color:var(--warn)}
+
   .warnbox{background:var(--card);border-radius:14px;border-left:3px solid var(--warn);
            padding:13px 16px;font-size:13px;color:var(--sub);line-height:1.55}
   .warnbox b{color:var(--ink)}
@@ -231,6 +240,7 @@
     <div class="day" id="day"></div>
   </div>
 
+  <div id="token"></div>
   <div id="alarm"></div>
   <div id="guestcard"></div>
   <div id="stats" class="stats"></div>
@@ -486,15 +496,21 @@ async function renderGuest() {
 function render(d) {
   $('date').textContent = d.updated + ' 기준';
 
+  /* 토큰 만료일 — 늘 보이게. 이게 지나면 자동 안내가 멈춘다. */
+  if (d.ok && d.토큰만료일) {
+    const 급함 = (d.토큰남은날 ?? 99) <= 7;
+    $('token').innerHTML = `<div class="tok${급함 ? ' warn' : ''}"><i>🔑</i><span>` +
+      `스페이스클라우드 토큰 <b>${esc(d.토큰만료일)} 만료</b> · ${d.토큰남은날}일 남음` +
+      `<br>그 전에 크롬에서 <b>partner.spacecloud.kr</b> 에 로그인해 주세요. ` +
+      `안 하면 자동 안내가 멈춥니다.</span></div>`;
+  }
+
   /* 손봐야 하는 것부터 맨 위에. 화면을 열자마자 눈에 들어와야 하는 건 이것뿐이다. */
   const A = [];
   if (!d.ok) {
     A.push(`<div class="warnbox"><b>수치를 못 불러왔습니다.</b><br>${esc(d.오류 || '')}
       <br>토큰이 만료됐다면 크롬에서 <b>partner.spacecloud.kr</b> 에 로그인한 뒤 갱신 토큰을 다시 심어야 합니다.</div>`);
   } else {
-    if (d.토큰남은날 != null && d.토큰남은날 <= 7)
-      A.push(`<div class="warnbox"><b>토큰이 ${d.토큰남은날}일 뒤 만료됩니다.</b>
-        그때가 되면 자동 안내가 멈춥니다. 크롬에서 <b>partner.spacecloud.kr</b> 에 한 번 로그인해 주세요.</div>`);
     if (/미연결/.test(d.알림톡 || ''))
       A.push(`<div class="warnbox"><b>알림톡은 아직 연결 전입니다.</b>
         새 예약은 <b>메일로</b> 알려드리고, 손님은
