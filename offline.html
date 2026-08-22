@@ -113,12 +113,12 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3d6db82-28">
-<link rel="stylesheet" href="css/mobile.css?v=3d6db82-28">
-<link rel="stylesheet" href="css/sub.css?v=3d6db82-28">
-<link rel="stylesheet" href="css/offline.css?v=3d6db82-28">
-<link rel="stylesheet" href="css/offline-plan.css?v=3d6db82-28">
-<link rel="stylesheet" href="css/offline-blocks.css?v=3d6db82-28">
+<link rel="stylesheet" href="css/style.css?v=f14189f-29">
+<link rel="stylesheet" href="css/mobile.css?v=f14189f-29">
+<link rel="stylesheet" href="css/sub.css?v=f14189f-29">
+<link rel="stylesheet" href="css/offline.css?v=f14189f-29">
+<link rel="stylesheet" href="css/offline-plan.css?v=f14189f-29">
+<link rel="stylesheet" href="css/offline-blocks.css?v=f14189f-29">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -138,7 +138,7 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
   }
 }
 </script>
-  <script src="/js/measure.js?v=3d6db82-28" defer></script>
+  <script src="/js/measure.js?v=f14189f-29" defer></script>
 </head>
 <body>
 
@@ -207,7 +207,7 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
       </picture>
       <div class="say">
         <span class="flare" id="nt-flare">모집 중</span>
-        <strong id="nt-say">19기 수강생 <b>모집 중</b></strong>
+        <strong id="nt-say">19기 수강생 <b>모집</b></strong>
         <span class="dday" id="nt-dday"></span>
       </div>
     </div>
@@ -1107,7 +1107,8 @@ if(window.wcs) { wcs_do(); }
   } else {
     /* 개강일은 지났는데 아직 받고 있는 중. 「마감 임박」은 이제 거짓이라 바꿔 단다. */
     딱지.textContent = '모집 중';
-    말.innerHTML = 기수 + ' 수강생 <b>모집 중</b>';
+    /* 딱지가 이미 「모집 중」이라 여기서 「중」을 또 붙이면 같은 말이 두 번 보인다. */
+    말.innerHTML = 기수 + ' 수강생 <b>모집</b>';
     덧말.textContent = '지금도 합류하실 수 있습니다';
   }
   document.getElementById('nt-urgent').hidden = false;
