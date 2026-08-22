@@ -334,7 +334,8 @@ function askKey() {
     `<div class="hd"><h1>오공일501</h1>
        <p class="lede">이 화면은 비밀번호가 있어야 열립니다.</p></div>
      <div class="card" style="padding:16px;display:flex;flex-direction:column;gap:11px">
-       <input id="kin" type="password" placeholder="비밀번호" autocomplete="current-password"
+       <input id="kin" type="text" placeholder="비밀번호" autocomplete="off"
+         autocapitalize="off" autocorrect="off" spellcheck="false"
          style="background:#0F0F11;color:#fff;border:1px solid var(--line);border-radius:11px;
                 padding:13px 14px;font:inherit;font-size:15px">
        <button id="kgo" style="background:#fff;color:#000;border:0;border-radius:11px;
@@ -343,12 +344,38 @@ function askKey() {
          비밀번호는 주소 뒤에 <b style="color:var(--sub)">#k=…</b> 로 붙여 두면 다음부터 안 물어봅니다.
          손님용 <a href="https://oh501.surge.sh/" style="color:var(--sub)">입실 안내 화면</a>은 비밀번호 없이 열립니다.</p>
      </div>`;
+  /* ⚠ 폰처럼 「방금 친 글자만 잠깐 보이고 곧 가려지는」 칸.
+     type=password 는 처음부터 다 가려서 오타를 못 잡고,
+     type=text 는 어깨너머로 다 보인다. 그 사이를 손으로 만든다.
+     진짜 값은 real 에만 두고, 칸에는 가린 글자를 그린다. */
+  const inp = document.getElementById('kin');
+  const MASK = '•';
+  let real = '', timer = 0;
+
+  const draw = (peek) => {
+    const n = real.length;
+    inp.value = n ? MASK.repeat(peek ? n - 1 : n) + (peek ? real[n - 1] : '') : '';
+    clearTimeout(timer);
+    if (peek && n) timer = setTimeout(() => draw(false), 900);
+  };
+
+  inp.addEventListener('input', () => {
+    /* 칸에 남은 •는 옛 글자, 그 밖의 글자는 방금 들어온 것이다.
+       자리별로 맞춰 real 을 다시 만든다(끝에서 치고 지우는 보통의 경우를 본다). */
+    const v = inp.value;
+    let out = '';
+    for (let i = 0; i < v.length; i++) out += (v[i] === MASK) ? (real[i] || '') : v[i];
+    real = out;
+    draw(true);
+  });
+
   const go = () => {
-    const v = document.getElementById('kin').value.trim();
+    const v = real.trim();
     if (v) { try { localStorage.setItem(KEYNAME, v); } catch {} location.reload(); }
   };
   document.getElementById('kgo').onclick = go;
-  document.getElementById('kin').addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+  inp.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+  inp.focus();
 }
 const esc = v => String(v ?? '').replace(/[&<>"']/g,
   c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
