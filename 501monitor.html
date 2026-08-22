@@ -1,0 +1,427 @@
+<!doctype html><html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>오공일501 예약 현황</title>
+<link rel="icon" href="/favicon.ico">
+<style>
+  /* ⚠ 검색에 안 뜬다(noindex). robots.txt 에는 적지 말 것 —
+     적는 순간 주소를 광고하는 셈이고, 크롤러가 noindex 를 읽지도 못한다.
+
+     유입 현황(adminmonitor)과 같은 집안이다. 검은 바탕에 큰 숫자,
+     선을 긋지 않고 카드의 면으로 구분한다. 색은 뜻을 하나씩만 지고 간다.
+
+     ⚠ 이 화면은 「안내가 실제로 나갔나」를 눈으로 확인하려고 만든 것이다.
+       손님 연락처는 서버에서 이미 가려서 온다. 원본이 필요하면 호스트센터에서 본다. */
+  :root{
+    --bg:#000; --card:#1C1C1E; --card2:#2C2C2E; --card3:#242427;
+    --ink:#fff; --sub:#98989F; --dim:#636366; --line:#2C2C2E;
+
+    /* ⚠ 색은 스페이스클라우드 캘린더와 같은 뜻으로 맞춰 뒀다.
+       두 화면을 오가며 보는 사람이 색을 다시 배우지 않아도 되게. (검은 바탕용으로 밝기만 올림) */
+    --rsv:#A78BFA;     /* 예약확정   — 스클 보라 */
+    --hold:#34D399;    /* 승인대기   — 스클 초록 */
+    --paywt:#F472B6;   /* 결제대기   — 스클 자주 */
+    --add:#38BDF8;     /* 추가한예약 — 스클 파랑 (감독님 수업·청소가 여기 들어온다) */
+    --done:#8E8E93;    /* 이용완료   — 스클 회색 */
+    --clean:#FBBF24;   /* 청소만 따로 — 스클엔 없지만 자주 보는 것이라 갈라 뒀다 */
+    --wait:#FFD60A;
+    --warn:#FF375F;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,system-ui,sans-serif;
+    font-size:15px; line-height:1.5; padding:22px 16px 80px;
+    font-variant-numeric:tabular-nums;
+  }
+  .wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+
+  .hd .row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+  h1{font-size:24px;letter-spacing:-.03em;font-weight:800}
+  .date{color:var(--dim);font-size:13px}
+  .lede{color:var(--sub);font-size:13px;margin-top:5px}
+  .lede a{color:inherit}
+
+  /* ── 달력 ───────────────────────────────────────────── */
+  .cal{background:var(--card);border-radius:16px;padding:14px 12px 12px}
+  .calhd{display:flex;align-items:center;gap:10px;padding:0 4px 12px}
+  .calhd b{font-size:16px;font-weight:800;letter-spacing:-.02em}
+  .calhd .nav{margin-left:auto;display:flex;gap:6px}
+  .calhd button{background:var(--card2);color:var(--ink);border:0;border-radius:9px;
+                width:32px;height:30px;font-size:15px;cursor:pointer;font-family:inherit}
+  .calhd button:active{opacity:.6}
+  .calhd .today{width:auto;padding:0 11px;font-size:12.5px;font-weight:700}
+
+  .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+  .dow{text-align:center;font-size:11px;font-weight:700;color:var(--dim);padding:2px 0 5px}
+  .dow.s{color:#FF6B7E} .dow.t{color:#6BA8FF}
+  .cell{background:var(--card3);border-radius:9px;min-height:92px;padding:4px 3px 4px;
+        display:flex;flex-direction:column;gap:2px;cursor:pointer;border:1.5px solid transparent;
+        overflow:hidden}
+  .cell.off{background:transparent;cursor:default}
+  .cell.now{border-color:var(--ink)}
+  .cell.sel{border-color:#fff;background:#2E2E33}
+  .cell .d{font-size:11.5px;font-weight:700;color:var(--sub);text-align:center;line-height:1.25}
+  .cell.sun .d{color:#FF6B7E} .cell.sat .d{color:#6BA8FF}
+
+  /* ⚠ 칸 안에 글자를 직접 넣는다. 색 막대만으로는 「누가 몇 시에」가 안 보여서
+     결국 하나하나 눌러봐야 했다. 스페이스클라우드 캘린더가 이렇게 보여준다. */
+  /* ⚠ 한 줄로 자르면 정작 보고 싶은 이름이 잘려 나간다(「13~15, 정…」).
+     두 줄까지 흐르게 두고, 이름을 앞에 세운다. */
+  .ev{display:flex;align-items:flex-start;gap:3px;font-size:9.5px;line-height:1.3;
+      color:var(--ink);word-break:keep-all;overflow-wrap:anywhere}
+  /* ⚠ 시간은 줄 끝에서 「13~1 / 5」로 쪼개지면 안 읽힌다. 제 줄에 통째로 둔다. */
+  .ev .tm{display:block;white-space:nowrap;color:var(--sub);font-variant-numeric:tabular-nums;
+          font-size:9px}
+  .ev b{flex:none;width:12px;height:12px;border-radius:3px;font-size:8.5px;font-weight:800;
+        display:grid;place-items:center;color:#101014;margin-top:.5px}
+  .ev.void{color:#5A5A60;text-decoration:line-through}
+  .ev.rsv b{background:var(--rsv)} .ev.hold b{background:var(--hold)}
+  .ev.paywt b{background:var(--paywt)} .ev.add b{background:var(--add)}
+  .ev.done b{background:var(--done)} .ev.clean b{background:var(--clean)}
+  .ev.void b{background:#3A3A3E;color:#7A7A80}
+  .more{font-size:9px;color:var(--dim);text-align:center}
+
+  .legend{display:flex;flex-wrap:wrap;gap:5px 12px;padding:11px 5px 2px;font-size:11.5px;color:var(--sub)}
+  .legend i{display:inline-block;width:9px;height:9px;border-radius:2.5px;margin-right:5px;vertical-align:-1px}
+
+  .day{background:var(--card2);border-radius:12px;margin-top:10px;padding:12px 13px;display:none}
+  .day.on{display:block}
+  .day h4{font-size:13.5px;font-weight:800;margin-bottom:8px}
+  .day ol{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .day li{display:flex;gap:9px;align-items:baseline;font-size:13.5px}
+  .day .t{color:var(--sub);font-size:12.5px;min-width:74px;white-space:nowrap}
+  .day .k{font-weight:700}
+  .day .none{color:var(--dim);font-size:13px}
+
+  /* ── 타일·목록 ───────────────────────────────────────── */
+  .stats{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .stat{background:var(--card);border-radius:16px;padding:14px 16px 15px}
+  .stat .lb{font-size:12px;font-weight:700;margin-bottom:3px;display:flex;align-items:center;gap:5px}
+  .stat .lb i{width:7px;height:7px;border-radius:50%;background:currentColor;flex:none}
+  .stat .vl{font-size:29px;font-weight:800;letter-spacing:-.045em;line-height:1.05}
+  .stat .vl span{font-size:14px;font-weight:600;color:var(--sub);margin-left:3px}
+
+  .card{background:var(--card);border-radius:16px;overflow:hidden}
+  .card>h3{font-size:14px;font-weight:700;padding:15px 16px 11px;display:flex;align-items:center;gap:8px}
+  .card>h3 .r{margin-left:auto;font-weight:600;color:var(--dim);font-size:12px}
+  ul{list-style:none}
+  li.row{display:flex;align-items:center;gap:12px;padding:11px 16px}
+  li.row+li.row{box-shadow:inset 0 .5px 0 rgba(255,255,255,.07)}
+  .nm{flex:1;min-width:0}
+  .nm b{font-size:15px;font-weight:700}
+  .nm small{display:block;font-size:12px;color:var(--dim);margin-top:2px}
+  .vn{text-align:right;white-space:nowrap;font-size:14px;font-weight:700}
+  .vn em{display:block;font-style:normal;font-size:11.5px;font-weight:600;color:var(--sub);margin-top:2px}
+
+  .pill{font-size:11px;font-weight:800;padding:3px 8px;border-radius:99px;white-space:nowrap}
+  .pill.ok{background:#0C3B1E;color:var(--rsv)}
+  .pill.wait{background:#3A3210;color:var(--wait)}
+  .pill.done{background:var(--card2);color:var(--done)}
+
+  .memo{font-size:12px;color:var(--dim);padding:0 16px 14px;line-height:1.5}
+  .memo b{color:var(--sub)}
+  .none{color:var(--dim);font-size:13.5px;padding:16px}
+
+  .warnbox{background:var(--card);border-radius:14px;border-left:3px solid var(--warn);
+           padding:13px 16px;font-size:13px;color:var(--sub);line-height:1.55}
+  .warnbox b{color:var(--ink)}
+  footer{color:var(--dim);font-size:12px;padding-top:6px;line-height:1.7}
+  @media (max-width:560px){
+    body{padding:18px 12px 60px}
+    h1{font-size:20px}
+    .stat .vl{font-size:25px}
+    .stats{grid-template-columns:1fr 1fr;gap:8px}
+    .cal{padding:12px 8px 10px}
+    .grid{gap:3px}
+    .cell{min-height:52px;border-radius:8px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hd">
+    <div class="row"><h1>오공일501</h1><span class="date" id="date">불러오는 중…</span></div>
+    <p class="lede">
+      합정 프라이빗 영화관 · 새 예약이 잡히면 입실 안내가 자동으로 나갑니다
+      · <a href="/501/">손님 조회 화면</a>
+      · <a href="https://partner.spacecloud.kr/reservation-calendar?product=97637&amp;space=58874" target="_blank" rel="noopener">호스트센터</a>
+      · <a href="/adminmonitor.html">유입 현황</a>
+    </p>
+  </div>
+
+  <div class="cal">
+    <div class="calhd">
+      <b id="calmon">—</b>
+      <div class="nav">
+        <button type="button" id="prev" aria-label="이전 달">‹</button>
+        <button type="button" class="today" id="now">이번 달</button>
+        <button type="button" id="next" aria-label="다음 달">›</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="legend">
+      <span><i style="background:var(--rsv)"></i>예약확정</span>
+      <span><i style="background:var(--hold)"></i>승인대기</span>
+      <span><i style="background:var(--paywt)"></i>결제대기</span>
+      <span><i style="background:var(--add)"></i>수업·직접 넣은 일정</span>
+      <span><i style="background:var(--clean)"></i>청소</span>
+      <span><i style="background:var(--done)"></i>이용완료</span>
+    </div>
+    <div class="day" id="day"></div>
+  </div>
+
+  <div id="alarm"></div>
+  <div id="stats" class="stats"></div>
+  <div id="list"></div>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+/* Apps Script 웹앱이 예약과 달력을 내준다.
+   ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
+const FEED = 'https://script.google.com/macros/s/AKfycbxWKkz5rS112O8ePWYgFqEl9S5Cb-gZjLcxS3eTpnhzloGA2dtr3rN00rOso-0Mwo0/exec';
+
+const $ = id => document.getElementById(id);
+
+/* ── 열쇠 ────────────────────────────────────────────────
+   사이트 저장소가 공개라 파일에 열쇠를 박을 수 없다. 대신 주소 뒤에 붙여 온다.
+       https://fva.co.kr/501monitor.html#k=XXXXXXXX
+   ⚠ # 뒤는 서버로 전송되지 않는다. 그래서 GitHub·서버 로그 어디에도 안 남는다.
+   한 번 열면 이 기기에만 저장해 두고, 다음부터는 주소만으로 열린다.
+   ⚠ 다른 사람 컴퓨터에서 열었다면 「열쇠 지우기」로 지울 것. */
+const KEYNAME = 'fva501key';
+function getKey() {
+  const m = (location.hash || '').match(/k=([A-Za-z0-9_-]+)/);
+  if (m) {
+    try { localStorage.setItem(KEYNAME, m[1]); } catch {}
+    history.replaceState(null, '', location.pathname);   // 주소창에서 지운다
+    return m[1];
+  }
+  try { return localStorage.getItem(KEYNAME) || ''; } catch { return ''; }
+}
+let KEY = getKey();
+const feed = q => `${FEED}?${q}&key=${encodeURIComponent(KEY)}`;
+
+function askKey() {
+  document.querySelector('.wrap').innerHTML =
+    `<div class="hd"><h1>오공일501</h1>
+       <p class="lede">이 화면은 열쇠가 있어야 열립니다.</p></div>
+     <div class="card" style="padding:16px;display:flex;flex-direction:column;gap:11px">
+       <input id="kin" placeholder="열쇠 붙여넣기" autocomplete="off"
+         style="background:#0F0F11;color:#fff;border:1px solid var(--line);border-radius:11px;
+                padding:13px 14px;font:inherit;font-size:15px">
+       <button id="kgo" style="background:#fff;color:#000;border:0;border-radius:11px;
+         padding:13px;font:inherit;font-size:15px;font-weight:800;cursor:pointer">열기</button>
+       <p style="font-size:12.5px;color:var(--dim);line-height:1.6">
+         열쇠는 주소 뒤에 <b style="color:var(--sub)">#k=…</b> 로 붙여 두면 다음부터 안 물어봅니다.
+         손님용 <a href="/501/" style="color:var(--sub)">입실 안내 화면</a>은 열쇠 없이 열립니다.</p>
+     </div>`;
+  const go = () => {
+    const v = document.getElementById('kin').value.trim();
+    if (v) { try { localStorage.setItem(KEYNAME, v); } catch {} location.reload(); }
+  };
+  document.getElementById('kgo').onclick = go;
+  document.getElementById('kin').addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+}
+const esc = v => String(v ?? '').replace(/[&<>"']/g,
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const num = n => (n ?? 0).toLocaleString('ko-KR');
+
+/* 「오늘」은 한국 시각으로 센다. 브라우저가 어디에 있든 같은 날을 가리켜야 한다. */
+const kstNow = () => new Date(Date.now() + (new Date().getTimezoneOffset() * 60000) + 9 * 3600e3);
+const TODAY = (() => { const d = kstNow();
+  return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate(); })();
+
+/* ── 달력 ───────────────────────────────────────────────
+   ⚠ 「청소」와 「수업」은 둘 다 감독님이 직접 넣은 일정이라 API 로는 구분이 없다.
+     이름·메모에 청소가 들어 있으면 청소로 본다. 그 외는 감독님 일정. */
+const isClean = s => /청소/.test((s.이름 || '') + ' ' + (s.메모 || ''));
+const KIND = { 예약확정:['rsv','예'], 승인대기:['hold','대'], 결제대기:['paywt','결'],
+               이용완료:['done','완'], 취소환불:['void','취'] };
+const kindOf = r => KIND[r.상태] || ['done', '·'];
+
+/* 한 칸에 들어갈 조각. 스클처럼 「12~16, 정주영」 꼴로 적는다. */
+function evOf(x, isSched) {
+  /* 감독님이 직접 넣은 일정은 스클에선 전부 「추가한예약」 한 덩어리다.
+     실제로는 수업이 대부분이고 가끔 청소·시공이 섞인다. 메모를 보고 갈라 준다. */
+  const [cls, badge] = isSched ? (isClean(x) ? ['clean', '청'] : ['add', '수']) : kindOf(x);
+  const who = isSched
+    ? (isClean(x) ? '청소' : (x.메모 && !/^정주영$/.test(x.메모) ? x.메모 : '수업'))
+    : (x.이름 || '손님');
+  return { cls, badge, t: `${x.시작}~${x.끝}`, who, sort: Number(x.시작) || 0 };
+}
+
+let cal = null, curY = 0, curM = 0, sel = '';
+
+function renderCal() {
+  if (!cal) return;
+  $('calmon').textContent = `${curY}년 ${curM}월`;
+  const byYmd = {};
+  for (const d of cal.날들) byYmd[d.날짜] = d;
+
+  const first = new Date(curY, curM - 1, 1);
+  const lead = first.getDay();                       // 일요일 시작
+  const last = new Date(curY, curM, 0).getDate();
+
+  let h = ['일','월','화','수','목','금','토']
+    .map((w, i) => `<div class="dow${i === 0 ? ' s' : i === 6 ? ' t' : ''}">${w}</div>`).join('');
+  for (let i = 0; i < lead; i++) h += '<div class="cell off"></div>';
+
+  for (let d = 1; d <= last; d++) {
+    const ymd = String(curY * 10000 + curM * 100 + d);
+    const day = byYmd[ymd] || { 예약: [], 일정: [] };
+    const dow = new Date(curY, curM - 1, d).getDay();
+    /* ⚠ 자정을 넘긴 예약은 다음 날에도 「0~0」으로 한 번 더 들어온다(8/18 21~24 → 8/19 0~0).
+       길이가 0인 조각이라 칸만 잡아먹고 뜻이 없다. 뺀다. */
+    const evs = [...day.예약.map(r => evOf(r, false)), ...day.일정.map(s => evOf(s, true))]
+      .filter(e => e.t !== '0~0')
+      .sort((a, b) => a.sort - b.sort);
+    const shown = evs.slice(0, 3).map(e =>
+      `<div class="ev ${e.cls}"><b>${e.badge}</b><span>${esc(e.who)}` +
+      `<span class="tm">${esc(e.t)}</span></span></div>`).join('');
+    const rest = evs.length > 3 ? `<div class="more">+${evs.length - 3}</div>` : '';
+    h += `<div class="cell${dow === 0 ? ' sun' : dow === 6 ? ' sat' : ''}` +
+         `${Number(ymd) === TODAY ? ' now' : ''}${ymd === sel ? ' sel' : ''}" data-ymd="${ymd}">` +
+         `<div class="d">${d}</div>${shown}${rest}</div>`;
+  }
+  $('grid').innerHTML = h;
+  renderDay();
+}
+
+function renderDay() {
+  const box = $('day');
+  if (!sel || !cal) { box.classList.remove('on'); return; }
+  const day = cal.날들.find(d => d.날짜 === sel);
+  const items = [];
+  for (const r of (day?.예약 || [])) items.push({
+    t: `${r.시작}시 ~ ${r.끝}시`, k: r.이름 || '손님',
+    s: `${r.상태}${r.인원 ? ' · ' + r.인원 + '명' : ''}${r.금액 ? ' · ' + num(r.금액) + '원' : ''}`,
+    c: kindOf(r)[0] === 'void' ? 'var(--done)' : `var(--${kindOf(r)[0]})`,
+  });
+  for (const s of (day?.일정 || [])) items.push({
+    t: `${s.시작}시 ~ ${s.끝}시`, k: isClean(s) ? '청소' : (s.이름 || '일정'),
+    s: s.메모 && !/청소/.test(s.메모) ? s.메모 : (isClean(s) ? '' : '직접 넣은 일정'),
+    c: isClean(s) ? 'var(--clean)' : 'var(--add)',
+  });
+  items.sort((a, b) => parseInt(a.t) - parseInt(b.t));
+
+  const ymd = sel;
+  box.innerHTML = `<h4>${ymd.slice(4,6)}월 ${ymd.slice(6,8)}일</h4>` +
+    (items.length
+      ? `<ol>${items.map(i => `<li><span class="t">${esc(i.t)}</span>` +
+          `<span class="k" style="color:${i.c}">${esc(i.k)}</span>` +
+          `<span style="color:var(--sub);font-size:12.5px">${esc(i.s)}</span></li>`).join('')}</ol>`
+      : `<div class="none">이날은 비어 있습니다.</div>`);
+  box.classList.add('on');
+}
+
+$('grid').addEventListener('click', ev => {
+  const c = ev.target.closest('.cell');
+  if (!c || c.classList.contains('off')) return;
+  sel = sel === c.dataset.ymd ? '' : c.dataset.ymd;
+  renderCal();
+});
+
+async function loadCal(y, m) {
+  curY = y; curM = m; sel = '';
+  $('calmon').textContent = `${y}년 ${m}월 · 불러오는 중`;
+  try {
+    const d = await (await fetch(feed(`cal=${y}-${String(m).padStart(2, '0')}`))).json();
+    cal = d.ok ? d : { 날들: [] };
+    if (!d.ok) $('calmon').textContent = `${y}년 ${m}월 · 못 불러옴`;
+  } catch { cal = { 날들: [] }; }
+  renderCal();
+}
+const shift = n => { let y = curY, m = curM + n;
+  if (m < 1) { m = 12; y--; } if (m > 12) { m = 1; y++; } loadCal(y, m); };
+$('prev').onclick = () => shift(-1);
+$('next').onclick = () => shift(1);
+$('now').onclick = () => loadCal(Math.floor(TODAY / 10000), Math.floor(TODAY / 100) % 100);
+
+/* ── 목록 ─────────────────────────────────────────────── */
+const stat = (label, color, value, unit) => `<div class="stat">
+  <div class="lb" style="color:${color}"><i></i>${label}</div>
+  <div class="vl">${value}${unit ? `<span>${unit}</span>` : ''}</div></div>`;
+
+function render(d) {
+  $('date').textContent = d.updated + ' 기준';
+
+  /* 손봐야 하는 것부터 맨 위에. 화면을 열자마자 눈에 들어와야 하는 건 이것뿐이다. */
+  const A = [];
+  if (!d.ok) {
+    A.push(`<div class="warnbox"><b>수치를 못 불러왔습니다.</b><br>${esc(d.오류 || '')}
+      <br>토큰이 만료됐다면 크롬에서 <b>partner.spacecloud.kr</b> 에 로그인한 뒤 갱신 토큰을 다시 심어야 합니다.</div>`);
+  } else {
+    if (d.토큰남은날 != null && d.토큰남은날 <= 7)
+      A.push(`<div class="warnbox"><b>토큰이 ${d.토큰남은날}일 뒤 만료됩니다.</b>
+        그때가 되면 자동 안내가 멈춥니다. 크롬에서 <b>partner.spacecloud.kr</b> 에 한 번 로그인해 주세요.</div>`);
+    if (/미연결/.test(d.알림톡 || ''))
+      A.push(`<div class="warnbox"><b>알림톡은 아직 연결 전입니다.</b>
+        지금은 새 예약이 잡히면 <b>메일로</b> 알려드리고, 손님은
+        <a href="/501/" style="color:var(--ink)">fva.co.kr/501</a> 에서 예약번호로 직접 확인합니다.</div>`);
+  }
+  $('alarm').innerHTML = A.join('');
+
+  const rs = d.예약 || [];
+  const 앞으로 = rs.filter(r => !r.지남 && r.상태 === '예약확정');
+  const 대기 = 앞으로.filter(r => !r.안내발송 && !r.설치전);
+  const 이번달 = rs.filter(r => r.상태 !== '취소환불' &&
+    String(r.날짜).slice(0, 7) === `${curY}.${String(curM).padStart(2, '0')}`);
+
+  $('stats').innerHTML =
+    stat('다가오는 예약', 'var(--rsv)', num(앞으로.length), '건') +
+    stat('안내 안 나간 것', 대기.length ? 'var(--warn)' : 'var(--dim)', num(대기.length), '건') +
+    stat(`${curM}월 매출`, 'var(--sub)', num(이번달.reduce((a, r) => a + r.금액, 0)), '원') +
+    stat('토큰', (d.토큰남은날 ?? 99) <= 7 ? 'var(--warn)' : 'var(--dim)',
+         d.토큰남은날 == null ? '—' : d.토큰남은날, '일 남음');
+
+  /* ⚠ 「설치 전부터 있던 예약」과 「이 시스템이 보낸 예약」은 다르다.
+     둘 다 발송 대상에서 빠지지만, 앞의 것은 사람이 직접 챙겨야 한다. */
+  const row = r => {
+    const pill = r.상태 === '취소환불' ? '<span class="pill done">취소</span>'
+      : r.지남 ? '<span class="pill done">이용완료</span>'
+      : r.설치전 ? '<span class="pill done">설치 전 · 직접 안내</span>'
+      : r.안내발송 ? '<span class="pill ok">안내 나감</span>'
+      : '<span class="pill wait">안내 대기</span>';
+    return `<li class="row">
+      <div class="nm"><b>${esc(r.이름)}</b> ${pill}
+        <small>${esc(r.날짜)} · ${esc(r.연락처)} · 예약 ${r.id}</small></div>
+      <div class="vn">${num(r.금액)}<em>원</em></div></li>`;
+  };
+
+  const 앞 = rs.filter(r => !r.지남);
+  const 뒤 = rs.filter(r => r.지남).reverse();
+  $('list').innerHTML =
+    `<div class="card"><h3>다가오는 예약<span class="r">${앞.length}건</span></h3>
+       ${앞.length ? `<ul>${앞.map(row).join('')}</ul>` : '<div class="none">예정된 예약이 없습니다.</div>'}
+       <div class="memo">「안내 나감」은 <b>이 시스템이 보냈다</b>는 뜻입니다.
+         「설치 전」은 자동화를 켜기 전부터 잡혀 있던 예약이라 <b>직접 안내</b>하셔야 합니다.</div></div>
+     <div style="height:12px"></div>
+     <div class="card"><h3>지난 예약<span class="r">${뒤.length}건</span></h3>
+       ${뒤.length ? `<ul>${뒤.slice(0, 20).map(row).join('')}</ul>` : '<div class="none">없습니다.</div>'}
+       ${뒤.length > 20 ? `<div class="memo">최근 20건만 보여줍니다.</div>` : ''}</div>`;
+
+  $('foot').innerHTML =
+    '5분마다 스페이스클라우드에서 새로 읽습니다 · 연락처는 가려서 표시합니다<br>' +
+    '달력의 「감독님 일정」과 「청소」는 호스트센터에서 직접 넣은 일정입니다.';
+}
+
+if (!KEY) askKey();
+else {
+  loadCal(Math.floor(TODAY / 10000), Math.floor(TODAY / 100) % 100);
+  fetch(feed('t=' + Date.now()))
+  .then(r => r.json())
+  .then(d => { if (d.열쇠필요) { try { localStorage.removeItem(KEYNAME); } catch {} return askKey(); } render(d); })
+  .catch(() => {
+    $('alarm').innerHTML =
+      `<div class="warnbox"><b>연결하지 못했습니다.</b><br>
+       Apps Script 웹앱이 내려갔거나 인터넷이 끊겼을 수 있습니다.</div>`;
+    $('date').textContent = '연결 실패';
+  });
+}
+</script>
+</body></html>

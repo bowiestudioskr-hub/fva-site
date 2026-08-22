@@ -371,6 +371,10 @@ const HANDMADE = new Set([
   // adlog·worklist·adminmonitor 는 pages/ 에 본문이 없는 손조판 문서다.
   // 목록에 없으면 빌드가 지우지는 않지만, 나중에 pages/ 에 동명 항목이 생기면 덮어쓴다.
   'adlog.html', 'worklist.html', 'adminmonitor.html', 'littly.html',
+  // 501monitor.html — 오공일501 예약 확인 화면(운영자용).
+  // 손님용은 501/index.html 이다. 둘 다 사이트 메뉴에 없고 sitemap 에도 안 넣는다.
+  // ⚠ 이름을 501.html 로 두면 /501/ 디렉터리와 주소가 헷갈린다. 그래서 monitor 를 붙였다.
+  '501monitor.html', '501/index.html',
 ]);
 
 let built = 0, skipped = 0;
