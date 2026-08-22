@@ -44,8 +44,10 @@
     .cell{min-height:118px}
     .ev{font-size:10.5px}
     .rid{font-size:9.5px;margin-left:15px}
-    .bar{left:50%;transform:translateX(-50%);max-width:560px;bottom:16px;
-         border-radius:16px;box-shadow:0 6px 28px rgba(0,0,0,.55)}
+    /* ⚠ 기본 규칙이 left:0;right:0 이라 left 만 50% 로 바꾸면 오른쪽이 붙잡혀
+       바가 왼쪽으로 끌려 나간다. right 를 풀고 폭을 직접 준다. */
+    .bar{left:50%;right:auto;transform:translateX(-50%);width:min(560px,92vw);
+         bottom:18px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.6)}
   }
 
   .hd .row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
