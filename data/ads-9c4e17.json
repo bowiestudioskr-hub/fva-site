@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 8. 23. AM 1:58:07",
+  "updated": "2026. 8. 23. AM 2:13:53",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -584,7 +584,7 @@
     ]
   },
   "google": {
-    "updated": "2026. 8. 23. AM 1:58:01",
+    "updated": "2026. 8. 23. AM 2:13:47",
     "period": "2026년 7월 23일 ~ 8월 21일",
     "imp": 4690,
     "clk": 161,
@@ -688,7 +688,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 23. AM 1:58:02",
+    "updated": "2026. 8. 23. AM 2:13:47",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -698,30 +698,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 1,
+        "visit": 2,
         "click": 1,
-        "unique": 1,
-        "ctr": 100,
+        "unique": 2,
+        "ctr": 50,
         "dwell": 7
       },
       "7": {
-        "visit": 1297,
+        "visit": 1298,
         "click": 205,
-        "unique": 145,
+        "unique": 146,
         "ctr": 15.8,
         "dwell": 27
       },
       "28": {
-        "visit": 2835,
+        "visit": 2836,
         "click": 902,
-        "unique": 145,
+        "unique": 146,
         "ctr": 31.8,
         "dwell": 27
       },
       "90": {
-        "visit": 6261,
+        "visit": 6262,
         "click": 2961,
-        "unique": 145,
+        "unique": 146,
         "ctr": 47.3,
         "dwell": 27
       },
@@ -733,9 +733,9 @@
         "dwell": 24
       },
       "all": {
-        "visit": 34402,
+        "visit": 34403,
         "click": 14133,
-        "unique": 145,
+        "unique": 146,
         "ctr": 41.1,
         "dwell": 27
       }
@@ -3167,9 +3167,9 @@
       },
       {
         "d": "2026-08-23",
-        "visit": 1,
+        "visit": 2,
         "click": 1,
-        "unique": 1
+        "unique": 2
       }
     ],
     "sources": [
@@ -3755,11 +3755,11 @@
       },
       {
         "name": "데스크탑",
-        "visit": 291,
+        "visit": 292,
         "click": 146,
-        "unique": 9,
-        "dwell": 66,
-        "ctr": 50.2
+        "unique": 10,
+        "dwell": 63,
+        "ctr": 50
       },
       {
         "name": "태블릿",
@@ -3773,9 +3773,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 26217,
+        "visit": 26218,
         "click": 1270,
-        "unique": 127,
+        "unique": 128,
         "dwell": 17,
         "ctr": 4.8,
         "code": "KR"
@@ -3955,9 +3955,9 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 1757,
+        "visit": 1758,
         "click": 1111,
-        "unique": 121,
+        "unique": 122,
         "dwell": 18,
         "ctr": 63.2,
         "code": "KR"
@@ -4155,27 +4155,35 @@
             "unique": 1,
             "dwell": 7,
             "ctr": 100
+          },
+          {
+            "name": "데스크탑",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 7,
+            "ctr": 0
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 1,
+            "visit": 2,
             "click": 1,
-            "unique": 1,
+            "unique": 2,
             "dwell": 7,
-            "ctr": 100,
+            "ctr": 50,
             "code": "KR"
           }
         ],
         "city": [
           {
             "name": "Seoul",
-            "visit": 1,
+            "visit": 2,
             "click": 1,
-            "unique": 1,
+            "unique": 2,
             "dwell": 7,
-            "ctr": 100,
+            "ctr": 50,
             "code": "KR"
           }
         ],
@@ -4294,11 +4302,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 31,
+            "visit": 32,
             "click": 8,
-            "unique": 9,
-            "dwell": 66,
-            "ctr": 25.8
+            "unique": 10,
+            "dwell": 63,
+            "ctr": 25
           },
           {
             "name": "태블릿",
@@ -4312,9 +4320,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 410,
+            "visit": 411,
             "click": 16,
-            "unique": 127,
+            "unique": 128,
             "dwell": 17,
             "ctr": 3.9,
             "code": "KR"
@@ -4494,9 +4502,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 403,
+            "visit": 404,
             "click": 5,
-            "unique": 121,
+            "unique": 122,
             "dwell": 18,
             "ctr": 1.2,
             "code": "KR"
@@ -4947,11 +4955,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 110,
+            "visit": 111,
             "click": 51,
-            "unique": 9,
-            "dwell": 66,
-            "ctr": 46.4
+            "unique": 10,
+            "dwell": 63,
+            "ctr": 45.9
           },
           {
             "name": "태블릿",
@@ -4965,9 +4973,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 773,
+            "visit": 774,
             "click": 243,
-            "unique": 127,
+            "unique": 128,
             "dwell": 17,
             "ctr": 31.4,
             "code": "KR"
@@ -5147,11 +5155,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 735,
+            "visit": 736,
             "click": 202,
-            "unique": 121,
+            "unique": 122,
             "dwell": 18,
-            "ctr": 27.5,
+            "ctr": 27.4,
             "code": "KR"
           },
           {
@@ -5660,11 +5668,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 251,
+            "visit": 252,
             "click": 125,
-            "unique": 9,
-            "dwell": 66,
-            "ctr": 49.8
+            "unique": 10,
+            "dwell": 63,
+            "ctr": 49.6
           },
           {
             "name": "태블릿",
@@ -5678,9 +5686,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 1460,
+            "visit": 1461,
             "click": 910,
-            "unique": 127,
+            "unique": 128,
             "dwell": 17,
             "ctr": 62.3,
             "code": "KR"
@@ -5860,9 +5868,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1325,
+            "visit": 1326,
             "click": 794,
-            "unique": 121,
+            "unique": 122,
             "dwell": 18,
             "ctr": 59.9,
             "code": "KR"
@@ -6440,11 +6448,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 291,
+            "visit": 292,
             "click": 146,
-            "unique": 9,
-            "dwell": 66,
-            "ctr": 50.2
+            "unique": 10,
+            "dwell": 63,
+            "ctr": 50
           },
           {
             "name": "태블릿",
@@ -6458,9 +6466,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 26217,
+            "visit": 26218,
             "click": 1270,
-            "unique": 127,
+            "unique": 128,
             "dwell": 17,
             "ctr": 4.8,
             "code": "KR"
@@ -6640,9 +6648,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1757,
+            "visit": 1758,
             "click": 1111,
-            "unique": 121,
+            "unique": 122,
             "dwell": 18,
             "ctr": 63.2,
             "code": "KR"
@@ -7194,27 +7202,35 @@
             "unique": 1,
             "dwell": 7,
             "ctr": 100
+          },
+          {
+            "name": "데스크탑",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 7,
+            "ctr": 0
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 1,
+            "visit": 2,
             "click": 1,
-            "unique": 1,
+            "unique": 2,
             "dwell": 7,
-            "ctr": 100,
+            "ctr": 50,
             "code": "KR"
           }
         ],
         "city": [
           {
             "name": "Seoul",
-            "visit": 1,
+            "visit": 2,
             "click": 1,
-            "unique": 1,
+            "unique": 2,
             "dwell": 7,
-            "ctr": 100,
+            "ctr": 50,
             "code": "KR"
           }
         ],
