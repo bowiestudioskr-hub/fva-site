@@ -146,7 +146,7 @@
     <div class="row"><h1>오공일501</h1><span class="date" id="date">불러오는 중…</span></div>
     <p class="lede">
       합정 프라이빗 영화관 · 새 예약이 잡히면 입실 안내가 자동으로 나갑니다
-      · <a href="/501/">손님 조회 화면</a>
+      · <a href="https://oh501.surge.sh/" target="_blank" rel="noopener">손님 조회 화면</a>
       · <a href="https://partner.spacecloud.kr/reservation-calendar?product=97637&amp;space=58874" target="_blank" rel="noopener">호스트센터</a>
       · <a href="/adminmonitor.html">유입 현황</a>
     </p>
@@ -218,7 +218,7 @@ function askKey() {
          padding:13px;font:inherit;font-size:15px;font-weight:800;cursor:pointer">열기</button>
        <p style="font-size:12.5px;color:var(--dim);line-height:1.6">
          열쇠는 주소 뒤에 <b style="color:var(--sub)">#k=…</b> 로 붙여 두면 다음부터 안 물어봅니다.
-         손님용 <a href="/501/" style="color:var(--sub)">입실 안내 화면</a>은 열쇠 없이 열립니다.</p>
+         손님용 <a href="https://oh501.surge.sh/" style="color:var(--sub)">입실 안내 화면</a>은 열쇠 없이 열립니다.</p>
      </div>`;
   const go = () => {
     const v = document.getElementById('kin').value.trim();
@@ -362,7 +362,7 @@ function render(d) {
     if (/미연결/.test(d.알림톡 || ''))
       A.push(`<div class="warnbox"><b>알림톡은 아직 연결 전입니다.</b>
         지금은 새 예약이 잡히면 <b>메일로</b> 알려드리고, 손님은
-        <a href="/501/" style="color:var(--ink)">fva.co.kr/501</a> 에서 예약번호로 직접 확인합니다.</div>`);
+        <a href="https://oh501.surge.sh/" style="color:var(--ink)">oh501.surge.sh</a> 에서 예약번호로 직접 확인합니다.</div>`);
   }
   $('alarm').innerHTML = A.join('');
 
