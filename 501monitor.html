@@ -275,10 +275,9 @@ function renderCal() {
     const ymd = String(curY * 10000 + curM * 100 + d);
     const day = byYmd[ymd] || { 예약: [], 일정: [] };
     const dow = new Date(curY, curM - 1, d).getDay();
-    /* ⚠ 자정을 넘긴 예약은 다음 날에도 「0~0」으로 한 번 더 들어온다(8/18 21~24 → 8/19 0~0).
-       길이가 0인 조각이라 칸만 잡아먹고 뜻이 없다. 뺀다. */
+    /* 자정을 넘긴 예약은 다음 날에도 조각으로 한 번 더 들어온다(8/18 21~24 → 8/19 0~1).
+       스페이스클라우드도 그렇게 보여준다. 그대로 둔다. */
     const evs = [...day.예약.map(r => evOf(r, false)), ...day.일정.map(s => evOf(s, true))]
-      .filter(e => e.t !== '0~0')
       .sort((a, b) => a.sort - b.sort);
     const shown = evs.slice(0, 3).map(e =>
       `<div class="ev ${e.cls}"><b>${e.badge}</b><span>${esc(e.who)}` +
