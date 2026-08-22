@@ -37,19 +37,6 @@
     font-variant-numeric:tabular-nums;
   }
   .wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
-  /* ⚠ 폰을 먼저 맞췄지만 데스크탑에서도 봐야 한다. 넓으면 달력을 키우고 바를 가운데로 모은다. */
-  @media (min-width:900px){
-    body{padding:30px 24px 90px}
-    .wrap{max-width:1080px;gap:24px}
-    .cell{min-height:118px}
-    .ev{font-size:10.5px}
-    .rid{font-size:9.5px;margin-left:15px}
-    /* ⚠ 기본 규칙이 left:0;right:0 이라 left 만 50% 로 바꾸면 오른쪽이 붙잡혀
-       바가 왼쪽으로 끌려 나간다. right 를 풀고 폭을 직접 준다. */
-    .bar{left:50%;right:auto;transform:translateX(-50%);width:min(560px,92vw);
-         bottom:18px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.6)}
-  }
-
   .hd .row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
   h1{font-size:24px;letter-spacing:-.03em;font-weight:800}
   .date{color:var(--dim);font-size:13px}
@@ -247,6 +234,21 @@
     .lede{font-size:12.5px}
     .card>h3,.sum{padding:13px 14px 10px}
     li.row{padding:10px 14px}
+  }
+
+  /* ── 데스크탑 ─────────────────────────────────────────
+     ⚠ 이 묶음은 **반드시 .bar 기본 규칙보다 아래**에 있어야 한다.
+       위에 두면 우선순위가 같아 나중에 나오는 left:0;right:0 에 덮이고,
+       transform:translateX(-50%) 만 살아남아 바가 화면 왼쪽으로 밀려 잘린다.
+       (2026-08-23 실제로 그렇게 났다. right:auto 를 넣어도 소용없었던 이유다.) */
+  @media (min-width:900px){
+    body{padding:30px 24px 90px}
+    .wrap{max-width:1080px;gap:24px}
+    .cell{min-height:118px}
+    .ev{font-size:10.5px}
+    .rid{font-size:9.5px;margin-left:15px}
+    .bar{left:50%;right:auto;transform:translateX(-50%);width:min(560px,92vw);
+         bottom:18px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.6)}
   }
 </style>
 </head>
