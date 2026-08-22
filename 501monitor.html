@@ -210,11 +210,17 @@
        display:flex;background:rgba(20,20,22,.94);backdrop-filter:blur(14px);
        box-shadow:inset 0 .5px 0 rgba(255,255,255,.1);
        padding-bottom:env(safe-area-inset-bottom)}
-  .bar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;
-         padding:9px 4px 8px;text-decoration:none;color:var(--sub);
-         font-size:10.5px;font-weight:600;letter-spacing:-.02em}
-  .bar a:active{background:rgba(255,255,255,.06)}
-  .bar i{font-style:normal;font-size:17px;line-height:1}
+  .bar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
+         padding:10px 4px 9px;border:0;background:none;cursor:pointer;color:var(--dim);
+         font-family:inherit;font-size:10.5px;font-weight:700;letter-spacing:-.02em}
+  .bar button.on{color:var(--ink)}
+  .bar button.on i{filter:none}
+  .bar i{font-style:normal;font-size:18px;line-height:1;filter:grayscale(1) opacity(.55)}
+  .bar button:active{background:rgba(255,255,255,.06)}
+
+  /* ⚠ [hidden] 은 display 를 주는 규칙에 진다. 이 집에서 두 번 당했다. 못 이기게 못 박는다. */
+  .tabpane{display:flex;flex-direction:column;gap:20px}
+  .tabpane[hidden]{display:none !important}
   @media (max-width:560px){
     body{padding:18px 12px 74px}
     h1{font-size:20px}
@@ -243,6 +249,7 @@
     <p class="lede">합정 프라이빗 영화관 · 새 예약이 잡히면 입실 안내가 자동으로 나갑니다</p>
   </div>
 
+  <div class="tabpane" id="pane-cal">
   <div class="cal">
     <div class="calhd">
       <b id="calmon">—</b>
@@ -263,29 +270,39 @@
     </div>
     <div class="day" id="day"></div>
   </div>
+  </div>
 
+  <div class="tabpane" id="pane-set" hidden>
   <div id="token"></div>
   <div id="alarm"></div>
   <div id="guestcard"></div>
+  <div class="card"><h3>바로가기</h3>
+    <div class="go">
+      <a href="https://oh501.surge.sh/" target="_blank" rel="noopener">손님 입실 안내</a>
+      <a href="https://pf.kakao.com/_ediSX" target="_blank" rel="noopener">카카오 채널</a>
+      <a href="https://partner.spacecloud.kr/reservation-calendar?product=97637&amp;space=58874"
+         target="_blank" rel="noopener">호스트센터</a>
+      <a href="/adminmonitor.html">아카데미 유입 현황</a>
+    </div>
+    <div class="memo">손님에게 보낼 안내 문구는 아래 「주소 복사」로 한 번에 담깁니다.</div>
+    <div class="go"><a href="#" id="copylink" class="hi">주소 복사</a></div>
+  </div>
+  <footer id="foot"></footer>
+  </div>
+
+  <div class="tabpane" id="pane-book" hidden>
   <div id="stats" class="stats"></div>
   <div id="list"></div>
-
-  <footer id="foot"></footer>
+  </div>
 </div>
 
-<!-- ⚠ 폰에서 화면을 넘기지 않고도 갈 수 있게 아래에 고정한다.
-     예전엔 손님 화면·카카오 링크가 달력 아래 카드에만 있어서
-     열 때마다 두 화면쯤 긁어내려야 했다. -->
+<!-- ⚠ 이 바는 「링크 모음」이 아니라 **화면 전환**이다.
+     한 화면에 달력·예약·관리를 다 쌓으니 폰에서 두 화면 넘게 긁어야 했다.
+     셋으로 갈라 한 번에 하나만 보여준다. 바깥 링크는 관리 탭 안으로 넣었다. -->
 <nav class="bar">
-  <a href="https://oh501.surge.sh/" target="_blank" rel="noopener">
-    <i>🔑</i><span>입실 안내</span></a>
-  <!-- 손님에게 링크를 보내줄 일이 잦다. 눌러서 바로 복사되게. -->
-  <a href="#" id="copylink"><i>🔗</i><span>주소 복사</span></a>
-  <a href="https://pf.kakao.com/_ediSX" target="_blank" rel="noopener">
-    <i>💬</i><span>카카오 채널</span></a>
-  <a href="https://partner.spacecloud.kr/reservation-calendar?product=97637&amp;space=58874"
-     target="_blank" rel="noopener"><i>📅</i><span>호스트센터</span></a>
-  <a href="/adminmonitor.html"><i>📈</i><span>유입 현황</span></a>
+  <button type="button" data-tab="cal"><i>📅</i><span>달력</span></button>
+  <button type="button" data-tab="book"><i>📖</i><span>예약</span></button>
+  <button type="button" data-tab="set"><i>⚙️</i><span>관리</span></button>
 </nav>
 
 <script>
@@ -484,11 +501,27 @@ const stat = (label, color, value, unit) => `<div class="stat">
   <div class="lb" style="color:${color}"><i></i>${label}</div>
   <div class="vl">${value}${unit ? `<span>${unit}</span>` : ''}</div></div>`;
 
+/* ── 화면 전환 ────────────────────────────────────────
+   ⚠ 고른 탭을 이 기기에 적어 둔다. 달력을 보려고 열었는데 매번 첫 탭으로 돌아가면
+     결국 또 한 번씩 누르게 된다. */
+const TABS = ['cal', 'book', 'set'];
+function goTab(name) {
+  if (!TABS.includes(name)) name = 'cal';
+  TABS.forEach(t => $('pane-' + t).hidden = (t !== name));
+  document.querySelectorAll('.bar button').forEach(b =>
+    b.classList.toggle('on', b.dataset.tab === name));
+  try { localStorage.setItem('fva501tab', name); } catch {}
+  scrollTo(0, 0);
+}
+document.querySelectorAll('.bar button').forEach(b =>
+  b.onclick = () => goTab(b.dataset.tab));
+goTab((() => { try { return localStorage.getItem('fva501tab'); } catch { return 'cal'; } })());
+
 /* 손님에게 보낼 링크 한 줄. 눌러서 복사한다. */
 document.getElementById('copylink').addEventListener('click', async ev => {
   ev.preventDefault();
   const 글 = '오공일501 입실 안내 (출입문 비밀번호)\nhttps://oh501.surge.sh\n예약번호와 휴대폰 뒤 4자리를 넣으면 확인하실 수 있습니다.';
-  const el = ev.currentTarget.querySelector('span');
+  const el = ev.currentTarget;
   const 원래 = el.textContent;
   try { await navigator.clipboard.writeText(글); el.textContent = '복사됨'; }
   catch { el.textContent = '복사 실패'; }
@@ -556,8 +589,10 @@ function render(d) {
     const 급함 = (d.토큰남은날 ?? 99) <= 7;
     $('token').innerHTML = `<div class="tok${급함 ? ' warn' : ''}"><i>🔑</i><span>` +
       `스페이스클라우드 토큰 <b>${esc(d.토큰만료일)} 만료</b> · ${d.토큰남은날}일 남음` +
-      `<br>그 전에 크롬에서 <b>partner.spacecloud.kr</b> 에 로그인해 주세요. ` +
-      `안 하면 자동 안내가 멈춥니다.</span></div>`;
+      `<br>${esc(d.갱신시점 || '만료 한 주 전')}에 크롬에서 <b>partner.spacecloud.kr</b> 에 ` +
+      `로그인한 뒤 「토큰 갱신」이라고 알려주세요. 안 하면 자동 안내가 멈춥니다.` +
+      `<br><span style="color:var(--dim)">지금 미리 해도 만료일은 그대로입니다 — ` +
+      `로그인한 날부터 다시 30일이라, 늦게 할수록 길어집니다.</span></span></div>`;
   }
 
   /* 손봐야 하는 것부터 맨 위에. 화면을 열자마자 눈에 들어와야 하는 건 이것뿐이다. */
