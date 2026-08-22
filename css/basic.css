@@ -1,0 +1,263 @@
+/* ─────────────────────────────────────────────────────────────
+   FVA BASIC CLASS (왕초보반) — 피그마 21스튜디오 상페 1·2·3
+   node 3684:17907 / 3684:261 / 3684:17645  (860 기준)
+
+   style.css 의 원칙을 그대로 따른다:
+     글자를 이미지 위에 좌표로 얹지 않는다. 그릇은 CSS 로 그리고
+     그 안에 진짜 텍스트를 흘린다. 그래서 검색·복사·확대가 다 된다.
+
+   ⚠ 이 페이지만의 색 두 개를 더 쓴다. 원본 렌더에서 뽑은 값이다.
+       --cyan #08FFD0  (LIMITED OFFLINE CLASS)
+       --sky  #AAD8F9  (기획/연출/촬영 카드 제목)
+   ⚠ 정규반(offline.html)과 헷갈리면 안 된다. 이쪽은 연희동 스페이스독·4주·299,000원.
+   ───────────────────────────────────────────────────────────── */
+
+.bs{
+  --cyan:#08FFD0;
+  --sky:#AAD8F9;
+  --card:#121212;
+  --line:#242424;
+  --w:min(860px, 100%);          /* 피그마 상세페이지 기준 폭 */
+  --pad:clamp(20px, 5vw, 40px);
+  background:var(--black);
+  color:var(--white);
+}
+.bs .in{ width:var(--w); margin:0 auto; padding-inline:var(--pad) }
+
+/* 데스크탑에서는 상세페이지 폭(860)을 넘기지 않되 좌우에 숨통을 준다.
+   ⚠ 폭을 더 벌리면 사진이 늘어나 화질이 무너진다. 원본이 860 이다. */
+@media (min-width:900px){ .bs{ --w:900px } }
+
+.bs section{ padding-block:clamp(56px, 9vw, 110px) }
+.bs img{ display:block; width:100%; height:auto }
+
+/* ⚠ 통사진은 원본이 860 이다. 데스크탑에서 화면 폭까지 늘리면 1.4배로 확대돼 흐려진다.
+   사진과 그 위 글자(.cap)를 같은 그릇 안에 묶어 --w 를 넘지 않게 한다. */
+.bs .bs-hero .shot,
+.bs .shotline{ width:var(--w); margin-inline:auto }
+
+/* ── 글자 크기 사다리 ─────────────────────────── */
+.bs h2{ font-size:clamp(24px,5.4vw,40px); font-weight:800; line-height:1.35; letter-spacing:-.035em; text-wrap:balance }
+.bs h3{ font-size:clamp(19px,4vw,28px); font-weight:800; line-height:1.4; letter-spacing:-.035em }
+.bs p{ font-size:clamp(14px,3.1vw,17px); line-height:1.72; color:#D6D6D6 }
+.bs .eyebrow{ font-size:clamp(13px,2.9vw,16px); color:var(--muted); font-weight:600; margin-bottom:10px }
+.bs .g{ color:var(--green) }
+.bs .c{ color:var(--cyan) }
+.bs .center{ text-align:center }
+
+/* ── 과정 고르기 (정규반 ↔ 왕초보반) ───────────────
+   ⚠ 두 과정은 장소도 결제도 다르다. 같은 「오프라인」으로 뭉뚱그리면
+     문의가 섞이고 엉뚱한 상품을 결제한다. 그래서 어느 페이지에 있든
+     지금 보고 있는 게 무엇이고 옆에 뭐가 있는지 항상 보이게 한다. */
+.bs .pick{ display:grid; grid-template-columns:1fr 1fr; gap:8px; padding-block:14px }
+.bs .pick a{
+  display:block; padding:13px 14px 14px; border-radius:14px; text-decoration:none;
+  border:1px solid var(--line); background:#0C0C0C; color:#9A9A9A; text-align:center;
+  transition:border-color .15s, color .15s, background .15s;
+}
+.bs .pick a:hover{ border-color:#3A3A3A; color:#CFCFCF }
+.bs .pick a[aria-current="page"]{ border-color:var(--green); background:rgba(44,255,5,.07); color:var(--white) }
+.bs .pick b{ display:block; font-size:clamp(14px,3.3vw,17px); font-weight:800; letter-spacing:-.03em }
+.bs .pick span{ display:block; margin-top:3px; font-size:clamp(11px,2.5vw,13px); color:inherit; opacity:.72 }
+@media (max-width:400px){ .pick a{ padding:11px 8px 12px } }
+
+/* ── 히어로 ───────────────────────────────────── */
+.bs-hero{ position:relative; padding:0 }
+.bs-hero .shot{ position:relative }
+.bs-hero .shot::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 34%, rgba(0,0,0,.1) 70%, #000 100%);
+}
+.bs-hero .bs-copy{
+  position:absolute; top:clamp(18px,4.5vw,40px); left:0; right:0; z-index:2;
+  text-align:center; padding-inline:var(--pad);
+}
+.bs-hero .bs-copy p{
+  font-size:clamp(19px,4.6vw,34px); font-weight:800; line-height:1.34;
+  letter-spacing:-.04em; color:#fff; text-shadow:0 2px 18px rgba(0,0,0,.55);
+}
+.bs-hero .mark{ padding:clamp(22px,5vw,40px) 0 0; text-align:center }
+.bs-hero .mark .duo{
+  font-size:clamp(15px,3.4vw,23px); font-weight:800; letter-spacing:.02em; color:#fff;
+}
+.bs-hero .mark .duo i{ font-style:normal; margin-inline:.5em; opacity:.8 }
+.bs-hero .big{
+  margin-top:clamp(10px,2.4vw,18px);
+  font-size:clamp(46px,11.6vw,104px); line-height:.92; font-weight:900;
+  letter-spacing:-.045em; color:var(--green);
+  text-shadow:0 0 34px rgba(44,255,5,.32);
+}
+.bs-hero .kr{
+  margin-top:clamp(8px,1.8vw,14px); padding-bottom:clamp(34px,7vw,64px);
+  font-size:clamp(15px,3.6vw,26px); font-weight:800; letter-spacing:-.035em; color:var(--green);
+}
+
+/* ── 사진 위에 얹는 제목 (그릇째 겹친다 — 글자는 흐름 안에) ── */
+.bs .shotline{ position:relative }
+.bs .shotline .cap{
+  position:absolute; left:0; right:0; bottom:clamp(18px,4vw,40px); z-index:2;
+  padding-inline:var(--pad); text-align:center;
+}
+.bs .shotline::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.05) 45%, rgba(0,0,0,.92) 100%);
+}
+.bs .shotline .cap *{ position:relative; z-index:1 }
+.bs .shotline .lead{ font-size:clamp(14px,3.2vw,20px); font-weight:700; color:#EDEDED; margin-bottom:6px }
+.bs .shotline .big{ font-size:clamp(26px,6.6vw,52px); font-weight:900; letter-spacing:-.045em; color:var(--green);
+  text-shadow:0 0 26px rgba(44,255,5,.28) }
+/* 사진 위쪽에 제목이 오는 변형 */
+.bs .shotline.top .cap{ bottom:auto; top:clamp(18px,4vw,40px) }
+.bs .shotline.top::after{ background:linear-gradient(to bottom, rgba(0,0,0,.86) 0%, rgba(0,0,0,.25) 55%, rgba(0,0,0,.1) 100%) }
+
+/* ── 걱정 카드 3개 ─────────────────────────────── */
+.bs .worry{ display:grid; gap:clamp(14px,3vw,22px); margin-top:clamp(22px,5vw,38px) }
+.bs .worry li{
+  list-style:none; border-radius:clamp(18px,4vw,30px); padding:clamp(22px,5vw,34px) clamp(18px,4vw,30px);
+  text-align:center; border:1px solid rgba(44,255,5,.5);
+  background:radial-gradient(120% 130% at 50% 0%, rgba(44,255,5,.16) 0%, rgba(44,255,5,.03) 55%, rgba(0,0,0,0) 100%), #060906;
+}
+.bs .worry q{ display:block; font-size:clamp(17px,4.1vw,26px); font-weight:800; color:var(--green); letter-spacing:-.035em }
+.bs .worry p{ margin-top:12px }
+
+/* ── 안 챙겨도 되는 것 5줄 ─────────────────────── */
+.bs .nono{ margin-top:clamp(20px,4.5vw,34px); border-radius:clamp(14px,3vw,22px); background:#0A0A0A;
+  border:1px solid var(--line); padding:clamp(10px,2.4vw,16px); display:grid; gap:clamp(8px,1.8vw,12px) }
+.bs .nono li{ list-style:none; display:grid; grid-template-columns:auto 1fr; gap:clamp(12px,3vw,20px);
+  align-items:center; background:var(--card); border-radius:clamp(10px,2.2vw,16px); padding:clamp(14px,3.2vw,20px) }
+.bs .nono .x{ width:clamp(30px,7vw,44px); aspect-ratio:1; display:grid; place-items:center; position:relative; opacity:.85 }
+.bs .nono .x::after{ content:""; position:absolute; inset:12% 46% 12% 46%; background:#E4392F; border-radius:2px;
+  transform:rotate(38deg) }
+.bs .nono .x em{ font-style:normal; font-size:clamp(17px,4vw,25px); filter:grayscale(1) opacity(.75) }
+.bs .nono b{ display:block; font-size:clamp(14px,3.2vw,18px); font-weight:800; letter-spacing:-.03em }
+.bs .nono span{ display:block; margin-top:3px; font-size:clamp(13px,3vw,16px); color:#B9B9B9 }
+
+/* ── 나는 뭘 좋아할까 (6칸) ────────────────────── */
+.bs .like{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(10px,2.4vw,18px); margin-top:clamp(20px,4.5vw,34px) }
+.bs .like li{ list-style:none; background:var(--card); border-radius:clamp(14px,3vw,22px);
+  padding:clamp(20px,4.4vw,32px) clamp(12px,3vw,20px); text-align:center }
+.bs .like h3{ color:var(--sky); font-size:clamp(20px,4.8vw,32px) }
+.bs .like p{ margin-top:8px; font-size:clamp(13px,3vw,16px) }
+
+/* ── CLASS FEATURE 01·02·03 ────────────────────── */
+.bs .feat{ display:grid; gap:clamp(34px,7vw,62px); margin-top:clamp(24px,5vw,40px) }
+.bs .feat article{ display:grid; grid-template-columns:auto 1fr; gap:clamp(14px,3.4vw,26px); align-items:start }
+.bs .feat .no{ font-size:clamp(38px,9vw,64px); font-weight:900; color:var(--green); line-height:.9; letter-spacing:-.05em }
+.bs .feat h3{ margin-bottom:14px; padding-bottom:16px; border-bottom:1px solid #2E2E2E }
+.bs .feat h3 .g{ display:block }
+@media (max-width:520px){ .feat article{ grid-template-columns:1fr; gap:8px } }
+
+/* ── 표 (월별 테마 · 커리큘럼) ─────────────────── */
+.bs .tbl{ width:100%; border-collapse:collapse; margin-top:clamp(16px,3.6vw,26px); font-size:clamp(13px,3vw,17px) }
+.bs .tbl caption{ text-align:left; font-size:clamp(18px,4.2vw,26px); font-weight:800; color:var(--green);
+  padding-bottom:14px; letter-spacing:-.03em }
+.bs .tbl th, .bs .tbl td{ padding:clamp(11px,2.6vw,16px) clamp(6px,1.6vw,12px); border-bottom:1px solid #232323; text-align:left }
+.bs .tbl thead th{ color:var(--muted); font-weight:700; font-size:clamp(12px,2.7vw,15px); border-bottom-color:#333 }
+.bs .tbl tbody th{ font-weight:800; color:var(--white); white-space:nowrap }
+.bs .tbl .bs-num{ width:1%; white-space:nowrap; color:var(--green); font-weight:800 }
+.bs .tbl .ep{ width:1%; white-space:nowrap; color:var(--muted); text-align:right; font-size:clamp(12px,2.6vw,14px) }
+.bs .boxed{ border:1px solid var(--line); border-radius:clamp(14px,3vw,22px); padding:clamp(18px,4vw,30px); background:#070707 }
+.bs .note{ margin-top:12px; font-size:clamp(12px,2.7vw,14px); color:var(--muted) }
+
+/* ── 추천 대상 ─────────────────────────────────── */
+.bs .bs-who{ display:grid; gap:clamp(16px,3.4vw,26px); margin-top:clamp(20px,4.4vw,34px) }
+.bs .bs-who li{ list-style:none; border-bottom:1px solid #1E1E1E; padding-bottom:clamp(16px,3.4vw,26px) }
+.bs .bs-who li:last-child{ border-bottom:0; padding-bottom:0 }
+.bs .bs-who h3{ color:var(--white) }
+.bs .bs-who p{ margin-top:8px }
+
+/* ── 혜택 ─────────────────────────────────────── */
+.bs .perk{ display:grid; gap:clamp(14px,3vw,22px); margin-top:clamp(20px,4.4vw,34px) }
+.bs .perk li{ list-style:none; background:#0A0A0A; border:1px solid var(--line);
+  border-radius:clamp(14px,3vw,22px); overflow:hidden }
+.bs .perk .txt{ padding:clamp(20px,4.4vw,32px) }
+.bs .perk .eyebrow{ margin-bottom:6px }
+.bs .perk h3{ color:var(--green) }
+
+/* ── 실적 목록 ─────────────────────────────────── */
+.bs .recs{ display:grid; gap:10px; margin-top:clamp(18px,4vw,30px) }
+.bs .recs li{ list-style:none; display:grid; grid-template-columns:auto 1fr; gap:clamp(12px,2.8vw,20px);
+  background:var(--card); border-radius:12px; padding:clamp(14px,3.2vw,20px) clamp(14px,3.2vw,22px) }
+.bs .recs .no{ color:var(--green); font-weight:800; font-size:clamp(14px,3.2vw,18px) }
+.bs .recs p{ font-size:clamp(13px,3vw,17px); color:#E2E2E2; line-height:1.55 }
+
+/* ── 강사 ─────────────────────────────────────── */
+.bs .tutor{ margin-top:clamp(20px,4.4vw,34px) }
+.bs .tutor .name{ font-size:clamp(38px,9vw,68px); font-weight:900; letter-spacing:-.04em; line-height:1 }
+.bs .tutor .role{ margin-top:10px; font-size:clamp(13px,3vw,16px); color:var(--muted) }
+.bs .tutor .rule{ height:1px; background:#2B2B2B; margin:clamp(16px,3.4vw,24px) 0 }
+.bs .tutor ul{ display:grid; gap:9px }
+.bs .tutor li{ list-style:none; font-size:clamp(13px,3vw,16px); color:#D6D6D6; line-height:1.6;
+  padding-left:15px; position:relative }
+.bs .tutor li::before{ content:""; position:absolute; left:0; top:.62em; width:5px; height:5px;
+  border-radius:50%; background:var(--green) }
+
+/* ── 장소 ─────────────────────────────────────── */
+.bs .place{ display:grid; grid-template-columns:185fr 249fr 425fr; gap:0; margin-top:clamp(18px,4vw,30px);
+  border-radius:clamp(12px,2.6vw,18px); overflow:hidden }
+
+/* ── 가격 ─────────────────────────────────────── */
+.bs .price{ margin-top:clamp(20px,4.4vw,34px); border:1px solid #1D1D1D; border-radius:clamp(14px,3vw,20px);
+  overflow:hidden; background:#050505 }
+.bs .price .bar{ display:flex; align-items:center; gap:7px; padding:11px 14px; background:#151515;
+  border-bottom:1px solid #232323 }
+.bs .price .bar i{ width:9px; height:9px; border-radius:50%; background:#3A3A3A; display:block }
+.bs .price .bar i:nth-child(1){ background:#FF5F57 } .price .bar i:nth-child(2){ background:#FEBC2E }
+.bs .price .bar i:nth-child(3){ background:#28C840 }
+.bs .price .bar span{ flex:1; text-align:center; font-size:clamp(12px,2.7vw,15px); color:#B4B4B4;
+  font-weight:600; margin-left:-40px }
+.bs .price .body{ padding:clamp(26px,6vw,48px) clamp(18px,4vw,32px); text-align:center }
+.bs .price .was{ font-size:clamp(20px,4.8vw,34px); font-weight:800; color:#7E7E7E; text-decoration:line-through;
+  text-decoration-thickness:3px }
+.bs .price .arrow{ color:var(--green); font-size:clamp(18px,4vw,26px); line-height:1; margin:6px 0 2px }
+.bs .price .now{ font-size:clamp(42px,10.5vw,86px); font-weight:900; color:var(--green); letter-spacing:-.045em;
+  line-height:1.06; text-shadow:0 0 30px rgba(44,255,5,.3) }
+.bs .price .tags{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:clamp(14px,3vw,22px) }
+.bs .price .tags b{ border:2px solid var(--green); color:var(--green); border-radius:10px;
+  padding:8px 16px; font-size:clamp(14px,3.3vw,20px); font-weight:800 }
+.bs .price ul{ margin-top:clamp(20px,4.4vw,34px); display:grid; gap:0; text-align:left }
+.bs .price li{ list-style:none; display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:center;
+  padding:clamp(13px,3vw,18px) 2px; border-top:1px solid #1C1C1C }
+.bs .price li::before{ content:""; width:clamp(16px,3.6vw,22px); aspect-ratio:1; border-radius:50%;
+  border:2px solid var(--green); background:rgba(44,255,5,.14) }
+.bs .price li b{ font-size:clamp(13px,3.1vw,17px); font-weight:800 }
+.bs .price li em{ font-style:normal; color:var(--muted); font-weight:600; margin-left:6px;
+  font-size:clamp(12px,2.8vw,15px) }
+.bs .price .limited{ margin-top:clamp(22px,4.8vw,36px); font-size:clamp(15px,3.6vw,24px); font-weight:900;
+  letter-spacing:.02em; color:var(--cyan) }
+.bs .price .lastline{ margin-top:6px; font-size:clamp(13px,3.1vw,18px); font-weight:700; color:var(--white) }
+.bs .price .fine{ margin-top:10px; font-size:clamp(11px,2.5vw,13px); color:var(--muted) }
+
+/* ── 신청 버튼 ─────────────────────────────────── */
+.bs .bs-cta{ display:grid; gap:10px; margin-top:clamp(20px,4.4vw,32px) }
+.bs .bs-cta a{ display:block; text-align:center; text-decoration:none; border-radius:14px; font-weight:800;
+  padding:clamp(16px,3.6vw,20px); font-size:clamp(15px,3.5vw,19px); letter-spacing:-.02em }
+.bs .bs-cta .buy{ background:var(--green); color:#031000 }
+.bs .bs-cta .ask{ background:#141414; color:var(--white); border:1px solid #2C2C2C }
+.bs .bs-cta a:hover{ filter:brightness(1.08) }
+@media (min-width:620px){ .bs-cta{ grid-template-columns:1.4fr 1fr } }
+
+/* 화면 아래 붙는 신청 바 — 페이지가 3만 픽셀이라 위 버튼은 금방 사라진다.
+   ⚠ 501 화면에서 배운 것: 인앱 브라우저가 화면 아래를 덮는다.
+     여기서도 --lift 만큼 올린다(값은 페이지 스크립트가 잰다). */
+.bs-buybar{
+  /* ⚠ 이 바는 main.bs 밖에 있다. --w 와 --pad 는 .bs 에 걸려 있어서 여기까지 안 내려온다.
+     다시 선언하지 않으면 폭이 화면 끝까지 벌어진다. */
+  --w:min(860px, 100%); --pad:clamp(20px, 5vw, 40px);
+  position:fixed; left:0; right:0; bottom:0; z-index:40;
+  transform:translateY(calc(-1 * var(--lift,0px)));
+  background:rgba(0,0,0,.93); backdrop-filter:blur(14px); border-top:1px solid #1E1E1E;
+  padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));
+  opacity:0; visibility:hidden; transition:opacity .2s }
+.bs-buybar.on{ opacity:1; visibility:visible }
+.bs-buybar .in2{ width:var(--w); margin:0 auto; display:grid; grid-template-columns:1fr auto; gap:10px;
+  align-items:center }
+.bs-buybar .p{ font-size:clamp(13px,3.2vw,17px); font-weight:800 }
+.bs-buybar .p s{ color:var(--muted); font-weight:600; margin-right:7px; font-size:.85em }
+.bs-buybar a{ background:var(--green); color:#031000; text-decoration:none; font-weight:800;
+  border-radius:11px; padding:12px clamp(16px,4vw,28px); font-size:clamp(13px,3.2vw,16px); white-space:nowrap }
+body.kb .sticky{ display:none }
+
+/* ⚠ 이 줄은 **파일 맨 끝**이어야 한다. .bs-buybar 가 자기 --w 를 뒤에서 다시 선언하므로,
+   앞에 두면 우선순위가 같아 나중 것(860)에 덮인다. 501 하단 바에서 똑같이 당했다. */
+@media (min-width:900px){ .bs-buybar{ --w:900px } }

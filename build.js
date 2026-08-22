@@ -371,6 +371,9 @@ const HANDMADE = new Set([
   // adlog·worklist·adminmonitor 는 pages/ 에 본문이 없는 손조판 문서다.
   // 목록에 없으면 빌드가 지우지는 않지만, 나중에 pages/ 에 동명 항목이 생기면 덮어쓴다.
   'adlog.html', 'worklist.html', 'adminmonitor.html', 'littly.html',
+  // basic.html — 왕초보반(연희동 4주). 피그마 상세페이지를 진짜 텍스트로 옮긴 손조판이다.
+  //   ⚠ pages/ 에 동명 항목이 생기면 빌드가 덮어쓴다. 만들지 말 것.
+  'basic.html',
   // singleroom501/ — 오공일501 예약 현황(운영자용). 사업은 다르지만 주소만 여기 둔다.
   // ⚠ 손님 화면은 oh501.surge.sh 다. 이 파일 안에서 '/' 로 걸면 아카데미 첫 화면으로 간다.
   //   원본은 이 파일 하나다 (예전에 501/site/monitor/ 에도 사본이 있었으나 지웠다).

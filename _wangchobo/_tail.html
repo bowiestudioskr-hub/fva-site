@@ -1,0 +1,223 @@
+
+
+<script>
+  (function(){
+    var btn=document.querySelector('.nav-toggle'), nav=document.getElementById('gnb');
+    if(!btn||!nav)return;
+    btn.addEventListener('click',function(){
+      var open=nav.getAttribute('data-open')==='true';
+      nav.setAttribute('data-open',String(!open));
+      btn.setAttribute('aria-expanded',String(!open));
+      btn.textContent=open?'☰':'✕';
+    });
+  })();
+
+  (function(){
+    var v=document.getElementById('reel'), b=document.querySelector('.reel-sound');
+    if(!v||!b)return;
+    b.addEventListener('click',function(){
+      v.muted=!v.muted;
+      b.textContent=v.muted?'🔇':'🔊';
+      b.setAttribute('aria-pressed',String(!v.muted));
+      b.setAttribute('aria-label',v.muted?'소리 켜기':'소리 끄기');
+      if(!v.muted) v.play();
+    });
+  })();
+
+  /* 스크롤 진행 바 */
+  (function(){
+    var bar=document.querySelector('.top-bar'); if(!bar)return;
+    var tick=function(){
+      var d=document.documentElement, max=d.scrollHeight-d.clientHeight;
+      bar.style.setProperty('--scroll', (max>0 ? (d.scrollTop/max*100) : 0)+'%');
+    };
+    addEventListener('scroll',tick,{passive:true}); addEventListener('resize',tick); tick();
+  })();
+
+  /* 피바뉴스 — 시리즈 목록에서 글을 누르면 팝업으로 연다.
+     주소는 그대로 바뀌므로 뒤로가기·새로고침·링크공유가 모두 정상 동작한다. */
+  (function(){
+    var grid=document.querySelector('.post-grid'); if(!grid)return;
+    var modal=document.createElement('div');
+    modal.className='modal'; modal.setAttribute('role','dialog');
+    modal.setAttribute('aria-modal','true'); modal.hidden=true;
+    modal.innerHTML='<div class="modal-inner"><button class="modal-close" type="button" aria-label="닫기">&times;</button><div class="modal-body"><p class="modal-loading">불러오는 중…</p></div></div>';
+    document.body.appendChild(modal);
+    var body=modal.querySelector('.modal-body');
+
+    function close(){
+      modal.classList.remove('on'); modal.hidden=true;
+      document.body.classList.remove('modal-open');
+      if(location.pathname!==openerPath) history.pushState({},'',openerPath);
+    }
+    var openerPath=location.pathname;
+
+    function open(href){
+      modal.hidden=false; modal.classList.add('on');
+      document.body.classList.add('modal-open');
+      body.innerHTML='<p class="modal-loading">불러오는 중…</p>';
+      history.pushState({modal:href},'',href);
+      fetch(href).then(function(r){return r.text()}).then(function(html){
+        var doc=new DOMParser().parseFromString(html,'text/html');
+        var art=doc.querySelector('.post-detail');
+        body.innerHTML=''; if(art) body.appendChild(art);
+        modal.querySelector('.modal-close').focus();
+      }).catch(function(){ location.href=href; });
+    }
+
+    grid.addEventListener('click',function(e){
+      var a=e.target.closest('a[href]'); if(!a)return;
+      if(e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;   // 새 탭은 그대로
+      e.preventDefault(); open(a.getAttribute('href'));
+    });
+    modal.addEventListener('click',function(e){
+      if(e.target===modal||e.target.closest('.modal-close')) close();
+    });
+    addEventListener('keydown',function(e){ if(e.key==='Escape'&&!modal.hidden) close(); });
+    addEventListener('popstate',function(){ if(!modal.hidden) { modal.classList.remove('on'); modal.hidden=true; document.body.classList.remove('modal-open'); } });
+  })();
+</script>
+
+<script>
+/* 수강생 작품 슬라이드 — 카드를 2벌 만들어 이음새 없는 무한 루프.
+   카드를 누르면 그 자리에서 유튜브가 재생된다(영상 ID 가 있을 때). */
+(function(){
+  var data = document.getElementById('off-slides');
+  var tracks = ['off-track','off-track2'].map(function(id){return document.getElementById(id)})
+                 .filter(Boolean);
+  if(!data || !tracks.length) return;
+  var track = tracks[0];
+  var items;
+  try { items = JSON.parse(data.textContent); } catch(e){ return; }
+  if(!items.length) return;
+
+  var CH = 'https://www.youtube.com/@FVA-ACADEMY';
+  /* 재생 중인 카드를 모두 닫고 썸네일로 되돌린다 -> 슬라이드가 다시 흐른다.
+     슬라이더가 2개(상단·하단)라 전역으로 훑는다. */
+  function closeAll(){
+    document.querySelectorAll('.off-thumb.playing').forEach(function(b){
+      var d = b.__thumb;
+      if (d) { b.innerHTML = ''; d.forEach(function(n){ b.appendChild(n) }); }
+      b.classList.remove('playing');
+    });
+    document.querySelectorAll('.off-slider.has-playing')
+            .forEach(function(sl){ sl.classList.remove('has-playing') });
+  }
+
+  function card(it, dup){
+    var li = document.createElement('li');
+    li.className = 'off-card';
+    if (dup) li.setAttribute('aria-hidden','true');
+
+    var fig = document.createElement('figure');
+    var btn = document.createElement(it.youtube ? 'button' : 'a');
+    btn.className = 'off-thumb';
+    if (it.youtube) { btn.type = 'button'; btn.setAttribute('aria-label', it.title + ' 재생'); }
+    else { btn.href = CH; btn.target = '_blank'; btn.rel = 'noopener';
+           btn.setAttribute('aria-label', it.title + ' — 유튜브 채널에서 보기'); }
+    if (dup) btn.tabIndex = -1;
+
+    var img = document.createElement('img');
+    img.src = it.thumb; img.alt = it.title;
+    img.width = 1024; img.height = 576;
+    img.loading = 'lazy';
+
+    var tag = document.createElement('span');
+    tag.className = 'off-tag'; tag.textContent = it.tag;
+
+    var play = document.createElement('span');
+    play.className = 'off-play'; play.setAttribute('aria-hidden','true');
+    play.textContent = '\u25B6';
+
+    btn.appendChild(img); btn.appendChild(tag); btn.appendChild(play);
+    btn.__thumb = [img, tag, play];        // 닫을 때 되돌릴 원래 내용
+
+    if (it.youtube) {
+      btn.addEventListener('click', function(){
+        // 이미 재생 중인 다른 카드가 있으면 먼저 닫는다
+        closeAll();
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube.com/embed/' + it.youtube + '?autoplay=1&rel=0';
+        f.title = it.title;
+        f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
+        f.allowFullscreen = true;
+        var x = document.createElement('button');
+        x.type = 'button'; x.className = 'off-close';
+        x.setAttribute('aria-label', it.title + ' 닫기');
+        x.textContent = '\u00d7';
+        x.addEventListener('click', function(ev){ ev.stopPropagation(); closeAll(); });
+        btn.innerHTML = ''; btn.appendChild(f); btn.appendChild(x);
+        btn.classList.add('playing');
+        var sl = btn.closest('.off-slider');
+        if (sl) sl.classList.add('has-playing');   // 재생 중에만 그 슬라이드를 세운다
+      });
+    }
+
+    var cap = document.createElement('figcaption');
+    cap.textContent = it.title;
+    fig.appendChild(btn); fig.appendChild(cap); li.appendChild(fig);
+    return li;
+  }
+
+  tracks.forEach(function(tk){
+    track = tk;                                  // card() 안 closeAll 이 참조한다
+    items.forEach(function(it){ tk.appendChild(card(it, false)) });
+    items.forEach(function(it){ tk.appendChild(card(it, true))  });
+  });
+  track = tracks[0];
+})();
+</script>
+
+<!-- 네이버 애널리틱스 — 발급ID 2a4873e8881b40 (Bowie / jjy3530) -->
+<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "2a4873e8881b40";
+if(window.wcs) { wcs_do(); }
+</script>
+<script>
+/* 맨 위 빨간 띠. 개강일에서 남은 날을 세어 문구를 고른다.
+   ⚠ 여기 세 값만 고치면 된다 — HTML 은 건드릴 필요 없다.
+     · 모집을 닫으면 모집중 = false → 띠가 통째로 사라진다.
+     · 20기로 넘어가면 기수와 개강일 두 개를 바꾼다.
+   ⚠ 「마감 임박」을 손으로 적어두면 지나고도 안 고쳐서 거짓말이 된다.
+     그래서 개강 전/후로 문구를 갈라 둔다. */
+(function () {
+  var 모집중 = true;
+  var 기수 = '19기';
+  var 개강 = [
+    { 반: '금 저녁반', 날: '2026-08-21' },
+    { 반: '토 점심반', 날: '2026-08-22' }
+  ];
+
+  if (!모집중) return;
+  var 오늘 = new Date(); 오늘.setHours(0, 0, 0, 0);
+  var 남은 = 개강
+    .map(function (x) {
+      var d = new Date(x.날 + 'T00:00:00');
+      return { 반: x.반, d: Math.round((d - 오늘) / 864e5) };
+    })
+    .filter(function (x) { return x.d >= 0; })
+    .sort(function (a, b) { return a.d - b.d; });
+
+  var 딱지 = document.getElementById('nt-flare');
+  var 말   = document.getElementById('nt-say');
+  var 덧말 = document.getElementById('nt-dday');
+
+  if (남은.length) {
+    딱지.textContent = '마감 임박';
+    말.innerHTML = 기수 + ' 수강신청 <b>이번 주</b> 마감';
+    덧말.textContent = 남은[0].d === 0 ? '오늘 개강'
+      : 남은[0].반 + ' 개강까지 ' + 남은[0].d + '일';
+  } else {
+    /* 개강일은 지났는데 아직 받고 있는 중. 「마감 임박」은 이제 거짓이라 바꿔 단다. */
+    딱지.textContent = '모집 중';
+    /* 딱지가 이미 「모집 중」이라 여기서 「중」을 또 붙이면 같은 말이 두 번 보인다. */
+    말.innerHTML = 기수 + ' 수강생 <b>모집</b>';
+    덧말.textContent = '지금도 합류하실 수 있습니다';
+  }
+  document.getElementById('nt-urgent').hidden = false;
+})();
+</script>
+</body>
+</html>
