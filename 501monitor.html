@@ -284,8 +284,6 @@
          target="_blank" rel="noopener">호스트센터</a>
       <a href="/adminmonitor.html">아카데미 유입 현황</a>
     </div>
-    <div class="memo">손님에게 보낼 안내 문구는 아래 「주소 복사」로 한 번에 담깁니다.</div>
-    <div class="go"><a href="#" id="copylink" class="hi">주소 복사</a></div>
   </div>
   <footer id="foot"></footer>
   </div>
@@ -516,17 +514,6 @@ function goTab(name) {
 document.querySelectorAll('.bar button').forEach(b =>
   b.onclick = () => goTab(b.dataset.tab));
 goTab((() => { try { return localStorage.getItem('fva501tab'); } catch { return 'cal'; } })());
-
-/* 손님에게 보낼 링크 한 줄. 눌러서 복사한다. */
-document.getElementById('copylink').addEventListener('click', async ev => {
-  ev.preventDefault();
-  const 글 = '오공일501 입실 안내 (출입문 비밀번호)\nhttps://oh501.surge.sh\n예약번호와 휴대폰 뒤 4자리를 넣으면 확인하실 수 있습니다.';
-  const el = ev.currentTarget;
-  const 원래 = el.textContent;
-  try { await navigator.clipboard.writeText(글); el.textContent = '복사됨'; }
-  catch { el.textContent = '복사 실패'; }
-  setTimeout(() => { el.textContent = 원래; }, 1800);
-});
 
 /* ── 손님 화면 관리 ──────────────────────────────────────
    비밀번호가 바뀌면 여기서 고친다. 스크립트도 페이지도 안 건드린다.
