@@ -324,6 +324,15 @@
      셋으로 갈라 한 번에 하나만 보여준다. 바깥 링크는 관리 탭 안으로 넣었다. -->
 
 
+<nav class="bar">
+  <button type="button" data-tab="cal"><i>📅</i><span>달력</span></button>
+  <button type="button" data-tab="book"><i>📖</i><span>예약</span></button>
+  <button type="button" data-tab="set"><i>⚙️</i><span>관리</span></button>
+</nav>
+<!-- ⚠ 바는 position:fixed 라 화면에서는 맨 아래에 뜬다. 그래도 마크업은
+     **스크립트보다 위**에 있어야 한다 — 아래로 내리면 탭 핸들러를 걸 때
+     아직 없는 노드라 버튼이 죽는다(2026-08-23 실제로 그랬다). -->
+
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
@@ -748,10 +757,4 @@ else {
   재기();
 })();
 </script>
-
-<nav class="bar">
-  <button type="button" data-tab="cal"><i>📅</i><span>달력</span></button>
-  <button type="button" data-tab="book"><i>📖</i><span>예약</span></button>
-  <button type="button" data-tab="set"><i>⚙️</i><span>관리</span></button>
-</nav>
 </body></html>
