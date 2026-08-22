@@ -371,11 +371,9 @@ const HANDMADE = new Set([
   // adlog·worklist·adminmonitor 는 pages/ 에 본문이 없는 손조판 문서다.
   // 목록에 없으면 빌드가 지우지는 않지만, 나중에 pages/ 에 동명 항목이 생기면 덮어쓴다.
   'adlog.html', 'worklist.html', 'adminmonitor.html', 'littly.html',
-  // 501monitor.html — 오공일501 예약 확인 화면(운영자용). 메뉴에도 sitemap 에도 없다.
-  // ⚠ 손님용 입실 안내는 여기 두지 않는다. 오공일501 은 아카데미와 다른 이름이고,
-  //   손님에게 fva.co.kr 을 알려줄 이유가 없다. oh501.surge.sh 에 따로 있다
-  //   (~/Documents/FVA/501예약알림/site/, 배포는 npx surge ./ oh501.surge.sh).
-  '501monitor.html',
+  // ⚠ 오공일501 은 여기 없다. 아카데미와 다른 사업이라 도메인부터 갈라 뒀다.
+  //   손님용 oh501.surge.sh · 운영자용 oh501.surge.sh/monitor/
+  //   (원본 ~/Documents/FVA/501/site/, 배포는 npx surge ./ oh501.surge.sh)
   // manage/ 아래는 운영자용 화면이다. 손님·후보에게 보이는 곳이 아니다.
   // ⚠ 한때 이걸 ambassador.html 로 뒀다가 사고가 났다 — 깃허브 페이지가
   //   슬래시 없는 fva.co.kr/ambassador 를 그 파일로 잡아버려서,
