@@ -333,18 +333,55 @@
 .bs .bs-who-last img{ border-radius:calc(var(--u) * 16/860);
   margin-bottom:calc(var(--u) * 40/860) }
 
-/* ── 혜택 ─────────────────────────────────────────── */
-.bs .bs-perk{ list-style:none; padding:0; margin:calc(var(--u) * 50/860) 0 0;
-  display:grid; gap:calc(var(--u) * 26/860) }
-.bs .bs-perk li{ background:#0A0A0A; border:1px solid #242424;
-  border-radius:calc(var(--u) * 24/860); overflow:hidden }
-.bs .bs-perk .bs-txt{ padding:calc(var(--u) * 40/860) }
-.bs .bs-perk .bs-eyebrow{ color:#8A8A8A; font-weight:600;
-  font-size:calc(var(--u) * 24/860); margin-bottom:calc(var(--u) * 10/860) }
-.bs .bs-perk h3{ margin:0; font-weight:800; color:var(--green);
-  font-size:calc(var(--u) * 40/860); line-height:calc(var(--u) * 54/860); letter-spacing:-.03em }
-.bs .bs-perk p{ margin-top:calc(var(--u) * 10/860); color:#D6D6D6;
-  font-size:calc(var(--u) * 25/860) }
+/* ── 혜택 (상페2 y7689~10113) ──────────────────────────
+   캡슐 두 개다. **주황**(극장 상영 · 테두리 #FF742F · 그라데이션 149.76deg #431600)과
+   **초록**(워크샵·파티 · 136.63deg #063908). 둘 다 w760 테두리 4px 반지름 100.
+   ⚠ get_design_context 는 테두리를 #EBEBFF 로 준다. 원본 픽셀은 각각 #FF742F / #2CFF05 다. */
+.bs .bs-perk-lead{ text-align:center; font-weight:700; color:#fff;
+  font-size:calc(var(--u) * 34/860); letter-spacing:-.03em }
+.bs .bs-perk-h{ margin:calc(var(--u) * 12/860) 0 0; text-align:center; font-weight:800; color:#fff;
+  font-size:calc(var(--u) * 56/860); line-height:1.2; letter-spacing:-.04em }
+
+.bs .bs-capsule{ width:calc(var(--u) * 760/860); margin:calc(var(--u) * 60/860) auto 0;
+  border:calc(var(--u) * 4/860) solid; border-radius:calc(var(--u) * 100/860);
+  padding:calc(var(--u) * 56/860) calc(var(--u) * 40/860) calc(var(--u) * 60/860);
+  text-align:center }
+.bs .bs-capsule-o{ border-color:#FF742F;
+  background:linear-gradient(149.76deg, #431600 6.66%, #000 41.33%, #431600 94.95%) }
+.bs .bs-capsule-g{ border-color:#2CFF05;
+  background:linear-gradient(136.63deg, #063908 6.66%, #000 41.33%, #063908 94.95%) }
+.bs .bs-capsule-lead{ font-weight:600; font-size:calc(var(--u) * 30/860);
+  line-height:calc(var(--u) * 44/860); letter-spacing:-.01em }
+.bs .bs-capsule-lead.bs-o{ color:#CDFF0C }
+.bs .bs-capsule-lead.bs-c{ color:#08FFD0 }
+.bs .bs-capsule-logo{ display:flex; align-items:center; justify-content:center;
+  gap:calc(var(--u) * 14/860); margin-top:calc(var(--u) * 22/860) }
+.bs .bs-capsule-logo img{ width:auto; height:auto }
+.bs .bs-capsule-logo .bs-lw{ width:calc(var(--u) * 421.3/860) }
+.bs .bs-capsule-logo .bs-lm{ width:calc(var(--u) * 39/860) }
+.bs .bs-slr img{ width:calc(var(--u) * 369.27/860) }
+.bs .bs-slr b{ font-weight:800; color:#fff; font-size:calc(var(--u) * 43.825/860);
+  letter-spacing:-.01em }
+.bs .bs-capsule h3{ margin:calc(var(--u) * 26/860) 0 0; line-height:0 }
+.bs .bs-capsule h3 .bs-tl{ margin-inline:auto }
+.bs .bs-capsule-o h3 .bs-tl{ color:#FF742F;
+  filter:drop-shadow(0 calc(var(--u) * 2.444/860) calc(var(--u) * 2.444/860) rgba(0,0,0,.15)) }
+.bs .bs-capsule-g h3 .bs-tl{ color:var(--green);
+  filter:drop-shadow(0 calc(var(--u) * 2.687/860) calc(var(--u) * 2.687/860) rgba(0,0,0,.15)) }
+/* 「촬영 & 조명 워크샵」 — & 만 작다. 한 줄로 붙인다. */
+.bs .bs-capsule h3.bs-ws{ display:flex; align-items:baseline; justify-content:center;
+  gap:calc(var(--u) * 12/860) }
+.bs .bs-capsule .bs-shot{ margin:calc(var(--u) * 34/860) auto 0;
+  width:calc(var(--u) * 632.6/860); border-radius:calc(var(--u) * 9.55/860) }
+.bs .bs-capsule-cap{ margin-top:calc(var(--u) * 16/860); color:#fff; font-weight:600;
+  font-size:calc(var(--u) * 26/860); letter-spacing:-.02em }
+
+.bs .bs-b-theater{ width:calc(var(--u) * 615.48/860) }
+.bs .bs-b-ticket{ width:calc(var(--u) * 615.87/860); margin-top:calc(var(--u) * 10/860) }
+.bs .bs-b-ws1{ width:calc(var(--u) * 150.31/860) }
+.bs .bs-b-ws2{ width:calc(var(--u) * 70.76/860) }
+.bs .bs-b-ws3{ width:calc(var(--u) * 403.73/860) }
+.bs .bs-b-party{ width:calc(var(--u) * 618.15/860) }
 
 /* ── 21스튜디오 실적 ──────────────────────────────── */
 .bs .bs-recs{ list-style:none; padding:0; margin:calc(var(--u) * 40/860) 0 0;
@@ -480,17 +517,18 @@ body.kb .bs-buybar{ display:none }
 /* ⚠ 마스코트가 위로 튀어나오면 헤더에 잘린다. 그릇 안에서만 놀게 하고
      위쪽에 그만큼 자리를 비워둔다. */
 .bs-pick-wrap{ position:relative; --u:min(860px, 100vw);
-  padding-top:clamp(20px, 5vw, 36px); overflow:visible }
+  padding-top:clamp(42px, 5vw, 74px); overflow:visible }
 @media (min-width:940px){ .bs-pick-wrap{ --u:900px } }
-.bs-pick-mascot{
-  position:absolute; z-index:3; pointer-events:none;
-  /* 그릇은 화면 폭이지만 픽커는 가운데 --u 폭이다. 픽커 왼쪽 모서리에 붙인다. */
-  left:calc(50% - var(--u)/2 + clamp(6px, 2vw, 20px));
-  top:0;                       /* 그릇 위 여백 안에서만 논다 — 헤더에 안 잘린다 */
-  width:clamp(50px, 11vw, 92px); height:auto;
-  transform-origin:bottom center;
-  animation:bs-peek 4.6s ease-in-out infinite;
-}
+/* 카드마다 캐릭터를 하나씩 — 정규반은 몬스터, 왕초보반은 알 캐릭터(사용자 지정).
+   ⚠ 카드 위로 튀어나오므로 그릇에 위 여백이 있어야 헤더에 안 잘린다. */
+.bs-pick a{ position:relative }
+.bs-mascot{ position:absolute; z-index:3; pointer-events:none; height:auto;
+  transform-origin:bottom center; animation:bs-peek 4.6s ease-in-out infinite }
+.bs-m-reg{ left:clamp(-16px, -0.9vw, -3px); bottom:calc(100% - clamp(14px, 3.4vw, 26px));
+  width:clamp(50px, 11vw, 92px) }
+.bs-m-basic{ right:clamp(-10px, -0.6vw, -2px); bottom:calc(100% - clamp(12px, 3vw, 22px));
+  width:clamp(34px, 7.4vw, 62px); animation-delay:1.4s }
+
 @keyframes bs-peek{
   0%,72%,100%{ transform:translateY(0) rotate(0) }
   78%{ transform:translateY(-5px) rotate(-6deg) }
@@ -540,7 +578,7 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 
 @media (prefers-reduced-motion:reduce){
   html.js-rv .bs .bs-rv{ opacity:1; translate:none; transition:none }
-  .bs-pick-mascot{ animation:none }
+  .bs-mascot{ animation:none }
 }
 
 .bs .bs-b-feature{ width:calc(var(--u) * 712.1/860) }
