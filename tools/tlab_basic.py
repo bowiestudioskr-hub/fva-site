@@ -34,6 +34,13 @@ SPECS = [
     ('b-like',   ['나는 뭘 좋아할까?'], 110.0, -1.1, None, '나는 뭘 좋아할까?'),
     # Monthly Themes (3697:33001) TLAB 90px 자간 -3.6 #2CFF05
     ('b-monthly',['Monthly Themes'], 90.0, -3.6, None, 'Monthly Themes'),
+
+    # 상페2 CLASS FEATURE (3684:348) TLAB 136px 자간 -4.08 흰색
+    ('b-feature',['CLASS FEATURE'], 136.0, -4.08, None, 'CLASS FEATURE'),
+    # 번호 01·02·03 (3684:352 외) TLAB 121px 자간 +2.42 #2CFF05
+    ('b-n01', ['01'], 121.0, 2.42, None, '01'),
+    ('b-n02', ['02'], 121.0, 2.42, None, '02'),
+    ('b-n03', ['03'], 121.0, 2.42, None, '03'),
 ]
 
 if __name__ == '__main__':

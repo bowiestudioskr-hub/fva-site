@@ -263,14 +263,16 @@
 .bs .bs-feat{ display:grid; gap:calc(var(--u) * 90/860); margin-top:calc(var(--u) * 60/860) }
 .bs .bs-feat article{ display:grid; grid-template-columns:auto 1fr;
   gap:calc(var(--u) * 24/860); align-items:start }
-.bs .bs-feat .bs-no{ font-weight:800; color:var(--green); line-height:.86; letter-spacing:-.05em;
-  font-size:calc(var(--u) * 100/860) }
-.bs .bs-feat h3{ margin:0 0 calc(var(--u) * 20/860); padding-bottom:calc(var(--u) * 22/860);
+/* 번호 3684:352 — TLAB 121px #2CFF05 자간 +2.42 */
+.bs .bs-feat .bs-no{ line-height:0; color:var(--green) }
+.bs .bs-feat h3{ margin:0 0 calc(var(--u) * 18/860); padding-bottom:calc(var(--u) * 24/860);
   border-bottom:1px solid #2E2E2E; font-weight:700; color:#fff;
-  font-size:calc(var(--u) * 38/860); line-height:calc(var(--u) * 52/860); letter-spacing:-.03em }
+  font-size:calc(var(--u) * 40/860); line-height:calc(var(--u) * 54/860); letter-spacing:-.04em }
 .bs .bs-feat h3 .bs-g{ display:block }
-.bs .bs-feat p{ font-weight:500; color:#D6D6D6;
-  font-size:calc(var(--u) * 25/860); line-height:calc(var(--u) * 40/860); letter-spacing:-.02em }
+/* 3684:354 — Pretendard Regular 24 / 1.513 / -0.8px / #EFEFEF, 마지막 줄만 ExtraBold */
+.bs .bs-feat p{ font-weight:400; color:#EFEFEF;
+  font-size:calc(var(--u) * 24/860); line-height:1.513; letter-spacing:-.0333em }
+.bs .bs-feat p b{ font-weight:800; color:#fff }
 /* ⚠ 여기에 브레이크포인트를 두면 안 된다. 피그마는 860 한 벌뿐이고 우리는 그걸
    --u 비율로 줄여 쓴다. 모바일에서만 세로로 쌓으면 1:1 이 깨진다. */
 
@@ -479,11 +481,9 @@ body.kb .bs-buybar{ display:none }
 
 /* ── CLASS FEATURE 제목 (3684:348) ────────────────
    Pretendard ExtraBold · 화면 폭에 꽉 차게. 피그마 w769 h178 */
-.bs .bs-h-feat{
-  margin:calc(var(--u) * 16/860) 0 0; text-align:center;
-  font-weight:800; color:#fff; letter-spacing:-.045em; line-height:1;
-  font-size:calc(var(--u) * 108/860);
-}
+/* 3684:348 — TLAB 136px 흰색 자간 -4.08 · 잉크 712.1 */
+.bs .bs-h-feat{ margin:calc(var(--u) * 16/860) 0 0; text-align:center; line-height:0 }
+.bs .bs-h-feat .bs-tl{ color:#fff }
 /* 사진 두 장 나란히 (3697:32978 / 32990) — x30/445 w397/384 */
 .bs .bs-duo{ display:grid; grid-template-columns:397fr 384fr;
   gap:calc(var(--u) * 18/860); margin-top:calc(var(--u) * 40/860) }
@@ -523,6 +523,11 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
   html.js-rv .bs .bs-rv{ opacity:1; translate:none; transition:none }
   .bs-pick-mascot{ animation:none }
 }
+
+.bs .bs-b-feature{ width:calc(var(--u) * 712.1/860) }
+.bs .bs-b-n01{ width:calc(var(--u) * 86.88/860) }
+.bs .bs-b-n02{ width:calc(var(--u) * 103.45/860) }
+.bs .bs-b-n03{ width:calc(var(--u) * 103.45/860) }
 
 /* ── TLAB 아웃라인 폭 — assets/tlab/meta.json 의 잉크폭(860 기준) 그대로 ──
    ⚠ 손으로 고치지 말 것. tools/tlab_basic.py 를 다시 돌리면 값이 바뀐다. */
