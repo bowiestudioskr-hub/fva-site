@@ -58,6 +58,8 @@ SPECS = [
     ('b-e8', ['8강'], 32.0, -0.96, None, '8강'),
     # FVA CURRICULUM (3684:410 은 이미 아웃라인 벡터) — 폭 773.48 로 맞춘다
     ('b-curriculum', ['FVA CURRICULUM'], 100.0, -3.0, None, 'FVA CURRICULUM'),
+    # 이런 분들에게 추천드려요! (3684:474) TLAB 110px 자간 0 #2CFF05
+    ('b-whoh', ['이런 분들에게 추천드려요!'], 110.0, 0.0, None, '이런 분들에게 추천드려요!'),
 ]
 
 if __name__ == '__main__':
