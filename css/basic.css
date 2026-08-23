@@ -204,9 +204,17 @@
   background:var(--card); border-radius:calc(var(--u) * 22.5/860);
   display:flex; flex-direction:column; justify-content:center;
   padding-left:calc(var(--u) * 129/860); padding-right:calc(var(--u) * 20/860) }
+/* ⚠ 아이콘마다 가로세로비가 다르다. 상자에 꽉 채우면 찌부러진다.
+     피그마 원본 크기 그대로 놓고 상자 가운데에 맞춘다. */
 .bs .bs-nono .bs-ico{ position:absolute; left:calc(var(--u) * 18.5/860); top:50%;
-  transform:translateY(-50%); width:calc(var(--u) * 48.5/860); height:calc(var(--u) * 79/860) }
-.bs .bs-nono .bs-ico img{ position:absolute; inset:0; width:100%; height:100% }
+  transform:translateY(-50%); width:calc(var(--u) * 52.7/860); height:calc(var(--u) * 80.6/860) }
+.bs .bs-nono .bs-ico img{ position:absolute; inset:0; margin:auto }
+.bs .bs-nono .bs-ico img[src$="nono-cam.svg"]{ width:calc(var(--u) * 48.5771/860); height:calc(var(--u) * 68.2759/860) }
+.bs .bs-nono .bs-ico img[src$="nono-edit.svg"]{ width:calc(var(--u) * 49.6855/860); height:calc(var(--u) * 49.5083/860) }
+.bs .bs-nono .bs-ico img[src$="nono-light.svg"]{ width:calc(var(--u) * 52.6734/860); height:calc(var(--u) * 68.885/860) }
+.bs .bs-nono .bs-ico img[src$="nono-script.svg"]{ width:calc(var(--u) * 52.4018/860); height:calc(var(--u) * 56.2361/860) }
+.bs .bs-nono .bs-ico img[src$="nono-slash.svg"]{ width:calc(var(--u) * 51.0566/860); height:calc(var(--u) * 80.5696/860) }
+.bs .bs-nono .bs-ico img[src$="nono-term.svg"]{ width:calc(var(--u) * 42.1205/860); height:calc(var(--u) * 56.3264/860) }
 .bs .bs-nono .bs-ico .bs-sl{ z-index:2 }
 .bs .bs-nono b{ display:block; font-weight:800; color:#fff;
   font-size:calc(var(--u) * 27/860); line-height:calc(var(--u) * 40/860); letter-spacing:-.02em }
@@ -517,7 +525,7 @@ body.kb .bs-buybar{ display:none }
 /* ⚠ 마스코트가 위로 튀어나오면 헤더에 잘린다. 그릇 안에서만 놀게 하고
      위쪽에 그만큼 자리를 비워둔다. */
 .bs-pick-wrap{ position:relative; --u:min(860px, 100vw);
-  padding-top:clamp(42px, 5vw, 74px); overflow:visible }
+  padding-top:clamp(46px, 5.2vw, 80px); overflow:visible }
 @media (min-width:940px){ .bs-pick-wrap{ --u:900px } }
 /* 카드마다 캐릭터를 하나씩 — 정규반은 몬스터, 왕초보반은 알 캐릭터(사용자 지정).
    ⚠ 카드 위로 튀어나오므로 그릇에 위 여백이 있어야 헤더에 안 잘린다. */
@@ -526,8 +534,8 @@ body.kb .bs-buybar{ display:none }
   transform-origin:bottom center; animation:bs-peek 4.6s ease-in-out infinite }
 .bs-m-reg{ left:clamp(-16px, -0.9vw, -3px); bottom:calc(100% - clamp(14px, 3.4vw, 26px));
   width:clamp(50px, 11vw, 92px) }
-.bs-m-basic{ right:clamp(-10px, -0.6vw, -2px); bottom:calc(100% - clamp(12px, 3vw, 22px));
-  width:clamp(34px, 7.4vw, 62px); animation-delay:1.4s }
+.bs-m-basic{ right:clamp(-12px, -0.8vw, -3px); bottom:calc(100% - clamp(12px, 3vw, 22px));
+  width:clamp(42px, 8.6vw, 74px); animation-delay:1.4s }
 
 @keyframes bs-peek{
   0%,72%,100%{ transform:translateY(0) rotate(0) }
@@ -657,3 +665,118 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 .bs .bs-b-now{ width:calc(var(--u) * 567.1/860) }
 .bs .bs-b-off33{ width:calc(var(--u) * 226.11/860) }
 .bs .bs-b-limited{ width:calc(var(--u) * 124.74/860) }
+
+/* ══ 상페3 (3684:17645) — tools/basic_s3.py 가 만든다. 손대지 말 것 ══ */
+/* 피그마 좌표를 그대로 옮긴 판. 자식은 전부 절대 배치라 어긋날 자리가 없다. */
+.bs .bs-s3{ position:relative; width:var(--u); margin-inline:auto; background:#000; overflow:hidden; --u:min(860px, 100vw) }
+@media (min-width:940px){ .bs .bs-s3{ --u:900px } }
+.bs .bs-s3 > *{ position:absolute; margin:0 }
+.bs .bs-s3 img{ display:block; width:100%; height:auto }
+.bs .bs-s3a{ height:calc(var(--u) * 8140.0/860) }
+.bs .bs-s3b{ height:calc(var(--u) * 1207.0/860) }
+/* 피그마 글상자는 대문자 윗선~밑선으로 잘라 놓은 것이 많다. 같게 잘라야 자리가 맞는다. */
+.bs .bs-s3 .tb{ text-box-trim:trim-both; text-box-edge:cap alphabetic; text-box:trim-both cap alphabetic }
+
+/* ── 여는 사진 3장 (3684:262 · 3689:28881 · 3697:32995) ── */
+.bs .bs-s3 .bs-p1{ top:calc(var(--u) * 0.0/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 860.0/860) }
+.bs .bs-s3 .bs-p2{ top:calc(var(--u) * 576.0/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 860.0/860) }
+.bs .bs-s3 .bs-p3{ top:calc(var(--u) * 1167.0/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 860.0/860) }
+/* 3684:17641~17643 — Bold 50/60 -1.5px 흰색. trim 없는 줄상자다 */
+.bs .bs-s3 .bs-t1,.bs .bs-s3 .bs-t2,.bs .bs-s3 .bs-t3{ text-align:center; color:#fff; font-weight:700; font-size:calc(var(--u) * 50.0/860); line-height:calc(var(--u) * 60.0/860); letter-spacing:-.03em }
+.bs .bs-s3 .bs-t1{ top:calc(var(--u) * 260.0/860); left:calc(var(--u) * 285.0/860); width:calc(var(--u) * 290.0/860) }
+.bs .bs-s3 .bs-t2{ top:calc(var(--u) * 841.0/860); left:calc(var(--u) * 301.0/860); width:calc(var(--u) * 257.0/860) }
+.bs .bs-s3 .bs-t3{ top:calc(var(--u) * 1438.0/860); left:calc(var(--u) * 155.0/860); width:calc(var(--u) * 550.0/860) }
+/* 3697:33701 — 로고 세 개, 불투명도 25% */
+.bs .bs-s3 .bs-lgs{ top:calc(var(--u) * 1792.0/860); left:calc(var(--u) * 262.833/860); width:calc(var(--u) * 333.333/860); height:calc(var(--u) * 40.0/860); display:flex; align-items:center; justify-content:space-between; opacity:.25 }
+.bs .bs-s3 .bs-lgs img:nth-child(1){ width:calc(var(--u) * 91.282/860) }
+.bs .bs-s3 .bs-lgs img:nth-child(2){ width:calc(var(--u) * 87.179/860) }
+.bs .bs-s3 .bs-lgs img:nth-child(3){ width:calc(var(--u) * 99.487/860) }
+/* 3684:17639 — Bold 50/60 -1px #ECECEC, 앞 구절만 ExtraBold #2CFF05 */
+.bs .bs-s3 .bs-made{ top:calc(var(--u) * 1985.0/860); left:calc(var(--u) * 13.0/860); width:calc(var(--u) * 834.0/860); text-align:center; color:#ECECEC; font-weight:700; font-size:calc(var(--u) * 50.0/860); line-height:calc(var(--u) * 60.0/860); letter-spacing:-.02em }
+.bs .bs-s3 .bs-made b{ font-weight:800; color:var(--green) }
+
+/* ── 21스튜디오 ── */
+.bs .bs-s3 .bs-lock{ top:calc(var(--u) * 2252.0/860); left:calc(var(--u) * 216.0/860); width:calc(var(--u) * 428.0/860) }
+/* 3684:17714 — TLAB 70 -2.8 #2CFF05 */
+.bs .bs-s3 .bs-h21{ top:calc(var(--u) * 2528.0/860); left:calc(var(--u) * 97.745/860); width:calc(var(--u) * 664.51/860); color:var(--green); filter:drop-shadow(0 calc(var(--u) * 2.7/860) calc(var(--u) * 2.7/860) rgba(0,0,0,.15)) }
+/* 3684:17715 — Medium 33/45 -0.66 #A0A0A0. trim 없는 줄상자 */
+.bs .bs-s3 .bs-sub21{ top:calc(var(--u) * 2610.0/860); left:calc(var(--u) * 35.0/860); width:calc(var(--u) * 789.0/860); text-align:center; color:#A0A0A0; font-weight:500; font-size:calc(var(--u) * 33.0/860); line-height:calc(var(--u) * 45.0/860); letter-spacing:-.02em }
+/* 3684:17716 / 17783 / 17648 / 17784 / 17906 / 3687:28878 — 44/54 #ECECEC */
+.bs .bs-s3 .bs-lead21,.bs .bs-s3 .bs-ip,.bs .bs-s3 .bs-story,.bs .bs-s3 .bs-placeh,.bs .bs-s3 .bs-finlead,.bs .bs-s3 .bs-finh{ text-align:center; color:#ECECEC; font-weight:800; font-size:calc(var(--u) * 44.0/860); line-height:calc(var(--u) * 54.0/860); letter-spacing:-.02em }
+.bs .bs-s3 .bs-lead21 b,.bs .bs-s3 .bs-story b,.bs .bs-s3 .bs-finlead b{ font-weight:inherit }
+.bs .bs-s3 .bs-story b,.bs .bs-s3 .bs-finlead b{ color:var(--green) }
+.bs .bs-s3 .bs-lead21{ top:calc(var(--u) * 2761.0/860); left:calc(var(--u) * 13.0/860); width:calc(var(--u) * 834.0/860); letter-spacing:-.011em }
+.bs .bs-s3 .bs-lead21 b{ color:#fff; font-weight:700 }
+/* 포스터 3장 3684:17665 외 — x31..829 */
+.bs .bs-s3 .bs-pos{ top:calc(var(--u) * 2896.671/860); left:calc(var(--u) * 31.0/860); width:calc(var(--u) * 798.0/860); display:grid; grid-template-columns:calc(var(--u) * 259.205/860) calc(var(--u) * 259.675/860) calc(var(--u) * 259.395/860); justify-content:space-between; align-items:start }
+.bs .bs-s3 .bs-pos img{ border-radius:calc(var(--u) * 6.0/860) }
+.bs .bs-s3 .bs-ip{ top:calc(var(--u) * 3379.0/860); left:calc(var(--u) * 13.0/860); width:calc(var(--u) * 834.0/860) }
+/* 3684:17785 — SemiBold 27/41 -0.54 #ECECEC, 앞 구절만 #2CFF05 */
+.bs .bs-s3 .bs-only{ top:calc(var(--u) * 3449.0/860); left:calc(var(--u) * 13.0/860); width:calc(var(--u) * 834.0/860); text-align:center; color:#ECECEC; font-weight:600; font-size:calc(var(--u) * 27.0/860); line-height:calc(var(--u) * 41.0/860); letter-spacing:-.02em }
+.bs .bs-s3 .bs-only b{ font-weight:inherit; color:var(--green) }
+/* 실적 6줄 3684:17787 — 바깥 #272727, 줄 #121212 r22.5 */
+.bs .bs-s3 .bs-cred{ top:calc(var(--u) * 3569.0/860); left:calc(var(--u) * 39.0/860); width:calc(var(--u) * 782.49/860); list-style:none; background:#272727; border-radius:calc(var(--u) * 27.0/860); padding:calc(var(--u) * 9.0/860); display:grid; gap:calc(var(--u) * 9.004/860) }
+.bs .bs-s3 .bs-cred li{ display:flex; align-items:center; gap:calc(var(--u) * 9.004/860); background:#121212; border-radius:calc(var(--u) * 22.511/860); padding:calc(var(--u) * 18.009/860) calc(var(--u) * 22.511/860) }
+.bs .bs-s3 .bs-cred i{ flex:none; color:#AAD8F9 }
+.bs .bs-s3 .bs-cred i .bs-tl{ margin-inline:0 }
+.bs .bs-s3 .bs-cred p{ padding-left:calc(var(--u) * 10.0/860); color:#ECECEC; font-weight:600; font-size:calc(var(--u) * 22.0/860); line-height:calc(var(--u) * 41.779/860); letter-spacing:-.02em }
+
+/* ── 대표 강사 ── */
+.bs .bs-s3 .bs-tutpic{ top:calc(var(--u) * 4267.0/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 860.0/860) }
+/* 3684:17830 — TLAB 143.333 -5.7333 #08FFD0 */
+.bs .bs-s3 .bs-hugo{ top:calc(var(--u) * 4717.0/860); left:calc(var(--u) * 63.0/860); width:calc(var(--u) * 251.41/860); color:#08FFD0 }
+.bs .bs-s3 .bs-hugo .bs-tl{ margin-inline:0 }
+/* 3684:17828 — Bold 44/54 -1.32 #AAD8F9 */
+.bs .bs-s3 .bs-headin{ top:calc(var(--u) * 4882.0/860); left:calc(var(--u) * 60.0/860); width:calc(var(--u) * 500.0/860); color:#AAD8F9; font-weight:700; font-size:calc(var(--u) * 44.0/860); line-height:calc(var(--u) * 54.0/860); letter-spacing:-.03em }
+/* 3684:17827 — Bold 27/48 -0.81 흰색 */
+.bs .bs-s3 .bs-hrole{ top:calc(var(--u) * 4936.0/860); left:calc(var(--u) * 59.0/860); width:calc(var(--u) * 700.0/860); color:#fff; font-weight:700; font-size:calc(var(--u) * 27.0/860); line-height:calc(var(--u) * 48.0/860); letter-spacing:-.03em }
+.bs .bs-s3 .bs-rule2{ top:calc(var(--u) * 4986.0/860); left:calc(var(--u) * 52.5/860); width:calc(var(--u) * 751.5/860); height:calc(var(--u) * 2.0/860); border:0; background:#3A3A3A }
+/* 3684:17831 — Medium 22/41.8 -0.66 흰색, 글머리 들여쓰기 33 */
+.bs .bs-s3 .bs-hcv,.bs .bs-s3 .bs-awdlist{ list-style:disc; color:#fff; font-size:calc(var(--u) * 22.0/860); line-height:calc(var(--u) * 41.8/860); letter-spacing:-.03em; padding-left:calc(var(--u) * 33.0/860) }
+.bs .bs-s3 .bs-hcv li::marker,.bs .bs-s3 .bs-awdlist li::marker{ font-size:.62em }
+.bs .bs-s3 .bs-hcv{ top:calc(var(--u) * 5021.0/860); left:calc(var(--u) * 50.0/860); width:calc(var(--u) * 752.0/860); font-weight:500 }
+.bs .bs-s3 .bs-story{ top:calc(var(--u) * 5496.0/860); left:calc(var(--u) * 12.0/860); width:calc(var(--u) * 834.0/860) }
+
+/* ── 공모전 ── */
+.bs .bs-s3 .bs-trophy{ top:calc(var(--u) * 5743.3/860); left:calc(var(--u) * 151.2/860); width:calc(var(--u) * 713.8/860); z-index:0 }
+/* 3697:33467 — Bold 41 -1.23 #F5F5F6. trim 없는 줄상자 */
+.bs .bs-s3 .bs-awdlead{ top:calc(var(--u) * 5830.597/860); left:calc(var(--u) * 61.0/860); width:calc(var(--u) * 656.0/860); z-index:1; color:#F5F5F6; font-weight:700; font-size:calc(var(--u) * 41.0/860); line-height:calc(var(--u) * 48.0/860); letter-spacing:-.03em }
+/* 3697:33465 — TLAB 120.82 #2CFF05 */
+.bs .bs-s3 .bs-hawd{ top:calc(var(--u) * 5895.0/860); left:calc(var(--u) * 56.0/860); width:calc(var(--u) * 490.29/860); z-index:1; color:var(--green) }
+.bs .bs-s3 .bs-hawd .bs-tl{ margin-inline:0 }
+.bs .bs-s3 .bs-awdlogo{ top:calc(var(--u) * 6053.0/860); left:calc(var(--u) * 67.0/860); width:calc(var(--u) * 354.297/860); z-index:1 }
+/* 3697:33462 — ExtraBold 30/41.8 -0.9 흰색 */
+.bs .bs-s3 .bs-awd8{ top:calc(var(--u) * 6110.221/860); left:calc(var(--u) * 65.0/860); width:calc(var(--u) * 388.0/860); z-index:1; color:#fff; font-weight:800; font-size:calc(var(--u) * 30.0/860); line-height:calc(var(--u) * 41.8/860); letter-spacing:-.03em }
+.bs .bs-s3 .bs-rule3{ top:calc(var(--u) * 6155.221/860); left:calc(var(--u) * 52.0/860); width:calc(var(--u) * 444.0/860); height:calc(var(--u) * 2.0/860); z-index:1; border:0; background:#3A3A3A }
+/* 3697:33461 — Bold 22/41.8 -0.66 흰색, 마지막 줄만 #777 */
+.bs .bs-s3 .bs-awdlist{ top:calc(var(--u) * 6183.0/860); left:calc(var(--u) * 50.0/860); width:calc(var(--u) * 492.0/860); z-index:1; font-weight:700 }
+.bs .bs-s3 .bs-awdlist .bs-more{ list-style:none; color:#777; margin-left:calc(var(--u) * 4.0/860) }
+/* 3697:33492 — ExtraBold 30/41.8 -0.9 #2CFF05 */
+.bs .bs-s3 .bs-awdmc{ top:calc(var(--u) * 6473.0/860); left:calc(var(--u) * 65.0/860); width:calc(var(--u) * 388.0/860); z-index:1; color:var(--green); font-weight:800; font-size:calc(var(--u) * 30.0/860); line-height:calc(var(--u) * 41.8/860); letter-spacing:-.03em }
+
+/* ── 수강생 우수작 띠 3732:27226 — 733 짜리 판을 좌우로 이어 붙인다 ── */
+.bs .bs-s3 .bs-works{ top:calc(var(--u) * 6515.0/860); left:calc(var(--u) * -675.0/860); width:calc(var(--u) * 2210.0/860); display:flex; gap:calc(var(--u) * 6.0/860) }
+.bs .bs-s3 .bs-works img{ flex:none; width:calc(var(--u) * 733.0/860) }
+/* 좌우로 흘러나간 칸은 피그마에서 10% 밝기로 눌려 있다 */
+.bs .bs-s3 .bs-dimL{ top:calc(var(--u) * 6515.0/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 64.0/860); height:calc(var(--u) * 982.0/860); background:rgba(0,0,0,.9); pointer-events:none }
+.bs .bs-s3 .bs-dimR{ top:calc(var(--u) * 6515.0/860); left:calc(var(--u) * 796.0/860); width:calc(var(--u) * 64.0/860); height:calc(var(--u) * 982.0/860); background:rgba(0,0,0,.9); pointer-events:none }
+/* 3736:27492 — Bold 30/55.8 -0.9 #777, 가운데 구절만 흰색 */
+.bs .bs-s3 .bs-grow{ top:calc(var(--u) * 7541.0/860); left:calc(var(--u) * 35.0/860); width:calc(var(--u) * 789.0/860); text-align:center; color:#777; font-weight:700; font-size:calc(var(--u) * 30.0/860); line-height:calc(var(--u) * 55.8/860); letter-spacing:-.03em }
+.bs .bs-s3 .bs-grow b{ font-weight:inherit; color:#fff }
+
+/* ── 강의 장소 ── */
+.bs .bs-s3 .bs-placeh{ top:calc(var(--u) * 7730.0/860); left:calc(var(--u) * 13.0/860); width:calc(var(--u) * 834.0/860); letter-spacing:-.05em }
+/* 3684:17786 — Medium 27/41 -1.35 #AAD8F9 */
+.bs .bs-s3 .bs-addr{ top:calc(var(--u) * 7786.0/860); left:calc(var(--u) * 13.0/860); width:calc(var(--u) * 834.0/860); text-align:center; color:#AAD8F9; font-weight:500; font-size:calc(var(--u) * 27.0/860); line-height:calc(var(--u) * 41.0/860); letter-spacing:-.05em }
+.bs .bs-s3 .bs-pl1{ top:calc(var(--u) * 7844.0/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 185.0/860) }
+.bs .bs-s3 .bs-pl2{ top:calc(var(--u) * 7844.0/860); left:calc(var(--u) * 185.0/860); width:calc(var(--u) * 249.0/860) }
+.bs .bs-s3 .bs-pl3{ top:calc(var(--u) * 7844.0/860); left:calc(var(--u) * 435.0/860); width:calc(var(--u) * 425.0/860) }
+
+/* ── 마무리 (원점 9810) ── */
+.bs .bs-s3 .bs-finlead{ top:calc(var(--u) * 37.0/860); left:calc(var(--u) * 13.0/860); width:calc(var(--u) * 834.0/860); letter-spacing:-.03em }
+.bs .bs-s3 .bs-finpic{ top:calc(var(--u) * 198.0/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 860.0/860) }
+.bs .bs-s3 .bs-finh{ top:calc(var(--u) * 943.0/860); left:calc(var(--u) * 13.0/860); width:calc(var(--u) * 834.0/860); letter-spacing:-.03em }
+/* 3697:33230 — SemiBold 24 -1.2 흰색. trim 없는 줄상자 */
+.bs .bs-s3 .bs-insta{ top:calc(var(--u) * 1046.0/860); left:calc(var(--u) * 180.0/860); width:calc(var(--u) * 499.0/860); text-align:center; color:#fff; font-weight:600; font-size:calc(var(--u) * 24.0/860); line-height:calc(var(--u) * 34.0/860); letter-spacing:-.05em }
+.bs .bs-s3 .bs-insta a{ color:var(--green) }
+/* ══ 상페3 끝 ══ */
