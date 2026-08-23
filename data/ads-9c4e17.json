@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 8. 23. AM 8:45:13",
+  "updated": "2026. 8. 23. AM 9:00:54",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -634,7 +634,7 @@
     ]
   },
   "google": {
-    "updated": "2026. 8. 23. AM 8:45:06",
+    "updated": "2026. 8. 23. AM 9:00:46",
     "period": "2026년 7월 24일 ~ 8월 22일",
     "imp": 4854,
     "clk": 170,
@@ -738,7 +738,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 23. AM 8:45:07",
+    "updated": "2026. 8. 23. AM 9:00:47",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -748,30 +748,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 3,
+        "visit": 4,
         "click": 1,
-        "unique": 2,
-        "ctr": 33.3,
+        "unique": 3,
+        "ctr": 25,
         "dwell": 7
       },
       "7": {
-        "visit": 1299,
+        "visit": 1300,
         "click": 205,
-        "unique": 146,
+        "unique": 147,
         "ctr": 15.8,
         "dwell": 27
       },
       "28": {
-        "visit": 2837,
+        "visit": 2838,
         "click": 902,
-        "unique": 146,
+        "unique": 147,
         "ctr": 31.8,
         "dwell": 27
       },
       "90": {
-        "visit": 6263,
+        "visit": 6264,
         "click": 2961,
-        "unique": 146,
+        "unique": 147,
         "ctr": 47.3,
         "dwell": 27
       },
@@ -783,9 +783,9 @@
         "dwell": 24
       },
       "all": {
-        "visit": 34404,
+        "visit": 34405,
         "click": 14133,
-        "unique": 146,
+        "unique": 147,
         "ctr": 41.1,
         "dwell": 27
       }
@@ -3217,9 +3217,9 @@
       },
       {
         "d": "2026-08-23",
-        "visit": 3,
+        "visit": 4,
         "click": 1,
-        "unique": 2
+        "unique": 3
       }
     ],
     "sources": [
@@ -3307,10 +3307,10 @@
       {
         "name": "youtube.com",
         "host": "youtube.com",
-        "visit": 44,
+        "visit": 45,
         "click": 19,
-        "unique": 0,
-        "ctr": 43.2,
+        "unique": 1,
+        "ctr": 42.2,
         "dwell": 14
       },
       {
@@ -3805,11 +3805,11 @@
       },
       {
         "name": "데스크탑",
-        "visit": 293,
+        "visit": 294,
         "click": 146,
-        "unique": 10,
+        "unique": 11,
         "dwell": 61,
-        "ctr": 49.8
+        "ctr": 49.7
       },
       {
         "name": "태블릿",
@@ -4195,14 +4195,23 @@
             "unique": 1,
             "ctr": 100,
             "dwell": 7
+          },
+          {
+            "name": "youtube.com",
+            "host": "youtube.com",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 0
           }
         ],
         "device": [
           {
             "name": "데스크탑",
-            "visit": 2,
+            "visit": 3,
             "click": 0,
-            "unique": 1,
+            "unique": 2,
             "dwell": 7,
             "ctr": 0
           },
@@ -4224,6 +4233,15 @@
             "dwell": 7,
             "ctr": 33.3,
             "code": "KR"
+          },
+          {
+            "name": "BR",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "BR"
           }
         ],
         "city": [
@@ -4235,6 +4253,15 @@
             "dwell": 7,
             "ctr": 33.3,
             "code": "KR"
+          },
+          {
+            "name": "Marabá",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "BR"
           }
         ],
         "blocks": [
@@ -4316,10 +4343,10 @@
           {
             "name": "youtube.com",
             "host": "youtube.com",
-            "visit": 2,
+            "visit": 3,
             "click": 1,
-            "unique": 0,
-            "ctr": 50,
+            "unique": 1,
+            "ctr": 33.3,
             "dwell": 14
           },
           {
@@ -4352,11 +4379,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 33,
+            "visit": 34,
             "click": 8,
-            "unique": 10,
+            "unique": 11,
             "dwell": 61,
-            "ctr": 24.2
+            "ctr": 23.5
           },
           {
             "name": "태블릿",
@@ -4468,6 +4495,15 @@
             "code": "VN"
           },
           {
+            "name": "BR",
+            "visit": 2,
+            "click": 0,
+            "unique": 2,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "BR"
+          },
+          {
             "name": "HK",
             "visit": 2,
             "click": 0,
@@ -4529,15 +4565,6 @@
             "dwell": 12,
             "ctr": 100,
             "code": "AU"
-          },
-          {
-            "name": "BR",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "BR"
           },
           {
             "name": "CA",
@@ -4722,7 +4749,7 @@
             "code": "AU"
           },
           {
-            "name": "Teixeira de Freitas",
+            "name": "Marabá",
             "visit": 1,
             "click": 0,
             "unique": 1,
@@ -4949,6 +4976,15 @@
             "dwell": 0
           },
           {
+            "name": "youtube.com",
+            "host": "youtube.com",
+            "visit": 4,
+            "click": 1,
+            "unique": 1,
+            "ctr": 25,
+            "dwell": 14
+          },
+          {
             "name": "구글 검색",
             "host": "google.com",
             "visit": 3,
@@ -4956,15 +4992,6 @@
             "unique": 0,
             "ctr": 33.3,
             "dwell": 0
-          },
-          {
-            "name": "youtube.com",
-            "host": "youtube.com",
-            "visit": 3,
-            "click": 1,
-            "unique": 0,
-            "ctr": 33.3,
-            "dwell": 14
           },
           {
             "name": "com.slack",
@@ -5005,11 +5032,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 112,
+            "visit": 113,
             "click": 51,
-            "unique": 10,
+            "unique": 11,
             "dwell": 61,
-            "ctr": 45.5
+            "ctr": 45.1
           },
           {
             "name": "태블릿",
@@ -5094,6 +5121,15 @@
             "code": "TH"
           },
           {
+            "name": "BR",
+            "visit": 4,
+            "click": 0,
+            "unique": 2,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "BR"
+          },
+          {
             "name": "IN",
             "visit": 4,
             "click": 0,
@@ -5137,15 +5173,6 @@
             "dwell": 22,
             "ctr": 0,
             "code": "VN"
-          },
-          {
-            "name": "BR",
-            "visit": 3,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "BR"
           },
           {
             "name": "NL",
@@ -5592,10 +5619,10 @@
           {
             "name": "youtube.com",
             "host": "youtube.com",
-            "visit": 27,
+            "visit": 28,
             "click": 17,
-            "unique": 0,
-            "ctr": 63,
+            "unique": 1,
+            "ctr": 60.7,
             "dwell": 14
           },
           {
@@ -5718,11 +5745,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 253,
+            "visit": 254,
             "click": 125,
-            "unique": 10,
+            "unique": 11,
             "dwell": 61,
-            "ctr": 49.4
+            "ctr": 49.2
           },
           {
             "name": "태블릿",
@@ -5825,6 +5852,15 @@
             "code": "VN"
           },
           {
+            "name": "BR",
+            "visit": 5,
+            "click": 1,
+            "unique": 2,
+            "dwell": 0,
+            "ctr": 20,
+            "code": "BR"
+          },
+          {
             "name": "DK",
             "visit": 5,
             "click": 7,
@@ -5859,15 +5895,6 @@
             "dwell": 12,
             "ctr": 50,
             "code": "AU"
-          },
-          {
-            "name": "BR",
-            "visit": 4,
-            "click": 1,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 25,
-            "code": "BR"
           },
           {
             "name": "IN",
@@ -6354,10 +6381,10 @@
           {
             "name": "youtube.com",
             "host": "youtube.com",
-            "visit": 44,
+            "visit": 45,
             "click": 19,
-            "unique": 0,
-            "ctr": 43.2,
+            "unique": 1,
+            "ctr": 42.2,
             "dwell": 14
           },
           {
@@ -6498,11 +6525,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 293,
+            "visit": 294,
             "click": 146,
-            "unique": 10,
+            "unique": 11,
             "dwell": 61,
-            "ctr": 49.8
+            "ctr": 49.7
           },
           {
             "name": "태블릿",
@@ -7242,14 +7269,23 @@
             "unique": 1,
             "ctr": 100,
             "dwell": 7
+          },
+          {
+            "name": "youtube.com",
+            "host": "youtube.com",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 0
           }
         ],
         "device": [
           {
             "name": "데스크탑",
-            "visit": 2,
+            "visit": 3,
             "click": 0,
-            "unique": 1,
+            "unique": 2,
             "dwell": 7,
             "ctr": 0
           },
@@ -7271,6 +7307,15 @@
             "dwell": 7,
             "ctr": 33.3,
             "code": "KR"
+          },
+          {
+            "name": "BR",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "BR"
           }
         ],
         "city": [
@@ -7282,6 +7327,15 @@
             "dwell": 7,
             "ctr": 33.3,
             "code": "KR"
+          },
+          {
+            "name": "Marabá",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "BR"
           }
         ],
         "blocks": [
