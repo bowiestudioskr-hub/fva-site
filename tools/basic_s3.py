@@ -137,7 +137,7 @@ def html():
     ㅅ = []
     A = ㅅ.append
     A('<!-- ══ 상페3 (3684:17645) — tools/basic_s3.py 가 만든다. 손대지 말 것 ══ -->')
-    A('<section class="bs-s3 bs-s3a" aria-labelledby="bs-h-made">')
+    A('<section class="bs-s3 bs-s3a bs-board" aria-labelledby="bs-h-made">')
     for n, (파일, h, 글, 대체) in enumerate([
         ('field-crane', 576, '넷플릭스도,', '촬영 현장에 크레인 카메라가 올라가 있다'),
         ('field-screen', 591, '드라마도,', '시사실 스크린에 촬영본이 상영되고 스태프들이 보고 있다'),
@@ -216,7 +216,7 @@ def 마무리():
     ㅅ = []
     A = ㅅ.append
     A('<!-- ══ 상페3 마무리 (3684:17906 이하) ══ -->')
-    A('<section class="bs-s3 bs-s3b" aria-labelledby="bs-h-fin">')
+    A('<section class="bs-s3 bs-s3b bs-board" aria-labelledby="bs-h-fin">')
     A('  <p class="bs-finlead tb bs-rv" id="bs-h-fin">불이 꺼지고<br>스크린에 <b>내 이름</b>이 올라갑니다.</p>')
     A('  <img class="bs-finpic" src="assets/img/basic/laika-hall.webp" width="860" height="1009" '
       'loading="lazy" alt="라이카 시네마 2관 상영관 전경">')
@@ -245,17 +245,9 @@ def css():
     L = []
     A = L.append
     A(머리)
-    A('/* 피그마 좌표를 그대로 옮긴 판. 자식은 전부 절대 배치라 어긋날 자리가 없다. */')
-    A('.bs .bs-s3{ position:relative; width:var(--u); margin-inline:auto; background:#000;'
-      ' overflow:hidden; --u:min(860px, 100vw) }')
-    A('@media (min-width:940px){ .bs .bs-s3{ --u:900px } }')
-    A('.bs .bs-s3 > *{ position:absolute; margin:0 }')
-    A('.bs .bs-s3 img{ display:block; width:100%; height:auto }')
+    A('/* 판 공통 규칙(.bs-board)은 손조판 구역에 있다. 여기서는 높이만 정한다. */')
     A('.bs .bs-s3a{ height:' + u(판1) + ' }')
     A('.bs .bs-s3b{ height:' + u(판2) + ' }')
-    A('/* 피그마 글상자는 대문자 윗선~밑선으로 잘라 놓은 것이 많다. 같게 잘라야 자리가 맞는다. */')
-    A('.bs .bs-s3 .tb{ text-box-trim:trim-both; text-box-edge:cap alphabetic;'
-      ' text-box:trim-both cap alphabetic }')
     A('')
     A('/* ── 여는 사진 3장 (3684:262 · 3689:28881 · 3697:32995) ── */')
     for n in (1, 2, 3):

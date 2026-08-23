@@ -27,14 +27,17 @@ def 딤지도(밝, 피그마):
     """가로줄마다 (피그마/밝은원본) 비를 구한다. 글자 줄은 25퍼센타일로 피한다."""
     a = np.asarray(밝, dtype=float).mean(axis=2) + 1e-3
     b = np.asarray(피그마, dtype=float).mean(axis=2)
-    쓸만 = a > 18                      # 원래 까만 데는 비를 못 구한다
+    # ⚠ 어두운 픽셀은 나누면 값이 튄다. 충분히 밝은 픽셀만 쓰고 중앙값을 쓴다.
+    #    (글자는 밝은 쪽으로 튀지만 한 줄에서 소수라 중앙값이 안 흔들린다)
+    쓸만 = a > 60
     비 = np.ones(a.shape[0])
+    앞 = 1.0
     for y in range(a.shape[0]):
         m = 쓸만[y]
-        if m.sum() < 12:
-            비[y] = 비[y - 1] if y else 1.0
+        if m.sum() < 30:
+            비[y] = 앞
             continue
-        비[y] = np.percentile((b[y][m] / a[y][m]), 25)
+        비[y] = 앞 = float(np.median(b[y][m] / a[y][m]))
     비 = np.clip(비, 0.05, 1.0)
     # 세로로 살짝 문질러 계단 없앰
     k = 9
