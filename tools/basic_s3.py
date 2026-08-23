@@ -311,6 +311,9 @@ def css():
       ' padding:' + u(18.009) + ' ' + u(22.511) + ' }')
     A('.bs .bs-cred i{ flex:none; color:#AAD8F9 }')
     A('.bs .bs-cred i .bs-tl{ margin-inline:0 }')
+    # ⚠ 아웃라인 SVG 는 폭을 안 주면 0 이 된다(그릇이 flex:none 이라 늘어나지도 않는다).
+    for key, _ in 실적:
+        A(f'.bs .bs-{key}{{ width:{u(잉크(key)[0])} }}')
     A('.bs .bs-cred p{ padding-left:' + u(10) + '; color:#ECECEC; font-weight:600;'
       ' font-size:' + u(22) + '; line-height:' + u(41.779) + '; letter-spacing:-.02em }')
     A('')

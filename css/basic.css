@@ -723,6 +723,12 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 .bs .bs-s3 .bs-cred li{ display:flex; align-items:center; gap:calc(var(--u) * 9.004/860); background:#121212; border-radius:calc(var(--u) * 22.511/860); padding:calc(var(--u) * 18.009/860) calc(var(--u) * 22.511/860) }
 .bs .bs-s3 .bs-cred i{ flex:none; color:#AAD8F9 }
 .bs .bs-s3 .bs-cred i .bs-tl{ margin-inline:0 }
+.bs .bs-s3 .bs-b-c01{ width:calc(var(--u) * 18.86/860) }
+.bs .bs-s3 .bs-b-c02{ width:calc(var(--u) * 22.56/860) }
+.bs .bs-s3 .bs-b-c03{ width:calc(var(--u) * 22.56/860) }
+.bs .bs-s3 .bs-b-c04{ width:calc(var(--u) * 23.83/860) }
+.bs .bs-s3 .bs-b-c05{ width:calc(var(--u) * 22.77/860) }
+.bs .bs-s3 .bs-b-c06{ width:calc(var(--u) * 22.96/860) }
 .bs .bs-s3 .bs-cred p{ padding-left:calc(var(--u) * 10.0/860); color:#ECECEC; font-weight:600; font-size:calc(var(--u) * 22.0/860); line-height:calc(var(--u) * 41.779/860); letter-spacing:-.02em }
 
 /* ── 대표 강사 ── */
