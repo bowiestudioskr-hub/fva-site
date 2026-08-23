@@ -29,6 +29,10 @@
   --u:min(860px, 100vw);        /* 조판 기준 — 피그마 860 이 여기에 대응 */
   width:var(--u);
   margin-inline:auto;
+  /* ⚠ style.css 의 `body > header, body > main, body > footer{padding-inline:var(--gutter)}` 가
+       이 판까지 밀어서, 창을 줄이면 내용이 가운데가 아니라 오른쪽으로 치우쳐 보였다.
+       이 페이지는 판 자체가 가운데 정렬이므로 바깥 여백을 없앤다. */
+  padding-inline:0;
   background:#000;
   color:#fff;
   font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,
