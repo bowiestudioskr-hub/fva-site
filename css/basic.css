@@ -529,6 +529,61 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 .bs .bs-b-n02{ width:calc(var(--u) * 103.45/860) }
 .bs .bs-b-n03{ width:calc(var(--u) * 103.45/860) }
 
+/* ── 커리큘럼 표 (상페2 y3471~4316) ────────────────────
+   실측 — 주차 번호 TLAB 85 · 회차 TLAB 32(-0.96) · 주제 Pretendard Medium 27(-1.62)
+   헤더는 **흰 띠에 검정 글씨**(3684:427 text-black). 왼쪽 위 모서리가 접힌 노치 모양이다
+   (3684:426 Vector w774.04 h113.77 — offline.html 커리큘럼과 같은 도형). */
+.bs .bs-cur-lead{ text-align:center; font-weight:600; color:#7B7B7B;
+  font-size:calc(var(--u) * 50/860); line-height:calc(var(--u) * 60/860); letter-spacing:-.05em }
+.bs .bs-cur-logo{ margin:calc(var(--u) * 18/860) 0 0; text-align:center; line-height:0 }
+.bs .bs-cur-logo .bs-tl{ color:#fff; width:calc(var(--u) * 773.48/860) }
+
+.bs .bs-cur{ position:relative; margin-top:calc(var(--u) * 22/860) }
+.bs .bs-cur-note{ position:relative; z-index:2; text-align:right;
+  padding-right:calc(var(--u) * 8/860); margin-bottom:calc(var(--u) * 6/860);
+  font-weight:600; color:#fff; font-size:calc(var(--u) * 20/860); letter-spacing:-.02em }
+
+.bs .bs-cur-head{ position:relative; height:calc(var(--u) * 113.77/860);
+  display:grid; grid-template-columns:calc(var(--u) * 120/860) 1fr calc(var(--u) * 110/860);
+  align-items:end; padding-bottom:calc(var(--u) * 22/860) }
+.bs .bs-notch{ position:absolute; inset:0; width:100%; height:100%; display:block }
+.bs .bs-cur-head span{ position:relative; z-index:1; color:#000; font-weight:600;
+  font-size:calc(var(--u) * 27.01/860) }
+.bs .bs-cur-head .bs-c1{ padding-left:calc(var(--u) * 18/860) }
+.bs .bs-cur-head .bs-c2{ text-align:center }
+.bs .bs-cur-head .bs-c3{ text-align:right; padding-right:calc(var(--u) * 12/860) }
+
+/* 주차 묶음 — 안쪽 줄 간격 44, 주차 사이 71 */
+.bs .bs-cw{ display:grid;
+  grid-template-columns:calc(var(--u) * 120/860) 1fr;
+  align-items:center; padding-top:calc(var(--u) * 27/860) }
+.bs .bs-wk{ line-height:0; text-align:center; color:#fff }
+.bs .bs-wk .bs-tl{ margin-inline:auto }
+.bs .bs-rows{ display:grid; gap:calc(var(--u) * 10/860) }
+.bs .bs-row{ display:grid; grid-template-columns:1fr auto; align-items:center;
+  gap:calc(var(--u) * 14/860); min-height:calc(var(--u) * 34/860) }
+.bs .bs-row p{ font-weight:500; color:#fff;
+  font-size:calc(var(--u) * 27/860); line-height:1.28; letter-spacing:-.06em }
+.bs .bs-ep{ line-height:0; color:#fff; width:calc(var(--u) * 110/860); text-align:right }
+.bs .bs-ep .bs-tl{ margin:0 0 0 auto }
+/* 표 아래 마감선 3684:28840 */
+.bs .bs-cur::after{ content:""; display:block; height:1px; background:#3A3A3A;
+  margin-top:calc(var(--u) * 40/860) }
+
+.bs .bs-b-w1{ width:calc(var(--u) * 21.5/860) }
+.bs .bs-b-w2{ width:calc(var(--u) * 33.15/860) }
+.bs .bs-b-w3{ width:calc(var(--u) * 33.14/860) }
+.bs .bs-b-w4{ width:calc(var(--u) * 37.57/860) }
+.bs .bs-b-e1{ width:calc(var(--u) * 27.49/860) }
+.bs .bs-b-e2{ width:calc(var(--u) * 30.08/860) }
+.bs .bs-b-e3{ width:calc(var(--u) * 30.59/860) }
+.bs .bs-b-e4{ width:calc(var(--u) * 31.78/860) }
+.bs .bs-b-e5{ width:calc(var(--u) * 30.22/860) }
+.bs .bs-b-e6{ width:calc(var(--u) * 30.59/860) }
+.bs .bs-b-e7{ width:calc(var(--u) * 30.05/860) }
+.bs .bs-b-e8{ width:calc(var(--u) * 30.59/860) }
+.bs .bs-b-curriculum{ width:calc(var(--u) * 773.48/860) }
+
 /* ── TLAB 아웃라인 폭 — assets/tlab/meta.json 의 잉크폭(860 기준) 그대로 ──
    ⚠ 손으로 고치지 말 것. tools/tlab_basic.py 를 다시 돌리면 값이 바뀐다. */
 .bs .bs-b-basicclass{ width:calc(var(--u) * 705.58/860) }
