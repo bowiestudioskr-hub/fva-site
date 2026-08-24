@@ -66,6 +66,15 @@
   details.person{background:var(--card);border-radius:16px;overflow:hidden}
   details.person>summary{list-style:none;cursor:pointer;padding:15px 16px 13px}
   details.person>summary::-webkit-details-marker{display:none}
+  details.person>summary:hover{background:rgba(255,255,255,.035)}
+  .tgl{margin-left:10px;font-size:12px;font-weight:800;color:#fff;
+       background:#34343B;border:1px solid #47474F;border-radius:99px;padding:6px 13px;
+       white-space:nowrap}
+  .tgl::after{content:'영상 펼치기 ▾'}
+  details.person[open] .tgl{background:#fff;color:#000;border-color:#fff}
+  details.person[open] .tgl::after{content:'접기 ▴'}
+  .psum .arr{width:22px;height:22px;display:grid;place-items:center;background:#2C2C31;
+             border-radius:99px;font-size:10px}
   .psum{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:800}
   .psum .arr{color:var(--dim);font-size:11px;transition:transform .18s}
   details.person[open]>summary .arr{transform:rotate(90deg)}
@@ -83,6 +92,9 @@
   details.week>summary{list-style:none;cursor:pointer;padding:12px 16px;font-size:13px;
     font-weight:700;display:flex;align-items:center;gap:9px}
   details.week>summary::-webkit-details-marker{display:none}
+  details.week>summary:hover{background:rgba(255,255,255,.035)}
+  details.week>summary .arr{width:18px;height:18px;display:grid;place-items:center;
+    background:#2C2C31;border-radius:99px}
   details.week>summary .arr{color:var(--dim);font-size:10px;transition:transform .18s}
   details.week[open]>summary .arr{transform:rotate(90deg)}
   details.week>summary small{color:var(--dim);font-weight:600;font-size:11.5px}
@@ -211,7 +223,7 @@ function render(d) {
     return `<details class="person" data-ids="${esc(files.map(f => f.id).join(','))}">
       <summary><div class="psum"><span class="arr">▶</span>${esc(p.이름)}
           ${새수 ? `<span class="nbadge">NEW ${새수}</span>` : ''}
-          <span class="r">${끝난것} / ${p.편수}편</span></div>
+          <span class="r">${끝난것} / ${p.편수}편</span><span class="tgl"></span></div>
         <div class="meta" style="padding:4px 0 0">
           <a href="https://instagram.com/${esc(p.인스타)}" target="_blank" rel="noopener">@${esc(p.인스타)}</a>
           · ${esc(p.요일)} · ${esc(p.개강)} ~ ${esc(p.종료)}
