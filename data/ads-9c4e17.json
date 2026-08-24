@@ -1,13 +1,13 @@
 {
-  "updated": "2026. 8. 25. AM 12:57:17",
+  "updated": "2026. 8. 25. AM 1:12:59",
   "naver": {
     "start": "2026-08-16",
     "live": true,
     "state": "운영",
-    "charged": 180,
-    "pending": 179,
+    "charged": 372,
+    "pending": 191,
     "dailyBudget": 2500,
-    "balance": 38058,
+    "balance": 37866,
     "imp": 7451,
     "clk": 22,
     "cost": 61112,
@@ -738,7 +738,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 25. AM 12:57:12",
+    "updated": "2026. 8. 25. AM 1:12:53",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -748,29 +748,29 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 3,
-        "click": 2,
+        "visit": 4,
+        "click": 3,
         "unique": 1,
-        "ctr": 66.7,
-        "dwell": 15
+        "ctr": 75,
+        "dwell": 12
       },
       "7": {
-        "visit": 944,
-        "click": 221,
+        "visit": 945,
+        "click": 222,
         "unique": 179,
-        "ctr": 23.4,
+        "ctr": 23.5,
         "dwell": 25
       },
       "28": {
-        "visit": 2948,
-        "click": 972,
+        "visit": 2949,
+        "click": 973,
         "unique": 179,
         "ctr": 33,
         "dwell": 25
       },
       "90": {
-        "visit": 6350,
-        "click": 3016,
+        "visit": 6351,
+        "click": 3017,
         "unique": 179,
         "ctr": 47.5,
         "dwell": 25
@@ -783,8 +783,8 @@
         "dwell": 18
       },
       "all": {
-        "visit": 34576,
-        "click": 14251,
+        "visit": 34577,
+        "click": 14252,
         "unique": 179,
         "ctr": 41.2,
         "dwell": 25
@@ -3229,8 +3229,8 @@
       },
       {
         "d": "2026-08-25",
-        "visit": 3,
-        "click": 2,
+        "visit": 4,
+        "click": 3,
         "unique": 1
       }
     ],
@@ -3292,11 +3292,11 @@
       {
         "name": "우리 사이트",
         "host": "fva.co.kr",
-        "visit": 174,
-        "click": 142,
+        "visit": 175,
+        "click": 143,
         "unique": 9,
-        "ctr": 81.6,
-        "dwell": 48
+        "ctr": 81.7,
+        "dwell": 47
       },
       {
         "name": "구글 검색",
@@ -3822,16 +3822,16 @@
         "clicks": 2
       },
       {
-        "key": "6i2xFwE",
-        "name": "스마트스토어 · [수료생 전용] 재입학",
+        "key": "qHImjnR",
+        "name": "스마트스토어 · 2개월",
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 1
+        "clicks": 2
       },
       {
-        "key": "qHImjnR",
-        "name": "스마트스토어 · 2개월",
+        "key": "6i2xFwE",
+        "name": "스마트스토어 · [수료생 전용] 재입학",
         "gone": false,
         "kind": "store",
         "img": true,
@@ -4247,6 +4247,15 @@
             "unique": 1,
             "ctr": 100,
             "dwell": 9
+          },
+          {
+            "name": "우리 사이트",
+            "host": "fva.co.kr",
+            "visit": 1,
+            "click": 1,
+            "unique": 0,
+            "ctr": 100,
+            "dwell": 3
           }
         ],
         "device": [
@@ -4289,6 +4298,14 @@
             "kind": "store",
             "img": true,
             "clicks": 2
+          },
+          {
+            "key": "qHImjnR",
+            "name": "스마트스토어 · 2개월",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
           }
         ]
       },
@@ -4324,11 +4341,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 28,
-            "click": 19,
+            "visit": 29,
+            "click": 20,
             "unique": 9,
-            "ctr": 67.9,
-            "dwell": 48
+            "ctr": 69,
+            "dwell": 47
           },
           {
             "name": "리틀리 안에서",
@@ -4844,6 +4861,14 @@
             "clicks": 2
           },
           {
+            "key": "qHImjnR",
+            "name": "스마트스토어 · 2개월",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 2
+          },
+          {
             "key": "V8SPJ8g",
             "name": "스마트스토어 · [수료생 전용] 재입학 풀코스",
             "gone": true,
@@ -4854,14 +4879,6 @@
           {
             "key": "6i2xFwE",
             "name": "스마트스토어 · [수료생 전용] 재입학",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 1
-          },
-          {
-            "key": "qHImjnR",
-            "name": "스마트스토어 · 2개월",
             "gone": false,
             "kind": "store",
             "img": true,
@@ -4901,11 +4918,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 48,
-            "click": 44,
+            "visit": 49,
+            "click": 45,
             "unique": 9,
-            "ctr": 91.7,
-            "dwell": 48
+            "ctr": 91.8,
+            "dwell": 47
           },
           {
             "name": "m.place.naver.com",
@@ -5569,16 +5586,16 @@
             "clicks": 2
           },
           {
-            "key": "6i2xFwE",
-            "name": "스마트스토어 · [수료생 전용] 재입학",
+            "key": "qHImjnR",
+            "name": "스마트스토어 · 2개월",
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 1
+            "clicks": 2
           },
           {
-            "key": "qHImjnR",
-            "name": "스마트스토어 · 2개월",
+            "key": "6i2xFwE",
+            "name": "스마트스토어 · [수료생 전용] 재입학",
             "gone": false,
             "kind": "store",
             "img": true,
@@ -5618,11 +5635,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 174,
-            "click": 142,
+            "visit": 175,
+            "click": 143,
             "unique": 9,
-            "ctr": 81.6,
-            "dwell": 48
+            "ctr": 81.7,
+            "dwell": 47
           },
           {
             "name": "m.place.naver.com",
@@ -6362,16 +6379,16 @@
             "clicks": 2
           },
           {
-            "key": "6i2xFwE",
-            "name": "스마트스토어 · [수료생 전용] 재입학",
+            "key": "qHImjnR",
+            "name": "스마트스토어 · 2개월",
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 1
+            "clicks": 2
           },
           {
-            "key": "qHImjnR",
-            "name": "스마트스토어 · 2개월",
+            "key": "6i2xFwE",
+            "name": "스마트스토어 · [수료생 전용] 재입학",
             "gone": false,
             "kind": "store",
             "img": true,
@@ -6438,11 +6455,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 174,
-            "click": 142,
+            "visit": 175,
+            "click": 143,
             "unique": 9,
-            "ctr": 81.6,
-            "dwell": 48
+            "ctr": 81.7,
+            "dwell": 47
           },
           {
             "name": "구글 검색",
@@ -7358,16 +7375,16 @@
             "clicks": 2
           },
           {
-            "key": "6i2xFwE",
-            "name": "스마트스토어 · [수료생 전용] 재입학",
+            "key": "qHImjnR",
+            "name": "스마트스토어 · 2개월",
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 1
+            "clicks": 2
           },
           {
-            "key": "qHImjnR",
-            "name": "스마트스토어 · 2개월",
+            "key": "6i2xFwE",
+            "name": "스마트스토어 · [수료생 전용] 재입학",
             "gone": false,
             "kind": "store",
             "img": true,
@@ -7393,6 +7410,15 @@
             "unique": 1,
             "ctr": 100,
             "dwell": 9
+          },
+          {
+            "name": "우리 사이트",
+            "host": "fva.co.kr",
+            "visit": 1,
+            "click": 1,
+            "unique": 0,
+            "ctr": 100,
+            "dwell": 3
           }
         ],
         "device": [
@@ -7435,6 +7461,14 @@
             "kind": "store",
             "img": true,
             "clicks": 2
+          },
+          {
+            "key": "qHImjnR",
+            "name": "스마트스토어 · 2개월",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
           }
         ]
       }
