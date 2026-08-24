@@ -62,6 +62,38 @@
   .row2 .said{font-size:12px;color:var(--ok)}
   .none{color:var(--dim);font-size:13px;padding:14px 16px}
 
+  /* ── 사람·주차 접기 (2026-08-24) ── */
+  details.person{background:var(--card);border-radius:16px;overflow:hidden}
+  details.person>summary{list-style:none;cursor:pointer;padding:15px 16px 13px}
+  details.person>summary::-webkit-details-marker{display:none}
+  .psum{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:800}
+  .psum .arr{color:var(--dim);font-size:11px;transition:transform .18s}
+  details.person[open]>summary .arr{transform:rotate(90deg)}
+  .psum .r{margin-left:auto;font-weight:600;color:var(--dim);font-size:12px}
+  .nbadge{font-size:10px;font-weight:800;background:var(--warn);color:#fff;
+          border-radius:99px;padding:2px 8px}
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+  .chip{font-size:11px;font-weight:700;color:var(--sub);background:var(--card2);
+        border-radius:99px;padding:3px 10px}
+  .chip b{color:var(--ink)}
+  .chip.new{background:#3B0C16;color:#FF375F}
+  .chip.new b{color:#FF375F}
+
+  details.week{box-shadow:inset 0 .5px 0 rgba(255,255,255,.07)}
+  details.week>summary{list-style:none;cursor:pointer;padding:12px 16px;font-size:13px;
+    font-weight:700;display:flex;align-items:center;gap:9px}
+  details.week>summary::-webkit-details-marker{display:none}
+  details.week>summary .arr{color:var(--dim);font-size:10px;transition:transform .18s}
+  details.week[open]>summary .arr{transform:rotate(90deg)}
+  details.week>summary small{color:var(--dim);font-weight:600;font-size:11.5px}
+  details.week>summary .r{margin-left:auto;color:var(--dim);font-weight:600;font-size:12px}
+
+  /* 영상 한 줄 — 오른쪽으로 스크롤 */
+  .vrow{display:flex;gap:12px;overflow-x:auto;padding:2px 16px 16px;
+        scroll-snap-type:x proximity;scrollbar-width:thin}
+  .vrow .vid{flex:0 0 280px;width:280px;padding:0;box-shadow:none;scroll-snap-align:start}
+  .vrow .player{max-height:480px}
+
   .warnbox{background:var(--card);border-radius:14px;border-left:3px solid var(--warn);
            padding:13px 16px;font-size:13px;color:var(--sub);line-height:1.55}
   .warnbox b{color:var(--ink)}
@@ -106,44 +138,110 @@ function render(d) {
     A.push(`<div class="warnbox"><b>드라이브를 못 읽었습니다.</b><br>${esc(d.드라이브.오류 || '')}</div>`);
   $('alarm').innerHTML = A.join('');
 
+  /* 새 영상 표시 — 이 브라우저에서 한 번이라도 펼쳐 본 파일 id 를 기억해 둔다.
+     처음 보는 id 가 있으면 NEW. 사람을 펼치는 순간 본 것으로 기록한다. */
+  let 본것 = {};
+  try { 본것 = JSON.parse(localStorage.getItem('amb_seen') || '{}'); } catch (e) {}
+
+  /* 주차 — 계약일(개강) 기준 2주 단위. 0~13일 = 1주차, 14~27일 = 2주차 … */
+  const 주차잡기 = (개강, 올린날) => {
+    const 기준 = new Date(개강 + 'T00:00:00');
+    const m = String(올린날).match(/^(\d{2})-(\d{2})/);
+    if (!m || isNaN(기준)) return { n: 1, 시작: null };
+    let 든날 = new Date(기준.getFullYear(), +m[1] - 1, +m[2]);
+    if (든날 < 기준 && (기준 - 든날) > 120 * 864e5) 든날.setFullYear(든날.getFullYear() + 1);
+    const n = Math.max(0, Math.floor((든날 - 기준) / (14 * 864e5)));
+    return { n: n + 1 };
+  };
+  const 주기간 = (개강, n) => {
+    const a = new Date(개강 + 'T00:00:00'); a.setDate(a.getDate() + (n - 1) * 14);
+    const b = new Date(a); b.setDate(b.getDate() + 13);
+    const 꼴 = t => `${t.getMonth() + 1}/${t.getDate()}`;
+    return `${꼴(a)}~${꼴(b)}`;
+  };
+
   $('list').innerHTML = (d.사람 || []).map(p => {
     const files = p.파일 || [];
     const 피드백 = p.피드백 || {};
     const 끝난것 = files.filter(f => (피드백[f.id] || {}).상태 === '게시완료').length;
-
-    /* ⚠ 계약 편수만큼 칸을 그린다. 최세희 님은 5편이다(특약). */
     const bar = Array.from({ length: p.편수 || 6 }, (_, i) =>
       `<i class="${i < 끝난것 ? 'done' : i < files.length ? 'now' : ''}"></i>`).join('');
 
-    const vids = files.length ? files.map(f => {
-      const fb = 피드백[f.id] || {};
-      const st = fb.상태 || '검수중';
-      return `<div class="vid" data-p="${esc(p.id)}" data-f="${esc(f.id)}">
-        <div class="t"><span class="pill ${esc(st)}">${esc(st)}</span>${esc(f.이름)}
-          <small>${esc(f.올린날)} · ${esc(f.크기)}</small></div>
-        <div class="player"><iframe src="https://drive.google.com/file/d/${esc(f.id)}/preview"
-          allow="autoplay" loading="lazy"></iframe></div>
-        <textarea class="fb" placeholder="피드백을 적어 두면 여기 남습니다">${esc(fb.메모 || '')}</textarea>
-        <div class="row2">
-          <select class="st">${상태들.map(s =>
-            `<option${s === st ? ' selected' : ''}>${s}</option>`).join('')}</select>
-          <button type="button" class="save">저장</button>
-          <span class="said"></span>
-        </div></div>`;
-    }).join('') : `<div class="none">아직 올라온 영상이 없습니다.
+    /* 주차별로 묶는다 */
+    const 묶음 = {};
+    for (const f of files) {
+      const { n } = 주차잡기(p.개강, f.올린날);
+      (묶음[n] = 묶음[n] || []).push(f);
+    }
+    const 새거 = f => !본것[f.id];
+    const 새수 = files.filter(새거).length;
+
+    const 칩 = Object.keys(묶음).sort((a, b) => a - b).map(n => {
+      const 새 = 묶음[n].filter(새거).length;
+      return `<span class="chip${새 ? ' new' : ''}">${n}주차 <b>${묶음[n].length}편</b>${새 ? ' · 새 ' + 새 : ''}</span>`;
+    }).join('') || '<span class="chip">아직 영상 없음</span>';
+
+    const 주들 = Object.keys(묶음).sort((a, b) => a - b).map(n => {
+      const 새 = 묶음[n].filter(새거).length;
+      const vids = 묶음[n].map(f => {
+        const fb = 피드백[f.id] || {};
+        const st = fb.상태 || '검수중';
+        return `<div class="vid" data-p="${esc(p.id)}" data-f="${esc(f.id)}">
+          <div class="t"><span class="pill ${esc(st)}">${esc(st)}</span>${esc(f.이름)}
+            <small>${esc(f.올린날)} · ${esc(f.크기)}</small></div>
+          <div class="player"><iframe data-src="https://drive.google.com/file/d/${esc(f.id)}/preview"
+            allow="autoplay" loading="lazy"></iframe></div>
+          <textarea class="fb" placeholder="피드백을 적어 두면 여기 남습니다">${esc(fb.메모 || '')}</textarea>
+          <div class="row2">
+            <select class="st">${상태들.map(x =>
+              `<option${x === st ? ' selected' : ''}>${x}</option>`).join('')}</select>
+            <button type="button" class="save">저장</button>
+            <span class="said"></span>
+          </div></div>`;
+      }).join('');
+      return `<details class="week"><summary><span class="arr">▶</span>
+          ${n}주차 <small>${주기간(p.개강, +n)}</small>
+          ${새 ? `<span class="nbadge">NEW ${새}</span>` : ''}
+          <span class="r">${묶음[n].length}편</span></summary>
+        <div class="vrow">${vids}</div></details>`;
+    }).join('') || `<div class="none">아직 올라온 영상이 없습니다.
         <a href="${esc(p.드라이브)}" target="_blank" rel="noopener"
            style="color:var(--acc)">드라이브 열기</a></div>`;
 
-    return `<div class="card">
-      <h3>${esc(p.이름)}<span class="r">${끝난것} / ${p.편수}편</span></h3>
-      <div class="meta">
-        <a href="https://instagram.com/${esc(p.인스타)}" target="_blank" rel="noopener">@${esc(p.인스타)}</a>
-        · ${esc(p.요일)} · ${esc(p.개강)} ~ ${esc(p.종료)}
-        <span class="sp">특약 — ${esc(p.특약)}</span>
-      </div>
-      <div class="prog">${bar}</div>
-      ${vids}</div><div style="height:14px"></div>`;
+    return `<details class="person" data-ids="${esc(files.map(f => f.id).join(','))}">
+      <summary><div class="psum"><span class="arr">▶</span>${esc(p.이름)}
+          ${새수 ? `<span class="nbadge">NEW ${새수}</span>` : ''}
+          <span class="r">${끝난것} / ${p.편수}편</span></div>
+        <div class="meta" style="padding:4px 0 0">
+          <a href="https://instagram.com/${esc(p.인스타)}" target="_blank" rel="noopener">@${esc(p.인스타)}</a>
+          · ${esc(p.요일)} · ${esc(p.개강)} ~ ${esc(p.종료)}
+          <span class="sp">특약 — ${esc(p.특약)}</span></div>
+        <div class="prog" style="padding:10px 0 2px">${bar}</div>
+        <div class="chips">${칩}</div></summary>
+      ${주들}</details><div style="height:14px"></div>`;
   }).join('');
+
+  /* 주차를 펼칠 때에만 영상을 붙인다 — 접힌 iframe 수십 개가 한꺼번에 안 불리게 */
+  document.querySelectorAll('details.week').forEach(w => {
+    w.addEventListener('toggle', () => {
+      if (!w.open) return;
+      w.querySelectorAll('iframe[data-src]').forEach(fr => {
+        fr.src = fr.dataset.src; fr.removeAttribute('data-src');
+      });
+      w.querySelectorAll('.fb').forEach(ta => {
+        ta.style.height = 'auto'; ta.style.height = (ta.scrollHeight + 4) + 'px';
+      });
+    });
+  });
+
+  /* 사람을 펼치면 그 사람 영상은 「본 것」으로 기록 — 다음에 열 때 NEW 가 사라진다 */
+  document.querySelectorAll('details.person').forEach(pe => {
+    pe.addEventListener('toggle', () => {
+      if (!pe.open) return;
+      (pe.dataset.ids || '').split(',').filter(Boolean).forEach(id => { 본것[id] = 1; });
+      try { localStorage.setItem('amb_seen', JSON.stringify(본것)); } catch (e) {}
+    });
+  });
 
   /* ⚠ 피드백이 길면 칸 안에 갇혀 안 보인다. 내용만큼 늘려 준다. */
   const 늘리기 = ta => { ta.style.height = 'auto'; ta.style.height = (ta.scrollHeight + 4) + 'px'; };
