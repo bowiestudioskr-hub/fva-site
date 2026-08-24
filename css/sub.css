@@ -254,3 +254,19 @@ a.news-card:hover{border-color:rgba(44,255,5,.45);transform:translateY(-2px)}
   97%{ transform:scale(1.03) } }
 @media (prefers-reduced-motion: reduce){
   .btn-primary,.btn-primary::after,.price-now,.price-off{ animation:none } }
+
+/* ── 온라인 강의 가격 초강조 (2026-08-24) — 구매 카드 안에서만 ── */
+.course-buy .price-off{
+  font-size:clamp(30px,3.4vw,60px);
+  text-shadow:0 0 22px rgba(44,255,5,.45);
+}
+.course-buy .price-now{
+  color:var(--green);
+  font-size:clamp(34px,4.1vw,78px);
+  animation:fv-pricepulse-big 2.4s ease-in-out infinite;
+}
+@keyframes fv-pricepulse-big{
+  0%,100%{ text-shadow:0 0 8px rgba(44,255,5,.25) }
+  50%{ text-shadow:0 0 34px rgba(44,255,5,.7) } }
+.course-buy .price-was{ font-size:clamp(14px,1.2vw,22px) }
+@media (prefers-reduced-motion: reduce){ .course-buy .price-now{ animation:none } }
