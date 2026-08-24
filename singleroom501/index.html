@@ -148,6 +148,8 @@
   .pill.wait{background:#3A3210;color:var(--wait)}
   .pill.done{background:var(--card2);color:var(--done)}
 
+  h1.brand{display:flex;align-items:center;gap:10px}
+  .brandlogo{height:30px;width:auto;display:block}
   .master{margin:0 16px 12px;padding:14px 16px;border-radius:12px;
           background:#26241B;border:1.5px dashed #FFC24B;
           box-shadow:0 0 0 1px rgba(255,194,75,.15) inset;
@@ -278,7 +280,7 @@
 <body>
 <div class="wrap">
   <div class="hd">
-    <div class="row"><h1>오공일501</h1><span class="date" id="date">불러오는 중…</span></div>
+    <div class="row"><h1 class="brand"><img src="img/logo.png" alt="오공일501" class="brandlogo">관리페이지</h1><span class="date" id="date">불러오는 중…</span></div>
     <p class="lede">합정 프라이빗 영화관 · 새 예약이 잡히면 입실 안내가 자동으로 나갑니다</p>
   </div>
 
