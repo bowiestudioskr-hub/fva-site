@@ -179,7 +179,8 @@ def css():
     A('')
     A('/* 걱정 카드 3장 (3684:17962 외) — 760x302 r100, 테두리 4px.')
     A('   ⚠ get_design_context 는 테두리를 #EBEBFF 라 하지만 렌더 픽셀은 #2CFF05 다. */')
-    A('.bs .s1-worry{ ' + 자리(50, None, 760, 302) + '; border:' + u(4) + ' solid var(--green);'
+    A('/* 피그마 테두리는 outside 정렬 — 4px 밖으로 두른다 */')
+    A('.bs .s1-worry{ ' + 자리(46, None, 768, 310) + '; border:' + u(4) + ' solid var(--green);'
       ' border-radius:' + u(100) + ';'
       ' background:linear-gradient(168.287deg, #063908 6.66%, #000 41.33%, #063908 94.95%) }')
     A('.bs .s1-wq{ text-align:center; color:#08FFD0; font-weight:700; font-size:' + u(44) + ';'
@@ -188,13 +189,14 @@ def css():
       ' line-height:' + u(47) + '; letter-spacing:-.02em }')
     A('.bs .s1-wa b{ font-weight:inherit; color:var(--green) }')
     for n, (y, 제목, ty, tw, by, bw, 본문) in enumerate(걱정, 1):
-        A(f'.bs .s1-w{n}{{ top:{u(y)} }}')
+        A(f'.bs .s1-w{n}{{ top:{u(y - 4)} }}')  # 테두리 outside 몫
         A(f'.bs .s1-wq{n}{{ {자리(430 - tw / 2 - 0.5, ty, tw)} }}')
-        A(f'.bs .s1-wa{n}{{ {자리(430 - bw / 2 - 4, by, bw)} }}')
+        # 3번 카드 답만 피그마 잉크가 4 왼쪽에 있다(원문 꼬리 공백 탓). 실측 보정.
+        A(f'.bs .s1-wa{n}{{ {자리(430 - bw / 2 - (8 if n == 3 else 4), by, bw)} }}')
     A('')
-    A('/* 3684:21018 — Bold 50/60 -1.5px, 2줄만 초록 */')
+    A('/* 3684:21018 — 레이어가 Inter:Bold 50. 한글이 피그마 폴백폰트로 4.5% 크게 렌더된다(실측 52.3/-.018) */')
     A('.bs .s1-nonoh{ ' + 자리(30, 4611, 799) + '; text-align:center; color:#fff;'
-      ' font-weight:700; font-size:' + u(50) + '; line-height:' + u(60) + '; letter-spacing:-.03em }')
+      ' font-weight:700; font-size:' + u(52.3) + '; line-height:' + u(60) + '; letter-spacing:-.018em }')
     A('.bs .s1-nonoh b{ font-weight:inherit; color:var(--green) }')
     A('/* 3726:33995 바깥 판 #272727 r13.51 */')
     A('.bs .s1-nonobox{ ' + 자리(39, 4770, 782, 675) + '; background:#272727;'
@@ -219,9 +221,9 @@ def css():
     A('')
     A('/* 3697:33076 강사 현장 (x-37 y5601 w933) */')
     A('.bs .s1-teacher{ ' + 자리(0, 5601, 860) + ' }')
-    A('/* 3684:21100 — Bold 50/60 -1.5px, 「딱 하나」만 초록 */')
+    A('/* 3684:21100 — 레이어가 Inter:Bold 50. 같은 함정, 같은 실측값 */')
     A('.bs .s1-one{ ' + 자리(136, 5822, 586) + '; text-align:center; color:#fff;'
-      ' font-weight:700; font-size:' + u(50) + '; line-height:' + u(60) + '; letter-spacing:-.03em;'
+      ' font-weight:700; font-size:' + u(52.3) + '; line-height:' + u(60) + '; letter-spacing:-.018em;'
       ' white-space:nowrap }')
     A('.bs .s1-one b{ font-weight:inherit; color:var(--green) }')
     A('/* 3684:28723 — ExtraBold 40/54 -0.8px #CFCFCF */')
@@ -271,7 +273,8 @@ def 적용():
     s = io.open(hp, encoding='utf-8').read()
     a = s.index('<!-- ══ 상페1 (3684:17907)') if '<!-- ══ 상페1 (3684:17907)' in s \
         else s.index('<!-- ── 히어로 (상페1')
-    b = s.index('<!-- ── CLASS FEATURE (상페2)')
+    b = s.index('<!-- ══ 상페2 (3684:261)') if '<!-- ══ 상페2 (3684:261)' in s \
+        else s.index('<!-- ── CLASS FEATURE (상페2)')
     s = s[:a] + html() + '\n' + s[b:]
     io.open(hp, 'w', encoding='utf-8').write(s)
 

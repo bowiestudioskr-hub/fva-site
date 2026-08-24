@@ -87,7 +87,7 @@ def 잉크(key):
     't3':      (155, 1440, 550, None),
     'lgs':     (262.833, 1792, 333.333, 40),
     'made':    (13, 1985, 834, None),
-    'lock':    (216, 2252, 428, 219),
+    'lock':    (216, 2226, 428, 219),   # 자산 위 투명 여백 26 을 뺀 값(잉크가 2252 에 오게)
     'h21':     (430 - 잉크('b-21studios')[0] / 2, 2528, 잉크('b-21studios')[0], None),
     'sub21':   (35, 2610, 789, None),
     'lead21':  (13, 2761, 834, None),
@@ -253,9 +253,9 @@ def css():
     for n in (1, 2, 3):
         x, y, w, h = 칸[f'p{n}']
         A(f'.bs .bs-p{n}{{ {자리(x, y, w)} }}')
-    A('/* 3684:17641~17643 — Bold 50/60 -1.5px 흰색. trim 없는 줄상자다 */')
+    A('/* 3684:17641~17643 — 레이어가 Inter:Bold 50. 한글이 피그마 폴백폰트로 4.5% 크게 렌더된다(실측 52.3/-.018) */')
     A('.bs .bs-t1,.bs .bs-t2,.bs .bs-t3{ text-align:center; color:#fff; font-weight:700;'
-      ' font-size:' + u(50) + '; line-height:' + u(60) + '; letter-spacing:-.03em }')
+      ' font-size:' + u(52.3) + '; line-height:' + u(60) + '; letter-spacing:-.018em }')
     for n in (1, 2, 3):
         x, y, w, _ = 칸[f't{n}']
         A(f'.bs .bs-t{n}{{ {자리(x, y - 2, w)} }}')
@@ -283,7 +283,7 @@ def css():
       ' line-height:' + u(54) + '; letter-spacing:-.02em }')
     A('.bs .bs-lead21 b,.bs .bs-story b,.bs .bs-finlead b{ font-weight:inherit }')
     A('.bs .bs-story b,.bs .bs-finlead b{ color:var(--green) }')
-    A('.bs .bs-lead21{ ' + 자리(*칸['lead21'][:3]) + '; letter-spacing:-.011em }')
+    A('.bs .bs-lead21{ ' + 자리(*칸['lead21'][:3]) + '; letter-spacing:-.0245em }')  # 잉크 실측
     A('.bs .bs-lead21 b{ color:#fff; font-weight:700 }')
     A('/* 포스터 3장 3684:17665 외 — x31..829 */')
     A('.bs .bs-pos{ ' + 자리(*칸['pos'][:3]) + '; display:grid;'
@@ -322,9 +322,13 @@ def css():
       ' font-size:' + u(27) + '; line-height:' + u(48) + '; letter-spacing:-.03em }')
     A('.bs .bs-rule2{ ' + 자리(*칸['rule2']) + '; border:0; background:#3A3A3A }')
     A('/* 3684:17831 — Medium 22/41.8 -0.66 흰색, 글머리 들여쓰기 33 */')
-    A('.bs .bs-hcv,.bs .bs-awdlist{ list-style:disc; color:#fff; font-size:' + u(22) + ';'
+    A('/* ⚠ ::marker 는 글 바로 앞에 붙어서 피그마(점이 8px 더 왼쪽)와 다르다. 점을 직접 그린다 */')
+    A('.bs .bs-hcv,.bs .bs-awdlist{ list-style:none; color:#fff; font-size:' + u(22) + ';'
       ' line-height:' + u(41.8) + '; letter-spacing:-.03em; padding-left:' + u(33) + ' }')
-    A('.bs .bs-hcv li::marker,.bs .bs-awdlist li::marker{ font-size:.62em }')
+    A('.bs .bs-hcv li,.bs .bs-awdlist li{ position:relative }')
+    A('.bs .bs-hcv li::before,.bs .bs-awdlist li::before{ content:""; position:absolute;'
+      ' left:' + u(-20) + '; top:' + u(16) + '; width:' + u(6) + '; height:' + u(6) + ';'
+      ' border-radius:50%; background:currentColor }')
     A('.bs .bs-hcv{ ' + 자리(*칸['hcv'][:3]) + '; font-weight:500 }')
     A('.bs .bs-story{ ' + 자리(*칸['story'][:3]) + ' }')
     A('')

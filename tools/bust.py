@@ -43,3 +43,21 @@ def 처리(파일):
 if __name__ == '__main__':
     for f in (sys.argv[1:] or 기본):
         처리(f)
+
+
+# css 도 내용 해시로 버스팅한다 (수동 ?v= 가 안 바뀌어 크롬이 캐시를 문다)
+def css버스트():
+    for 페이지 in ('basic.html', 'offline.html', 'index.html', 'online.html', 'curriculum.html'):
+        try: h = open(os.path.join(SITE, 페이지), encoding='utf-8').read()
+        except FileNotFoundError: continue
+        바뀜 = False
+        for css in re.findall(r'href="(css/[^"?]+\.css)[^"]*"', h):
+            try: 해시 = hashlib.md5(open(os.path.join(SITE, css), 'rb').read()).hexdigest()[:8]
+            except FileNotFoundError: continue
+            새 = f'href="{css}?v={해시}"'
+            h2 = re.sub(r'href="' + re.escape(css) + r'[^"]*"', 새, h)
+            if h2 != h: h, 바뀜 = h2, True
+        if 바뀜:
+            open(os.path.join(SITE, 페이지), 'w', encoding='utf-8').write(h)
+            print(페이지, 'css 버전 갱신')
+css버스트()

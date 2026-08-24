@@ -47,10 +47,10 @@ def 폭(key):
     ('b-n01', 47, 720,  190, 723, 648, 840.5,
      '현업 프로듀서가 처음부터 끝까지<br><b>영상 한 편을 완성할 때까지 함께합니다.</b>',
      191, 858, 640, -0.0333,
-     '영상 해보고 싶다는 사람은 많습니다. 근데 장비부터 사야 하나 뭘 배우고 시작해야 하나 재다가 시작을 못 해요. 겁먹고 미루다 흐지부지된 겁니다.<br>'
-     '그거 재지 말라고 프로듀서가 옆에 붙어 있습니다. 몰라서 온 거니까요.<br>'
+     '<span class="s2-fp1a">영상 해보고 싶다는 사람은 많습니다. 근데 장비부터 사야 하나 뭘 배우고 시작해야 하나 재다가 시작을 못 해요. 겁먹고 미루다 흐지부지된 겁니다.<br>'
+     '그거 재지 말라고 프로듀서가 옆에 붙어 있습니다. 몰라서 온 거니까요.</span><br>'
      '현업 프로듀서가 첫 한 편이 끝날 때까지 같이 갑니다.<br>'
-     '<b>“이런 것도 물어봐도 되나?” 싶은 질문일수록 환영이에요!</b>'),
+     '<b>&quot;이런 것도 물어봐도 되나?&quot; 싶은 질문일수록 환영이에요!</b>'),
     ('b-n02', 47, 1503, 190, 1506, 673, 1623.33,
      '영상은 비싼 장비로 시작하는 게 아닙니다.<br><b>실패해도 일단 만들어보는 게 먼저예요.</b>',
      191, 1641, 640, -0.04,
@@ -77,14 +77,14 @@ def 폭(key):
 ]
 # 커리큘럼 8강 — (주차 TLAB, 주차 잉크 x/y, 회차 TLAB, 회차 y, 주제 y, 주제)
 강 = [
-    ('b-w1', 61, 3853, 'b-e1', 3850, 3855, '오리엔테이션 : 서로 알기 / 진입장벽 낮추는 기초 지식'),
-    (None,   0,  0,    'b-e2', 3895, 3900, '앵글과 구도 : 명화부터 최신 영화까지 / 야외 촬영 실습'),
-    ('b-w2', 61, 3966, 'b-e3', 3966, 3971, '기획안 &amp; 시나리오 : 이야기의 기초 문법 / 1분짜리 이야기 설계'),
-    (None,   0,  0,    'b-e4', 4011, 4016, '콘티 &amp; 촬영 계획 : 스토리보드 / 브레이크다운 / 일일촬영계획표'),
-    ('b-w3', 61, 4085, 'b-e5', 4083, 4089, 'AI 기초 이론과 실습 : AI 맛보기 / 트렌드 탐색 / 파이프라인 이해'),
-    (None,   0,  0,    'b-e6', 4128, 4133, '프로덕션 · 촬영 : 휴대폰으로 진짜 촬영 해보기'),
-    ('b-w4', 61, 4196, 'b-e7', 4199, 4204, '포스트 프로덕션 · 편집 후반 : 컷 편집 / 자막 달고 사운드 입히기'),
-    (None,   0,  0,    'b-e8', 4244, 4249, '상영회 &amp; 수료 : 다같이 보고 피드백 / 수료증 증정'),
+    ('b-w1', 61, 3853, 'b-e1', 3850, 3848, '오리엔테이션 : 서로 알기 / 진입장벽 낮추는 기초 지식'),
+    (None,   0,  0,    'b-e2', 3895, 3892, '앵글과 구도 : 명화부터 최신 영화까지 / 야외 촬영 실습'),
+    ('b-w2', 61, 3966, 'b-e3', 3966, 3963, '기획안 &amp; 시나리오 : 이야기의 기초 문법 / 1분짜리 이야기 설계'),
+    (None,   0,  0,    'b-e4', 4011, 4008, '콘티 &amp; 촬영 계획 : 스토리보드 / 브레이크다운 / 일일촬영계획표'),
+    ('b-w3', 61, 4085, 'b-e5', 4083, 4081, 'AI 기초 이론과 실습 : AI 맛보기 / 트렌드 탐색 / 파이프라인 이해'),
+    (None,   0,  0,    'b-e6', 4128, 4124.9, '프로덕션 · 촬영 : 휴대폰으로 진짜 촬영 해보기'),
+    ('b-w4', 61, 4196, 'b-e7', 4199, 4196, '포스트 프로덕션 · 편집 후반 : 컷 편집 / 자막 달고 사운드 입히기'),
+    (None,   0,  0,    'b-e8', 4244, 4241, '상영회 &amp; 수료 : 다같이 보고 피드백 / 수료증 증정'),
 ]
 # 추천 대상 — (캐릭터 파일/x/y/w/h, 제목 정렬·x/y/w·글, 설명 x/y/w·글)
 추천 = [
@@ -159,7 +159,7 @@ def html():
     A('  </ul>')
     A('  <img class="s2-crowd bs-rv" src="assets/img/basic/benefit-ss.webp" width="775" height="417" '
       'loading="lazy" alt="수강생들이 다 같이 모여 찍은 단체 사진">')
-    A('  <p class="s2-crowd1 bs-rv">그리고 무엇보다도...</p>')
+    A('  <p class="s2-crowd1 tb bs-rv">그리고 무엇보다도...</p>')  # 피그마 trim-both 조판
     A('  <p class="s2-crowd2 bs-rv"><b>영상 좋아하는 사람들</b>이랑<br>어울리고 싶으신 분!</p>')
     A('  <p class="s2-perk1 bs-rv">수강생 모두에게 드리는</p>')
     A(f'  <h2 class="s2-perkh bs-rv" id="bs-h-perk">{tl("b-perkh", "FVA만의 특별한 혜택")}</h2>')
@@ -216,6 +216,10 @@ def css():
     A('.bs .s2-ft b{ font-weight:inherit; color:var(--green) }')
     A('/* 3684:354 외 — Regular 24/1.513 #EFEFEF, 강조만 ExtraBold */')
     A('.bs .s2-fp{ color:#EFEFEF; font-weight:400; font-size:' + u(24) + '; line-height:1.513 }')
+    A('/* 굵은 줄만 뿌리 tracking -1.2px 로 렌더된다(잉크 실측). 나머지 줄은 -0.8px */')
+    A('.bs .s2-fp b{ letter-spacing:-.05em }')
+    A('/* 01 은 1~4줄도 뿌리 tracking -1.2px 로 렌더된다(잉크 실측). 5줄만 -0.8px */')
+    A('.bs .s2-fp1a{ letter-spacing:-.05em }')
     A('.bs .s2-fp b{ font-weight:800 }')
     A('.bs .s2-rl{ border:0; height:' + u(1) + '; background:#3A3A3A }')
     for n, (nk, nx, ny, tx, ty, tw, ry, 제목, px, py, pw, 자간, 본문) in enumerate(특징, 1):
@@ -288,9 +292,11 @@ def css():
     A('/* 3697:32975 — SemiBold 27 -1.35 흰색 */')
     A('.bs .s2-screen{ ' + 자리(194, 4492, 472) + '; text-align:center; color:#fff;'
       ' font-weight:600; font-size:' + u(27) + '; line-height:1.3; letter-spacing:-.05em }')
-    A('/* 3684:469 — Bold 50/60 -1.5px 흰색 */')
+    A('/* 3684:469 — 레이어가 Inter:Bold 50 이라 한글이 피그마 폴백폰트로 4.5% 크게 렌더된다.')
+    A('   Pretendard 잉크를 내보낸 그림에 맞춘 실측값: 52.3px / -.018em */')
     A('.bs .s2-cfeat{ ' + 자리(282.445, 4789, 307) + '; text-align:center; color:#fff;'
-      ' font-weight:700; font-size:' + u(50) + '; line-height:' + u(60) + '; letter-spacing:-.03em }')
+      ' font-weight:700; font-size:' + u(52.3) + '; line-height:' + u(60) + '; letter-spacing:-.018em;'
+      ' white-space:nowrap }')
     A('/* 3684:474 — TLAB 110 #2CFF05 (잉크 x64 y4867) */')
     A('.bs .s2-whoh{ ' + 자리(64, 4867, 폭('b-whoh')) + '; color:var(--green) }')
     A('.bs .s2-who{ list-style:none; inset:0 }')
@@ -314,9 +320,10 @@ def css():
     A('.bs .s2-crowd2{ ' + 자리(8, 7181, 844) + '; text-align:center; color:#fff;'
       ' font-weight:800; font-size:' + u(50) + '; line-height:' + u(60) + '; letter-spacing:-.03em }')
     A('.bs .s2-crowd2 b{ font-weight:inherit; color:var(--green) }')
-    A('/* 3697:33007 — Bold 50/60 -1.5px 흰색 */')
+    A('/* 3697:33007 — 레이어가 Inter:Bold 50. 3684:469 와 같은 함정, 같은 실측값 */')
     A('.bs .s2-perk1{ ' + 자리(193, 7689, 473) + '; text-align:center; color:#fff;'
-      ' font-weight:700; font-size:' + u(50) + '; line-height:' + u(60) + '; letter-spacing:-.03em }')
+      ' font-weight:700; font-size:' + u(52.3) + '; line-height:' + u(60) + '; letter-spacing:-.018em;'
+      ' white-space:nowrap }')
     A('/* 3697:33008 — TLAB 110 #2CFF05 (잉크 x125 y7765) */')
     A('.bs .s2-perkh{ ' + 자리(125, 7765, 폭('b-perkh')) + '; color:var(--green) }')
     A('')
@@ -342,13 +349,17 @@ def css():
     A('/* 3697:33420 — ExtraBold 43.825/38.566 -0.4383 흰색 */')
     A('.bs .s2-capGmaster{ ' + 자리(511.568, 9028.178, 236.432) + '; text-align:center; color:#fff;'
       ' font-weight:800; font-size:' + u(43.825) + '; line-height:' + u(38.566) + '; letter-spacing:-.01em }')
-    A('.bs .s2-capGa{ ' + 자리(121, 9088, 627) + '; display:flex; align-items:flex-end;'
-      ' justify-content:center; gap:' + u(14) + '; color:var(--green) }')
+    A('/* 단어 시작점을 잉크 실측(120·275·346)에 둔다. SVG 비율은 피그마와 같다 */')
+    A('.bs .s2-capGa{ ' + 자리(120.2, 9088, 627) + '; display:flex; align-items:flex-end;'
+      ' justify-content:flex-start; color:var(--green) }')
     A('.bs .s2-capGa .bs-tl{ margin-inline:0 }')
+    A('.bs .s2-ws2{ margin-left:' + u(4.4) + ' }')
+    A('.bs .s2-ws3{ margin-left:' + u(4.2) + ' }')
     A('.bs .s2-ws1 .bs-tl{ width:' + u(폭('b-ws1')) + ' }')
     A('.bs .s2-ws2 .bs-tl{ width:' + u(폭('b-ws2')) + ' }')
     A('.bs .s2-ws3 .bs-tl{ width:' + u(폭('b-ws3')) + ' }')
-    A('.bs .s2-capGb{ ' + 자리(49, 9235, 폭('b-party')) + '; color:var(--green) }')
+    A('/* 잉크 실측: x=125 에서 피그마와 일치. 폭도 그대로 일치 */')
+    A('.bs .s2-capGb{ ' + 자리(125, 9242.3, 폭('b-party')) + '; color:var(--green) }')
     A('.bs .s2-capGpic1{ ' + 자리(116.691, 9382, 632.616) + '; border-radius:' + u(20) + ' }')
     A('.bs .s2-capGpic2{ ' + 자리(116.691, 9757.266, 632.616) + '; border-radius:' + u(20) + ' }')
     A('/* 3736:27536 · 3697:33432 — Bold 24 -0.72 흰색 */')
