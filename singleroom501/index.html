@@ -75,6 +75,9 @@
             font-size:8px;font-weight:800;color:#FFC24B;letter-spacing:0;pointer-events:none}
   /* ⚠ 폰에서는 칸이 좁아 모서리 라벨이 날짜 동그라미와 겹친다 — 숫자 아래로 내린다 */
   @media (max-width:560px){
+    .hd .row{flex-direction:column;align-items:center;gap:2px}
+    .hd .date{position:static;margin-top:2px}
+    .brandlogo{height:30px}
     .cell.now::after{position:static;display:block;text-align:center;margin-top:2px;line-height:1} }
   .cell.sel{border-color:#fff;background:#2E2E33}
   .cell .d{font-size:11.5px;font-weight:700;color:var(--sub);text-align:center;line-height:1.25}
@@ -156,9 +159,12 @@
   .hd .date{position:absolute;right:0;bottom:2px}
   h1.brand{display:flex;align-items:center;justify-content:center;gap:12px}
   .brandlogo{height:38px;width:auto;display:block}
-  .mkbtn{display:inline-block;margin:8px 0 2px;padding:9px 16px;border-radius:10px;
-         background:#FFC24B;color:#1E1B10;font-weight:800;font-size:13px;text-decoration:none}
+  .mkbtn{display:inline-block;margin:9px 0 7px;padding:10px 18px;border-radius:10px;
+         background:#FFC24B;color:#1E1B10;font-weight:800;font-size:13.5px;text-decoration:none}
   .mkbtn:hover{filter:brightness(1.06)}
+  .master .mk{display:block;margin-top:1px}
+  .master .mk2{display:block;color:var(--dim);font-size:12px}
+  .master .warn2{display:block;margin-top:2px}
   .master{margin:0 16px 12px;padding:14px 16px;border-radius:12px;
           background:#26241B;border:1.5px dashed #FFC24B;
           box-shadow:0 0 0 1px rgba(255,194,75,.15) inset;
@@ -649,13 +655,12 @@ async function renderGuest() {
     <!-- ⚠ 만능키는 실제 예약이 없어도 손님 화면을 여는 번호다. 손님에게 주면 안 된다.
          그래서 접어두지 않고 여기 적어 두되, 무엇인지 한 줄로 못박아 둔다. -->
     <div class="master">
-      <b>🗝 만능키 — 이 손님 화면(oh501.surge.sh)을 여는 관리자 열쇠</b>
-      <span class="mk">손님에게 어떻게 보이는지 예약 없이 아무 때나 확인할 수 있습니다.
-        직접 넣을 땐 예약번호 <b>${esc(v.MASTER_CODE || '없음')}</b>
-        · 휴대폰 뒤 4자리 <b>${esc(v.MASTER_TAIL || '없음')}</b></span>
+      <b>🗝 만능키</b>
+      <span class="mk">손님 화면을 예약 없이 열어보는 관리자 번호</span>
       <a class="mkbtn" target="_blank" rel="noopener"
-         href="https://oh501.surge.sh/#k=${esc(v.MASTER_CODE || '')}.${esc(v.MASTER_TAIL || '')}">🗝 만능키로 손님 화면 열어보기</a>
-      <span class="warn2">⚠ 진짜 예약이 없어도 열리는 만능 번호입니다 — 손님에게는 절대 알려주지 마세요.</span>
+         href="https://oh501.surge.sh/#k=${esc(v.MASTER_CODE || '')}.${esc(v.MASTER_TAIL || '')}">🗝 손님 화면 열어보기</a>
+      <span class="mk2">직접 입력: 예약번호 <b>${esc(v.MASTER_CODE || '없음')}</b> · 뒤 4자리 <b>${esc(v.MASTER_TAIL || '없음')}</b></span>
+      <span class="warn2">⚠ 손님에게는 절대 알려주지 마세요</span>
     </div>
 
     <details><summary>비밀번호·문의 문구 고치기</summary>
