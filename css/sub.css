@@ -228,3 +228,29 @@ a.news-card:hover{border-color:rgba(44,255,5,.45);transform:translateY(-2px)}
   .doc{padding:36px 0 72px}
   .doc h2{font-size:17px;margin:34px 0 10px}
 }
+
+/* ── 살아있는 단추·가격 (2026-08-24, 왕초보반과 같은 결) ─────────────
+   ⚠ sub.css 는 여러 페이지가 같이 쓴다. btn-primary(초록 면 단추)와
+     가격 표시에만 건다 — 헤더 「즉시 상담하기」는 그대로 둔다. */
+.btn-primary{ position:relative; overflow:hidden;
+  animation:fv-breathe 2.8s ease-in-out infinite; transition:transform .18s ease }
+.btn-primary:hover{ transform:translateY(-2px) }
+@keyframes fv-breathe{
+  0%,100%{ box-shadow:0 0 0 0 rgba(44,255,5,.22) }
+  50%{ box-shadow:0 0 22px 3px rgba(44,255,5,.42) } }
+.btn-primary::after{ content:''; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(115deg, transparent 32%, rgba(255,255,255,.45) 50%, transparent 68%);
+  transform:translateX(-130%); animation:fv-shine 3.6s ease 1.2s infinite }
+@keyframes fv-shine{ 0%{ transform:translateX(-130%) } 45%,100%{ transform:translateX(130%) } }
+.price-now{ animation:fv-pricepulse 2.6s ease-in-out infinite }
+@keyframes fv-pricepulse{
+  0%,100%{ text-shadow:0 0 0 rgba(44,255,5,0) }
+  50%{ text-shadow:0 0 18px rgba(44,255,5,.45) } }
+.price-off{ display:inline-block; animation:fv-nudge 3.4s ease-in-out 2s infinite }
+@keyframes fv-nudge{
+  0%,86%,100%{ transform:none }
+  90%{ transform:rotate(-2deg) scale(1.06) }
+  94%{ transform:rotate(2deg) scale(1.06) }
+  97%{ transform:scale(1.03) } }
+@media (prefers-reduced-motion: reduce){
+  .btn-primary,.btn-primary::after,.price-now,.price-off{ animation:none } }

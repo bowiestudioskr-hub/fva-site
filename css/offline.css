@@ -795,3 +795,14 @@ svg.club-wordmark{
   background:#000;
 }
 .off-endcta .nt-btns{ margin-top:0 }
+
+/* ── 수강신청 단추 살리기 (2026-08-24, 왕초보반과 같은 결) ── */
+.nt-btn.solid{ position:relative; overflow:hidden; animation:fv-breathe2 2.8s ease-in-out infinite }
+@keyframes fv-breathe2{
+  0%,100%{ box-shadow:0 6px 20px rgba(122,255,102,.28) }
+  50%{ box-shadow:0 6px 28px 6px rgba(122,255,102,.45) } }
+.nt-btn.solid::after{ content:''; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(115deg, transparent 32%, rgba(255,255,255,.45) 50%, transparent 68%);
+  transform:translateX(-130%); animation:fv-shine2 3.6s ease 1.4s infinite }
+@keyframes fv-shine2{ 0%{ transform:translateX(-130%) } 45%,100%{ transform:translateX(130%) } }
+@media (prefers-reduced-motion: reduce){ .nt-btn.solid,.nt-btn.solid::after{ animation:none } }
