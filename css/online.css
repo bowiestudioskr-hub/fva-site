@@ -297,8 +297,9 @@
 }
 .ol-taste-btn{ margin-top:calc(var(--u) * 8/1920) }
 .ol-taste-art{ display:flex; justify-content:flex-end; align-items:center }
+.ol-taste-art .ol-taste-artlink{ width:100%; max-width:calc(var(--u) * 420/1920) }
 .ol-taste-art img{
-  width:100%; max-width:calc(var(--u) * 420/1920); height:auto; display:block;
+  width:100%; height:auto; display:block;
   border-radius:clamp(10px,1vw,18px);
 }
 
@@ -311,7 +312,7 @@
   .ol-taste-h svg.tlab{ width:min(62%, 240px) }
   .ol-taste-body{ max-width:none }
   .ol-taste-art{ justify-content:center }
-  .ol-taste-art img{ max-width:min(74%, 300px) }
+  .ol-taste-art .ol-taste-artlink{ width:min(84%, 340px); max-width:none; margin-inline:auto }
 }
 
 /* ══════════════════════════════════════════════════════════
