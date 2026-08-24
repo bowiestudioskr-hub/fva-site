@@ -1,34 +1,34 @@
 {
-  "updated": "2026. 8. 24. PM 2:36:39",
+  "updated": "2026. 8. 24. PM 2:52:33",
   "naver": {
     "start": "2026-08-16",
     "live": true,
     "state": "운영",
-    "charged": 155,
-    "pending": 154,
+    "charged": 339,
+    "pending": 183,
     "dailyBudget": 5000,
-    "balance": 39639,
-    "imp": 6927,
+    "balance": 39456,
+    "imp": 6999,
     "clk": 17,
     "cost": 59710,
     "byPeriod": {
       "1": {
-        "imp": 480,
+        "imp": 552,
         "clk": 1,
         "cost": 155
       },
       "7": {
-        "imp": 7471,
+        "imp": 7543,
         "clk": 20,
         "cost": 59939
       },
       "28": {
-        "imp": 12792,
+        "imp": 12864,
         "clk": 25,
         "cost": 60436
       },
       "90": {
-        "imp": 144149,
+        "imp": 144221,
         "clk": 179,
         "cost": 72900
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-08-24",
-        "imp": 480,
+        "imp": 552,
         "clk": 1,
         "cost": 155
       }
     ],
-    "campaignImp": 12792,
+    "campaignImp": 12864,
     "campaignClk": 25,
     "campaignCost": 60436,
     "groups": [
@@ -142,7 +142,7 @@
             "bid": 900,
             "live": true,
             "state": "운영",
-            "imp": 745,
+            "imp": 760,
             "clk": 0,
             "cost": 0,
             "rank": 3.5
@@ -152,7 +152,7 @@
             "bid": 250,
             "live": true,
             "state": "운영",
-            "imp": 53,
+            "imp": 55,
             "clk": 0,
             "cost": 0,
             "rank": 1.1
@@ -162,10 +162,10 @@
             "bid": 600,
             "live": true,
             "state": "운영",
-            "imp": 157,
+            "imp": 166,
             "clk": 0,
             "cost": 0,
-            "rank": 2.4
+            "rank": 2.5
           },
           {
             "word": "콘티",
@@ -182,7 +182,7 @@
             "bid": 600,
             "live": true,
             "state": "운영",
-            "imp": 40,
+            "imp": 41,
             "clk": 0,
             "cost": 0,
             "rank": 2.2
@@ -272,10 +272,10 @@
             "bid": 300,
             "live": true,
             "state": "운영",
-            "imp": 27,
+            "imp": 29,
             "clk": 0,
             "cost": 0,
-            "rank": 1.5
+            "rank": 1.6
           },
           {
             "word": "미장센",
@@ -494,7 +494,7 @@
             "bid": 500,
             "live": true,
             "state": "운영",
-            "imp": 2678,
+            "imp": 2700,
             "clk": 2,
             "cost": 9394,
             "rank": 1
@@ -524,17 +524,17 @@
             "bid": 800,
             "live": true,
             "state": "운영",
-            "imp": 261,
+            "imp": 277,
             "clk": 1,
             "cost": 867,
-            "rank": 3.4
+            "rank": 3.5
           },
           {
             "word": "촬영감독",
             "bid": 300,
             "live": true,
             "state": "운영",
-            "imp": 151,
+            "imp": 153,
             "clk": 0,
             "cost": 0,
             "rank": 3.5
@@ -544,7 +544,7 @@
             "bid": 300,
             "live": true,
             "state": "운영",
-            "imp": 12,
+            "imp": 13,
             "clk": 0,
             "cost": 0,
             "rank": 2.7
@@ -584,7 +584,7 @@
             "bid": 300,
             "live": true,
             "state": "운영",
-            "imp": 6,
+            "imp": 7,
             "clk": 2,
             "cost": 201,
             "rank": 1
@@ -738,7 +738,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 24. PM 2:36:32",
+    "updated": "2026. 8. 24. PM 2:52:25",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -748,31 +748,31 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 91,
-        "click": 65,
+        "visit": 93,
+        "click": 67,
         "unique": 7,
-        "ctr": 71.4,
+        "ctr": 72,
         "dwell": 18
       },
       "7": {
-        "visit": 1157,
-        "click": 232,
+        "visit": 1159,
+        "click": 234,
         "unique": 174,
-        "ctr": 20.1,
+        "ctr": 20.2,
         "dwell": 25
       },
       "28": {
-        "visit": 2956,
-        "click": 974,
+        "visit": 2958,
+        "click": 976,
         "unique": 174,
-        "ctr": 32.9,
+        "ctr": 33,
         "dwell": 25
       },
       "90": {
-        "visit": 6357,
-        "click": 3010,
+        "visit": 6359,
+        "click": 3012,
         "unique": 174,
-        "ctr": 47.3,
+        "ctr": 47.4,
         "dwell": 25
       },
       "y": {
@@ -783,8 +783,8 @@
         "dwell": 22
       },
       "all": {
-        "visit": 34548,
-        "click": 14223,
+        "visit": 34550,
+        "click": 14225,
         "unique": 174,
         "ctr": 41.2,
         "dwell": 25
@@ -3223,8 +3223,8 @@
       },
       {
         "d": "2026-08-24",
-        "visit": 91,
-        "click": 65,
+        "visit": 93,
+        "click": 67,
         "unique": 7
       }
     ],
@@ -3232,8 +3232,8 @@
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 15210,
-        "click": 3162,
+        "visit": 15212,
+        "click": 3164,
         "unique": 37,
         "ctr": 20.8,
         "dwell": 20
@@ -3549,7 +3549,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 326
+        "clicks": 327
       },
       {
         "key": "ZP63A49",
@@ -3693,7 +3693,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 44
+        "clicks": 45
       },
       {
         "key": "IU3UTlE",
@@ -4236,10 +4236,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 76,
-            "click": 58,
+            "visit": 78,
+            "click": 60,
             "unique": 6,
-            "ctr": 76.3,
+            "ctr": 76.9,
             "dwell": 19
           },
           {
@@ -4300,7 +4300,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 42
+            "clicks": 43
           },
           {
             "key": "4rFKEfH",
@@ -4324,7 +4324,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 3
+            "clicks": 4
           },
           {
             "key": "6i2xFwE",
@@ -4375,10 +4375,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 284,
-            "click": 178,
+            "visit": 286,
+            "click": 180,
             "unique": 37,
-            "ctr": 62.7,
+            "ctr": 62.9,
             "dwell": 20
           },
           {
@@ -4806,7 +4806,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 44
+            "clicks": 45
           },
           {
             "key": "Norn5x4",
@@ -4830,7 +4830,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 21
+            "clicks": 22
           },
           {
             "key": "dVgRn4o",
@@ -4951,8 +4951,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 968,
-            "click": 720,
+            "visit": 970,
+            "click": 722,
             "unique": 37,
             "ctr": 74.4,
             "dwell": 20
@@ -5515,7 +5515,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 121
+            "clicks": 122
           },
           {
             "key": "bGTonvP",
@@ -5555,7 +5555,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 44
+            "clicks": 45
           },
           {
             "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
@@ -5668,8 +5668,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2862,
-            "click": 2210,
+            "visit": 2864,
+            "click": 2212,
             "unique": 37,
             "ctr": 77.2,
             "dwell": 20
@@ -6276,7 +6276,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 326
+            "clicks": 327
           },
           {
             "key": "OPjnbdZ",
@@ -6348,7 +6348,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 44
+            "clicks": 45
           },
           {
             "key": "DtYx6j6",
@@ -6461,8 +6461,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 15210,
-            "click": 3162,
+            "visit": 15212,
+            "click": 3164,
             "unique": 37,
             "ctr": 20.8,
             "dwell": 20
@@ -7168,7 +7168,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 326
+            "clicks": 327
           },
           {
             "key": "ZP63A49",
@@ -7312,7 +7312,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 44
+            "clicks": 45
           },
           {
             "key": "IU3UTlE",
@@ -7465,10 +7465,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 76,
-            "click": 58,
+            "visit": 78,
+            "click": 60,
             "unique": 6,
-            "ctr": 76.3,
+            "ctr": 76.9,
             "dwell": 19
           },
           {
@@ -7529,7 +7529,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 42
+            "clicks": 43
           },
           {
             "key": "4rFKEfH",
@@ -7553,7 +7553,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 3
+            "clicks": 4
           },
           {
             "key": "6i2xFwE",
