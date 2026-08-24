@@ -58,6 +58,7 @@
   .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
   .dow{text-align:center;font-size:11px;font-weight:700;color:var(--dim);padding:2px 0 5px}
   .dow.s{color:#FF6B7E} .dow.t{color:#6BA8FF}
+  .go a::before{content:'🔗 ';opacity:.75;font-size:.92em}
   .cell{background:var(--card3);border-radius:9px;min-height:104px;padding:4px 3px 4px;
         display:flex;flex-direction:column;gap:2px;cursor:pointer;border:1.5px solid transparent;
         overflow:hidden}
@@ -67,6 +68,9 @@
   .cell.now .d{background:var(--ink);color:#000;border-radius:99px;
                width:19px;height:19px;line-height:19px;margin:0 auto;font-weight:800}
   .cell.now.sun .d,.cell.now.sat .d{color:#000}
+  /* 오늘은 칸 전체도 한눈에 — 호박색 테두리 + 살짝 밝은 바탕 (고른 날의 흰 테두리와 구분) */
+  .cell.now{border-color:#FFC24B;background:#26241B;
+            box-shadow:0 0 0 1px rgba(255,194,75,.25) inset}
   .cell.sel{border-color:#fff;background:#2E2E33}
   .cell .d{font-size:11.5px;font-weight:700;color:var(--sub);text-align:center;line-height:1.25}
   .cell.sun .d{color:#FF6B7E} .cell.sat .d{color:#6BA8FF}
@@ -496,6 +500,28 @@ function renderCal() {
   renderDay();
 }
 
+/* 발송 결과 배지 — 알림톡·문자 **각각의** 성패를 보여준다(투트랙).
+   ✓=나감, ✗=실패(올려보면 사유), — 표시는 아직 안 켠 단계(알림톡 심사 전).
+   기록이 없는 옛 예약은 그냥 「안내 나감」. */
+function 발송배지(r) {
+  if (!r.안내발송) return '';
+  const b = r.발송;
+  if (!b) return '<span class="pill ok">안내 나감</span>';
+  if (b.어떻게)   // 투트랙 전(옛) 기록
+    return `<span class="pill ok">${b.어떻게 === 'alimtalk' ? '알림톡' : '문자'} 나감 · ${esc(b.시각)}</span>`;
+  const 칸 = [];
+  const 사유 = [];
+  for (const k of ['알림톡', '문자']) {
+    if (b[k] === 'ok') 칸.push(k + ' ✓');
+    else if (b[k]) { 칸.push(k + ' ✗'); 사유.push(k + ': ' + b[k]); }
+    else if (k === '문자') 칸.push('문자 —');   // 알림톡 미시도는 심사 전이라 표시 생략
+  }
+  const 하나라도 = b.알림톡 === 'ok' || b.문자 === 'ok';
+  const tip = 사유.length ? ` title="${esc(사유.join(' / '))}"` : '';
+  if (!하나라도) return `<span class="pill wait"${tip}>자동 발송 실패 · 메일 확인 후 직접 보내주세요</span>`;
+  return `<span class="pill ok"${tip}>${esc(칸.join(' · '))} · ${esc(b.시각)}</span>`;
+}
+
 function renderDay() {
   const box = $('day');
   if (!sel || !cal) { box.classList.remove('on'); return; }
@@ -505,7 +531,8 @@ function renderDay() {
     t: `${r.시작}시 ~ ${r.끝}시`, k: r.이름 || '손님',
     s: `예약 <b class="rno">${esc(r.id)}</b> · ${esc(r.상태)}` +
        `${r.인원 ? ' · ' + esc(r.인원) + '명' : ''}` +
-       `${r.금액 ? ' · ' + num(r.금액) + '원' : ''}`,
+       `${r.금액 ? ' · ' + num(r.금액) + '원' : ''}` +
+       (r.설치전 ? ' <span class="pill done">설치 전 · 직접 안내</span>' : ' ' + 발송배지(r)),
     tel: r.연락처 || '',
     c: kindOf(r)[0] === 'void' ? 'var(--done)' : `var(--${kindOf(r)[0]})`,
   });
@@ -607,10 +634,11 @@ async function renderGuest() {
     <!-- ⚠ 만능키는 실제 예약이 없어도 손님 화면을 여는 번호다. 손님에게 주면 안 된다.
          그래서 접어두지 않고 여기 적어 두되, 무엇인지 한 줄로 못박아 둔다. -->
     <div class="master">
-      <b>만능키</b> — 손님 화면을 그대로 열어볼 때 씁니다
-      <span class="mk">예약번호 <b>${esc(v.MASTER_CODE || '없음')}</b>
-        · 휴대폰 뒤 4자리 <b>${esc(v.MASTER_TAIL || '없음')}</b></span>
-      <span class="warn2">실제 예약이 없어도, 날짜와 상관없이 열립니다. 손님에게 알려주지 마세요.</span>
+      <b>🗝 만능키</b> — 손님이 보는 입실 안내 화면을 <b>관리자가 아무 때나 열어보는 열쇠</b>입니다
+      <span class="mk">손님 화면(oh501.surge.sh)에서
+        ① 예약번호 칸에 <b>${esc(v.MASTER_CODE || '없음')}</b>
+        ② 휴대폰 뒤 4자리 칸에 <b>${esc(v.MASTER_TAIL || '없음')}</b> 를 넣으면 열립니다</span>
+      <span class="warn2">⚠ 진짜 예약이 없어도 열리는 만능 번호입니다 — 손님에게는 절대 알려주지 마세요.</span>
     </div>
 
     <details><summary>비밀번호·문의 문구 고치기</summary>
@@ -683,23 +711,11 @@ function render(d) {
 
   /* ⚠ 「설치 전부터 있던 예약」과 「이 시스템이 보낸 예약」은 다르다.
      둘 다 발송 대상에서 빠지지만, 앞의 것은 사람이 직접 챙겨야 한다. */
-  /* 발송 결과 배지 — 어떻게 나갔는지(알림톡/문자/메일)와 실패 사유까지.
-     발송 기록이 없는 옛 예약은 그냥 「안내 나감」. */
-  const 발송배지 = r => {
-    const b = r.발송;
-    if (!b) return '<span class="pill ok">안내 나감</span>';
-    const 사유 = (b.실패 || []).join(' / ');
-    const tip = 사유 ? ` title="앞 단계 실패: ${esc(사유)}"` : '';
-    if (b.어떻게 === 'alimtalk') return `<span class="pill ok"${tip}>알림톡 나감 · ${esc(b.시각)}${사유 ? ' ⚠' : ''}</span>`;
-    if (b.어떻게 === 'sms') return `<span class="pill ok"${tip}>문자 나감 · ${esc(b.시각)}${사유 ? ' ⚠' : ''}</span>`;
-    return `<span class="pill wait"${tip}>자동 발송 실패 · 메일 확인 후 직접 보내주세요</span>`;
-  };
-
   const row = r => {
     const pill = r.상태 === '취소환불' ? '<span class="pill done">취소</span>'
       : r.지남 ? '<span class="pill done">이용완료</span>'
       : r.설치전 ? '<span class="pill done">설치 전 · 직접 안내</span>'
-      : r.안내발송 ? 발송배지(r)
+      : r.안내발송 ? (발송배지(r) || '<span class="pill ok">안내 나감</span>')
       : '<span class="pill wait">안내 대기</span>';
     return `<li class="row">
       <div class="nm"><b>${esc(r.이름)}</b> ${pill}
