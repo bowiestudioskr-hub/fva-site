@@ -837,7 +837,7 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 
 /* ── 마무리 (원점 9810) ── */
 .bs .bs-s3 .bs-finlead{ top:calc(var(--u) * 37.0/860); left:calc(var(--u) * 13.0/860); width:calc(var(--u) * 834.0/860); letter-spacing:-.03em }
-.bs .bs-s3 .bs-finpic{ top:calc(var(--u) * 198.0/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 860.0/860) }
+.bs .bs-s3 .bs-finpic{ top:calc(var(--u) * 198.0/860); left:calc(var(--u) * -31.0/860); width:calc(var(--u) * 903.0/860) }
 .bs .bs-s3 .bs-finh{ top:calc(var(--u) * 943.0/860); left:calc(var(--u) * 13.0/860); width:calc(var(--u) * 834.0/860); letter-spacing:-.03em }
 /* 3697:33230 — SemiBold 24 -1.2 흰색. trim 없는 줄상자 */
 .bs .bs-s3 .bs-insta{ top:calc(var(--u) * 1046.0/860); left:calc(var(--u) * 180.0/860); width:calc(var(--u) * 499.0/860); text-align:center; color:#fff; font-weight:600; font-size:calc(var(--u) * 24.0/860); line-height:calc(var(--u) * 34.0/860); letter-spacing:-.05em }
@@ -848,7 +848,7 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 .bs .bs-s1{ height:calc(var(--u) * 8630.0/860) }
 
 /* 3731:34265 히어로 사진 (x-8 y44 w877 → 판에 맞춰 잘림) */
-.bs .bs-s1 .s1-hero{ top:calc(var(--u) * 44.0/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 860.0/860) }
+.bs .bs-s1 .s1-hero{ top:calc(var(--u) * -1.0/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 861.0/860) }
 /* 3684:17919 — SemiBold 44/55 -2.2px #CFCFCF, 「극장」만 Bold #2CFF05 */
 .bs .bs-s1 .s1-copy{ top:calc(var(--u) * 92.0/860); left:calc(var(--u) * 120.0/860); width:calc(var(--u) * 620.0/860); text-align:center; color:#CFCFCF; font-weight:600; font-size:calc(var(--u) * 44.0/860); line-height:calc(var(--u) * 55.0/860); letter-spacing:-.05em }
 .bs .bs-s1 .s1-copy b{ font-weight:700; color:var(--green) }
@@ -860,7 +860,7 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 .bs .bs-s1 .s1-sub{ top:calc(var(--u) * 1276.594/860); left:calc(var(--u) * 45.0/860); width:calc(var(--u) * 774.0/860); text-align:center; color:var(--green); font-weight:700; font-size:calc(var(--u) * 44.0/860); line-height:calc(var(--u) * 60.838/860); letter-spacing:-.04em }
 
 /* 3730:34260 극장 몬스터 (x-6 y1374 w871) */
-.bs .bs-s1 .s1-monster{ top:calc(var(--u) * 1374.0/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 860.0/860) }
+.bs .bs-s1 .s1-monster{ top:calc(var(--u) * 1364.0/860); left:calc(var(--u) * -29.0/860); width:calc(var(--u) * 895.0/860) }
 /* 3684:28715 — Bold 41 -1.23px #F5F5F6 (trim 없음) */
 .bs .bs-s1 .s1-oddlead{ top:calc(var(--u) * 2363.0/860); left:calc(var(--u) * 81.0/860); width:calc(var(--u) * 698.0/860); text-align:center; color:#F5F5F6; font-weight:700; font-size:calc(var(--u) * 41.0/860); line-height:calc(var(--u) * 50.0/860); letter-spacing:-.03em }
 /* 3684:28713 — TLAB 120.82 #2CFF05 (잉크 x46 y2429) */
