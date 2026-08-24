@@ -73,6 +73,9 @@
             box-shadow:0 0 0 1px rgba(255,194,75,.25) inset}
   .cell.now::after{content:'TODAY';position:absolute;top:5px;right:6px;
             font-size:8px;font-weight:800;color:#FFC24B;letter-spacing:0;pointer-events:none}
+  /* ⚠ 폰에서는 칸이 좁아 모서리 라벨이 날짜 동그라미와 겹친다 — 숫자 아래로 내린다 */
+  @media (max-width:560px){
+    .cell.now::after{position:static;display:block;text-align:center;margin-top:2px;line-height:1} }
   .cell.sel{border-color:#fff;background:#2E2E33}
   .cell .d{font-size:11.5px;font-weight:700;color:var(--sub);text-align:center;line-height:1.25}
   .cell.sun .d{color:#FF6B7E} .cell.sat .d{color:#6BA8FF}
