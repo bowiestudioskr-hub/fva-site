@@ -88,7 +88,9 @@
     .cell.now::after{position:static;display:block;text-align:center;margin-top:2px;line-height:1} }
   .cell.sel{border-color:#fff;background:#2E2E33}
   .cell .d{font-size:11.5px;font-weight:700;color:var(--sub);text-align:center;line-height:1.25}
-  .cell.sun .d{color:#FF6B7E} .cell.sat .d{color:#6BA8FF}
+  .cell.sun .d,.cell.hol .d{color:#FF6B7E} .cell.sat .d{color:#6BA8FF}
+  .cell.hol.sat .d{color:#FF6B7E}
+  .hname{font-size:8.5px;font-weight:700;color:#FF6B7E;text-align:center;line-height:1.1;margin-top:1px}
 
   /* ⚠ 칸 안에 글자를 직접 넣는다. 색 막대만으로는 「누가 몇 시에」가 안 보여서
      결국 하나하나 눌러봐야 했다. 스페이스클라우드 캘린더가 이렇게 보여준다. */
@@ -492,6 +494,15 @@ function evOf(x, isSched) {
            id: isSched ? '' : (x.id || ''), sort: Number(x.시작) || 0 };
 }
 
+/* 공휴일 이름 — 스페이스클라우드는 공휴일 여부(hday)만 주고 이름은 안 준다.
+   이름표는 참고용이고, ⚠ hday=Y 인 날에만 붙으므로 표가 틀려도 평일에 뜨지 않는다. */
+const 공휴일이름 = {
+  '0101':'신정','0216':'설 연휴','0217':'설날','0218':'설 연휴',
+  '0301':'삼일절','0302':'대체공휴일','0505':'어린이날','0524':'석가탄신일','0525':'대체공휴일',
+  '0606':'현충일','0815':'광복절','0924':'추석 연휴','0925':'추석','0926':'추석 연휴',
+  '1003':'개천절','1009':'한글날','1225':'성탄절' };
+const 휴일명 = ymd => 공휴일이름[String(ymd).slice(4)] || '공휴일';
+
 let cal = null, curY = 0, curM = 0, sel = '';
 
 /* ⚠ 한 줄의 키는 그 줄에서 가장 많은 칸에 맞춰 늘어난다. 폰에서 세 개를 다 보이면
@@ -528,9 +539,11 @@ function renderCal() {
          뱃지·여백을 빼고 나면 30px 남짓뿐이다. 칸 전체를 쓰도록 제 줄로 뺀다. */
       (e.id ? `<div class="rid">${esc(e.id)}</div>` : '')).join('');
     const rest = evs.length > MAX ? `<div class="more">+${evs.length - MAX}</div>` : '';
-    h += `<div class="cell${dow === 0 ? ' sun' : dow === 6 ? ' sat' : ''}` +
+    h += `<div class="cell${dow === 0 ? ' sun' : dow === 6 ? ' sat' : ''}${day.공휴일 ? ' hol' : ''}` +
          `${Number(ymd) === TODAY ? ' now' : ''}${ymd === sel ? ' sel' : ''}" data-ymd="${ymd}">` +
-         `<div class="d">${d}</div>${shown}${rest}</div>`;
+         `<div class="d">${d}</div>` +
+         (day.공휴일 ? `<div class="hname">${esc(휴일명(ymd))}</div>` : '') +
+         `${shown}${rest}</div>`;
   }
   $('grid').innerHTML = h;
   renderDay();
@@ -581,7 +594,8 @@ function renderDay() {
   items.sort((a, b) => parseInt(a.t) - parseInt(b.t));
 
   const ymd = sel;
-  box.innerHTML = `<h4>${ymd.slice(4,6)}월 ${ymd.slice(6,8)}일</h4>` +
+  const 휴일 = day && day.공휴일 ? ` <span style="color:#FF6B7E;font-size:.85em">· ${esc(휴일명(ymd))}</span>` : '';
+  box.innerHTML = `<h4>${ymd.slice(4,6)}월 ${ymd.slice(6,8)}일${휴일}</h4>` +
     (items.length
       ? `<ol>${items.map(i => `<li><span class="t">${esc(i.t)}</span>` +
           `<span class="who2"><b style="color:${esc(i.c)}">${esc(i.k)}</b>` +
