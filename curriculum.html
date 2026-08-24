@@ -198,17 +198,17 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 
 <main>
 
-<!-- ══ 과정 고르기 — 정규반 / 왕초보반 ══════════════════════
+<!-- ══ 과정 고르기 — 마스터 클래스 / 베이직 클래스 ═════════════
      ⚠ 스크립트가 못 돌면 둘 다 보여야 한다. 그래서 감추는 일은 JS 가 표시를 붙인 뒤에만
        CSS 가 한다(html.js-tab). 자바스크립트가 꺼져 있으면 두 과정이 그냥 이어서 나온다. -->
 <nav class="cur-pick" aria-label="과정 고르기">
   <button type="button" class="cur-tab" id="tab-master" role="tab"
           aria-selected="true" aria-controls="panel-master">
-    <b>정규반</b><span>1~3개월 · 합정 · 포트폴리오</span>
+    <b>마스터 클래스</b><span>1~3개월 · 합정 · 포트폴리오</span>
   </button>
   <button type="button" class="cur-tab" id="tab-basic" role="tab"
           aria-selected="false" aria-controls="panel-basic">
-    <b>왕초보반</b><span>4주 8강 · 연희동 · 처음이신 분</span>
+    <b>베이직 클래스</b><span>4주 8강 · 연희동 · 왕초보반</span>
   </button>
 </nav>
 
@@ -466,7 +466,7 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 </main>
 
 <script>
-/* 과정 고르기 탭 — 정규반 / 왕초보반
+/* 과정 고르기 탭 — 마스터 클래스 / 베이직 클래스
    ⚠ 표시를 먼저 붙이고 나서 감춘다. 스크립트가 못 돌면 두 과정이 그냥 이어서 보인다.
    ⚠ 주소에 #basic / #master 를 붙이면 그 탭이 바로 열린다(다른 페이지에서 걸어 보낼 때). */
 (function(){
