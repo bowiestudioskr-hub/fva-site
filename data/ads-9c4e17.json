@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 8. 24. PM 10:35:04",
+  "updated": "2026. 8. 24. PM 10:50:55",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 95,
     "dailyBudget": 2500,
     "balance": 38237,
-    "imp": 7357,
+    "imp": 7386,
     "clk": 22,
     "cost": 61112,
     "byPeriod": {
       "1": {
-        "imp": 910,
+        "imp": 939,
         "clk": 6,
         "cost": 1557
       },
       "7": {
-        "imp": 7901,
+        "imp": 7930,
         "clk": 25,
         "cost": 61341
       },
       "28": {
-        "imp": 13222,
+        "imp": 13251,
         "clk": 30,
         "cost": 61838
       },
       "90": {
-        "imp": 144579,
+        "imp": 144608,
         "clk": 184,
         "cost": 74302
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-08-24",
-        "imp": 910,
+        "imp": 939,
         "clk": 6,
         "cost": 1557
       }
     ],
-    "campaignImp": 13222,
+    "campaignImp": 13251,
     "campaignClk": 30,
     "campaignCost": 61838,
     "groups": [
@@ -142,7 +142,7 @@
             "bid": 900,
             "live": true,
             "state": "운영",
-            "imp": 845,
+            "imp": 852,
             "clk": 0,
             "cost": 0,
             "rank": 3.6
@@ -162,7 +162,7 @@
             "bid": 600,
             "live": true,
             "state": "운영",
-            "imp": 181,
+            "imp": 182,
             "clk": 0,
             "cost": 0,
             "rank": 2.5
@@ -333,10 +333,10 @@
             "bid": 500,
             "live": true,
             "state": "운영",
-            "imp": 92,
+            "imp": 96,
             "clk": 0,
             "cost": 0,
-            "rank": 2.8
+            "rank": 2.7
           },
           {
             "word": "AI동영상만들기",
@@ -494,7 +494,7 @@
             "bid": 500,
             "live": true,
             "state": "운영",
-            "imp": 2862,
+            "imp": 2868,
             "clk": 2,
             "cost": 9394,
             "rank": 1
@@ -524,17 +524,17 @@
             "bid": 800,
             "live": true,
             "state": "운영",
-            "imp": 322,
+            "imp": 325,
             "clk": 2,
             "cost": 1741,
-            "rank": 3.6
+            "rank": 3.7
           },
           {
             "word": "촬영감독",
             "bid": 300,
             "live": true,
             "state": "운영",
-            "imp": 160,
+            "imp": 168,
             "clk": 0,
             "cost": 0,
             "rank": 3.5
@@ -738,7 +738,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 24. PM 10:34:57",
+    "updated": "2026. 8. 24. PM 10:50:47",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -748,30 +748,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 114,
+        "visit": 115,
         "click": 90,
-        "unique": 10,
-        "ctr": 78.9,
+        "unique": 11,
+        "ctr": 78.3,
         "dwell": 18
       },
       "7": {
-        "visit": 1180,
+        "visit": 1181,
         "click": 257,
-        "unique": 177,
+        "unique": 178,
         "ctr": 21.8,
         "dwell": 25
       },
       "28": {
-        "visit": 2979,
+        "visit": 2980,
         "click": 999,
-        "unique": 177,
+        "unique": 178,
         "ctr": 33.5,
         "dwell": 25
       },
       "90": {
-        "visit": 6380,
+        "visit": 6381,
         "click": 3035,
-        "unique": 177,
+        "unique": 178,
         "ctr": 47.6,
         "dwell": 25
       },
@@ -783,9 +783,9 @@
         "dwell": 22
       },
       "all": {
-        "visit": 34571,
+        "visit": 34572,
         "click": 14248,
-        "unique": 177,
+        "unique": 178,
         "ctr": 41.2,
         "dwell": 25
       }
@@ -3223,9 +3223,9 @@
       },
       {
         "d": "2026-08-24",
-        "visit": 114,
+        "visit": 115,
         "click": 90,
-        "unique": 10
+        "unique": 11
       }
     ],
     "sources": [
@@ -3843,9 +3843,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 1984,
+        "visit": 1985,
         "click": 1214,
-        "unique": 160,
+        "unique": 161,
         "dwell": 14,
         "ctr": 61.2
       },
@@ -3896,9 +3896,9 @@
       },
       {
         "name": "SG",
-        "visit": 120,
+        "visit": 121,
         "click": 3,
-        "unique": 0,
+        "unique": 1,
         "dwell": 0,
         "ctr": 2.5,
         "code": "SG"
@@ -4264,11 +4264,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 47,
+            "visit": 48,
             "click": 24,
-            "unique": 9,
+            "unique": 10,
             "dwell": 24,
-            "ctr": 51.1
+            "ctr": 50
           },
           {
             "name": "데스크탑",
@@ -4297,6 +4297,15 @@
             "dwell": 7,
             "ctr": 100,
             "code": "JP"
+          },
+          {
+            "name": "SG",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "SG"
           }
         ],
         "city": [
@@ -4317,6 +4326,15 @@
             "dwell": 7,
             "ctr": 100,
             "code": "JP"
+          },
+          {
+            "name": "Singapore",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "SG"
           }
         ],
         "blocks": [
@@ -4481,9 +4499,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 363,
+            "visit": 364,
             "click": 48,
-            "unique": 160,
+            "unique": 161,
             "dwell": 14,
             "ctr": 13.2
           },
@@ -4657,6 +4675,15 @@
             "dwell": 0,
             "ctr": 0,
             "code": "CA"
+          },
+          {
+            "name": "SG",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "SG"
           }
         ],
         "city": [
@@ -5147,9 +5174,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 858,
+            "visit": 859,
             "click": 244,
-            "unique": 160,
+            "unique": 161,
             "dwell": 14,
             "ctr": 28.4
           },
@@ -5235,6 +5262,15 @@
             "code": "HK"
           },
           {
+            "name": "SG",
+            "visit": 5,
+            "click": 3,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 60,
+            "code": "SG"
+          },
+          {
             "name": "TH",
             "visit": 5,
             "click": 0,
@@ -5278,15 +5314,6 @@
             "dwell": 0,
             "ctr": 25,
             "code": "SA"
-          },
-          {
-            "name": "SG",
-            "visit": 4,
-            "click": 3,
-            "unique": 0,
-            "dwell": 0,
-            "ctr": 75,
-            "code": "SG"
           },
           {
             "name": "VN",
@@ -5900,11 +5927,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1510,
+            "visit": 1511,
             "click": 866,
-            "unique": 160,
+            "unique": 161,
             "dwell": 14,
-            "ctr": 57.4
+            "ctr": 57.3
           },
           {
             "name": "데스크탑",
@@ -5989,11 +6016,11 @@
           },
           {
             "name": "SG",
-            "visit": 10,
+            "visit": 11,
             "click": 3,
-            "unique": 0,
+            "unique": 1,
             "dwell": 0,
-            "ctr": 30,
+            "ctr": 27.3,
             "code": "SG"
           },
           {
@@ -6720,9 +6747,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1984,
+            "visit": 1985,
             "click": 1214,
-            "unique": 160,
+            "unique": 161,
             "dwell": 14,
             "ctr": 61.2
           },
@@ -6773,9 +6800,9 @@
           },
           {
             "name": "SG",
-            "visit": 120,
+            "visit": 121,
             "click": 3,
-            "unique": 0,
+            "unique": 1,
             "dwell": 0,
             "ctr": 2.5,
             "code": "SG"
@@ -7535,11 +7562,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 47,
+            "visit": 48,
             "click": 24,
-            "unique": 9,
+            "unique": 10,
             "dwell": 24,
-            "ctr": 51.1
+            "ctr": 50
           },
           {
             "name": "데스크탑",
@@ -7568,6 +7595,15 @@
             "dwell": 7,
             "ctr": 100,
             "code": "JP"
+          },
+          {
+            "name": "SG",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "SG"
           }
         ],
         "city": [
@@ -7588,6 +7624,15 @@
             "dwell": 7,
             "ctr": 100,
             "code": "JP"
+          },
+          {
+            "name": "Singapore",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "SG"
           }
         ],
         "blocks": [
