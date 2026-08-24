@@ -786,3 +786,12 @@ svg.club-wordmark{
   .nt-urgent .flare{ font-size:11.5px }
   .nt-urgent .dday{ font-size:12px }
 }
+
+/* ── 페이지 맨 아래 버튼 한 벌 ─────────────────────────
+   위쪽 버튼은 한참 위에 있어서, 끝까지 읽은 사람이 다시 올라가야 했다. */
+.off-endcta{
+  padding:clamp(48px, calc(var(--u) * 120/1920), 120px) var(--gutter)
+          clamp(64px, calc(var(--u) * 140/1920), 140px);
+  background:#000;
+}
+.off-endcta .nt-btns{ margin-top:0 }
