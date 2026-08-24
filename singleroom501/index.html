@@ -46,7 +46,14 @@
   .lede a{color:inherit}
 
   /* ── 달력 ───────────────────────────────────────────── */
-  .cal{background:var(--card);border-radius:16px;padding:14px 12px 12px}
+  .cal{background:var(--card);border-radius:16px;padding:14px 12px 12px;position:relative}
+  /* 달을 넘길 때 — 격자를 흐리게 하고 가운데 고리를 돌린다 */
+  .cal.loading #grid{opacity:.3;filter:saturate(.6);transition:opacity .2s}
+  .cal.loading::after{content:'';position:absolute;left:50%;top:46%;width:26px;height:26px;
+    margin:-13px 0 0 -13px;border-radius:50%;border:3px solid rgba(255,255,255,.15);
+    border-top-color:#E4574A;animation:calspin .7s linear infinite;z-index:5}
+  @keyframes calspin{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion: reduce){ .cal.loading::after{animation-duration:1.6s} }
   .calhd{display:flex;align-items:center;gap:10px;padding:0 4px 12px}
   .calhd b{font-size:16px;font-weight:800;letter-spacing:-.02em}
   .calhd .nav{margin-left:auto;display:flex;gap:6px}
@@ -597,11 +604,14 @@ $('grid').addEventListener('click', ev => {
 async function loadCal(y, m) {
   curY = y; curM = m; sel = '';
   $('calmon').textContent = `${y}년 ${m}월 · 불러오는 중`;
+  const 판 = document.querySelector('.cal');
+  if (판) 판.classList.add('loading');
   try {
     const d = await (await fetch(feed(`cal=${y}-${String(m).padStart(2, '0')}`))).json();
     cal = d.ok ? d : { 날들: [] };
     if (!d.ok) $('calmon').textContent = `${y}년 ${m}월 · 못 불러옴`;
   } catch { cal = { 날들: [] }; }
+  if (판) 판.classList.remove('loading');
   renderCal();
 }
 const shift = n => { let y = curY, m = curM + n;
