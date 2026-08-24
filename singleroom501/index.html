@@ -159,6 +159,12 @@
   .vn em{display:block;font-style:normal;font-size:11.5px;font-weight:600;color:var(--sub);margin-top:2px}
 
   .pill{font-size:11px;font-weight:800;padding:3px 8px;border-radius:99px;white-space:nowrap}
+  .dday{font-size:11px;font-weight:800;padding:3px 9px;border-radius:99px;white-space:nowrap;
+        background:#2B2B30;color:var(--sub);border:1px solid #3A3A40}
+  .dday.hot{background:#B82C21;color:#fff;border-color:#B82C21}
+  .whenrow{display:block;margin-top:2px}
+  .whenrow .wdate{color:#fff;font-size:14.5px;font-weight:800;letter-spacing:0}
+  .whenrow .wtime{color:var(--sub);font-size:13px}
   .pill.ok{background:#0C3B1E;color:var(--rsv)}
   .pill.wait{background:#3A3210;color:var(--wait)}
   .pill.done{background:var(--card2);color:var(--done)}
@@ -763,9 +769,23 @@ function render(d) {
       : r.설치전 ? '<span class="pill done">설치 전 · 직접 안내</span>'
       : r.안내발송 ? (발송배지(r) || '<span class="pill ok">안내 나감</span>')
       : '<span class="pill wait">안내 대기</span>';
+    /* 날짜를 크게(요일 포함), 다가오는 확정 예약에는 D-day 뱃지 */
+    const m = String(r.날짜).match(/^(\d{4})\.(\d{2})\.(\d{2}) (.+)$/);
+    let 디데이 = '', 날짜칸 = esc(r.날짜);
+    if (m) {
+      const dt = new Date(+m[1], +m[2] - 1, +m[3]);
+      const 영 = new Date(); 영.setHours(0, 0, 0, 0);
+      const 일 = Math.round((dt - 영) / 864e5);
+      const 요일 = '일월화수목금토'[dt.getDay()];
+      const 해 = +m[1] === 영.getFullYear() ? '' : `${m[1]}. `;
+      날짜칸 = `<b class="wdate">${esc(해)}${+m[2]}. ${+m[3]} (${요일})</b> <span class="wtime">${esc(m[4])}</span>`;
+      const 끝남 = r.지남 || r.상태 === '이용완료' || r.상태 === '취소환불';
+      if (!끝남 && r.상태 === '예약확정' && 일 >= 0)
+        디데이 = `<span class="dday${일 <= 3 ? ' hot' : ''}">${일 === 0 ? 'D-DAY' : 'D-' + 일}</span>`;
+    }
     return `<li class="row">
-      <div class="nm"><b>${esc(r.이름)}</b> ${pill}
-        <small>${esc(r.날짜)} · 예약 <b class="rno">${esc(r.id)}</b></small>
+      <div class="nm"><b>${esc(r.이름)}</b> ${디데이} ${pill}
+        <small class="whenrow">${날짜칸} · 예약 <b class="rno">${esc(r.id)}</b></small>
         <small class="telrow">${전화(r.연락처)}</small></div>
       <div class="vn">${num(r.금액)}<em>원</em></div></li>`;
   };
