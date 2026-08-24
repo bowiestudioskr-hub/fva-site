@@ -286,7 +286,7 @@
 <body>
 <div class="wrap">
   <div class="hd">
-    <div class="row"><h1 class="brand"><img src="img/logo.svg" alt="오공일501" class="brandlogo"><span>관리페이지</span></h1><span class="date" id="date">불러오는 중…</span></div>
+    <div class="row"><h1 class="brand"><img src="img/logo.svg?v=5gong1" alt="오공일501" class="brandlogo"><span>관리페이지</span></h1><span class="date" id="date">불러오는 중…</span></div>
     <p class="lede">합정 프라이빗 영화관 · 새 예약이 잡히면 입실 안내가 자동으로 나갑니다</p>
   </div>
 
@@ -382,7 +382,7 @@ const feed = q => `${FEED}?${q}&key=${encodeURIComponent(KEY)}`;
 
 function askKey() {
   document.querySelector('.wrap').innerHTML =
-    `<div class="hd"><h1 class="brand"><img src="img/logo.svg" alt="오공일501" class="brandlogo"><span>관리페이지</span></h1>
+    `<div class="hd"><h1 class="brand"><img src="img/logo.svg?v=5gong1" alt="오공일501" class="brandlogo"><span>관리페이지</span></h1>
        <p class="lede">이 화면은 비밀번호가 있어야 열립니다.</p></div>
      <div class="card" style="padding:16px;display:flex;flex-direction:column;gap:11px">
        <input id="kin" type="text" placeholder="비밀번호" autocomplete="off"
