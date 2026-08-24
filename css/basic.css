@@ -527,7 +527,7 @@ html.js-rv .bs .bs-price .bs-now.bs-in .bs-tl{ animation:bs-pop .55s cubic-bezie
 .bs .bs-price .bs-arrow{ animation:bs-drop 1.6s ease-in-out infinite }
 @keyframes bs-drop{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(22%) } }
 /* 「최대 33% 할인」 캡슐 — 몇 초에 한 번 흔들어 눈길 끌기 */
-.bs .bs-price .bs-tags .bs-t1{ display:inline-block; animation:bs-nudge 3.4s ease-in-out 2s infinite }
+.bs .bs-price .bs-tags .bs-t1{ animation:bs-nudge 3.4s ease-in-out 2s infinite }  /* ⚠ display 는 위의 grid 를 그대로 둘 것 */
 @keyframes bs-nudge{
   0%,84%,100%{ transform:none }
   88%{ transform:rotate(-2.2deg) scale(1.05) }
