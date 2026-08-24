@@ -7,6 +7,13 @@
 <meta name="theme-color" content="#000000">
 <title>FVA 유입 현황</title>
 <link rel="icon" href="/favicon.ico">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FVA 유입">
+<meta name="theme-color" content="#000000">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest-monitor.webmanifest">
 <style>
   /* 애플 피트니스 화면의 문법을 가져왔다.
        · 검정 바탕 위에 테두리 없는 둥근 카드
@@ -38,7 +45,7 @@
                 "Apple SD Gothic Neo",sans-serif;
     font-size:15px; line-height:1.4; letter-spacing:-.015em;
     -webkit-font-smoothing:antialiased;
-    padding:max(18px,env(safe-area-inset-top)) 16px 56px;
+    padding:max(18px,env(safe-area-inset-top)) 16px calc(56px + env(safe-area-inset-bottom));
   }
   .wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:26px}
   /* ⚠ 요약칸·그래프·카드 사이 간격은 .wrap 의 gap 이 만들고 있었다.

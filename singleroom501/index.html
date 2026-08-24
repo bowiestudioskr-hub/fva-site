@@ -3,7 +3,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <title>오공일501 예약 현황</title>
-<link rel="icon" href="/favicon.ico">
+<link rel="icon" href="img/icon-192.png?v=5gong1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="오공일501">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="apple-touch-icon" href="img/icon-180.png?v=5gong1">
+<link rel="manifest" href="manifest.webmanifest">
 <style>
   /* ⚠ 이 화면은 **오공일501(공간대여)** 것이다. 피바아카데미와 다른 사업이니
      아카데미 화면·링크·말투를 섞지 말 것. 아카데미 쪽은 fva.co.kr 에 따로 있다.
@@ -35,7 +42,7 @@
   body{
     background:var(--bg); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,system-ui,sans-serif;
-    font-size:15px; line-height:1.5; padding:22px 16px calc(82px + var(--lift,0px));
+    font-size:15px; line-height:1.5; padding:calc(22px + env(safe-area-inset-top)) 16px calc(82px + env(safe-area-inset-bottom) + var(--lift,0px));
     font-variant-numeric:tabular-nums;
   }
   .wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
@@ -276,7 +283,7 @@
   .tabpane{display:flex;flex-direction:column;gap:20px}
   .tabpane[hidden]{display:none !important}
   @media (max-width:560px){
-    body{padding:18px 12px calc(96px + var(--lift,0px))}
+    body{padding:calc(18px + env(safe-area-inset-top)) 12px calc(96px + env(safe-area-inset-bottom) + var(--lift,0px))}
     h1{font-size:20px}
     .stat .vl{font-size:25px}
     .stats{grid-template-columns:1fr 1fr;gap:8px}

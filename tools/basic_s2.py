@@ -185,7 +185,9 @@ def html():
     A(f'  <p class="s2-capGb bs-rv">{tl("b-party", "네트워킹 파티 초대권 증정")}</p>')
     A('  <img class="s2-capGpic1" src="assets/img/basic/workshop.webp" width="633" height="356" '
       'loading="lazy" alt="촬영·조명 워크샵 현장">')
-    A('  <p class="s2-capGcap1">촬영&amp;조명 워크샵 with SLRRENT</p>')
+    A('  <p class="s2-capGcap1">촬영&amp;조명 워크샵 with</p>')
+    A('  <img class="s2-slrlogo" src="assets/img/basic/ico/slr-logo.svg" '
+      'width="129" height="34" loading="lazy" alt="SLR RENT CINE STUDIO">')
     A('  <img class="s2-capGpic2" src="assets/img/basic/party.webp" width="633" height="356" '
       'loading="lazy" alt="네트워킹 파티 현장">')
     A('  <p class="s2-capGcap2">영상인들의 비밀 파티</p>')
@@ -365,7 +367,9 @@ def css():
     A('/* 3736:27536 · 3697:33432 — Bold 24 -0.72 흰색 */')
     A('.bs .s2-capGcap1,.bs .s2-capGcap2{ text-align:center; color:#fff; font-weight:700;'
       ' font-size:' + u(24) + '; line-height:1.2; letter-spacing:-.03em }')
-    A('.bs .s2-capGcap1{ ' + 자리(262, 9687, 342.414) + ' }')
+    A('/* 3736:27536 — 글 + SLR 렌트 로고(3736:27512). 로고는 따로 앉힌다 */')
+    A('.bs .s2-capGcap1{ ' + 자리(262, 9687, 206) + '; text-align:left; white-space:nowrap }')
+    A('.bs .s2-slrlogo{ ' + 자리(474.93, 9677.08, 129.483, 33.844) + ' }')
     A('.bs .s2-capGcap2{ ' + 자리(334, 10065, 191) + ' }')
     A(꼬리)
     나옴 = []
