@@ -288,3 +288,9 @@ a.news-card:hover{border-color:rgba(44,255,5,.45);transform:translateY(-2px)}
   background:rgba(0,0,0,.6); border:1px solid var(--green); border-radius:99px; padding:5px 12px }
 .ol-taste-artlink:hover .ol-taste-play i{ background:var(--green); color:#031000 }
 @media (prefers-reduced-motion: reduce){ .ol-taste-play i{ animation:none } }
+
+/* 99,000원 이 폰에서 「원」만 줄 떨어지던 것 — 한 줄 고정 + 폰 크기 조정 */
+.course-buy .price-now{ white-space:nowrap }
+@media (max-width:560px){
+  .course-buy .price-now{ font-size:clamp(30px,10.5vw,44px) }
+  .course-buy .price-off{ font-size:clamp(24px,7.5vw,34px) } }
