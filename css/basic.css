@@ -845,34 +845,43 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 /* ══ 상페3 끝 ══ */
 
 /* ══ 상페1 (3684:17907) — tools/basic_s1.py 가 만든다. 손대지 말 것 ══ */
-.bs .bs-s1{ height:calc(var(--u) * 8630.0/860) }
+.bs .bs-s1{ height:calc(var(--u) * 8780.0/860) }
 
 /* 3731:34265 히어로 사진 (x-8 y44 w877 → 판에 맞춰 잘림) */
 .bs .bs-s1 .s1-hero{ top:calc(var(--u) * -1.0/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 861.0/860) }
 /* 3684:17919 — SemiBold 44/55 -2.2px #CFCFCF, 「극장」만 Bold #2CFF05 */
-.bs .bs-s1 .s1-copy{ top:calc(var(--u) * 92.0/860); left:calc(var(--u) * 120.0/860); width:calc(var(--u) * 620.0/860); text-align:center; color:#CFCFCF; font-weight:600; font-size:calc(var(--u) * 44.0/860); line-height:calc(var(--u) * 55.0/860); letter-spacing:-.05em }
+.bs .bs-s1 .s1-copy{ top:calc(var(--u) * 92/860); left:calc(var(--u) * 120.0/860); width:calc(var(--u) * 620.0/860); text-align:center; color:#CFCFCF; font-weight:600; font-size:calc(var(--u) * 44.0/860); line-height:calc(var(--u) * 55.0/860); letter-spacing:-.05em }
 .bs .bs-s1 .s1-copy b{ font-weight:700; color:var(--green) }
 /* 3684:28719 FVA ACADEMY × 21STUDIOS */
 .bs .bs-s1 .s1-lock{ top:calc(var(--u) * 947.239/860); left:calc(var(--u) * 173.001/860); width:calc(var(--u) * 514.999/860) }
 /* 3684:17913 — TLAB 176 #2CFF05 (잉크 x78 y1094) */
-.bs .bs-s1 .s1-basic{ top:calc(var(--u) * 1094.0/860); left:calc(var(--u) * 78.0/860); width:calc(var(--u) * 705.58/860); color:var(--green) }
+.bs .bs-s1 .s1-basic{ top:calc(var(--u) * 1094/860); left:calc(var(--u) * 78.0/860); width:calc(var(--u) * 705.58/860); color:var(--green) }
 /* 3684:28725 — Bold 44/60.838 -1.76px #2CFF05 */
-.bs .bs-s1 .s1-sub{ top:calc(var(--u) * 1276.594/860); left:calc(var(--u) * 45.0/860); width:calc(var(--u) * 774.0/860); text-align:center; color:var(--green); font-weight:700; font-size:calc(var(--u) * 44.0/860); line-height:calc(var(--u) * 60.838/860); letter-spacing:-.04em }
+.bs .bs-s1 .s1-sub{ top:calc(var(--u) * 1276.59/860); left:calc(var(--u) * 45.0/860); width:calc(var(--u) * 774.0/860); text-align:center; color:var(--green); font-weight:700; font-size:calc(var(--u) * 44.0/860); line-height:calc(var(--u) * 60.838/860); letter-spacing:-.04em }
 
 /* 3730:34260 극장 몬스터 (x-6 y1374 w871) */
-.bs .bs-s1 .s1-monster{ top:calc(var(--u) * 1364.0/860); left:calc(var(--u) * -29.0/860); width:calc(var(--u) * 895.0/860) }
+/* 상단 왕초보 신청 버튼 — 부제(1337) 아래·몬스터(1514) 위. 2026-08-25 추가, 아래 전부 +150 이동 */
+.bs .bs-s1 .s1-topbuy{ top:calc(var(--u) * 1389.0/860); left:calc(var(--u) * 150.0/860); width:calc(var(--u) * 560.0/860);
+  display:block; box-sizing:border-box; height:calc(var(--u) * 88.0/860);
+  background:var(--green); color:#031000; text-align:center; text-decoration:none; font-weight:800;
+  font-size:calc(var(--u) * 30.0/860); line-height:calc(var(--u) * 88.0/860); letter-spacing:-.02em;
+  border-radius:calc(var(--u) * 44.0/860);
+  box-shadow:0 0 calc(var(--u) * 34.0/860) rgba(59,245,59,.45);
+  transition:transform .18s ease }
+.bs .bs-s1 .s1-topbuy:hover{ transform:translateY(-2px) scale(1.015) }
+.bs .bs-s1 .s1-monster{ top:calc(var(--u) * 1514/860); left:calc(var(--u) * -29.0/860); width:calc(var(--u) * 895.0/860) }
 /* 3684:28715 — Bold 41 -1.23px #F5F5F6 (trim 없음) */
-.bs .bs-s1 .s1-oddlead{ top:calc(var(--u) * 2363.0/860); left:calc(var(--u) * 81.0/860); width:calc(var(--u) * 698.0/860); text-align:center; color:#F5F5F6; font-weight:700; font-size:calc(var(--u) * 41.0/860); line-height:calc(var(--u) * 50.0/860); letter-spacing:-.03em }
+.bs .bs-s1 .s1-oddlead{ top:calc(var(--u) * 2513/860); left:calc(var(--u) * 81.0/860); width:calc(var(--u) * 698.0/860); text-align:center; color:#F5F5F6; font-weight:700; font-size:calc(var(--u) * 41.0/860); line-height:calc(var(--u) * 50.0/860); letter-spacing:-.03em }
 /* 3684:28713 — TLAB 120.82 #2CFF05 (잉크 x46 y2429) */
-.bs .bs-s1 .s1-odd{ top:calc(var(--u) * 2429.0/860); left:calc(var(--u) * 46.0/860); width:calc(var(--u) * 773.01/860); color:var(--green) }
+.bs .bs-s1 .s1-odd{ top:calc(var(--u) * 2579/860); left:calc(var(--u) * 46.0/860); width:calc(var(--u) * 773.01/860); color:var(--green) }
 
 /* 3697:33229 블러 현장 (x-11 y2697 w883) */
-.bs .bs-s1 .s1-blur{ top:calc(var(--u) * 2697.0/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 860.0/860) }
+.bs .bs-s1 .s1-blur{ top:calc(var(--u) * 2847/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 860.0/860) }
 /* 3684:28731 — Bold 50/60 -1.5px 흰색, 첫 줄만 #2CFF05 (trim 없음) */
-.bs .bs-s1 .s1-can{ top:calc(var(--u) * 2883.0/860); left:calc(var(--u) * 30.0/860); width:calc(var(--u) * 799.0/860); text-align:center; color:#fff; font-weight:700; font-size:calc(var(--u) * 50.0/860); line-height:calc(var(--u) * 60.0/860); letter-spacing:-.03em }
+.bs .bs-s1 .s1-can{ top:calc(var(--u) * 3033/860); left:calc(var(--u) * 30.0/860); width:calc(var(--u) * 799.0/860); text-align:center; color:#fff; font-weight:700; font-size:calc(var(--u) * 50.0/860); line-height:calc(var(--u) * 60.0/860); letter-spacing:-.03em }
 .bs .bs-s1 .s1-can b{ font-weight:inherit; color:var(--green) }
 /* 3684:17916 — 40/52 -1.2px. 1줄 Medium #A0A0A0 · 2줄 ExtraBold 흰색 */
-.bs .bs-s1 .s1-why{ top:calc(var(--u) * 3353.0/860); left:calc(var(--u) * 51.0/860); width:calc(var(--u) * 757.0/860); text-align:center; font-size:calc(var(--u) * 40.0/860); line-height:calc(var(--u) * 52.0/860); letter-spacing:-.03em }
+.bs .bs-s1 .s1-why{ top:calc(var(--u) * 3503/860); left:calc(var(--u) * 51.0/860); width:calc(var(--u) * 757.0/860); text-align:center; font-size:calc(var(--u) * 40.0/860); line-height:calc(var(--u) * 52.0/860); letter-spacing:-.03em }
 .bs .bs-s1 .s1-why i{ font-style:normal; font-weight:500; color:#A0A0A0 }
 .bs .bs-s1 .s1-why b{ font-weight:800; color:#fff }
 
@@ -883,21 +892,21 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 .bs .bs-s1 .s1-wq{ text-align:center; color:#08FFD0; font-weight:700; font-size:calc(var(--u) * 44.0/860); line-height:calc(var(--u) * 54.0/860); letter-spacing:-.02em }
 .bs .bs-s1 .s1-wa{ text-align:center; color:#fff; font-weight:600; font-size:calc(var(--u) * 33.0/860); line-height:calc(var(--u) * 47.0/860); letter-spacing:-.02em }
 .bs .bs-s1 .s1-wa b{ font-weight:inherit; color:var(--green) }
-.bs .bs-s1 .s1-w1{ top:calc(var(--u) * 3479.0/860) }
-.bs .bs-s1 .s1-wq1{ top:calc(var(--u) * 3561.0/860); left:calc(var(--u) * 78.0/860); width:calc(var(--u) * 703.0/860) }
-.bs .bs-s1 .s1-wa1{ top:calc(var(--u) * 3632.0/860); left:calc(var(--u) * 134.0/860); width:calc(var(--u) * 584.0/860) }
-.bs .bs-s1 .s1-w2{ top:calc(var(--u) * 3819.0/860) }
-.bs .bs-s1 .s1-wq2{ top:calc(var(--u) * 3881.0/860); left:calc(var(--u) * 78.0/860); width:calc(var(--u) * 703.0/860) }
-.bs .bs-s1 .s1-wa2{ top:calc(var(--u) * 3952.0/860); left:calc(var(--u) * 157.5/860); width:calc(var(--u) * 537.0/860) }
-.bs .bs-s1 .s1-w3{ top:calc(var(--u) * 4159.0/860) }
-.bs .bs-s1 .s1-wq3{ top:calc(var(--u) * 4221.0/860); left:calc(var(--u) * 78.0/860); width:calc(var(--u) * 703.0/860) }
-.bs .bs-s1 .s1-wa3{ top:calc(var(--u) * 4292.0/860); left:calc(var(--u) * 130.0/860); width:calc(var(--u) * 584.0/860) }
+.bs .bs-s1 .s1-w1{ top:calc(var(--u) * 3629/860) }
+.bs .bs-s1 .s1-wq1{ top:calc(var(--u) * 3711/860); left:calc(var(--u) * 78.0/860); width:calc(var(--u) * 703.0/860) }
+.bs .bs-s1 .s1-wa1{ top:calc(var(--u) * 3782/860); left:calc(var(--u) * 134.0/860); width:calc(var(--u) * 584.0/860) }
+.bs .bs-s1 .s1-w2{ top:calc(var(--u) * 3969/860) }
+.bs .bs-s1 .s1-wq2{ top:calc(var(--u) * 4031/860); left:calc(var(--u) * 78.0/860); width:calc(var(--u) * 703.0/860) }
+.bs .bs-s1 .s1-wa2{ top:calc(var(--u) * 4102/860); left:calc(var(--u) * 157.5/860); width:calc(var(--u) * 537.0/860) }
+.bs .bs-s1 .s1-w3{ top:calc(var(--u) * 4309/860) }
+.bs .bs-s1 .s1-wq3{ top:calc(var(--u) * 4371/860); left:calc(var(--u) * 78.0/860); width:calc(var(--u) * 703.0/860) }
+.bs .bs-s1 .s1-wa3{ top:calc(var(--u) * 4442/860); left:calc(var(--u) * 130.0/860); width:calc(var(--u) * 584.0/860) }
 
 /* 3684:21018 — 레이어가 Inter:Bold 50. 한글이 피그마 폴백폰트로 4.5% 크게 렌더된다(실측 52.3/-.018) */
-.bs .bs-s1 .s1-nonoh{ top:calc(var(--u) * 4611.0/860); left:calc(var(--u) * 30.0/860); width:calc(var(--u) * 799.0/860); text-align:center; color:#fff; font-weight:700; font-size:calc(var(--u) * 52.3/860); line-height:calc(var(--u) * 60.0/860); letter-spacing:-.018em }
+.bs .bs-s1 .s1-nonoh{ top:calc(var(--u) * 4761/860); left:calc(var(--u) * 30.0/860); width:calc(var(--u) * 799.0/860); text-align:center; color:#fff; font-weight:700; font-size:calc(var(--u) * 52.3/860); line-height:calc(var(--u) * 60.0/860); letter-spacing:-.018em }
 .bs .bs-s1 .s1-nonoh b{ font-weight:inherit; color:var(--green) }
 /* 3726:33995 바깥 판 #272727 r13.51 */
-.bs .bs-s1 .s1-nonobox{ top:calc(var(--u) * 4770.0/860); left:calc(var(--u) * 39.0/860); width:calc(var(--u) * 782.0/860); height:calc(var(--u) * 675.0/860); background:#272727; border-radius:calc(var(--u) * 13.51/860) }
+.bs .bs-s1 .s1-nonobox{ top:calc(var(--u) * 4920/860); left:calc(var(--u) * 39.0/860); width:calc(var(--u) * 782.0/860); height:calc(var(--u) * 675.0/860); background:#272727; border-radius:calc(var(--u) * 13.51/860) }
 /* ⚠ 판의 자식은 전부 absolute 라 ul 이 폭 0 이 된다. 그러면 그 안의 <img> 가
      max-width:100%(=0) 에 눌려 사라진다. 목록을 판 전체에 펼쳐 담는 그릇으로 만든다. */
 .bs .bs-s1 .s1-nono{ list-style:none; inset:0 }
@@ -908,41 +917,41 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 .bs .bs-s1 .s1-ntx{ left:calc(var(--u) * 140.0/860); width:calc(var(--u) * 642.0/860); color:#fff; font-weight:500; font-size:calc(var(--u) * 27.0/860); line-height:calc(var(--u) * 40.0/860); letter-spacing:-.02em }
 .bs .bs-s1 .s1-ntx b{ font-weight:800 }
 .bs .bs-s1 .s1-nsl{ left:calc(var(--u) * 68.5/860); width:calc(var(--u) * 48.5/860); height:calc(var(--u) * 79.0/860) }
-.bs .bs-s1 .s1-n1 .s1-nrow{ top:calc(var(--u) * 4783.0/860) }
-.bs .bs-s1 .s1-n1 .s1-nsl{ top:calc(var(--u) * 4803.0/860) }
-.bs .bs-s1 .s1-n1 .s1-ntx{ top:calc(var(--u) * 4811.0/860) }
-.bs .bs-s1 .s1-n1 .s1-nico{ top:calc(var(--u) * 4808.783/860); left:calc(var(--u) * 73.423/860); width:calc(var(--u) * 48.577/860); height:calc(var(--u) * 68.276/860) }
-.bs .bs-s1 .s1-n2 .s1-nrow{ top:calc(var(--u) * 4915.0/860) }
-.bs .bs-s1 .s1-n2 .s1-nsl{ top:calc(var(--u) * 4935.0/860) }
-.bs .bs-s1 .s1-n2 .s1-ntx{ top:calc(var(--u) * 4943.0/860) }
-.bs .bs-s1 .s1-n2 .s1-nico{ top:calc(var(--u) * 4950.0/860); left:calc(var(--u) * 75.0/860); width:calc(var(--u) * 49.686/860); height:calc(var(--u) * 49.508/860) }
-.bs .bs-s1 .s1-n3 .s1-nrow{ top:calc(var(--u) * 5047.0/860) }
-.bs .bs-s1 .s1-n3 .s1-nsl{ top:calc(var(--u) * 5067.0/860) }
-.bs .bs-s1 .s1-n3 .s1-ntx{ top:calc(var(--u) * 5075.0/860) }
-.bs .bs-s1 .s1-n3 .s1-nico{ top:calc(var(--u) * 5075.716/860); left:calc(var(--u) * 75.599/860); width:calc(var(--u) * 52.402/860); height:calc(var(--u) * 56.236/860) }
-.bs .bs-s1 .s1-n4 .s1-nrow{ top:calc(var(--u) * 5179.0/860) }
-.bs .bs-s1 .s1-n4 .s1-nsl{ top:calc(var(--u) * 5199.0/860) }
-.bs .bs-s1 .s1-n4 .s1-ntx{ top:calc(var(--u) * 5207.0/860) }
-.bs .bs-s1 .s1-n4 .s1-nico{ top:calc(var(--u) * 5204.0/860); left:calc(var(--u) * 70.0/860); width:calc(var(--u) * 52.673/860); height:calc(var(--u) * 68.885/860) }
-.bs .bs-s1 .s1-n5 .s1-nrow{ top:calc(var(--u) * 5311.0/860) }
-.bs .bs-s1 .s1-n5 .s1-nsl{ top:calc(var(--u) * 5331.0/860) }
-.bs .bs-s1 .s1-n5 .s1-ntx{ top:calc(var(--u) * 5339.0/860) }
-.bs .bs-s1 .s1-n5 .s1-nico{ top:calc(var(--u) * 5341.0/860); left:calc(var(--u) * 76.0/860); width:calc(var(--u) * 42.121/860); height:calc(var(--u) * 56.326/860) }
+.bs .bs-s1 .s1-n1 .s1-nrow{ top:calc(var(--u) * 4933/860) }
+.bs .bs-s1 .s1-n1 .s1-nsl{ top:calc(var(--u) * 4953/860) }
+.bs .bs-s1 .s1-n1 .s1-ntx{ top:calc(var(--u) * 4961/860) }
+.bs .bs-s1 .s1-n1 .s1-nico{ top:calc(var(--u) * 4958.78/860); left:calc(var(--u) * 73.423/860); width:calc(var(--u) * 48.577/860); height:calc(var(--u) * 68.276/860) }
+.bs .bs-s1 .s1-n2 .s1-nrow{ top:calc(var(--u) * 5065/860) }
+.bs .bs-s1 .s1-n2 .s1-nsl{ top:calc(var(--u) * 5085/860) }
+.bs .bs-s1 .s1-n2 .s1-ntx{ top:calc(var(--u) * 5093/860) }
+.bs .bs-s1 .s1-n2 .s1-nico{ top:calc(var(--u) * 5100/860); left:calc(var(--u) * 75.0/860); width:calc(var(--u) * 49.686/860); height:calc(var(--u) * 49.508/860) }
+.bs .bs-s1 .s1-n3 .s1-nrow{ top:calc(var(--u) * 5197/860) }
+.bs .bs-s1 .s1-n3 .s1-nsl{ top:calc(var(--u) * 5217/860) }
+.bs .bs-s1 .s1-n3 .s1-ntx{ top:calc(var(--u) * 5225/860) }
+.bs .bs-s1 .s1-n3 .s1-nico{ top:calc(var(--u) * 5225.72/860); left:calc(var(--u) * 75.599/860); width:calc(var(--u) * 52.402/860); height:calc(var(--u) * 56.236/860) }
+.bs .bs-s1 .s1-n4 .s1-nrow{ top:calc(var(--u) * 5329/860) }
+.bs .bs-s1 .s1-n4 .s1-nsl{ top:calc(var(--u) * 5349/860) }
+.bs .bs-s1 .s1-n4 .s1-ntx{ top:calc(var(--u) * 5357/860) }
+.bs .bs-s1 .s1-n4 .s1-nico{ top:calc(var(--u) * 5354/860); left:calc(var(--u) * 70.0/860); width:calc(var(--u) * 52.673/860); height:calc(var(--u) * 68.885/860) }
+.bs .bs-s1 .s1-n5 .s1-nrow{ top:calc(var(--u) * 5461/860) }
+.bs .bs-s1 .s1-n5 .s1-nsl{ top:calc(var(--u) * 5481/860) }
+.bs .bs-s1 .s1-n5 .s1-ntx{ top:calc(var(--u) * 5489/860) }
+.bs .bs-s1 .s1-n5 .s1-nico{ top:calc(var(--u) * 5491/860); left:calc(var(--u) * 76.0/860); width:calc(var(--u) * 42.121/860); height:calc(var(--u) * 56.326/860) }
 
 /* 3697:33076 강사 현장 (x-37 y5601 w933) */
-.bs .bs-s1 .s1-teacher{ top:calc(var(--u) * 5601.0/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 860.0/860) }
+.bs .bs-s1 .s1-teacher{ top:calc(var(--u) * 5751/860); left:calc(var(--u) * 0.0/860); width:calc(var(--u) * 860.0/860) }
 /* 3684:21100 — 레이어가 Inter:Bold 50. 같은 함정, 같은 실측값 */
-.bs .bs-s1 .s1-one{ top:calc(var(--u) * 5822.0/860); left:calc(var(--u) * 136.0/860); width:calc(var(--u) * 586.0/860); text-align:center; color:#fff; font-weight:700; font-size:calc(var(--u) * 52.3/860); line-height:calc(var(--u) * 60.0/860); letter-spacing:-.018em; white-space:nowrap }
+.bs .bs-s1 .s1-one{ top:calc(var(--u) * 5972/860); left:calc(var(--u) * 136.0/860); width:calc(var(--u) * 586.0/860); text-align:center; color:#fff; font-weight:700; font-size:calc(var(--u) * 52.3/860); line-height:calc(var(--u) * 60.0/860); letter-spacing:-.018em; white-space:nowrap }
 .bs .bs-s1 .s1-one b{ font-weight:inherit; color:var(--green) }
 /* 3684:28723 — ExtraBold 40/54 -0.8px #CFCFCF */
-.bs .bs-s1 .s1-baro{ top:calc(var(--u) * 6425.0/860); left:calc(var(--u) * 61.0/860); width:calc(var(--u) * 738.0/860); text-align:center; color:#CFCFCF; font-weight:800; font-size:calc(var(--u) * 40.0/860); line-height:calc(var(--u) * 54.0/860); letter-spacing:-.02em }
+.bs .bs-s1 .s1-baro{ top:calc(var(--u) * 6575/860); left:calc(var(--u) * 61.0/860); width:calc(var(--u) * 738.0/860); text-align:center; color:#CFCFCF; font-weight:800; font-size:calc(var(--u) * 40.0/860); line-height:calc(var(--u) * 54.0/860); letter-spacing:-.02em }
 /* 3684:21101 — ExtraBold 57/74 -2.85px, 2줄만 초록 */
-.bs .bs-s1 .s1-goal{ top:calc(var(--u) * 6471.0/860); left:calc(var(--u) * 8.0/860); width:calc(var(--u) * 844.0/860); text-align:center; color:#fff; font-weight:800; font-size:calc(var(--u) * 57.0/860); line-height:calc(var(--u) * 74.0/860); letter-spacing:-.05em }
+.bs .bs-s1 .s1-goal{ top:calc(var(--u) * 6621/860); left:calc(var(--u) * 8.0/860); width:calc(var(--u) * 844.0/860); text-align:center; color:#fff; font-weight:800; font-size:calc(var(--u) * 57.0/860); line-height:calc(var(--u) * 74.0/860); letter-spacing:-.05em }
 .bs .bs-s1 .s1-goal b{ font-weight:inherit; color:var(--green) }
 /* 3684:17976 새싹 */
-.bs .bs-s1 .s1-sprout{ top:calc(var(--u) * 6804.0/860); left:calc(var(--u) * 108.0/860); width:calc(var(--u) * 101.168/860) }
+.bs .bs-s1 .s1-sprout{ top:calc(var(--u) * 6954/860); left:calc(var(--u) * 108.0/860); width:calc(var(--u) * 101.168/860) }
 /* 3684:17975 — TLAB 110 #2CFF05 (잉크 x239 y6837) */
-.bs .bs-s1 .s1-like{ top:calc(var(--u) * 6837.0/860); left:calc(var(--u) * 239.0/860); width:calc(var(--u) * 509.96/860); color:var(--green) }
+.bs .bs-s1 .s1-like{ top:calc(var(--u) * 6987/860); left:calc(var(--u) * 239.0/860); width:calc(var(--u) * 509.96/860); color:var(--green) }
 
 /* 카드 6장 — 사각 #121212 테두리 1px #3A3A3A r25 */
 .bs .bs-s1 .s1-cards{ list-style:none; inset:0 }
@@ -952,31 +961,31 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 .bs .bs-s1 .s1-ch{ color:#AAD8F9 }
 /* 3684:20972 외 — SemiBold 30/44 -0.6px #ECECEC */
 .bs .bs-s1 .s1-cd{ text-align:center; color:#ECECEC; font-weight:600; font-size:calc(var(--u) * 30.0/860); line-height:calc(var(--u) * 44.0/860); letter-spacing:-.02em }
-.bs .bs-s1 .s1-c-plan .s1-cbox{ top:calc(var(--u) * 7013.0/860); left:calc(var(--u) * 51.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 415.62/860) }
-.bs .bs-s1 .s1-c-plan .s1-cico{ top:calc(var(--u) * 7002.0/860); left:calc(var(--u) * 163.0/860); width:calc(var(--u) * 143.0/860); height:calc(var(--u) * 204.0/860) }
-.bs .bs-s1 .s1-c-plan .s1-ch{ top:calc(var(--u) * 7211.0/860); left:calc(var(--u) * 194.0/860); width:calc(var(--u) * 89.29/860) }
-.bs .bs-s1 .s1-c-plan .s1-cd{ top:calc(var(--u) * 7317.905/860); left:calc(var(--u) * 70.0/860); width:calc(var(--u) * 339.0/860) }
-.bs .bs-s1 .s1-c-direct .s1-cbox{ top:calc(var(--u) * 7013.0/860); left:calc(var(--u) * 451.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 415.62/860) }
-.bs .bs-s1 .s1-c-direct .s1-cico{ top:calc(var(--u) * 7016.0/860); left:calc(var(--u) * 580.0/860); width:calc(var(--u) * 118.0/860); height:calc(var(--u) * 176.0/860) }
-.bs .bs-s1 .s1-c-direct .s1-ch{ top:calc(var(--u) * 7211.0/860); left:calc(var(--u) * 594.0/860); width:calc(var(--u) * 90.72/860) }
-.bs .bs-s1 .s1-c-direct .s1-cd{ top:calc(var(--u) * 7317.938/860); left:calc(var(--u) * 468.0/860); width:calc(var(--u) * 339.0/860) }
-.bs .bs-s1 .s1-c-shoot .s1-cbox{ top:calc(var(--u) * 7453.19/860); left:calc(var(--u) * 51.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 415.62/860) }
-.bs .bs-s1 .s1-c-shoot .s1-cico{ top:calc(var(--u) * 7371.043/860); left:calc(var(--u) * 198.187/860); width:calc(var(--u) * 191.79/860); height:calc(var(--u) * 328.914/860) }
-.bs .bs-s1 .s1-c-shoot .s1-ch{ top:calc(var(--u) * 7650.0/860); left:calc(var(--u) * 106.0/860); width:calc(var(--u) * 260.82/860) }
-.bs .bs-s1 .s1-c-shoot .s1-cd{ top:calc(var(--u) * 7758.128/860); left:calc(var(--u) * 77.0/860); width:calc(var(--u) * 321.0/860) }
-.bs .bs-s1 .s1-c-ai .s1-cbox{ top:calc(var(--u) * 7453.19/860); left:calc(var(--u) * 451.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 415.62/860) }
-.bs .bs-s1 .s1-c-ai .s1-cico{ top:calc(var(--u) * 7481.732/860); left:calc(var(--u) * 549.912/860); width:calc(var(--u) * 189.176/860); height:calc(var(--u) * 201.623/860) }
-.bs .bs-s1 .s1-c-ai .s1-ch{ top:calc(var(--u) * 7656.0/860); left:calc(var(--u) * 610.0/860); width:calc(var(--u) * 53.84/860) }
-.bs .bs-s1 .s1-c-ai .s1-cd{ top:calc(var(--u) * 7758.095/860); left:calc(var(--u) * 477.0/860); width:calc(var(--u) * 321.0/860) }
-.bs .bs-s1 .s1-c-edit .s1-cbox{ top:calc(var(--u) * 7893.0/860); left:calc(var(--u) * 51.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 271.0/860) }
-.bs .bs-s1 .s1-c-edit .s1-ch{ top:calc(var(--u) * 7948.0/860); left:calc(var(--u) * 193.0/860); width:calc(var(--u) * 89.21/860) }
-.bs .bs-s1 .s1-c-edit .s1-cd{ top:calc(var(--u) * 8053.35/860); left:calc(var(--u) * 68.0/860); width:calc(var(--u) * 339.0/860) }
-.bs .bs-s1 .s1-c-color .s1-cbox{ top:calc(var(--u) * 7893.0/860); left:calc(var(--u) * 451.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 270.0/860) }
-.bs .bs-s1 .s1-c-color .s1-ch{ top:calc(var(--u) * 7947.0/860); left:calc(var(--u) * 567.0/860); width:calc(var(--u) * 137.42/860) }
-.bs .bs-s1 .s1-c-color .s1-cd{ top:calc(var(--u) * 8051.97/860); left:calc(var(--u) * 487.0/860); width:calc(var(--u) * 301.0/860) }
+.bs .bs-s1 .s1-c-plan .s1-cbox{ top:calc(var(--u) * 7163/860); left:calc(var(--u) * 51.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 415.62/860) }
+.bs .bs-s1 .s1-c-plan .s1-cico{ top:calc(var(--u) * 7152/860); left:calc(var(--u) * 163.0/860); width:calc(var(--u) * 143.0/860); height:calc(var(--u) * 204.0/860) }
+.bs .bs-s1 .s1-c-plan .s1-ch{ top:calc(var(--u) * 7361/860); left:calc(var(--u) * 194.0/860); width:calc(var(--u) * 89.29/860) }
+.bs .bs-s1 .s1-c-plan .s1-cd{ top:calc(var(--u) * 7467.9/860); left:calc(var(--u) * 70.0/860); width:calc(var(--u) * 339.0/860) }
+.bs .bs-s1 .s1-c-direct .s1-cbox{ top:calc(var(--u) * 7163/860); left:calc(var(--u) * 451.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 415.62/860) }
+.bs .bs-s1 .s1-c-direct .s1-cico{ top:calc(var(--u) * 7166/860); left:calc(var(--u) * 580.0/860); width:calc(var(--u) * 118.0/860); height:calc(var(--u) * 176.0/860) }
+.bs .bs-s1 .s1-c-direct .s1-ch{ top:calc(var(--u) * 7361/860); left:calc(var(--u) * 594.0/860); width:calc(var(--u) * 90.72/860) }
+.bs .bs-s1 .s1-c-direct .s1-cd{ top:calc(var(--u) * 7467.94/860); left:calc(var(--u) * 468.0/860); width:calc(var(--u) * 339.0/860) }
+.bs .bs-s1 .s1-c-shoot .s1-cbox{ top:calc(var(--u) * 7603.19/860); left:calc(var(--u) * 51.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 415.62/860) }
+.bs .bs-s1 .s1-c-shoot .s1-cico{ top:calc(var(--u) * 7521.04/860); left:calc(var(--u) * 198.187/860); width:calc(var(--u) * 191.79/860); height:calc(var(--u) * 328.914/860) }
+.bs .bs-s1 .s1-c-shoot .s1-ch{ top:calc(var(--u) * 7800/860); left:calc(var(--u) * 106.0/860); width:calc(var(--u) * 260.82/860) }
+.bs .bs-s1 .s1-c-shoot .s1-cd{ top:calc(var(--u) * 7908.13/860); left:calc(var(--u) * 77.0/860); width:calc(var(--u) * 321.0/860) }
+.bs .bs-s1 .s1-c-ai .s1-cbox{ top:calc(var(--u) * 7603.19/860); left:calc(var(--u) * 451.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 415.62/860) }
+.bs .bs-s1 .s1-c-ai .s1-cico{ top:calc(var(--u) * 7631.73/860); left:calc(var(--u) * 549.912/860); width:calc(var(--u) * 189.176/860); height:calc(var(--u) * 201.623/860) }
+.bs .bs-s1 .s1-c-ai .s1-ch{ top:calc(var(--u) * 7806/860); left:calc(var(--u) * 610.0/860); width:calc(var(--u) * 53.84/860) }
+.bs .bs-s1 .s1-c-ai .s1-cd{ top:calc(var(--u) * 7908.1/860); left:calc(var(--u) * 477.0/860); width:calc(var(--u) * 321.0/860) }
+.bs .bs-s1 .s1-c-edit .s1-cbox{ top:calc(var(--u) * 8043/860); left:calc(var(--u) * 51.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 271.0/860) }
+.bs .bs-s1 .s1-c-edit .s1-ch{ top:calc(var(--u) * 8098/860); left:calc(var(--u) * 193.0/860); width:calc(var(--u) * 89.21/860) }
+.bs .bs-s1 .s1-c-edit .s1-cd{ top:calc(var(--u) * 8203.35/860); left:calc(var(--u) * 68.0/860); width:calc(var(--u) * 339.0/860) }
+.bs .bs-s1 .s1-c-color .s1-cbox{ top:calc(var(--u) * 8043/860); left:calc(var(--u) * 451.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 270.0/860) }
+.bs .bs-s1 .s1-c-color .s1-ch{ top:calc(var(--u) * 8097/860); left:calc(var(--u) * 567.0/860); width:calc(var(--u) * 137.42/860) }
+.bs .bs-s1 .s1-c-color .s1-cd{ top:calc(var(--u) * 8201.97/860); left:calc(var(--u) * 487.0/860); width:calc(var(--u) * 301.0/860) }
 
 /* 3684:28782 — Medium 40/52 -1.2px #ECECEC, 강조는 ExtraBold #2CFF05 */
-.bs .bs-s1 .s1-both{ top:calc(var(--u) * 8294.0/860); left:calc(var(--u) * 51.0/860); width:calc(var(--u) * 757.0/860); text-align:center; color:#ECECEC; font-weight:500; font-size:calc(var(--u) * 40.0/860); line-height:calc(var(--u) * 52.0/860); letter-spacing:-.03em }
+.bs .bs-s1 .s1-both{ top:calc(var(--u) * 8444/860); left:calc(var(--u) * 51.0/860); width:calc(var(--u) * 757.0/860); text-align:center; color:#ECECEC; font-weight:500; font-size:calc(var(--u) * 40.0/860); line-height:calc(var(--u) * 52.0/860); letter-spacing:-.03em }
 .bs .bs-s1 .s1-both b{ font-weight:800; color:var(--green) }
 /* ══ 상페1 끝 ══ */
 
