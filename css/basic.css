@@ -56,7 +56,7 @@
 .bs .bs-board{ position:relative; width:var(--u); margin-inline:auto;
   background:#000; overflow:hidden }
 .bs .bs-board > *{ position:absolute; margin:0 }
-.bs .bs-board img{ display:block; width:100%; height:auto }
+.bs .bs-board img{ display:block; width:100%; height:auto; max-width:none } /* style.css 의 max-width:100% 가 피그마 블리드(895/903px)를 860으로 눌러버린다 */
 /* 피그마 글상자는 대문자 윗선~밑선으로 잘라 놓은 것이 많다. 같게 잘라야 자리가 맞는다. */
 .bs .bs-board .tb{ text-box-trim:trim-both; text-box-edge:cap alphabetic;
   text-box:trim-both cap alphabetic }
