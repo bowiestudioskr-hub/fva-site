@@ -116,7 +116,7 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 <link rel="stylesheet" href="css/style.css?v=bcdee7d5">
 <link rel="stylesheet" href="css/mobile.css?v=15ca757b">
 <link rel="stylesheet" href="css/sub.css?v=52afb8af">
-<link rel="stylesheet" href="css/basic.css?v=0c68d3dd">
+<link rel="stylesheet" href="css/basic.css?v=b90637ef">
 <link rel="stylesheet" href="css/offline.css?v=f4bf815f">
 <link rel="stylesheet" href="css/offline-plan.css?v=9ab719a4">
 <link rel="stylesheet" href="css/offline-blocks.css?v=229e5781">
@@ -1134,10 +1134,24 @@ if(window.wcs) { wcs_do(); }
   var 덧말 = document.getElementById('nt-dday');
 
   if (남은.length) {
-    딱지.textContent = '마감 임박';
-    말.innerHTML = 기수 + ' 수강신청 <b>이번 주</b> 마감';
-    덧말.textContent = 남은[0].d === 0 ? '오늘 개강'
-      : 남은[0].반 + ' 개강까지 ' + 남은[0].d + '일';
+    /* ⚠ 「이번 주 마감」은 D-55 에도 그대로 떠서 거짓이 됐다(2026-08-24 지적).
+         평소에는 「마감까지 D-N」으로 세고,
+         「개강까지 N일」 칩은 개강 2주 전부터만 보여준다 — 그전엔 조급함만 주는 숫자다. */
+    var D = 남은[0].d;
+    if (D === 0) {
+      딱지.textContent = '오늘 개강';
+      말.innerHTML = 기수 + ' 수강신청 <b>오늘</b> 마감';
+      덧말.textContent = 남은[0].반 + ' 오늘 개강';
+    } else if (D <= 14) {
+      딱지.textContent = '마감 임박';
+      말.innerHTML = 기수 + ' 수강신청 마감까지 <b>D-' + D + '</b>';
+      덧말.textContent = 남은[0].반 + ' 개강까지 ' + D + '일';
+    } else {
+      딱지.textContent = '모집 중';
+      말.innerHTML = 기수 + ' 수강신청 마감까지 <b>D-' + D + '</b>';
+      덧말.textContent = '';
+      덧말.hidden = true;
+    }
   } else if (개강.length) {
     /* 개강일은 지났는데 아직 받고 있는 중. 「마감 임박」은 이제 거짓이라 바꿔 단다. */
     딱지.textContent = '모집 중';

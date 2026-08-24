@@ -512,6 +512,44 @@
   font-size:calc(var(--u) * 30/860); letter-spacing:-.02em }
 .bs .bs-go .bs-buy{ background:var(--green); color:#031000 }
 .bs .bs-go .bs-ask{ background:#141414; color:#fff; border:1px solid #2C2C2C }
+
+/* ── 가격·단추 움직임 (2026-08-24) ─────────────────────
+   ⚠ 나타나기(bs-rv)는 translate/opacity 를 쓰므로, 여기서는 안쪽 svg 의
+     transform/filter 만 만진다. 겹치면 안 된다. */
+/* 299,000원 — 나타날 때 한 번 튀고, 그 뒤 초록빛 숨쉬기 */
+html.js-rv .bs .bs-price .bs-now.bs-in .bs-tl{ animation:bs-pop .55s cubic-bezier(.2,1.7,.4,1) both }
+@keyframes bs-pop{ from{ transform:scale(.8) } to{ transform:scale(1) } }
+.bs .bs-price .bs-now svg{ animation:bs-glow 2.6s ease-in-out 1.2s infinite }
+@keyframes bs-glow{
+  0%,100%{ filter:drop-shadow(0 0 0 rgba(44,255,5,0)) }
+  50%{ filter:drop-shadow(0 0 calc(var(--u) * 16/860) rgba(44,255,5,.55)) } }
+/* 내려가는 화살표 — 콕콕 */
+.bs .bs-price .bs-arrow{ animation:bs-drop 1.6s ease-in-out infinite }
+@keyframes bs-drop{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(22%) } }
+/* 「최대 33% 할인」 캡슐 — 몇 초에 한 번 흔들어 눈길 끌기 */
+.bs .bs-price .bs-tags .bs-t1{ display:inline-block; animation:bs-nudge 3.4s ease-in-out 2s infinite }
+@keyframes bs-nudge{
+  0%,84%,100%{ transform:none }
+  88%{ transform:rotate(-2.2deg) scale(1.05) }
+  92%{ transform:rotate(2.2deg) scale(1.05) }
+  96%{ transform:rotate(0) scale(1.03) } }
+/* 초록 단추 — 빛 숨쉬기 + 이따금 빛줄기 스치기, 올리면 살짝 떠오름 */
+.bs .bs-go .bs-buy{ position:relative; overflow:hidden;
+  animation:bs-breathe 2.8s ease-in-out infinite;
+  transition:transform .18s ease }
+.bs .bs-go .bs-buy:hover{ transform:translateY(-2px) scale(1.015) }
+@keyframes bs-breathe{
+  0%,100%{ box-shadow:0 0 0 0 rgba(44,255,5,.25) }
+  50%{ box-shadow:0 0 calc(var(--u) * 24/860) calc(var(--u) * 3/860) rgba(44,255,5,.45) } }
+.bs .bs-go .bs-buy::after{ content:''; position:absolute; inset:0;
+  background:linear-gradient(115deg, transparent 32%, rgba(255,255,255,.5) 50%, transparent 68%);
+  transform:translateX(-130%); animation:bs-shine 3.6s ease 1.4s infinite }
+@keyframes bs-shine{ 0%{ transform:translateX(-130%) } 42%,100%{ transform:translateX(130%) } }
+.bs .bs-go .bs-ask{ transition:transform .18s ease, border-color .18s ease }
+.bs .bs-go .bs-ask:hover{ transform:translateY(-2px); border-color:#4A4A4A }
+@media (prefers-reduced-motion: reduce){
+  .bs .bs-price .bs-now svg, .bs .bs-price .bs-arrow,
+  .bs .bs-price .bs-tags .bs-t1, .bs .bs-go .bs-buy, .bs .bs-go .bs-buy::after{ animation:none } }
 .bs .bs-go a:hover{ filter:brightness(1.08) }
 @media (min-width:620px){ .bs .bs-go{ grid-template-columns:1.4fr 1fr } }
 
@@ -1135,6 +1173,8 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 .bs .bs-s2 .s2-capGpic2{ top:calc(var(--u) * 9757.266/860); left:calc(var(--u) * 116.691/860); width:calc(var(--u) * 632.616/860); border-radius:calc(var(--u) * 20.0/860) }
 /* 3736:27536 · 3697:33432 — Bold 24 -0.72 흰색 */
 .bs .bs-s2 .s2-capGcap1,.bs .bs-s2 .s2-capGcap2{ text-align:center; color:#fff; font-weight:700; font-size:calc(var(--u) * 24.0/860); line-height:1.2; letter-spacing:-.03em }
-.bs .bs-s2 .s2-capGcap1{ top:calc(var(--u) * 9687.0/860); left:calc(var(--u) * 262.0/860); width:calc(var(--u) * 342.414/860) }
+/* 3736:27536 — 글 + SLR 렌트 로고(3736:27512). 로고는 따로 앉힌다 */
+.bs .bs-s2 .s2-capGcap1{ top:calc(var(--u) * 9687.0/860); left:calc(var(--u) * 262.0/860); width:calc(var(--u) * 206.0/860); text-align:left; white-space:nowrap }
+.bs .bs-s2 .s2-slrlogo{ top:calc(var(--u) * 9677.08/860); left:calc(var(--u) * 474.93/860); width:calc(var(--u) * 129.483/860); height:calc(var(--u) * 33.844/860) }
 .bs .bs-s2 .s2-capGcap2{ top:calc(var(--u) * 10065.0/860); left:calc(var(--u) * 334.0/860); width:calc(var(--u) * 191.0/860) }
 /* ══ 상페2 끝 ══ */
