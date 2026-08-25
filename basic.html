@@ -116,7 +116,7 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 <link rel="stylesheet" href="css/style.css?v=bcdee7d5">
 <link rel="stylesheet" href="css/mobile.css?v=15ca757b">
 <link rel="stylesheet" href="css/sub.css?v=313eb78b">
-<link rel="stylesheet" href="css/basic.css?v=78318a3d">
+<link rel="stylesheet" href="css/basic.css?v=7c8cab93">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -197,7 +197,8 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 
 <main class="bs">
 
-<!-- 마감 임박 띠 — offline.html 것과 같은 구조. 남은 날짜는 아래 스크립트가 개강일에서 센다. -->
+<!-- 상단 모집 블록 — 마스터(offline.html)와 같은 구조. 띠 문구는 아래 스크립트가 개강일에서 센다.
+     ⚠ 왕초보반은 기수 대신 「매달」 모집. 개강일이 지나면 스크립트의 개강 배열을 다음 달 날짜로 갱신할 것. -->
 <section class="bs-notice" aria-label="모집 안내">
   <div class="nt-urgent" id="nt-urgent" hidden>
     <picture>
@@ -207,10 +208,42 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
     </picture>
     <div class="say">
       <span class="flare" id="nt-flare">모집 중</span>
-      <strong id="nt-say">20기 수강생 <b>모집</b></strong>
+      <strong id="nt-say">왕초보반 수강생 <b>모집</b></strong>
       <span class="dday" id="nt-dday"></span>
     </div>
   </div>
+
+  <div class="nt-open">
+    <p class="head">
+      <strong id="nt-h">매달 수강신청중</strong>
+      <span>주 2회 &middot; 다른 요일로 보강 가능</span>
+    </p>
+    <div class="nt-table">
+      <div class="nt-row">
+        <span class="cls">화&middot;목 평일반</span>
+        <span class="time">19:30 &ndash; 21:30</span>
+        <span class="start">개강 9월 29일 (화)</span>
+      </div>
+      <div class="nt-row">
+        <span class="cls">토&middot;일 주말반</span>
+        <span class="time">13:30 &ndash; 15:30</span>
+        <span class="start">개강 10월 3일 (토)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="nt-how">
+    <div><b>수강 신청</b><span>상품에서 수강요일(평일반 / 주말반) 선택 &rarr; 수신자에 수강생 이름 / 번호 입력 후 구매</span></div>
+  </div>
+
+  <p class="nt-btns">
+    <a class="nt-btn solid" href="https://smartstore.naver.com/bowiestudios/products/13725425855" target="_blank" rel="noopener">
+      수강 신청하기 <span aria-hidden="true">&rarr;</span>
+    </a>
+    <a class="nt-btn ghost" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">
+      코스 전체 보기 <span aria-hidden="true">&rarr;</span>
+    </a>
+  </p>
 </section>
 
 <!-- ══ 상페1 (3684:17907) — tools/basic_s1.py 가 만든다. 손대지 말 것 ══ -->
@@ -797,13 +830,14 @@ if(window.wcs) { wcs_do(); }
      그래서 개강 전/후로 문구를 갈라 둔다. */
 (function () {
   var 모집중 = true;
-  var 기수 = '20기';
+  var 기수 = '왕초보반';
   /* ⚠ 개강일이 아직 안 나왔으면 **빈 배열로 둔다.** 지난 기수 날짜를 남겨두면
        D-day 가 음수로 걸러져 「지금도 합류하실 수 있습니다」가 뜨는데,
        아직 시작도 안 한 기수에는 거짓말이 된다. 빈 배열이면 따로 문구가 나간다. */
+  /* ⚠ 왕초보반 실제 일정 (스마트스토어와 일치시킬 것) — 매달 모집이라 지나면 다음 달로 갱신 */
   var 개강 = [
-    { 반: '일요일 반', 날: '2026-10-18' },
-    { 반: '수요일 반', 날: '2026-10-21' }
+    { 반: '화·목 평일반', 날: '2026-09-29' },
+    { 반: '토·일 주말반', 날: '2026-10-03' }
   ];
 
   if (!모집중) return;

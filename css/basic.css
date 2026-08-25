@@ -1188,54 +1188,155 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 .bs .bs-s2 .s2-capGcap2{ top:calc(var(--u) * 10065.0/860); left:calc(var(--u) * 334.0/860); width:calc(var(--u) * 191.0/860) }
 /* ══ 상페2 끝 ══ */
 
-/* ── 마감 임박 띠 (offline.css 714~770 이식, 2026-08-25) ── */
-.bs-notice{ --alert:#E01B00; --alert-ink:#FFF;
-  padding-top:clamp(60px, calc(var(--pagew) * 150/1920), 150px) }
-.bs-notice .nt-urgent[hidden]{ display:none }  /* hidden 이 display 규칙에 지지 않게 */
+/* ══ 상단 모집 블록 — offline.css(마스터)와 같은 크기·구조 이식 (2026-08-25) ══ */
+.bs-notice{
+  --u:var(--pagew);
+  --w:clamp(320px, calc(var(--u) * 1180/1920), 1180px);
+  --alert:#E01B00; --alert-ink:#FFF;
+  padding:clamp(52px, calc(var(--u) * 118/1920), 118px) 0 clamp(24px, calc(var(--u) * 56/1920), 56px);
+  text-align:center;
+}
+.bs-notice .nt-urgent[hidden]{ display:none }
 .bs-notice .nt-urgent{
-  position:relative;
-  display:flex; align-items:flex-end; justify-content:center;
-  gap:clamp(10px, calc(var(--pagew) * 26/1920), 26px);
-  max-width:calc(100% - 24px); width:860px;
-  margin:0 auto clamp(24px, calc(var(--pagew) * 44/1920), 44px);
-  padding:clamp(12px, calc(var(--pagew) * 20/1920), 20px) clamp(20px, calc(var(--pagew) * 40/1920), 40px);
+  position:relative; display:flex; align-items:flex-end; justify-content:center;
+  gap:clamp(10px, calc(var(--u) * 26/1920), 26px);
+  width:var(--w); max-width:calc(100% - 24px);
+  margin:0 auto clamp(24px, calc(var(--u) * 44/1920), 44px);
+  padding:clamp(12px, calc(var(--u) * 20/1920), 20px) clamp(20px, calc(var(--u) * 40/1920), 40px);
   background:var(--alert); color:var(--alert-ink);
-  border-radius:clamp(12px, calc(var(--pagew) * 20/1920), 20px);
+  border-radius:clamp(12px, calc(var(--u) * 20/1920), 20px);
   box-shadow:0 10px 34px rgba(224,27,0,.30);
 }
-.bs-notice picture{ display:contents }
-.bs-notice .face{
-  height:clamp(96px, calc(var(--pagew) * 210/1920), 210px);
-  width:auto; flex:none;
-  margin-top:calc(-1 * clamp(46px, calc(var(--pagew) * 104/1920), 104px));
-  margin-bottom:calc(-1 * clamp(11px, calc(var(--pagew) * 19/1920), 19px));
+.bs-notice .nt-urgent picture{ display:contents }
+.bs-notice .nt-urgent .face{
+  height:clamp(96px, calc(var(--u) * 210/1920), 210px); width:auto; flex:none;
+  margin-top:calc(-1 * clamp(46px, calc(var(--u) * 104/1920), 104px));
+  margin-bottom:calc(-1 * clamp(11px, calc(var(--u) * 19/1920), 19px));
   filter:drop-shadow(0 8px 20px rgba(0,0,0,.45));
 }
-.bs-notice .say{
-  display:flex; align-items:center; justify-content:center;
-  flex-wrap:wrap; gap:clamp(8px, calc(var(--pagew) * 16/1920), 16px);
-  padding-bottom:clamp(2px, calc(var(--pagew) * 6/1920), 6px);
+.bs-notice .nt-urgent .say{
+  display:flex; align-items:center; justify-content:center; flex-wrap:wrap;
+  gap:clamp(8px, calc(var(--u) * 16/1920), 16px);
+  padding-bottom:clamp(2px, calc(var(--u) * 6/1920), 6px);
 }
-.bs-notice .flare{
-  font-size:clamp(12px, calc(var(--pagew) * 21/1920), 21px);
-  font-weight:800; letter-spacing:.02em;
-  padding:clamp(3px,calc(var(--pagew)*6/1920),6px) clamp(9px,calc(var(--pagew)*15/1920),15px);
-  border-radius:999px; background:var(--alert-ink); color:var(--alert);
-  white-space:nowrap;
+.bs-notice .nt-urgent .flare{
+  font-size:clamp(12px, calc(var(--u) * 21/1920), 21px); font-weight:800; letter-spacing:.02em;
+  padding:clamp(3px,calc(var(--u)*6/1920),6px) clamp(9px,calc(var(--u)*15/1920),15px);
+  border-radius:999px; background:var(--alert-ink); color:var(--alert); white-space:nowrap;
   animation:nt-blink 1.5s ease-in-out infinite;
 }
-.bs-notice strong{
-  font-size:clamp(16px, calc(var(--pagew) * 34/1920), 34px);
-  font-weight:800; letter-spacing:-.035em; line-height:1.24;
-  word-break:keep-all; text-wrap:balance;
+.bs-notice .nt-urgent strong{
+  font-size:clamp(16px, calc(var(--u) * 34/1920), 34px); font-weight:800;
+  letter-spacing:-.035em; line-height:1.24; word-break:keep-all; text-wrap:balance;
 }
-.bs-notice strong b{ font-weight:800; color:var(--green) }
-.bs-notice .dday{
-  font-size:clamp(12.5px, calc(var(--pagew) * 22/1920), 22px);
-  font-weight:800; letter-spacing:-.02em; white-space:nowrap;
-  padding:clamp(4px,calc(var(--pagew)*7/1920),7px) clamp(11px,calc(var(--pagew)*17/1920),17px);
-  border-radius:999px; background:rgba(0,0,0,.26);
-  font-variant-numeric:tabular-nums;
+.bs-notice .nt-urgent strong b{ font-weight:800; color:var(--green) }
+.bs-notice .nt-urgent .dday{
+  font-size:clamp(12.5px, calc(var(--u) * 22/1920), 22px); font-weight:800;
+  letter-spacing:-.02em; white-space:nowrap;
+  padding:clamp(4px,calc(var(--u)*7/1920),7px) clamp(11px,calc(var(--u)*17/1920),17px);
+  border-radius:999px; background:rgba(0,0,0,.26); font-variant-numeric:tabular-nums;
 }
 @keyframes nt-blink{ 0%,100%{opacity:1} 50%{opacity:.4} }
-@media (prefers-reduced-motion: reduce){ .bs-notice .flare{ animation:none } }
+@media (prefers-reduced-motion: reduce){ .bs-notice .nt-urgent .flare{ animation:none } }
+
+/* 시간표 */
+.bs-notice .nt-open{
+  display:flex; flex-direction:column; align-items:center;
+  gap:clamp(14px, calc(var(--u) * 24/1920), 24px);
+}
+.bs-notice .nt-open .head{
+  display:flex; align-items:baseline; justify-content:center;
+  gap:clamp(10px, calc(var(--u) * 22/1920), 22px); flex-wrap:wrap;
+}
+.bs-notice .nt-open .head strong{
+  font-size:clamp(28px, calc(var(--u) * 76/1920), 76px);
+  font-weight:800; letter-spacing:-.05em; line-height:1; color:var(--green);
+}
+.bs-notice .nt-open .head span{
+  font-size:clamp(13px, calc(var(--u) * 26/1920), 26px);
+  font-weight:700; color:#fff; letter-spacing:-.028em; word-break:keep-all; text-wrap:balance;
+}
+.bs-notice .nt-table{
+  width:var(--w); max-width:calc(100% - 24px);
+  border-top:3px solid #fff; border-bottom:3px solid #fff;
+}
+.bs-notice .nt-row{
+  display:grid; grid-template-columns:minmax(0,auto) 1fr minmax(0,auto); align-items:center;
+  gap:clamp(10px, calc(var(--u) * 30/1920), 30px);
+  padding:clamp(13px, calc(var(--u) * 24/1920), 24px) clamp(12px, calc(var(--u) * 26/1920), 26px);
+}
+.bs-notice .nt-row + .nt-row{ border-top:1px solid rgba(253,253,253,.3) }
+.bs-notice .nt-row .cls{
+  font-size:clamp(16px, calc(var(--u) * 40/1920), 40px); font-weight:800;
+  letter-spacing:-.045em; color:#fff; white-space:nowrap;
+}
+.bs-notice .nt-row .time{
+  font-size:clamp(16px, calc(var(--u) * 40/1920), 40px); font-weight:800;
+  letter-spacing:-.03em; color:#fff; font-variant-numeric:tabular-nums; white-space:nowrap;
+}
+.bs-notice .nt-row .start{
+  font-size:clamp(12.5px, calc(var(--u) * 25/1920), 25px); font-weight:800;
+  color:var(--green); white-space:nowrap; font-variant-numeric:tabular-nums;
+}
+/* 신청 방법 */
+.bs-notice .nt-how{
+  margin-top:clamp(24px, calc(var(--u) * 48/1920), 48px);
+  display:flex; flex-direction:column; align-items:center;
+  gap:clamp(9px, calc(var(--u) * 15/1920), 15px);
+}
+.bs-notice .nt-how div{
+  width:var(--w); max-width:calc(100% - 24px);
+  background:var(--green); color:#06150A;
+  border-radius:clamp(9px, calc(var(--u) * 16/1920), 16px);
+  padding:clamp(13px, calc(var(--u) * 20/1920), 20px) clamp(15px, calc(var(--u) * 26/1920), 26px);
+  font-size:clamp(13px, calc(var(--u) * 22/1920), 22px);
+  font-weight:600; line-height:1.55; letter-spacing:-.028em; text-align:left;
+  display:grid; grid-template-columns:auto 1fr;
+  gap:clamp(9px, calc(var(--u) * 16/1920), 16px); align-items:start;
+}
+.bs-notice .nt-how div b{
+  font-weight:800; white-space:nowrap; padding:2px 9px; border-radius:6px;
+  background:rgba(6,21,10,.15); align-self:start;
+}
+.bs-notice .nt-how div span{ word-break:keep-all; overflow-wrap:break-word; text-wrap:pretty }
+/* 버튼 */
+.bs-notice .nt-btns{
+  margin-top:clamp(26px, calc(var(--u) * 52/1920), 52px);
+  display:flex; justify-content:center; gap:clamp(10px, calc(var(--u) * 18/1920), 18px); flex-wrap:wrap;
+}
+.bs-notice .nt-btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.4em;
+  min-width:clamp(160px, calc(var(--u) * 290/1920), 290px);
+  min-height:clamp(52px, calc(var(--u) * 74/1920), 74px);
+  padding:clamp(13px, calc(var(--u) * 24/1920), 24px) clamp(20px, calc(var(--u) * 36/1920), 36px);
+  border-radius:999px; text-decoration:none;
+  font-size:clamp(15px, calc(var(--u) * 26/1920), 26px);
+  font-weight:800; letter-spacing:-.028em; line-height:1;
+  transition:filter .15s, transform .12s, background .15s, color .15s, box-shadow .15s;
+}
+.bs-notice .nt-btn.solid{ background:var(--green); color:#06150A; box-shadow:0 6px 20px rgba(122,255,102,.28) }
+.bs-notice .nt-btn.ghost{ background:rgba(253,253,253,.10); color:#fff; box-shadow:inset 0 0 0 2px #fff }
+.bs-notice .nt-btn:hover{ filter:brightness(1.07); transform:translateY(-2px) }
+.bs-notice .nt-btn.solid:hover{ box-shadow:0 10px 26px rgba(122,255,102,.4) }
+.bs-notice .nt-btn.ghost:hover{ background:#fff; color:#06150A; box-shadow:none; filter:none }
+.bs-notice .nt-btn:active{ transform:translateY(0) scale(.985) }
+.bs-notice .nt-btn:focus-visible{ outline:3px solid var(--green); outline-offset:3px }
+.bs-notice .nt-btn span{ transition:transform .15s }
+.bs-notice .nt-btn:hover span{ transform:translateX(3px) }
+
+/* 좁은 화면 — 마스터와 동일한 축소 */
+@media (max-width:680px){
+  .bs-notice .nt-urgent{
+    flex-direction:column; align-items:center;
+    padding:0 14px 13px; gap:6px; margin-bottom:18px; border-radius:16px;
+  }
+  .bs-notice .nt-urgent .face{ height:118px; margin-top:-58px; margin-bottom:-2px; align-self:center }
+  .bs-notice .nt-urgent .say{ gap:5px; padding-bottom:0 }
+  .bs-notice .nt-urgent strong{ font-size:16.5px; width:100% }
+  .bs-notice .nt-urgent .flare{ font-size:11.5px }
+  .bs-notice .nt-urgent .dday{ font-size:12px }
+  .bs-notice .nt-btns{ padding:0 12px; gap:8px }
+  .bs-notice .nt-btn{ flex:1; min-width:0; padding:13px 10px; font-size:14px }
+  .bs-notice .nt-open .head{ gap:6px }
+  .bs-notice .nt-open .head span{ font-size:14px }
+}
