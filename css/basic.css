@@ -1187,3 +1187,55 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 .bs .bs-s2 .s2-slrlogo{ top:calc(var(--u) * 9677.08/860); left:calc(var(--u) * 474.93/860); width:calc(var(--u) * 129.483/860); height:calc(var(--u) * 33.844/860) }
 .bs .bs-s2 .s2-capGcap2{ top:calc(var(--u) * 10065.0/860); left:calc(var(--u) * 334.0/860); width:calc(var(--u) * 191.0/860) }
 /* ══ 상페2 끝 ══ */
+
+/* ── 마감 임박 띠 (offline.css 714~770 이식, 2026-08-25) ── */
+.bs-notice{ --alert:#E01B00; --alert-ink:#FFF;
+  padding-top:clamp(60px, calc(var(--pagew) * 150/1920), 150px) }
+.bs-notice .nt-urgent[hidden]{ display:none }  /* hidden 이 display 규칙에 지지 않게 */
+.bs-notice .nt-urgent{
+  position:relative;
+  display:flex; align-items:flex-end; justify-content:center;
+  gap:clamp(10px, calc(var(--pagew) * 26/1920), 26px);
+  max-width:calc(100% - 24px); width:860px;
+  margin:0 auto clamp(24px, calc(var(--pagew) * 44/1920), 44px);
+  padding:clamp(12px, calc(var(--pagew) * 20/1920), 20px) clamp(20px, calc(var(--pagew) * 40/1920), 40px);
+  background:var(--alert); color:var(--alert-ink);
+  border-radius:clamp(12px, calc(var(--pagew) * 20/1920), 20px);
+  box-shadow:0 10px 34px rgba(224,27,0,.30);
+}
+.bs-notice picture{ display:contents }
+.bs-notice .face{
+  height:clamp(96px, calc(var(--pagew) * 210/1920), 210px);
+  width:auto; flex:none;
+  margin-top:calc(-1 * clamp(46px, calc(var(--pagew) * 104/1920), 104px));
+  margin-bottom:calc(-1 * clamp(11px, calc(var(--pagew) * 19/1920), 19px));
+  filter:drop-shadow(0 8px 20px rgba(0,0,0,.45));
+}
+.bs-notice .say{
+  display:flex; align-items:center; justify-content:center;
+  flex-wrap:wrap; gap:clamp(8px, calc(var(--pagew) * 16/1920), 16px);
+  padding-bottom:clamp(2px, calc(var(--pagew) * 6/1920), 6px);
+}
+.bs-notice .flare{
+  font-size:clamp(12px, calc(var(--pagew) * 21/1920), 21px);
+  font-weight:800; letter-spacing:.02em;
+  padding:clamp(3px,calc(var(--pagew)*6/1920),6px) clamp(9px,calc(var(--pagew)*15/1920),15px);
+  border-radius:999px; background:var(--alert-ink); color:var(--alert);
+  white-space:nowrap;
+  animation:nt-blink 1.5s ease-in-out infinite;
+}
+.bs-notice strong{
+  font-size:clamp(16px, calc(var(--pagew) * 34/1920), 34px);
+  font-weight:800; letter-spacing:-.035em; line-height:1.24;
+  word-break:keep-all; text-wrap:balance;
+}
+.bs-notice strong b{ font-weight:800; color:var(--green) }
+.bs-notice .dday{
+  font-size:clamp(12.5px, calc(var(--pagew) * 22/1920), 22px);
+  font-weight:800; letter-spacing:-.02em; white-space:nowrap;
+  padding:clamp(4px,calc(var(--pagew)*7/1920),7px) clamp(11px,calc(var(--pagew)*17/1920),17px);
+  border-radius:999px; background:rgba(0,0,0,.26);
+  font-variant-numeric:tabular-nums;
+}
+@keyframes nt-blink{ 0%,100%{opacity:1} 50%{opacity:.4} }
+@media (prefers-reduced-motion: reduce){ .bs-notice .flare{ animation:none } }
