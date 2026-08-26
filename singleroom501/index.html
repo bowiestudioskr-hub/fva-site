@@ -495,6 +495,12 @@ const $ = id => document.getElementById(id);
    한 번 열면 이 기기에 저장해 두고, 다음부터는 안 물어본다.
    ⚠ 남의 컴퓨터에서 열었다면 브라우저 데이터를 지울 것. 손님 연락처가 그대로 보인다. */
 const KEYNAME = 'oh501key';
+/* ⚠ 아래 화면 그리는 코드가 이 값을 먼저 읽는다. const 는 선언 전에 손대면 그 자리에서 죽으므로
+     (함수는 끌어올려지지만 const 는 아니다) 반드시 여기, 쓰이는 곳보다 위에 둔다.
+     처음엔 파일 끝에 뒀다가 관리 탭 이름이 늘 「이름 없음」으로 나왔다. */
+const WHONAME = 'fva501who';
+function 누구() { try { return localStorage.getItem(WHONAME) || ''; } catch { return ''; } }
+function 누구저장(v) { try { localStorage.setItem(WHONAME, String(v).trim().slice(0, 12)); } catch {} }
 function getKey() {
   const m = (location.hash || '').match(/k=([^&\s]+)/);   /* ⚠ ! 같은 글자도 받는다 */
   if (m) {
@@ -919,10 +925,6 @@ function render(d) {
    ⚠ 501 은 세 사람이 같이 관리한다. 비밀번호가 하나뿐이라 서버는 누가 눌렀는지 모른다.
      그래서 기기마다 이름을 한 번 적어 두고, 기록에 그 이름을 같이 남긴다.
      「이거 누가 넣었지」는 세 사람이 쓰면 반드시 나온다. */
-const WHONAME = 'fva501who';
-function 누구() { try { return localStorage.getItem(WHONAME) || ''; } catch { return ''; } }
-function 누구저장(v) { try { localStorage.setItem(WHONAME, String(v).trim().slice(0, 12)); } catch {} }
-
 function askWho(다시) {
   document.querySelector('.wrap').innerHTML =
     `<div class="hd"><h1 class="brand"><img src="img/logo.svg?v=5gong1" alt="오공일501" class="brandlogo"><span>관리페이지</span></h1>
