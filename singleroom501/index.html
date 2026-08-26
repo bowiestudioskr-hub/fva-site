@@ -316,6 +316,7 @@
   .histbox .hrow.done b{color:#2CFF05;font-weight:600}
   .histbox .hrow.wait b{color:#E0C24A;font-weight:600}
   .histbox .hrow b{font-weight:400;color:#C9C9C9;word-break:break-word}
+  .histbox .hrow u{text-decoration:none;color:#7EB6FF;font-weight:700}
   .chatpics{display:flex;gap:7px;flex-wrap:wrap;padding:0 14px 10px}
   .chatpics span{position:relative}
   .chatpics img{height:56px;border-radius:9px;display:block}
@@ -409,6 +410,14 @@
   <div id="token"></div>
   <div id="alarm"></div>
   <div id="guestcard"></div>
+  <div class="card" style="padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+    <div><b style="font-size:14.5px">이 기기 사용자</b>
+      <div style="font-size:13px;color:var(--dim);margin-top:3px">기록에 이 이름이 함께 남습니다</div></div>
+    <button type="button" id="whobtn"
+      style="background:rgba(255,255,255,.10);color:var(--tx,#EDEDED);border:1px solid var(--line);
+             border-radius:10px;padding:9px 13px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap">
+      <span id="whoname">—</span> · 바꾸기</button>
+  </div>
   <div class="card"><h3>바로가기</h3>
     <div class="go">
       <a href="https://oh501.surge.sh/" target="_blank" rel="noopener">손님 입실 안내</a>
@@ -745,6 +754,12 @@ function goTab(name) {
 }
 document.querySelectorAll('.bar button').forEach(b =>
   b.onclick = () => goTab(b.dataset.tab));
+try {
+  const wn = document.getElementById('whoname');
+  if (wn) wn.textContent = 누구() || '이름 없음';
+  const wb = document.getElementById('whobtn');
+  if (wb) wb.onclick = () => askWho(true);
+} catch {}
 goTab((() => { try { return localStorage.getItem('fva501tab'); } catch { return 'cal'; } })());
 
 /* ── 손님 화면 관리 ──────────────────────────────────────
@@ -898,7 +913,43 @@ function render(d) {
     '달력의 「감독님 일정」과 「청소」는 호스트센터에서 직접 넣은 일정입니다.';
 }
 
+/* ── 이 기기는 누구 것인가 ────────────────────────────
+   ⚠ 501 은 세 사람이 같이 관리한다. 비밀번호가 하나뿐이라 서버는 누가 눌렀는지 모른다.
+     그래서 기기마다 이름을 한 번 적어 두고, 기록에 그 이름을 같이 남긴다.
+     「이거 누가 넣었지」는 세 사람이 쓰면 반드시 나온다. */
+const WHONAME = 'fva501who';
+function 누구() { try { return localStorage.getItem(WHONAME) || ''; } catch { return ''; } }
+function 누구저장(v) { try { localStorage.setItem(WHONAME, String(v).trim().slice(0, 12)); } catch {} }
+
+function askWho(다시) {
+  document.querySelector('.wrap').innerHTML =
+    `<div class="hd"><h1 class="brand"><img src="img/logo.svg?v=5gong1" alt="오공일501" class="brandlogo"><span>관리페이지</span></h1>
+       <p class="lede">${다시 ? '사용자를 바꿉니다.' : '이 기기는 누가 쓰시나요?'}</p></div>
+     <div class="card" style="padding:16px;display:flex;flex-direction:column;gap:11px">
+       <input id="win" type="text" placeholder="이름 (예: 정주영)" autocomplete="off"
+         autocapitalize="off" autocorrect="off" spellcheck="false" value="${esc(다시 ? 누구() : '')}"
+         style="background:#0F0F11;color:#fff;border:1px solid var(--line);border-radius:11px;
+                padding:13px 14px;font:inherit;font-size:16px">
+       <button id="wgo" style="background:#fff;color:#000;border:0;border-radius:11px;
+         padding:13px;font:inherit;font-size:15px;font-weight:800;cursor:pointer">시작하기</button>
+       <p style="font-size:12.5px;color:var(--dim);line-height:1.6">
+         예약을 넣거나 지운 기록에 이 이름이 함께 남습니다. 세 분이 같이 쓰는 화면이라
+         <b style="color:var(--sub)">누가 무엇을 바꿨는지</b> 서로 알 수 있어야 합니다.<br>
+         한 번만 적으면 다음부터 묻지 않습니다. 관리 탭에서 바꿀 수 있습니다.</p>
+     </div>`;
+  const w = document.getElementById('win');
+  const 가자 = () => {
+    const v = w.value.trim();
+    if (!v) { w.focus(); return; }
+    누구저장(v); location.reload();
+  };
+  document.getElementById('wgo').onclick = 가자;
+  w.addEventListener('keydown', e => { if (e.key === 'Enter') 가자(); });
+  setTimeout(() => w.focus(), 60);
+}
+
 if (!KEY) askKey();
+else if (!누구()) askWho(false);
 else {
   loadCal(Math.floor(TODAY / 10000), Math.floor(TODAY / 100) % 100);
   renderGuest();
@@ -994,7 +1045,8 @@ else {
       if (!d || !d.ok || !d.기록 || !d.기록.length) { box.textContent = '아직 기록이 없습니다.'; return; }
       box.innerHTML = d.기록.map(function (r) {
         var cls = /^✔/.test(r.한일) ? ' done' : /^…/.test(r.한일) ? ' wait' : '';
-        return '<div class="hrow' + cls + '"><i>' + esc(r.때.slice(5)) + '</i><b>' + esc(r.한일) + '</b></div>';
+        var 누가 = r.사람 && r.사람 !== '?' ? '<u>' + esc(r.사람) + '</u> ' : '';
+        return '<div class="hrow' + cls + '"><i>' + esc(r.때.slice(5)) + '</i><b>' + 누가 + esc(r.한일) + '</b></div>';
       }).join('');
     } catch (e) { box.textContent = '기록을 불러오지 못했습니다.'; 기록읽음 = false; }
   });
@@ -1062,6 +1114,7 @@ else {
 
   async function 서버(payload) {
     payload.key = KEY;
+    payload.who = (typeof 누구 === 'function' ? 누구() : '');
     var r = await fetch(FEED, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },   /* 예비요청을 피한다 */
