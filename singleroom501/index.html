@@ -998,6 +998,67 @@ else {
   var 붙인사진 = [];      // {media_type, data, url}
   var 보내는중 = false;
 
+  function 붙이기(el) { 로그.appendChild(el); 로그.scrollTop = 로그.scrollHeight; }
+  function 말풍선(cls, html) {
+    var d = document.createElement('div'); d.className = cls; d.innerHTML = html; 붙이기(d); return d;
+  }
+
+  /* 사진 줄이기 — 긴 변 1280, jpeg 0.82. 달력 글씨는 이 정도면 다 읽힌다. */
+  function 줄이기(file) {
+    return new Promise(function (done, fail) {
+      var fr = new FileReader();
+      fr.onload = function () {
+        var img = new Image();
+        img.onload = function () {
+          var r = Math.min(1, 1280 / Math.max(img.width, img.height));
+          var c = document.createElement('canvas');
+          c.width = Math.round(img.width * r); c.height = Math.round(img.height * r);
+          c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+          var url = c.toDataURL('image/jpeg', 0.82);
+          done({ media_type: 'image/jpeg', data: url.split(',')[1], url: url });
+        };
+        img.onerror = fail; img.src = fr.result;
+      };
+      fr.onerror = fail; fr.readAsDataURL(file);
+    });
+  }
+
+  function 사진그리기() {
+    사진칸.hidden = !붙인사진.length;
+    사진칸.innerHTML = 붙인사진.map(function (p, i) {
+      return '<span><img src="' + p.url + '" alt=""><b data-i="' + i + '">×</b></span>';
+    }).join('');
+    사진칸.querySelectorAll('b').forEach(function (b) {
+      b.onclick = function () { 붙인사진.splice(Number(b.dataset.i), 1); 사진그리기(); };
+    });
+  }
+
+  async function 사진넣기(files) {
+    for (var i = 0; i < files.length && 붙인사진.length < 4; i++) {
+      if (!/^image\//.test(files[i].type)) continue;
+      try { 붙인사진.push(await 줄이기(files[i])); } catch (e) {}
+    }
+    사진그리기();
+  }
+
+  $('chatpic').onclick = function () { 파일.click(); };
+  파일.onchange = function () { 사진넣기(파일.files); 파일.value = ''; };
+  입력.addEventListener('paste', function (e) {
+    var it = (e.clipboardData || {}).items || [];
+    var 그림 = [];
+    for (var i = 0; i < it.length; i++) if (it[i].type.indexOf('image') === 0) 그림.push(it[i].getAsFile());
+    if (그림.length) { e.preventDefault(); 사진넣기(그림); }
+  });
+  입력.addEventListener('input', function () {
+    입력.style.height = 'auto'; 입력.style.height = Math.min(132, 입력.scrollHeight) + 'px';
+  });
+  /* 폰에서 엔터는 줄바꿈이어야 한다. 넓은 화면에서만 엔터로 보낸다. */
+  입력.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey && window.matchMedia('(min-width:561px)').matches) {
+      e.preventDefault(); 보내기();
+    }
+  });
+
   /* ⚠ 새로고침하면 대화가 통째로 날아갔다. 이 기기에 적어 둔다.
        사진은 무거워서 저장하지 않는다(글만 남긴다) — 저장 한도(약 5MB)를 금방 넘긴다. */
   var 저장이름 = 'fva501chat';
