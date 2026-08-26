@@ -991,7 +991,22 @@ function render(d) {
 
   $('foot').innerHTML =
     '5분마다 스페이스클라우드에서 새로 읽습니다 · 연락처는 가려서 표시합니다<br>' +
-    '달력의 「감독님 일정」과 「청소」는 호스트센터에서 직접 넣은 일정입니다.';
+    '달력의 「감독님 일정」과 「청소」는 호스트센터에서 직접 넣은 일정입니다.<br>' +
+    '<button type="button" id="diagbtn" style="margin-top:9px;background:rgba(255,255,255,.08);' +
+    'color:var(--dim);border:1px solid var(--line);border-radius:9px;padding:7px 11px;' +
+    'font:inherit;font-size:12px;cursor:pointer">화면 진단 ' +
+    (진단켜짐() ? '끄기' : '켜기') + '</button>';
+  var db = $('diagbtn');
+  if (db) db.onclick = function () {
+    try { localStorage.setItem('fva501diag', 진단켜짐() ? '' : '1'); } catch (e) {}
+    location.reload();
+  };
+}
+
+/* ⚠ 홈화면 앱은 주소를 손으로 못 바꾼다. 그래서 진단은 앱 안에서 켜고 끈다. */
+function 진단켜짐() {
+  if (/[?&]diag=1/.test(location.search)) return true;
+  try { return localStorage.getItem('fva501diag') === '1'; } catch (e) { return false; }
 }
 
 /* ── 이 기기는 누구 것인가 ────────────────────────────
@@ -1361,7 +1376,7 @@ else {
    폰에서만 나는 문제는 여기서 추측하면 끝이 없다. 실제 값을 화면에 띄워 보고 고친다.
    평소에는 아무 일도 하지 않는다. */
 (function () {
-  if (!/[?&]diag=1/.test(location.search)) return;
+  if (!(typeof 진단켜짐 === 'function' ? 진단켜짐() : /[?&]diag=1/.test(location.search))) return;
   var box = document.createElement('div');
   box.style.cssText = 'position:fixed;left:6px;right:6px;top:6px;z-index:99;padding:8px 10px;' +
     'background:rgba(0,0,0,.86);border:1px solid #2CFF05;border-radius:9px;color:#2CFF05;' +
