@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 8. 27. AM 2:38:16",
+  "updated": "2026. 8. 27. AM 2:53:53",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 325,
     "dailyBudget": 2500,
     "balance": 36650,
-    "imp": 9699,
+    "imp": 9736,
     "clk": 32,
     "cost": 62698,
     "byPeriod": {
       "1": {
-        "imp": 53,
+        "imp": 90,
         "clk": 1,
         "cost": 325
       },
       "7": {
-        "imp": 5254,
+        "imp": 5291,
         "clk": 22,
         "cost": 13889
       },
       "28": {
-        "imp": 15564,
+        "imp": 15601,
         "clk": 40,
         "cost": 63425
       },
       "90": {
-        "imp": 131062,
+        "imp": 131099,
         "clk": 179,
         "cost": 74634
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-08-27",
-        "imp": 53,
+        "imp": 90,
         "clk": 1,
         "cost": 325
       }
     ],
-    "campaignImp": 15564,
+    "campaignImp": 15601,
     "campaignClk": 40,
     "campaignCost": 63425,
     "groups": [
@@ -142,7 +142,7 @@
             "bid": 900,
             "live": true,
             "state": "운영",
-            "imp": 1227,
+            "imp": 1230,
             "clk": 0,
             "cost": 0,
             "rank": 3.6
@@ -162,7 +162,7 @@
             "bid": 600,
             "live": true,
             "state": "운영",
-            "imp": 299,
+            "imp": 300,
             "clk": 0,
             "cost": 0,
             "rank": 2.6
@@ -182,7 +182,7 @@
             "bid": 600,
             "live": true,
             "state": "운영",
-            "imp": 85,
+            "imp": 86,
             "clk": 0,
             "cost": 0,
             "rank": 2.7
@@ -333,7 +333,7 @@
             "bid": 500,
             "live": true,
             "state": "운영",
-            "imp": 116,
+            "imp": 117,
             "clk": 0,
             "cost": 0,
             "rank": 2.9
@@ -494,7 +494,7 @@
             "bid": 500,
             "live": true,
             "state": "운영",
-            "imp": 4168,
+            "imp": 4187,
             "clk": 2,
             "cost": 9394,
             "rank": 1
@@ -524,7 +524,7 @@
             "bid": 800,
             "live": true,
             "state": "운영",
-            "imp": 499,
+            "imp": 502,
             "clk": 2,
             "cost": 1741,
             "rank": 4
@@ -534,7 +534,7 @@
             "bid": 300,
             "live": true,
             "state": "운영",
-            "imp": 252,
+            "imp": 259,
             "clk": 0,
             "cost": 0,
             "rank": 3.4
@@ -554,7 +554,7 @@
             "bid": 300,
             "live": true,
             "state": "운영",
-            "imp": 79,
+            "imp": 81,
             "clk": 0,
             "cost": 0,
             "rank": 2.3
@@ -738,7 +738,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 27. AM 2:38:12",
+    "updated": "2026. 8. 27. AM 2:53:49",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -748,29 +748,29 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 2,
-        "click": 0,
+        "visit": 3,
+        "click": 1,
         "unique": 1,
-        "ctr": 0,
-        "dwell": 17
+        "ctr": 33.3,
+        "dwell": 10
       },
       "7": {
-        "visit": 582,
-        "click": 222,
+        "visit": 583,
+        "click": 223,
         "unique": 92,
-        "ctr": 38.1,
+        "ctr": 38.3,
         "dwell": 16
       },
       "28": {
-        "visit": 2929,
-        "click": 964,
+        "visit": 2930,
+        "click": 965,
         "unique": 183,
         "ctr": 32.9,
         "dwell": 24
       },
       "90": {
-        "visit": 6083,
-        "click": 2978,
+        "visit": 6084,
+        "click": 2979,
         "unique": 183,
         "ctr": 49,
         "dwell": 24
@@ -783,8 +783,8 @@
         "dwell": 20
       },
       "all": {
-        "visit": 34621,
-        "click": 14295,
+        "visit": 34622,
+        "click": 14296,
         "unique": 183,
         "ctr": 41.3,
         "dwell": 24
@@ -3241,8 +3241,8 @@
       },
       {
         "d": "2026-08-27",
-        "visit": 2,
-        "click": 0,
+        "visit": 3,
+        "click": 1,
         "unique": 1
       }
     ],
@@ -3679,7 +3679,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 70
+        "clicks": 71
       },
       {
         "key": "9Vywz94",
@@ -3869,11 +3869,11 @@
       },
       {
         "name": "데스크탑",
-        "visit": 310,
-        "click": 155,
+        "visit": 311,
+        "click": 156,
         "unique": 20,
-        "dwell": 40,
-        "ctr": 50
+        "dwell": 39,
+        "ctr": 50.2
       },
       {
         "name": "태블릿",
@@ -3887,8 +3887,8 @@
     "country": [
       {
         "name": "KR",
-        "visit": 26060,
-        "click": 1311,
+        "visit": 26061,
+        "click": 1312,
         "unique": 161,
         "dwell": 20,
         "ctr": 5,
@@ -4069,11 +4069,11 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 1800,
-        "click": 1124,
+        "visit": 1801,
+        "click": 1125,
         "unique": 143,
         "dwell": 19,
-        "ctr": 62.4,
+        "ctr": 62.5,
         "code": "KR"
       },
       {
@@ -4254,36 +4254,45 @@
         "device": [
           {
             "name": "데스크탑",
-            "visit": 2,
-            "click": 0,
+            "visit": 3,
+            "click": 1,
             "unique": 1,
-            "dwell": 17,
-            "ctr": 0
+            "dwell": 10,
+            "ctr": 33.3
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 2,
-            "click": 0,
+            "visit": 3,
+            "click": 1,
             "unique": 1,
-            "dwell": 17,
-            "ctr": 0,
+            "dwell": 10,
+            "ctr": 33.3,
             "code": "KR"
           }
         ],
         "city": [
           {
             "name": "Seoul",
-            "visit": 2,
-            "click": 0,
+            "visit": 3,
+            "click": 1,
             "unique": 1,
-            "dwell": 17,
-            "ctr": 0,
+            "dwell": 10,
+            "ctr": 33.3,
             "code": "KR"
           }
         ],
-        "blocks": []
+        "blocks": [
+          {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
+          }
+        ]
       },
       "7": {
         "sources": [
@@ -4371,21 +4380,21 @@
           },
           {
             "name": "데스크탑",
-            "visit": 23,
-            "click": 9,
+            "visit": 24,
+            "click": 10,
             "unique": 14,
             "dwell": 15,
-            "ctr": 39.1
+            "ctr": 41.7
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 149,
-            "click": 48,
+            "visit": 150,
+            "click": 49,
             "unique": 81,
             "dwell": 19,
-            "ctr": 32.2,
+            "ctr": 32.7,
             "code": "KR"
           },
           {
@@ -4464,11 +4473,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 93,
-            "click": 18,
+            "visit": 94,
+            "click": 19,
             "unique": 64,
             "dwell": 17,
-            "ctr": 19.4,
+            "ctr": 20.2,
             "code": "KR"
           },
           {
@@ -4632,7 +4641,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 70
+            "clicks": 71
           },
           {
             "key": "Norn5x4",
@@ -4931,11 +4940,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 121,
-            "click": 49,
+            "visit": 122,
+            "click": 50,
             "unique": 20,
-            "dwell": 40,
-            "ctr": 40.5
+            "dwell": 39,
+            "ctr": 41
           },
           {
             "name": "태블릿",
@@ -4949,11 +4958,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 803,
-            "click": 228,
+            "visit": 804,
+            "click": 229,
             "unique": 161,
             "dwell": 20,
-            "ctr": 28.4,
+            "ctr": 28.5,
             "code": "KR"
           },
           {
@@ -5131,11 +5140,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 715,
-            "click": 162,
+            "visit": 716,
+            "click": 163,
             "unique": 143,
             "dwell": 19,
-            "ctr": 22.7,
+            "ctr": 22.8,
             "code": "KR"
           },
           {
@@ -5349,7 +5358,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 70
+            "clicks": 71
           },
           {
             "key": "O1PZwO3",
@@ -5684,11 +5693,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 265,
-            "click": 130,
+            "visit": 266,
+            "click": 131,
             "unique": 20,
-            "dwell": 40,
-            "ctr": 49.1
+            "dwell": 39,
+            "ctr": 49.2
           },
           {
             "name": "태블릿",
@@ -5702,8 +5711,8 @@
         "country": [
           {
             "name": "KR",
-            "visit": 1542,
-            "click": 916,
+            "visit": 1543,
+            "click": 917,
             "unique": 161,
             "dwell": 20,
             "ctr": 59.4,
@@ -5884,11 +5893,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1368,
-            "click": 783,
+            "visit": 1369,
+            "click": 784,
             "unique": 143,
             "dwell": 19,
-            "ctr": 57.2,
+            "ctr": 57.3,
             "code": "KR"
           },
           {
@@ -6150,7 +6159,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 70
+            "clicks": 71
           },
           {
             "key": "9Vywz94",
@@ -6504,11 +6513,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 310,
-            "click": 155,
+            "visit": 311,
+            "click": 156,
             "unique": 20,
-            "dwell": 40,
-            "ctr": 50
+            "dwell": 39,
+            "ctr": 50.2
           },
           {
             "name": "태블릿",
@@ -6522,8 +6531,8 @@
         "country": [
           {
             "name": "KR",
-            "visit": 26060,
-            "click": 1311,
+            "visit": 26061,
+            "click": 1312,
             "unique": 161,
             "dwell": 20,
             "ctr": 5,
@@ -6704,11 +6713,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1800,
-            "click": 1124,
+            "visit": 1801,
+            "click": 1125,
             "unique": 143,
             "dwell": 19,
-            "ctr": 62.4,
+            "ctr": 62.5,
             "code": "KR"
           },
           {
@@ -7098,7 +7107,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 70
+            "clicks": 71
           },
           {
             "key": "9Vywz94",
@@ -7283,36 +7292,45 @@
         "device": [
           {
             "name": "데스크탑",
-            "visit": 2,
-            "click": 0,
+            "visit": 3,
+            "click": 1,
             "unique": 1,
-            "dwell": 17,
-            "ctr": 0
+            "dwell": 10,
+            "ctr": 33.3
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 2,
-            "click": 0,
+            "visit": 3,
+            "click": 1,
             "unique": 1,
-            "dwell": 17,
-            "ctr": 0,
+            "dwell": 10,
+            "ctr": 33.3,
             "code": "KR"
           }
         ],
         "city": [
           {
             "name": "Seoul",
-            "visit": 2,
-            "click": 0,
+            "visit": 3,
+            "click": 1,
             "unique": 1,
-            "dwell": 17,
-            "ctr": 0,
+            "dwell": 10,
+            "ctr": 33.3,
             "code": "KR"
           }
         ],
-        "blocks": []
+        "blocks": [
+          {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
+          }
+        ]
       }
     }
   }
