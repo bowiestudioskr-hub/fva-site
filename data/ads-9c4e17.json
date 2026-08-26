@@ -1,13 +1,13 @@
 {
-  "updated": "2026. 8. 26. PM 3:57:11",
+  "updated": "2026. 8. 26. PM 4:12:49",
   "naver": {
     "start": "2026-08-16",
     "live": true,
     "state": "운영",
-    "charged": 136,
-    "pending": 68,
+    "charged": 466,
+    "pending": 330,
     "dailyBudget": 2500,
-    "balance": 37306,
+    "balance": 36976,
     "imp": 9218,
     "clk": 30,
     "cost": 62043,
@@ -738,7 +738,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 26. PM 3:57:04",
+    "updated": "2026. 8. 26. PM 4:12:43",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -748,31 +748,31 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 10,
-        "click": 8,
+        "visit": 11,
+        "click": 17,
         "unique": 1,
-        "ctr": 80,
-        "dwell": 18
+        "ctr": 154.5,
+        "dwell": 21
       },
       "7": {
-        "visit": 765,
-        "click": 230,
+        "visit": 766,
+        "click": 239,
         "unique": 174,
-        "ctr": 30.1,
+        "ctr": 31.2,
         "dwell": 15
       },
       "28": {
-        "visit": 2966,
-        "click": 990,
+        "visit": 2967,
+        "click": 999,
         "unique": 181,
-        "ctr": 33.4,
+        "ctr": 33.7,
         "dwell": 24
       },
       "90": {
-        "visit": 6212,
-        "click": 3016,
+        "visit": 6213,
+        "click": 3025,
         "unique": 181,
-        "ctr": 48.6,
+        "ctr": 48.7,
         "dwell": 24
       },
       "y": {
@@ -783,8 +783,8 @@
         "dwell": 18
       },
       "all": {
-        "visit": 34614,
-        "click": 14283,
+        "visit": 34615,
+        "click": 14292,
         "unique": 181,
         "ctr": 41.3,
         "dwell": 24
@@ -3235,8 +3235,8 @@
       },
       {
         "d": "2026-08-26",
-        "visit": 10,
-        "click": 8,
+        "visit": 11,
+        "click": 17,
         "unique": 1
       }
     ],
@@ -3298,10 +3298,10 @@
       {
         "name": "우리 사이트",
         "host": "fva.co.kr",
-        "visit": 179,
-        "click": 144,
+        "visit": 180,
+        "click": 153,
         "unique": 9,
-        "ctr": 80.4,
+        "ctr": 85,
         "dwell": 45
       },
       {
@@ -3465,7 +3465,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 3004
+        "clicks": 3007
       },
       {
         "key": "bGTonvP",
@@ -3473,7 +3473,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 1740
+        "clicks": 1742
       },
       {
         "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
@@ -3529,7 +3529,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 485
+        "clicks": 487
       },
       {
         "key": "RxyICGs",
@@ -3548,20 +3548,20 @@
         "clicks": 425
       },
       {
+        "key": "OkhXD1v",
+        "name": "수강생 작품보기 (유튜브)",
+        "gone": false,
+        "kind": "site",
+        "img": true,
+        "clicks": 332
+      },
+      {
         "key": "tQY0nGt",
         "name": "지운 블럭 (tQY0nGt)",
         "gone": true,
         "kind": "etc",
         "img": false,
         "clicks": 332
-      },
-      {
-        "key": "OkhXD1v",
-        "name": "수강생 작품보기 (유튜브)",
-        "gone": false,
-        "kind": "site",
-        "img": true,
-        "clicks": 331
       },
       {
         "key": "ZP63A49",
@@ -3673,7 +3673,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 68
+        "clicks": 69
       },
       {
         "key": "9Vywz94",
@@ -4257,11 +4257,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 2,
-            "click": 1,
+            "visit": 3,
+            "click": 10,
             "unique": 0,
-            "ctr": 50,
-            "dwell": 29
+            "ctr": 333.3,
+            "dwell": 37
           },
           {
             "name": "pcmap.place.naver.com",
@@ -4307,6 +4307,14 @@
         ],
         "blocks": [
           {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 4
+          },
+          {
             "key": "EJVYl6C",
             "name": "스마트스토어 · 1개월",
             "gone": false,
@@ -4315,18 +4323,42 @@
             "clicks": 4
           },
           {
-            "key": "bby1R8Y",
-            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "key": "Norn5x4",
+            "name": "커리큘럼 페이지",
             "gone": false,
-            "kind": "store",
+            "kind": "site",
             "img": true,
             "clicks": 3
+          },
+          {
+            "key": "bGTonvP",
+            "name": "온라인 강의 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 2
+          },
+          {
+            "key": "O1PZwO3",
+            "name": "수강 후기 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 2
           },
           {
             "key": "4rFKEfH",
             "name": "스마트스토어 · HOT 3개월 풀코스",
             "gone": false,
             "kind": "store",
+            "img": true,
+            "clicks": 1
+          },
+          {
+            "key": "OkhXD1v",
+            "name": "수강생 작품보기 (유튜브)",
+            "gone": false,
+            "kind": "site",
             "img": true,
             "clicks": 1
           }
@@ -4364,10 +4396,10 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 33,
-            "click": 21,
+            "visit": 34,
+            "click": 30,
             "unique": 9,
-            "ctr": 63.6,
+            "ctr": 88.2,
             "dwell": 45
           },
           {
@@ -4733,7 +4765,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 68
+            "clicks": 69
           },
           {
             "key": "Norn5x4",
@@ -4741,7 +4773,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 35
+            "clicks": 38
           },
           {
             "key": "OkhXD1v",
@@ -4749,7 +4781,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 20
+            "clicks": 21
           },
           {
             "key": "dVgRn4o",
@@ -4773,7 +4805,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 13
+            "clicks": 15
           },
           {
             "key": "IHsH0Mk",
@@ -4789,7 +4821,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 8
+            "clicks": 10
           },
           {
             "key": "EJVYl6C",
@@ -4905,10 +4937,10 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 53,
-            "click": 46,
+            "visit": 54,
+            "click": 55,
             "unique": 9,
-            "ctr": 86.8,
+            "ctr": 101.9,
             "dwell": 45
           },
           {
@@ -5426,7 +5458,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 217
+            "clicks": 220
           },
           {
             "key": "IHsH0Mk",
@@ -5442,7 +5474,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 122
+            "clicks": 123
           },
           {
             "key": "bGTonvP",
@@ -5450,7 +5482,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 86
+            "clicks": 88
           },
           {
             "key": "bby1R8Y",
@@ -5458,7 +5490,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 68
+            "clicks": 69
           },
           {
             "key": "O1PZwO3",
@@ -5466,7 +5498,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 64
+            "clicks": 66
           },
           {
             "key": "9Vywz94",
@@ -5622,10 +5654,10 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 179,
-            "click": 144,
+            "visit": 180,
+            "click": 153,
             "unique": 9,
-            "ctr": 80.4,
+            "ctr": 85,
             "dwell": 45
           },
           {
@@ -6179,7 +6211,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 625
+            "clicks": 628
           },
           {
             "key": "LZFqEZ3",
@@ -6195,7 +6227,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 394
+            "clicks": 396
           },
           {
             "key": "OkhXD1v",
@@ -6203,7 +6235,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 331
+            "clicks": 332
           },
           {
             "key": "OPjnbdZ",
@@ -6219,7 +6251,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 189
+            "clicks": 191
           },
           {
             "key": "IHsH0Mk",
@@ -6259,7 +6291,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 68
+            "clicks": 69
           },
           {
             "key": "9Vywz94",
@@ -6442,10 +6474,10 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 179,
-            "click": 144,
+            "visit": 180,
+            "click": 153,
             "unique": 9,
-            "ctr": 80.4,
+            "ctr": 85,
             "dwell": 45
           },
           {
@@ -6999,7 +7031,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 3004
+            "clicks": 3007
           },
           {
             "key": "bGTonvP",
@@ -7007,7 +7039,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 1740
+            "clicks": 1742
           },
           {
             "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
@@ -7063,7 +7095,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 485
+            "clicks": 487
           },
           {
             "key": "RxyICGs",
@@ -7082,20 +7114,20 @@
             "clicks": 425
           },
           {
+            "key": "OkhXD1v",
+            "name": "수강생 작품보기 (유튜브)",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 332
+          },
+          {
             "key": "tQY0nGt",
             "name": "옛 버튼 (tQY0nGt)",
             "gone": true,
             "kind": "etc",
             "img": false,
             "clicks": 332
-          },
-          {
-            "key": "OkhXD1v",
-            "name": "수강생 작품보기 (유튜브)",
-            "gone": false,
-            "kind": "site",
-            "img": true,
-            "clicks": 331
           },
           {
             "key": "ZP63A49",
@@ -7207,7 +7239,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 68
+            "clicks": 69
           },
           {
             "key": "9Vywz94",
@@ -7401,11 +7433,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 2,
-            "click": 1,
+            "visit": 3,
+            "click": 10,
             "unique": 0,
-            "ctr": 50,
-            "dwell": 29
+            "ctr": 333.3,
+            "dwell": 37
           },
           {
             "name": "pcmap.place.naver.com",
@@ -7451,6 +7483,14 @@
         ],
         "blocks": [
           {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 4
+          },
+          {
             "key": "EJVYl6C",
             "name": "스마트스토어 · 1개월",
             "gone": false,
@@ -7459,18 +7499,42 @@
             "clicks": 4
           },
           {
-            "key": "bby1R8Y",
-            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "key": "Norn5x4",
+            "name": "커리큘럼 페이지",
             "gone": false,
-            "kind": "store",
+            "kind": "site",
             "img": true,
             "clicks": 3
+          },
+          {
+            "key": "bGTonvP",
+            "name": "온라인 강의 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 2
+          },
+          {
+            "key": "O1PZwO3",
+            "name": "수강 후기 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 2
           },
           {
             "key": "4rFKEfH",
             "name": "스마트스토어 · HOT 3개월 풀코스",
             "gone": false,
             "kind": "store",
+            "img": true,
+            "clicks": 1
+          },
+          {
+            "key": "OkhXD1v",
+            "name": "수강생 작품보기 (유튜브)",
+            "gone": false,
+            "kind": "site",
             "img": true,
             "clicks": 1
           }
