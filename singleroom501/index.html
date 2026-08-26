@@ -1,6 +1,8 @@
 <!doctype html><html lang="ko"><head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!-- ⚠ 손가락으로 확대한 배율이 남으면 화면이 통째로 어긋난다 — 바가 떴다 안 떴다 했다.
+     줌아웃하면 멀쩡해지던 것이 그 증거다. 앱 화면이라 확대를 막는다. -->
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <title>오공일501 예약 현황</title>
 <link rel="icon" href="img/icon-192.png?v=5gong1">
@@ -42,7 +44,7 @@
   body{
     background:var(--bg); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,system-ui,sans-serif;
-    font-size:15px; line-height:1.5; padding:calc(22px + env(safe-area-inset-top)) 16px calc(82px + env(safe-area-inset-bottom) + var(--lift,0px));
+    font-size:15px; line-height:1.5; padding:calc(22px + env(safe-area-inset-top)) 16px calc(82px + env(safe-area-inset-bottom));
     font-variant-numeric:tabular-nums;
   }
   .wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
@@ -261,13 +263,16 @@
      있을 때 「문서가 깔리는 높이」가 「실제로 보이는 높이」보다 커서 bottom:0 이
      화면 밖으로 내려간다. 그 차이를 맨 아래 스크립트가 재서 --lift 로 넣어준다.
      ⚠ CSS 로는 알 수 없는 값이다. env(safe-area-inset-bottom) 은 이 경우 0 이다. */
+  /* ⚠ 예전에는 브라우저 UI 높이를 재서 바를 들어올렸다(--lift). 그게 바를 떠 보이게 한
+       장본인이다. 검증된 다른 앱들처럼 그냥 화면 바닥에 붙박는다. */
   .bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;
-       transform:translateY(calc(-1 * var(--lift,0px)));
-       background:rgba(20,20,22,.94);backdrop-filter:blur(14px);
+       background:rgba(11,11,13,.97);backdrop-filter:blur(14px);
        box-shadow:inset 0 .5px 0 rgba(255,255,255,.1);
        /* ⚠ 안전영역(홈 인디케이터 34px)을 그대로 다 주면 글자가 너무 떠 보인다.
             아이폰 기본 탭바도 그 자리를 다 비우지는 않는다. 절반쯤만 남긴다. */
-       padding-bottom:max(8px, calc(env(safe-area-inset-bottom) - 16px))}
+       /* 유입현황·일본어 앱에서 검증된 값 — 안전영역을 깎지 않고 그대로 준다.
+          바가 제자리에 붙박여 있으면 이 값이 정답이다(깎으면 홈 인디케이터에 글자가 닿는다). */
+       padding-bottom:calc(6px + env(safe-area-inset-bottom))}
   /* 키보드가 올라오면 감춘다. 안 그러면 입력칸 위에 올라타 앉는다. */
   body.kb .bar{display:none}
   /* ⚠ 키보드가 화면 절반을 먹는다. 머리글(로고·날짜·설명)을 접어 그만큼을 대화에 준다 —
@@ -275,7 +280,7 @@
   body.appmode.kb .hd{display:none}
   body.appmode.kb .wrap{gap:0}
   .bar button{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;
-         padding:9px 3px 5px;border:0;border-bottom:2px solid transparent;background:none;
+         padding:9px 3px 7px;border:0;border-bottom:2px solid transparent;background:none;
          cursor:pointer;color:var(--dim);
          font-family:inherit;font-size:10.5px;font-weight:700;letter-spacing:-.02em}
   .bar button.on{color:var(--ink);border-bottom-color:transparent}
@@ -360,11 +365,10 @@
        그리고 키보드를 닫아도 제자리로 안 돌아온다(머리가 잘리고 아래가 빈다).
        문서 스크롤을 막는 것만으로는 안 되고, 몸을 화면에 **못 박아야(position:fixed)** 밀리지 않는다. */
   html.appmode{height:100%;overflow:hidden}
-  /* ⚠ 100dvh 를 믿으면 안 된다. 아이폰 홈화면 앱에서는 이 값이 **화면보다 짧게** 나와
-       바가 화면 바닥에서 한참 떠 버린다(사용자 확인: 키보드 올렸을 때만 높이가 맞았다 —
-       그때만 아래의 「실제로 보이는 높이」를 쓰고 있었기 때문이다).
-       그래서 평소에도 같은 값을 쓴다. 스크립트가 못 돌 때만 100dvh 로 물러선다. */
-  body.appmode{height:var(--appvh,100dvh);
+  /* ⚠ 높이를 「재서」 쓰면 앱을 들락날락할 때마다 값이 달라져 바가 떴다 안 떴다 한다.
+       그래서 재지 않는다. 몸을 화면 네 귀에 붙박고, 바도 바닥에 직접 붙박는다.
+       기기가 무슨 높이를 알려주든 상관없어진다. */
+  body.appmode{position:fixed;top:0;left:0;right:0;bottom:0;height:auto;
     overflow:hidden;overscroll-behavior:none;display:flex;flex-direction:column;
     padding-left:0;padding-right:0;padding-bottom:0}
   /* ⚠ 키보드가 올라올 때만 화면에 못 박는다.
@@ -375,11 +379,8 @@
   /* ⚠ 바를 띄워 두지(fixed) 않는다. 문서가 안 움직이니 그냥 마지막 칸으로 두면
        **언제나 화면 맨 아래**에 정확히 붙는다. 브라우저 UI 높이를 재서 들어올리던
        --lift 도 더는 필요 없다(그게 바를 애매하게 띄우던 원인이다). */
-  body.appmode .bar{position:static;transform:none;flex:none;position:relative}
-  /* ⚠ 홈화면 앱에서 바 아래가 비어 보이던 것 — 아래쪽으로 같은 색을 한 겹 더 깔아
-       기기가 무엇을 반환하든 화면 끝까지 색이 이어지게 한다(넘친 부분은 화면 밖이라 안 보인다). */
-  body.appmode .bar::after{content:"";position:absolute;left:0;right:0;top:100%;height:160px;
-    background:rgba(20,20,22,.94);pointer-events:none}
+  body.appmode .bar{position:fixed;left:0;right:0;bottom:0;transform:none;flex:none}
+  body.appmode .wrap{padding-bottom:var(--barh,64px)}
   body.appmode .hd{flex:none}
   body.appmode .tabpane{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;
     padding-bottom:0;overscroll-behavior:contain}
@@ -393,29 +394,20 @@
   body.appmode .chatcard{flex:1;min-height:0}
 
   /* ── 위·아래에 더 있다는 신호 ────────────────────────
-     ⚠ 스크롤 칸 「안」에 넣으면(absolute·sticky) 안쪽 여백과 flex 간격에 밀려
-       엉뚱한 자리에 앉는다. 실제로 바보다 한참 위에 떠 있었다.
-       그래서 흐름 밖에 두고, 스크롤 칸의 실제 좌표를 재서 그 자리에 겹쳐 놓는다. */
-  .fade{position:fixed;left:0;right:0;height:52px;pointer-events:none;z-index:6;
-    opacity:0;transition:opacity .16s ease}
-  .fade.on{opacity:1}
-  #fadeTop{background:linear-gradient(to bottom,
-    var(--fadecol,rgba(11,11,12,.97)) 0%, rgba(11,11,12,0) 100%)}
-  #fadeBot{background:linear-gradient(to top,
-    var(--fadecol,rgba(11,11,12,.97)) 0%, rgba(11,11,12,0) 100%)}
-  @media (prefers-reduced-motion: reduce){ .fade{transition:none} }
+     ⚠ 색을 덧대면 카드 위에서는 색이 안 맞아 「띠」로 보인다(실제로 그랬다).
+       그래서 덧대지 않고 **내용 자체를 투명하게 흐린다(mask).**
+       배경이 무엇이든 자연스럽고, 그라데이션이 스크롤 칸 안에서만 일어난다. */
+  .scr-t{-webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 44px);
+         mask-image:linear-gradient(to bottom, transparent 0, #000 44px)}
+  .scr-b{-webkit-mask-image:linear-gradient(to top, transparent 0, #000 44px);
+         mask-image:linear-gradient(to top, transparent 0, #000 44px)}
+  .scr-tb{-webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 44px,
+            #000 calc(100% - 44px), transparent 100%);
+          mask-image:linear-gradient(to bottom, transparent 0, #000 44px,
+            #000 calc(100% - 44px), transparent 100%)}
 
-  /* 손가락으로 잡을 수 있게 굵게. 기본 스크롤막대는 폰에서 너무 가늘다. */
-  .chatlog, body.appmode .tabpane{scrollbar-width:auto;scrollbar-color:rgba(255,255,255,.34) transparent}
-  .chatlog::-webkit-scrollbar, body.appmode .tabpane::-webkit-scrollbar{width:11px}
-  .chatlog::-webkit-scrollbar-track, body.appmode .tabpane::-webkit-scrollbar-track{background:transparent}
-  .chatlog::-webkit-scrollbar-thumb, body.appmode .tabpane::-webkit-scrollbar-thumb{
-    background:rgba(255,255,255,.30);border-radius:99px;
-    border:3px solid transparent;background-clip:content-box;min-height:44px}
-  .chatlog::-webkit-scrollbar-thumb:active, body.appmode .tabpane::-webkit-scrollbar-thumb:active{
-    background:rgba(255,255,255,.50);background-clip:content-box}
   @media (max-width:560px){
-    body{padding:calc(18px + env(safe-area-inset-top)) 12px calc(96px + env(safe-area-inset-bottom) + var(--lift,0px))}
+    body{padding:calc(18px + env(safe-area-inset-top)) 12px calc(96px + env(safe-area-inset-bottom))}
     body.appmode .wrap{padding-left:12px;padding-right:12px}
     h1{font-size:20px}
     .stat .vl{font-size:25px}
@@ -445,10 +437,10 @@
     .cell{min-height:118px}
     .ev{font-size:10.5px}
     .rid{font-size:9.5px;margin-left:15px}
-    body{padding:30px 24px calc(90px + var(--lift,0px))}
+    body{padding:30px 24px 90px}
     /* 데스크탑에서는 화면 폭을 가로지르는 띠 대신 가운데 뜬 알약으로. */
     .bar{left:50%;right:auto;width:min(560px,92vw);border-radius:16px;
-         transform:translateX(-50%) translateY(calc(-18px - var(--lift,0px)));
+         transform:translateX(-50%) translateY(-18px);
          box-shadow:0 8px 30px rgba(0,0,0,.6)}
   }
 </style>
@@ -1085,7 +1077,6 @@ else {
          그만큼 값이 줄어 「키보드 없음」으로 잘못 읽는다(바가 안 숨던 원인). */
     var 덮임 = Math.max(0, Math.round(window.innerHeight - vv.height));
     var 키보드 = 덮임 > 120;
-    document.documentElement.style.setProperty('--lift', (키보드 ? 0 : 덮임) + 'px');
     document.documentElement.style.setProperty('--appvh', Math.round(vv.height) + 'px');
     document.body.classList.toggle('kb', 키보드);
     /* 아이폰이 웹뷰를 밀어 올렸으면 되돌린다. 안 그러면 머리가 잘린 채로 남는다. */
@@ -1344,76 +1335,38 @@ else {
 })();
 
 /* ── 위·아래에 더 있다는 신호 ──────────────────────────────
-   지금 보고 있는 스크롤 칸의 실제 좌표를 재서, 그 위·아래에 옅은 그라데이션을 겹친다.
-   ⚠ 칸 「안」에 넣으면 안쪽 여백과 flex 간격에 밀려 자리가 어긋난다(실제로 그랬다).
-   ⚠ 채팅은 카드 위에 얹히므로 카드 색으로, 나머지는 배경색으로 흐린다. */
+   ⚠ 색을 덧대지 않는다. 스크롤 칸 자체에 mask 를 씌워 **내용이 흐려지게** 한다.
+     그래야 카드 위든 배경 위든 색이 어긋나지 않고, 그라데이션이 스크롤 칸 안에 있다.
+   ⚠ 바 높이는 기기마다 다르다(안전영역). 재서 --barh 로 넘겨 내용이 그만큼 비켜 앉게 한다. */
 (function () {
-  var 위 = document.createElement('div'); 위.id = 'fadeTop'; 위.className = 'fade';
-  var 아래 = document.createElement('div'); 아래.id = 'fadeBot'; 아래.className = 'fade';
-  document.body.appendChild(위); document.body.appendChild(아래);
-
-  function 지금칸() {
-    var p = document.querySelector('.tabpane:not([hidden])');
-    if (!p) return null;
-    return p.id === 'pane-chat' ? document.getElementById('chatlog') : p;
-  }
-  function 그리기() {
-    var 칸 = 지금칸();
-    if (!칸) { 위.classList.remove('on'); 아래.classList.remove('on'); return; }
-    var r = 칸.getBoundingClientRect();
-    var 위로남음 = 칸.scrollTop;
-    var 아래남음 = 칸.scrollHeight - 칸.clientHeight - 칸.scrollTop;
-    var 색 = 칸.id === 'chatlog' ? 'rgba(21,21,23,.97)' : 'rgba(11,11,12,.97)';
-    [위, 아래].forEach(function (el) {
-      el.style.setProperty('--fadecol', 색);
-      el.style.left = Math.round(r.left) + 'px';
-      el.style.right = Math.round(window.innerWidth - r.right) + 'px';
+  function 칸들() {
+    var out = [];
+    document.querySelectorAll('.tabpane').forEach(function (p) {
+      out.push(p.id === 'pane-chat' ? document.getElementById('chatlog') : p);
     });
-    위.style.top = Math.round(r.top) + 'px';
-    아래.style.top = Math.round(r.bottom - 52) + 'px';
-    위.classList.toggle('on', 위로남음 > 8);
-    아래.classList.toggle('on', 아래남음 > 8);
+    return out.filter(Boolean);
   }
-  var 예약 = null;
-  function 다시() { if (예약) return; 예약 = requestAnimationFrame(function () { 예약 = null; 그리기(); }); }
-
-  document.addEventListener('scroll', 다시, true);        /* 어느 칸이 움직이든 */
-  window.addEventListener('resize', 다시);
-  new MutationObserver(다시).observe(document.body, { subtree: true, childList: true, attributes: true,
-    attributeFilter: ['hidden', 'class'] });
-  setTimeout(다시, 200); setTimeout(다시, 800); 다시();
-})();
-
-/* ── 진단 창 (주소 뒤에 ?diag=1) ─────────────────────────────
-   폰에서만 나는 문제는 여기서 추측하면 끝이 없다. 실제 값을 화면에 띄워 보고 고친다.
-   평소에는 아무 일도 하지 않는다. */
-(function () {
-  if (!(typeof 진단켜짐 === 'function' ? 진단켜짐() : /[?&]diag=1/.test(location.search))) return;
-  var box = document.createElement('div');
-  box.style.cssText = 'position:fixed;left:6px;right:6px;top:6px;z-index:99;padding:8px 10px;' +
-    'background:rgba(0,0,0,.86);border:1px solid #2CFF05;border-radius:9px;color:#2CFF05;' +
-    'font:600 11px/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap;pointer-events:none';
-  document.body.appendChild(box);
-  var vv = window.visualViewport;
-  function 재기() {
+  function 표시(칸) {
+    if (!칸 || !칸.classList) return;
+    var 위 = 칸.scrollTop > 8;
+    var 아래 = 칸.scrollHeight - 칸.clientHeight - 칸.scrollTop > 8;
+    칸.classList.remove('scr-t', 'scr-b', 'scr-tb');
+    if (위 && 아래) 칸.classList.add('scr-tb');
+    else if (위) 칸.classList.add('scr-t');
+    else if (아래) 칸.classList.add('scr-b');
+  }
+  function 바높이() {
     var bar = document.querySelector('.bar');
-    var r = bar ? bar.getBoundingClientRect() : { top: 0, bottom: 0, height: 0 };
-    var b = document.body;
-    box.textContent = [
-      'inner ' + window.innerHeight + '  vv ' + (vv ? Math.round(vv.height) : '-') +
-        '  offTop ' + (vv ? Math.round(vv.offsetTop) : '-') + '  scrollY ' + Math.round(window.scrollY),
-      'body ' + Math.round(b.getBoundingClientRect().height) + '  pos ' + getComputedStyle(b).position +
-        '  kb ' + (b.classList.contains('kb') ? 'Y' : 'N') + '  app ' + (b.classList.contains('appmode') ? 'Y' : 'N'),
-      'bar top ' + Math.round(r.top) + '  bottom ' + Math.round(r.bottom) +
-        '  h ' + Math.round(r.height) + '  아래틈 ' + Math.round(window.innerHeight - r.bottom),
-      'safeBot ' + getComputedStyle(document.documentElement).getPropertyValue('--sb') +
-        '  lift ' + getComputedStyle(document.documentElement).getPropertyValue('--lift'),
-    ].join('\n');
+    if (!bar) return;
+    var h = Math.round(bar.getBoundingClientRect().height);
+    if (h > 0) document.documentElement.style.setProperty('--barh', h + 'px');
   }
-  document.documentElement.style.setProperty('--sb', 'env(safe-area-inset-bottom)');
-  if (vv) { vv.addEventListener('resize', 재기); vv.addEventListener('scroll', 재기); }
-  window.addEventListener('resize', 재기);
-  setInterval(재기, 500); 재기();
+  function 다시() { 바높이(); 칸들().forEach(표시); }
+  document.addEventListener('scroll', function (e) { 표시(e.target); }, true);
+  window.addEventListener('resize', 다시);
+  new MutationObserver(다시).observe(document.body, { subtree: true, childList: true,
+    attributes: true, attributeFilter: ['hidden', 'class'] });
+  [0, 200, 600, 1200].forEach(function (t) { setTimeout(다시, t); });
 })();
 </script>
 </body></html>
