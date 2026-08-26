@@ -279,6 +279,46 @@
   .bar i{font-style:normal;font-size:18px;line-height:1;filter:grayscale(1) opacity(.55)}
   .bar button:active{background:rgba(255,255,255,.06)}
 
+  /* ── 예약 비서(채팅) ──────────────────────────────
+     ⚠ 폰에서 쓰는 화면이다. 입력칸은 아래 바에 가리지 않게 여백을 둔다.
+     ⚠ iOS 는 글꼴이 16px 보다 작으면 입력할 때 화면을 확대한다. 16px 아래로 내리지 말 것. */
+  .chatcard{display:flex;flex-direction:column;padding:0}
+  .chatcard h3{margin:0;padding:14px 16px 12px}
+  .chatlog{display:flex;flex-direction:column;gap:9px;padding:0 14px 12px;
+    max-height:min(58vh,520px);overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .chatlog .cme,.chatlog .cbot{max-width:86%;padding:10px 13px;border-radius:14px;
+    font-size:15px;line-height:1.62;white-space:pre-wrap;word-break:break-word}
+  .chatlog .cme{align-self:flex-end;background:var(--brand,#E7352B);color:#fff;border-bottom-right-radius:5px}
+  .chatlog .cbot{align-self:flex-start;background:rgba(255,255,255,.07);color:var(--tx,#EDEDED);border-bottom-left-radius:5px}
+  .chatlog .cerr{align-self:flex-start;background:rgba(224,27,0,.16);color:#FFC9C2;
+    padding:10px 13px;border-radius:14px;font-size:14px}
+  .chatlog img.cshot{max-width:190px;border-radius:11px;display:block}
+  /* 확인 카드 — 여기서 손이 한 번 멈춘다. 그래서 무슨 일이 일어나는지 다 적는다. */
+  .cask{align-self:stretch;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
+    border-radius:14px;padding:12px 13px;display:flex;flex-direction:column;gap:10px}
+  .cask b{font-size:14.5px;line-height:1.55;font-weight:700;color:#fff}
+  .cask .btns{display:flex;gap:8px}
+  .cask button{flex:1;min-height:42px;border:0;border-radius:11px;font-size:15px;font-weight:700;
+    font-family:inherit;cursor:pointer}
+  .cask .yes{background:#2CFF05;color:#06150A}
+  .cask .no{background:rgba(255,255,255,.10);color:var(--tx,#EDEDED)}
+  .cask.done .btns{display:none}
+  .chatpics{display:flex;gap:7px;flex-wrap:wrap;padding:0 14px 10px}
+  .chatpics span{position:relative}
+  .chatpics img{height:56px;border-radius:9px;display:block}
+  .chatpics b{position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;
+    background:#000;color:#fff;font-size:13px;line-height:20px;text-align:center;cursor:pointer}
+  .chatbar{display:flex;gap:8px;align-items:flex-end;padding:11px 12px;
+    border-top:1px solid rgba(255,255,255,.09)}
+  .chatbar textarea{flex:1;min-height:44px;max-height:132px;resize:none;padding:11px 13px;
+    border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);
+    color:var(--tx,#EDEDED);font-family:inherit;font-size:16px;line-height:1.5}
+  .chatbar textarea:focus{outline:none;border-color:rgba(255,255,255,.32)}
+  .chatbar button{min-height:44px;padding:0 15px;border:0;border-radius:12px;font-family:inherit;
+    font-size:15px;font-weight:700;cursor:pointer;background:rgba(255,255,255,.10);color:var(--tx,#EDEDED)}
+  .chatbar #chatsend{background:#2CFF05;color:#06150A}
+  .chatbar button:disabled{opacity:.45}
+
   /* ⚠ [hidden] 은 display 를 주는 규칙에 진다. 이 집에서 두 번 당했다. 못 이기게 못 박는다. */
   .tabpane{display:flex;flex-direction:column;gap:20px}
   .tabpane[hidden]{display:none !important}
@@ -372,6 +412,27 @@
   <div id="stats" class="stats"></div>
   <div id="list"></div>
   </div>
+
+  <!-- ⚠ 채팅으로 예약을 바꾼다. 읽기는 바로, 쓰기는 확인 버튼을 눌러야 실행된다.
+         잘못 알아들으면 손님 예약이 날아가므로 사람이 한 번 본다. -->
+  <div class="tabpane" id="pane-chat" hidden>
+    <div class="card chatcard">
+      <h3>예약 비서<span class="r" id="chatcost"></span></h3>
+      <div class="chatlog" id="chatlog">
+        <div class="cbot">말로 예약을 다룰 수 있습니다.<br>
+          · “내일 3시부터 2시간 김민수 010-1234-5678 잡아줘”<br>
+          · “9월 첫째 주 예약 뭐 있어?”<br>
+          · 달력 사진을 붙여넣어도 읽습니다.</div>
+      </div>
+      <div class="chatpics" id="chatpics" hidden></div>
+      <div class="chatbar">
+        <button type="button" id="chatpic" title="사진 넣기">🖼</button>
+        <input type="file" id="chatfile" accept="image/*" multiple hidden>
+        <textarea id="chatin" rows="1" placeholder="예약을 말로 시켜보세요" autocomplete="off"></textarea>
+        <button type="button" id="chatsend">보내기</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ⚠ 이 바는 「링크 모음」이 아니라 **화면 전환**이다.
@@ -382,6 +443,7 @@
 <nav class="bar">
   <button type="button" data-tab="cal"><i>📅</i><span>달력</span></button>
   <button type="button" data-tab="book"><i>📖</i><span>예약</span></button>
+  <button type="button" data-tab="chat"><i>💬</i><span>비서</span></button>
   <button type="button" data-tab="set"><i>⚙️</i><span>관리</span></button>
 </nav>
 <!-- ⚠ 바는 position:fixed 라 화면에서는 맨 아래에 뜬다. 그래도 마크업은
@@ -655,7 +717,7 @@ const stat = (label, color, value, unit) => `<div class="stat">
 /* ── 화면 전환 ────────────────────────────────────────
    ⚠ 고른 탭을 이 기기에 적어 둔다. 달력을 보려고 열었는데 매번 첫 탭으로 돌아가면
      결국 또 한 번씩 누르게 된다. */
-const TABS = ['cal', 'book', 'set'];
+const TABS = ['cal', 'book', 'chat', 'set'];
 function goTab(name) {
   if (!TABS.includes(name)) name = 'cal';
   TABS.forEach(t => $('pane-' + t).hidden = (t !== name));
@@ -856,6 +918,168 @@ else {
   vv.addEventListener('scroll', 재기);
   window.addEventListener('orientationchange', function () { setTimeout(재기, 250); });
   재기();
+})();
+
+/* ── 예약 비서(채팅) ───────────────────────────────────
+   ⚠ 읽기는 바로 답하지만, 쓰기(추가·변경·삭제·취소)는 서버가 실행하지 않고
+     「대기」로만 돌려준다. 아래 확인 버튼을 눌러야 그때 실행된다.
+     그 길에는 모델이 끼지 않는다 — 계획한 값 그대로만 나간다.
+   ⚠ 사진은 base64 로 보낸다. 폰 사진이 크면 요금과 속도 둘 다 나빠지므로 긴 변 1280 으로 줄인다. */
+(function () {
+  var 로그 = $('chatlog'), 입력 = $('chatin'), 보냄 = $('chatsend');
+  var 사진칸 = $('chatpics'), 파일 = $('chatfile');
+  if (!로그) return;
+  var 대화 = [];          // Claude 에 그대로 보내는 messages
+  var 붙인사진 = [];      // {media_type, data, url}
+  var 보내는중 = false;
+
+  function 붙이기(el) { 로그.appendChild(el); 로그.scrollTop = 로그.scrollHeight; }
+  function 말풍선(cls, html) {
+    var d = document.createElement('div'); d.className = cls; d.innerHTML = html; 붙이기(d); return d;
+  }
+
+  /* 사진 줄이기 — 긴 변 1280, jpeg 0.82. 달력 글씨는 이 정도면 다 읽힌다. */
+  function 줄이기(file) {
+    return new Promise(function (done, fail) {
+      var fr = new FileReader();
+      fr.onload = function () {
+        var img = new Image();
+        img.onload = function () {
+          var r = Math.min(1, 1280 / Math.max(img.width, img.height));
+          var c = document.createElement('canvas');
+          c.width = Math.round(img.width * r); c.height = Math.round(img.height * r);
+          c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+          var url = c.toDataURL('image/jpeg', 0.82);
+          done({ media_type: 'image/jpeg', data: url.split(',')[1], url: url });
+        };
+        img.onerror = fail; img.src = fr.result;
+      };
+      fr.onerror = fail; fr.readAsDataURL(file);
+    });
+  }
+
+  function 사진그리기() {
+    사진칸.hidden = !붙인사진.length;
+    사진칸.innerHTML = 붙인사진.map(function (p, i) {
+      return '<span><img src="' + p.url + '" alt=""><b data-i="' + i + '">×</b></span>';
+    }).join('');
+    사진칸.querySelectorAll('b').forEach(function (b) {
+      b.onclick = function () { 붙인사진.splice(Number(b.dataset.i), 1); 사진그리기(); };
+    });
+  }
+
+  async function 사진넣기(files) {
+    for (var i = 0; i < files.length && 붙인사진.length < 4; i++) {
+      if (!/^image\//.test(files[i].type)) continue;
+      try { 붙인사진.push(await 줄이기(files[i])); } catch (e) {}
+    }
+    사진그리기();
+  }
+
+  $('chatpic').onclick = function () { 파일.click(); };
+  파일.onchange = function () { 사진넣기(파일.files); 파일.value = ''; };
+  입력.addEventListener('paste', function (e) {
+    var it = (e.clipboardData || {}).items || [];
+    var 그림 = [];
+    for (var i = 0; i < it.length; i++) if (it[i].type.indexOf('image') === 0) 그림.push(it[i].getAsFile());
+    if (그림.length) { e.preventDefault(); 사진넣기(그림); }
+  });
+  입력.addEventListener('input', function () {
+    입력.style.height = 'auto'; 입력.style.height = Math.min(132, 입력.scrollHeight) + 'px';
+  });
+  /* 폰에서 엔터는 줄바꿈이어야 한다. 넓은 화면에서만 엔터로 보낸다. */
+  입력.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey && window.matchMedia('(min-width:561px)').matches) {
+      e.preventDefault(); 보내기();
+    }
+  });
+
+  async function 서버(payload) {
+    payload.key = KEY;
+    var r = await fetch(FEED, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },   /* 예비요청을 피한다 */
+      body: JSON.stringify(payload),
+    });
+    return r.json();
+  }
+
+  /* 확인 카드 — 여기서만 실제로 예약이 바뀐다. */
+  function 확인카드(계획) {
+    var box = document.createElement('div');
+    box.className = 'cask';
+    box.innerHTML = '<b>' + esc(계획.설명) + '</b>' +
+      '<div class="btns"><button type="button" class="no">아니요</button>' +
+      '<button type="button" class="yes">확인하고 실행</button></div>';
+    붙이기(box);
+    box.querySelector('.no').onclick = function () {
+      box.classList.add('done');
+      box.insertAdjacentHTML('beforeend', '<span style="font-size:13.5px;color:#9A9A9A">취소했습니다</span>');
+    };
+    box.querySelector('.yes').onclick = async function () {
+      box.querySelectorAll('button').forEach(function (b) { b.disabled = true; });
+      var d = await 서버({ exec: { 도구: 계획.도구, 값: 계획.값 } }).catch(function () { return null; });
+      box.classList.add('done');
+      if (d && d.ok) {
+        box.insertAdjacentHTML('beforeend',
+          '<span style="font-size:13.5px;color:#2CFF05">✓ 처리했습니다</span>');
+        대화.push({ role: 'user', content: '(방금 실행 완료: ' + 계획.설명 + ')' });
+        /* 달력과 목록을 새로 읽는다. 서버는 이미 캐시를 지웠다. */
+        try {
+          loadCal(Math.floor(TODAY / 10000), Math.floor(TODAY / 100) % 100);
+          fetch(feed('fresh=1&t=' + Date.now())).then(function (r) { return r.json(); })
+            .then(function (v) { if (v && v.ok) render(v); });
+        } catch (e) {}
+      } else {
+        box.insertAdjacentHTML('beforeend',
+          '<span style="font-size:13.5px;color:#FFC9C2">실패: ' + esc((d && d.오류) || '알 수 없는 오류') + '</span>');
+      }
+    };
+  }
+
+  async function 보내기() {
+    if (보내는중) return;
+    var 글 = 입력.value.trim();
+    if (!글 && !붙인사진.length) return;
+
+    /* 화면에 내 말 */
+    var html = 붙인사진.map(function (p) { return '<img class="cshot" src="' + p.url + '">'; }).join('') +
+               (글 ? esc(글) : '');
+    말풍선('cme', html);
+
+    /* 서버로 보낼 내용 */
+    var 내용 = [];
+    붙인사진.forEach(function (p) {
+      내용.push({ type: 'image', source: { type: 'base64', media_type: p.media_type, data: p.data } });
+    });
+    내용.push({ type: 'text', text: 글 || '이 사진을 보고 무엇을 하면 될지 알려줘.' });
+    대화.push({ role: 'user', content: 내용 });
+
+    입력.value = ''; 입력.style.height = 'auto';
+    붙인사진 = []; 사진그리기();
+    보내는중 = true; 보냄.disabled = true;
+    var 기다림 = 말풍선('cbot', '<span style="opacity:.6">…</span>');
+
+    try {
+      var d = await 서버({ messages: 대화 });
+      기다림.remove();
+      if (!d || !d.ok) { 말풍선('cerr', esc((d && d.오류) || '서버가 답하지 않았습니다')); return; }
+      말풍선('cbot', esc(d.답));
+      대화.push({ role: 'assistant', content: d.답 });
+      (d.대기 || []).forEach(확인카드);
+      if (d.쓴토큰) {
+        var 원 = (d.쓴토큰.input_tokens * (d.모델 && d.모델.indexOf('haiku') >= 0 ? 1 : 2) +
+                  d.쓴토큰.output_tokens * (d.모델 && d.모델.indexOf('haiku') >= 0 ? 5 : 10)) / 1e6 * 1450;
+        $('chatcost').textContent = '약 ' + Math.max(1, Math.round(원)) + '원';
+      }
+    } catch (e) {
+      기다림.remove();
+      말풍선('cerr', '연결에 실패했습니다. 잠시 뒤 다시 시도해 주세요.');
+    } finally {
+      보내는중 = false; 보냄.disabled = false;
+    }
+  }
+  보냄.onclick = 보내기;
 })();
 </script>
 </body></html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>오공일501 관리 앱 설치</title>
+<meta name="robots" content="noindex">
+<link rel="apple-touch-icon" href="img/icon-180.png?v=5gong1">
+<style>
+  /* ⚠ 아이폰은 「링크 한 번으로 설치」가 정책상 안 된다. 사파리에서 공유 → 홈 화면에 추가가 유일한 길이다.
+       그래서 이 페이지는 설치를 대신 해주는 게 아니라, 그 두 걸음을 그림으로 짚어준다.
+     ⚠ 안드로이드·크롬은 진짜 설치 버튼이 뜬다. 그때만 버튼을 보여준다. */
+  :root{ --bg:#0B0B0C; --card:#151517; --tx:#EDEDED; --sub:#9A9A9A; --brand:#E7352B; --line:rgba(255,255,255,.12) }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--tx);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard",system-ui,sans-serif;
+    padding:calc(28px + env(safe-area-inset-top)) 18px calc(40px + env(safe-area-inset-bottom));
+    -webkit-font-smoothing:antialiased;line-height:1.6}
+  .wrap{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+  .hd{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+  .ico{width:88px;height:88px;border-radius:21px;display:block;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+  h1{margin:0;font-size:23px;letter-spacing:-.03em}
+  .lede{margin:0;color:var(--sub);font-size:14.5px}
+  .card{background:var(--card);border-radius:16px;padding:18px 17px;border:1px solid var(--line)}
+  .card h2{margin:0 0 12px;font-size:16px;letter-spacing:-.02em}
+  ol{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:14px;counter-reset:s}
+  ol li{display:grid;grid-template-columns:28px 1fr;gap:11px;align-items:start;font-size:15px}
+  ol li::before{counter-increment:s;content:counter(s);width:28px;height:28px;border-radius:50%;
+    background:var(--brand);color:#fff;font-size:14px;font-weight:800;display:grid;place-items:center}
+  ol li b{font-weight:700}
+  .sh{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;
+    border-radius:6px;background:rgba(255,255,255,.10);vertical-align:-6px;margin:0 2px}
+  .sh svg{width:14px;height:14px;fill:none;stroke:#7EB6FF;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .go{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+  a.btn,button.btn{display:flex;align-items:center;justify-content:center;min-height:52px;
+    border:0;border-radius:13px;text-decoration:none;font-size:16px;font-weight:800;font-family:inherit;
+    cursor:pointer;background:var(--brand);color:#fff}
+  a.btn.ghost{background:rgba(255,255,255,.08);color:var(--tx);border:1px solid var(--line)}
+  .note{color:var(--sub);font-size:13px;margin:0}
+  .warn{background:rgba(231,53,43,.12);border:1px solid rgba(231,53,43,.35);border-radius:12px;
+    padding:11px 13px;font-size:13.5px;color:#FFC9C2}
+  [hidden]{display:none !important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hd">
+    <img class="ico" src="img/icon-180.png?v=5gong1" alt="">
+    <h1>오공일501 관리 앱</h1>
+    <p class="lede">홈 화면에 두면 주소창 없이 앱처럼 열립니다.<br>비밀번호도 기억되어 매번 안 칩니다.</p>
+  </div>
+
+  <!-- 안드로이드·크롬에서만 진짜 설치가 가능하다. 그때만 뜬다. -->
+  <div class="card" id="androidcard" hidden>
+    <h2>바로 설치</h2>
+    <div class="go"><button type="button" class="btn" id="install">홈 화면에 설치하기</button></div>
+  </div>
+
+  <div class="card" id="ioscard">
+    <h2>아이폰 · 아이패드</h2>
+    <ol>
+      <li><span><b>사파리</b>로 이 페이지를 엽니다.
+        <span class="note" id="notsafari" hidden><br>지금은 다른 브라우저입니다. 아래 「사파리에서 열기」를 눌러주세요.</span></span></li>
+      <li><span>아래쪽 가운데
+        <span class="sh"><svg viewBox="0 0 24 24"><path d="M12 15V3m0 0L8 7m4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg></span>
+        <b>공유 버튼</b>을 누릅니다.</span></li>
+      <li><span>목록을 내려 <b>「홈 화면에 추가」</b>를 누릅니다.</span></li>
+      <li><span>오른쪽 위 <b>「추가」</b>를 누르면 끝입니다.</span></li>
+    </ol>
+  </div>
+
+  <div class="card" id="androidguide" hidden>
+    <h2>안드로이드</h2>
+    <ol>
+      <li><span>오른쪽 위 <b>⋮</b> 메뉴를 누릅니다.</span></li>
+      <li><span><b>「홈 화면에 추가」</b> 또는 <b>「앱 설치」</b>를 누릅니다.</span></li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>바로 열기</h2>
+    <div class="go">
+      <a class="btn" id="open" href="./">관리 페이지 열기</a>
+      <a class="btn ghost" id="safari" href="#" hidden>사파리에서 열기</a>
+    </div>
+    <p class="note" style="margin-top:11px">
+      ⚠ 비밀번호를 아는 사람만 열 수 있습니다. 이 주소를 남에게 보내지 마세요.
+    </p>
+  </div>
+
+  <div class="warn" id="httpwarn" hidden>
+    이 주소는 <b>https</b> 가 아니라 설치가 안 됩니다. <b>fva.co.kr</b> 주소로 열어주세요.
+  </div>
+
+</div>
+
+<script>
+/* ⚠ 이 페이지가 하는 일은 딱 둘이다 —
+     ① 지금 기기에 맞는 안내만 보여준다(아이폰에 안드로이드 설명을 띄우면 사람이 헤맨다)
+     ② 이미 비밀번호를 아는 사람이면 링크에 그대로 실어 보낸다(홈 화면 앱이 다시 안 묻는다) */
+(function () {
+  var ua = navigator.userAgent;
+  var 아이폰 = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var 안드 = /Android/.test(ua);
+  var 사파리 = 아이폰 && !/CriOS|FxiOS|EdgiOS|Whale|NAVER|KAKAOTALK|Line/i.test(ua);
+
+  if (안드) {
+    document.getElementById('ioscard').hidden = true;
+    document.getElementById('androidguide').hidden = false;
+  }
+  if (아이폰 && !사파리) {
+    document.getElementById('notsafari').hidden = false;
+    var s = document.getElementById('safari');
+    s.hidden = false;
+    /* x-safari- 를 붙이면 사파리로 넘어간다. 인앱 브라우저(카톡·인스타)에서 특히 필요하다. */
+    s.href = 'x-safari-' + location.href;
+  }
+  if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+    document.getElementById('httpwarn').hidden = false;
+  }
+
+  /* 비밀번호를 이미 들고 왔으면(#k=…) 열기 링크에 그대로 실어 보낸다. */
+  try {
+    var k = (location.hash.match(/k=([^&]+)/) || [])[1];
+    if (k) document.getElementById('open').href = './#k=' + k;
+  } catch (e) {}
+
+  /* 안드로이드·크롬은 진짜 설치가 된다. 브라우저가 신호를 줄 때만 버튼을 보여준다. */
+  var 대기 = null;
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault(); 대기 = e;
+    document.getElementById('androidcard').hidden = false;
+  });
+  document.getElementById('install').onclick = function () {
+    if (!대기) return;
+    대기.prompt();
+    대기 = null;
+    document.getElementById('androidcard').hidden = true;
+  };
+
+  /* 이미 홈 화면 앱으로 열었다면 안내가 필요 없다. */
+  if (window.matchMedia('(display-mode: standalone)').matches || navigator.standalone) {
+    document.getElementById('ioscard').hidden = true;
+    document.getElementById('androidguide').hidden = true;
+  }
+})();
+</script>
+</body>
+</html>
