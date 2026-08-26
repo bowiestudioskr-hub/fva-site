@@ -574,7 +574,14 @@ const KEYNAME = 'oh501key';
      처음엔 파일 끝에 뒀다가 관리 탭 이름이 늘 「이름 없음」으로 나왔다. */
 const WHONAME = 'fva501who';
 function 누구() { try { return localStorage.getItem(WHONAME) || ''; } catch { return ''; } }
-function 누구저장(v) { try { localStorage.setItem(WHONAME, String(v).trim().slice(0, 12)); } catch {} }
+/* ⚠ 저장이 조용히 실패하면 이름 화면에서 영영 안 넘어간다(실제로 그랬다).
+     저장 공간이 꽉 찬 것이 원인이므로, 실패하면 대화 저장분을 비우고 한 번 더 해 본다. */
+function 누구저장(v) {
+  const 값 = String(v).trim().slice(0, 12);
+  try { localStorage.setItem(WHONAME, 값); return true; } catch (e) {}
+  try { localStorage.removeItem('fva501chat'); localStorage.setItem(WHONAME, 값); return true; } catch (e) {}
+  return false;
+}
 function getKey() {
   const m = (location.hash || '').match(/k=([^&\s]+)/);   /* ⚠ ! 같은 글자도 받는다 */
   if (m) {
@@ -629,7 +636,13 @@ function askKey() {
 
   const go = () => {
     const v = real.trim();
-    if (v) { try { localStorage.setItem(KEYNAME, v); } catch {} location.reload(); }
+    if (!v) return;
+    /* ⚠ 저장이 조용히 실패하면 비밀번호 화면에서 안 넘어간다. 대화 저장분을 비우고 한 번 더. */
+    let 됐나 = false;
+    try { localStorage.setItem(KEYNAME, v); 됐나 = true; } catch (e) {}
+    if (!됐나) { try { localStorage.removeItem('fva501chat'); localStorage.setItem(KEYNAME, v); 됐나 = true; } catch (e) {} }
+    if (!됐나) { alert('비밀번호를 저장하지 못했습니다. 사파리 설정에서 이 사이트 데이터를 지운 뒤 다시 시도해 주세요.'); return; }
+    location.reload();
   };
   document.getElementById('kgo').onclick = go;
   inp.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
@@ -1037,7 +1050,14 @@ function askWho(다시) {
   const 가자 = () => {
     const v = w.value.trim();
     if (!v) { w.focus(); return; }
-    누구저장(v); location.reload();
+    if (!누구저장(v)) {
+      const p = document.createElement('p');
+      p.style.cssText = 'color:#FF8A80;font-size:13px;line-height:1.6';
+      p.textContent = '이름을 저장하지 못했습니다. 사파리 설정에서 이 사이트 데이터를 지운 뒤 다시 시도해 주세요.';
+      w.parentElement.appendChild(p);
+      return;
+    }
+    location.reload();
   };
   document.getElementById('wgo').onclick = 가자;
   w.addEventListener('keydown', e => { if (e.key === 'Enter') 가자(); });
@@ -1183,8 +1203,17 @@ else {
         return { role: m.role, content: m.content.map(function (c) {
           return c.type === 'image' ? { type: 'text', text: '[사진]' } : c; }) };
       });
-      localStorage.setItem(저장이름, JSON.stringify({ 때: Date.now(), 대화: 가벼운, 화면: 로그.innerHTML.slice(0, 200000) }));
-    } catch (e) {}
+      /* ⚠ 화면을 그대로 담으면 사진이 base64 로 들어가 몇 MB 가 된다.
+           그러면 저장 공간이 꽉 차서 **이름·비밀번호까지 저장이 안 된다.**
+           사진은 자리표시로 바꾸고 크기도 묶는다. */
+      var 화면 = 로그.innerHTML
+        .replace(/src="data:[^"]*"/g, 'src="" data-사진="1"')
+        .slice(0, 60000);
+      localStorage.setItem(저장이름, JSON.stringify({ 때: Date.now(), 대화: 가벼운, 화면: 화면 }));
+    } catch (e) {
+      /* 꽉 찼으면 이 저장분만 버린다. 다른 것(이름·비밀번호)까지 막으면 안 된다. */
+      try { localStorage.removeItem(저장이름); } catch (e2) {}
+    }
   }
   function 대화복원() {
     try {
@@ -1364,8 +1393,18 @@ else {
   function 다시() { 바높이(); 칸들().forEach(표시); }
   document.addEventListener('scroll', function (e) { 표시(e.target); }, true);
   window.addEventListener('resize', 다시);
-  new MutationObserver(다시).observe(document.body, { subtree: true, childList: true,
-    attributes: true, attributeFilter: ['hidden', 'class'] });
+  /* ⚠ class 를 감시하면 안 된다. 그라데이션을 켜려고 class 를 바꾸는 순간 그게 다시 감시에 걸려
+       **끝없이 돌고 화면이 멎는다.** (자동 점검에서 렌더러가 통째로 얼어붙어 잡았다.)
+       그래서 감시는 hidden(탭 전환)과 내용 추가에만 걸고, 자기 자신이 부른 것은 건너뛴다. */
+  var 도는중 = false;
+  function 다시안전() {
+    if (도는중) return;
+    도는중 = true;
+    다시();
+    setTimeout(function () { 도는중 = false; }, 0);
+  }
+  new MutationObserver(다시안전).observe(document.body,
+    { subtree: true, childList: true, attributes: true, attributeFilter: ['hidden'] });
   [0, 200, 600, 1200].forEach(function (t) { setTimeout(다시, t); });
 })();
 </script>
