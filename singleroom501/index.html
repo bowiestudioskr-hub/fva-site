@@ -291,8 +291,8 @@
     white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
   .chatcard .chathd .r{font-size:12px;color:#6E6E6E;margin-left:auto}
   .chatlog{display:flex;flex-direction:column;gap:9px;padding:14px 14px 12px;
-    flex:1;min-height:160px;max-height:none;
-    overflow-y:auto;-webkit-overflow-scrolling:touch}
+    flex:1;min-height:120px;max-height:none;
+    overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
   .chatlog .cme,.chatlog .cbot{max-width:86%;padding:10px 13px;border-radius:14px;
     font-size:15px;line-height:1.62;white-space:pre-wrap;word-break:break-word}
   .chatlog .cme{align-self:flex-end;background:var(--brand,#E7352B);color:#fff;border-bottom-right-radius:5px}
@@ -350,7 +350,7 @@
   /* ⚠ 높이는 100dvh 가 아니라 **실제로 보이는 높이**를 쓴다.
        100dvh 는 키보드가 올라와도 줄지 않아서, 문서를 잠근 상태에서는
        입력칸이 키보드 뒤에 깔려 글을 못 쓴다. 맨 아래 스크립트가 재서 --appvh 로 넣는다. */
-  body.appmode{height:100dvh;overflow:hidden;display:flex;flex-direction:column;
+  body.appmode{height:100dvh;overflow:hidden;overscroll-behavior:none;display:flex;flex-direction:column;
     padding-left:0;padding-right:0;padding-bottom:0}
   /* ⚠ 키보드가 올라올 때만 「보이는 높이」로 줄인다.
        평소에도 이걸 쓰면 아이폰 홈화면 앱에서 몸이 화면보다 짧아져 **바 아래가 빈다.** */
@@ -359,10 +359,14 @@
   /* ⚠ 바를 띄워 두지(fixed) 않는다. 문서가 안 움직이니 그냥 마지막 칸으로 두면
        **언제나 화면 맨 아래**에 정확히 붙는다. 브라우저 UI 높이를 재서 들어올리던
        --lift 도 더는 필요 없다(그게 바를 애매하게 띄우던 원인이다). */
-  body.appmode .bar{position:static;transform:none;flex:none}
+  body.appmode .bar{position:static;transform:none;flex:none;position:relative}
+  /* ⚠ 홈화면 앱에서 바 아래가 비어 보이던 것 — 아래쪽으로 같은 색을 한 겹 더 깔아
+       기기가 무엇을 반환하든 화면 끝까지 색이 이어지게 한다(넘친 부분은 화면 밖이라 안 보인다). */
+  body.appmode .bar::after{content:"";position:absolute;left:0;right:0;top:100%;height:160px;
+    background:rgba(20,20,22,.94);pointer-events:none}
   body.appmode .hd{flex:none}
   body.appmode .tabpane{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;
-    padding-bottom:4px}
+    padding-bottom:14px;overscroll-behavior:contain}
   /* ⚠ 탭은 세로 flex 다. 그대로 두면 자식 카드들이 **눌려서 잘린다** —
        내용이 넘치는데도 스크롤이 안 생겨 아랫부분이 통째로 사라진다(관리 탭 사고).
        각 카드는 제 높이를 지키게 못 박고, 넘치는 만큼 탭이 스크롤하게 둔다. */
@@ -1147,7 +1151,8 @@ else {
       if (Date.now() - (v.때 || 0) > 30 * 864e5) { localStorage.removeItem(저장이름); 서버기록되살리기(); return; }
       대화 = v.대화;
       if (v.화면) { 로그.innerHTML = v.화면; 되살리기(); }
-      로그.scrollTop = 로그.scrollHeight;
+      var 바닥 = function () { 로그.scrollTop = 로그.scrollHeight; };
+      바닥(); setTimeout(바닥, 60); setTimeout(바닥, 300);
     } catch (e) { 서버기록되살리기(); }
   }
   /* 복원된 확인 카드는 눌러도 아무 일이 없다. 헷갈리지 않게 끈다. */
@@ -1183,6 +1188,10 @@ else {
         대화.push({ role: r.쪽 === 'me' ? 'user' : 'assistant', content: r.말 });
       });
       대화 = 대화.slice(-20);
+      /* ⚠ 붙이는 동안 맨 아래로 밀어도, 뒤에 덮개가 붙으며 높이가 또 바뀐다.
+           그래서 한 박자 늦게 한 번 더 내려야 최신 말풍선이 잘리지 않는다. */
+      var 바닥으로 = function () { 로그.scrollTop = 로그.scrollHeight; };
+      바닥으로(); setTimeout(바닥으로, 60); setTimeout(바닥으로, 300);
     } catch (e) {
       말풍선('cbot', '지난 대화를 불러오지 못했습니다. 새로 시작하셔도 됩니다.');
     }
