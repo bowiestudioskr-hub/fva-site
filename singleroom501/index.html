@@ -303,6 +303,19 @@
   .cask .yes{background:#2CFF05;color:#06150A}
   .cask .no{background:rgba(255,255,255,.10);color:var(--tx,#EDEDED)}
   .cask.done .btns{display:none}
+  /* 지난 기록 — 평소엔 접어 둔다. 열었을 때만 서버에서 읽는다. */
+  .chathist{border-top:1px solid rgba(255,255,255,.09);padding:0 14px}
+  .chathist summary{padding:11px 0;font-size:13.5px;color:#9A9A9A;cursor:pointer;list-style:none}
+  .chathist summary::-webkit-details-marker{display:none}
+  .chathist summary::before{content:"▸ ";color:#6A6A6A}
+  .chathist[open] summary::before{content:"▾ "}
+  .histbox{max-height:min(42vh,360px);overflow-y:auto;padding:0 0 12px;
+    font-size:13px;line-height:1.75;color:#B9B9B9;display:flex;flex-direction:column;gap:3px}
+  .histbox .hrow{display:grid;grid-template-columns:96px 1fr;gap:8px;align-items:start}
+  .histbox .hrow i{font-style:normal;color:#6E6E6E;font-variant-numeric:tabular-nums;font-size:12px}
+  .histbox .hrow.done b{color:#2CFF05;font-weight:600}
+  .histbox .hrow.wait b{color:#E0C24A;font-weight:600}
+  .histbox .hrow b{font-weight:400;color:#C9C9C9;word-break:break-word}
   .chatpics{display:flex;gap:7px;flex-wrap:wrap;padding:0 14px 10px}
   .chatpics span{position:relative}
   .chatpics img{height:56px;border-radius:9px;display:block}
@@ -424,6 +437,10 @@
           · “9월 첫째 주 예약 뭐 있어?”<br>
           · 달력 사진을 붙여넣어도 읽습니다.</div>
       </div>
+      <details class="chathist" id="chathist">
+        <summary>지난 기록 보기</summary>
+        <div class="histbox" id="histbox">불러오는 중…</div>
+      </details>
       <div class="chatpics" id="chatpics" hidden></div>
       <div class="chatbar">
         <button type="button" id="chatpic" title="사진 넣기">🖼</button>
@@ -933,6 +950,55 @@ else {
   var 붙인사진 = [];      // {media_type, data, url}
   var 보내는중 = false;
 
+  /* ⚠ 새로고침하면 대화가 통째로 날아갔다. 이 기기에 적어 둔다.
+       사진은 무거워서 저장하지 않는다(글만 남긴다) — 저장 한도(약 5MB)를 금방 넘긴다. */
+  var 저장이름 = 'fva501chat';
+  function 대화저장() {
+    try {
+      var 가벼운 = 대화.slice(-30).map(function (m) {
+        if (!Array.isArray(m.content)) return m;
+        return { role: m.role, content: m.content.map(function (c) {
+          return c.type === 'image' ? { type: 'text', text: '[사진]' } : c; }) };
+      });
+      localStorage.setItem(저장이름, JSON.stringify({ 때: Date.now(), 대화: 가벼운, 화면: 로그.innerHTML.slice(0, 200000) }));
+    } catch (e) {}
+  }
+  function 대화복원() {
+    try {
+      var v = JSON.parse(localStorage.getItem(저장이름) || 'null');
+      if (!v || !v.대화 || !v.대화.length) return;
+      /* 30일이 지난 것은 새로 시작한다. 오래된 맥락은 오히려 헷갈린다. */
+      if (Date.now() - (v.때 || 0) > 30 * 864e5) { localStorage.removeItem(저장이름); return; }
+      대화 = v.대화;
+      if (v.화면) { 로그.innerHTML = v.화면; 되살리기(); }
+      로그.scrollTop = 로그.scrollHeight;
+    } catch (e) {}
+  }
+  /* 복원된 확인 카드는 눌러도 아무 일이 없다. 헷갈리지 않게 끈다. */
+  function 되살리기() {
+    로그.querySelectorAll('.cask').forEach(function (c) {
+      if (c.classList.contains('done')) return;
+      c.classList.add('done');
+      c.insertAdjacentHTML('beforeend', '<span style="font-size:13px;color:#8A8A8A">(지난 대화 — 다시 말씀해 주세요)</span>');
+    });
+  }
+
+  /* 지난 기록 — 서버에 오래 남는다. 열 때만 읽는다. */
+  var 기록읽음 = false;
+  $('chathist').addEventListener('toggle', async function () {
+    if (!this.open || 기록읽음) return;
+    기록읽음 = true;
+    var box = $('histbox');
+    try {
+      var d = await 서버({ log: 200 });
+      if (!d || !d.ok || !d.기록 || !d.기록.length) { box.textContent = '아직 기록이 없습니다.'; return; }
+      box.innerHTML = d.기록.map(function (r) {
+        var cls = /^✔/.test(r.한일) ? ' done' : /^…/.test(r.한일) ? ' wait' : '';
+        return '<div class="hrow' + cls + '"><i>' + esc(r.때.slice(5)) + '</i><b>' + esc(r.한일) + '</b></div>';
+      }).join('');
+    } catch (e) { box.textContent = '기록을 불러오지 못했습니다.'; 기록읽음 = false; }
+  });
+
   function 붙이기(el) { 로그.appendChild(el); 로그.scrollTop = 로그.scrollHeight; }
   function 말풍선(cls, html) {
     var d = document.createElement('div'); d.className = cls; d.innerHTML = html; 붙이기(d); return d;
@@ -1024,6 +1090,7 @@ else {
         box.insertAdjacentHTML('beforeend',
           '<span style="font-size:13.5px;color:#2CFF05">✓ 처리했습니다</span>');
         대화.push({ role: 'user', content: '(방금 실행 완료: ' + 계획.설명 + ')' });
+        대화저장(); 기록읽음 = false;
         /* 달력과 목록을 새로 읽는다. 서버는 이미 캐시를 지웠다. */
         try {
           loadCal(Math.floor(TODAY / 10000), Math.floor(TODAY / 100) % 100);
@@ -1067,6 +1134,7 @@ else {
       말풍선('cbot', esc(d.답));
       대화.push({ role: 'assistant', content: d.답 });
       (d.대기 || []).forEach(확인카드);
+      대화저장();
       if (d.쓴토큰) {
         var 원 = (d.쓴토큰.input_tokens * (d.모델 && d.모델.indexOf('haiku') >= 0 ? 1 : 2) +
                   d.쓴토큰.output_tokens * (d.모델 && d.모델.indexOf('haiku') >= 0 ? 5 : 10)) / 1e6 * 1450;
@@ -1080,6 +1148,7 @@ else {
     }
   }
   보냄.onclick = 보내기;
+  대화복원();
 })();
 </script>
 </body></html>
