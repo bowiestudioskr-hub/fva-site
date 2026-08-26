@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 8. 26. PM 3:25:42",
+  "updated": "2026. 8. 26. PM 3:41:24",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -738,7 +738,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 26. PM 3:25:37",
+    "updated": "2026. 8. 26. PM 3:41:19",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -748,29 +748,29 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 8,
-        "click": 6,
+        "visit": 9,
+        "click": 7,
         "unique": 1,
-        "ctr": 75,
-        "dwell": 21
+        "ctr": 77.8,
+        "dwell": 19
       },
       "7": {
-        "visit": 763,
-        "click": 228,
+        "visit": 764,
+        "click": 229,
         "unique": 174,
-        "ctr": 29.9,
+        "ctr": 30,
         "dwell": 15
       },
       "28": {
-        "visit": 2964,
-        "click": 988,
+        "visit": 2965,
+        "click": 989,
         "unique": 181,
-        "ctr": 33.3,
+        "ctr": 33.4,
         "dwell": 24
       },
       "90": {
-        "visit": 6210,
-        "click": 3014,
+        "visit": 6211,
+        "click": 3015,
         "unique": 181,
         "ctr": 48.5,
         "dwell": 24
@@ -783,8 +783,8 @@
         "dwell": 18
       },
       "all": {
-        "visit": 34612,
-        "click": 14281,
+        "visit": 34613,
+        "click": 14282,
         "unique": 181,
         "ctr": 41.3,
         "dwell": 24
@@ -3235,8 +3235,8 @@
       },
       {
         "d": "2026-08-26",
-        "visit": 8,
-        "click": 6,
+        "visit": 9,
+        "click": 7,
         "unique": 1
       }
     ],
@@ -3244,8 +3244,8 @@
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 15116,
-        "click": 3210,
+        "visit": 15117,
+        "click": 3211,
         "unique": 41,
         "ctr": 21.2,
         "dwell": 19
@@ -3772,6 +3772,14 @@
         "clicks": 16
       },
       {
+        "key": "EJVYl6C",
+        "name": "스마트스토어 · 1개월",
+        "gone": false,
+        "kind": "store",
+        "img": true,
+        "clicks": 8
+      },
+      {
         "key": "0ryi6XM",
         "name": "스마트스토어 · 1개월",
         "gone": true,
@@ -3784,14 +3792,6 @@
         "name": "퍼블 수강 페이지",
         "gone": false,
         "kind": "site",
-        "img": true,
-        "clicks": 7
-      },
-      {
-        "key": "EJVYl6C",
-        "name": "스마트스토어 · 1개월",
-        "gone": false,
-        "kind": "store",
         "img": true,
         "clicks": 7
       },
@@ -4246,6 +4246,15 @@
       "1": {
         "sources": [
           {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 3,
+            "click": 3,
+            "unique": 1,
+            "ctr": 100,
+            "dwell": 5
+          },
+          {
             "name": "우리 사이트",
             "host": "fva.co.kr",
             "visit": 2,
@@ -4253,15 +4262,6 @@
             "unique": 0,
             "ctr": 50,
             "dwell": 29
-          },
-          {
-            "name": "인스타 링크 눌러 옴",
-            "host": "l.instagram.com",
-            "visit": 2,
-            "click": 2,
-            "unique": 1,
-            "ctr": 100,
-            "dwell": 7
           },
           {
             "name": "pcmap.place.naver.com",
@@ -4307,16 +4307,16 @@
         ],
         "blocks": [
           {
-            "key": "bby1R8Y",
-            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "key": "EJVYl6C",
+            "name": "스마트스토어 · 1개월",
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 3
+            "clicks": 4
           },
           {
-            "key": "EJVYl6C",
-            "name": "스마트스토어 · 1개월",
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
             "gone": false,
             "kind": "store",
             "img": true,
@@ -4329,10 +4329,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 255,
-            "click": 181,
+            "visit": 256,
+            "click": 182,
             "unique": 41,
-            "ctr": 71,
+            "ctr": 71.1,
             "dwell": 18
           },
           {
@@ -4784,17 +4784,17 @@
             "clicks": 8
           },
           {
-            "key": "0ryi6XM",
-            "name": "스마트스토어 · 1개월",
-            "gone": true,
-            "kind": "store",
-            "img": true,
-            "clicks": 7
-          },
-          {
             "key": "EJVYl6C",
             "name": "스마트스토어 · 1개월",
             "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 8
+          },
+          {
+            "key": "0ryi6XM",
+            "name": "스마트스토어 · 1개월",
+            "gone": true,
             "kind": "store",
             "img": true,
             "clicks": 7
@@ -4870,8 +4870,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 966,
-            "click": 735,
+            "visit": 967,
+            "click": 736,
             "unique": 41,
             "ctr": 76.1,
             "dwell": 19
@@ -5525,6 +5525,14 @@
             "clicks": 10
           },
           {
+            "key": "EJVYl6C",
+            "name": "스마트스토어 · 1개월",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 8
+          },
+          {
             "key": "OPjnbdZ",
             "name": "옛 버튼 (OPjnbdZ)",
             "gone": true,
@@ -5536,14 +5544,6 @@
             "key": "0ryi6XM",
             "name": "스마트스토어 · 1개월",
             "gone": true,
-            "kind": "store",
-            "img": true,
-            "clicks": 7
-          },
-          {
-            "key": "EJVYl6C",
-            "name": "스마트스토어 · 1개월",
-            "gone": false,
             "kind": "store",
             "img": true,
             "clicks": 7
@@ -5587,8 +5587,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2836,
-            "click": 2213,
+            "visit": 2837,
+            "click": 2214,
             "unique": 41,
             "ctr": 78,
             "dwell": 19
@@ -6326,17 +6326,17 @@
             "clicks": 10
           },
           {
-            "key": "0ryi6XM",
-            "name": "스마트스토어 · 1개월",
-            "gone": true,
-            "kind": "store",
-            "img": true,
-            "clicks": 7
-          },
-          {
             "key": "EJVYl6C",
             "name": "스마트스토어 · 1개월",
             "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 8
+          },
+          {
+            "key": "0ryi6XM",
+            "name": "스마트스토어 · 1개월",
+            "gone": true,
             "kind": "store",
             "img": true,
             "clicks": 7
@@ -6380,8 +6380,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 15116,
-            "click": 3210,
+            "visit": 15117,
+            "click": 3211,
             "unique": 41,
             "ctr": 21.2,
             "dwell": 19
@@ -7298,6 +7298,14 @@
             "clicks": 16
           },
           {
+            "key": "EJVYl6C",
+            "name": "스마트스토어 · 1개월",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 8
+          },
+          {
             "key": "0ryi6XM",
             "name": "스마트스토어 · 1개월",
             "gone": true,
@@ -7310,14 +7318,6 @@
             "name": "퍼블 수강 페이지",
             "gone": false,
             "kind": "site",
-            "img": true,
-            "clicks": 7
-          },
-          {
-            "key": "EJVYl6C",
-            "name": "스마트스토어 · 1개월",
-            "gone": false,
-            "kind": "store",
             "img": true,
             "clicks": 7
           },
@@ -7382,6 +7382,15 @@
       "y": {
         "sources": [
           {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 3,
+            "click": 3,
+            "unique": 1,
+            "ctr": 100,
+            "dwell": 5
+          },
+          {
             "name": "우리 사이트",
             "host": "fva.co.kr",
             "visit": 2,
@@ -7389,15 +7398,6 @@
             "unique": 0,
             "ctr": 50,
             "dwell": 29
-          },
-          {
-            "name": "인스타 링크 눌러 옴",
-            "host": "l.instagram.com",
-            "visit": 2,
-            "click": 2,
-            "unique": 1,
-            "ctr": 100,
-            "dwell": 7
           },
           {
             "name": "pcmap.place.naver.com",
@@ -7443,16 +7443,16 @@
         ],
         "blocks": [
           {
-            "key": "bby1R8Y",
-            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "key": "EJVYl6C",
+            "name": "스마트스토어 · 1개월",
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 3
+            "clicks": 4
           },
           {
-            "key": "EJVYl6C",
-            "name": "스마트스토어 · 1개월",
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
             "gone": false,
             "kind": "store",
             "img": true,
