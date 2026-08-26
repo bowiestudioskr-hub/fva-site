@@ -358,11 +358,15 @@
        그리고 키보드를 닫아도 제자리로 안 돌아온다(머리가 잘리고 아래가 빈다).
        문서 스크롤을 막는 것만으로는 안 되고, 몸을 화면에 **못 박아야(position:fixed)** 밀리지 않는다. */
   html.appmode{height:100%;overflow:hidden}
-  body.appmode{position:fixed;top:0;left:0;right:0;bottom:0;height:auto;
+  /* ⚠ 평소에는 그냥 화면 높이만큼 차지한다. 여기서 position:fixed 를 쓰면
+       기기에 따라 몸이 화면보다 짧아져 **바가 중간에 떠 버린다**(실제로 그랬다). */
+  body.appmode{height:100dvh;
     overflow:hidden;overscroll-behavior:none;display:flex;flex-direction:column;
     padding-left:0;padding-right:0;padding-bottom:0}
-  /* 키보드가 올라오면 바닥을 놓고 「보이는 높이」만큼만 차지한다 — 입력칸이 키보드 위에 남는다. */
-  body.appmode.kb{bottom:auto;height:var(--appvh,100dvh)}
+  /* ⚠ 키보드가 올라올 때만 화면에 못 박는다.
+       아이폰 홈화면 앱이 웹뷰를 통째로 밀어 올리는 것을 이때만 막으면 된다.
+       바닥을 놓고 「보이는 높이」만큼만 차지해 입력칸이 키보드 위에 남는다. */
+  body.appmode.kb{position:fixed;top:0;left:0;right:0;bottom:auto;height:var(--appvh,100dvh)}
   body.appmode .wrap{flex:1;min-height:0;padding-left:16px;padding-right:16px}
   /* ⚠ 바를 띄워 두지(fixed) 않는다. 문서가 안 움직이니 그냥 마지막 칸으로 두면
        **언제나 화면 맨 아래**에 정확히 붙는다. 브라우저 UI 높이를 재서 들어올리던
@@ -1351,6 +1355,38 @@ else {
   new MutationObserver(다시).observe(document.body, { subtree: true, childList: true, attributes: true,
     attributeFilter: ['hidden', 'class'] });
   setTimeout(다시, 200); setTimeout(다시, 800); 다시();
+})();
+
+/* ── 진단 창 (주소 뒤에 ?diag=1) ─────────────────────────────
+   폰에서만 나는 문제는 여기서 추측하면 끝이 없다. 실제 값을 화면에 띄워 보고 고친다.
+   평소에는 아무 일도 하지 않는다. */
+(function () {
+  if (!/[?&]diag=1/.test(location.search)) return;
+  var box = document.createElement('div');
+  box.style.cssText = 'position:fixed;left:6px;right:6px;top:6px;z-index:99;padding:8px 10px;' +
+    'background:rgba(0,0,0,.86);border:1px solid #2CFF05;border-radius:9px;color:#2CFF05;' +
+    'font:600 11px/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap;pointer-events:none';
+  document.body.appendChild(box);
+  var vv = window.visualViewport;
+  function 재기() {
+    var bar = document.querySelector('.bar');
+    var r = bar ? bar.getBoundingClientRect() : { top: 0, bottom: 0, height: 0 };
+    var b = document.body;
+    box.textContent = [
+      'inner ' + window.innerHeight + '  vv ' + (vv ? Math.round(vv.height) : '-') +
+        '  offTop ' + (vv ? Math.round(vv.offsetTop) : '-') + '  scrollY ' + Math.round(window.scrollY),
+      'body ' + Math.round(b.getBoundingClientRect().height) + '  pos ' + getComputedStyle(b).position +
+        '  kb ' + (b.classList.contains('kb') ? 'Y' : 'N') + '  app ' + (b.classList.contains('appmode') ? 'Y' : 'N'),
+      'bar top ' + Math.round(r.top) + '  bottom ' + Math.round(r.bottom) +
+        '  h ' + Math.round(r.height) + '  아래틈 ' + Math.round(window.innerHeight - r.bottom),
+      'safeBot ' + getComputedStyle(document.documentElement).getPropertyValue('--sb') +
+        '  lift ' + getComputedStyle(document.documentElement).getPropertyValue('--lift'),
+    ].join('\n');
+  }
+  document.documentElement.style.setProperty('--sb', 'env(safe-area-inset-bottom)');
+  if (vv) { vv.addEventListener('resize', 재기); vv.addEventListener('scroll', 재기); }
+  window.addEventListener('resize', 재기);
+  setInterval(재기, 500); 재기();
 })();
 </script>
 </body></html>
