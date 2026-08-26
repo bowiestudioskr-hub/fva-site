@@ -366,7 +366,7 @@
     background:rgba(20,20,22,.94);pointer-events:none}
   body.appmode .hd{flex:none}
   body.appmode .tabpane{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;
-    padding-bottom:14px;overscroll-behavior:contain}
+    padding-bottom:0;overscroll-behavior:contain}
   /* ⚠ 탭은 세로 flex 다. 그대로 두면 자식 카드들이 **눌려서 잘린다** —
        내용이 넘치는데도 스크롤이 안 생겨 아랫부분이 통째로 사라진다(관리 탭 사고).
        각 카드는 제 높이를 지키게 못 박고, 넘치는 만큼 탭이 스크롤하게 둔다. */
@@ -376,19 +376,18 @@
   body.appmode #pane-chat{overflow:hidden}
   body.appmode .chatcard{flex:1;min-height:0}
 
-  /* ── 아래에 더 있다는 신호 ─────────────────────────────
-     ⚠ 잘려 보이지 않으면 사람은 다 봤다고 생각하고 안 내린다.
-       바닥을 살짝 어둡게 깔아 「아직 남았다」를 눈으로 알린다.
-       끝까지 내리면 스스로 사라진다(스크립트가 .more 를 뗀다). */
-  /* ⚠ 스크롤 칸 안에 absolute 로 두면 「내용의 맨 아래」에 붙어 화면에서는 안 보인다.
-       sticky 로 두어야 스크롤하는 동안 **보이는 바닥**에 계속 붙어 있는다.
-       margin-top 을 음수로 줘서 자기 높이만큼 자리를 차지하지 않게 한다. */
-  .fadebot{position:sticky;bottom:0;left:0;right:0;height:46px;margin-top:-46px;
-    flex:none;pointer-events:none;z-index:3;
-    background:linear-gradient(to bottom, rgba(11,11,12,0) 0%, rgba(11,11,12,.94) 100%);
-    opacity:0;transition:opacity .18s ease}
-  .more .fadebot{opacity:1}
-  @media (prefers-reduced-motion: reduce){ .fadebot{transition:none} }
+  /* ── 위·아래에 더 있다는 신호 ────────────────────────
+     ⚠ 스크롤 칸 「안」에 넣으면(absolute·sticky) 안쪽 여백과 flex 간격에 밀려
+       엉뚱한 자리에 앉는다. 실제로 바보다 한참 위에 떠 있었다.
+       그래서 흐름 밖에 두고, 스크롤 칸의 실제 좌표를 재서 그 자리에 겹쳐 놓는다. */
+  .fade{position:fixed;left:0;right:0;height:52px;pointer-events:none;z-index:6;
+    opacity:0;transition:opacity .16s ease}
+  .fade.on{opacity:1}
+  #fadeTop{background:linear-gradient(to bottom,
+    var(--fadecol,rgba(11,11,12,.97)) 0%, rgba(11,11,12,0) 100%)}
+  #fadeBot{background:linear-gradient(to top,
+    var(--fadecol,rgba(11,11,12,.97)) 0%, rgba(11,11,12,0) 100%)}
+  @media (prefers-reduced-motion: reduce){ .fade{transition:none} }
 
   /* 손가락으로 잡을 수 있게 굵게. 기본 스크롤막대는 폰에서 너무 가늘다. */
   .chatlog, body.appmode .tabpane{scrollbar-width:auto;scrollbar-color:rgba(255,255,255,.34) transparent}
@@ -1291,32 +1290,45 @@ else {
   대화복원();
 })();
 
-/* ── 「아래에 더 있다」 신호 ────────────────────────────────
-   스크롤 칸이 끝에 닿지 않았을 때만 바닥을 살짝 어둡게 한다.
-   ⚠ 덮개는 스크롤 칸 **안쪽 마지막 자식**으로 넣고 sticky 로 띄운다.
-     absolute 로 두면 내용의 맨 아래에 붙어 화면에서는 영영 안 보인다.
-   ⚠ 내용이 바뀌어도 다시 재야 해서 지켜본다(대화가 늘거나 달이 바뀔 때). */
+/* ── 위·아래에 더 있다는 신호 ──────────────────────────────
+   지금 보고 있는 스크롤 칸의 실제 좌표를 재서, 그 위·아래에 옅은 그라데이션을 겹친다.
+   ⚠ 칸 「안」에 넣으면 안쪽 여백과 flex 간격에 밀려 자리가 어긋난다(실제로 그랬다).
+   ⚠ 채팅은 카드 위에 얹히므로 카드 색으로, 나머지는 배경색으로 흐린다. */
 (function () {
-  function 걸기(칸) {
-    if (!칸 || 칸.dataset.fade) return;
-    칸.dataset.fade = '1';
-    var f = document.createElement('div'); f.className = 'fadebot';
-    칸.appendChild(f);
-    var 재기 = function () {
-      var 남음 = 칸.scrollHeight - 칸.clientHeight - 칸.scrollTop;
-      칸.classList.toggle('more', 남음 > 12);
-      if (칸.lastElementChild !== f) 칸.appendChild(f);   // 새 말풍선이 뒤에 붙으면 다시 맨 뒤로
-    };
-    칸.addEventListener('scroll', 재기, { passive: true });
-    new MutationObserver(재기).observe(칸, { childList: true });
-    if (window.ResizeObserver) new ResizeObserver(재기).observe(칸);
-    window.addEventListener('resize', 재기);
-    setTimeout(재기, 250); 재기();
+  var 위 = document.createElement('div'); 위.id = 'fadeTop'; 위.className = 'fade';
+  var 아래 = document.createElement('div'); 아래.id = 'fadeBot'; 아래.className = 'fade';
+  document.body.appendChild(위); document.body.appendChild(아래);
+
+  function 지금칸() {
+    var p = document.querySelector('.tabpane:not([hidden])');
+    if (!p) return null;
+    return p.id === 'pane-chat' ? document.getElementById('chatlog') : p;
   }
-  걸기(document.getElementById('chatlog'));
-  document.querySelectorAll('.tabpane').forEach(function (p) {
-    if (p.id !== 'pane-chat') 걸기(p);
-  });
+  function 그리기() {
+    var 칸 = 지금칸();
+    if (!칸) { 위.classList.remove('on'); 아래.classList.remove('on'); return; }
+    var r = 칸.getBoundingClientRect();
+    var 위로남음 = 칸.scrollTop;
+    var 아래남음 = 칸.scrollHeight - 칸.clientHeight - 칸.scrollTop;
+    var 색 = 칸.id === 'chatlog' ? 'rgba(21,21,23,.97)' : 'rgba(11,11,12,.97)';
+    [위, 아래].forEach(function (el) {
+      el.style.setProperty('--fadecol', 색);
+      el.style.left = Math.round(r.left) + 'px';
+      el.style.right = Math.round(window.innerWidth - r.right) + 'px';
+    });
+    위.style.top = Math.round(r.top) + 'px';
+    아래.style.top = Math.round(r.bottom - 52) + 'px';
+    위.classList.toggle('on', 위로남음 > 8);
+    아래.classList.toggle('on', 아래남음 > 8);
+  }
+  var 예약 = null;
+  function 다시() { if (예약) return; 예약 = requestAnimationFrame(function () { 예약 = null; 그리기(); }); }
+
+  document.addEventListener('scroll', 다시, true);        /* 어느 칸이 움직이든 */
+  window.addEventListener('resize', 다시);
+  new MutationObserver(다시).observe(document.body, { subtree: true, childList: true, attributes: true,
+    attributeFilter: ['hidden', 'class'] });
+  setTimeout(다시, 200); setTimeout(다시, 800); 다시();
 })();
 </script>
 </body></html>
