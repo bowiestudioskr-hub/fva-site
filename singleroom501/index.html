@@ -553,6 +553,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
+<script>window.__BUILD = '08-27 20:50';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
@@ -1010,6 +1011,7 @@ function render(d) {
   $('foot').innerHTML =
     '5분마다 스페이스클라우드에서 새로 읽습니다 · 연락처는 가려서 표시합니다<br>' +
     '달력의 「감독님 일정」과 「청소」는 호스트센터에서 직접 넣은 일정입니다.<br>' +
+    '<span style="opacity:.55">화면 버전 ' + (window.__BUILD || '?') + '</span><br>' +
     '<button type="button" id="diagbtn" style="margin-top:9px;background:rgba(255,255,255,.08);' +
     'color:var(--dim);border:1px solid var(--line);border-radius:9px;padding:7px 11px;' +
     'font:inherit;font-size:12px;cursor:pointer">화면 진단 ' +
@@ -1407,6 +1409,45 @@ else {
   new MutationObserver(다시안전).observe(document.body,
     { subtree: true, childList: true, attributes: true, attributeFilter: ['hidden'] });
   [0, 200, 600, 1200].forEach(function (t) { setTimeout(다시, t); });
+})();
+
+/* ── 진단 창 (관리 탭 「화면 진단 켜기」) ────────────────────
+   ⚠ 폰에서만 나는 문제를 여기서 추측하면 끝이 없다. 실제 값을 화면에 띄워 보고 고친다.
+   ⚠ env() 값은 getPropertyValue 로 못 읽는다(글자 그대로 돌려준다).
+     그 값을 높이로 준 자를 하나 만들어 **직접 잰다.** */
+(function () {
+  if (typeof 진단켜짐 !== 'function' || !진단켜짐()) return;
+  var box = document.createElement('div');
+  box.style.cssText = 'position:fixed;left:6px;right:6px;top:6px;z-index:99;padding:8px 10px;' +
+    'background:rgba(0,0,0,.9);border:1px solid #2CFF05;border-radius:9px;color:#2CFF05;' +
+    'font:600 11px/1.55 ui-monospace,Menlo,monospace;white-space:pre-wrap;pointer-events:none';
+  document.body.appendChild(box);
+  var 자 = document.createElement('div');
+  자.style.cssText = 'position:fixed;left:-99px;bottom:0;width:1px;height:env(safe-area-inset-bottom)';
+  document.body.appendChild(자);
+  var vv = window.visualViewport;
+  function 재기() {
+    var bar = document.querySelector('.bar');
+    var r = bar ? bar.getBoundingClientRect() : { top: 0, bottom: 0, height: 0 };
+    var 라벨 = document.querySelector('.bar button.on span') || document.querySelector('.bar button span');
+    var lr = 라벨 ? 라벨.getBoundingClientRect() : null;
+    var b = document.body;
+    box.textContent = [
+      '버전 ' + (window.__BUILD || '?') + '   dpr ' + (window.devicePixelRatio || '?'),
+      'inner ' + window.innerHeight + '  vv ' + (vv ? Math.round(vv.height) : '-') +
+        '  offTop ' + (vv ? Math.round(vv.offsetTop) : '-') + '  scrollY ' + Math.round(window.scrollY),
+      'body ' + Math.round(b.getBoundingClientRect().height) + '  pos ' + getComputedStyle(b).position +
+        '  kb ' + (b.classList.contains('kb') ? 'Y' : 'N') + '  app ' + (b.classList.contains('appmode') ? 'Y' : 'N'),
+      '바 top ' + Math.round(r.top) + '  h ' + Math.round(r.height) +
+        '  아래틈 ' + Math.round(window.innerHeight - r.bottom) +
+        '  글자아래 ' + (lr ? Math.round(window.innerHeight - lr.bottom) : '-'),
+      '안전영역아래 ' + Math.round(자.getBoundingClientRect().height) +
+        '  바패딩 ' + (bar ? getComputedStyle(bar).paddingBottom : '-'),
+    ].join('\n');
+  }
+  if (vv) { vv.addEventListener('resize', 재기); vv.addEventListener('scroll', 재기); }
+  window.addEventListener('resize', 재기);
+  setInterval(재기, 700); 재기();
 })();
 </script>
 </body></html>
