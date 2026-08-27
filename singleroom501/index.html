@@ -8,9 +8,14 @@
 <link rel="icon" href="img/icon-192.png?v=5gong1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- ⚠ 여기를 black-translucent 로 두면 안 된다. 매니페스트의 display:standalone 은
+     「상태바(62px)를 뺀 높이로 웹 화면을 만들라」는 뜻인데, black-translucent 는
+     「맨 위(0)부터 그리라」는 뜻이다. 둘이 섞이면 **높이는 짧은데 위치는 맨 위**가 되어
+     화면 아래에 상태바 높이만큼(16 Pro 기준 62px) 검은 띠가 남는다.
+     실제로 그 띠를 픽셀로 재서 확인했다(2026-08-27). 둘의 말을 맞춘다. -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="오공일501">
-<meta name="theme-color" content="#0A0A0A">
+<meta name="theme-color" content="#000000">
 <link rel="apple-touch-icon" href="img/icon-180.png?v=5gong1">
 <link rel="manifest" href="manifest.webmanifest">
 <style>
@@ -556,7 +561,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-27 21:18';</script>
+<script>window.__BUILD = '08-27 22:05';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
@@ -1428,6 +1433,9 @@ else {
   var 자 = document.createElement('div');
   자.style.cssText = 'position:fixed;left:-99px;bottom:0;width:1px;height:env(safe-area-inset-bottom)';
   document.body.appendChild(자);
+  var 자위 = document.createElement('div');
+  자위.style.cssText = 'position:fixed;left:-99px;top:0;width:1px;height:env(safe-area-inset-top)';
+  document.body.appendChild(자위);
   /* ⚠ 결정적 표식 — 화면(웹뷰) 맨 아래에 자홍색 선을 긋는다.
        이 선이 폰 화면 진짜 바닥에 있으면 우리 CSS 문제이고,
        선 아래로 검은 띠가 더 있으면 **웹뷰 자체가 화면을 다 못 덮는 것**이라 CSS 로는 못 고친다. */
@@ -1451,7 +1459,16 @@ else {
         '  아래틈 ' + Math.round(window.innerHeight - r.bottom) +
         '  글자아래 ' + (lr ? Math.round(window.innerHeight - lr.bottom) : '-'),
       '안전영역아래 ' + Math.round(자.getBoundingClientRect().height) +
+        '  위 ' + Math.round(자위.getBoundingClientRect().height) +
         '  바패딩 ' + (bar ? getComputedStyle(bar).paddingBottom : '-'),
+      /* ⚠ 이 줄이 핵심이다. screen 과 inner 가 다르면 **웹뷰가 화면을 다 못 덮는 것**이고
+           그건 CSS 가 아니라 메타/매니페스트 문제다. 모자란 값(모자람)이 0 이어야 정상. */
+      'screen ' + screen.width + 'x' + screen.height +
+        '  inner ' + window.innerWidth + 'x' + window.innerHeight +
+        '  모자람 ' + (screen.height - window.innerHeight),
+      '홈앱 ' + (window.navigator.standalone ? 'Y' : 'N') +
+        '  모드 ' + (window.matchMedia('(display-mode: standalone)').matches ? 'standalone'
+                  : window.matchMedia('(display-mode: fullscreen)').matches ? 'fullscreen' : 'browser'),
     ].join('\n');
   }
   if (vv) { vv.addEventListener('resize', 재기); vv.addEventListener('scroll', 재기); }
