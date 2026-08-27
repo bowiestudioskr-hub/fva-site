@@ -273,10 +273,10 @@
        border-top:1px solid rgba(255,255,255,.13);
        /* ⚠ 안전영역(홈 인디케이터 34px)을 그대로 다 주면 글자가 너무 떠 보인다.
             아이폰 기본 탭바도 그 자리를 다 비우지는 않는다. 절반쯤만 남긴다. */
-       /* ⚠ 안전영역(34px)을 그대로 두면 글자가 바닥에서 57px 이나 뜬다. 아이폰 기본 탭바도 38px 쯤.
-            「최대한 붙었으면」이라 하셔서 기본보다 더 깎는다 — 홈 인디케이터 막대(바닥에서 약 8px)에
-            글자가 닿지 않는 선이 한계다. 여기서 더 줄이면 막대와 글자가 겹친다. */
-       padding-bottom:max(2px, calc(env(safe-area-inset-bottom) - 24px))}
+       /* ⚠ 안전영역(홈 인디케이터 자리)을 **남기지 않는다.** 사용자 지시다.
+            env(safe-area-inset-bottom) 을 쓰면 기종마다 34px 씩 떠서 「밑에 많이 남는다」가 된다.
+            바닥까지 내리고, 글자 숨통만 버튼 여백으로 준다. */
+       padding-bottom:0}
   /* 키보드가 올라오면 감춘다. 안 그러면 입력칸 위에 올라타 앉는다. */
   body.kb .bar{display:none}
   /* ⚠ 키보드가 화면 절반을 먹는다. 머리글(로고·날짜·설명)을 접어 그만큼을 대화에 준다 —
@@ -284,7 +284,7 @@
   body.appmode.kb .hd{display:none}
   body.appmode.kb .wrap{gap:0}
   .bar button{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;
-         padding:8px 3px 4px;border:0;border-bottom:2px solid transparent;background:none;
+         padding:9px 3px 6px;border:0;border-bottom:2px solid transparent;background:none;
          cursor:pointer;color:var(--dim);
          font-family:inherit;font-size:10.5px;font-weight:700;letter-spacing:-.02em}
   .bar button.on{color:var(--ink);border-bottom-color:transparent}
@@ -556,7 +556,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-27 21:13';</script>
+<script>window.__BUILD = '08-27 21:18';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
