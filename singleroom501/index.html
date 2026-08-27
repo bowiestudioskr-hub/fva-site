@@ -2,18 +2,20 @@
 <meta charset="utf-8">
 <!-- ⚠ 손가락으로 확대한 배율이 남으면 화면이 통째로 어긋난다 — 바가 떴다 안 떴다 했다.
      줌아웃하면 멀쩡해지던 것이 그 증거다. 앱 화면이라 확대를 막는다. -->
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<!-- ⚠ height=device-height 가 없으면 홈화면 앱에서 **배치 높이(innerHeight)가 짧게 굳는다**.
+     16 Pro 실측: 화면 874 인데 innerHeight 812 — 상태바(62)만큼 모자라 바가 62px 떠 보였다.
+     손가락으로 줌아웃하면 멀쩡해지던 것이 그 증거다(줌이 높이를 다시 재게 한다).
+     그래도 굳으면 아래 「뷰포트다시」가 메타를 흔들어 다시 재게 한다. -->
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <title>오공일501 예약 현황</title>
 <link rel="icon" href="img/icon-192.png?v=5gong1">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<!-- ⚠ 여기를 black-translucent 로 두면 안 된다. 매니페스트의 display:standalone 은
-     「상태바(62px)를 뺀 높이로 웹 화면을 만들라」는 뜻인데, black-translucent 는
-     「맨 위(0)부터 그리라」는 뜻이다. 둘이 섞이면 **높이는 짧은데 위치는 맨 위**가 되어
-     화면 아래에 상태바 높이만큼(16 Pro 기준 62px) 검은 띠가 남는다.
-     실제로 그 띠를 픽셀로 재서 확인했다(2026-08-27). 둘의 말을 맞춘다. -->
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<!-- ⚠ black 으로 바꿔 봤지만 아무 변화가 없었다(2026-08-27, 진단에 안전영역위 62 그대로).
+     iOS 는 이 값을 **설치 시점에 기억**해서 새로고침으로는 안 바뀐다. 되돌린다.
+     진짜 원인은 아래 viewport 의 height=device-height 쪽이다. -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="오공일501">
 <meta name="theme-color" content="#000000">
 <link rel="apple-touch-icon" href="img/icon-180.png?v=5gong1">
@@ -561,7 +563,42 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-27 22:05';</script>
+<script>
+/* ── 배치 높이가 짧게 굳었을 때 흔들어 다시 재게 한다 ──────────────────
+   아이폰 홈화면 앱은 실행할 때마다 innerHeight 를 화면 높이보다 상태바만큼
+   짧게 주는 일이 있다(실측 874 → 812). 그러면 bottom:0 이 화면 바닥이 아니라
+   62px 위가 되어 하단 바가 떠 보인다. 들락날락할 때마다 달랐던 이유다.
+   ⚠ 사람이 손가락으로 줌아웃하면 낫던 것 — 줌이 높이를 다시 재게 하기 때문이다.
+     그 일을 메타 태그를 흔들어 대신 시킨다. */
+(function () {
+  var 기본 = 'width=device-width,height=device-height,initial-scale=1,' +
+             'maximum-scale=1,user-scalable=no,viewport-fit=cover';
+  function 모자람() {
+    var h = (window.screen && screen.height) || 0;
+    return h ? Math.max(0, h - window.innerHeight) : 0;
+  }
+  window.__모자람 = 모자람;
+  function 흔들기() {
+    var m = document.querySelector('meta[name=viewport]');
+    if (!m) return;
+    /* 값을 한 번 다르게 줬다 되돌려야 다시 잰다. 같은 값을 다시 넣으면 무시한다. */
+    m.setAttribute('content', 'width=device-width,height=' + (screen.height || 0) +
+                              ',initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover');
+    void document.documentElement.offsetHeight;   /* 강제로 다시 그리게 */
+    m.setAttribute('content', 기본);
+  }
+  function 손보기() {
+    if (모자람() > 4) 흔들기();
+  }
+  [0, 120, 400, 900, 1800].forEach(function (ms) { setTimeout(손보기, ms); });
+  window.addEventListener('pageshow', 손보기);
+  window.addEventListener('orientationchange', function () { setTimeout(손보기, 300); });
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) setTimeout(손보기, 120);
+  });
+})();
+</script>
+<script>window.__BUILD = '08-27 23:05';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
@@ -604,7 +641,10 @@ function getKey() {
 let KEY = getKey();
 const feed = q => `${FEED}?${q}&key=${encodeURIComponent(KEY)}`;
 
-function askKey() {
+/* ⚠ 틀린 비밀번호로도 다음 화면(이름)으로 넘어가던 것을 막는다(2026-08-27).
+     원인은 「저장만 하고 새로고침」이었다 — 틀려도 저장은 되니 KEY 가 생겨 통과했다.
+     이제 **서버에 물어 맞을 때만** 저장한다. */
+function askKey(첫문구) {
   document.querySelector('.wrap').innerHTML =
     `<div class="hd"><h1 class="brand"><img src="img/logo.svg?v=5gong1" alt="오공일501" class="brandlogo"><span>관리페이지</span></h1>
        <p class="lede">이 화면은 비밀번호가 있어야 열립니다.</p></div>
@@ -615,6 +655,7 @@ function askKey() {
                 padding:13px 14px;font:inherit;font-size:15px">
        <button id="kgo" style="background:#fff;color:#000;border:0;border-radius:11px;
          padding:13px;font:inherit;font-size:15px;font-weight:800;cursor:pointer">열기</button>
+       <p id="kerr" style="margin:0;font-size:13.5px;font-weight:700;color:var(--warn);line-height:1.5"></p>
        <p style="font-size:12.5px;color:var(--dim);line-height:1.6">
          비밀번호는 주소 뒤에 <b style="color:var(--sub)">#k=…</b> 로 붙여 두면 다음부터 안 물어봅니다.
          손님용 <a href="https://oh501.surge.sh/" style="color:var(--sub)">입실 안내 화면</a>은 비밀번호 없이 열립니다.</p>
@@ -644,9 +685,30 @@ function askKey() {
     draw(true);
   });
 
-  const go = () => {
+  const err = document.getElementById('kerr');
+  const 알림 = m => { if (err) err.textContent = m || ''; };
+  알림(첫문구);
+  const btn = document.getElementById('kgo');
+
+  const go = async () => {
     const v = real.trim();
-    if (!v) return;
+    if (!v) { 알림('비밀번호를 입력해 주세요.'); return; }
+    알림('');
+    btn.disabled = true; btn.textContent = '확인 중…'; btn.style.opacity = '.6';
+    let 맞나 = false, 닿았나 = true;
+    try {
+      /* ⚠ 저장하기 **전에** 서버에 물어본다. 틀린 열쇠면 {열쇠필요:true} 가 온다. */
+      const r = await fetch(`${FEED}?t=${Date.now()}&key=${encodeURIComponent(v)}`);
+      const d = await r.json();
+      맞나 = !d.열쇠필요;
+    } catch (e) { 닿았나 = false; }
+    btn.disabled = false; btn.textContent = '열기'; btn.style.opacity = '';
+    if (!닿았나) { 알림('연결하지 못했습니다. 잠시 뒤 다시 시도해 주세요.'); return; }
+    if (!맞나) {
+      알림('비밀번호가 틀렸습니다.');
+      real = ''; draw(false); inp.focus();
+      return;
+    }
     /* ⚠ 저장이 조용히 실패하면 비밀번호 화면에서 안 넘어간다. 대화 저장분을 비우고 한 번 더. */
     let 됐나 = false;
     try { localStorage.setItem(KEYNAME, v); 됐나 = true; } catch (e) {}
@@ -654,7 +716,7 @@ function askKey() {
     if (!됐나) { alert('비밀번호를 저장하지 못했습니다. 사파리 설정에서 이 사이트 데이터를 지운 뒤 다시 시도해 주세요.'); return; }
     location.reload();
   };
-  document.getElementById('kgo').onclick = go;
+  btn.onclick = go;
   inp.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
   inp.focus();
 }
@@ -1076,13 +1138,25 @@ function askWho(다시) {
 }
 
 if (!KEY) askKey();
-else if (!누구()) askWho(false);
+/* ⚠ 이름 화면 **전에** 열쇠를 확인한다. #k=… 링크로 틀린 열쇠가 들어올 수 있다.
+     연결이 안 되면 막지 않는다 — 어차피 그다음 화면에서 아무것도 못 한다. */
+else if (!누구()) {
+  fetch(feed('t=' + Date.now())).then(r => r.json())
+    .then(d => {
+      if (d && d.열쇠필요) {
+        try { localStorage.removeItem(KEYNAME); } catch {}
+        return askKey('비밀번호가 틀렸습니다.');
+      }
+      askWho(false);
+    })
+    .catch(() => askWho(false));
+}
 else {
   loadCal(Math.floor(TODAY / 10000), Math.floor(TODAY / 100) % 100);
   renderGuest();
   fetch(feed('t=' + Date.now()))
   .then(r => r.json())
-  .then(d => { if (d.열쇠필요) { try { localStorage.removeItem(KEYNAME); } catch {} return askKey(); } render(d); })
+  .then(d => { if (d.열쇠필요) { try { localStorage.removeItem(KEYNAME); } catch {} return askKey('비밀번호가 틀렸습니다.'); } render(d); })
   .catch(() => {
     $('alarm').innerHTML =
       `<div class="warnbox"><b>연결하지 못했습니다.</b><br>
@@ -1442,6 +1516,12 @@ else {
   var 표식 = document.createElement('div');
   표식.style.cssText = 'position:fixed;left:0;right:0;bottom:0;height:3px;background:#FF00AA;z-index:100;pointer-events:none';
   document.body.appendChild(표식);
+  /* ⚠ 탐침 — 「모자란 자리」에 청록색을 칠해 본다. 이게 화면에 보이면
+       웹뷰는 화면을 다 덮고 있고 배치 높이만 짧게 굳은 것이라 CSS 로 고칠 수 있다.
+       안 보이면 웹뷰 자체가 짧은 것이라 메타·매니페스트로만 고칠 수 있다. */
+  var 탐침 = document.createElement('div');
+  탐침.style.cssText = 'position:fixed;left:0;right:0;bottom:0;height:0;background:#00E5FF;z-index:99;pointer-events:none';
+  document.body.appendChild(탐침);
   var vv = window.visualViewport;
   function 재기() {
     var bar = document.querySelector('.bar');
@@ -1449,6 +1529,9 @@ else {
     var 라벨 = document.querySelector('.bar button.on span') || document.querySelector('.bar button span');
     var lr = 라벨 ? 라벨.getBoundingClientRect() : null;
     var b = document.body;
+    var 모자람 = Math.max(0, (screen.height || 0) - window.innerHeight);
+    탐침.style.height = 모자람 + 'px';
+    탐침.style.bottom = (-모자람) + 'px';
     box.textContent = [
       '버전 ' + (window.__BUILD || '?') + '   dpr ' + (window.devicePixelRatio || '?'),
       'inner ' + window.innerHeight + '  vv ' + (vv ? Math.round(vv.height) : '-') +
@@ -1465,7 +1548,7 @@ else {
            그건 CSS 가 아니라 메타/매니페스트 문제다. 모자란 값(모자람)이 0 이어야 정상. */
       'screen ' + screen.width + 'x' + screen.height +
         '  inner ' + window.innerWidth + 'x' + window.innerHeight +
-        '  모자람 ' + (screen.height - window.innerHeight),
+        '  모자람 ' + 모자람,
       '홈앱 ' + (window.navigator.standalone ? 'Y' : 'N') +
         '  모드 ' + (window.matchMedia('(display-mode: standalone)').matches ? 'standalone'
                   : window.matchMedia('(display-mode: fullscreen)').matches ? 'fullscreen' : 'browser'),
