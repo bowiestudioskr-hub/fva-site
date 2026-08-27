@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 8. 28. AM 12:19:00",
+  "updated": "2026. 8. 28. AM 12:50:32",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,9 +8,9 @@
     "pending": 170,
     "dailyBudget": 2500,
     "balance": 35367,
-    "imp": 10757,
-    "clk": 35,
-    "cost": 63811,
+    "imp": 10805,
+    "clk": 36,
+    "cost": 63982,
     "byPeriod": {
       "1": {
         "imp": 0,
@@ -18,24 +18,24 @@
         "cost": 0
       },
       "7": {
-        "imp": 5962,
-        "clk": 23,
-        "cost": 4764
+        "imp": 6010,
+        "clk": 24,
+        "cost": 4935
       },
       "28": {
-        "imp": 16622,
-        "clk": 43,
-        "cost": 64538
+        "imp": 16670,
+        "clk": 44,
+        "cost": 64709
       },
       "90": {
-        "imp": 128437,
-        "clk": 181,
-        "cost": 75659
+        "imp": 128485,
+        "clk": 182,
+        "cost": 75830
       },
       "y": {
-        "imp": 1111,
-        "clk": 4,
-        "cost": 1438
+        "imp": 1159,
+        "clk": 5,
+        "cost": 1609
       }
     },
     "daily": [
@@ -113,9 +113,9 @@
       },
       {
         "d": "2026-08-27",
-        "imp": 1111,
-        "clk": 4,
-        "cost": 1438
+        "imp": 1159,
+        "clk": 5,
+        "cost": 1609
       },
       {
         "d": "2026-08-28",
@@ -124,9 +124,9 @@
         "cost": 0
       }
     ],
-    "campaignImp": 16622,
-    "campaignClk": 43,
-    "campaignCost": 64538,
+    "campaignImp": 16670,
+    "campaignClk": 44,
+    "campaignCost": 64709,
     "groups": [
       {
         "id": "grp-a001-01-000000071921583",
@@ -142,7 +142,7 @@
             "bid": 900,
             "live": true,
             "state": "운영",
-            "imp": 1396,
+            "imp": 1402,
             "clk": 1,
             "cost": 947,
             "rank": 3.7
@@ -152,7 +152,7 @@
             "bid": 250,
             "live": true,
             "state": "운영",
-            "imp": 114,
+            "imp": 115,
             "clk": 0,
             "cost": 0,
             "rank": 1.1
@@ -333,10 +333,10 @@
             "bid": 500,
             "live": true,
             "state": "운영",
-            "imp": 129,
+            "imp": 130,
             "clk": 0,
             "cost": 0,
-            "rank": 3.2
+            "rank": 3.4
           },
           {
             "word": "AI동영상만들기",
@@ -494,9 +494,9 @@
             "bid": 500,
             "live": true,
             "state": "운영",
-            "imp": 4768,
-            "clk": 2,
-            "cost": 9394,
+            "imp": 4806,
+            "clk": 3,
+            "cost": 9565,
             "rank": 1
           },
           {
@@ -524,7 +524,7 @@
             "bid": 800,
             "live": true,
             "state": "운영",
-            "imp": 564,
+            "imp": 566,
             "clk": 2,
             "cost": 1741,
             "rank": 4.2
@@ -738,7 +738,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 28. AM 12:18:55",
+    "updated": "2026. 8. 28. AM 12:50:27",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -5720,24 +5720,6 @@
             "code": "BR"
           },
           {
-            "name": "IN",
-            "visit": 4,
-            "click": 0,
-            "unique": 1,
-            "dwell": 7,
-            "ctr": 0,
-            "code": "IN"
-          },
-          {
-            "name": "NL",
-            "visit": 4,
-            "click": 0,
-            "unique": 0,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "NL"
-          },
-          {
             "name": "PH",
             "visit": 4,
             "click": 0,
@@ -5756,13 +5738,22 @@
             "code": "SA"
           },
           {
-            "name": "AU",
-            "visit": 3,
-            "click": 2,
+            "name": "NL",
+            "visit": 4,
+            "click": 0,
+            "unique": 0,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "NL"
+          },
+          {
+            "name": "IN",
+            "visit": 4,
+            "click": 0,
             "unique": 1,
-            "dwell": 12,
-            "ctr": 66.7,
-            "code": "AU"
+            "dwell": 7,
+            "ctr": 0,
+            "code": "IN"
           },
           {
             "name": "FI",
@@ -5772,6 +5763,15 @@
             "dwell": 0,
             "ctr": 0,
             "code": "FI"
+          },
+          {
+            "name": "AU",
+            "visit": 3,
+            "click": 2,
+            "unique": 1,
+            "dwell": 12,
+            "ctr": 66.7,
+            "code": "AU"
           },
           {
             "name": "NP",
