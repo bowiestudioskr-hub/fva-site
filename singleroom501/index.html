@@ -332,9 +332,9 @@
   body.appmode.kb .hd{display:none}
   body.appmode.kb .wrap{gap:0}
   .bar button{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:3px;
-         /* ⚠ 아래 여백이 글자를 화면 바닥에서 띄우는 값이다. 6px 이면 너무 붙어 보인다고 해서
-              11px 로 올렸다(2026-08-28). 위를 2px 줄여 바 높이는 3px 만 는다. */
-         padding:7px 3px 11px;border:0;border-bottom:2px solid transparent;background:none;
+         /* ⚠ 아래 여백이 글자를 화면 바닥에서 띄우는 값이다. 6 → 11 → 15px 로 올렸다(2026-08-28).
+              위도 7 → 10px 로 올려 바가 조금 더 두툼해진다(55 → 62px). */
+         padding:10px 3px 15px;border:0;border-bottom:2px solid transparent;background:none;
          cursor:pointer;color:var(--dim);
          font-family:inherit;font-size:10.5px;font-weight:700;letter-spacing:-.02em}
   .bar button.on{color:var(--ink);border-bottom-color:transparent}
@@ -434,7 +434,9 @@
        **언제나 화면 맨 아래**에 정확히 붙는다. 브라우저 UI 높이를 재서 들어올리던
        --lift 도 더는 필요 없다(그게 바를 애매하게 띄우던 원인이다). */
   body.appmode .bar{position:fixed;left:0;right:0;bottom:0;transform:none;flex:none}
-  body.appmode .wrap{padding-bottom:var(--barh,64px)}
+  /* ⚠ 바 높이만큼만 비키면 내용이 바에 딱 붙어 답답하다(채팅 입력칸이 특히).
+       10px 을 더 띄운다. --barh 는 아래 스크립트가 실제로 재서 넣는다. */
+  body.appmode .wrap{padding-bottom:calc(var(--barh, 64px) + 10px)}
   body.appmode .hd{flex:none}
   body.appmode .tabpane{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;
     padding-bottom:0;overscroll-behavior:contain}
@@ -611,7 +613,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-28 03:10';</script>
+<script>window.__BUILD = '08-28 17:20';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
