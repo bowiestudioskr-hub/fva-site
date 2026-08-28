@@ -245,6 +245,13 @@
     #pane-set footer{font-size:11px}
   }
 
+  /* ⚠ 상품 종류 — 스페이스클라우드 PRD_TP_CD (PKG=패키지 / TIME=시간제).
+       패키지는 시간을 늘려도 값이 그대로일 수 있어 응대가 달라진다. 그래서 눈에 띄게 둔다. */
+  .tag{display:inline-block;padding:1px 6px;border-radius:6px;font-size:11px;font-weight:700;
+       letter-spacing:-.02em;vertical-align:1px;white-space:nowrap}
+  .tag.pkg{background:rgba(251,191,36,.17);color:var(--clean)}
+  .tag.hr{background:rgba(255,255,255,.09);color:var(--sub)}
+
   .calnote{font-size:11.5px;color:var(--dim);padding:0 16px 12px;line-height:1.55;margin-top:-4px}
 
   .memo{font-size:12px;color:var(--dim);padding:0 16px 14px;line-height:1.5}
@@ -604,7 +611,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-28 02:35';</script>
+<script>window.__BUILD = '08-28 03:10';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
@@ -855,7 +862,8 @@ function renderDay() {
   const items = [];
   for (const r of (day?.예약 || [])) items.push({
     t: `${r.시작}시 ~ ${r.끝}시`, k: r.이름 || '손님',
-    s: `예약 <b class="rno">${esc(r.id)}</b> · ${esc(r.상태)}` +
+    s: (r.구분 ? `<span class="tag ${r.구분 === '패키지' ? 'pkg' : 'hr'}">${esc(r.구분)}</span> ` : '') +
+       `예약 <b class="rno">${esc(r.id)}</b> · ${esc(r.상태)}` +
        `${r.인원 ? ' · ' + esc(r.인원) + '명' : ''}` +
        `${r.금액 ? ' · ' + num(r.금액) + '원' : ''}` +
        (r.설치전 ? ' <span class="pill done">설치 전 · 직접 안내</span>' : ' ' + 발송배지(r)),
@@ -1043,6 +1051,10 @@ function render(d) {
 
   /* ⚠ 「설치 전부터 있던 예약」과 「이 시스템이 보낸 예약」은 다르다.
      둘 다 발송 대상에서 빠지지만, 앞의 것은 사람이 직접 챙겨야 한다. */
+  /* 시간제인지 패키지인지 한눈에. 서버가 PRD_TP_CD 를 읽어 「구분」으로 준다. */
+  const 종류 = r => r.구분
+    ? `<span class="tag ${r.구분 === '패키지' ? 'pkg' : 'hr'}">${esc(r.구분)}</span>` : '';
+
   const row = r => {
     const pill = r.상태 === '취소환불' ? '<span class="pill done">취소</span>'
       : r.지남 ? '<span class="pill done">이용완료</span>'
@@ -1065,7 +1077,7 @@ function render(d) {
     }
     return `<li class="row">
       <div class="nm"><b>${esc(r.이름)}</b> ${디데이} ${pill}
-        <small class="whenrow">${날짜칸} · 예약 <b class="rno">${esc(r.id)}</b></small>
+        <small class="whenrow">${날짜칸} · ${종류(r)} · 예약 <b class="rno">${esc(r.id)}</b></small>
         <small class="telrow">${전화(r.연락처)}</small></div>
       <div class="vn">${num(r.금액)}<em>원</em></div></li>`;
   };
