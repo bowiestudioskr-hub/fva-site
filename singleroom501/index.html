@@ -221,7 +221,7 @@
   .master .warn2{display:block;margin-top:2px;font-size:11.5px;color:var(--warn)}
 
   /* ⚠ 관리 탭만 촘촘하게 — 다른 탭은 지금 여백이 맞다(2026-08-28 요청). */
-  #pane-set{gap:12px}
+  #pane-set{gap:10px}   /* 바가 62px 로 두꺼워진 만큼 카드 사이를 줄여 한 화면에 유지 */
   #pane-set .card>h3{padding:11px 16px 7px}
   #pane-set summary{padding:9px 16px}
   #pane-set footer{padding-top:2px;font-size:11.5px;line-height:1.55}
@@ -613,7 +613,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-28 17:20';</script>
+<script>window.__BUILD = '08-28 17:35';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
