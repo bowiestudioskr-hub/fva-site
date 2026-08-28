@@ -630,7 +630,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-28 18:20';</script>
+<script>window.__BUILD = '08-28 19:05';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
@@ -976,6 +976,18 @@ function goTab(name) {
     b.classList.toggle('on', b.dataset.tab === name));
   try { localStorage.setItem('fva501tab', name); } catch {}
   scrollTo(0, 0);
+  /* ⚠ 비서 탭은 **늘 맨 아래(가장 최근 말)** 를 보여준다. 카톡과 같다.
+       되살릴 때 한 번 밀지만, 그때 이 탭이 숨어 있으면 높이가 0 이라 먹지 않는다.
+       그래서 탭을 열 때마다 다시 민다. 사진이 늦게 뜨면 높이가 또 자라므로 몇 번 나눠 민다. */
+  if (name === 'chat') 채팅바닥으로();
+}
+function 채팅바닥으로() {
+  const 로그 = $('chatlog');
+  if (!로그) return;
+  const 밀기 = () => { 로그.scrollTop = 로그.scrollHeight; };
+  밀기();
+  requestAnimationFrame(밀기);
+  [70, 250, 600].forEach(ms => setTimeout(밀기, ms));
 }
 document.querySelectorAll('.bar button').forEach(b =>
   b.onclick = () => goTab(b.dataset.tab));
@@ -1387,6 +1399,8 @@ else {
       if (v.화면) { 로그.innerHTML = v.화면; 되살리기(); }
       var 바닥 = function () { 로그.scrollTop = 로그.scrollHeight; };
       바닥(); setTimeout(바닥, 60); setTimeout(바닥, 300);
+      /* 숨어 있는 동안 밀면 안 먹는다 — 탭이 보이게 되는 순간 한 번 더 민다. */
+      if (typeof 채팅바닥으로 === 'function') setTimeout(채팅바닥으로, 350);
     } catch (e) { 서버기록되살리기(); }
   }
   /* 복원된 확인 카드는 눌러도 아무 일이 없다. 헷갈리지 않게 끈다. */
