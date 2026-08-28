@@ -228,10 +228,14 @@
   #pane-set .tok{padding:9px 13px;font-size:12.5px;line-height:1.45}
   #pane-set .warnbox{padding:10px 14px;font-size:12.5px;line-height:1.45}
   /* 바로가기 — 한 화면에 넣으려고 더 낮춘다 */
-  #pane-set .go{padding:7px 16px 2px;gap:6px}
+  #pane-set .gocard{padding:4px 0}
+  #pane-set .go{padding:7px 16px;gap:6px}
   #pane-set .go a{padding:8px;font-size:12.5px;min-width:126px}
   #pane-set .master{padding:11px}
-  #pane-set .mkbtn{margin:6px 0 4px;padding:8px 15px;font-size:13px}
+  #pane-set .mkbtn{margin:5px 0 3px;padding:7px 14px;font-size:12.5px}
+  #pane-set .master .mk{margin-top:2px;font-size:12.5px}
+  #pane-set .master .warn2{margin-top:1px}
+  #pane-set .master>b:first-child{font-size:13.5px}
   #pane-set details pre{font-size:12px;line-height:1.6}
 
   .calnote{font-size:11.5px;color:var(--dim);padding:0 16px 12px;line-height:1.55;margin-top:-4px}
@@ -520,15 +524,17 @@
   <div id="token"></div>
   <div id="alarm"></div>
   <div id="guestcard"></div>
-  <div class="card" style="padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px">
-    <div><b style="font-size:14px">이 기기 사용자</b>
-      <div style="font-size:12px;color:var(--dim);margin-top:1px">기록에 이 이름이 함께 남습니다</div></div>
+  <div class="card" style="padding:8px 13px;display:flex;align-items:center;justify-content:space-between;gap:10px">
+    <div><b style="font-size:13.5px">이 기기 사용자</b>
+      <div style="font-size:11.5px;color:var(--dim);margin-top:1px">기록에 이 이름이 함께 남습니다</div></div>
     <button type="button" id="whobtn"
       style="background:rgba(255,255,255,.10);color:var(--tx,#EDEDED);border:1px solid var(--line);
              border-radius:10px;padding:8px 12px;font:inherit;font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap">
       <span id="whoname">—</span> · 바꾸기</button>
   </div>
-  <div class="card"><h3>바로가기</h3>
+  <!-- ⚠ 「바로가기」 제목은 뺐다 — 🔗 붙은 링크 넉 장이라 제목 없이도 읽히고,
+         관리 탭을 한 화면에 넣어야 했다(2026-08-28). -->
+  <div class="card gocard">
     <div class="go">
       <a href="https://oh501.surge.sh/" target="_blank" rel="noopener">손님 입실 안내</a>
       <a href="https://pf.kakao.com/_ediSX" target="_blank" rel="noopener">카카오 채널</a>
@@ -591,7 +597,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-28 02:00';</script>
+<script>window.__BUILD = '08-28 02:20';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
@@ -1078,7 +1084,7 @@ function render(d) {
        달력 색 설명은 달력 탭으로 옮겼다 — 거기서 보는 것이 맞다. */
   $('foot').innerHTML =
     '<div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap">' +
-    '<span>5분마다 새로 읽습니다 · 연락처는 가려서 보여줍니다</span>' +
+    '<span>5분마다 새로 읽습니다 · 연락처는 가림</span>' +
     '<span style="opacity:.5;margin-left:auto">v' + (window.__BUILD || '?') + '</span>' +
     '<button type="button" id="diagbtn" style="background:rgba(255,255,255,.08);' +
     'color:var(--dim);border:1px solid var(--line);border-radius:8px;padding:5px 9px;' +
