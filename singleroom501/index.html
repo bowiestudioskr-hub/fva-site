@@ -51,7 +51,10 @@
     --warn:#FF375F;
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-  html{-webkit-text-size-adjust:100%}
+  /* ⚠ 한글은 기본이 글자 단위 줄바꿈이라 「2/명」, 「19,900/원」처럼 갈라진다.
+       keep-all 로 **띄어쓰기에서만** 넘긴다. 아주 긴 낱말만 예외로 쪼갠다.
+       (2026-08-28 요청 — 예약마다 줄이 달리 접혀 들쭉날쭉해 보이던 것) */
+  html{-webkit-text-size-adjust:100%;word-break:keep-all;overflow-wrap:break-word}
   body{
     background:var(--bg); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',Pretendard,system-ui,sans-serif;
@@ -86,7 +89,7 @@
   .dow{text-align:center;font-size:11px;font-weight:700;color:var(--dim);padding:2px 0 5px}
   .dow.s{color:#FF6B7E} .dow.t{color:#6BA8FF}
   .go a::before{content:'🔗 ';opacity:.75;font-size:.92em}
-  .cell{background:var(--card3);border-radius:9px;min-height:104px;padding:4px 3px 4px;
+  .cell{background:var(--card3);border-radius:9px;min-height:92px;padding:4px 3px 4px;
         display:flex;flex-direction:column;gap:2px;cursor:pointer;border:1.5px solid transparent;
         overflow:hidden}
   .cell.off{background:transparent;cursor:default}
@@ -116,15 +119,14 @@
      결국 하나하나 눌러봐야 했다. 스페이스클라우드 캘린더가 이렇게 보여준다. */
   /* ⚠ 한 줄로 자르면 정작 보고 싶은 이름이 잘려 나간다(「13~15, 정…」).
      두 줄까지 흐르게 두고, 이름을 앞에 세운다. */
-  .ev{display:flex;align-items:flex-start;gap:3px;font-size:9.5px;line-height:1.3;
+  /* 예약번호를 뺀 만큼 글자를 키운다 — 이름·시간이 읽히는 게 목적이다. */
+  .ev{display:flex;align-items:flex-start;gap:3px;font-size:10.5px;line-height:1.3;
       color:var(--ink);word-break:keep-all;overflow-wrap:anywhere}
   /* ⚠ 시간은 줄 끝에서 「13~1 / 5」로 쪼개지면 안 읽힌다. 제 줄에 통째로 둔다. */
   .ev .tm{display:block;white-space:nowrap;color:var(--sub);font-variant-numeric:tabular-nums;
-          font-size:9px}
-  /* ⚠ 이름·시간은 왼쪽인데 번호만 오른쪽이면 줄기가 둘로 갈려 어수선하다. 같이 왼쪽. */
-  .rid{display:block;white-space:nowrap;color:var(--dim);font-size:8.5px;line-height:1.3;
-       font-variant-numeric:tabular-nums;letter-spacing:-.04em;
-       margin:-1px 0 4px 15px}
+          font-size:9.5px}
+  /* ⚠ 예약번호는 칸에서 뺐다(2026-08-28). 한 줄을 통째로 먹어 이름·시간이 밀렸다.
+       번호가 필요하면 「예약」 탭 목록에 크게 나온다. */
   .ev b{flex:none;width:12px;height:12px;border-radius:3px;font-size:8.5px;font-weight:800;
         display:grid;place-items:center;color:#101014;margin-top:.5px}
   .ev.void{color:#5A5A60;text-decoration:line-through}
@@ -137,15 +139,31 @@
   .legend{display:flex;flex-wrap:wrap;gap:5px 12px;padding:11px 5px 2px;font-size:11.5px;color:var(--sub)}
   .legend i{display:inline-block;width:9px;height:9px;border-radius:2.5px;margin-right:5px;vertical-align:-1px}
 
-  .day{background:var(--card2);border-radius:12px;margin-top:10px;padding:12px 13px;display:none}
-  .day.on{display:block}
+  /* ── 날짜를 누르면 아래로 펼쳐지는 상세 ────────────────
+     ⚠ display:none ↔ block 은 애니메이션이 안 붙는다. 높이를 모르기 때문이다.
+       grid-template-rows 를 0fr → 1fr 로 굴리면 **내용 높이를 몰라도** 부드럽게 열린다.
+       그래서 안쪽에 .daybox 한 겹이 꼭 필요하다(overflow:hidden 이 걸릴 자리). */
+  .day{display:grid;grid-template-rows:0fr;margin-top:0;opacity:0;
+       transition:grid-template-rows .3s cubic-bezier(.22,.61,.36,1),
+                  margin-top .3s cubic-bezier(.22,.61,.36,1), opacity .22s ease}
+  .day.on{grid-template-rows:1fr;margin-top:10px;opacity:1}
+  .daybox{overflow:hidden;min-height:0;background:var(--card2);border-radius:12px;padding:11px 12px}
+  @media (prefers-reduced-motion: reduce){ .day{transition:none} }
+
   .day h4{font-size:13.5px;font-weight:800;margin-bottom:8px}
-  .day ol{list-style:none;display:flex;flex-direction:column;gap:7px}
-  .day li{display:flex;gap:9px;align-items:flex-start;font-size:13.5px}
-  .day .who2{flex:1;min-width:0}
-  .day .who2 b{font-weight:700}
-  .day .t{color:var(--sub);font-size:12.5px;min-width:74px;white-space:nowrap}
-  .day .k{font-weight:700}
+  .day ol{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .day li{display:flex;gap:9px;align-items:flex-start}
+  /* 시간은 늘 같은 폭을 차지해야 이름이 세로로 가지런히 선다. */
+  .day .dt{flex:none;width:60px;color:var(--sub);font-size:12px;line-height:1.45;
+           white-space:nowrap;font-variant-numeric:tabular-nums;padding-top:1px}
+  .day .dmain{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+  .day .dhd{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
+  .day .dhd b{font-size:13.5px;font-weight:700}
+  /* ⚠ 조각마다 nowrap — 「2」와 「명」, 「19,900」과 「원」이 갈라지면 안 된다.
+       구분점은 조각 앞에 붙여 두어, 줄이 넘어가도 점이 홀로 남지 않는다. */
+  .day .dmeta{display:flex;flex-wrap:wrap;gap:0 5px;font-size:12px;color:var(--sub);line-height:1.5}
+  .day .dmeta>*{white-space:nowrap}
+  .day .dmeta>*+*::before{content:'· ';color:var(--dim)}
   .day .none{color:var(--dim);font-size:13px}
 
   /* ── 타일·목록 ───────────────────────────────────────── */
@@ -183,8 +201,10 @@
         background:#2B2B30;color:var(--sub);border:1px solid #3A3A40}
   .dday.hot{background:#B82C21;color:#fff;border-color:#B82C21}
   .whenrow{display:block;margin-top:2px}
-  .whenrow .wdate{color:#fff;font-size:14.5px;font-weight:800;letter-spacing:0}
-  .whenrow .wtime{color:var(--sub);font-size:13px}
+  /* ⚠ 「8. 29 (토)」·「17시 ~ 21시」는 통째로 한 덩이다. 가운데서 접히면 못 읽는다. */
+  .whenrow .wdate{color:#fff;font-size:14.5px;font-weight:800;letter-spacing:0;white-space:nowrap}
+  .whenrow .wtime{color:var(--sub);font-size:13px;white-space:nowrap}
+  .whenrow .rn{white-space:nowrap}
   .pill.ok{background:#0C3B1E;color:var(--rsv)}
   .pill.wait{background:#3A3210;color:var(--wait)}
   .pill.done{background:var(--card2);color:var(--done)}
@@ -470,12 +490,10 @@
     .stats{grid-template-columns:1fr 1fr;gap:8px}
     .cal{padding:11px 7px 9px}
     .grid{gap:3px}
-    .cell{min-height:74px;border-radius:8px;padding:3px 2px}
-    .ev{font-size:9px;line-height:1.25;gap:2px}
+    .cell{min-height:70px;border-radius:8px;padding:3px 2px}
+    .ev{font-size:9.5px;line-height:1.25;gap:2px}
     .ev b{width:11px;height:11px;font-size:8px}
-    .ev .tm{font-size:8.5px}
-    /* ⚠ 폰에서는 들여쓰기까지 주면 8자리가 안 들어가 잘린다. 칸 폭이 43px 남짓뿐이다. */
-    .rid{font-size:8px;margin:0 0 3px 1px;letter-spacing:-.06em}
+    .ev .tm{font-size:9px}
     .more{font-size:8.5px}
     .legend{gap:4px 9px;font-size:10.5px}
     .lede{font-size:12.5px}
@@ -490,9 +508,8 @@
        (2026-08-23 실제로 그렇게 났다. right:auto 를 넣어도 소용없었던 이유다.) */
   @media (min-width:900px){
     .wrap{max-width:1080px;gap:24px}
-    .cell{min-height:118px}
-    .ev{font-size:10.5px}
-    .rid{font-size:9.5px;margin-left:15px}
+    .cell{min-height:112px}
+    .ev{font-size:11.5px}
     body{padding:30px 24px 90px}
     /* 데스크탑에서는 화면 폭을 가로지르는 띠 대신 가운데 뜬 알약으로. */
     .bar{left:50%;right:auto;width:min(560px,92vw);border-radius:16px;
@@ -613,7 +630,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-28 17:35';</script>
+<script>window.__BUILD = '08-28 18:20';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
@@ -821,9 +838,7 @@ function renderCal() {
     const shown = evs.slice(0, MAX).map(e =>
       `<div class="ev ${e.cls}"><b>${e.badge}</b><span>${esc(e.who)}` +
       `<span class="tm">${esc(e.t)}</span></span></div>` +
-      /* ⚠ 예약번호는 조각 안에 넣으면 폭이 모자라 「10377…」로 잘린다.
-         뱃지·여백을 빼고 나면 30px 남짓뿐이다. 칸 전체를 쓰도록 제 줄로 뺀다. */
-      (e.id ? `<div class="rid">${esc(e.id)}</div>` : '')).join('');
+      '').join('');
     const rest = evs.length > MAX ? `<div class="more">+${evs.length - MAX}</div>` : '';
     h += `<div class="cell${dow === 0 ? ' sun' : dow === 6 ? ' sat' : ''}${day.공휴일 ? ' hol' : ''}` +
          `${Number(ymd) === TODAY ? ' now' : ''}${ymd === sel ? ' sel' : ''}" data-ymd="${ymd}">` +
@@ -861,45 +876,66 @@ function renderDay() {
   const box = $('day');
   if (!sel || !cal) { box.classList.remove('on'); return; }
   const day = cal.날들.find(d => d.날짜 === sel);
+
+  /* ⚠ 모든 줄이 **같은 골격**이어야 한다 — 시간 / (이름·배지) / (상태·인원·금액·구분) / 전화.
+       예전엔 있는 것만 이어 붙여서, 예약마다 줄이 둘이었다 셋이었다 들쭉날쭉했다.
+       조각이 비어도 자리는 지킨다. (2026-08-28 요청)
+     ⚠ 예약번호는 뺐다. 번호는 「예약」 탭에서 크게 본다. */
   const items = [];
   for (const r of (day?.예약 || [])) items.push({
-    t: `${r.시작}시 ~ ${r.끝}시`, k: r.이름 || '손님',
-    s: (r.구분 ? `<span class="tag ${r.구분 === '패키지' ? 'pkg' : 'hr'}">${esc(r.구분)}</span> ` : '') +
-       `예약 <b class="rno">${esc(r.id)}</b> · ${esc(r.상태)}` +
-       `${r.인원 ? ' · ' + esc(r.인원) + '명' : ''}` +
-       `${r.금액 ? ' · ' + num(r.금액) + '원' : ''}` +
-       (r.설치전 ? ' <span class="pill done">설치 전 · 직접 안내</span>' : ' ' + 발송배지(r)),
-    tel: r.연락처 || '',
+    t: `${r.시작}~${r.끝}시`,
+    이름: r.이름 || '손님',
     c: kindOf(r)[0] === 'void' ? 'var(--done)' : `var(--${kindOf(r)[0]})`,
+    배지: r.설치전 ? '<span class="pill done">설치 전 · 직접 안내</span>' : 발송배지(r),
+    조각: [
+      esc(r.상태),
+      esc(r.인원 || 0) + '명',
+      num(r.금액) + '원',
+      r.구분 ? `<span class="tag ${r.구분 === '패키지' ? 'pkg' : 'hr'}">${esc(r.구분)}</span>` : '',
+    ].filter(Boolean),
+    tel: r.연락처 || '',
   });
-  for (const s of (day?.일정 || [])) items.push({
-    t: `${s.시작}시 ~ ${s.끝}시`, k: isClean(s) ? '청소' : (s.이름 || '일정'),
-    /* ⚠ 메모는 호스트센터에서 손으로 적는 값이다. 통째로 innerHTML 에 들어가므로 반드시 막는다. */
-    s: esc(s.메모 && !/청소/.test(s.메모) ? s.메모 : (isClean(s) ? '' : '직접 넣은 일정')),
-    c: isClean(s) ? 'var(--clean)' : 'var(--add)',
+  for (const g of (day?.일정 || [])) items.push({
+    t: `${g.시작}~${g.끝}시`,
+    이름: isClean(g) ? '청소' : (g.이름 || '일정'),
+    c: isClean(g) ? 'var(--clean)' : 'var(--add)',
+    배지: '',
+    /* ⚠ 메모는 호스트센터에서 손으로 적는 값이다. 반드시 막는다. */
+    조각: [esc(g.메모 && !/청소/.test(g.메모) ? g.메모 : (isClean(g) ? '' : '직접 넣은 일정'))].filter(Boolean),
+    tel: null,
   });
   items.sort((a, b) => parseInt(a.t) - parseInt(b.t));
 
   const ymd = sel;
-  const 휴일 = day && day.공휴일 ? ` <span style="color:#FF6B7E;font-size:.85em">· ${esc(휴일명(ymd))}</span>` : '';
-  box.innerHTML = `<h4>${ymd.slice(4,6)}월 ${ymd.slice(6,8)}일${휴일}</h4>` +
-    (items.length
-      ? `<ol>${items.map(i => `<li><span class="t">${esc(i.t)}</span>` +
-          `<span class="who2"><b style="color:${esc(i.c)}">${esc(i.k)}</b>` +
-          /* i.s 는 위에서 조각마다 esc 를 씌워 만든 것이다. 태그(<b class=rno>)를 살려야 해서
-             여기서 또 씌우지 않는다. ⚠ i.s 를 만드는 자리를 고칠 땐 esc 를 빼먹지 말 것. */
-          `<span style="color:var(--sub);font-size:12.5px"> ${i.s}</span>` +
-          (i.tel !== undefined ? `<span class="telrow">${전화(i.tel)}</span>` : '') +
-          `</span></li>`).join('')}</ol>`
-      : `<div class="none">이날은 비어 있습니다.</div>`);
+  const 휴일 = day && day.공휴일
+    ? ` <span style="color:#FF6B7E;font-size:.85em">· ${esc(휴일명(ymd))}</span>` : '';
+  /* ⚠ 조각(esc 를 이미 씌운 것)과 배지(태그)는 여기서 또 씌우지 않는다. */
+  const 줄 = i => `<li><span class="dt">${esc(i.t)}</span><span class="dmain">` +
+      `<span class="dhd"><b style="color:${esc(i.c)}">${esc(i.이름)}</b>${i.배지 || ''}</span>` +
+      (i.조각.length ? `<span class="dmeta">${i.조각.map(x => `<span>${x}</span>`).join('')}</span>` : '') +
+      (i.tel !== null ? `<span class="telrow">${전화(i.tel)}</span>` : '') +
+      `</span></li>`;
+
+  box.innerHTML = `<div class="daybox">` +
+    `<h4>${ymd.slice(4, 6)}월 ${ymd.slice(6, 8)}일${휴일}</h4>` +
+    (items.length ? `<ol>${items.map(줄).join('')}</ol>`
+                  : `<div class="none">이날은 비어 있습니다.</div>`) +
+    `</div>`;
   box.classList.add('on');
 }
 
 $('grid').addEventListener('click', ev => {
   const c = ev.target.closest('.cell');
   if (!c || c.classList.contains('off')) return;
-  sel = sel === c.dataset.ymd ? '' : c.dataset.ymd;
+  const 열림 = sel !== c.dataset.ymd;
+  sel = 열림 ? c.dataset.ymd : '';
   renderCal();
+  /* ⚠ 펼쳐도 화면 밖이면 사람이 못 본다. 펼침이 끝날 즈음 부드럽게 끌어온다.
+       block:'nearest' 라야 이미 보이는 경우에 쓸데없이 안 흔든다. */
+  if (열림) setTimeout(function () {
+    const d = $('day');
+    if (d) d.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 320);
 });
 
 async function loadCal(y, m) {
@@ -1079,7 +1115,7 @@ function render(d) {
     }
     return `<li class="row">
       <div class="nm"><b>${esc(r.이름)}</b> ${디데이} ${pill}
-        <small class="whenrow">${날짜칸} · ${종류(r)} · 예약 <b class="rno">${esc(r.id)}</b></small>
+        <small class="whenrow">${날짜칸} · ${종류(r)} · <span class="rn">예약 <b class="rno">${esc(r.id)}</b></span></small>
         <small class="telrow">${전화(r.연락처)}</small></div>
       <div class="vn">${num(r.금액)}<em>원</em></div></li>`;
   };
