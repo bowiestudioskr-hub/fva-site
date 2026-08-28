@@ -544,15 +544,25 @@ function versionPass() {
     const p = join(SITE, f);
     if (!existsSync(p)) { add('보통', '빌드', `${f} 가 없다`); continue; }
     const s = readFileSync(p, 'utf8');
-    for (const m of s.matchAll(/(?:css|js)\/[^"']+\?v=([a-z0-9-]+)/g)) {
-      if (!seen.has(m[1])) seen.set(m[1], new Set());
-      seen.get(m[1]).add(f);
+    /* 경로 → (버전 → 그 버전을 쓰는 쪽들) */
+    for (const m of s.matchAll(/\/?(?:css|js)\/[^"'?]+\?v=[a-z0-9-]+/g)) {
+      const [길, 버전] = m[0].replace(/^\//, '').split('?v=');
+      if (!seen.has(길)) seen.set(길, new Map());
+      const v = seen.get(길);
+      if (!v.has(버전)) v.set(버전, new Set());
+      v.get(버전).add(f);
     }
   }
-  if (seen.size > 1) {
-    const list = [...seen].map(([v, fs]) => `${v}(${[...fs].join(',')})`).join(' / ');
-    add('보통', '빌드', `캐시 버전이 갈렸다: ${list}`, '옛 CSS 가 나갈 수 있다');
-  }
+  /* ⚠ 예전엔 「버전이 전부 같아야 한다」로 봤다. 그때는 빌드번호 하나를 모든 파일에 붙였다.
+       지금은 **파일 내용 해시**라 파일마다 값이 다른 것이 정상이다 — 늘 실패로 나왔다.
+       봐야 하는 것은 「**같은 파일**이 페이지마다 다른 값을 달고 있는가」다. (2026-08-28 고침) */
+  const 갈림 = [];
+  for (const [길, v] of seen)
+    if (v.size > 1)
+      갈림.push(`${길} → ` + [...v].map(([버전, fs]) => `${버전}(${[...fs].join(',')})`).join(' vs '));
+  if (갈림.length)
+    add('보통', '빌드', `같은 파일이 쪽마다 다른 버전이다: ${갈림.join(' / ')}`,
+        '고쳐도 어느 쪽은 옛것이 나간다 — tools/bust.py 를 돌릴 것');
 }
 
 // ── 실행 ──────────────────────────────────────────────────
