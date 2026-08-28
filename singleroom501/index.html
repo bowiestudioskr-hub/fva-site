@@ -457,6 +457,16 @@
   /* ⚠ 바 높이만큼만 비키면 내용이 바에 딱 붙어 답답하다(채팅 입력칸이 특히).
        10px 을 더 띄운다. --barh 는 아래 스크립트가 실제로 재서 넣는다. */
   body.appmode .wrap{padding-bottom:calc(var(--barh, 64px) + 10px)}
+  /* ⚠ 비서 탭에서만 머리말(로고·제목·시간·설명)이 오른쪽으로 3px 밀렸다(2026-08-28 녹화로 실측).
+       원인은 탭 안의 무언가가 상자를 넓히고, 넓어진 만큼 가운데정렬이 오른쪽으로 밀린 것이다.
+       ⚠ 헤드리스 크롬으로는 재현되지 않았다 — iOS 사파리에만 있는 현상이라 눈으로 못 찾았다.
+       그래서 **원인을 몰라도 막히는 방식**으로 잠근다:
+       ① 상자 폭을 100% 로 못 박아 내용이 넓혀도 안 늘어나게
+       ② 흐름이 끊기지 않게 min-width:0 (플렉스 자식은 기본이 min-width:auto 라 안 줄어든다)
+       ③ 탭 안에서 가로로 삐져나오는 것은 잘라낸다 — 세로 스크롤은 그대로 둔다 */
+  body.appmode .wrap{width:100%;max-width:100%;min-width:0}
+  body.appmode .tabpane{min-width:0;overflow-x:hidden}
+  .chatcard,.chatbar,.chatbar textarea{min-width:0}
   body.appmode .hd{flex:none}
   body.appmode .tabpane{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;
     padding-bottom:0;overscroll-behavior:contain}
@@ -630,7 +640,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-28 21:10';</script>
+<script>window.__BUILD = '08-28 21:45';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
