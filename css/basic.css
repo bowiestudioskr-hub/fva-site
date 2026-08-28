@@ -970,11 +970,14 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
 .bs .bs-s1 .s1-c-direct .s1-ch{ top:calc(var(--u) * 7361/860); left:calc(var(--u) * 594.0/860); width:calc(var(--u) * 90.72/860) }
 .bs .bs-s1 .s1-c-direct .s1-cd{ top:calc(var(--u) * 7467.94/860); left:calc(var(--u) * 468.0/860); width:calc(var(--u) * 339.0/860) }
 .bs .bs-s1 .s1-c-shoot .s1-cbox{ top:calc(var(--u) * 7603.19/860); left:calc(var(--u) * 51.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 415.62/860) }
-.bs .bs-s1 .s1-c-shoot .s1-cico{ top:calc(var(--u) * 7521.04/860); left:calc(var(--u) * 198.187/860); width:calc(var(--u) * 191.79/860); height:calc(var(--u) * 328.914/860) }
+/* ⚠ 그림 아래 투명 여백이 19% 라 상자 좌표만 보면 안 된다 — 눈에 보이는 틈은 13 뿐이었다.
+     기획·연출(32)에 맞춰 카메라를 7% 줄였다. 위로 올리면 윗줄 카드와 부딪힌다. (2026-08-28) */
+.bs .bs-s1 .s1-c-shoot .s1-cico{ top:calc(var(--u) * 7521.04/860); left:calc(var(--u) * 204.96/860); width:calc(var(--u) * 178.25/860); height:calc(var(--u) * 305.7/860) }
 .bs .bs-s1 .s1-c-shoot .s1-ch{ top:calc(var(--u) * 7800/860); left:calc(var(--u) * 106.0/860); width:calc(var(--u) * 260.82/860) }
 .bs .bs-s1 .s1-c-shoot .s1-cd{ top:calc(var(--u) * 7908.13/860); left:calc(var(--u) * 77.0/860); width:calc(var(--u) * 321.0/860) }
 .bs .bs-s1 .s1-c-ai .s1-cbox{ top:calc(var(--u) * 7603.19/860); left:calc(var(--u) * 451.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 415.62/860) }
-.bs .bs-s1 .s1-c-ai .s1-cico{ top:calc(var(--u) * 7631.73/860); left:calc(var(--u) * 549.912/860); width:calc(var(--u) * 189.176/860); height:calc(var(--u) * 201.623/860) }
+/* ⚠ 여기는 아예 겹쳐 있었다(보이는 틈 -4). 12 올리고 15% 줄여 기획·연출과 같은 틈으로. */
+.bs .bs-s1 .s1-c-ai .s1-cico{ top:calc(var(--u) * 7619.7/860); left:calc(var(--u) * 563.8/860); width:calc(var(--u) * 161.4/860); height:calc(var(--u) * 172.0/860) }
 .bs .bs-s1 .s1-c-ai .s1-ch{ top:calc(var(--u) * 7806/860); left:calc(var(--u) * 610.0/860); width:calc(var(--u) * 53.84/860) }
 .bs .bs-s1 .s1-c-ai .s1-cd{ top:calc(var(--u) * 7908.1/860); left:calc(var(--u) * 477.0/860); width:calc(var(--u) * 321.0/860) }
 .bs .bs-s1 .s1-c-edit .s1-cbox{ top:calc(var(--u) * 8043/860); left:calc(var(--u) * 51.0/860); width:calc(var(--u) * 372.0/860); height:calc(var(--u) * 271.0/860) }

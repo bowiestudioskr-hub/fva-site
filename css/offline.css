@@ -36,12 +36,19 @@
   overflow:hidden;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
           mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
+  /* ⚠ 사파리는 mask 를 씌운 상자 안에서 애니메이션이 멈춰 서는 일이 있다(아이폰에서 실제로 그랬다).
+       상자를 제 층으로 올려 두면 안 그런다. 크롬은 이 줄이 있으나 없으나 같다. */
+  transform:translateZ(0);
 }
 .off-track{
   display:flex;
   gap:calc(var(--u) * 18.1/1920);
   width:max-content;
   animation:off-marquee 46s linear infinite;
+  /* 흐르는 것이 이 상자뿐임을 미리 알려 사파리가 매 프레임 다시 그리지 않게 한다 */
+  will-change:transform;
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
 }
 .off-slider:hover .off-track,
 .off-track:focus-within,
