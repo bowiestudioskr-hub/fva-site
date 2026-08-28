@@ -39,14 +39,19 @@ self.addEventListener('fetch', (e) => {
 
   e.respondWith((async () => {
     try {
-      const res = await fetch(req, { cache: 'no-store' });
+      /* ⚠ fetch(req, …) 에 그대로 넘기면 안 된다. 문서 요청은 mode 가 'navigate' 인데
+           사양이 navigate 요청을 fetch() 에 넣는 걸 금지한다 — TypeError 로 죽는다.
+           그래서 **주소로 새 요청을 만들어** 보낸다. (2026-08-28 실제로 여기서 깨졌다) */
+      const res = await fetch(req.url, {
+        cache: 'no-store', credentials: 'same-origin', redirect: 'follow',
+      });
       if (res && res.ok) {
         const c = await caches.open(곳간);
-        c.put(req, res.clone()).catch(() => {});
+        c.put(req.url, res.clone()).catch(() => {});
       }
       return res;
     } catch (err) {
-      const hit = await caches.match(req);
+      const hit = await caches.match(req.url);
       if (hit) return hit;
       throw err;
     }
