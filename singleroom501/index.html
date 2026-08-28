@@ -237,6 +237,13 @@
   #pane-set .master .warn2{margin-top:1px}
   #pane-set .master>b:first-child{font-size:13.5px}
   #pane-set details pre{font-size:12px;line-height:1.6}
+  /* ⚠ 좁은 기기(13 mini 375px)는 글이 더 접혀서 22px 넘쳤다. 거기만 한 단 더 줄인다. */
+  @media (max-width:392px){
+    #pane-set .tok,#pane-set .warnbox{font-size:12px;padding:8px 12px}
+    #pane-set .go a{min-width:118px;padding:7px;font-size:12px}
+    #pane-set .master{padding:10px}
+    #pane-set footer{font-size:11px}
+  }
 
   .calnote{font-size:11.5px;color:var(--dim);padding:0 16px 12px;line-height:1.55;margin-top:-4px}
 
@@ -597,7 +604,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-28 02:20';</script>
+<script>window.__BUILD = '08-28 02:35';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
