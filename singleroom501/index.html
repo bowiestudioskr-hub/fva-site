@@ -630,7 +630,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-28 19:05';</script>
+<script>window.__BUILD = '08-28 19:40';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
@@ -1642,6 +1642,49 @@ else {
   if (vv) { vv.addEventListener('resize', 재기); vv.addEventListener('scroll', 재기); }
   window.addEventListener('resize', 재기);
   setInterval(재기, 700); 재기();
+})();
+</script>
+<script>
+/* ── 새 판이 바로 뜨게 ────────────────────────────────
+   ⚠ GitHub Pages 가 HTML 에 `cache-control: max-age=600` 을 박는다. 서버 헤더는 못 바꾼다.
+     그래서 배포하고 10분간 폰이 옛 화면을 썼고, 홈 화면 앱을 지웠다 다시 깔아야 했다.
+     sw.js 가 문서를 `cache: 'no-store'` 로 받아 그 지시를 건너뛴다. (2026-08-28)
+   ⚠ 탈출구 — 서비스워커가 말썽이면 주소 뒤에 `?nosw=1` 을 붙여 열면 지워진다. */
+(function () {
+  if (!('serviceWorker' in navigator)) return;
+  if (/[?&]nosw=1/.test(location.search)) {
+    navigator.serviceWorker.getRegistrations().then(function (rs) {
+      rs.forEach(function (r) { r.unregister(); });
+    }).catch(function () {});
+    return;
+  }
+  navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then(function (reg) {
+    var 확인 = function () { try { reg.update(); } catch (e) {} };
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) 확인(); });
+    window.addEventListener('pageshow', 확인);
+  }).catch(function () {});
+
+  /* 앱을 켜 둔 채 새 판이 올라오는 경우 — 작은 파일 하나로 판을 견주고 한 번만 새로 고친다.
+     ⚠ 서비스워커가 화면을 잡기 전에는 하지 않는다. 옛 HTML 이 계속 와서 무한 새로고침이 된다.
+     ⚠ 「이 판으로 이미 새로고침해 봤다」를 적어 둬야 한 번으로 끝난다. */
+  var 판확인 = function () {
+    if (!navigator.serviceWorker.controller) return;
+    fetch('ver.txt?t=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.text() : null; })
+      .then(function (t) {
+        var 새판 = String(t || '').trim();
+        if (!새판 || 새판 === (window.__BUILD || '')) return;
+        var 지난 = '';
+        try { 지난 = sessionStorage.getItem('oh501reloadfor') || ''; } catch (e) {}
+        if (새판 === 지난) return;
+        try { sessionStorage.setItem('oh501reloadfor', 새판); } catch (e) {}
+        location.reload();
+      }).catch(function () {});
+  };
+  setTimeout(판확인, 2500);
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) setTimeout(판확인, 500);
+  });
 })();
 </script>
 </body></html>

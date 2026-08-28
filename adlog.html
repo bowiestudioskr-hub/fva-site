@@ -423,4 +423,24 @@
     <span>정비 내역 → <a href="/worklist.html">체크리스트</a></span>
   </footer>
 </div>
+<script>
+/* ── 새 판이 바로 뜨게 ────────────────────────────────
+   ⚠ GitHub Pages 가 HTML 에 `cache-control: max-age=600` 을 박는다. 서버 헤더는 못 바꾼다.
+     그래서 배포하고 10분간 폰이 옛 화면을 썼다. sw.js 가 문서를 no-store 로 받아 그걸 건너뛴다.
+   ⚠ 탈출구 — 말썽이면 주소 뒤에 ?nosw=1 을 붙여 열면 지워진다. (2026-08-28) */
+(function () {
+  if (!("serviceWorker" in navigator)) return;
+  if (/[?&]nosw=1/.test(location.search)) {
+    navigator.serviceWorker.getRegistrations().then(function (rs) {
+      rs.forEach(function (r) { r.unregister(); });
+    }).catch(function () {});
+    return;
+  }
+  navigator.serviceWorker.register("/sw.js", { updateViaCache: "none" }).then(function (reg) {
+    var 확인 = function () { try { reg.update(); } catch (e) {} };
+    document.addEventListener("visibilitychange", function () { if (!document.hidden) 확인(); });
+    window.addEventListener("pageshow", 확인);
+  }).catch(function () {});
+})();
+</script>
 </body></html>
