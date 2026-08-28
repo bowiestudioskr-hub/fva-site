@@ -630,7 +630,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-28 20:35';</script>
+<script>window.__BUILD = '08-28 21:10';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
@@ -1149,18 +1149,20 @@ function render(d) {
        ${뒤.length ? `<ul>${뒤.slice(0, 20).map(row).join('')}</ul>` : '<div class="none">없습니다.</div>'}
        ${뒤.length > 20 ? `<div class="memo">최근 20건만 보여줍니다.</div>` : ''}</details></div>`;
 
-  /* ⚠ 관리 탭이 한 화면에 들어가야 해서 꼬리말을 줄였다(2026-08-28).
-       달력 색 설명은 달력 탭으로 옮겼다 — 거기서 보는 것이 맞다. */
+  /* ⚠ 꼬리말은 판 번호만 남긴다(2026-08-28 요청). 설명글·진단 버튼은 뺐다.
+       진단은 여전히 필요하다 — **판 번호를 다섯 번 두드리면** 켜지고 꺼진다.
+       화면에는 아무 흔적이 없고, 주소를 못 고치는 홈 화면 앱에서도 쓸 수 있다. */
   $('foot').innerHTML =
-    '<div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap">' +
-    '<span>5분마다 새로 읽습니다 · 연락처는 가림</span>' +
-    '<span style="opacity:.5;margin-left:auto">v' + (window.__BUILD || '?') + '</span>' +
-    '<button type="button" id="diagbtn" style="background:rgba(255,255,255,.08);' +
-    'color:var(--dim);border:1px solid var(--line);border-radius:8px;padding:5px 9px;' +
-    'font:inherit;font-size:11.5px;cursor:pointer">진단 ' +
-    (진단켜짐() ? '끄기' : '켜기') + '</button></div>';
-  var db = $('diagbtn');
-  if (db) db.onclick = function () {
+    '<div style="display:flex;align-items:center">' +
+    '<span id="verstamp" style="opacity:.45;margin-left:auto;cursor:default;' +
+    '-webkit-user-select:none;user-select:none">v' + (window.__BUILD || '?') + '</span></div>';
+  var 도장 = $('verstamp'), 두드림 = 0, 시계 = 0;
+  if (도장) 도장.onclick = function () {
+    clearTimeout(시계);
+    두드림++;
+    시계 = setTimeout(function () { 두드림 = 0; }, 1200);
+    if (두드림 < 5) return;
+    두드림 = 0;
     try { localStorage.setItem('fva501diag', 진단켜짐() ? '' : '1'); } catch (e) {}
     location.reload();
   };
