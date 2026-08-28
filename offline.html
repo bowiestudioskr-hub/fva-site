@@ -1091,6 +1091,54 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
     items.forEach(function(it){ tk.appendChild(card(it, true))  });
   });
   track = tracks[0];
+
+  /* ── 안 돌면 손으로 민다 ──────────────────────────────
+     ⚠ 아이폰 **홈 화면 앱(standalone)** 에서 CSS 애니메이션이 멈춰 서 있었다.
+       같은 폰 사파리 탭에서는 잘 돈다(2026-08-28 사용자 확인). 헤드리스 크롬에서도
+       정상이라 원인을 눈으로 못 잡았다. 그래서 원인을 쫓는 대신 **정말 움직이는지 재서**
+       안 움직이면 자바스크립트로 직접 민다. rAF 는 standalone 에서도 확실히 돈다.
+     ⚠ 「동작 줄이기」를 켠 사람에게는 손대지 않는다 — 일부러 멈춰 둔 것이다.
+     ⚠ 영상 재생 중(has-playing)·손이 올라간 동안은 CSS 와 똑같이 멈춘다. */
+  (function () {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    function 손으로밀기(tk) {
+      var 폭 = tk.scrollWidth / 2;                 // 같은 카드를 두 벌 넣어 뒀다
+      if (!(폭 > 0)) return;
+      var 초당 = 폭 / 46;                          // CSS 와 같은 46초 한 바퀴
+      tk.style.animation = 'none';
+      var x = 0, 앞 = null;
+      (function 한칸(t) {
+        requestAnimationFrame(한칸);
+        if (앞 === null) { 앞 = t; return; }
+        var 지남 = (t - 앞) / 1000; 앞 = t;
+        if (지남 > 0.5) return;                    // 앱을 떠났다 돌아온 순간은 건너뛴다
+        var 슬 = tk.closest('.off-slider');
+        if (슬 && (슬.classList.contains('has-playing') || 슬.matches(':hover'))) return;
+        x = (x + 초당 * 지남) % 폭;
+        tk.style.transform = 'translateX(' + (-x) + 'px)';
+      })();
+    }
+
+    /* 두 번 재서 정말 안 움직이는지 본다. 한 번만 보면 애니메이션 시작 전일 수 있다. */
+    function 살펴보기() {
+      tracks.forEach(function (tk) {
+        if (tk.dataset.손밀기) return;
+        var 처음 = getComputedStyle(tk).transform;
+        setTimeout(function () {
+          if (tk.dataset.손밀기) return;
+          if (getComputedStyle(tk).transform !== 처음) return;   // 잘 돌고 있다
+          tk.dataset.손밀기 = '1';
+          손으로밀기(tk);
+        }, 700);
+      });
+    }
+    setTimeout(살펴보기, 1200);
+    /* 앱을 떠났다 돌아오면 그때 멈추는 일도 있다. 돌아올 때마다 다시 본다. */
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) setTimeout(살펴보기, 400);
+    });
+  })();
 })();
 </script>
 
