@@ -221,9 +221,20 @@
   .master .warn2{display:block;margin-top:2px;font-size:11.5px;color:var(--warn)}
 
   /* ⚠ 관리 탭만 촘촘하게 — 다른 탭은 지금 여백이 맞다(2026-08-28 요청). */
-  #pane-set .card>h3{padding:12px 16px 8px}
-  #pane-set summary{padding:10px 16px}
-  #pane-set .go+footer,#pane-set footer{padding-top:2px}
+  #pane-set{gap:12px}
+  #pane-set .card>h3{padding:11px 16px 7px}
+  #pane-set summary{padding:9px 16px}
+  #pane-set footer{padding-top:2px;font-size:11.5px;line-height:1.55}
+  #pane-set .tok{padding:9px 13px;font-size:12.5px;line-height:1.45}
+  #pane-set .warnbox{padding:10px 14px;font-size:12.5px;line-height:1.45}
+  /* 바로가기 — 한 화면에 넣으려고 더 낮춘다 */
+  #pane-set .go{padding:7px 16px 2px;gap:6px}
+  #pane-set .go a{padding:8px;font-size:12.5px;min-width:126px}
+  #pane-set .master{padding:11px}
+  #pane-set .mkbtn{margin:6px 0 4px;padding:8px 15px;font-size:13px}
+  #pane-set details pre{font-size:12px;line-height:1.6}
+
+  .calnote{font-size:11.5px;color:var(--dim);padding:0 16px 12px;line-height:1.55;margin-top:-4px}
 
   .memo{font-size:12px;color:var(--dim);padding:0 16px 14px;line-height:1.5}
   .memo b{color:var(--sub)}
@@ -498,6 +509,9 @@
       <span><i style="background:var(--clean)"></i>청소</span>
       <span><i style="background:var(--done)"></i>이용완료</span>
     </div>
+    <!-- ⚠ 관리 탭 꼬리말에 있던 설명을 여기로 옮겼다(2026-08-28).
+         달력 색을 보는 자리에 있어야 읽힌다. -->
+    <p class="calnote">「수업·직접 넣은 일정」과 「청소」는 호스트센터에서 직접 넣은 일정입니다.</p>
     <div class="day" id="day"></div>
   </div>
   </div>
@@ -577,7 +591,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-28 01:30';</script>
+<script>window.__BUILD = '08-28 02:00';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
@@ -985,8 +999,8 @@ function render(d) {
   if (d.ok && d.토큰만료일) {
     const 급함 = (d.토큰남은날 ?? 99) <= 7;
     $('token').innerHTML = `<div class="tok${급함 ? ' warn' : ''}"><i>🔑</i><span>` +
-      `스페이스클라우드 토큰 <b>D-${d.토큰남은날}</b> (${esc(d.토큰만료일)} 만료)` +
-      `<br>${esc(d.갱신시점 || '만료 한 주 전')}에 「토큰 갱신」이라고 말해주세요 — 안 하면 자동 안내가 멈춥니다.</span></div>`;
+      `스페이스클라우드 토큰 <b>D-${d.토큰남은날}</b> · ${esc(d.토큰만료일)} 만료` +
+      `<br>${esc(d.갱신시점 || '만료 한 주 전')} 이후 「토큰 갱신」이라고 말해주세요.</span></div>`;
   }
 
   /* 손봐야 하는 것부터 맨 위에. 화면을 열자마자 눈에 들어와야 하는 건 이것뿐이다. */
@@ -996,8 +1010,8 @@ function render(d) {
       <br>토큰이 만료됐다면 크롬에서 <b>partner.spacecloud.kr</b> 에 로그인한 뒤 갱신 토큰을 다시 심어야 합니다.</div>`);
   } else {
     if (/미연결/.test(d.알림톡 || ''))
-      A.push(`<div class="warnbox"><b>지금은 문자(LMS)로 안내가 나갑니다.</b>
-        알림톡은 <b>심사중</b>(8/24 접수) — 승인되면 알림톡·문자 두 갈래로 같이 나갑니다.</div>`);
+      A.push(`<div class="warnbox">지금은 <b>문자(LMS)</b>로 안내가 나갑니다 ·
+        알림톡 <b>심사중</b>(8/24 접수)</div>`);
   }
   $('alarm').innerHTML = A.join('');
 
@@ -1060,14 +1074,16 @@ function render(d) {
        ${뒤.length ? `<ul>${뒤.slice(0, 20).map(row).join('')}</ul>` : '<div class="none">없습니다.</div>'}
        ${뒤.length > 20 ? `<div class="memo">최근 20건만 보여줍니다.</div>` : ''}</details></div>`;
 
+  /* ⚠ 관리 탭이 한 화면에 들어가야 해서 꼬리말을 줄였다(2026-08-28).
+       달력 색 설명은 달력 탭으로 옮겼다 — 거기서 보는 것이 맞다. */
   $('foot').innerHTML =
-    '5분마다 스페이스클라우드에서 새로 읽습니다 · 연락처는 가려서 표시합니다<br>' +
-    '달력의 「감독님 일정」과 「청소」는 호스트센터에서 직접 넣은 일정입니다.<br>' +
-    '<span style="opacity:.55">화면 버전 ' + (window.__BUILD || '?') + '</span><br>' +
-    '<button type="button" id="diagbtn" style="margin-top:9px;background:rgba(255,255,255,.08);' +
-    'color:var(--dim);border:1px solid var(--line);border-radius:9px;padding:7px 11px;' +
-    'font:inherit;font-size:12px;cursor:pointer">화면 진단 ' +
-    (진단켜짐() ? '끄기' : '켜기') + '</button>';
+    '<div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap">' +
+    '<span>5분마다 새로 읽습니다 · 연락처는 가려서 보여줍니다</span>' +
+    '<span style="opacity:.5;margin-left:auto">v' + (window.__BUILD || '?') + '</span>' +
+    '<button type="button" id="diagbtn" style="background:rgba(255,255,255,.08);' +
+    'color:var(--dim);border:1px solid var(--line);border-radius:8px;padding:5px 9px;' +
+    'font:inherit;font-size:11.5px;cursor:pointer">진단 ' +
+    (진단켜짐() ? '끄기' : '켜기') + '</button></div>';
   var db = $('diagbtn');
   if (db) db.onclick = function () {
     try { localStorage.setItem('fva501diag', 진단켜짐() ? '' : '1'); } catch (e) {}
