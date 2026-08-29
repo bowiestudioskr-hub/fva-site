@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 8. 29. AM 9:11:11",
+  "updated": "2026. 8. 29. AM 9:27:03",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -738,7 +738,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 29. AM 9:11:05",
+    "updated": "2026. 8. 29. AM 9:26:56",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -749,28 +749,28 @@
     "byPeriod": {
       "1": {
         "visit": 2,
-        "click": 0,
+        "click": 1,
         "unique": 2,
-        "ctr": 0,
-        "dwell": 29
+        "ctr": 50,
+        "dwell": 44
       },
       "7": {
         "visit": 272,
-        "click": 188,
+        "click": 189,
         "unique": 50,
-        "ctr": 69.1,
+        "ctr": 69.5,
         "dwell": 20
       },
       "28": {
         "visit": 2928,
-        "click": 960,
+        "click": 961,
         "unique": 192,
         "ctr": 32.8,
         "dwell": 24
       },
       "90": {
         "visit": 5834,
-        "click": 2926,
+        "click": 2927,
         "unique": 192,
         "ctr": 50.2,
         "dwell": 24
@@ -784,7 +784,7 @@
       },
       "all": {
         "visit": 34655,
-        "click": 14315,
+        "click": 14316,
         "unique": 192,
         "ctr": 41.3,
         "dwell": 24
@@ -3254,7 +3254,7 @@
       {
         "d": "2026-08-29",
         "visit": 2,
-        "click": 0,
+        "click": 1,
         "unique": 2
       }
     ],
@@ -3263,7 +3263,7 @@
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
         "visit": 14993,
-        "click": 3228,
+        "click": 3229,
         "unique": 45,
         "ctr": 21.5,
         "dwell": 19
@@ -3499,7 +3499,7 @@
         "gone": false,
         "kind": "chat",
         "img": false,
-        "clicks": 932
+        "clicks": 933
       },
       {
         "key": "0bSSo5p",
@@ -3874,7 +3874,7 @@
       {
         "name": "모바일",
         "visit": 1995,
-        "click": 1216,
+        "click": 1217,
         "unique": 169,
         "dwell": 15,
         "ctr": 61
@@ -3900,7 +3900,7 @@
       {
         "name": "KR",
         "visit": 25978,
-        "click": 1316,
+        "click": 1317,
         "unique": 168,
         "dwell": 20,
         "ctr": 5.1,
@@ -4082,7 +4082,7 @@
       {
         "name": "Seoul",
         "visit": 1811,
-        "click": 1128,
+        "click": 1129,
         "unique": 150,
         "dwell": 20,
         "ctr": 62.3,
@@ -4267,10 +4267,10 @@
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
             "visit": 1,
-            "click": 0,
+            "click": 1,
             "unique": 1,
-            "ctr": 0,
-            "dwell": 0
+            "ctr": 100,
+            "dwell": 59
           },
           {
             "name": "페이스북",
@@ -4286,20 +4286,20 @@
           {
             "name": "모바일",
             "visit": 2,
-            "click": 0,
+            "click": 1,
             "unique": 2,
-            "dwell": 29,
-            "ctr": 0
+            "dwell": 44,
+            "ctr": 50
           }
         ],
         "country": [
           {
             "name": "KR",
             "visit": 1,
-            "click": 0,
+            "click": 1,
             "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
+            "dwell": 59,
+            "ctr": 100,
             "code": "KR"
           },
           {
@@ -4316,10 +4316,10 @@
           {
             "name": "Seoul",
             "visit": 1,
-            "click": 0,
+            "click": 1,
             "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
+            "dwell": 59,
+            "ctr": 100,
             "code": "KR"
           },
           {
@@ -4332,7 +4332,16 @@
             "code": "US"
           }
         ],
-        "blocks": []
+        "blocks": [
+          {
+            "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
+            "name": "🙋 카카오 채널로 수강상담 하러가기",
+            "gone": false,
+            "kind": "chat",
+            "img": false,
+            "clicks": 1
+          }
+        ]
       },
       "7": {
         "sources": [
@@ -4340,9 +4349,9 @@
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
             "visit": 188,
-            "click": 147,
+            "click": 148,
             "unique": 28,
-            "ctr": 78.2,
+            "ctr": 78.7,
             "dwell": 18
           },
           {
@@ -4413,10 +4422,10 @@
           {
             "name": "모바일",
             "visit": 90,
-            "click": 37,
+            "click": 38,
             "unique": 35,
             "dwell": 25,
-            "ctr": 41.1
+            "ctr": 42.2
           },
           {
             "name": "데스크탑",
@@ -4431,10 +4440,10 @@
           {
             "name": "KR",
             "visit": 107,
-            "click": 48,
+            "click": 49,
             "unique": 43,
             "dwell": 23,
-            "ctr": 44.9,
+            "ctr": 45.8,
             "code": "KR"
           },
           {
@@ -4478,10 +4487,10 @@
           {
             "name": "Seoul",
             "visit": 55,
-            "click": 18,
+            "click": 19,
             "unique": 30,
-            "dwell": 23,
-            "ctr": 32.7,
+            "dwell": 24,
+            "ctr": 34.5,
             "code": "KR"
           },
           {
@@ -4655,7 +4664,7 @@
             "gone": false,
             "kind": "chat",
             "img": false,
-            "clicks": 4
+            "clicks": 5
           },
           {
             "key": "0ryi6XM",
@@ -4697,9 +4706,9 @@
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
             "visit": 935,
-            "click": 707,
+            "click": 708,
             "unique": 45,
-            "ctr": 75.6,
+            "ctr": 75.7,
             "dwell": 19
           },
           {
@@ -4851,10 +4860,10 @@
           {
             "name": "모바일",
             "visit": 817,
-            "click": 191,
+            "click": 192,
             "unique": 169,
             "dwell": 15,
-            "ctr": 23.4
+            "ctr": 23.5
           },
           {
             "name": "데스크탑",
@@ -4877,10 +4886,10 @@
           {
             "name": "KR",
             "visit": 812,
-            "click": 217,
+            "click": 218,
             "unique": 168,
             "dwell": 20,
-            "ctr": 26.7,
+            "ctr": 26.8,
             "code": "KR"
           },
           {
@@ -5059,10 +5068,10 @@
           {
             "name": "Seoul",
             "visit": 726,
-            "click": 151,
+            "click": 152,
             "unique": 150,
             "dwell": 20,
-            "ctr": 20.8,
+            "ctr": 20.9,
             "code": "KR"
           },
           {
@@ -5300,7 +5309,7 @@
             "gone": false,
             "kind": "chat",
             "img": false,
-            "clicks": 31
+            "clicks": 32
           },
           {
             "key": "LZFqEZ3",
@@ -5414,9 +5423,9 @@
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
             "visit": 2732,
-            "click": 2132,
+            "click": 2133,
             "unique": 45,
-            "ctr": 78,
+            "ctr": 78.1,
             "dwell": 19
           },
           {
@@ -5604,7 +5613,7 @@
           {
             "name": "모바일",
             "visit": 1498,
-            "click": 792,
+            "click": 793,
             "unique": 169,
             "dwell": 15,
             "ctr": 52.9
@@ -5630,10 +5639,10 @@
           {
             "name": "KR",
             "visit": 1551,
-            "click": 875,
+            "click": 876,
             "unique": 168,
             "dwell": 20,
-            "ctr": 56.4,
+            "ctr": 56.5,
             "code": "KR"
           },
           {
@@ -5812,10 +5821,10 @@
           {
             "name": "Seoul",
             "visit": 1379,
-            "click": 741,
+            "click": 742,
             "unique": 150,
             "dwell": 20,
-            "ctr": 53.7,
+            "ctr": 53.8,
             "code": "KR"
           },
           {
@@ -6061,7 +6070,7 @@
             "gone": false,
             "kind": "chat",
             "img": false,
-            "clicks": 82
+            "clicks": 83
           },
           {
             "key": "bby1R8Y",
@@ -6207,7 +6216,7 @@
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
             "visit": 14993,
-            "click": 3228,
+            "click": 3229,
             "unique": 45,
             "ctr": 21.5,
             "dwell": 19
@@ -6424,7 +6433,7 @@
           {
             "name": "모바일",
             "visit": 1995,
-            "click": 1216,
+            "click": 1217,
             "unique": 169,
             "dwell": 15,
             "ctr": 61
@@ -6450,7 +6459,7 @@
           {
             "name": "KR",
             "visit": 25978,
-            "click": 1316,
+            "click": 1317,
             "unique": 168,
             "dwell": 20,
             "ctr": 5.1,
@@ -6632,7 +6641,7 @@
           {
             "name": "Seoul",
             "visit": 1811,
-            "click": 1128,
+            "click": 1129,
             "unique": 150,
             "dwell": 20,
             "ctr": 62.3,
@@ -6833,7 +6842,7 @@
             "gone": false,
             "kind": "chat",
             "img": false,
-            "clicks": 932
+            "clicks": 933
           },
           {
             "key": "0bSSo5p",
@@ -7211,10 +7220,10 @@
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
             "visit": 1,
-            "click": 0,
+            "click": 1,
             "unique": 1,
-            "ctr": 0,
-            "dwell": 0
+            "ctr": 100,
+            "dwell": 59
           },
           {
             "name": "페이스북",
@@ -7230,20 +7239,20 @@
           {
             "name": "모바일",
             "visit": 2,
-            "click": 0,
+            "click": 1,
             "unique": 2,
-            "dwell": 29,
-            "ctr": 0
+            "dwell": 44,
+            "ctr": 50
           }
         ],
         "country": [
           {
             "name": "KR",
             "visit": 1,
-            "click": 0,
+            "click": 1,
             "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
+            "dwell": 59,
+            "ctr": 100,
             "code": "KR"
           },
           {
@@ -7260,10 +7269,10 @@
           {
             "name": "Seoul",
             "visit": 1,
-            "click": 0,
+            "click": 1,
             "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
+            "dwell": 59,
+            "ctr": 100,
             "code": "KR"
           },
           {
@@ -7276,7 +7285,16 @@
             "code": "US"
           }
         ],
-        "blocks": []
+        "blocks": [
+          {
+            "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
+            "name": "🙋 카카오 채널로 수강상담 하러가기",
+            "gone": false,
+            "kind": "chat",
+            "img": false,
+            "clicks": 1
+          }
+        ]
       }
     }
   }
