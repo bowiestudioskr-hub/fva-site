@@ -521,7 +521,12 @@
     .cell{min-height:112px}
     .ev{font-size:11.5px}
     body{padding:30px 24px 90px}
-    /* 데스크탑에서는 화면 폭을 가로지르는 띠 대신 가운데 뜬 알약으로. */
+    /* 데스크탑에서는 화면 폭을 가로지르는 띠 대신 가운데 뜬 알약으로.
+       ⚠ 위에 `body.appmode .bar{left:0;right:0;transform:none}` 이 있다(폰용).
+         그쪽 세기가 더 세서 `.bar` 로만 쓰면 **진다** — 폭 560 만 먹고 위치는 왼쪽 0,
+         띄움(translateY)도 죽어 알약이 화면 왼쪽 아래에 붙어 있었다(2026-08-30 발견).
+         같은 세기로 다시 써야 이긴다. */
+    body.appmode .bar,
     .bar{left:50%;right:auto;width:min(560px,92vw);border-radius:16px;
          transform:translateX(-50%) translateY(-18px);
          box-shadow:0 8px 30px rgba(0,0,0,.6)}
@@ -640,7 +645,7 @@
   document.documentElement.style.setProperty('--appvh', Math.round(v) + 'px');
 })();
 </script>
-<script>window.__BUILD = '08-28 21:45';</script>
+<script>window.__BUILD = '08-30 21:10';</script>
 <script>
 /* Apps Script 웹앱이 예약과 달력을 내준다.
    ⚠ 연락처는 서버에서 이미 가려서 온다. 여기서 원본을 다루지 않는다. */
