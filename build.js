@@ -257,6 +257,8 @@ const SEARCH_TAGS = `<meta name="naver-site-verification" content="c4bbb7024041c
       gtag('event', 'online_class_click', {
         link_text: text, link_url: href, from_page: location.pathname
       });
+      /* ⚠ 이 줄이 없어서 온라인강의 클릭이 구글애즈에 한 건도 안 갔다(2026-08-30 발견). */
+      gtag('event', 'conversion', { send_to: 'AW-18168213469/tn3YCK-gtuIcEN3fo9dD' });
     } else if (href.indexOf('pf.kakao.com') > -1) {
       gtag('event', 'kakao_consult_click', {
         link_text: text, from_page: location.pathname
@@ -270,6 +272,13 @@ const SEARCH_TAGS = `<meta name="naver-site-verification" content="c4bbb7024041c
       gtag('event', 'offline_store_click', {
         link_text: text, link_url: href, from_page: location.pathname
       });
+      /* ⚠ **가장 중요한 전환인데 빠져 있었다.** 오프라인 수강권은 여기서 팔린다.
+           8월에 GA4 는 84건을 봤는데 구글애즈가 본 전환은 4건뿐이었다(21배 차이).
+           자동 입찰이 그 4건만 보고 돌아가니 어떤 검색어가 돈을 벌어주는지 알 수 없었다.
+         ⚠ 지금은 상담·수강권·온라인강의가 **같은 전환 액션**으로 간다. 나누려면 구글애즈에서
+           새 전환 액션을 만들어 라벨을 받아야 한다. 나누기 전이라도 보내는 편이 훨씬 낫다.
+           어디서 눌렀는지는 GA4 이벤트로 그대로 갈라 본다. */
+      gtag('event', 'conversion', { send_to: 'AW-18168213469/tn3YCK-gtuIcEN3fo9dD' });
     }
   }, true);
 </script>` + META_PIXEL;
