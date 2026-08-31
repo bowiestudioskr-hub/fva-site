@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 8. 31. AM 11:07:41",
+  "updated": "2026. 8. 31. AM 11:23:28",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -751,7 +751,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 8. 31. AM 11:07:33",
+    "updated": "2026. 8. 31. AM 11:23:19",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -761,30 +761,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 7,
-        "click": 6,
-        "unique": 5,
-        "ctr": 85.7,
-        "dwell": 30
+        "visit": 10,
+        "click": 7,
+        "unique": 6,
+        "ctr": 70,
+        "dwell": 21
       },
       "7": {
-        "visit": 234,
-        "click": 192,
-        "unique": 40,
-        "ctr": 82.1,
+        "visit": 237,
+        "click": 193,
+        "unique": 41,
+        "ctr": 81.4,
         "dwell": 20
       },
       "28": {
-        "visit": 2894,
-        "click": 938,
-        "unique": 207,
+        "visit": 2897,
+        "click": 939,
+        "unique": 208,
         "ctr": 32.4,
         "dwell": 24
       },
       "90": {
-        "visit": 5571,
-        "click": 2875,
-        "unique": 207,
+        "visit": 5574,
+        "click": 2876,
+        "unique": 208,
         "ctr": 51.6,
         "dwell": 24
       },
@@ -796,9 +796,9 @@
         "dwell": 16
       },
       "all": {
-        "visit": 34691,
-        "click": 14350,
-        "unique": 207,
+        "visit": 34694,
+        "click": 14351,
+        "unique": 208,
         "ctr": 41.4,
         "dwell": 24
       }
@@ -3278,16 +3278,16 @@
       },
       {
         "d": "2026-08-31",
-        "visit": 7,
-        "click": 6,
-        "unique": 5
+        "visit": 10,
+        "click": 7,
+        "unique": 6
       }
     ],
     "sources": [
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14925,
+        "visit": 14926,
         "click": 3255,
         "unique": 54,
         "ctr": 21.8,
@@ -3692,7 +3692,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 89
+        "clicks": 90
       },
       {
         "key": "435zt6v",
@@ -3898,11 +3898,11 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 2011,
+        "visit": 2013,
         "click": 1230,
-        "unique": 181,
+        "unique": 182,
         "dwell": 15,
-        "ctr": 61.2
+        "ctr": 61.1
       },
       {
         "name": "데스크탑",
@@ -3924,9 +3924,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 25893,
+        "visit": 25895,
         "click": 1332,
-        "unique": 181,
+        "unique": 182,
         "dwell": 20,
         "ctr": 5.1,
         "code": "KR"
@@ -4106,11 +4106,11 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 1827,
+        "visit": 1829,
         "click": 1143,
-        "unique": 163,
-        "dwell": 21,
-        "ctr": 62.6,
+        "unique": 164,
+        "dwell": 20,
+        "ctr": 62.5,
         "code": "KR"
       },
       {
@@ -4291,21 +4291,21 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 5,
+            "visit": 6,
             "click": 6,
             "unique": 3,
-            "ctr": 120,
-            "dwell": 37
+            "ctr": 100,
+            "dwell": 29
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 5,
+            "visit": 7,
             "click": 1,
-            "unique": 4,
-            "dwell": 41,
-            "ctr": 20
+            "unique": 5,
+            "dwell": 25,
+            "ctr": 14.3
           },
           {
             "name": "데스크탑",
@@ -4319,11 +4319,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3,
+            "visit": 5,
             "click": 1,
-            "unique": 3,
-            "dwell": 29,
-            "ctr": 33.3,
+            "unique": 4,
+            "dwell": 22,
+            "ctr": 20,
             "code": "KR"
           },
           {
@@ -4348,10 +4348,10 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 3,
+            "visit": 5,
             "click": 0,
-            "unique": 3,
-            "dwell": 29,
+            "unique": 4,
+            "dwell": 22,
             "ctr": 0,
             "code": "KR"
           },
@@ -4385,20 +4385,20 @@
         ],
         "blocks": [
           {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 3
+          },
+          {
             "key": "bGTonvP",
             "name": "온라인 강의 페이지",
             "gone": false,
             "kind": "site",
             "img": true,
             "clicks": 3
-          },
-          {
-            "key": "bby1R8Y",
-            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 2
           },
           {
             "key": "OkhXD1v",
@@ -4415,10 +4415,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 167,
+            "visit": 168,
             "click": 151,
             "unique": 23,
-            "ctr": 90.4,
+            "ctr": 89.9,
             "dwell": 19
           },
           {
@@ -4488,11 +4488,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 74,
+            "visit": 76,
             "click": 40,
-            "unique": 30,
-            "dwell": 24,
-            "ctr": 54.1
+            "unique": 31,
+            "dwell": 23,
+            "ctr": 52.6
           },
           {
             "name": "데스크탑",
@@ -4506,11 +4506,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 80,
+            "visit": 82,
             "click": 49,
-            "unique": 33,
+            "unique": 34,
             "dwell": 23,
-            "ctr": 61.3,
+            "ctr": 59.8,
             "code": "KR"
           },
           {
@@ -4553,11 +4553,11 @@
           },
           {
             "name": "Seoul",
-            "visit": 29,
+            "visit": 31,
             "click": 19,
-            "unique": 21,
-            "dwell": 25,
-            "ctr": 65.5,
+            "unique": 22,
+            "dwell": 24,
+            "ctr": 61.3,
             "code": "KR"
           },
           {
@@ -4649,7 +4649,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 87
+            "clicks": 88
           },
           {
             "key": "4rFKEfH",
@@ -4730,10 +4730,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 908,
+            "visit": 909,
             "click": 693,
             "unique": 54,
-            "ctr": 76.3,
+            "ctr": 76.2,
             "dwell": 20
           },
           {
@@ -4866,11 +4866,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 813,
+            "visit": 815,
             "click": 185,
-            "unique": 181,
+            "unique": 182,
             "dwell": 15,
-            "ctr": 22.8
+            "ctr": 22.7
           },
           {
             "name": "데스크탑",
@@ -4892,11 +4892,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 801,
+            "visit": 803,
             "click": 209,
-            "unique": 181,
+            "unique": 182,
             "dwell": 20,
-            "ctr": 26.1,
+            "ctr": 26,
             "code": "KR"
           },
           {
@@ -5074,10 +5074,10 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 716,
+            "visit": 718,
             "click": 144,
-            "unique": 163,
-            "dwell": 21,
+            "unique": 164,
+            "dwell": 20,
             "ctr": 20.1,
             "code": "KR"
           },
@@ -5284,7 +5284,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 89
+            "clicks": 90
           },
           {
             "key": "bGTonvP",
@@ -5421,7 +5421,7 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2663,
+            "visit": 2664,
             "click": 2089,
             "unique": 54,
             "ctr": 78.4,
@@ -5611,9 +5611,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1489,
+            "visit": 1491,
             "click": 791,
-            "unique": 181,
+            "unique": 182,
             "dwell": 15,
             "ctr": 53.1
           },
@@ -5637,11 +5637,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 1546,
+            "visit": 1548,
             "click": 876,
-            "unique": 181,
+            "unique": 182,
             "dwell": 20,
-            "ctr": 56.7,
+            "ctr": 56.6,
             "code": "KR"
           },
           {
@@ -5819,11 +5819,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1395,
+            "visit": 1397,
             "click": 749,
-            "unique": 163,
-            "dwell": 21,
-            "ctr": 53.7,
+            "unique": 164,
+            "dwell": 20,
+            "ctr": 53.6,
             "code": "KR"
           },
           {
@@ -6069,7 +6069,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 89
+            "clicks": 90
           },
           {
             "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
@@ -6214,7 +6214,7 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14925,
+            "visit": 14926,
             "click": 3255,
             "unique": 54,
             "ctr": 21.8,
@@ -6431,11 +6431,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 2011,
+            "visit": 2013,
             "click": 1230,
-            "unique": 181,
+            "unique": 182,
             "dwell": 15,
-            "ctr": 61.2
+            "ctr": 61.1
           },
           {
             "name": "데스크탑",
@@ -6457,9 +6457,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 25893,
+            "visit": 25895,
             "click": 1332,
-            "unique": 181,
+            "unique": 182,
             "dwell": 20,
             "ctr": 5.1,
             "code": "KR"
@@ -6639,11 +6639,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1827,
+            "visit": 1829,
             "click": 1143,
-            "unique": 163,
-            "dwell": 21,
-            "ctr": 62.6,
+            "unique": 164,
+            "dwell": 20,
+            "ctr": 62.5,
             "code": "KR"
           },
           {
@@ -7009,7 +7009,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 89
+            "clicks": 90
           },
           {
             "key": "435zt6v",
@@ -7218,21 +7218,21 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 5,
+            "visit": 6,
             "click": 6,
             "unique": 3,
-            "ctr": 120,
-            "dwell": 37
+            "ctr": 100,
+            "dwell": 29
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 5,
+            "visit": 7,
             "click": 1,
-            "unique": 4,
-            "dwell": 41,
-            "ctr": 20
+            "unique": 5,
+            "dwell": 25,
+            "ctr": 14.3
           },
           {
             "name": "데스크탑",
@@ -7246,11 +7246,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3,
+            "visit": 5,
             "click": 1,
-            "unique": 3,
-            "dwell": 29,
-            "ctr": 33.3,
+            "unique": 4,
+            "dwell": 22,
+            "ctr": 20,
             "code": "KR"
           },
           {
@@ -7275,10 +7275,10 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 3,
+            "visit": 5,
             "click": 0,
-            "unique": 3,
-            "dwell": 29,
+            "unique": 4,
+            "dwell": 22,
             "ctr": 0,
             "code": "KR"
           },
@@ -7312,20 +7312,20 @@
         ],
         "blocks": [
           {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 3
+          },
+          {
             "key": "bGTonvP",
             "name": "온라인 강의 페이지",
             "gone": false,
             "kind": "site",
             "img": true,
             "clicks": 3
-          },
-          {
-            "key": "bby1R8Y",
-            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 2
           },
           {
             "key": "OkhXD1v",
