@@ -47,8 +47,11 @@
   .prog i.done{background:var(--ok)} .prog i.now{background:var(--wait)}
 
   .vid{padding:12px 16px;box-shadow:inset 0 .5px 0 rgba(255,255,255,.07)}
-  .vid .t{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:700}
-  .vid .t small{font-weight:600;color:var(--dim);font-size:11.5px}
+  /* ⚠ word-break 기본값은 「퇴근 후 뮤비 감/독 도전하기」처럼 낱말을 쪼갠다. keep-all 로 막는다. */
+  .vid .t{display:flex;align-items:baseline;gap:9px;font-size:14px;font-weight:700;
+    flex-wrap:wrap;word-break:keep-all;line-height:1.45}
+  .vid .t small{font-weight:600;color:var(--dim);font-size:11.5px;white-space:nowrap}
+  .vid .t .nm{flex:1;min-width:0}
   .pill{font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:99px;white-space:nowrap}
   .pill.대기{background:var(--card2);color:var(--dim)}
   .pill.검수중{background:#3A3210;color:var(--wait)}
@@ -58,17 +61,16 @@
   .player{margin-top:10px;border-radius:11px;overflow:hidden;background:#000;
           aspect-ratio:9/16;max-height:70vh}
   .player iframe{width:100%;height:100%;border:0;display:block}
-  /* 「브라우저에서 열기」 — 틀 위에 겹쳐 둔다. 틀이 로그인 화면만 보여도 이건 늘 눌린다. */
+  /* 「원본 크게」 — 전에는 영상 위에 겹쳐 뒀는데, 이제 영상이 그대로 재생되니
+     재생 단추와 조작 막대를 가린다. 제목 줄로 옮겼다. 최고 화질로 볼 때 쓴다. */
   .player{position:relative}
   .opendrive{
-    position:absolute; left:50%; bottom:10px; transform:translateX(-50%);
-    display:inline-flex; align-items:center; gap:6px;
-    background:rgba(0,0,0,.78); color:#fff; text-decoration:none;
-    font-size:12.5px; font-weight:700; letter-spacing:-.02em;
-    padding:8px 14px; border-radius:999px; backdrop-filter:blur(8px);
-    border:1px solid rgba(255,255,255,.18); z-index:2; white-space:nowrap;
+    display:inline-flex; align-items:center; gap:5px; margin-left:auto;
+    background:var(--card2); color:var(--sub); text-decoration:none;
+    font-size:11.5px; font-weight:700; letter-spacing:-.02em;
+    padding:5px 10px; border-radius:999px; white-space:nowrap;
   }
-  .opendrive:active{ opacity:.7 }
+  .opendrive:active{ opacity:.6 }
   .vid .fb{width:100%;margin-top:9px;background:#0F0F11;color:var(--ink);
     border:1px solid var(--line);border-radius:10px;padding:10px 12px;
     font:inherit;font-size:13px;line-height:1.65;resize:vertical;min-height:88px;
@@ -162,8 +164,8 @@
   /* 영상 한 줄 — 오른쪽으로 스크롤 */
   .vrow{display:flex;gap:12px;overflow-x:auto;padding:2px 16px 16px;
         scroll-snap-type:x proximity;scrollbar-width:thin}
-  .vrow .vid{flex:0 0 280px;width:280px;padding:0;box-shadow:none;scroll-snap-align:start}
-  .vrow .player{max-height:480px}
+  .vrow .vid{flex:0 0 340px;width:340px;padding:0;box-shadow:none;scroll-snap-align:start}
+  .vrow .player{max-height:600px}
 
   .warnbox{background:var(--card);border-radius:14px;border-left:3px solid var(--warn);
            padding:13px 16px;font-size:13px;color:var(--sub);line-height:1.55}
@@ -176,7 +178,13 @@
     /* ⚠ iOS 는 글자 16px 미만 입력칸에 초점이 가면 화면을 확대해버린다 */
     .vid .fb{font-size:16px}
     .row2 select,.row2 button{font-size:16px;padding:10px 14px}
-    .vrow .vid{flex-basis:250px;width:250px}
+    /* ⚠ 가로로 늘어놓으면 390px 화면에서 영상이 250px 밖에 안 된다(2026-09-01 실측).
+         릴스는 세로 영상이라 폭이 곧 화질이다 — 폰에서는 세로로 펴고 화면 폭을 다 쓴다.
+         높이는 9:16 이 정하게 두고 자르지 않는다. */
+    .vrow{display:block;overflow-x:visible;padding:2px 0 6px;scroll-snap-type:none}
+    .vrow .vid{flex:none;width:auto;padding:0 0 20px}
+    .vrow .vid + .vid{border-top:1px solid var(--line);padding-top:18px}
+    .vrow .player,.player{max-height:none}
   }
 </style>
 </head>
@@ -276,8 +284,11 @@ function render(d) {
         const fb = 피드백[f.id] || {};
         const st = fb.상태 || '검수중';
         return `<div class="vid" data-p="${esc(p.id)}" data-f="${esc(f.id)}">
-          <div class="t"><span class="pill ${esc(st)}">${esc(st)}</span>${esc(f.이름)}
-            <small>${esc(f.올린날)} · ${esc(f.크기)}</small></div>
+          <div class="t"><span class="pill ${esc(st)}">${esc(st)}</span>
+            <span class="nm">${esc(f.이름)}</span>
+            <small>${esc(f.올린날)} · ${esc(f.크기)}</small>
+            <a class="opendrive" href="https://drive.google.com/file/d/${esc(f.id)}/view"
+               target="_blank" rel="noopener">원본 크게</a></div>
           <div class="player"><iframe data-src="https://drive.google.com/file/d/${esc(f.id)}/preview"
             allow="autoplay" loading="lazy"></iframe>
             <!-- 영상이 로그인 없이는 안 보이던 문제 — 앰버서더 본인 소유 파일이라 「비공개」였고,
@@ -286,8 +297,6 @@ function render(d) {
                  앞으로 올라오는 영상도 폴더 권한을 물려받아 바로 재생된다.
                  ⚠ 그래서 이 주소를 아는 사람은 누구나 영상을 볼 수 있다. 아무 데나 적지 말 것.
                  「브라우저에서 열기」는 큰 화면으로 볼 때 쓰라고 남겨 둔다. -->
-            <a class="opendrive" href="https://drive.google.com/file/d/${esc(f.id)}/view"
-               target="_blank" rel="noopener">▶ 브라우저에서 열기</a>
           </div>
           <details class="judge"><summary>기준 점검표 <small>보고 찍으면 그대로 문안이 됩니다</small></summary>
             <div class="jgrid">${기준표.map(([k, 이름, 잣대]) => `
