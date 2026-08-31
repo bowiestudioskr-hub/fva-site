@@ -58,6 +58,17 @@
   .player{margin-top:10px;border-radius:11px;overflow:hidden;background:#000;
           aspect-ratio:9/16;max-height:70vh}
   .player iframe{width:100%;height:100%;border:0;display:block}
+  /* 「브라우저에서 열기」 — 틀 위에 겹쳐 둔다. 틀이 로그인 화면만 보여도 이건 늘 눌린다. */
+  .player{position:relative}
+  .opendrive{
+    position:absolute; left:50%; bottom:10px; transform:translateX(-50%);
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(0,0,0,.78); color:#fff; text-decoration:none;
+    font-size:12.5px; font-weight:700; letter-spacing:-.02em;
+    padding:8px 14px; border-radius:999px; backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,.18); z-index:2; white-space:nowrap;
+  }
+  .opendrive:active{ opacity:.7 }
   .vid .fb{width:100%;margin-top:9px;background:#0F0F11;color:var(--ink);
     border:1px solid var(--line);border-radius:10px;padding:10px 12px;
     font:inherit;font-size:13px;line-height:1.65;resize:vertical;min-height:88px;
@@ -214,7 +225,16 @@ function render(d) {
           <div class="t"><span class="pill ${esc(st)}">${esc(st)}</span>${esc(f.이름)}
             <small>${esc(f.올린날)} · ${esc(f.크기)}</small></div>
           <div class="player"><iframe data-src="https://drive.google.com/file/d/${esc(f.id)}/preview"
-            allow="autoplay" loading="lazy"></iframe></div>
+            allow="autoplay" loading="lazy"></iframe>
+            <!-- ⚠ 영상은 앰버서더 **본인 소유**이고 「비공개」다. 그래서 로그인해야 보인다.
+                 그런데 아이폰은 iframe 안의 남의 쿠키를 막는다(ITP) — 사파리에서 구글에
+                 로그인해 두어도 이 틀 안에서는 로그인으로 안 쳐준다. 구글도 iframe 안에서는
+                 로그인 화면을 안 띄운다(X-Frame-Options). **틀 안에서는 영영 안 보인다.**
+                 그래서 「브라우저에서 열기」를 겹쳐 둔다 — 거기서는 로그인이 살아 있다.
+                 (2026-08-30) -->
+            <a class="opendrive" href="https://drive.google.com/file/d/${esc(f.id)}/view"
+               target="_blank" rel="noopener">▶ 브라우저에서 열기</a>
+          </div>
           <textarea class="fb" placeholder="피드백을 적어 두면 여기 남습니다">${esc(fb.메모 || '')}</textarea>
           <div class="row2">
             <select class="st">${상태들.map(x =>
