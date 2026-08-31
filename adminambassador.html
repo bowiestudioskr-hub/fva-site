@@ -291,12 +291,14 @@ function render(d) {
             <a class="opendrive" href="https://drive.google.com/file/d/${esc(f.id)}/view"
                target="_blank" rel="noopener">원본 크게</a></div>
           <div class="player">
-            <!-- 드라이브 미리보기 틀은 화질을 스스로 낮춘다(작은 판으로 다시 만든 것을 준다).
-                 폴더를 링크 공개로 바꾼 뒤로는 **원본 파일을 그대로 재생할 수 있다** —
-                 1080×1920 8.8Mbps 그대로다. 아이폰 사파리는 HEVC 10비트를 native 로 튼다.
-                 ⚠ 못 트는 브라우저가 있다(HEVC 미지원). 그때는 아래 드라이브 틀로 넘어간다.
-                 ⚠ preload=none — 원본이 한 편에 56MB다. 누를 때만 받는다. -->
-            <video class="vp" playsinline controls preload="none"
+            <!-- 드라이브 미리보기 틀은 화질을 스스로 낮춘다(작게 다시 만든 판을 준다).
+                 폴더를 링크 공개로 바꾼 뒤로는 원본을 그대로 틀 수 있는데 —
+                 ⚠ **크롬은 이걸 막는다.** 남의 서버가 application/octet-stream 으로 주는 미디어를
+                   ORB(net::ERR_BLOCKED_BY_ORB)로 끊는다. 드라이브의 어떤 주소도 이 형식을 벗어나지 않는다
+                   (uc?export=view · usercontent/download · docs/uc 전부 확인함, 2026-09-01).
+                 그래서 **웹킷(아이폰 사파리)에서만 원본을 시도**하고, 나머지는 바로 드라이브 틀을 쓴다.
+                 웹킷도 실패하면 조용히 틀로 넘어간다. -->
+            <video class="vp" playsinline controls preload="metadata"
               poster="https://drive.google.com/thumbnail?id=${esc(f.id)}&sz=w800"
               data-src="https://drive.usercontent.google.com/download?id=${esc(f.id)}&export=download&confirm=t"></video>
             <iframe class="vf" hidden data-frame="https://drive.google.com/file/d/${esc(f.id)}/preview"
@@ -358,6 +360,10 @@ function render(d) {
       ${주들}</details><div style="height:14px"></div>`;
   }).join('');
 
+  /* 아이폰·아이패드·맥 사파리만 원본을 시도한다. 크롬/엣지는 ORB 로 막히니 헛걸음이다. */
+  const 웹킷 = /AppleWebKit/.test(navigator.userAgent) &&
+               !/Chrome|Chromium|Edg|OPR/.test(navigator.userAgent);
+
   /* 원본이 안 되는 브라우저를 위한 예비 — 드라이브 미리보기 틀 */
   function 예비로(v) {
     const 틀 = v.parentNode.querySelector('iframe.vf');
@@ -371,9 +377,12 @@ function render(d) {
     w.addEventListener('toggle', () => {
       if (!w.open) return;
       w.querySelectorAll('video[data-src]').forEach(v => {
+        if (!웹킷) { 예비로(v); return; }      // 크롬 계열은 어차피 막힌다 — 헛걸음 안 한다
         v.src = v.dataset.src; v.removeAttribute('data-src');
-        /* 원본을 못 틀면(HEVC 미지원 등) 드라이브 틀로 조용히 갈아탄다 */
-        v.addEventListener('error', () => 예비로(v), { once: true });
+        /* 6초 안에 길이조차 못 읽으면 포기한다. 막힌 채로 계속 기다리게 두지 않는다. */
+        const 시계 = setTimeout(() => { if (v.readyState < 1) 예비로(v); }, 6000);
+        v.addEventListener('loadedmetadata', () => clearTimeout(시계), { once: true });
+        v.addEventListener('error', () => { clearTimeout(시계); 예비로(v); }, { once: true });
       });
       w.querySelectorAll('.fb').forEach(ta => {
         ta.style.height = 'auto'; ta.style.height = (ta.scrollHeight + 4) + 'px';
