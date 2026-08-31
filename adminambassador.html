@@ -109,8 +109,9 @@
   .dh{display:flex;gap:4px 8px;align-items:center;padding:9px 11px;background:#0E1F15;flex-wrap:wrap}
   .dh b{font-size:12.5px;letter-spacing:-.02em;color:var(--ok)}
   .dh small{font-size:11px;color:var(--dim);flex:1;min-width:120px;white-space:nowrap}
-  .dh .use{background:var(--ok);color:#04240F;border:0;border-radius:8px;padding:6px 11px;
-    font:inherit;font-size:11.5px;font-weight:800;cursor:pointer}
+  .dh .use,.dh .cp{background:var(--ok);color:#04240F;border:0;border-radius:8px;padding:6px 11px;
+    font:inherit;font-size:11.5px;font-weight:800;cursor:pointer;white-space:nowrap}
+  .dh .cp{background:#1E3A2A;color:#9FD9BA}
   .dtxt{margin:0;padding:10px 12px;font:inherit;font-size:12px;line-height:1.7;
     white-space:pre-wrap;word-break:keep-all;color:#CFE6D8;max-height:210px;overflow:auto}
   .row2{display:flex;gap:7px;align-items:center;margin-top:8px;flex-wrap:wrap}
@@ -304,13 +305,15 @@ function render(d) {
           ${(p.초안 || {})[f.id] ? `<div class="draft"><div class="dh">
               <b>제안 피드백</b><small>${esc((p.초안[f.id].때 || ''))}${
                 p.초안[f.id].본것 ? ' · 점검표 반영' : ' · 영상 확인 전 초안'}</small>
-              <button type="button" class="use">이 내용으로 채우기</button></div>
+              <button type="button" class="cp">복사</button>
+              <button type="button" class="use">채우기</button></div>
             <pre class="dtxt">${esc(p.초안[f.id].글 || '')}</pre></div>` : ''}
           <textarea class="fb" placeholder="피드백을 적어 두면 여기 남습니다">${esc(fb.메모 || '')}</textarea>
           <div class="row2">
             <select class="st">${상태들.map(x =>
               `<option${x === st ? ' selected' : ''}>${x}</option>`).join('')}</select>
             <button type="button" class="save">저장</button>
+            <button type="button" class="cpfb">복사</button>
             <span class="said"></span>
           </div></div>`;
       }).join('');
@@ -364,6 +367,29 @@ function render(d) {
     늘리기(ta); ta.addEventListener('input', () => 늘리기(ta));
   });
 
+  /* 복사 — 앰버서더에게는 이 글을 그대로 카톡으로 보낸다. 그래서 붙여넣기가 본 쓰임이다.
+     ⚠ clipboard 는 https 에서만 된다. fva.co.kr 은 https 라 괜찮다.
+       그래도 막히는 자리(오래된 웹뷰)가 있어 execCommand 로 한 번 더 받아 준다. */
+  async function 복사하기(btn, 글) {
+    const 되돌리기 = btn.textContent;
+    try { await navigator.clipboard.writeText(글); }
+    catch (e) {
+      const ta = document.createElement('textarea');
+      ta.value = 글; ta.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e2) { btn.textContent = '복사 안 됨'; }
+      ta.remove();
+    }
+    if (btn.textContent === 되돌리기) btn.textContent = '복사됨';
+    setTimeout(() => { btn.textContent = 되돌리기; }, 1800);
+  }
+  const 복사붙이기 = b => {
+    b.onclick = () => 복사하기(b, b.classList.contains('cpfb')
+      ? b.closest('.vid').querySelector('.fb').value
+      : b.closest('.draft').querySelector('.dtxt').textContent);
+  };
+  document.querySelectorAll('.dh .cp, .row2 .cpfb').forEach(복사붙이기);
+
   /* 기준 점검표 — 세 칸 중 하나만 켜진다 */
   document.querySelectorAll('.jbtn button').forEach(b => b.onclick = () => {
     const 켜짐 = b.classList.contains('on');
@@ -406,12 +432,14 @@ function render(d) {
       box.insertBefore(d2, box.querySelector('.fb'));
     }
     d2.innerHTML = '<div class="dh"><b>제안 피드백</b><small></small>' +
-                   '<button type="button" class="use">이 내용으로 채우기</button></div>' +
+                   '<button type="button" class="cp">복사</button>' +
+                   '<button type="button" class="use">채우기</button></div>' +
                    '<pre class="dtxt"></pre>';
     d2.querySelector('small').textContent =
       (초안.때 || '') + (초안.본것 ? ' · 점검표 반영' : ' · 영상 확인 전 초안');
     d2.querySelector('.dtxt').textContent = 초안.글 || '';
     붙이기(d2.querySelector('.use'));
+    복사붙이기(d2.querySelector('.cp'));
   }
 
   /* 「이 내용으로 채우기」 — 이미 쓴 게 있으면 먼저 묻는다 */
