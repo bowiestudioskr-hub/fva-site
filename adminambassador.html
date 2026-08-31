@@ -65,8 +65,7 @@
 
   .player{margin-top:10px;border-radius:11px;overflow:hidden;background:#000;
           aspect-ratio:9/16;max-height:70vh}
-  .player iframe,.player video{width:100%;height:100%;border:0;display:block;
-    object-fit:contain;background:#000}
+  .player iframe{width:100%;height:100%;border:0;display:block;background:#000}
   /* 「원본 크게」 — 전에는 영상 위에 겹쳐 뒀는데, 이제 영상이 그대로 재생되니
      재생 단추와 조작 막대를 가린다. 제목 줄로 옮겼다. 최고 화질로 볼 때 쓴다. */
   .player{position:relative}
@@ -197,6 +196,17 @@
     .vrow .vid{flex:none;width:auto;padding:0 0 20px}
     .vrow .vid + .vid{border-top:1px solid var(--line);padding-top:18px}
     .vrow .player,.player{max-height:none}
+
+    /* ⚠ iOS 는 글자 16px 미만 입력칸에 초점이 가면 화면을 통째로 확대해버린다.
+         점검표 칸·메모 칸도 입력칸이다 — 빠뜨리면 찍을 때마다 화면이 튄다. */
+    .jm,.jmemo{font-size:16px}
+    /* ⚠ 손가락은 44px 이 필요하다(애플 기준). 데스크탑 크기 그대로 두면 26~29px 밖에 안 된다. */
+    .jbtn button{padding:12px 6px;font-size:13px}
+    .mk{padding:13px 18px;font-size:13.5px}
+    .dh .cp,.dh .use{padding:12px 14px;font-size:13px}
+    .vid .fold,.opendrive{padding:12px 13px;font-size:12.5px}
+    .row2 select,.row2 button{padding:12px 15px}
+    .judge>summary{padding:13px 12px}
   }
 </style>
 </head>
@@ -303,17 +313,12 @@ function render(d) {
               <a class="opendrive" href="https://drive.google.com/file/d/${esc(f.id)}/view"
                  target="_blank" rel="noopener">원본 크게</a></span></div>
           <div class="player">
-            <!-- 드라이브 미리보기 틀은 화질을 스스로 낮춘다(작게 다시 만든 판을 준다).
-                 폴더를 링크 공개로 바꾼 뒤로는 원본을 그대로 틀 수 있는데 —
-                 ⚠ **크롬은 이걸 막는다.** 남의 서버가 application/octet-stream 으로 주는 미디어를
-                   ORB(net::ERR_BLOCKED_BY_ORB)로 끊는다. 드라이브의 어떤 주소도 이 형식을 벗어나지 않는다
-                   (uc?export=view · usercontent/download · docs/uc 전부 확인함, 2026-09-01).
-                 그래서 **웹킷(아이폰 사파리)에서만 원본을 시도**하고, 나머지는 바로 드라이브 틀을 쓴다.
-                 웹킷도 실패하면 조용히 틀로 넘어간다. -->
-            <video class="vp" playsinline controls preload="metadata"
-              poster="https://drive.google.com/thumbnail?id=${esc(f.id)}&sz=w800"
-              data-src="https://drive.usercontent.google.com/download?id=${esc(f.id)}&export=download&confirm=t"></video>
-            <iframe class="vf" hidden data-frame="https://drive.google.com/file/d/${esc(f.id)}/preview"
+            <!-- ⚠ 원본 파일을 <video> 로 직접 트는 것은 **포기했다**(2026-09-01).
+                 · 크롬은 ORB 로 끊는다 — 드라이브의 모든 주소가 application/octet-stream 이다
+                   (uc?export=view · usercontent/download · docs/uc 전부 확인).
+                 · 사파리에서만 시도하게 해 봤더니 **아이폰에서 재생이 아예 안 됐다**(사용자 확인).
+                 확실히 도는 드라이브 미리보기 틀 하나만 쓴다. 최고 화질은 「원본 크게」로 연다. -->
+            <iframe data-src="https://drive.google.com/file/d/${esc(f.id)}/preview"
             allow="autoplay" loading="lazy"></iframe>
             <!-- 영상이 로그인 없이는 안 보이던 문제 — 앰버서더 본인 소유 파일이라 「비공개」였고,
                  아이폰은 iframe 안의 남의 쿠키를 막아서(ITP) 틀 안에서는 영영 로그인이 안 됐다.
@@ -387,29 +392,12 @@ function render(d) {
     };
   });
 
-  /* 아이폰·아이패드·맥 사파리만 원본을 시도한다. 크롬/엣지는 ORB 로 막히니 헛걸음이다. */
-  const 웹킷 = /AppleWebKit/.test(navigator.userAgent) &&
-               !/Chrome|Chromium|Edg|OPR/.test(navigator.userAgent);
-
-  /* 원본이 안 되는 브라우저를 위한 예비 — 드라이브 미리보기 틀 */
-  function 예비로(v) {
-    const 틀 = v.parentNode.querySelector('iframe.vf');
-    if (!틀 || !틀.dataset.frame) return;
-    틀.src = 틀.dataset.frame; 틀.removeAttribute('data-frame');
-    틀.hidden = false; v.hidden = true;
-  }
-
   /* 주차를 펼칠 때에만 영상을 붙인다 — 접힌 iframe 수십 개가 한꺼번에 안 불리게 */
   document.querySelectorAll('details.week').forEach(w => {
     w.addEventListener('toggle', () => {
       if (!w.open) return;
-      w.querySelectorAll('video[data-src]').forEach(v => {
-        if (!웹킷) { 예비로(v); return; }      // 크롬 계열은 어차피 막힌다 — 헛걸음 안 한다
-        v.src = v.dataset.src; v.removeAttribute('data-src');
-        /* 6초 안에 길이조차 못 읽으면 포기한다. 막힌 채로 계속 기다리게 두지 않는다. */
-        const 시계 = setTimeout(() => { if (v.readyState < 1) 예비로(v); }, 6000);
-        v.addEventListener('loadedmetadata', () => clearTimeout(시계), { once: true });
-        v.addEventListener('error', () => { clearTimeout(시계); 예비로(v); }, { once: true });
+      w.querySelectorAll('iframe[data-src]').forEach(fr => {
+        fr.src = fr.dataset.src; fr.removeAttribute('data-src');
       });
       w.querySelectorAll('.fb').forEach(ta => {
         ta.style.height = 'auto'; ta.style.height = (ta.scrollHeight + 4) + 'px';
