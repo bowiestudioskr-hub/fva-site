@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 9. 1. AM 2:49:13",
+  "updated": "2026. 9. 1. AM 3:05:10",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -751,7 +751,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 9. 1. AM 2:49:08",
+    "updated": "2026. 9. 1. AM 3:05:04",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -761,30 +761,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 7,
+        "visit": 8,
         "click": 3,
-        "unique": 1,
-        "ctr": 42.9,
-        "dwell": 36
+        "unique": 2,
+        "ctr": 37.5,
+        "dwell": 33
       },
       "7": {
-        "visit": 158,
+        "visit": 159,
         "click": 126,
-        "unique": 41,
-        "ctr": 79.7,
+        "unique": 42,
+        "ctr": 79.2,
         "dwell": 21
       },
       "28": {
-        "visit": 2891,
+        "visit": 2892,
         "click": 927,
-        "unique": 219,
+        "unique": 220,
         "ctr": 32.1,
         "dwell": 24
       },
       "90": {
-        "visit": 5528,
+        "visit": 5529,
         "click": 2832,
-        "unique": 219,
+        "unique": 220,
         "ctr": 51.2,
         "dwell": 24
       },
@@ -796,9 +796,9 @@
         "dwell": 16
       },
       "all": {
-        "visit": 34731,
+        "visit": 34732,
         "click": 14375,
-        "unique": 219,
+        "unique": 220,
         "ctr": 41.4,
         "dwell": 24
       }
@@ -3284,9 +3284,9 @@
       },
       {
         "d": "2026-09-01",
-        "visit": 7,
+        "visit": 8,
         "click": 3,
-        "unique": 1
+        "unique": 2
       }
     ],
     "sources": [
@@ -3320,9 +3320,9 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 819,
+        "visit": 820,
         "click": 0,
-        "unique": 46,
+        "unique": 47,
         "ctr": 0,
         "dwell": 8
       },
@@ -3904,9 +3904,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 2031,
+        "visit": 2032,
         "click": 1231,
-        "unique": 190,
+        "unique": 191,
         "dwell": 16,
         "ctr": 60.6
       },
@@ -3939,10 +3939,10 @@
       },
       {
         "name": "US",
-        "visit": 1103,
+        "visit": 1104,
         "click": 7,
-        "unique": 5,
-        "dwell": 10,
+        "unique": 6,
+        "dwell": 11,
         "ctr": 0.6,
         "code": "US"
       },
@@ -4311,16 +4311,25 @@
             "unique": 0,
             "ctr": 100,
             "dwell": 33
+          },
+          {
+            "name": "페이스북",
+            "host": "facebook.com",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 21
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 5,
+            "visit": 6,
             "click": 1,
-            "unique": 1,
-            "dwell": 39,
-            "ctr": 20
+            "unique": 2,
+            "dwell": 33,
+            "ctr": 16.7
           }
         ],
         "country": [
@@ -4332,6 +4341,15 @@
             "dwell": 39,
             "ctr": 20,
             "code": "KR"
+          },
+          {
+            "name": "US",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 21,
+            "ctr": 0,
+            "code": "US"
           }
         ],
         "city": [
@@ -4343,6 +4361,15 @@
             "dwell": 39,
             "ctr": 20,
             "code": "KR"
+          },
+          {
+            "name": "Springfield",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "US"
           }
         ],
         "blocks": [
@@ -4422,11 +4449,11 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 2,
+            "visit": 3,
             "click": 0,
-            "unique": 2,
+            "unique": 3,
             "ctr": 0,
-            "dwell": 33
+            "dwell": 29
           },
           {
             "name": "구글 검색",
@@ -4450,11 +4477,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 46,
+            "visit": 47,
             "click": 17,
-            "unique": 29,
+            "unique": 30,
             "dwell": 21,
-            "ctr": 37
+            "ctr": 36.2
           },
           {
             "name": "데스크탑",
@@ -4477,10 +4504,10 @@
           },
           {
             "name": "US",
-            "visit": 4,
+            "visit": 5,
             "click": 0,
-            "unique": 3,
-            "dwell": 13,
+            "unique": 4,
+            "dwell": 15,
             "ctr": 0,
             "code": "US"
           },
@@ -4532,6 +4559,15 @@
             "code": "US"
           },
           {
+            "name": "Springfield",
+            "visit": 2,
+            "click": 0,
+            "unique": 2,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "US"
+          },
+          {
             "name": "Incheon",
             "visit": 1,
             "click": 1,
@@ -4560,15 +4596,6 @@
           },
           {
             "name": "Gallatin",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "US"
-          },
-          {
-            "name": "Springfield",
             "visit": 1,
             "click": 0,
             "unique": 1,
@@ -4692,9 +4719,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 668,
+            "visit": 669,
             "click": 0,
-            "unique": 46,
+            "unique": 47,
             "ctr": 0,
             "dwell": 8
           },
@@ -4810,11 +4837,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 831,
+            "visit": 832,
             "click": 185,
-            "unique": 190,
+            "unique": 191,
             "dwell": 16,
-            "ctr": 22.3
+            "ctr": 22.2
           },
           {
             "name": "데스크탑",
@@ -4845,11 +4872,11 @@
           },
           {
             "name": "US",
-            "visit": 28,
+            "visit": 29,
             "click": 1,
-            "unique": 5,
-            "dwell": 10,
-            "ctr": 3.6,
+            "unique": 6,
+            "dwell": 11,
+            "ctr": 3.4,
             "code": "US"
           },
           {
@@ -5375,9 +5402,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 678,
+            "visit": 679,
             "click": 0,
-            "unique": 46,
+            "unique": 47,
             "ctr": 0,
             "dwell": 8
           },
@@ -5547,9 +5574,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1504,
+            "visit": 1505,
             "click": 788,
-            "unique": 190,
+            "unique": 191,
             "dwell": 16,
             "ctr": 52.4
           },
@@ -5582,10 +5609,10 @@
           },
           {
             "name": "US",
-            "visit": 61,
+            "visit": 62,
             "click": 1,
-            "unique": 5,
-            "dwell": 10,
+            "unique": 6,
+            "dwell": 11,
             "ctr": 1.6,
             "code": "US"
           },
@@ -6177,9 +6204,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 819,
+            "visit": 820,
             "click": 0,
-            "unique": 46,
+            "unique": 47,
             "ctr": 0,
             "dwell": 8
           },
@@ -6367,9 +6394,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 2031,
+            "visit": 2032,
             "click": 1231,
-            "unique": 190,
+            "unique": 191,
             "dwell": 16,
             "ctr": 60.6
           },
@@ -6402,10 +6429,10 @@
           },
           {
             "name": "US",
-            "visit": 1103,
+            "visit": 1104,
             "click": 7,
-            "unique": 5,
-            "dwell": 10,
+            "unique": 6,
+            "dwell": 11,
             "ctr": 0.6,
             "code": "US"
           },
@@ -7168,16 +7195,25 @@
             "unique": 0,
             "ctr": 100,
             "dwell": 33
+          },
+          {
+            "name": "페이스북",
+            "host": "facebook.com",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 21
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 5,
+            "visit": 6,
             "click": 1,
-            "unique": 1,
-            "dwell": 39,
-            "ctr": 20
+            "unique": 2,
+            "dwell": 33,
+            "ctr": 16.7
           }
         ],
         "country": [
@@ -7189,6 +7225,15 @@
             "dwell": 39,
             "ctr": 20,
             "code": "KR"
+          },
+          {
+            "name": "US",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 21,
+            "ctr": 0,
+            "code": "US"
           }
         ],
         "city": [
@@ -7200,6 +7245,15 @@
             "dwell": 39,
             "ctr": 20,
             "code": "KR"
+          },
+          {
+            "name": "Springfield",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "US"
           }
         ],
         "blocks": [
