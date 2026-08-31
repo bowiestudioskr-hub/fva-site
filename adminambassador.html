@@ -60,7 +60,8 @@
 
   .player{margin-top:10px;border-radius:11px;overflow:hidden;background:#000;
           aspect-ratio:9/16;max-height:70vh}
-  .player iframe{width:100%;height:100%;border:0;display:block}
+  .player iframe,.player video{width:100%;height:100%;border:0;display:block;
+    object-fit:contain;background:#000}
   /* 「원본 크게」 — 전에는 영상 위에 겹쳐 뒀는데, 이제 영상이 그대로 재생되니
      재생 단추와 조작 막대를 가린다. 제목 줄로 옮겼다. 최고 화질로 볼 때 쓴다. */
   .player{position:relative}
@@ -289,7 +290,16 @@ function render(d) {
             <small>${esc(f.올린날)} · ${esc(f.크기)}</small>
             <a class="opendrive" href="https://drive.google.com/file/d/${esc(f.id)}/view"
                target="_blank" rel="noopener">원본 크게</a></div>
-          <div class="player"><iframe data-src="https://drive.google.com/file/d/${esc(f.id)}/preview"
+          <div class="player">
+            <!-- 드라이브 미리보기 틀은 화질을 스스로 낮춘다(작은 판으로 다시 만든 것을 준다).
+                 폴더를 링크 공개로 바꾼 뒤로는 **원본 파일을 그대로 재생할 수 있다** —
+                 1080×1920 8.8Mbps 그대로다. 아이폰 사파리는 HEVC 10비트를 native 로 튼다.
+                 ⚠ 못 트는 브라우저가 있다(HEVC 미지원). 그때는 아래 드라이브 틀로 넘어간다.
+                 ⚠ preload=none — 원본이 한 편에 56MB다. 누를 때만 받는다. -->
+            <video class="vp" playsinline controls preload="none"
+              poster="https://drive.google.com/thumbnail?id=${esc(f.id)}&sz=w800"
+              data-src="https://drive.usercontent.google.com/download?id=${esc(f.id)}&export=download&confirm=t"></video>
+            <iframe class="vf" hidden data-frame="https://drive.google.com/file/d/${esc(f.id)}/preview"
             allow="autoplay" loading="lazy"></iframe>
             <!-- 영상이 로그인 없이는 안 보이던 문제 — 앰버서더 본인 소유 파일이라 「비공개」였고,
                  아이폰은 iframe 안의 남의 쿠키를 막아서(ITP) 틀 안에서는 영영 로그인이 안 됐다.
@@ -348,12 +358,22 @@ function render(d) {
       ${주들}</details><div style="height:14px"></div>`;
   }).join('');
 
+  /* 원본이 안 되는 브라우저를 위한 예비 — 드라이브 미리보기 틀 */
+  function 예비로(v) {
+    const 틀 = v.parentNode.querySelector('iframe.vf');
+    if (!틀 || !틀.dataset.frame) return;
+    틀.src = 틀.dataset.frame; 틀.removeAttribute('data-frame');
+    틀.hidden = false; v.hidden = true;
+  }
+
   /* 주차를 펼칠 때에만 영상을 붙인다 — 접힌 iframe 수십 개가 한꺼번에 안 불리게 */
   document.querySelectorAll('details.week').forEach(w => {
     w.addEventListener('toggle', () => {
       if (!w.open) return;
-      w.querySelectorAll('iframe[data-src]').forEach(fr => {
-        fr.src = fr.dataset.src; fr.removeAttribute('data-src');
+      w.querySelectorAll('video[data-src]').forEach(v => {
+        v.src = v.dataset.src; v.removeAttribute('data-src');
+        /* 원본을 못 틀면(HEVC 미지원 등) 드라이브 틀로 조용히 갈아탄다 */
+        v.addEventListener('error', () => 예비로(v), { once: true });
       });
       w.querySelectorAll('.fb').forEach(ta => {
         ta.style.height = 'auto'; ta.style.height = (ta.scrollHeight + 4) + 'px';
