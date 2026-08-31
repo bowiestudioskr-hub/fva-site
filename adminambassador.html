@@ -279,12 +279,12 @@ function render(d) {
             <small>${esc(f.올린날)} · ${esc(f.크기)}</small></div>
           <div class="player"><iframe data-src="https://drive.google.com/file/d/${esc(f.id)}/preview"
             allow="autoplay" loading="lazy"></iframe>
-            <!-- ⚠ 영상은 앰버서더 **본인 소유**이고 「비공개」다. 그래서 로그인해야 보인다.
-                 그런데 아이폰은 iframe 안의 남의 쿠키를 막는다(ITP) — 사파리에서 구글에
-                 로그인해 두어도 이 틀 안에서는 로그인으로 안 쳐준다. 구글도 iframe 안에서는
-                 로그인 화면을 안 띄운다(X-Frame-Options). **틀 안에서는 영영 안 보인다.**
-                 그래서 「브라우저에서 열기」를 겹쳐 둔다 — 거기서는 로그인이 살아 있다.
-                 (2026-08-30) -->
+            <!-- 영상이 로그인 없이는 안 보이던 문제 — 앰버서더 본인 소유 파일이라 「비공개」였고,
+                 아이폰은 iframe 안의 남의 쿠키를 막아서(ITP) 틀 안에서는 영영 로그인이 안 됐다.
+                 2026-09-01 에 상위 폴더를 「링크가 있는 모든 사용자 · 보기」로 바꿔 풀었다.
+                 앞으로 올라오는 영상도 폴더 권한을 물려받아 바로 재생된다.
+                 ⚠ 그래서 이 주소를 아는 사람은 누구나 영상을 볼 수 있다. 아무 데나 적지 말 것.
+                 「브라우저에서 열기」는 큰 화면으로 볼 때 쓰라고 남겨 둔다. -->
             <a class="opendrive" href="https://drive.google.com/file/d/${esc(f.id)}/view"
                target="_blank" rel="noopener">▶ 브라우저에서 열기</a>
           </div>
