@@ -47,11 +47,16 @@
   .prog i.done{background:var(--ok)} .prog i.now{background:var(--wait)}
 
   .vid{padding:12px 16px;box-shadow:inset 0 .5px 0 rgba(255,255,255,.07)}
-  /* ⚠ word-break 기본값은 「퇴근 후 뮤비 감/독 도전하기」처럼 낱말을 쪼갠다. keep-all 로 막는다. */
-  .vid .t{display:flex;align-items:baseline;gap:9px;font-size:14px;font-weight:700;
-    flex-wrap:wrap;word-break:keep-all;line-height:1.45}
+  /* ⚠ 두 가지를 같이 막아야 한다.
+       · word-break 기본값은 「감/독」처럼 낱말을 쪼갠다 → keep-all
+       · 단추까지 한 줄에 밀어넣으면 제목 칸이 눌려 **한 줄에 한 낱말씩** 떨어진다
+         (2026-09-01 실측) → 제목에 최소 폭을 주고 단추는 모자라면 아랫줄로 내린다. */
+  .vid .t{display:flex;align-items:flex-start;gap:6px 9px;font-size:14px;font-weight:700;
+    flex-wrap:wrap;word-break:keep-all;line-height:1.4}
+  .vid .t .nm{flex:1 1 58%;min-width:0;display:flex;flex-direction:column;gap:3px}
+  .vid .t .nm b{font-weight:700}
   .vid .t small{font-weight:600;color:var(--dim);font-size:11.5px;white-space:nowrap}
-  .vid .t .nm{flex:1;min-width:0}
+  .vid .t .tb{display:flex;gap:6px;margin-left:auto;flex-shrink:0}
   .pill{font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:99px;white-space:nowrap}
   .pill.대기{background:var(--card2);color:var(--dim)}
   .pill.검수중{background:#3A3210;color:var(--wait)}
@@ -66,16 +71,15 @@
      재생 단추와 조작 막대를 가린다. 제목 줄로 옮겼다. 최고 화질로 볼 때 쓴다. */
   .player{position:relative}
   .opendrive{
-    display:inline-flex; align-items:center; gap:5px; margin-left:auto;
+    display:inline-flex; align-items:center; gap:5px;
     background:var(--card2); color:var(--sub); text-decoration:none;
     font-size:11.5px; font-weight:700; letter-spacing:-.02em;
     padding:5px 10px; border-radius:999px; white-space:nowrap;
   }
   .opendrive:active{ opacity:.6 }
   /* 영상은 폰에서 647px 을 먹는다. 문안을 읽을 때는 접어 두면 점검표와 초안이 한 화면에 들어온다. */
-  .vid .fold{margin-left:auto;background:var(--card2);color:var(--sub);border:0;border-radius:999px;
+  .vid .fold{background:var(--card2);color:var(--sub);border:0;border-radius:999px;
     padding:5px 10px;font:inherit;font-size:11.5px;font-weight:700;cursor:pointer;white-space:nowrap}
-  .vid .fold + .opendrive{margin-left:0}
   .vid.folded .player{display:none}
   .vid .fb{width:100%;margin-top:9px;background:#0F0F11;color:var(--ink);
     border:1px solid var(--line);border-radius:10px;padding:10px 12px;
@@ -293,11 +297,11 @@ function render(d) {
         const st = fb.상태 || '검수중';
         return `<div class="vid" data-p="${esc(p.id)}" data-f="${esc(f.id)}">
           <div class="t"><span class="pill ${esc(st)}">${esc(st)}</span>
-            <span class="nm">${esc(f.이름)}</span>
-            <small>${esc(f.올린날)} · ${esc(f.크기)}</small>
-            <button type="button" class="fold">영상 접기</button>
-            <a class="opendrive" href="https://drive.google.com/file/d/${esc(f.id)}/view"
-               target="_blank" rel="noopener">원본 크게</a></div>
+            <span class="nm"><b>${esc(f.이름)}</b>
+              <small>${esc(f.올린날)} · ${esc(f.크기)}</small></span>
+            <span class="tb"><button type="button" class="fold">영상 접기</button>
+              <a class="opendrive" href="https://drive.google.com/file/d/${esc(f.id)}/view"
+                 target="_blank" rel="noopener">원본 크게</a></span></div>
           <div class="player">
             <!-- 드라이브 미리보기 틀은 화질을 스스로 낮춘다(작게 다시 만든 판을 준다).
                  폴더를 링크 공개로 바꾼 뒤로는 원본을 그대로 틀 수 있는데 —
