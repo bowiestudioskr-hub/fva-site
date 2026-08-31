@@ -81,7 +81,15 @@
        177.78% = 16/9. max-height 는 주면 안 된다(padding 은 안 깎이고 iframe 만 잘린다). */
   .player{margin-top:10px;border-radius:11px;overflow:hidden;background:#000;
           width:100%;height:0;padding-bottom:calc(177.78% + 120px)}
-  .player iframe{position:absolute;top:0;left:0;width:100%;height:100%;
+  /* ⚠ 아이폰에서 드라이브가 띄우는 조작판은 **250px 쯤을 덮는다** — 데스크탑 판(40px)과 딴판이다
+       (2026-09-01 실측). 검은 자리를 250px 두는 건 흉하다.
+     그래서 **틀 안쪽을 두 배로 잡고 절반으로 줄여 그린다.**
+       · 드라이브는 넓은 화면으로 알고 조작판을 작게(또는 데스크탑 판으로) 그린다 → 화면에선 절반 크기
+       · 덤으로 안쪽이 넓어져 드라이브가 더 좋은 화질을 내려준다
+     ⚠ 눌리는 자리는 브라우저가 알아서 맞춰 준다. 다만 단추도 같이 작아지니 너무 줄이지 말 것. */
+  .player iframe{position:absolute;top:0;left:0;
+    width:calc(100% / var(--zoom,1));height:calc(100% / var(--zoom,1));
+    transform:scale(var(--zoom,1));transform-origin:0 0;
     border:0;display:block;background:#000}
   /* 「원본 크게」 — 전에는 영상 위에 겹쳐 뒀는데, 이제 영상이 그대로 재생되니
      재생 단추와 조작 막대를 가린다. 제목 줄로 옮겼다. 최고 화질로 볼 때 쓴다. */
@@ -210,6 +218,8 @@
     .vrow{display:block;overflow-x:visible;padding:2px 0 6px;scroll-snap-type:none}
     .vrow .vid{flex:none;width:auto;padding:0 0 20px}
     .vrow .vid + .vid{border-top:1px solid var(--line);padding-top:18px}
+    /* 폰에서만 절반으로 줄여 그린다 — 데스크탑은 원래도 조작판이 얇다 */
+    .player{--zoom:.5}
 
     /* ⚠ iOS 는 글자 16px 미만 입력칸에 초점이 가면 화면을 통째로 확대해버린다.
          점검표 칸·메모 칸도 입력칸이다 — 빠뜨리면 찍을 때마다 화면이 튄다. */
