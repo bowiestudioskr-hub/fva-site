@@ -72,6 +72,11 @@
     padding:5px 10px; border-radius:999px; white-space:nowrap;
   }
   .opendrive:active{ opacity:.6 }
+  /* 영상은 폰에서 647px 을 먹는다. 문안을 읽을 때는 접어 두면 점검표와 초안이 한 화면에 들어온다. */
+  .vid .fold{margin-left:auto;background:var(--card2);color:var(--sub);border:0;border-radius:999px;
+    padding:5px 10px;font:inherit;font-size:11.5px;font-weight:700;cursor:pointer;white-space:nowrap}
+  .vid .fold + .opendrive{margin-left:0}
+  .vid.folded .player{display:none}
   .vid .fb{width:100%;margin-top:9px;background:#0F0F11;color:var(--ink);
     border:1px solid var(--line);border-radius:10px;padding:10px 12px;
     font:inherit;font-size:13px;line-height:1.65;resize:vertical;min-height:88px;
@@ -115,8 +120,10 @@
   .dh .use,.dh .cp{background:var(--ok);color:#04240F;border:0;border-radius:8px;padding:6px 11px;
     font:inherit;font-size:11.5px;font-weight:800;cursor:pointer;white-space:nowrap}
   .dh .cp{background:#1E3A2A;color:#9FD9BA}
-  .dtxt{margin:0;padding:10px 12px;font:inherit;font-size:12px;line-height:1.7;
-    white-space:pre-wrap;word-break:keep-all;color:#CFE6D8;max-height:210px;overflow:auto}
+  /* ⚠ max-height 를 주면 상자 안에 또 스크롤이 생겨 한 번에 안 보인다(사용자 지적, 2026-09-01).
+       전부 펼쳐 둔다 — 스크롤은 페이지 하나로 끝나야 한다. */
+  .dtxt{margin:0;padding:11px 13px;font:inherit;font-size:12.5px;line-height:1.62;
+    white-space:pre-wrap;word-break:keep-all;color:#CFE6D8}
   .row2{display:flex;gap:7px;align-items:center;margin-top:8px;flex-wrap:wrap}
   .row2 select,.row2 button{background:var(--card2);color:var(--ink);border:0;border-radius:9px;
     padding:8px 12px;font:inherit;font-size:12.5px;font-weight:700;cursor:pointer}
@@ -288,6 +295,7 @@ function render(d) {
           <div class="t"><span class="pill ${esc(st)}">${esc(st)}</span>
             <span class="nm">${esc(f.이름)}</span>
             <small>${esc(f.올린날)} · ${esc(f.크기)}</small>
+            <button type="button" class="fold">영상 접기</button>
             <a class="opendrive" href="https://drive.google.com/file/d/${esc(f.id)}/view"
                target="_blank" rel="noopener">원본 크게</a></div>
           <div class="player">
@@ -359,6 +367,21 @@ function render(d) {
         <div class="chips">${칩}</div></summary>
       ${주들}</details><div style="height:14px"></div>`;
   }).join('');
+
+  /* 영상 접기 — 어느 카드를 접어 뒀는지 기기에 기억해 둔다 */
+  let 접은것 = {}; try { 접은것 = JSON.parse(localStorage.getItem('amb_fold') || '{}'); } catch (e) {}
+  document.querySelectorAll('.vid').forEach(box => {
+    const b = box.querySelector('.fold'); if (!b) return;
+    const 칠하기 = () => { b.textContent = box.classList.contains('folded') ? '영상 펼치기' : '영상 접기'; };
+    if (접은것[box.dataset.f]) box.classList.add('folded');
+    칠하기();
+    b.onclick = () => {
+      box.classList.toggle('folded');
+      접은것[box.dataset.f] = box.classList.contains('folded') ? 1 : 0;
+      try { localStorage.setItem('amb_fold', JSON.stringify(접은것)); } catch (e) {}
+      칠하기();
+    };
+  });
 
   /* 아이폰·아이패드·맥 사파리만 원본을 시도한다. 크롬/엣지는 ORB 로 막히니 헛걸음이다. */
   const 웹킷 = /AppleWebKit/.test(navigator.userAgent) &&
