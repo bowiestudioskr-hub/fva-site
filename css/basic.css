@@ -1263,24 +1263,42 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
   width:var(--w); max-width:calc(100% - 24px);
   border-top:3px solid #fff; border-bottom:3px solid #fff;
 }
+/* ⚠ 개강일이 상담으로 가장 많이 물어보는 항목이다. 시간보다 눈에 먼저 들어와야 한다.
+     전에는 「반이름 · 시간 · 개강일」을 한 줄에 뒀는데, 폭이 좁아지면 개강일이 오른쪽 끝으로
+     밀려 작게 붙었다(두 페이지가 서로 다르게 접히기까지 했다).
+     이제 **개강일을 반 이름 바로 아래**에 두 줄로 고정한다. 시간은 오른쪽에 세로 가운데. */
 .bs-notice .nt-row{
-  display:grid; grid-template-columns:minmax(0,auto) 1fr minmax(0,auto); align-items:center;
-  gap:clamp(10px, calc(var(--u) * 30/1920), 30px);
+  display:grid; grid-template-columns:minmax(0,1fr) auto;
+  grid-template-areas:"cls time" "start time";
+  align-items:center;
+  column-gap:clamp(10px, calc(var(--u) * 30/1920), 30px);
+  row-gap:clamp(3px, calc(var(--u) * 7/1920), 7px);
   padding:clamp(13px, calc(var(--u) * 24/1920), 24px) clamp(12px, calc(var(--u) * 26/1920), 26px);
 }
 .bs-notice .nt-row + .nt-row{ border-top:1px solid rgba(253,253,253,.3) }
 .bs-notice .nt-row .cls{
   font-size:clamp(16px, calc(var(--u) * 40/1920), 40px); font-weight:800;
   letter-spacing:-.045em; color:#fff; white-space:nowrap;
+  grid-area:cls;
 }
 .bs-notice .nt-row .time{
   font-size:clamp(16px, calc(var(--u) * 40/1920), 40px); font-weight:800;
   letter-spacing:-.03em; color:#fff; font-variant-numeric:tabular-nums; white-space:nowrap;
+  grid-area:time; text-align:right;
 }
 .bs-notice .nt-row .start{
-  font-size:clamp(12.5px, calc(var(--u) * 25/1920), 25px); font-weight:800;
+  grid-area:start;
+  font-size:clamp(14px, calc(var(--u) * 29/1920), 29px); font-weight:800;
   color:var(--green); white-space:nowrap; font-variant-numeric:tabular-nums;
+  display:flex; align-items:center; gap:.5em;
 }
+/* 반마다 남은 날. 스크립트가 넣는다 — 없으면 그냥 안 보인다. */
+.bs-notice .nt-row .start .dday{
+  font-size:.82em; font-weight:900; letter-spacing:-.02em;
+  background:var(--green); color:#06150A; border-radius:999px;
+  padding:.18em .62em; white-space:nowrap;
+}
+.bs-notice .nt-row .start .dday.soon{ background:#FF375F; color:#fff }
 /* 신청 방법 */
 .bs-notice .nt-how{
   margin-top:clamp(24px, calc(var(--u) * 48/1920), 48px);
