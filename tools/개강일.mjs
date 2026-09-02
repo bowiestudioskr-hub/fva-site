@@ -88,9 +88,9 @@ function 카톡문안(모음) {
     });
     return [`▪ ${머리}`, 판.터, ...줄].join('\n');
   });
+  /* ⚠ 「자세히 보기」는 자동응답의 **링크 버튼**으로 따로 붙어 있다. 본문에 또 쓰면 두 번 나온다. */
   return ['📅 개강일 안내', '', ...토막.join('\n\n').split('\n'), '',
-          '두 반 모두 다른 요일로 보강 가능합니다.', '',
-          '자세히 보기 ▶ fva.co.kr'].join('\n');
+          '두 반 모두 다른 요일로 보강 가능합니다.'].join('\n');
 }
 
 /* ── --set 으로 날짜 갈아 끼우기 ─────────────────────
@@ -131,6 +131,12 @@ if (process.argv.includes('--set') || set아규.startsWith('--set=')) {
 
 const 모음 = 판.map(판하나 => ({ 판: 판하나, 정보: 읽기(판하나.파일) }));
 
+/* 카톡 갱신 도구가 문안만 가져갈 때 쓴다. 다른 말은 한 줄도 찍지 않는다. */
+if (process.argv.includes('--문안만')) {
+  process.stdout.write(카톡문안(모음));
+  process.exit(0);
+}
+
 console.log('══ 사이트에 적힌 개강일');
 let 어긋남 = 0;
 for (const { 판: 판하나, 정보 } of 모음) {
@@ -143,7 +149,25 @@ for (const { 판: 판하나, 정보 } of 모음) {
   });
 }
 
+/* ⚠ 리틀리 API 는 **읽기만** 된다(PUT 404, 2026-09-02 실측). 그래서 리틀리는 사람이 고치고
+     이 도구가 읽어 사이트·카톡으로 퍼뜨린다. 리틀리에 아래 꼴로 텍스트 블록을 하나 두면 원본이 된다:
+       BASIC 화·목 평일반 19:30-21:30 2026-09-29
+       BASIC 토·일 주말반 13:30-15:30 2026-10-03
+       MASTER 일요일 반 13:00-15:00 2026-10-18
+       MASTER 수요일 반 19:00-21:00 2026-10-21 */
 const L = await 리틀리읽기();
+if (L && L.개강글) {
+  const 줄 = L.개강글.split('\n').map(x => x.trim())
+    .map(x => x.match(/^(BASIC|MASTER)\s+(.+?)\s+(\d{1,2}:\d{2}\s*-\s*\d{1,2}:\d{2})\s+(\d{4}-\d{2}-\d{2})$/))
+    .filter(Boolean);
+  if (줄.length) {
+    console.log('\n══ 리틀리가 원본이다 — 사이트와 대조');
+    for (const [, , 반, , iso] of 줄) {
+      const 있나 = 모음.some(({ 정보 }) => 정보.배열.some(b => b.반 === 반 && b.날 === iso));
+      console.log(`  ${반.padEnd(9)} ${iso}  ${있나 ? '○ 사이트와 같다' : '✗ 사이트와 다르다 — --set 으로 맞출 것'}`);
+    }
+  }
+}
 console.log('\n══ 리틀리');
 if (!L) console.log('  토큰이 없어 못 읽었다 (광고_네이버/littly_report.mjs --refresh-token)');
 else if (L.오류) console.log('  못 읽음:', L.오류);
