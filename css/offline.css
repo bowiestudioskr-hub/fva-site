@@ -585,6 +585,9 @@ svg.club-wordmark{
   display:grid; grid-template-columns:minmax(0,1fr) auto;
   grid-template-areas:"cls time" "start time";
   align-items:center;
+  /* ⚠ 이 블록은 부모가 가운데 정렬이다. 칸이 넓어지면 반 이름·개강일이 칸 한가운데로
+       밀려 서로 어긋나 보인다(데스크탑에서 실측). 왼쪽에 못 박는다. */
+  justify-items:start; text-align:left;
   column-gap:clamp(10px, calc(var(--u) * 30/1920), 30px);
   row-gap:clamp(3px, calc(var(--u) * 7/1920), 7px);
   padding:clamp(13px, calc(var(--u) * 24/1920), 24px) clamp(12px, calc(var(--u) * 26/1920), 26px);
@@ -596,6 +599,7 @@ svg.club-wordmark{
   grid-area:cls;
 }
 .nt-row .time{
+  justify-self:end;
   font-size:clamp(16px, calc(var(--u) * 40/1920), 40px);
   font-weight:800; letter-spacing:-.03em; color:var(--white);
   font-variant-numeric:tabular-nums; white-space:nowrap;
