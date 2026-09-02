@@ -4,9 +4,12 @@
  *   node tools/개강일.mjs              지금 상태를 보고 카톡 문안을 뽑는다
  *   node tools/개강일.mjs --set "화·목=2026-10-27,토·일=2026-11-01,일요일=2026-11-15,수요일=2026-11-18"
  *                                       사이트(basic·offline)의 날짜를 한 번에 갈아 끼운다
+ *   node tools/개강일.mjs --카톡          카카오 자동응답까지 갈아 끼운다
  *
- * ⚠ 카카오톡 자동응답은 **공개 API가 없다.** 프로그램으로 못 바꾼다.
- *   그래서 여기서 문안을 완성해 주고, 관리자센터에 붙여넣는 것만 사람이 한다.
+ * 개강일이 바뀌는 달에는 이 두 줄이면 끝난다 (리틀리 그림은 사람이 새로 만든다).
+ *
+ * ⚠ 카카오는 자동응답을 고치는 **공개 API 를 안 준다.** 그래서 파트너센터 화면을
+ *   디버그 크롬(9222)으로 직접 조작한다 — 맥이 켜져 있고 로그인돼 있어야 한다.
  *
  * ⚠ 리틀리의 개강일은 **그림(JPEG)** 이라 기계가 못 읽는다.
  *   리틀리에 개강일 텍스트 블록을 만들면 이 도구가 그걸 원본으로 삼는다(아래 리틀리읽기 참고).
@@ -176,6 +179,22 @@ else {
   if (L.개강글) console.log('   ', L.개강글.replace(/\n/g, ' / ').slice(0, 160));
   console.log('  공지 블록:', (L.공지 || '(없음)').replace(/\n/g, ' / ').slice(0, 120));
   console.log('  쓰는 그림 블록:', L.그림, '개');
+}
+
+/* --카톡 을 붙이면 카카오 자동응답까지 한 번에 갈아 끼운다.
+   ⚠ 맥이 켜져 있고 크롬(9222)이 파트너센터에 로그인돼 있어야 한다. */
+if (process.argv.includes('--카톡')) {
+  const { execFileSync } = await import('child_process');
+  const { fileURLToPath } = await import('url');
+  console.log('\n══ 카카오 자동응답 갱신');
+  try {
+    const 답 = execFileSync('node',
+      [fileURLToPath(new URL('./개강일_카톡.mjs', import.meta.url)), '--쓰기'], { encoding: 'utf8' });
+    console.log(답.split('\n').filter(l => /저장 확인|이미 같은|✗/.test(l)).join('\n') || '  (결과 확인 필요)');
+  } catch (e) {
+    console.log('  ✗ 못 바꿨다 — 크롬(9222)이 꺼졌거나 카카오 로그인이 풀렸다');
+  }
+  process.exit(0);
 }
 
 const 문안 = 카톡문안(모음);
