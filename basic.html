@@ -931,8 +931,19 @@ if(window.wcs) { wcs_do(); }
     es.forEach(function(e){
       if (e.isIntersecting){ e.target.classList.add('bs-in'); io.unobserve(e.target); }
     });
-  }, { rootMargin:'0px 0px -12% 0px', threshold:0.06 });
+  /* ⚠ threshold 를 0.06 으로 두면 **높이 0 인 요소가 영영 안 나타난다.**
+       이 화면은 좌표 조판이라 li 안쪽이 전부 절대배치라서 li 자체는 높이가 0이다.
+       교차 비율이 0 이라 0.06 을 못 넘긴다(2026-09-02, 새로고침 위치에 따라 빈 상자가 보였다).
+       0 으로 두면 조금이라도 걸치면 나타난다. */
+  }, { rootMargin:'0px 0px -12% 0px', threshold:0 });
   document.querySelectorAll('.bs .bs-rv').forEach(function(el){ io.observe(el); });
+  /* ⚠ 그래도 못 잡는 경우를 위한 그물 — 이미 화면 위/안에 있는 것은 바로 보여 준다.
+       새로고침으로 페이지 중간에서 시작할 때 빈 상자가 남지 않게 한다. */
+  addEventListener('load', function(){
+    document.querySelectorAll('.bs .bs-rv:not(.bs-in)').forEach(function(el){
+      if (el.getBoundingClientRect().top < innerHeight) el.classList.add('bs-in');
+    });
+  });
 })();
 
 /* ── 아래 신청 바 ────────────────────────────────────────

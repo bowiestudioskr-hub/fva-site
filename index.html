@@ -824,8 +824,16 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
       entries.forEach(function(e){
         if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    },{ threshold:0.06, rootMargin:'0px 0px 4% 0px' });
+    /* ⚠ threshold 0.06 은 **높이 0 인 요소를 영영 안 나타나게** 한다(basic.html 에서 실제로 겪었다).
+         0 으로 두면 조금이라도 걸치면 나타난다. */
+    },{ threshold:0, rootMargin:'0px 0px 4% 0px' });
     els.forEach(function(el){ io.observe(el) });
+    /* 새로고침으로 페이지 중간에서 시작할 때 빈 자리가 남지 않게 하는 그물 */
+    addEventListener('load', function(){
+      els.forEach(function(el){
+        if(!el.classList.contains('in') && el.getBoundingClientRect().top < innerHeight) el.classList.add('in');
+      });
+    });
   })();
 
   /* 폰에서 확실히 재생시킨다.
