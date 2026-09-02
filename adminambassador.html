@@ -56,6 +56,11 @@
   .prog{display:flex;gap:4px;padding:0 16px 13px}
   .prog i{flex:1;height:5px;border-radius:3px;background:var(--card3)}
   .prog i.done{background:var(--ok)} .prog i.now{background:var(--wait)}
+  /* 색이 무슨 뜻인지 글자로도 적어 준다 */
+  .cnt{display:flex;gap:12px;flex-wrap:wrap;padding:0 0 4px;font-size:11.5px;font-weight:700;letter-spacing:-.02em}
+  .cnt b{display:inline-flex;align-items:center;gap:5px;font-weight:700}
+  .cnt b::before{content:'';width:9px;height:5px;border-radius:3px;background:currentColor}
+  .cnt .c-done{color:var(--ok)} .cnt .c-now{color:var(--wait)} .cnt .c-left{color:var(--dim)}
 
   .vid{padding:12px 16px;box-shadow:inset 0 .5px 0 rgba(255,255,255,.07)}
   /* ⚠ 두 가지를 같이 막아야 한다.
@@ -314,8 +319,16 @@ function render(d) {
     const files = (p.파일 || []).filter(f => !숨김[f.id]);
     const 피드백 = p.피드백 || {};
     const 끝난것 = files.filter(f => (피드백[f.id] || {}).상태 === '게시완료').length;
+    /* ⚠ 막대만 보면 무슨 색이 무슨 뜻인지 모른다(사용자 지적, 2026-09-02).
+         색 옆에 글자로 같이 적어 준다. 칸 하나 = 약정 한 편. */
+    const 진행중 = files.length - 끝난것;
     const bar = Array.from({ length: p.편수 || 6 }, (_, i) =>
-      `<i class="${i < 끝난것 ? 'done' : i < files.length ? 'now' : ''}"></i>`).join('');
+      `<i class="${i < 끝난것 ? 'done' : i < files.length ? 'now' : ''}"
+          title="${i < 끝난것 ? '게시완료' : i < files.length ? '검수 중' : '아직 안 들어옴'}"></i>`).join('');
+    const 셈 = `<span class="cnt">` +
+      `<b class="c-done">게시완료 ${끝난것}</b>` +
+      (진행중 ? `<b class="c-now">검수 중 ${진행중}</b>` : '') +
+      `<b class="c-left">남은 ${Math.max(0, (p.편수 || 6) - files.length)}</b></span>`;
 
     /* 주차별로 묶는다 */
     const 묶음 = {};
@@ -405,6 +418,7 @@ function render(d) {
           · ${esc(p.요일)} · ${esc(p.개강)} ~ ${esc(p.종료)}
           <span class="sp">특약 — ${esc(p.특약)}</span></div>
         <div class="prog" style="padding:10px 0 2px">${bar}</div>
+        ${셈}
         <div class="chips">${칩}</div></summary>
       ${주들}</details><div style="height:14px"></div>`;
   }).join('');
