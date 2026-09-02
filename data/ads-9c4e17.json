@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 9. 2. PM 6:21:58",
+  "updated": "2026. 9. 2. PM 6:37:42",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -751,7 +751,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 9. 2. PM 6:21:52",
+    "updated": "2026. 9. 2. PM 6:37:36",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -761,32 +761,32 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 22,
-        "click": 12,
+        "visit": 25,
+        "click": 15,
         "unique": 2,
-        "ctr": 54.5,
-        "dwell": 10
+        "ctr": 60,
+        "dwell": 9
       },
       "7": {
-        "visit": 166,
-        "click": 128,
+        "visit": 169,
+        "click": 131,
         "unique": 42,
-        "ctr": 77.1,
+        "ctr": 77.5,
         "dwell": 19
       },
       "28": {
-        "visit": 2872,
-        "click": 911,
+        "visit": 2875,
+        "click": 914,
         "unique": 222,
-        "ctr": 31.7,
-        "dwell": 24
+        "ctr": 31.8,
+        "dwell": 23
       },
       "90": {
-        "visit": 5525,
-        "click": 2836,
+        "visit": 5528,
+        "click": 2839,
         "unique": 222,
-        "ctr": 51.3,
-        "dwell": 24
+        "ctr": 51.4,
+        "dwell": 23
       },
       "y": {
         "visit": 24,
@@ -796,11 +796,11 @@
         "dwell": 24
       },
       "all": {
-        "visit": 34770,
-        "click": 14403,
+        "visit": 34773,
+        "click": 14406,
         "unique": 222,
         "ctr": 41.4,
-        "dwell": 24
+        "dwell": 23
       }
     },
     "daily": [
@@ -3290,8 +3290,8 @@
       },
       {
         "d": "2026-09-02",
-        "visit": 22,
-        "click": 12,
+        "visit": 25,
+        "click": 15,
         "unique": 2
       }
     ],
@@ -3299,8 +3299,8 @@
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14864,
-        "click": 3288,
+        "visit": 14866,
+        "click": 3290,
         "unique": 65,
         "ctr": 22.1,
         "dwell": 19
@@ -3353,11 +3353,11 @@
       {
         "name": "우리 사이트",
         "host": "fva.co.kr",
-        "visit": 192,
-        "click": 162,
+        "visit": 193,
+        "click": 163,
         "unique": 10,
-        "ctr": 84.4,
-        "dwell": 39
+        "ctr": 84.5,
+        "dwell": 38
       },
       {
         "name": "구글 검색",
@@ -3696,7 +3696,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 107
+        "clicks": 110
       },
       {
         "key": "36mN2eP",
@@ -3911,10 +3911,10 @@
       {
         "name": "모바일",
         "visit": 2033,
-        "click": 1238,
+        "click": 1241,
         "unique": 192,
         "dwell": 16,
-        "ctr": 60.9
+        "ctr": 61
       },
       {
         "name": "데스크탑",
@@ -3937,7 +3937,7 @@
       {
         "name": "KR",
         "visit": 25815,
-        "click": 1342,
+        "click": 1345,
         "unique": 195,
         "dwell": 20,
         "ctr": 5.2,
@@ -4119,10 +4119,10 @@
       {
         "name": "Seoul",
         "visit": 1852,
-        "click": 1152,
+        "click": 1155,
         "unique": 174,
         "dwell": 20,
-        "ctr": 62.2,
+        "ctr": 62.4,
         "code": "KR"
       },
       {
@@ -4303,21 +4303,30 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14,
-            "click": 8,
+            "visit": 16,
+            "click": 10,
             "unique": 2,
-            "ctr": 57.1,
-            "dwell": 10
+            "ctr": 62.5,
+            "dwell": 9
+          },
+          {
+            "name": "우리 사이트",
+            "host": "fva.co.kr",
+            "visit": 1,
+            "click": 1,
+            "unique": 0,
+            "ctr": 100,
+            "dwell": 3
           }
         ],
         "device": [
           {
             "name": "모바일",
             "visit": 1,
-            "click": 7,
+            "click": 10,
             "unique": 1,
             "dwell": 26,
-            "ctr": 700
+            "ctr": 1000
           },
           {
             "name": "데스크탑",
@@ -4332,10 +4341,10 @@
           {
             "name": "KR",
             "visit": 2,
-            "click": 9,
+            "click": 12,
             "unique": 2,
             "dwell": 21,
-            "ctr": 450,
+            "ctr": 600,
             "code": "KR"
           }
         ],
@@ -4352,7 +4361,7 @@
           {
             "name": "Seoul",
             "visit": 0,
-            "click": 9,
+            "click": 12,
             "unique": 0,
             "dwell": 0,
             "ctr": 0,
@@ -4366,7 +4375,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 7
+            "clicks": 10
           },
           {
             "key": "4rFKEfH",
@@ -4415,20 +4424,20 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 97,
-            "click": 80,
+            "visit": 99,
+            "click": 82,
             "unique": 25,
-            "ctr": 82.5,
+            "ctr": 82.8,
             "dwell": 19
           },
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 15,
-            "click": 19,
+            "visit": 16,
+            "click": 20,
             "unique": 1,
-            "ctr": 126.7,
-            "dwell": 21
+            "ctr": 125,
+            "dwell": 20
           },
           {
             "name": "리틀리 안에서",
@@ -4489,10 +4498,10 @@
           {
             "name": "모바일",
             "visit": 46,
-            "click": 23,
+            "click": 26,
             "unique": 29,
             "dwell": 21,
-            "ctr": 50
+            "ctr": 56.5
           },
           {
             "name": "데스크탑",
@@ -4507,10 +4516,10 @@
           {
             "name": "KR",
             "visit": 64,
-            "click": 34,
+            "click": 37,
             "unique": 37,
             "dwell": 20,
-            "ctr": 53.1,
+            "ctr": 57.8,
             "code": "KR"
           },
           {
@@ -4536,10 +4545,10 @@
           {
             "name": "Seoul",
             "visit": 54,
-            "click": 28,
+            "click": 31,
             "unique": 32,
             "dwell": 20,
-            "ctr": 51.9,
+            "ctr": 57.4,
             "code": "KR"
           },
           {
@@ -4622,7 +4631,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 42
+            "clicks": 45
           },
           {
             "key": "Norn5x4",
@@ -4695,10 +4704,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 887,
-            "click": 675,
+            "visit": 889,
+            "click": 677,
             "unique": 65,
-            "ctr": 76.1,
+            "ctr": 76.2,
             "dwell": 19
           },
           {
@@ -4722,11 +4731,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 56,
-            "click": 44,
+            "visit": 57,
+            "click": 45,
             "unique": 10,
-            "ctr": 78.6,
-            "dwell": 39
+            "ctr": 78.9,
+            "dwell": 38
           },
           {
             "name": "리틀리 안에서",
@@ -4832,10 +4841,10 @@
           {
             "name": "모바일",
             "visit": 832,
-            "click": 192,
+            "click": 195,
             "unique": 192,
             "dwell": 16,
-            "ctr": 23.1
+            "ctr": 23.4
           },
           {
             "name": "데스크탑",
@@ -4858,10 +4867,10 @@
           {
             "name": "KR",
             "visit": 830,
-            "click": 216,
+            "click": 219,
             "unique": 195,
             "dwell": 20,
-            "ctr": 26,
+            "ctr": 26.4,
             "code": "KR"
           },
           {
@@ -5040,10 +5049,10 @@
           {
             "name": "Seoul",
             "visit": 741,
-            "click": 153,
+            "click": 156,
             "unique": 174,
             "dwell": 20,
-            "ctr": 20.6,
+            "ctr": 21.1,
             "code": "KR"
           },
           {
@@ -5236,20 +5245,20 @@
             "clicks": 175
           },
           {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 110
+          },
+          {
             "key": "OkhXD1v",
             "name": "수강생 작품보기 (유튜브)",
             "gone": false,
             "kind": "site",
             "img": true,
             "clicks": 110
-          },
-          {
-            "key": "bby1R8Y",
-            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 107
           },
           {
             "key": "bGTonvP",
@@ -5370,8 +5379,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2617,
-            "click": 2041,
+            "visit": 2619,
+            "click": 2043,
             "unique": 65,
             "ctr": 78,
             "dwell": 19
@@ -5397,11 +5406,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 184,
-            "click": 158,
+            "visit": 185,
+            "click": 159,
             "unique": 10,
             "ctr": 85.9,
-            "dwell": 39
+            "dwell": 38
           },
           {
             "name": "m.place.naver.com",
@@ -5561,10 +5570,10 @@
           {
             "name": "모바일",
             "visit": 1480,
-            "click": 778,
+            "click": 781,
             "unique": 192,
             "dwell": 16,
-            "ctr": 52.6
+            "ctr": 52.8
           },
           {
             "name": "데스크탑",
@@ -5587,10 +5596,10 @@
           {
             "name": "KR",
             "visit": 1547,
-            "click": 864,
+            "click": 867,
             "unique": 195,
             "dwell": 20,
-            "ctr": 55.9,
+            "ctr": 56,
             "code": "KR"
           },
           {
@@ -5769,10 +5778,10 @@
           {
             "name": "Seoul",
             "visit": 1391,
-            "click": 740,
+            "click": 743,
             "unique": 174,
             "dwell": 20,
-            "ctr": 53.2,
+            "ctr": 53.4,
             "code": "KR"
           },
           {
@@ -6018,7 +6027,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 107
+            "clicks": 110
           },
           {
             "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
@@ -6163,8 +6172,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14864,
-            "click": 3288,
+            "visit": 14866,
+            "click": 3290,
             "unique": 65,
             "ctr": 22.1,
             "dwell": 19
@@ -6217,11 +6226,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 192,
-            "click": 162,
+            "visit": 193,
+            "click": 163,
             "unique": 10,
-            "ctr": 84.4,
-            "dwell": 39
+            "ctr": 84.5,
+            "dwell": 38
           },
           {
             "name": "구글 검색",
@@ -6381,10 +6390,10 @@
           {
             "name": "모바일",
             "visit": 2033,
-            "click": 1238,
+            "click": 1241,
             "unique": 192,
             "dwell": 16,
-            "ctr": 60.9
+            "ctr": 61
           },
           {
             "name": "데스크탑",
@@ -6407,7 +6416,7 @@
           {
             "name": "KR",
             "visit": 25815,
-            "click": 1342,
+            "click": 1345,
             "unique": 195,
             "dwell": 20,
             "ctr": 5.2,
@@ -6589,10 +6598,10 @@
           {
             "name": "Seoul",
             "visit": 1852,
-            "click": 1152,
+            "click": 1155,
             "unique": 174,
             "dwell": 20,
-            "ctr": 62.2,
+            "ctr": 62.4,
             "code": "KR"
           },
           {
@@ -6950,7 +6959,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 107
+            "clicks": 110
           },
           {
             "key": "36mN2eP",
@@ -7167,21 +7176,30 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14,
-            "click": 8,
+            "visit": 16,
+            "click": 10,
             "unique": 2,
-            "ctr": 57.1,
-            "dwell": 10
+            "ctr": 62.5,
+            "dwell": 9
+          },
+          {
+            "name": "우리 사이트",
+            "host": "fva.co.kr",
+            "visit": 1,
+            "click": 1,
+            "unique": 0,
+            "ctr": 100,
+            "dwell": 3
           }
         ],
         "device": [
           {
             "name": "모바일",
             "visit": 1,
-            "click": 7,
+            "click": 10,
             "unique": 1,
             "dwell": 26,
-            "ctr": 700
+            "ctr": 1000
           },
           {
             "name": "데스크탑",
@@ -7196,10 +7214,10 @@
           {
             "name": "KR",
             "visit": 2,
-            "click": 9,
+            "click": 12,
             "unique": 2,
             "dwell": 21,
-            "ctr": 450,
+            "ctr": 600,
             "code": "KR"
           }
         ],
@@ -7216,7 +7234,7 @@
           {
             "name": "Seoul",
             "visit": 0,
-            "click": 9,
+            "click": 12,
             "unique": 0,
             "dwell": 0,
             "ctr": 0,
@@ -7230,7 +7248,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 7
+            "clicks": 10
           },
           {
             "key": "4rFKEfH",
