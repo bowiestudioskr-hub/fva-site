@@ -18,7 +18,7 @@
  * ⚠ 문서(HTML·매니페스트)만 다룬다. 이미지·아이콘은 손대지 않는다 —
  *   그것들은 주소에 ?v= 가 붙어 있어 캐시가 오히려 이득이다.
  */
-const 곳간 = 'fva-doc-v1';
+const 곳간 = 'fva-doc-v2';
 
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', (e) => e.waitUntil(self.clients.claim()));
@@ -42,14 +42,29 @@ self.addEventListener('fetch', (e) => {
             || u.pathname.endsWith('/ver.txt');
   if (!문서) return;
 
+  const 항해 = req.mode === 'navigate';
+
   e.respondWith((async () => {
     try {
       /* ⚠ fetch(req, …) 에 그대로 넘기면 안 된다. 문서 요청은 mode 가 'navigate' 인데
            사양이 navigate 요청을 fetch() 에 넣는 걸 금지한다 — TypeError 로 죽는다.
-           그래서 **주소로 새 요청을 만들어** 보낸다. (2026-08-28 실제로 여기서 깨졌다) */
+           그래서 **주소로 새 요청을 만들어** 보낸다. (2026-08-28 실제로 여기서 깨졌다)
+
+         ⚠ 그리고 화면 이동일 때는 redirect 를 **'manual'** 로 받아야 한다.
+           'follow' 로 받으면 돌려받은 응답에 redirected 표시가 붙는데,
+           **사양이 그런 응답을 화면 이동에 쓰는 걸 금지한다** — 브라우저가
+           ERR_FAILED 로 죽는다. 그래서 폴더 주소처럼 끝에 / 가 없어
+           301 이 나는 주소(fva.co.kr/ambassador 같은 것)가 전부 안 열렸다.
+           (2026-09-03. 서비스워커가 깔린 브라우저에서만 나던 증상이라 한참 헤맸다.)
+           'manual' 로 받으면 opaqueredirect 가 오고, 그대로 돌려주면
+           **브라우저가 자기가 알아서** /ambassador/ 로 따라간다. */
       const res = await fetch(req.url, {
-        cache: 'no-store', credentials: 'same-origin', redirect: 'follow',
+        cache: 'no-store', credentials: 'same-origin',
+        redirect: 항해 ? 'manual' : 'follow',
       });
+      /* 리다이렉트는 곳간에 담지 않고 그대로 넘긴다 (opaqueredirect 는 status 가 0 이다) */
+      if (항해 && (res.type === 'opaqueredirect' || (res.status >= 300 && res.status < 400)))
+        return res;
       if (res && res.ok) {
         const c = await caches.open(곳간);
         c.put(req.url, res.clone()).catch(() => {});

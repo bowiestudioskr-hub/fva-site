@@ -13,7 +13,7 @@
  * ⚠ 문서(HTML·매니페스트)만 다룬다. 이미지·아이콘은 손대지 않는다 —
  *   그것들은 주소에 ?v= 가 붙어 있어 캐시가 오히려 이득이다.
  */
-const 곳간 = 'oh501-doc-v1';
+const 곳간 = 'oh501-doc-v2';
 
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', (e) => e.waitUntil(self.clients.claim()));
@@ -37,14 +37,24 @@ self.addEventListener('fetch', (e) => {
             || u.pathname.endsWith('/ver.txt');
   if (!문서) return;
 
+  const 항해 = req.mode === 'navigate';
+
   e.respondWith((async () => {
     try {
       /* ⚠ fetch(req, …) 에 그대로 넘기면 안 된다. 문서 요청은 mode 가 'navigate' 인데
            사양이 navigate 요청을 fetch() 에 넣는 걸 금지한다 — TypeError 로 죽는다.
-           그래서 **주소로 새 요청을 만들어** 보낸다. (2026-08-28 실제로 여기서 깨졌다) */
+           그래서 **주소로 새 요청을 만들어** 보낸다. (2026-08-28 실제로 여기서 깨졌다)
+
+         ⚠ 화면 이동일 때는 redirect 를 **'manual'** 로 받는다. 'follow' 로 받으면
+           redirected 표시가 붙은 응답이 오는데, 사양이 그걸 화면 이동에 쓰는 걸
+           금지해서 ERR_FAILED 로 죽는다. 끝에 / 가 없는 폴더 주소가 전부 안 열렸다.
+           (2026-09-03) */
       const res = await fetch(req.url, {
-        cache: 'no-store', credentials: 'same-origin', redirect: 'follow',
+        cache: 'no-store', credentials: 'same-origin',
+        redirect: 항해 ? 'manual' : 'follow',
       });
+      if (항해 && (res.type === 'opaqueredirect' || (res.status >= 300 && res.status < 400)))
+        return res;
       if (res && res.ok) {
         const c = await caches.open(곳간);
         c.put(req.url, res.clone()).catch(() => {});
