@@ -102,6 +102,9 @@
   }
   .opendrive:active{ opacity:.6 }
   /* 영상은 폰에서 647px 을 먹는다. 문안을 읽을 때는 접어 두면 점검표와 초안이 한 화면에 들어온다. */
+  /* 같은 영상을 두 벌 올린 경우 목록에서 빼려고 쓴다. 드라이브 원본은 그대로다. */
+  .vid .hide{background:var(--card2);color:var(--dim);border:0;border-radius:999px;
+    padding:5px 10px;font:inherit;font-size:11.5px;font-weight:700;cursor:pointer;white-space:nowrap}
   .vid .fold{background:var(--card2);color:var(--sub);border:0;border-radius:999px;
     padding:5px 10px;font:inherit;font-size:11.5px;font-weight:700;cursor:pointer;white-space:nowrap}
   .vid.folded .player{display:none}
@@ -229,7 +232,7 @@
     .jbtn button{padding:12px 6px;font-size:13px}
     .mk{padding:13px 18px;font-size:13.5px}
     .dh .cp,.dh .use{padding:13px 14px;font-size:13px}
-    .vid .fold,.opendrive{padding:13px 13px;font-size:13px}
+    .vid .fold,.vid .hide,.opendrive{padding:13px 13px;font-size:13px}
     .row2 select,.row2 button{padding:12px 15px}
     .judge>summary{padding:13px 12px}
   }
@@ -305,7 +308,10 @@ function render(d) {
   };
 
   $('list').innerHTML = (d.사람 || []).map(p => {
-    const files = p.파일 || [];
+    /* ⚠ 같은 영상을 두 벌 올리는 일이 있다(배속본/원본). 화면이 지저분해지니 숨길 수 있게 한다.
+         **드라이브 원본은 건드리지 않는다** — 목록에서만 뺀다. 되살리려면 서버에서 숨김을 지운다. */
+    const 숨김 = p.숨김 || {};
+    const files = (p.파일 || []).filter(f => !숨김[f.id]);
     const 피드백 = p.피드백 || {};
     const 끝난것 = files.filter(f => (피드백[f.id] || {}).상태 === '게시완료').length;
     const bar = Array.from({ length: p.편수 || 6 }, (_, i) =>
@@ -335,6 +341,7 @@ function render(d) {
             <span class="nm"><b>${esc(f.이름)}</b>
               <small>${esc(f.올린날)} · ${esc(f.크기)}</small></span>
             <span class="tb"><button type="button" class="fold">영상 접기</button>
+              <button type="button" class="hide">숨기기</button>
               <a class="opendrive" href="https://drive.google.com/file/d/${esc(f.id)}/view"
                  target="_blank" rel="noopener">원본 크게</a></span></div>
           <div class="player">
@@ -443,6 +450,21 @@ function render(d) {
   const 늘리기 = ta => { ta.style.height = 'auto'; ta.style.height = (ta.scrollHeight + 4) + 'px'; };
   document.querySelectorAll('.vid .fb').forEach(ta => {
     늘리기(ta); ta.addEventListener('input', () => 늘리기(ta));
+  });
+
+  /* 숨기기 — 목록에서만 뺀다. 드라이브 원본은 그대로 둔다. */
+  document.querySelectorAll('.vid .hide').forEach(b => b.onclick = async () => {
+    const box = b.closest('.vid');
+    const 사람 = (d.사람 || []).find(x => x.id === box.dataset.p);
+    if (!confirm('이 영상을 목록에서 숨길까요?\n(드라이브 파일은 그대로 있습니다)')) return;
+    사람.숨김 = 사람.숨김 || {}; 사람.숨김[box.dataset.f] = 1;
+    const 보낼것 = { ...사람 }; delete 보낼것.파일;
+    b.disabled = true; b.textContent = '숨기는 중';
+    try {
+      await fetch(feed(`amb=save&who=${encodeURIComponent(box.dataset.p)}` +
+        `&data=${encodeURIComponent(JSON.stringify(보낼것))}`));
+      box.remove();
+    } catch { b.textContent = '실패'; b.disabled = false; }
   });
 
   /* 복사 — 앰버서더에게는 이 글을 그대로 카톡으로 보낸다. 그래서 붙여넣기가 본 쓰임이다.
