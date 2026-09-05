@@ -269,6 +269,8 @@
   }
   .ch.nv{background:rgba(3,199,90,.16);color:#03C75A}
   .ch.gg{background:rgba(66,133,244,.18);color:#6BA0F8}
+  /* 필름메이커스 — 그 사이트의 초록 버튼 색을 그대로 가져왔다 */
+  .ch.fm{background:rgba(34,116,68,.20);color:#5FBF88}
   .card > h3 .ch{margin-right:0}
 
   .pill{font-size:11px;font-weight:800;border-radius:99px;padding:2px 8px;
@@ -580,13 +582,27 @@ function render(){
           <div class="sub">${num(clk)}클릭 · ${won(cost)}${note ? ' · ' + note : ''}</div>
         </div>
         <div class="vn">${cpc ? won(cpc) : '—'}<em>클릭당</em></div></li>`;
+      /* 필커도 나란히 놓는다. 채널이 둘일 때는 「어디가 싸냐」로 끝나지만
+         셋이 되면 「브랜드 방어는 네이버, 신규 유입은 필커」처럼 역할이 갈린다. */
+      const fCpc = per(FILMMAKERS.cost, FILMMAKERS.clk);
+      const worst3 = Math.max(nCpc || 0, gCpc || 0, fCpc || 0) || 1;
+      const line3 = (name, cpc, cost, clk, note) => `<li>
+        <div class="rowbar">
+          <div class="nm">${name}</div>
+          <div class="track"><i style="width:${Math.max(Math.round((cpc || 0) / worst3 * 100), 3)}%"></i></div>
+          <div class="sub">${num(clk)}클릭 · ${won(cost)}${note ? ' · ' + note : ''}</div>
+        </div>
+        <div class="vn">${cpc ? won(cpc) : '—'}<em>클릭당</em></div></li>`;
       A.push(card('클릭 하나에 얼마인가', [
-        line('<span class="ch gg">구글</span>구글', gCpc, G.cost, G.clk, '최근 30일 고정'),
-        line('<span class="ch nv">네이버</span>네이버', nCpc, nP.cost, nP.clk, esc(r.label)),
-      ], '', { memo: ((nCpc && gCpc && nCpc > gCpc * 3)
-          ? `네이버가 구글보다 <b>${Math.round(nCpc / gCpc)}배</b> 비쌉니다. 같은 돈이면 구글에서 훨씬 많은 사람을 데려옵니다. `
-          : '')
-        + '네이버는 선택한 기간, <b>구글은 최근 30일 고정</b>입니다 — 구글은 계정 화면에서 읽어오는 값이라 기간을 나눌 수 없습니다.' }));
+        line3('<span class="ch fm">필커</span>필름메이커스', fCpc, FILMMAKERS.cost, FILMMAKERS.clk, FILMMAKERS.기간),
+        line3('<span class="ch gg">구글</span>구글', gCpc, G.cost, G.clk, '최근 30일 고정'),
+        line3('<span class="ch nv">네이버</span>네이버', nCpc, nP.cost, nP.clk, esc(r.label)),
+      ], '', { memo:
+          '<b>네이버는 브랜드 검색만</b> 남겨 둔 상태입니다. 「피바아카데미」를 이미 아는 사람이 '
+        + '검색했을 때 남에게 뺏기지 않으려고 지키는 자리라, 비싸다고 끌 자리가 아닙니다. '
+        + '<b>새 사람을 데려오는 값</b>은 필커와 구글을 견주면 됩니다. '
+        + '기간이 다릅니다 — 네이버는 선택한 기간, 구글은 최근 30일 고정, '
+        + `필커는 ${esc(FILMMAKERS.기간)} 한 번 집행분(손으로 적어 둔 값)입니다.` }));
     }
 
     /* 하루씩 얼마 나갔는지. 합계만 보면 예산을 올린 날 소진 속도가 어떻게 달라졌는지 안 보인다. */
@@ -616,11 +632,17 @@ function render(){
                                    + (gStale > 180 ? ` <b style="color:var(--ads)">⚠ ${Math.round(gStale/60)}시간째 멈춤 — 크롬 창을 띄워두세요</b>` : '')
                                  : '<a href="' + esc(G.console) + '" target="_blank" rel="noopener">계정 열기</a>',
                G.cost != null ? `${won(G.cost)}<em>노출 ${num(G.imp)} · 클릭 ${num(G.clk)} · 평균 ${won(G.cpc)}</em>` : ''),
+      // 필커는 API 가 없어 손으로 적어 둔 값이다. 언제 것인지 줄에 박아 둔다.
+      plainRow('<span class="ch fm">필커</span>필름메이커스', esc(FILMMAKERS.기간) + ' 집행분 · 손으로 적은 값',
+               `${won(FILMMAKERS.cost)}<em>노출 ${num(FILMMAKERS.imp)} · 클릭 ${num(FILMMAKERS.clk)}</em>`),
       plainRow('남은 예산', '네이버', won(n.balance)),
     ], '', { right: pill(n.live, n.state),
+      /* ⚠ 이 줄은 「지금 켜져 있는 그룹」만 센 값이다. 캠페인 안에는 꺼둔 그룹이 여섯 더 있고
+           그것들의 지난 지출이 계정 화면에는 그대로 남는다. 둘이 다른 이유를 밝혀 둔다.
+           (2026-09-03 전에는 반대였다 — 꺼진 그룹을 세고 도는 그룹을 빼고 있었다) */
       memo: n.campaignClk != null && (n.campaignImp !== n.imp)
-        ? `위 수치는 <b>새로 짠 세 그룹</b>만 센 것입니다. 같은 캠페인 안에 옛 브랜드 그룹이 남아 있어 `
-          + `계정에서는 노출 ${num(n.campaignImp)} · 클릭 ${num(n.campaignClk)} · ${won(n.campaignCost)}로 보입니다.`
+        ? `위 수치는 <b>지금 돌고 있는 그룹</b>만 센 것입니다. 같은 캠페인에 꺼둔 그룹들이 남아 있어 `
+          + `계정 화면에서는 지난 지출까지 합쳐 노출 ${num(n.campaignImp)} · 클릭 ${num(n.campaignClk)} · ${won(n.campaignCost)}로 보입니다.`
         : '' }));
 
     // ⚠ 리틀리는 「리틀리」 화면에서 따로 본다. 여기에 또 두면 같은 것을 두 번 보게 되고,
@@ -730,6 +752,15 @@ document.getElementById('tabbar').addEventListener('click', e => {
    429 를 내며 배포를 거른다 — 2026-08-17 에 실제로 났다.
    data 브랜치는 Pages 가 안 보므로 올려도 사이트를 다시 짓지 않는다.
    raw 가 막히거나 늦을 때를 대비해 사이트 안의 옛 파일로 물러선다. */
+/* ⚠ 필름메이커스는 광고 API 가 없다. 「내 광고」 화면에 뜨는 값을 손으로 옮겨 적는다.
+   집행이 끝날 때마다 여기만 고치면 아래 채널 비교에 자동으로 들어간다.
+   (2026-09-03 첫 집행분 기록. 그때는 UTM 을 안 붙여서 231클릭이 뭘 했는지는 모른다.) */
+const FILMMAKERS = {
+  이름: '필커', 기간: '2026.08.17~08.23',
+  imp: 187557, clk: 231, cost: 69300,
+  적은날: '2026-09-03',
+};
+
 const ADS_RAW = 'https://raw.githubusercontent.com/bowiestudioskr-hub/fva-site/data/data/ads-9c4e17.json';
 
 /* 「2026. 8. 17. PM 11:50:12」 형식이라 Date 가 그냥은 못 읽는다. 손으로 뜯는다.
