@@ -186,7 +186,7 @@ def html():
     A(f'  <h2 class="bs-hawd bs-rv">{tl("b-award", "수상한 아카데미")}</h2>')
     A('  <p class="bs-awdlogo bs-rv"><span class="sr-only">FVA ACADEMY</span>'
       '<img src="assets/img/basic/ico/fva-word.svg" width="354" height="35" loading="lazy" alt="" aria-hidden="true"></p>')
-    A('  <p class="bs-awd8 tb bs-rv">영상공모전 8연속 수상!</p>')
+    A('  <p class="bs-awd8 tb bs-rv">영상공모전 9연속 수상!</p>')
     A('  <hr class="bs-rule3 bs-rv">')
     A('  <ul class="bs-awdlist tb">')
     for 줄 in 수상:
