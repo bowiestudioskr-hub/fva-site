@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 9. 7. PM 11:39:55",
+  "updated": "2026. 9. 7. PM 11:55:52",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 77,
     "dailyBudget": 2500,
     "balance": 22016,
-    "imp": 103,
+    "imp": 105,
     "clk": 9,
     "cost": 704,
     "byPeriod": {
       "1": {
-        "imp": 33,
+        "imp": 35,
         "clk": 1,
         "cost": 77
       },
       "7": {
-        "imp": 2575,
+        "imp": 2577,
         "clk": 15,
         "cost": 8328
       },
       "28": {
-        "imp": 23461,
+        "imp": 23463,
         "clk": 75,
         "cost": 78059
       },
       "90": {
-        "imp": 93956,
+        "imp": 93958,
         "clk": 160,
         "cost": 84910
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-09-07",
-        "imp": 33,
+        "imp": 35,
         "clk": 1,
         "cost": 77
       }
     ],
-    "campaignImp": 23461,
+    "campaignImp": 23463,
     "campaignClk": 75,
     "campaignCost": 78059,
     "groups": [
@@ -802,10 +802,10 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 4,
+            "imp": 6,
             "clk": 0,
             "cost": 0,
-            "rank": 2.5
+            "rank": 2.3
           },
           {
             "word": "보위스튜디오",
@@ -10209,7 +10209,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 9. 7. PM 11:39:39",
+    "updated": "2026. 9. 7. PM 11:55:38",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10219,29 +10219,29 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 56,
-        "click": 28,
+        "visit": 59,
+        "click": 29,
         "unique": 7,
-        "ctr": 50,
-        "dwell": 32
+        "ctr": 49.2,
+        "dwell": 33
       },
       "7": {
-        "visit": 347,
-        "click": 240,
+        "visit": 350,
+        "click": 241,
         "unique": 71,
-        "ctr": 69.2,
+        "ctr": 68.9,
         "dwell": 92
       },
       "28": {
-        "visit": 2890,
-        "click": 923,
+        "visit": 2893,
+        "click": 924,
         "unique": 273,
         "ctr": 31.9,
         "dwell": 45
       },
       "90": {
-        "visit": 5455,
-        "click": 2754,
+        "visit": 5458,
+        "click": 2755,
         "unique": 273,
         "ctr": 50.5,
         "dwell": 45
@@ -10254,8 +10254,8 @@
         "dwell": 51
       },
       "all": {
-        "visit": 35031,
-        "click": 14584,
+        "visit": 35034,
+        "click": 14585,
         "unique": 273,
         "ctr": 41.6,
         "dwell": 45
@@ -12778,8 +12778,8 @@
       },
       {
         "d": "2026-09-07",
-        "visit": 56,
-        "click": 28,
+        "visit": 59,
+        "click": 29,
         "unique": 7
       }
     ],
@@ -12787,8 +12787,8 @@
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14824,
-        "click": 3441,
+        "visit": 14825,
+        "click": 3442,
         "unique": 96,
         "ctr": 23.2,
         "dwell": 59
@@ -12796,11 +12796,11 @@
       {
         "name": "인스타 (앱 미리보기)",
         "host": "instagram.com",
-        "visit": 3678,
+        "visit": 3680,
         "click": 37,
         "unique": 60,
         "ctr": 1,
-        "dwell": 4
+        "dwell": 5
       },
       {
         "name": "리틀리 안에서",
@@ -13177,7 +13177,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 151
+        "clicks": 152
       },
       {
         "key": "QuhY7oT",
@@ -13800,20 +13800,20 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 24,
-            "click": 19,
+            "visit": 25,
+            "click": 20,
             "unique": 1,
-            "ctr": 79.2,
-            "dwell": 46
+            "ctr": 80,
+            "dwell": 44
           },
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 11,
+            "visit": 13,
             "click": 1,
             "unique": 0,
-            "ctr": 9.1,
-            "dwell": 8
+            "ctr": 7.7,
+            "dwell": 21
           },
           {
             "name": "우리 사이트",
@@ -13975,20 +13975,20 @@
         ],
         "blocks": [
           {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 10
+          },
+          {
             "key": "Norn5x4",
             "name": "커리큘럼 페이지",
             "gone": false,
             "kind": "site",
             "img": true,
             "clicks": 10
-          },
-          {
-            "key": "bby1R8Y",
-            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 9
           },
           {
             "key": "4rFKEfH",
@@ -14021,8 +14021,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 217,
-            "click": 192,
+            "visit": 218,
+            "click": 193,
             "unique": 45,
             "ctr": 88.5,
             "dwell": 113
@@ -14039,11 +14039,11 @@
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 11,
+            "visit": 13,
             "click": 1,
             "unique": 0,
-            "ctr": 9.1,
-            "dwell": 8
+            "ctr": 7.7,
+            "dwell": 21
           },
           {
             "name": "리틀리 안에서",
@@ -14408,7 +14408,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 64
+            "clicks": 65
           },
           {
             "key": "Norn5x4",
@@ -14489,8 +14489,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 901,
-            "click": 699,
+            "visit": 902,
+            "click": 700,
             "unique": 96,
             "ctr": 77.6,
             "dwell": 59
@@ -14498,11 +14498,11 @@
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 797,
+            "visit": 799,
             "click": 12,
             "unique": 60,
             "ctr": 1.5,
-            "dwell": 4
+            "dwell": 5
           },
           {
             "name": "페이스북",
@@ -15027,7 +15027,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 151
+            "clicks": 152
           },
           {
             "key": "IHsH0Mk",
@@ -15164,8 +15164,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2558,
-            "click": 1993,
+            "visit": 2559,
+            "click": 1994,
             "unique": 96,
             "ctr": 77.9,
             "dwell": 59
@@ -15173,11 +15173,11 @@
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 828,
+            "visit": 830,
             "click": 14,
             "unique": 60,
             "ctr": 1.7,
-            "dwell": 4
+            "dwell": 5
           },
           {
             "name": "페이스북",
@@ -15813,7 +15813,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 151
+            "clicks": 152
           },
           {
             "key": "7B6wmTP",
@@ -15934,8 +15934,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14824,
-            "click": 3441,
+            "visit": 14825,
+            "click": 3442,
             "unique": 96,
             "ctr": 23.2,
             "dwell": 59
@@ -15943,11 +15943,11 @@
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 3678,
+            "visit": 3680,
             "click": 37,
             "unique": 60,
             "ctr": 1,
-            "dwell": 4
+            "dwell": 5
           },
           {
             "name": "리틀리 안에서",
@@ -16714,7 +16714,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 151
+            "clicks": 152
           },
           {
             "key": "QuhY7oT",
@@ -16947,20 +16947,20 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 24,
-            "click": 19,
+            "visit": 25,
+            "click": 20,
             "unique": 1,
-            "ctr": 79.2,
-            "dwell": 46
+            "ctr": 80,
+            "dwell": 44
           },
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 11,
+            "visit": 13,
             "click": 1,
             "unique": 0,
-            "ctr": 9.1,
-            "dwell": 8
+            "ctr": 7.7,
+            "dwell": 21
           },
           {
             "name": "우리 사이트",
@@ -17122,20 +17122,20 @@
         ],
         "blocks": [
           {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 10
+          },
+          {
             "key": "Norn5x4",
             "name": "커리큘럼 페이지",
             "gone": false,
             "kind": "site",
             "img": true,
             "clicks": 10
-          },
-          {
-            "key": "bby1R8Y",
-            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 9
           },
           {
             "key": "4rFKEfH",
