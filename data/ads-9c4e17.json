@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 9. 9. AM 12:56:33",
+  "updated": "2026. 9. 9. AM 1:12:21",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -10209,7 +10209,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 9. 9. AM 12:56:20",
+    "updated": "2026. 9. 9. AM 1:12:08",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10219,30 +10219,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 9,
+        "visit": 13,
         "click": 1,
-        "unique": 6,
-        "ctr": 11.1,
-        "dwell": 5
+        "unique": 8,
+        "ctr": 7.7,
+        "dwell": 4
       },
       "7": {
-        "visit": 367,
+        "visit": 371,
         "click": 223,
-        "unique": 65,
-        "ctr": 60.8,
+        "unique": 67,
+        "ctr": 60.1,
         "dwell": 88
       },
       "28": {
-        "visit": 2660,
+        "visit": 2664,
         "click": 866,
-        "unique": 285,
-        "ctr": 32.6,
+        "unique": 287,
+        "ctr": 32.5,
         "dwell": 43
       },
       "90": {
-        "visit": 5431,
+        "visit": 5435,
         "click": 2699,
-        "unique": 285,
+        "unique": 287,
         "ctr": 49.7,
         "dwell": 43
       },
@@ -10254,9 +10254,9 @@
         "dwell": 18
       },
       "all": {
-        "visit": 35115,
+        "visit": 35119,
         "click": 14614,
-        "unique": 285,
+        "unique": 287,
         "ctr": 41.6,
         "dwell": 43
       }
@@ -12790,16 +12790,16 @@
       },
       {
         "d": "2026-09-09",
-        "visit": 9,
+        "visit": 13,
         "click": 1,
-        "unique": 6
+        "unique": 8
       }
     ],
     "sources": [
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14743,
+        "visit": 14745,
         "click": 3460,
         "unique": 96,
         "ctr": 23.5,
@@ -12808,9 +12808,9 @@
       {
         "name": "인스타 (앱 미리보기)",
         "host": "instagram.com",
-        "visit": 3724,
+        "visit": 3725,
         "click": 44,
-        "unique": 64,
+        "unique": 65,
         "ctr": 1.2,
         "dwell": 6
       },
@@ -12826,9 +12826,9 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 830,
+        "visit": 831,
         "click": 0,
-        "unique": 53,
+        "unique": 54,
         "ctr": 0,
         "dwell": 9
       },
@@ -13419,11 +13419,11 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 2095,
+        "visit": 2096,
         "click": 1315,
-        "unique": 243,
+        "unique": 244,
         "dwell": 16,
-        "ctr": 62.8
+        "ctr": 62.7
       },
       {
         "name": "데스크탑",
@@ -13435,20 +13435,20 @@
       },
       {
         "name": "태블릿",
-        "visit": 14,
+        "visit": 15,
         "click": 8,
-        "unique": 0,
-        "dwell": 0,
-        "ctr": 57.1
+        "unique": 1,
+        "dwell": 1,
+        "ctr": 53.3
       }
     ],
     "country": [
       {
         "name": "KR",
-        "visit": 25563,
+        "visit": 25565,
         "click": 1421,
-        "unique": 241,
-        "dwell": 95,
+        "unique": 243,
+        "dwell": 94,
         "ctr": 5.6,
         "code": "KR"
       },
@@ -13627,11 +13627,11 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 1899,
+        "visit": 1901,
         "click": 1219,
-        "unique": 211,
-        "dwell": 32,
-        "ctr": 64.2,
+        "unique": 213,
+        "dwell": 31,
+        "ctr": 64.1,
         "code": "KR"
       },
       {
@@ -13812,59 +13812,67 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 6,
+            "visit": 7,
             "click": 0,
-            "unique": 5,
+            "unique": 6,
             "ctr": 0,
-            "dwell": 9
+            "dwell": 6
           },
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 2,
+            "visit": 3,
             "click": 0,
-            "unique": 1,
+            "unique": 2,
             "ctr": 0,
             "dwell": 2
           },
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 1,
+            "visit": 3,
             "click": 1,
             "unique": 0,
-            "ctr": 100,
+            "ctr": 33.3,
             "dwell": 4
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 7,
+            "visit": 8,
             "click": 1,
-            "unique": 6,
+            "unique": 7,
             "dwell": 6,
-            "ctr": 14.3
+            "ctr": 12.5
+          },
+          {
+            "name": "태블릿",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 1,
+            "ctr": 0
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 7,
+            "visit": 9,
             "click": 1,
-            "unique": 6,
-            "dwell": 6,
-            "ctr": 14.3,
+            "unique": 8,
+            "dwell": 5,
+            "ctr": 11.1,
             "code": "KR"
           }
         ],
         "city": [
           {
             "name": "Seoul",
-            "visit": 7,
+            "visit": 9,
             "click": 0,
-            "unique": 6,
-            "dwell": 6,
+            "unique": 8,
+            "dwell": 5,
             "ctr": 0,
             "code": "KR"
           },
@@ -13894,19 +13902,19 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 194,
+            "visit": 196,
             "click": 180,
             "unique": 33,
-            "ctr": 92.8,
+            "ctr": 91.8,
             "dwell": 122
           },
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 57,
+            "visit": 58,
             "click": 8,
-            "unique": 4,
-            "ctr": 14,
+            "unique": 5,
+            "ctr": 13.8,
             "dwell": 16
           },
           {
@@ -13921,11 +13929,11 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 10,
+            "visit": 11,
             "click": 0,
-            "unique": 6,
+            "unique": 7,
             "ctr": 0,
-            "dwell": 20
+            "dwell": 17
           },
           {
             "name": "m.place.naver.com",
@@ -13985,11 +13993,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 63,
+            "visit": 64,
             "click": 84,
-            "unique": 52,
+            "unique": 53,
             "dwell": 17,
-            "ctr": 133.3
+            "ctr": 131.3
           },
           {
             "name": "데스크탑",
@@ -13998,16 +14006,24 @@
             "unique": 13,
             "dwell": 2102,
             "ctr": 43.8
+          },
+          {
+            "name": "태블릿",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 1,
+            "ctr": 0
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 59,
+            "visit": 61,
             "click": 88,
-            "unique": 48,
-            "dwell": 419,
-            "ctr": 149.2,
+            "unique": 50,
+            "dwell": 412,
+            "ctr": 144.3,
             "code": "KR"
           },
           {
@@ -14095,11 +14111,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 47,
+            "visit": 49,
             "click": 76,
-            "unique": 37,
-            "dwell": 84,
-            "ctr": 161.7,
+            "unique": 39,
+            "dwell": 82,
+            "ctr": 155.1,
             "code": "KR"
           },
           {
@@ -14353,27 +14369,27 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 842,
+            "visit": 844,
             "click": 649,
             "unique": 96,
-            "ctr": 77.1,
+            "ctr": 76.9,
             "dwell": 58
           },
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 702,
+            "visit": 703,
             "click": 18,
-            "unique": 64,
+            "unique": 65,
             "ctr": 2.6,
             "dwell": 6
           },
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 660,
+            "visit": 661,
             "click": 0,
-            "unique": 53,
+            "unique": 54,
             "ctr": 0,
             "dwell": 9
           },
@@ -14489,9 +14505,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 810,
+            "visit": 811,
             "click": 213,
-            "unique": 243,
+            "unique": 244,
             "dwell": 16,
             "ctr": 26.3
           },
@@ -14505,21 +14521,21 @@
           },
           {
             "name": "태블릿",
-            "visit": 3,
+            "visit": 4,
             "click": 0,
-            "unique": 0,
-            "dwell": 0,
+            "unique": 1,
+            "dwell": 1,
             "ctr": 0
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 792,
+            "visit": 794,
             "click": 233,
-            "unique": 241,
-            "dwell": 95,
-            "ctr": 29.4,
+            "unique": 243,
+            "dwell": 94,
+            "ctr": 29.3,
             "code": "KR"
           },
           {
@@ -14697,11 +14713,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 715,
+            "visit": 717,
             "click": 167,
-            "unique": 211,
-            "dwell": 32,
-            "ctr": 23.4,
+            "unique": 213,
+            "dwell": 31,
+            "ctr": 23.3,
             "code": "KR"
           },
           {
@@ -15028,27 +15044,27 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2481,
+            "visit": 2483,
             "click": 1939,
             "unique": 96,
-            "ctr": 78.2,
+            "ctr": 78.1,
             "dwell": 58
           },
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 874,
+            "visit": 875,
             "click": 21,
-            "unique": 64,
+            "unique": 65,
             "ctr": 2.4,
             "dwell": 6
           },
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 689,
+            "visit": 690,
             "click": 0,
-            "unique": 53,
+            "unique": 54,
             "ctr": 0,
             "dwell": 9
           },
@@ -15227,11 +15243,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1426,
+            "visit": 1427,
             "click": 721,
-            "unique": 243,
+            "unique": 244,
             "dwell": 16,
-            "ctr": 50.6
+            "ctr": 50.5
           },
           {
             "name": "데스크탑",
@@ -15243,21 +15259,21 @@
           },
           {
             "name": "태블릿",
-            "visit": 4,
+            "visit": 5,
             "click": 2,
-            "unique": 0,
-            "dwell": 0,
-            "ctr": 50
+            "unique": 1,
+            "dwell": 1,
+            "ctr": 40
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 1474,
+            "visit": 1476,
             "click": 791,
-            "unique": 241,
-            "dwell": 95,
-            "ctr": 53.7,
+            "unique": 243,
+            "dwell": 94,
+            "ctr": 53.6,
             "code": "KR"
           },
           {
@@ -15435,10 +15451,10 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1317,
+            "visit": 1319,
             "click": 667,
-            "unique": 211,
-            "dwell": 32,
+            "unique": 213,
+            "dwell": 31,
             "ctr": 50.6,
             "code": "KR"
           },
@@ -15798,7 +15814,7 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14743,
+            "visit": 14745,
             "click": 3460,
             "unique": 96,
             "ctr": 23.5,
@@ -15807,9 +15823,9 @@
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 3724,
+            "visit": 3725,
             "click": 44,
-            "unique": 64,
+            "unique": 65,
             "ctr": 1.2,
             "dwell": 6
           },
@@ -15825,9 +15841,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 830,
+            "visit": 831,
             "click": 0,
-            "unique": 53,
+            "unique": 54,
             "ctr": 0,
             "dwell": 9
           },
@@ -16024,11 +16040,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 2095,
+            "visit": 2096,
             "click": 1315,
-            "unique": 243,
+            "unique": 244,
             "dwell": 16,
-            "ctr": 62.8
+            "ctr": 62.7
           },
           {
             "name": "데스크탑",
@@ -16040,20 +16056,20 @@
           },
           {
             "name": "태블릿",
-            "visit": 14,
+            "visit": 15,
             "click": 8,
-            "unique": 0,
-            "dwell": 0,
-            "ctr": 57.1
+            "unique": 1,
+            "dwell": 1,
+            "ctr": 53.3
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 25563,
+            "visit": 25565,
             "click": 1421,
-            "unique": 241,
-            "dwell": 95,
+            "unique": 243,
+            "dwell": 94,
             "ctr": 5.6,
             "code": "KR"
           },
@@ -16232,11 +16248,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1899,
+            "visit": 1901,
             "click": 1219,
-            "unique": 211,
-            "dwell": 32,
-            "ctr": 64.2,
+            "unique": 213,
+            "dwell": 31,
+            "ctr": 64.1,
             "code": "KR"
           },
           {
@@ -16811,59 +16827,67 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 6,
+            "visit": 7,
             "click": 0,
-            "unique": 5,
+            "unique": 6,
             "ctr": 0,
-            "dwell": 9
+            "dwell": 6
           },
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 2,
+            "visit": 3,
             "click": 0,
-            "unique": 1,
+            "unique": 2,
             "ctr": 0,
             "dwell": 2
           },
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 1,
+            "visit": 3,
             "click": 1,
             "unique": 0,
-            "ctr": 100,
+            "ctr": 33.3,
             "dwell": 4
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 7,
+            "visit": 8,
             "click": 1,
-            "unique": 6,
+            "unique": 7,
             "dwell": 6,
-            "ctr": 14.3
+            "ctr": 12.5
+          },
+          {
+            "name": "태블릿",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 1,
+            "ctr": 0
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 7,
+            "visit": 9,
             "click": 1,
-            "unique": 6,
-            "dwell": 6,
-            "ctr": 14.3,
+            "unique": 8,
+            "dwell": 5,
+            "ctr": 11.1,
             "code": "KR"
           }
         ],
         "city": [
           {
             "name": "Seoul",
-            "visit": 7,
+            "visit": 9,
             "click": 0,
-            "unique": 6,
-            "dwell": 6,
+            "unique": 8,
+            "dwell": 5,
             "ctr": 0,
             "code": "KR"
           },
