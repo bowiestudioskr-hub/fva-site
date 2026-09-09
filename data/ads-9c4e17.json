@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 9. 9. PM 12:31:04",
+  "updated": "2026. 9. 9. PM 12:47:11",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,29 +8,29 @@
     "pending": 72,
     "dailyBudget": 2500,
     "balance": 21856,
-    "imp": 140,
-    "clk": 10,
-    "cost": 792,
+    "imp": 141,
+    "clk": 11,
+    "cost": 865,
     "byPeriod": {
       "1": {
-        "imp": 6,
-        "clk": 0,
-        "cost": 0
+        "imp": 7,
+        "clk": 1,
+        "cost": 73
       },
       "7": {
-        "imp": 205,
-        "clk": 10,
-        "cost": 792
+        "imp": 206,
+        "clk": 11,
+        "cost": 865
       },
       "28": {
-        "imp": 23498,
-        "clk": 76,
-        "cost": 78147
+        "imp": 23499,
+        "clk": 77,
+        "cost": 78220
       },
       "90": {
-        "imp": 84743,
-        "clk": 148,
-        "cost": 83934
+        "imp": 84744,
+        "clk": 149,
+        "cost": 84007
       },
       "y": {
         "imp": 29,
@@ -119,14 +119,14 @@
       },
       {
         "d": "2026-09-09",
-        "imp": 6,
-        "clk": 0,
-        "cost": 0
+        "imp": 7,
+        "clk": 1,
+        "cost": 73
       }
     ],
-    "campaignImp": 23498,
-    "campaignClk": 76,
-    "campaignCost": 78147,
+    "campaignImp": 23499,
+    "campaignClk": 77,
+    "campaignCost": 78220,
     "groups": [
       {
         "id": "grp-a001-01-000000066183708",
@@ -222,9 +222,9 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 74,
-            "clk": 2,
-            "cost": 176,
+            "imp": 75,
+            "clk": 3,
+            "cost": 249,
             "rank": 1.5
           },
           {
@@ -10209,7 +10209,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 9. 9. PM 12:30:46",
+    "updated": "2026. 9. 9. PM 12:46:54",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10219,28 +10219,28 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 73,
+        "visit": 78,
         "click": 7,
         "unique": 36,
-        "ctr": 9.6,
+        "ctr": 9,
         "dwell": 6
       },
       "7": {
-        "visit": 431,
+        "visit": 436,
         "click": 229,
         "unique": 95,
-        "ctr": 53.1,
+        "ctr": 52.5,
         "dwell": 81
       },
       "28": {
-        "visit": 2724,
+        "visit": 2729,
         "click": 872,
         "unique": 315,
         "ctr": 32,
         "dwell": 42
       },
       "90": {
-        "visit": 5495,
+        "visit": 5500,
         "click": 2705,
         "unique": 315,
         "ctr": 49.2,
@@ -10254,7 +10254,7 @@
         "dwell": 18
       },
       "all": {
-        "visit": 35179,
+        "visit": 35184,
         "click": 14620,
         "unique": 315,
         "ctr": 41.6,
@@ -12790,7 +12790,7 @@
       },
       {
         "d": "2026-09-09",
-        "visit": 73,
+        "visit": 78,
         "click": 7,
         "unique": 36
       }
@@ -12817,7 +12817,7 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 878,
+        "visit": 883,
         "click": 0,
         "unique": 73,
         "ctr": 0,
@@ -13812,11 +13812,11 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 54,
+            "visit": 59,
             "click": 0,
             "unique": 25,
             "ctr": 0,
-            "dwell": 5
+            "dwell": 6
           },
           {
             "name": "인스타 (앱 미리보기)",
@@ -14014,11 +14014,11 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 58,
+            "visit": 63,
             "click": 0,
             "unique": 26,
             "ctr": 0,
-            "dwell": 8
+            "dwell": 9
           },
           {
             "name": "우리 사이트",
@@ -14497,6 +14497,15 @@
             "dwell": 57
           },
           {
+            "name": "페이스북",
+            "host": "m.facebook.com",
+            "visit": 713,
+            "click": 0,
+            "unique": 73,
+            "ctr": 0,
+            "dwell": 8
+          },
+          {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
             "visit": 710,
@@ -14504,15 +14513,6 @@
             "unique": 71,
             "ctr": 2.5,
             "dwell": 6
-          },
-          {
-            "name": "페이스북",
-            "host": "m.facebook.com",
-            "visit": 708,
-            "click": 0,
-            "unique": 73,
-            "ctr": 0,
-            "dwell": 8
           },
           {
             "name": "우리 사이트",
@@ -15183,7 +15183,7 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 737,
+            "visit": 742,
             "click": 0,
             "unique": 73,
             "ctr": 0,
@@ -15953,7 +15953,7 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 878,
+            "visit": 883,
             "click": 0,
             "unique": 73,
             "ctr": 0,
@@ -16948,11 +16948,11 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 54,
+            "visit": 59,
             "click": 0,
             "unique": 25,
             "ctr": 0,
-            "dwell": 5
+            "dwell": 6
           },
           {
             "name": "인스타 (앱 미리보기)",
