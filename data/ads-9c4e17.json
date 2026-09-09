@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 9. 9. AM 9:35:00",
+  "updated": "2026. 9. 9. AM 9:50:54",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 88,
     "dailyBudget": 2500,
     "balance": 21928,
-    "imp": 135,
+    "imp": 136,
     "clk": 10,
     "cost": 792,
     "byPeriod": {
       "1": {
-        "imp": 1,
+        "imp": 2,
         "clk": 0,
         "cost": 0
       },
       "7": {
-        "imp": 200,
+        "imp": 201,
         "clk": 10,
         "cost": 792
       },
       "28": {
-        "imp": 23493,
+        "imp": 23494,
         "clk": 76,
         "cost": 78147
       },
       "90": {
-        "imp": 84738,
+        "imp": 84739,
         "clk": 148,
         "cost": 83934
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-09-09",
-        "imp": 1,
+        "imp": 2,
         "clk": 0,
         "cost": 0
       }
     ],
-    "campaignImp": 23493,
+    "campaignImp": 23494,
     "campaignClk": 76,
     "campaignCost": 78147,
     "groups": [
@@ -10209,7 +10209,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 9. 9. AM 9:33:48",
+    "updated": "2026. 9. 9. AM 9:50:34",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10219,31 +10219,31 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 48,
+        "visit": 50,
         "click": 2,
-        "unique": 21,
-        "ctr": 4.2,
+        "unique": 22,
+        "ctr": 4,
         "dwell": 3
       },
       "7": {
-        "visit": 406,
+        "visit": 408,
         "click": 224,
-        "unique": 80,
-        "ctr": 55.2,
+        "unique": 81,
+        "ctr": 54.9,
         "dwell": 84
       },
       "28": {
-        "visit": 2699,
+        "visit": 2701,
         "click": 867,
-        "unique": 300,
+        "unique": 301,
         "ctr": 32.1,
         "dwell": 43
       },
       "90": {
-        "visit": 5470,
+        "visit": 5472,
         "click": 2700,
-        "unique": 300,
-        "ctr": 49.4,
+        "unique": 301,
+        "ctr": 49.3,
         "dwell": 43
       },
       "y": {
@@ -10254,9 +10254,9 @@
         "dwell": 18
       },
       "all": {
-        "visit": 35154,
+        "visit": 35156,
         "click": 14615,
-        "unique": 300,
+        "unique": 301,
         "ctr": 41.6,
         "dwell": 43
       }
@@ -12790,9 +12790,9 @@
       },
       {
         "d": "2026-09-09",
-        "visit": 48,
+        "visit": 50,
         "click": 2,
-        "unique": 21
+        "unique": 22
       }
     ],
     "sources": [
@@ -12817,9 +12817,9 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 861,
+        "visit": 863,
         "click": 0,
-        "unique": 64,
+        "unique": 65,
         "ctr": 0,
         "dwell": 8
       },
@@ -13419,10 +13419,10 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 2115,
+        "visit": 2117,
         "click": 1316,
-        "unique": 257,
-        "dwell": 16,
+        "unique": 258,
+        "dwell": 15,
         "ctr": 62.2
       },
       {
@@ -13579,6 +13579,15 @@
         "code": "VN"
       },
       {
+        "name": "PH",
+        "visit": 15,
+        "click": 0,
+        "unique": 2,
+        "dwell": 4,
+        "ctr": 0,
+        "code": "PH"
+      },
+      {
         "name": "TH",
         "visit": 14,
         "click": 0,
@@ -13604,15 +13613,6 @@
         "dwell": 0,
         "ctr": 0,
         "code": "ID"
-      },
-      {
-        "name": "PH",
-        "visit": 13,
-        "click": 0,
-        "unique": 1,
-        "dwell": 8,
-        "ctr": 0,
-        "code": "PH"
       },
       {
         "name": "HU",
@@ -13812,9 +13812,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 37,
+            "visit": 39,
             "click": 0,
-            "unique": 16,
+            "unique": 17,
             "ctr": 0,
             "dwell": 3
           },
@@ -13840,11 +13840,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 27,
+            "visit": 29,
             "click": 2,
-            "unique": 20,
+            "unique": 21,
             "dwell": 3,
-            "ctr": 7.4
+            "ctr": 6.9
           },
           {
             "name": "태블릿",
@@ -13873,6 +13873,15 @@
             "dwell": 0,
             "ctr": 0,
             "code": "GB"
+          },
+          {
+            "name": "PH",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "PH"
           }
         ],
         "city": [
@@ -13893,6 +13902,15 @@
             "dwell": 0,
             "ctr": 0,
             "code": "GB"
+          },
+          {
+            "name": "Quezon City",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "PH"
           },
           {
             "name": "Incheon",
@@ -13938,9 +13956,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 41,
+            "visit": 43,
             "click": 0,
-            "unique": 17,
+            "unique": 18,
             "ctr": 0,
             "dwell": 8
           },
@@ -14011,11 +14029,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 83,
+            "visit": 85,
             "click": 85,
-            "unique": 66,
+            "unique": 67,
             "dwell": 15,
-            "ctr": 102.4
+            "ctr": 100
           },
           {
             "name": "데스크탑",
@@ -14070,6 +14088,15 @@
             "dwell": 0,
             "ctr": 0,
             "code": "GB"
+          },
+          {
+            "name": "PH",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "PH"
           },
           {
             "name": "BG",
@@ -14200,6 +14227,15 @@
             "code": "KR"
           },
           {
+            "name": "Quezon City",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "PH"
+          },
+          {
             "name": "Reston",
             "visit": 2,
             "click": 0,
@@ -14305,15 +14341,6 @@
             "unique": 1,
             "dwell": 18,
             "ctr": 200,
-            "code": "US"
-          },
-          {
-            "name": "Springfield",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
             "code": "US"
           }
         ],
@@ -14423,9 +14450,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 691,
+            "visit": 693,
             "click": 0,
-            "unique": 64,
+            "unique": 65,
             "ctr": 0,
             "dwell": 8
           },
@@ -14541,11 +14568,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 830,
+            "visit": 832,
             "click": 214,
-            "unique": 257,
-            "dwell": 16,
-            "ctr": 25.8
+            "unique": 258,
+            "dwell": 15,
+            "ctr": 25.7
           },
           {
             "name": "데스크탑",
@@ -14620,6 +14647,15 @@
             "code": "SG"
           },
           {
+            "name": "PH",
+            "visit": 6,
+            "click": 0,
+            "unique": 2,
+            "dwell": 4,
+            "ctr": 0,
+            "code": "PH"
+          },
+          {
             "name": "HK",
             "visit": 5,
             "click": 0,
@@ -14663,15 +14699,6 @@
             "dwell": 7,
             "ctr": 0,
             "code": "IN"
-          },
-          {
-            "name": "PH",
-            "visit": 4,
-            "click": 0,
-            "unique": 1,
-            "dwell": 8,
-            "ctr": 0,
-            "code": "PH"
           },
           {
             "name": "VN",
@@ -14847,6 +14874,15 @@
             "code": "GB"
           },
           {
+            "name": "Quezon City",
+            "visit": 4,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "PH"
+          },
+          {
             "name": "알 수 없음",
             "visit": 4,
             "click": 3,
@@ -14917,15 +14953,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "US"
-          },
-          {
-            "name": "Teixeira de Freitas",
-            "visit": 2,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "BR"
           }
         ],
         "blocks": [
@@ -15098,9 +15125,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 720,
+            "visit": 722,
             "click": 0,
-            "unique": 64,
+            "unique": 65,
             "ctr": 0,
             "dwell": 8
           },
@@ -15279,10 +15306,10 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1446,
+            "visit": 1448,
             "click": 722,
-            "unique": 257,
-            "dwell": 16,
+            "unique": 258,
+            "dwell": 15,
             "ctr": 49.9
           },
           {
@@ -15394,6 +15421,15 @@
             "code": "VN"
           },
           {
+            "name": "PH",
+            "visit": 6,
+            "click": 0,
+            "unique": 2,
+            "dwell": 4,
+            "ctr": 0,
+            "code": "PH"
+          },
+          {
             "name": "DK",
             "visit": 5,
             "click": 7,
@@ -15428,15 +15464,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "NL"
-          },
-          {
-            "name": "PH",
-            "visit": 4,
-            "click": 0,
-            "unique": 1,
-            "dwell": 8,
-            "ctr": 0,
-            "code": "PH"
           },
           {
             "name": "SA",
@@ -15657,13 +15684,13 @@
             "code": "GB"
           },
           {
-            "name": "Frankfurt am Main",
+            "name": "Quezon City",
             "visit": 4,
             "click": 0,
-            "unique": 0,
+            "unique": 1,
             "dwell": 0,
             "ctr": 0,
-            "code": "DE"
+            "code": "PH"
           }
         ],
         "blocks": [
@@ -15868,9 +15895,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 861,
+            "visit": 863,
             "click": 0,
-            "unique": 64,
+            "unique": 65,
             "ctr": 0,
             "dwell": 8
           },
@@ -16076,10 +16103,10 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 2115,
+            "visit": 2117,
             "click": 1316,
-            "unique": 257,
-            "dwell": 16,
+            "unique": 258,
+            "dwell": 15,
             "ctr": 62.2
           },
           {
@@ -16236,6 +16263,15 @@
             "code": "VN"
           },
           {
+            "name": "PH",
+            "visit": 15,
+            "click": 0,
+            "unique": 2,
+            "dwell": 4,
+            "ctr": 0,
+            "code": "PH"
+          },
+          {
             "name": "TH",
             "visit": 14,
             "click": 0,
@@ -16261,15 +16297,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "ID"
-          },
-          {
-            "name": "PH",
-            "visit": 13,
-            "click": 0,
-            "unique": 1,
-            "dwell": 8,
-            "ctr": 0,
-            "code": "PH"
           },
           {
             "name": "HU",
@@ -16863,9 +16890,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 37,
+            "visit": 39,
             "click": 0,
-            "unique": 16,
+            "unique": 17,
             "ctr": 0,
             "dwell": 3
           },
@@ -16891,11 +16918,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 27,
+            "visit": 29,
             "click": 2,
-            "unique": 20,
+            "unique": 21,
             "dwell": 3,
-            "ctr": 7.4
+            "ctr": 6.9
           },
           {
             "name": "태블릿",
@@ -16924,6 +16951,15 @@
             "dwell": 0,
             "ctr": 0,
             "code": "GB"
+          },
+          {
+            "name": "PH",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "PH"
           }
         ],
         "city": [
@@ -16944,6 +16980,15 @@
             "dwell": 0,
             "ctr": 0,
             "code": "GB"
+          },
+          {
+            "name": "Quezon City",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "PH"
           },
           {
             "name": "Incheon",
