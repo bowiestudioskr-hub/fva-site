@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 9. 14. PM 3:31:26",
+  "updated": "2026. 9. 14. PM 3:47:28",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 88,
     "dailyBudget": 2500,
     "balance": 21305,
-    "imp": 332,
+    "imp": 333,
     "clk": 18,
     "cost": 1415,
     "byPeriod": {
       "1": {
-        "imp": 12,
+        "imp": 13,
         "clk": 1,
         "cost": 88
       },
       "7": {
-        "imp": 227,
+        "imp": 228,
         "clk": 9,
         "cost": 711
       },
       "28": {
-        "imp": 18369,
+        "imp": 18370,
         "clk": 79,
         "cost": 78273
       },
       "90": {
-        "imp": 55925,
+        "imp": 55926,
         "clk": 121,
         "cost": 81622
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-09-14",
-        "imp": 12,
+        "imp": 13,
         "clk": 1,
         "cost": 88
       }
     ],
-    "campaignImp": 23690,
+    "campaignImp": 23691,
     "campaignClk": 84,
     "campaignCost": 78770,
     "groups": [
@@ -222,7 +222,7 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 228,
+            "imp": 229,
             "clk": 6,
             "cost": 497,
             "rank": 1.2
@@ -10209,7 +10209,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 9. 14. PM 3:31:08",
+    "updated": "2026. 9. 14. PM 3:47:10",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10219,29 +10219,29 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 79,
-        "click": 10,
+        "visit": 82,
+        "click": 11,
         "unique": 5,
-        "ctr": 12.7,
+        "ctr": 13.4,
         "dwell": 21
       },
       "7": {
-        "visit": 1185,
-        "click": 176,
+        "visit": 1188,
+        "click": 177,
         "unique": 132,
         "ctr": 14.9,
         "dwell": 14
       },
       "28": {
-        "visit": 2769,
-        "click": 741,
+        "visit": 2772,
+        "click": 742,
         "unique": 398,
         "ctr": 26.8,
         "dwell": 33
       },
       "90": {
-        "visit": 6242,
-        "click": 2646,
+        "visit": 6245,
+        "click": 2647,
         "unique": 398,
         "ctr": 42.4,
         "dwell": 33
@@ -10254,8 +10254,8 @@
         "dwell": 10
       },
       "all": {
-        "visit": 36160,
-        "click": 14732,
+        "visit": 36163,
+        "click": 14733,
         "unique": 398,
         "ctr": 40.7,
         "dwell": 33
@@ -12820,8 +12820,8 @@
       },
       {
         "d": "2026-09-14",
-        "visit": 79,
-        "click": 10,
+        "visit": 82,
+        "click": 11,
         "unique": 5
       }
     ],
@@ -12829,8 +12829,8 @@
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14590,
-        "click": 3526,
+        "visit": 14592,
+        "click": 3527,
         "unique": 108,
         "ctr": 24.2,
         "dwell": 53
@@ -13190,20 +13190,20 @@
         "clicks": 216
       },
       {
+        "key": "bby1R8Y",
+        "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+        "gone": false,
+        "kind": "store",
+        "img": true,
+        "clicks": 187
+      },
+      {
         "key": "IHsH0Mk",
         "name": "스마트스토어 · 3개월 풀코스 *추천*",
         "gone": true,
         "kind": "store",
         "img": true,
         "clicks": 187
-      },
-      {
-        "key": "bby1R8Y",
-        "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
-        "gone": false,
-        "kind": "store",
-        "img": true,
-        "clicks": 186
       },
       {
         "key": "eg5RtRF",
@@ -13478,7 +13478,7 @@
         "visit": 25416,
         "click": 1469,
         "unique": 327,
-        "dwell": 77,
+        "dwell": 76,
         "ctr": 5.8,
         "code": "KR"
       },
@@ -13858,6 +13858,15 @@
             "dwell": 3
           },
           {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 6,
+            "click": 5,
+            "unique": 0,
+            "ctr": 83.3,
+            "dwell": 30
+          },
+          {
             "name": "우리 사이트",
             "host": "fva.co.kr",
             "visit": 5,
@@ -13865,15 +13874,6 @@
             "unique": 0,
             "ctr": 100,
             "dwell": 18
-          },
-          {
-            "name": "인스타 링크 눌러 옴",
-            "host": "l.instagram.com",
-            "visit": 4,
-            "click": 4,
-            "unique": 0,
-            "ctr": 100,
-            "dwell": 29
           }
         ],
         "device": [
@@ -13882,7 +13882,7 @@
             "visit": 6,
             "click": 5,
             "unique": 4,
-            "dwell": 32,
+            "dwell": 31,
             "ctr": 83.3
           },
           {
@@ -13900,7 +13900,7 @@
             "visit": 4,
             "click": 5,
             "unique": 2,
-            "dwell": 12,
+            "dwell": 11,
             "ctr": 125,
             "code": "KR"
           },
@@ -13956,7 +13956,7 @@
             "visit": 0,
             "click": 5,
             "unique": 0,
-            "dwell": 12,
+            "dwell": 11,
             "ctr": 0,
             "code": "KR"
           }
@@ -13985,6 +13985,14 @@
             "kind": "store",
             "img": true,
             "clicks": 2
+          },
+          {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
           },
           {
             "key": "bGTonvP",
@@ -14027,10 +14035,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 134,
-            "click": 104,
+            "visit": 136,
+            "click": 105,
             "unique": 13,
-            "ctr": 77.6,
+            "ctr": 77.2,
             "dwell": 29
           },
           {
@@ -14076,7 +14084,7 @@
             "visit": 152,
             "click": 81,
             "unique": 115,
-            "dwell": 17,
+            "dwell": 16,
             "ctr": 53.3
           },
           {
@@ -14458,7 +14466,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 44
+            "clicks": 45
           },
           {
             "key": "Norn5x4",
@@ -14548,10 +14556,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 697,
-            "click": 542,
+            "visit": 699,
+            "click": 543,
             "unique": 108,
-            "ctr": 77.8,
+            "ctr": 77.7,
             "dwell": 53
           },
           {
@@ -14668,7 +14676,7 @@
             "visit": 590,
             "click": 213,
             "unique": 327,
-            "dwell": 77,
+            "dwell": 76,
             "ctr": 36.1,
             "code": "KR"
           },
@@ -15033,7 +15041,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 186
+            "clicks": 187
           },
           {
             "key": "Norn5x4",
@@ -15178,8 +15186,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2408,
-            "click": 1860,
+            "visit": 2410,
+            "click": 1861,
             "unique": 108,
             "ctr": 77.2,
             "dwell": 53
@@ -15406,7 +15414,7 @@
             "visit": 1578,
             "click": 829,
             "unique": 327,
-            "dwell": 77,
+            "dwell": 76,
             "ctr": 52.5,
             "code": "KR"
           },
@@ -15806,20 +15814,20 @@
             "clicks": 188
           },
           {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 187
+          },
+          {
             "key": "IHsH0Mk",
             "name": "스마트스토어 · 3개월 풀코스 *추천*",
             "gone": true,
             "kind": "store",
             "img": true,
             "clicks": 187
-          },
-          {
-            "key": "bby1R8Y",
-            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 186
           },
           {
             "key": "O1PZwO3",
@@ -15948,8 +15956,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14590,
-            "click": 3526,
+            "visit": 14592,
+            "click": 3527,
             "unique": 108,
             "ctr": 24.2,
             "dwell": 53
@@ -16203,7 +16211,7 @@
             "visit": 25416,
             "click": 1469,
             "unique": 327,
-            "dwell": 77,
+            "dwell": 76,
             "ctr": 5.8,
             "code": "KR"
           },
@@ -16699,20 +16707,20 @@
             "clicks": 216
           },
           {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 187
+          },
+          {
             "key": "IHsH0Mk",
             "name": "스마트스토어 · 3개월 풀코스 *추천*",
             "gone": true,
             "kind": "store",
             "img": true,
             "clicks": 187
-          },
-          {
-            "key": "bby1R8Y",
-            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 186
           },
           {
             "key": "eg5RtRF",
@@ -16977,6 +16985,15 @@
             "dwell": 3
           },
           {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 6,
+            "click": 5,
+            "unique": 0,
+            "ctr": 83.3,
+            "dwell": 30
+          },
+          {
             "name": "우리 사이트",
             "host": "fva.co.kr",
             "visit": 5,
@@ -16984,15 +17001,6 @@
             "unique": 0,
             "ctr": 100,
             "dwell": 18
-          },
-          {
-            "name": "인스타 링크 눌러 옴",
-            "host": "l.instagram.com",
-            "visit": 4,
-            "click": 4,
-            "unique": 0,
-            "ctr": 100,
-            "dwell": 29
           }
         ],
         "device": [
@@ -17001,7 +17009,7 @@
             "visit": 6,
             "click": 5,
             "unique": 4,
-            "dwell": 32,
+            "dwell": 31,
             "ctr": 83.3
           },
           {
@@ -17019,7 +17027,7 @@
             "visit": 4,
             "click": 5,
             "unique": 2,
-            "dwell": 12,
+            "dwell": 11,
             "ctr": 125,
             "code": "KR"
           },
@@ -17075,7 +17083,7 @@
             "visit": 0,
             "click": 5,
             "unique": 0,
-            "dwell": 12,
+            "dwell": 11,
             "ctr": 0,
             "code": "KR"
           }
@@ -17104,6 +17112,14 @@
             "kind": "store",
             "img": true,
             "clicks": 2
+          },
+          {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
           },
           {
             "key": "bGTonvP",
