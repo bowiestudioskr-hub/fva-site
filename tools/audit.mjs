@@ -340,9 +340,16 @@ async function adsPass() {
           '보통 하루면 결론이 난다', true);
         // 켜져 있는데 우리가 짠 그룹이 아니면 알린다. 예전 대행사 그룹이 살아 있으면
         // 브랜드 검색까지 돈을 내고, 도착지도 우리가 정한 곳이 아니다.
-        if (!mine && !g.userLock && g.status !== 'PAUSED_BY_USER')
-          add('심각', '광고', `옛 그룹 「${g.name}」이 아직 켜져 있다 (키워드 ${kws.length}개)`,
-            '같은 예산을 나눠 쓰고 도착지가 홈이다');
+        // ⚠ 2026-09-03 부터 옛 그룹을 「브랜드 키워드만 켠 채」 운영한다(광고_네이버/브랜드만.mjs).
+        //   그래서 그룹이 켜진 것 자체는 정상이고, 켜진 키워드 중 비브랜드가 있을 때만 문제다.
+        //   (전에는 꺼둔 874개까지 세서 매번 「심각」 오경보가 났다)
+        if (!mine && !g.userLock && g.status !== 'PAUSED_BY_USER') {
+          const on = kws.filter(k => !k.userLock);
+          const leak = on.filter(k => !/FVA|피바|BOWIE|보위/i.test(k.keyword));
+          if (leak.length)
+            add('심각', '광고', `옛 그룹 「${g.name}」에 비브랜드 키워드 ${leak.length}개가 켜져 있다: ${leak.slice(0, 5).map(k => k.keyword).join(', ')}`,
+              '브랜드만 켜두는 운영이다 — 광고_네이버/브랜드만.mjs --적용 으로 다시 정리');
+        }
         const ads = await api.get('/ncc/ads', { nccAdgroupId: g.nccAdgroupId });
         const live = ads.filter(a => a.status === 'ELIGIBLE');
         if (mine && !live.length) add('심각', '광고', `네이버 「${g.name}」에 살아 있는 소재가 없다`);
