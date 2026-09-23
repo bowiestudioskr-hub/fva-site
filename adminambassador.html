@@ -330,6 +330,13 @@ function render(d) {
       주모음[n] = 주모음[n] || { 끝: false };
       if (났) 주모음[n].끝 = true;
     }
+    /* 영상 말고 다른 방식으로 낸 회차(블로그 등). 드라이브에 파일이 없어 따로 적어 둔다.
+       p.외부 = { "2": { 방식:'블로그', 상태:'게시완료', 메모, 링크 } } — 2026-09-24 승아님 2주차가 처음. */
+    const 외부 = p.외부 || {};
+    for (const n of Object.keys(외부)) {
+      주모음[n] = 주모음[n] || { 끝: false };
+      if (외부[n].상태 === '게시완료') 주모음[n].끝 = true;
+    }
     const 주들번호 = Object.keys(주모음);
     const 끝난것 = 주들번호.filter(n => 주모음[n].끝).length;
     const 진행중 = 주들번호.length - 끝난것;
@@ -351,12 +358,23 @@ function render(d) {
     const 새거 = f => !본것[f.id];
     const 새수 = files.filter(새거).length;
 
-    const 칩 = Object.keys(묶음).sort((a, b) => a - b).map(n => {
+    const 주차목록 = [...new Set([...Object.keys(묶음), ...Object.keys(외부)])].sort((a, b) => a - b);
+    const 칩 = 주차목록.map(n => {
+      if (!묶음[n]) return `<span class="chip">${n}주차 <b>${esc(외부[n].방식 || '기타')}</b> · ${esc(외부[n].상태 || '')}</span>`;
       const 새 = 묶음[n].filter(새거).length;
       return `<span class="chip${새 ? ' new' : ''}">${n}주차 <b>${묶음[n].length}편</b>${새 ? ' · 새 ' + 새 : ''}</span>`;
     }).join('') || '<span class="chip">아직 영상 없음</span>';
 
-    const 주들 = Object.keys(묶음).sort((a, b) => a - b).map(n => {
+    const 주들 = 주차목록.map(n => {
+      if (!묶음[n]) {
+        const x = 외부[n];
+        return `<details class="week"><summary><span class="arr">▶</span>
+            ${n}주차 <small>${주기간(p.개강, +n)}</small>
+            <span class="r">${esc(x.방식 || '기타')}</span></summary>
+          <div class="none"><span class="pill ${esc(x.상태 || '')}">${esc(x.상태 || '')}</span>
+            ${esc(x.방식 || '')}로 완료 — 드라이브 영상 없음${x.메모 ? ' · ' + esc(x.메모) : ''}
+            ${x.링크 ? `<a href="${esc(x.링크)}" target="_blank" rel="noopener" style="color:var(--acc)">열기</a>` : ''}</div></details>`;
+      }
       const 새 = 묶음[n].filter(새거).length;
       const vids = 묶음[n].map(f => {
         const fb = 피드백[f.id] || {};
