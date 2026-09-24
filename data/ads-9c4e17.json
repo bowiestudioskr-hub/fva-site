@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 9. 24. AM 10:21:10",
+  "updated": "2026. 9. 24. AM 10:37:02",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -10248,7 +10248,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 9. 24. AM 10:20:52",
+    "updated": "2026. 9. 24. AM 10:36:45",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10258,30 +10258,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 32,
-        "click": 13,
-        "unique": 10,
-        "ctr": 40.6,
-        "dwell": 23
+        "visit": 35,
+        "click": 14,
+        "unique": 12,
+        "ctr": 40,
+        "dwell": 22
       },
       "7": {
-        "visit": 922,
-        "click": 159,
-        "unique": 214,
-        "ctr": 17.2,
+        "visit": 925,
+        "click": 160,
+        "unique": 216,
+        "ctr": 17.3,
         "dwell": 23
       },
       "28": {
-        "visit": 2796,
-        "click": 659,
-        "unique": 464,
+        "visit": 2799,
+        "click": 660,
+        "unique": 466,
         "ctr": 23.6,
         "dwell": 31
       },
       "90": {
-        "visit": 6976,
-        "click": 2470,
-        "unique": 646,
+        "visit": 6979,
+        "click": 2471,
+        "unique": 648,
         "ctr": 35.4,
         "dwell": 29
       },
@@ -10293,9 +10293,9 @@
         "dwell": 23
       },
       "all": {
-        "visit": 37415,
-        "click": 14954,
-        "unique": 646,
+        "visit": 37418,
+        "click": 14955,
+        "unique": 648,
         "ctr": 40,
         "dwell": 29
       }
@@ -12919,9 +12919,9 @@
       },
       {
         "d": "2026-09-24",
-        "visit": 32,
-        "click": 13,
-        "unique": 10
+        "visit": 35,
+        "click": 14,
+        "unique": 12
       }
     ],
     "sources": [
@@ -12946,9 +12946,9 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 2306,
+        "visit": 2308,
         "click": 0,
-        "unique": 291,
+        "unique": 293,
         "ctr": 0,
         "dwell": 17
       },
@@ -13009,11 +13009,11 @@
       {
         "name": "youtube.com",
         "host": "youtube.com",
-        "visit": 50,
-        "click": 26,
+        "visit": 51,
+        "click": 27,
         "unique": 1,
-        "ctr": 52,
-        "dwell": 17
+        "ctr": 52.9,
+        "dwell": 15
       },
       {
         "name": "네이버 검색",
@@ -13158,7 +13158,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 3144
+        "clicks": 3145
       },
       {
         "key": "bGTonvP",
@@ -13540,11 +13540,11 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 2554,
+        "visit": 2556,
         "click": 1422,
-        "unique": 583,
+        "unique": 585,
         "dwell": 23,
-        "ctr": 55.7
+        "ctr": 55.6
       },
       {
         "name": "데스크탑",
@@ -13566,9 +13566,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 25362,
+        "visit": 25364,
         "click": 1533,
-        "unique": 525,
+        "unique": 527,
         "dwell": 65,
         "ctr": 6,
         "code": "KR"
@@ -13748,11 +13748,11 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 2219,
+        "visit": 2221,
         "click": 1318,
-        "unique": 450,
+        "unique": 452,
         "dwell": 32,
-        "ctr": 59.4,
+        "ctr": 59.3,
         "code": "KR"
       },
       {
@@ -13933,11 +13933,11 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 21,
+            "visit": 23,
             "click": 0,
-            "unique": 8,
+            "unique": 10,
             "ctr": 0,
-            "dwell": 14
+            "dwell": 15
           },
           {
             "name": "인스타 링크 눌러 옴",
@@ -13949,6 +13949,15 @@
             "dwell": 28
           },
           {
+            "name": "youtube.com",
+            "host": "youtube.com",
+            "visit": 2,
+            "click": 7,
+            "unique": 0,
+            "ctr": 350,
+            "dwell": 9
+          },
+          {
             "name": "우리 사이트",
             "host": "fva.co.kr",
             "visit": 1,
@@ -13956,35 +13965,26 @@
             "unique": 0,
             "ctr": 100,
             "dwell": 31
-          },
-          {
-            "name": "youtube.com",
-            "host": "youtube.com",
-            "visit": 1,
-            "click": 6,
-            "unique": 0,
-            "ctr": 600,
-            "dwell": 16
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 15,
+            "visit": 17,
             "click": 1,
-            "unique": 10,
+            "unique": 12,
             "dwell": 5,
-            "ctr": 6.7
+            "ctr": 5.9
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 12,
+            "visit": 14,
             "click": 1,
-            "unique": 8,
+            "unique": 10,
             "dwell": 1,
-            "ctr": 8.3,
+            "ctr": 7.1,
             "code": "KR"
           },
           {
@@ -14009,9 +14009,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 12,
+            "visit": 14,
             "click": 0,
-            "unique": 8,
+            "unique": 10,
             "dwell": 0,
             "ctr": 0,
             "code": "KR"
@@ -14070,6 +14070,14 @@
             "clicks": 2
           },
           {
+            "key": "Norn5x4",
+            "name": "커리큘럼 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 2
+          },
+          {
             "key": "OkhXD1v",
             "name": "수강생 작품보기 (유튜브)",
             "gone": false,
@@ -14094,14 +14102,6 @@
             "clicks": 1
           },
           {
-            "key": "Norn5x4",
-            "name": "커리큘럼 페이지",
-            "gone": false,
-            "kind": "site",
-            "img": true,
-            "clicks": 1
-          },
-          {
             "key": "O1PZwO3",
             "name": "수강 후기 페이지",
             "gone": false,
@@ -14116,9 +14116,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 572,
+            "visit": 574,
             "click": 0,
-            "unique": 145,
+            "unique": 147,
             "ctr": 0,
             "dwell": 33
           },
@@ -14168,6 +14168,15 @@
             "dwell": 1
           },
           {
+            "name": "youtube.com",
+            "host": "youtube.com",
+            "visit": 3,
+            "click": 8,
+            "unique": 0,
+            "ctr": 266.7,
+            "dwell": 10
+          },
+          {
             "name": "pcmap.place.naver.com",
             "host": "pcmap.place.naver.com",
             "visit": 2,
@@ -14175,15 +14184,6 @@
             "unique": 2,
             "ctr": 150,
             "dwell": 18
-          },
-          {
-            "name": "youtube.com",
-            "host": "youtube.com",
-            "visit": 2,
-            "click": 7,
-            "unique": 0,
-            "ctr": 350,
-            "dwell": 14
           },
           {
             "name": "l.facebook.com",
@@ -14198,11 +14198,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 280,
+            "visit": 282,
             "click": 38,
-            "unique": 204,
+            "unique": 206,
             "dwell": 46,
-            "ctr": 13.6
+            "ctr": 13.5
           },
           {
             "name": "데스크탑",
@@ -14216,11 +14216,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 242,
+            "visit": 244,
             "click": 43,
-            "unique": 175,
+            "unique": 177,
             "dwell": 48,
-            "ctr": 17.8,
+            "ctr": 17.6,
             "code": "KR"
           },
           {
@@ -14398,11 +14398,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 225,
+            "visit": 227,
             "click": 34,
-            "unique": 166,
+            "unique": 168,
             "dwell": 55,
-            "ctr": 15.1,
+            "ctr": 15,
             "code": "KR"
           },
           {
@@ -14592,7 +14592,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 31
+            "clicks": 32
           },
           {
             "key": "bby1R8Y",
@@ -14665,9 +14665,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 1488,
+            "visit": 1490,
             "click": 0,
-            "unique": 246,
+            "unique": 248,
             "ctr": 0,
             "dwell": 18
           },
@@ -14728,11 +14728,11 @@
           {
             "name": "youtube.com",
             "host": "youtube.com",
-            "visit": 6,
-            "click": 7,
+            "visit": 7,
+            "click": 8,
             "unique": 0,
-            "ctr": 116.7,
-            "dwell": 17
+            "ctr": 114.3,
+            "dwell": 15
           },
           {
             "name": "bit.ly",
@@ -14774,11 +14774,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 567,
+            "visit": 569,
             "click": 207,
-            "unique": 420,
+            "unique": 422,
             "dwell": 27,
-            "ctr": 36.5
+            "ctr": 36.4
           },
           {
             "name": "데스크탑",
@@ -14800,11 +14800,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 500,
+            "visit": 502,
             "click": 222,
-            "unique": 365,
+            "unique": 367,
             "dwell": 90,
-            "ctr": 44.4,
+            "ctr": 44.2,
             "code": "KR"
           },
           {
@@ -14982,11 +14982,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 421,
+            "visit": 423,
             "click": 194,
-            "unique": 308,
+            "unique": 310,
             "dwell": 37,
-            "ctr": 46.1,
+            "ctr": 45.9,
             "code": "KR"
           },
           {
@@ -15176,7 +15176,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 137
+            "clicks": 138
           },
           {
             "key": "4rFKEfH",
@@ -15258,9 +15258,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 2162,
+            "visit": 2164,
             "click": 0,
-            "unique": 291,
+            "unique": 293,
             "ctr": 0,
             "dwell": 17
           },
@@ -15321,11 +15321,11 @@
           {
             "name": "youtube.com",
             "host": "youtube.com",
-            "visit": 32,
-            "click": 22,
+            "visit": 33,
+            "click": 23,
             "unique": 1,
-            "ctr": 68.8,
-            "dwell": 17
+            "ctr": 69.7,
+            "dwell": 15
           },
           {
             "name": "구글 검색",
@@ -15439,11 +15439,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1732,
+            "visit": 1734,
             "click": 701,
-            "unique": 583,
+            "unique": 585,
             "dwell": 23,
-            "ctr": 40.5
+            "ctr": 40.4
           },
           {
             "name": "데스크탑",
@@ -15465,9 +15465,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 1708,
+            "visit": 1710,
             "click": 783,
-            "unique": 525,
+            "unique": 527,
             "dwell": 65,
             "ctr": 45.8,
             "code": "KR"
@@ -15647,11 +15647,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1507,
+            "visit": 1509,
             "click": 661,
-            "unique": 450,
+            "unique": 452,
             "dwell": 32,
-            "ctr": 43.9,
+            "ctr": 43.8,
             "code": "KR"
           },
           {
@@ -15833,7 +15833,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 529
+            "clicks": 530
           },
           {
             "key": "OkhXD1v",
@@ -16028,9 +16028,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 2306,
+            "visit": 2308,
             "click": 0,
-            "unique": 291,
+            "unique": 293,
             "ctr": 0,
             "dwell": 17
           },
@@ -16091,11 +16091,11 @@
           {
             "name": "youtube.com",
             "host": "youtube.com",
-            "visit": 50,
-            "click": 26,
+            "visit": 51,
+            "click": 27,
             "unique": 1,
-            "ctr": 52,
-            "dwell": 17
+            "ctr": 52.9,
+            "dwell": 15
           },
           {
             "name": "네이버 검색",
@@ -16236,11 +16236,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 2554,
+            "visit": 2556,
             "click": 1422,
-            "unique": 583,
+            "unique": 585,
             "dwell": 23,
-            "ctr": 55.7
+            "ctr": 55.6
           },
           {
             "name": "데스크탑",
@@ -16262,9 +16262,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 25362,
+            "visit": 25364,
             "click": 1533,
-            "unique": 525,
+            "unique": 527,
             "dwell": 65,
             "ctr": 6,
             "code": "KR"
@@ -16444,11 +16444,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 2219,
+            "visit": 2221,
             "click": 1318,
-            "unique": 450,
+            "unique": 452,
             "dwell": 32,
-            "ctr": 59.4,
+            "ctr": 59.3,
             "code": "KR"
           },
           {
@@ -16630,7 +16630,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 3144
+            "clicks": 3145
           },
           {
             "key": "bGTonvP",
@@ -17015,11 +17015,11 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 21,
+            "visit": 23,
             "click": 0,
-            "unique": 8,
+            "unique": 10,
             "ctr": 0,
-            "dwell": 14
+            "dwell": 15
           },
           {
             "name": "인스타 링크 눌러 옴",
@@ -17031,6 +17031,15 @@
             "dwell": 28
           },
           {
+            "name": "youtube.com",
+            "host": "youtube.com",
+            "visit": 2,
+            "click": 7,
+            "unique": 0,
+            "ctr": 350,
+            "dwell": 9
+          },
+          {
             "name": "우리 사이트",
             "host": "fva.co.kr",
             "visit": 1,
@@ -17038,35 +17047,26 @@
             "unique": 0,
             "ctr": 100,
             "dwell": 31
-          },
-          {
-            "name": "youtube.com",
-            "host": "youtube.com",
-            "visit": 1,
-            "click": 6,
-            "unique": 0,
-            "ctr": 600,
-            "dwell": 16
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 15,
+            "visit": 17,
             "click": 1,
-            "unique": 10,
+            "unique": 12,
             "dwell": 5,
-            "ctr": 6.7
+            "ctr": 5.9
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 12,
+            "visit": 14,
             "click": 1,
-            "unique": 8,
+            "unique": 10,
             "dwell": 1,
-            "ctr": 8.3,
+            "ctr": 7.1,
             "code": "KR"
           },
           {
@@ -17091,9 +17091,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 12,
+            "visit": 14,
             "click": 0,
-            "unique": 8,
+            "unique": 10,
             "dwell": 0,
             "ctr": 0,
             "code": "KR"
@@ -17152,6 +17152,14 @@
             "clicks": 2
           },
           {
+            "key": "Norn5x4",
+            "name": "커리큘럼 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 2
+          },
+          {
             "key": "OkhXD1v",
             "name": "수강생 작품보기 (유튜브)",
             "gone": false,
@@ -17173,14 +17181,6 @@
             "gone": false,
             "kind": "chat",
             "img": false,
-            "clicks": 1
-          },
-          {
-            "key": "Norn5x4",
-            "name": "커리큘럼 페이지",
-            "gone": false,
-            "kind": "site",
-            "img": true,
             "clicks": 1
           },
           {
