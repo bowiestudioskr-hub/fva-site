@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 9. 26. AM 1:26:03",
+  "updated": "2026. 9. 26. AM 1:42:04",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 88,
     "dailyBudget": 2500,
     "balance": 18328,
-    "imp": 754,
+    "imp": 755,
     "clk": 54,
     "cost": 4392,
     "byPeriod": {
       "1": {
-        "imp": 0,
+        "imp": 1,
         "clk": 0,
         "cost": 0
       },
       "7": {
-        "imp": 210,
+        "imp": 211,
         "clk": 25,
         "cost": 2018
       },
       "28": {
-        "imp": 4968,
+        "imp": 4969,
         "clk": 65,
         "cost": 14528
       },
       "90": {
-        "imp": 24112,
+        "imp": 24113,
         "clk": 120,
         "cost": 81747
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-09-26",
-        "imp": 0,
+        "imp": 1,
         "clk": 0,
         "cost": 0
       }
     ],
-    "campaignImp": 24112,
+    "campaignImp": 24113,
     "campaignClk": 120,
     "campaignCost": 81747,
     "groups": [
@@ -822,10 +822,10 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 0,
+            "imp": 1,
             "clk": 0,
             "cost": 0,
-            "rank": null
+            "rank": 2
           },
           {
             "word": "BOWIESTUDIOS영상학원",
@@ -10248,7 +10248,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 9. 26. AM 1:25:48",
+    "updated": "2026. 9. 26. AM 1:41:46",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10258,31 +10258,31 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 6,
-        "click": 2,
+        "visit": 8,
+        "click": 4,
         "unique": 1,
-        "ctr": 33.3,
-        "dwell": 6
+        "ctr": 50,
+        "dwell": 8
       },
       "7": {
-        "visit": 892,
-        "click": 174,
+        "visit": 894,
+        "click": 176,
         "unique": 141,
-        "ctr": 19.5,
+        "ctr": 19.7,
         "dwell": 17
       },
       "28": {
-        "visit": 3020,
-        "click": 687,
+        "visit": 3022,
+        "click": 689,
         "unique": 516,
-        "ctr": 22.7,
+        "ctr": 22.8,
         "dwell": 30
       },
       "90": {
-        "visit": 7110,
-        "click": 2428,
+        "visit": 7112,
+        "click": 2430,
         "unique": 706,
-        "ctr": 34.1,
+        "ctr": 34.2,
         "dwell": 29
       },
       "y": {
@@ -10293,8 +10293,8 @@
         "dwell": 12
       },
       "all": {
-        "visit": 37673,
-        "click": 15002,
+        "visit": 37675,
+        "click": 15004,
         "unique": 706,
         "ctr": 39.8,
         "dwell": 29
@@ -12931,8 +12931,8 @@
       },
       {
         "d": "2026-09-26",
-        "visit": 6,
-        "click": 2,
+        "visit": 8,
+        "click": 4,
         "unique": 1
       }
     ],
@@ -13170,7 +13170,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 3161
+        "clicks": 3163
       },
       {
         "key": "bGTonvP",
@@ -14004,6 +14004,14 @@
         ],
         "blocks": [
           {
+            "key": "Norn5x4",
+            "name": "커리큘럼 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 2
+          },
+          {
             "key": "4rFKEfH",
             "name": "스마트스토어 · HOT 3개월 풀코스",
             "gone": false,
@@ -14480,18 +14488,18 @@
         ],
         "blocks": [
           {
-            "key": "4rFKEfH",
-            "name": "스마트스토어 · HOT 3개월 풀코스",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 38
-          },
-          {
             "key": "Norn5x4",
             "name": "커리큘럼 페이지",
             "gone": false,
             "kind": "site",
+            "img": true,
+            "clicks": 40
+          },
+          {
+            "key": "4rFKEfH",
+            "name": "스마트스토어 · HOT 3개월 풀코스",
+            "gone": false,
+            "kind": "store",
             "img": true,
             "clicks": 38
           },
@@ -15055,20 +15063,20 @@
         ],
         "blocks": [
           {
+            "key": "Norn5x4",
+            "name": "커리큘럼 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 154
+          },
+          {
             "key": "bby1R8Y",
             "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
             "gone": false,
             "kind": "store",
             "img": true,
             "clicks": 153
-          },
-          {
-            "key": "Norn5x4",
-            "name": "커리큘럼 페이지",
-            "gone": false,
-            "kind": "site",
-            "img": true,
-            "clicks": 152
           },
           {
             "key": "4rFKEfH",
@@ -15716,7 +15724,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 532
+            "clicks": 534
           },
           {
             "key": "OkhXD1v",
@@ -16513,7 +16521,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 3161
+            "clicks": 3163
           },
           {
             "key": "bGTonvP",
@@ -16956,6 +16964,14 @@
           }
         ],
         "blocks": [
+          {
+            "key": "Norn5x4",
+            "name": "커리큘럼 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 2
+          },
           {
             "key": "4rFKEfH",
             "name": "스마트스토어 · HOT 3개월 풀코스",
