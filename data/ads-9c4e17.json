@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 9. 28. AM 7:27:33",
+  "updated": "2026. 9. 28. AM 7:43:22",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 88,
     "dailyBudget": 2500,
     "balance": 17966,
-    "imp": 814,
+    "imp": 815,
     "clk": 58,
     "cost": 4754,
     "byPeriod": {
       "1": {
-        "imp": 4,
+        "imp": 5,
         "clk": 0,
         "cost": 0
       },
       "7": {
-        "imp": 209,
+        "imp": 210,
         "clk": 26,
         "cost": 2138
       },
       "28": {
-        "imp": 3286,
+        "imp": 3287,
         "clk": 64,
         "cost": 12378
       },
       "90": {
-        "imp": 24172,
+        "imp": 24173,
         "clk": 124,
         "cost": 82109
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-09-28",
-        "imp": 4,
+        "imp": 5,
         "clk": 0,
         "cost": 0
       }
     ],
-    "campaignImp": 24172,
+    "campaignImp": 24173,
     "campaignClk": 124,
     "campaignCost": 82109,
     "groups": [
@@ -10248,7 +10248,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 9. 28. AM 7:27:17",
+    "updated": "2026. 9. 28. AM 7:43:07",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10258,31 +10258,31 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 11,
+        "visit": 17,
         "click": 3,
         "unique": 4,
-        "ctr": 27.3,
-        "dwell": 13
+        "ctr": 17.6,
+        "dwell": 12
       },
       "7": {
-        "visit": 839,
+        "visit": 845,
         "click": 193,
         "unique": 140,
-        "ctr": 23,
+        "ctr": 22.8,
         "dwell": 16
       },
       "28": {
-        "visit": 3206,
+        "visit": 3212,
         "click": 720,
         "unique": 514,
-        "ctr": 22.5,
+        "ctr": 22.4,
         "dwell": 29
       },
       "90": {
-        "visit": 7210,
+        "visit": 7216,
         "click": 2435,
         "unique": 716,
-        "ctr": 33.8,
+        "ctr": 33.7,
         "dwell": 28
       },
       "y": {
@@ -10293,7 +10293,7 @@
         "dwell": 14
       },
       "all": {
-        "visit": 37890,
+        "visit": 37896,
         "click": 15064,
         "unique": 716,
         "ctr": 39.8,
@@ -12943,7 +12943,7 @@
       },
       {
         "d": "2026-09-28",
-        "visit": 11,
+        "visit": 17,
         "click": 3,
         "unique": 4
       }
@@ -12970,7 +12970,7 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 2639,
+        "visit": 2645,
         "click": 0,
         "unique": 338,
         "ctr": 0,
@@ -13955,6 +13955,15 @@
       "1": {
         "sources": [
           {
+            "name": "페이스북",
+            "host": "m.facebook.com",
+            "visit": 10,
+            "click": 0,
+            "unique": 0,
+            "ctr": 0,
+            "dwell": 6
+          },
+          {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
             "visit": 5,
@@ -13962,15 +13971,6 @@
             "unique": 2,
             "ctr": 60,
             "dwell": 18
-          },
-          {
-            "name": "페이스북",
-            "host": "m.facebook.com",
-            "visit": 4,
-            "click": 0,
-            "unique": 0,
-            "ctr": 0,
-            "dwell": 5
           }
         ],
         "device": [
@@ -14092,7 +14092,7 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 588,
+            "visit": 594,
             "click": 0,
             "unique": 97,
             "ctr": 0,
@@ -14641,7 +14641,7 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 1820,
+            "visit": 1826,
             "click": 0,
             "unique": 292,
             "ctr": 0,
@@ -15216,7 +15216,7 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 2494,
+            "visit": 2500,
             "click": 0,
             "unique": 338,
             "ctr": 0,
@@ -15977,7 +15977,7 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 2639,
+            "visit": 2645,
             "click": 0,
             "unique": 338,
             "ctr": 0,
@@ -16962,6 +16962,15 @@
       "y": {
         "sources": [
           {
+            "name": "페이스북",
+            "host": "m.facebook.com",
+            "visit": 10,
+            "click": 0,
+            "unique": 0,
+            "ctr": 0,
+            "dwell": 6
+          },
+          {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
             "visit": 5,
@@ -16969,15 +16978,6 @@
             "unique": 2,
             "ctr": 60,
             "dwell": 18
-          },
-          {
-            "name": "페이스북",
-            "host": "m.facebook.com",
-            "visit": 4,
-            "click": 0,
-            "unique": 0,
-            "ctr": 0,
-            "dwell": 5
           }
         ],
         "device": [
