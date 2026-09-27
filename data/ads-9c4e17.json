@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 9. 28. AM 12:03:06",
+  "updated": "2026. 9. 28. AM 12:18:58",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -10248,40 +10248,40 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 9. 28. AM 12:02:51",
+    "updated": "2026. 9. 28. AM 12:18:43",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
       "처음": "2025-07-15",
-      "마지막": "2026-09-27",
-      "일수": 440
+      "마지막": "2026-09-28",
+      "일수": 441
     },
     "byPeriod": {
       "1": {
-        "visit": 0,
+        "visit": 1,
         "click": 0,
-        "unique": 0,
+        "unique": 1,
         "ctr": 0,
-        "dwell": 0
+        "dwell": 22
       },
       "7": {
-        "visit": 828,
+        "visit": 829,
         "click": 190,
-        "unique": 136,
+        "unique": 137,
         "ctr": 22.9,
         "dwell": 16
       },
       "28": {
-        "visit": 3195,
+        "visit": 3196,
         "click": 717,
-        "unique": 510,
+        "unique": 511,
         "ctr": 22.4,
         "dwell": 30
       },
       "90": {
-        "visit": 7199,
+        "visit": 7200,
         "click": 2432,
-        "unique": 712,
+        "unique": 713,
         "ctr": 33.8,
         "dwell": 28
       },
@@ -10293,9 +10293,9 @@
         "dwell": 14
       },
       "all": {
-        "visit": 37879,
+        "visit": 37880,
         "click": 15061,
-        "unique": 712,
+        "unique": 713,
         "ctr": 39.8,
         "dwell": 28
       }
@@ -12940,15 +12940,21 @@
         "visit": 95,
         "click": 24,
         "unique": 4
+      },
+      {
+        "d": "2026-09-28",
+        "visit": 1,
+        "click": 0,
+        "unique": 1
       }
     ],
     "sources": [
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14483,
+        "visit": 14484,
         "click": 3750,
-        "unique": 156,
+        "unique": 157,
         "ctr": 25.9,
         "dwell": 44
       },
@@ -13558,11 +13564,11 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 2648,
+        "visit": 2649,
         "click": 1442,
-        "unique": 647,
+        "unique": 648,
         "dwell": 22,
-        "ctr": 54.5
+        "ctr": 54.4
       },
       {
         "name": "데스크탑",
@@ -13584,9 +13590,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 25355,
+        "visit": 25356,
         "click": 1552,
-        "unique": 578,
+        "unique": 579,
         "dwell": 60,
         "ctr": 6.1,
         "code": "KR"
@@ -13947,10 +13953,49 @@
     ],
     "byPeriodDetail": {
       "1": {
-        "sources": [],
-        "device": [],
-        "country": [],
-        "city": [],
+        "sources": [
+          {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 22
+          }
+        ],
+        "device": [
+          {
+            "name": "모바일",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 22,
+            "ctr": 0
+          }
+        ],
+        "country": [
+          {
+            "name": "KR",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 22,
+            "ctr": 0,
+            "code": "KR"
+          }
+        ],
+        "city": [
+          {
+            "name": "Chilgok-gun",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 22,
+            "ctr": 0,
+            "code": "KR"
+          }
+        ],
         "blocks": []
       },
       "7": {
@@ -13967,10 +14012,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 155,
+            "visit": 156,
             "click": 134,
-            "unique": 29,
-            "ctr": 86.5,
+            "unique": 30,
+            "ctr": 85.9,
             "dwell": 25
           },
           {
@@ -14040,11 +14085,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 193,
+            "visit": 194,
             "click": 34,
-            "unique": 129,
+            "unique": 130,
             "dwell": 14,
-            "ctr": 17.6
+            "ctr": 17.5
           },
           {
             "name": "데스크탑",
@@ -14058,11 +14103,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 153,
+            "visit": 154,
             "click": 36,
-            "unique": 101,
+            "unique": 102,
             "dwell": 13,
-            "ctr": 23.5,
+            "ctr": 23.4,
             "code": "KR"
           },
           {
@@ -14516,10 +14561,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 603,
+            "visit": 604,
             "click": 501,
-            "unique": 105,
-            "ctr": 83.1,
+            "unique": 106,
+            "ctr": 82.9,
             "dwell": 57
           },
           {
@@ -14607,11 +14652,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 642,
+            "visit": 643,
             "click": 213,
-            "unique": 470,
+            "unique": 471,
             "dwell": 25,
-            "ctr": 33.2
+            "ctr": 33.1
           },
           {
             "name": "데스크탑",
@@ -14633,11 +14678,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 554,
+            "visit": 555,
             "click": 221,
-            "unique": 400,
+            "unique": 401,
             "dwell": 82,
-            "ctr": 39.9,
+            "ctr": 39.8,
             "code": "KR"
           },
           {
@@ -15091,9 +15136,9 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2188,
+            "visit": 2189,
             "click": 1688,
-            "unique": 156,
+            "unique": 157,
             "ctr": 77.1,
             "dwell": 44
           },
@@ -15254,9 +15299,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1772,
+            "visit": 1773,
             "click": 670,
-            "unique": 647,
+            "unique": 648,
             "dwell": 22,
             "ctr": 37.8
           },
@@ -15280,9 +15325,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 1709,
+            "visit": 1710,
             "click": 745,
-            "unique": 578,
+            "unique": 579,
             "dwell": 60,
             "ctr": 43.6,
             "code": "KR"
@@ -15825,9 +15870,9 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14483,
+            "visit": 14484,
             "click": 3750,
-            "unique": 156,
+            "unique": 157,
             "ctr": 25.9,
             "dwell": 44
           },
@@ -16051,11 +16096,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 2648,
+            "visit": 2649,
             "click": 1442,
-            "unique": 647,
+            "unique": 648,
             "dwell": 22,
-            "ctr": 54.5
+            "ctr": 54.4
           },
           {
             "name": "데스크탑",
@@ -16077,9 +16122,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 25355,
+            "visit": 25356,
             "click": 1552,
-            "unique": 578,
+            "unique": 579,
             "dwell": 60,
             "ctr": 6.1,
             "code": "KR"
@@ -16826,10 +16871,49 @@
         ]
       },
       "y": {
-        "sources": [],
-        "device": [],
-        "country": [],
-        "city": [],
+        "sources": [
+          {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 22
+          }
+        ],
+        "device": [
+          {
+            "name": "모바일",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 22,
+            "ctr": 0
+          }
+        ],
+        "country": [
+          {
+            "name": "KR",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 22,
+            "ctr": 0,
+            "code": "KR"
+          }
+        ],
+        "city": [
+          {
+            "name": "Chilgok-gun",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 22,
+            "ctr": 0,
+            "code": "KR"
+          }
+        ],
         "blocks": []
       }
     }
