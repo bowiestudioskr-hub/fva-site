@@ -39,9 +39,9 @@
     font-size:15px;line-height:1.5;padding:22px 16px 84px;font-variant-numeric:tabular-nums}
   .wrap{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
 
-  .hd .row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
-  h1{font-size:24px;letter-spacing:-.03em;font-weight:800}
-  .date{color:var(--dim);font-size:13px}
+  .hd .row{display:flex;align-items:flex-end;justify-content:space-between;gap:4px 12px;flex-wrap:wrap}
+  h1{font-size:24px;letter-spacing:-.03em;font-weight:800;white-space:nowrap}
+  .date{color:var(--dim);font-size:13px;white-space:nowrap}
   .lede{color:var(--sub);font-size:13px;margin-top:5px}
   .lede a{color:inherit}
 
@@ -300,6 +300,15 @@
   .tl-row .tl-list .it small{font-size:12px;opacity:.85}
   .tl-row .tl-list .it:not(.done):not(.now):not(.late) small{color:#8E8E93}
   .tl-row .tl-list{gap:10px 12px}
+
+  .tl-rule{background:rgba(255,55,95,.13);color:#FF8FA3;font-weight:600}
+  .tl-rule b{color:#fff;font-weight:800}
+  .tl-row .tl-list .it em{font-style:normal;font-size:12.5px;color:#FF8FA3;font-weight:700}
+  .tl-row .tl-list .it.done em{display:none}
+
+  /* 한글은 단어 단위로만 꺾는다(모든 화면 공통 규칙 — 「앰버서/더」 사건 2026-09-28) */
+  body{word-break:keep-all;overflow-wrap:anywhere}
+  .tl-h b,.tl-h small,.tl-h .nx,.tl-marks span,.tl-key span,.chip,.pill,button{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -419,7 +428,7 @@ function 일정판(사람들) {
     let 머리 = '<span class="nx fin">모두 완료</span>';
     if (다음 >= 0) {
       const c = 칸[다음], 기한 = c.약속 || c.마감, dd = Math.round((기한 - 오늘) / DAY);
-      머리 = `<span class="nx${dd < 0 ? ' late' : ''}">${다음 + 1}편 마감 ${짧게(기한)} · ${dd < 0 ? `${-dd}일 지남` : dd === 0 ? '오늘' : `D-${dd}`}${상태[다음].글 && 상태[다음].글 !== '마감 지남' ? ' · ' + esc(상태[다음].글) : ''}</span>`;
+      머리 = `<span class="nx${dd < 0 ? ' late' : ''}">${다음 + 1}편 게시 마감 ${짧게(기한)} · ${dd < 0 ? `${-dd}일 지남` : dd === 0 ? '오늘' : `D-${dd}`}${상태[다음].글 && 상태[다음].글 !== '마감 지남' ? ' · ' + esc(상태[다음].글) : ''}</span>`;
       /* 밀린 편이 있으면 그 다음 다가오는 마감도 같이 — 밀린 것만 보고 이번 주 마감을 놓치지 않게 */
       const 곧 = 칸.findIndex((c, i) => i > 다음 && !상태[i].k.startsWith('done') && (c.약속 || c.마감) >= 오늘);
       if (dd < 0 && 곧 >= 0) { const c2 = 칸[곧], d2 = c2.약속 || c2.마감;
@@ -431,8 +440,14 @@ function 일정판(사람들) {
     const 점 = 수업.map((d, i) => `<i class="tl-dot${i === 11 ? ' last' : ''}" style="left:${x(더하기(d, .5))}%"
         title="${i + 1}회차 수업 ${짧게(d)}"></i>`).join('');
     /* 편마다 두 줄 — 「N편 · 마감일」 / 상태. 폭이 좁아도 글자가 칸 중간에서 꺾이지 않게 */
-    const 목록 = 칸.map((c, i) => `<span class="it ${상태[i].k.split(' ')[0]}"><b>${i + 1}편</b> ${짧게(c.약속 || c.마감)}<small>${
-        상태[i].k.startsWith('done') ? '완료 ✓' : 상태[i].k.includes('now') ? esc(상태[i].글) : 상태[i].k === 'late' ? '마감 지남' : '예정'}</small></span>`).join('');
+    /* 날짜는 **최종 게시 마감**이다. 검수(갑 3일) + 수정 시간이 들어가야 하므로 1차 편집본은 5일 앞서 받는다.
+       (2026-09-28 「10/9 는 1차본 수령이 아니라 최종 기준 — 1차본은 더 빨리, 이미지 안에도 보이게」) */
+    const 앞당김 = 5;
+    const 목록 = 칸.map((c, i) => { const 게시 = c.약속 || c.마감, 일차 = 더하기(게시, -앞당김), k = 상태[i].k;
+      const 둘째 = k.startsWith('done') ? '' : k.includes('now') ? `<em>수정본 바로 전달</em>`
+        : `<em>1차본 ${일차 < 오늘 ? '바로' : '~' + 짧게(일차)}</em>`;
+      return `<span class="it ${k.split(' ')[0]}"><b>${i + 1}편</b><span>게시 ~${짧게(게시)}</span>${둘째}<small>${
+        k.startsWith('done') ? '완료 ✓' : k.includes('now') ? esc(상태[i].글) : k === 'late' ? '마감 지남' : '예정'}</small></span>`; }).join('');
     const 범례 = `<div class="tl-key">
         <span><i style="background:var(--ok)"></i>완료</span><span><i style="background:var(--wait)"></i>검수·수정 중</span>
         <span><i style="background:var(--warn)"></i>마감 지남</span><span><i style="background:#3A3A3C"></i>앞으로</span>
@@ -441,6 +456,8 @@ function 일정판(사람들) {
     return `<div class="tl-row">
       <div class="tl-h"><b>${esc(p.이름)} 님</b><small>앰버서더 게시 일정 · ${esc(p.요일)} · 총 ${p.편수}편</small><span class="nxs">${머리}</span></div>
       ${일정예외[p.id] ? `<div class="tl-note">📌 ${esc(일정예외[p.id].메모)}</div>` : ''}
+      <div class="tl-note tl-rule">⚠️ 적힌 날짜는 <b>최종 게시 마감</b>입니다. 검수와 수정 시간이 필요하니
+        <b>1차 편집본은 게시 마감 ${앞당김}일 전까지</b> 먼저 공유해 주세요.</div>
       <div class="tl-axis">${달눈금.join('')}<span class="tl-now" style="left:${x(더하기(오늘, .5))}%">오늘 ${짧게(오늘)}</span></div>
       <div class="tl-bar">${칸들}${점}
         <i class="tl-end" style="left:${x(더하기(종료, 1))}%" title="활동 종료 ${짧게(종료)}"></i>
@@ -803,7 +820,7 @@ function render(d) {
      (2026-09-28 실측 70초 → 「연결 실패」). 두 번까지 자동으로 다시 부르고, 그래도 안 되면 버튼을 준다. */
 async function 불러오기(n = 0) {
   $('alarm').innerHTML = ''; $('date').textContent = n ? `다시 불러오는 중… (${n + 1}번째)` : '불러오는 중…';
-  const 늦음 = setTimeout(() => { $('date').textContent = '드라이브를 새로 읽는 중 — 1분쯤 걸릴 수 있어요'; }, 8000);
+  const 늦음 = setTimeout(() => { $('date').textContent = '드라이브 읽는 중 · 1분쯤 걸려요'; }, 8000);
   try { const r = await fetch(feed('amb=1')); clearTimeout(늦음); render(await r.json()); }
   catch (e) {
     clearTimeout(늦음);
