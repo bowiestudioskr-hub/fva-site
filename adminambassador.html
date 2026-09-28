@@ -268,6 +268,27 @@
   .tl-foot b{color:var(--ink);font-weight:700}
   .tl-key{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--sub);padding:0 16px 4px}
   .tl-key i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+
+  /* ── 일정표 가독성 (2026-09-28 「글자가 잘 안 보인다」) — 캡처해서 폰으로 보내므로 크게 ── */
+  .tl-row{background:var(--card2);border-radius:14px;padding:18px 16px 14px}
+  .tl-h b{font-size:18px} .tl-h small{font-size:13px;color:#C7C7CC}
+  .tl-h .nx{font-size:14.5px}
+  .tl-note{margin-top:10px;padding:9px 12px;border-radius:10px;background:rgba(255,214,10,.12);color:var(--wait);font-size:13.5px;font-weight:700;line-height:1.45}
+  .tl-row .tl-axis{margin-top:12px;height:34px;font-size:12.5px;color:#AEAEB2}
+  .tl-row .tl-axis .tl-now{top:17px;font-size:12.5px}
+  .tl-row .tl-bar{height:40px}
+  .tl-row .tl-slot{height:28px;line-height:28px;font-size:13px;color:#D1D1D6}
+  .tl-row .tl-slot:not(.done):not(.now):not(.late){background:#3A3A3C}
+  .tl-row .tl-dot{top:33px;background:#8E8E93} .tl-row .tl-dot.last{top:31px;width:9px;height:9px;margin-left:-4.5px;background:#fff}
+  .tl-row .tl-slot.done,.tl-row .tl-slot.now{color:#000} .tl-row .tl-slot.late{color:#fff}
+  .tl-row .tl-end{background:#8E8E93;opacity:1}
+  .tl-marks{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:12.5px;color:#C7C7CC;margin-top:4px}
+  .tl-marks b{color:var(--ink)} .tl-marks .r{margin-left:auto}
+  .tl-row .tl-list{font-size:14px;color:#D1D1D6;margin-top:10px;gap:6px 12px;grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+  .tl-row .tl-key{padding:10px 0 0;margin-top:12px;border-top:1px solid #3A3A3C;gap:6px 14px;font-size:12px;color:#C7C7CC}
+  .tl-key .k-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#8E8E93;margin-right:5px;vertical-align:2px}
+  .tl-key .k-dot.big{width:8px;height:8px;background:var(--ink);vertical-align:1px}
+  .tl-key .k-line{display:inline-block;width:2px;height:12px;margin-right:5px;vertical-align:-1px}
 </style>
 </head>
 <body>
@@ -324,15 +345,15 @@ const 짧게 = d => `${d.getMonth() + 1}/${d.getDate()}(${요일[d.getDay()]})`;
 /* 사람별 예외 — 계약 특약·합의된 일정. 이름·연락처는 넣지 않는다(저장소 공개). */
 const 일정예외 = {
   /* 2026-09-28 일정 조정 — 남은 기간(~계약 종료)으로 다시 쪼갬. [칸 시작, 칸 끝, 마감(칸 끝과 다를 때)] */
-  a2: { 메모: '9/28 조정 — 2·3편을 10/9(금)에 함께 마감', 칸: [['2026-08-22', '2026-09-04'],
+  a2: { 메모: '일정 변경 — 2편 수정본과 3편을 10/9(금)까지 함께 올려주세요', 칸: [['2026-08-22', '2026-09-04'],
         ['2026-09-05', '2026-09-25', '2026-10-09'], ['2026-09-26', '2026-10-09'],
         ['2026-10-10', '2026-10-23'], ['2026-10-24', '2026-11-06'], ['2026-11-07', '2026-11-14']] },
   /* 5편 계약 · 사전 고지 불참 주간 면제. 9/9 에 9/30 로 합의했다가 9/28 조정:
      10/2 수업 듣고 2편(~10/8), 10/9 수업 듣고 3편(~10/15), 이후 2주 간격. */
-  a3: { 메모: '9/28 조정 — 불참 주간 면제 반영, 10/2 수업 후 2편', 칸: [['2026-08-21', '2026-09-03'],
+  a3: { 메모: '일정 변경 — 10/2 수업 후 2편은 10/8(목)까지, 10/9 수업 후 3편은 10/15(목)까지 올려주세요', 칸: [['2026-08-21', '2026-09-03'],
         ['2026-09-04', '2026-10-08'], ['2026-10-09', '2026-10-15'],
         ['2026-10-16', '2026-10-29'], ['2026-10-30', '2026-11-13']] },
-  a4: { 메모: '9/28 조정 — 2편 수정본 10/1(목), 3편 10/9(금)', 칸: [['2026-08-22', '2026-09-04'],
+  a4: { 메모: '일정 변경 — 2편 수정본은 10/1(목)까지, 3편은 10/9(금)까지 올려주세요', 칸: [['2026-08-22', '2026-09-04'],
         ['2026-09-05', '2026-10-01'], ['2026-10-02', '2026-10-09'],
         ['2026-10-10', '2026-10-23'], ['2026-10-24', '2026-11-06'], ['2026-11-07', '2026-11-14']] },
 };
@@ -395,25 +416,31 @@ function 일정판(사람들) {
     }
     const 칸들 = 칸.map((c, i) => `<div class="tl-slot ${상태[i].k}${c.약속 && !상태[i].k.startsWith('done') ? ' promise' : ''}"
         style="left:calc(${x(c.시작)}% + 1px);width:calc(${x(더하기(c.마감, 1)) - x(c.시작)}% - 2px)"
-        title="${i + 1}편 ${짧게(c.시작)}~${짧게(c.마감)}${상태[i].글 ? ' · ' + 상태[i].글 : ''}">${i + 1}</div>`).join('');
+        title="${i + 1}편 ${짧게(c.시작)}~${짧게(c.마감)}${상태[i].글 ? ' · ' + 상태[i].글 : ''}">${i + 1}편</div>`).join('');
     const 점 = 수업.map((d, i) => `<i class="tl-dot${i === 11 ? ' last' : ''}" style="left:${x(더하기(d, .5))}%"
         title="${i + 1}회차 수업 ${짧게(d)}"></i>`).join('');
     const 목록 = 칸.map((c, i) => `<span class="${상태[i].k.split(' ')[0]}">${i + 1}편 ~${짧게(c.약속 || c.마감)}${
         ''}${상태[i].k.startsWith('done') ? ' ✓' : 상태[i].k.includes('now') ? ' ' + esc(상태[i].글) : 상태[i].k === 'late' ? ' ✕' : ''}</span>`).join('');
+    const 범례 = `<div class="tl-key">
+        <span><i style="background:var(--ok)"></i>완료</span><span><i style="background:var(--wait)"></i>검수·수정 중</span>
+        <span><i style="background:var(--warn)"></i>마감 지남</span><span><i style="background:#3A3A3C"></i>앞으로</span>
+        <span><b class="k-dot"></b>매주 수업</span><span><b class="k-dot big"></b>마지막 수업</span>
+        <span><b class="k-line" style="background:var(--acc)"></b>오늘</span><span><b class="k-line" style="background:#8E8E93"></b>계약 종료</span></div>`;
     return `<div class="tl-row">
-      <div class="tl-h"><b>${esc(p.이름)}</b><small style="color:var(--dim)">${esc(p.요일)} · ${p.편수}편</small><span class="nxs">${머리}</span></div>
+      <div class="tl-h"><b>${esc(p.이름)} 님</b><small>앰버서더 게시 일정 · ${esc(p.요일)} · 총 ${p.편수}편</small><span class="nxs">${머리}</span></div>
+      ${일정예외[p.id] ? `<div class="tl-note">📌 ${esc(일정예외[p.id].메모)}</div>` : ''}
+      <div class="tl-axis">${달눈금.join('')}<span class="tl-now" style="left:${x(더하기(오늘, .5))}%">오늘 ${짧게(오늘)}</span></div>
       <div class="tl-bar">${칸들}${점}
         <i class="tl-end" style="left:${x(더하기(종료, 1))}%" title="활동 종료 ${짧게(종료)}"></i>
         <i class="tl-today" style="left:${x(더하기(오늘, .5))}%" title="오늘"></i></div>
+      <div class="tl-marks"><span>첫 수업 <b>${짧게(개강)}</b></span>
+        <span class="r">마지막 수업 <b>${짧게(막수업)}</b> · 계약 종료 <b>${짧게(종료)}</b></span></div>
       <div class="tl-list">${목록}</div>
-      <div class="tl-foot">수업 ${짧게(개강)} ~ 마지막 수업 <b>${짧게(막수업)}</b> · 계약 종료 <b>${짧게(종료)}</b>${
-        일정예외[p.id] ? ' · ' + 일정예외[p.id].메모 : ''}</div>
+      ${범례}
     </div>`;
   }).join('');
-  return `<div class="card"><h3>마감 일정 <span class="r">칸 = 약정 한 편 · 점 = 수업 · 보라 세로선 = 오늘 날짜</span></h3>
-    <div class="tl-key"><span><i style="background:var(--ok)"></i>완료</span><span><i style="background:var(--wait)"></i>검수·수정 중</span>
-      <span><i style="background:var(--warn)"></i>마감 지남</span><span><i style="background:var(--card3)"></i>앞으로</span></div>
-    <div class="plan"><div class="tl-axis">${달눈금.join('')}<span class="tl-now" style="left:${x(더하기(오늘, .5))}%">오늘 ${짧게(오늘)}</span></div>${줄}</div></div>`;
+  return `<div class="card"><h3>마감 일정 <span class="r">한 사람씩 캡처해서 보내도 되게 따로 그렸습니다</span></h3>
+    <div class="plan">${줄}</div></div>`;
 }
 
 function render(d) {
