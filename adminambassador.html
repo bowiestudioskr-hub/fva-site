@@ -289,6 +289,17 @@
   .tl-key .k-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#8E8E93;margin-right:5px;vertical-align:2px}
   .tl-key .k-dot.big{width:8px;height:8px;background:var(--ink);vertical-align:1px}
   .tl-key .k-line{display:inline-block;width:2px;height:12px;margin-right:5px;vertical-align:-1px}
+
+  /* 편 목록은 편수만큼 한 줄에 — 한 편만 아랫줄로 떨어지지 않게. 폰에선 3칸씩(6편=3+3, 5편=3+2) */
+  .tl-row .tl-list{grid-template-columns:repeat(var(--n),minmax(0,1fr))}
+  @media (max-width:640px){ .tl-row .tl-list{grid-template-columns:repeat(3,minmax(0,1fr));font-size:13px} }
+
+  .tl-row{word-break:keep-all}
+  .tl-row .tl-list .it{display:flex;flex-direction:column;white-space:nowrap}
+  .tl-row .tl-list .it b{font-weight:800}
+  .tl-row .tl-list .it small{font-size:12px;opacity:.85}
+  .tl-row .tl-list .it:not(.done):not(.now):not(.late) small{color:#8E8E93}
+  .tl-row .tl-list{gap:10px 12px}
 </style>
 </head>
 <body>
@@ -419,8 +430,9 @@ function 일정판(사람들) {
         title="${i + 1}편 ${짧게(c.시작)}~${짧게(c.마감)}${상태[i].글 ? ' · ' + 상태[i].글 : ''}">${i + 1}편</div>`).join('');
     const 점 = 수업.map((d, i) => `<i class="tl-dot${i === 11 ? ' last' : ''}" style="left:${x(더하기(d, .5))}%"
         title="${i + 1}회차 수업 ${짧게(d)}"></i>`).join('');
-    const 목록 = 칸.map((c, i) => `<span class="${상태[i].k.split(' ')[0]}">${i + 1}편 ~${짧게(c.약속 || c.마감)}${
-        ''}${상태[i].k.startsWith('done') ? ' ✓' : 상태[i].k.includes('now') ? ' ' + esc(상태[i].글) : 상태[i].k === 'late' ? ' ✕' : ''}</span>`).join('');
+    /* 편마다 두 줄 — 「N편 · 마감일」 / 상태. 폭이 좁아도 글자가 칸 중간에서 꺾이지 않게 */
+    const 목록 = 칸.map((c, i) => `<span class="it ${상태[i].k.split(' ')[0]}"><b>${i + 1}편</b> ${짧게(c.약속 || c.마감)}<small>${
+        상태[i].k.startsWith('done') ? '완료 ✓' : 상태[i].k.includes('now') ? esc(상태[i].글) : 상태[i].k === 'late' ? '마감 지남' : '예정'}</small></span>`).join('');
     const 범례 = `<div class="tl-key">
         <span><i style="background:var(--ok)"></i>완료</span><span><i style="background:var(--wait)"></i>검수·수정 중</span>
         <span><i style="background:var(--warn)"></i>마감 지남</span><span><i style="background:#3A3A3C"></i>앞으로</span>
@@ -435,7 +447,7 @@ function 일정판(사람들) {
         <i class="tl-today" style="left:${x(더하기(오늘, .5))}%" title="오늘"></i></div>
       <div class="tl-marks"><span>첫 수업 <b>${짧게(개강)}</b></span>
         <span class="r">마지막 수업 <b>${짧게(막수업)}</b> · 계약 종료 <b>${짧게(종료)}</b></span></div>
-      <div class="tl-list">${목록}</div>
+      <div class="tl-list" style="--n:${칸.length}">${목록}</div>
       ${범례}
     </div>`;
   }).join('');
