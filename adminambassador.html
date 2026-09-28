@@ -259,8 +259,9 @@
   .tl-dot.last{background:var(--ink);width:7px;height:7px;margin-left:-3.5px;top:26px}
   .tl-today{position:absolute;top:-4px;bottom:-2px;width:2px;margin-left:-1px;background:var(--acc)}
   .tl-end{position:absolute;top:-4px;bottom:-2px;width:2px;margin-left:-1px;background:var(--ink);opacity:.5}
-  .tl-axis{position:relative;height:14px;margin-bottom:-8px;font-size:10.5px;color:var(--dim)}
-  .tl-axis span{position:absolute;transform:translateX(-50%)}
+  .tl-axis{position:relative;height:30px;margin-bottom:-8px;font-size:10.5px;color:var(--dim)}
+  .tl-axis span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+  .tl-axis .tl-now{top:15px;color:var(--acc);font-weight:800}
   .tl-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:4px 10px;margin-top:6px;font-size:11.5px;color:var(--sub)}
   .tl-list .done{color:var(--ok)} .tl-list .now{color:var(--wait)} .tl-list .late{color:var(--warn)}
   .tl-foot{font-size:11.5px;color:var(--dim);margin-top:4px}
@@ -398,7 +399,7 @@ function 일정판(사람들) {
     const 점 = 수업.map((d, i) => `<i class="tl-dot${i === 11 ? ' last' : ''}" style="left:${x(더하기(d, .5))}%"
         title="${i + 1}회차 수업 ${짧게(d)}"></i>`).join('');
     const 목록 = 칸.map((c, i) => `<span class="${상태[i].k.split(' ')[0]}">${i + 1}편 ~${짧게(c.약속 || c.마감)}${
-        ''}${상태[i].k.startsWith('done') ? (상태[i].늦음 ? ' ✓(늦음)' : ' ✓') : 상태[i].k.includes('now') ? ' ' + esc(상태[i].글) : 상태[i].k === 'late' ? ' ✕' : ''}</span>`).join('');
+        ''}${상태[i].k.startsWith('done') ? ' ✓' : 상태[i].k.includes('now') ? ' ' + esc(상태[i].글) : 상태[i].k === 'late' ? ' ✕' : ''}</span>`).join('');
     return `<div class="tl-row">
       <div class="tl-h"><b>${esc(p.이름)}</b><small style="color:var(--dim)">${esc(p.요일)} · ${p.편수}편</small><span class="nxs">${머리}</span></div>
       <div class="tl-bar">${칸들}${점}
@@ -409,10 +410,10 @@ function 일정판(사람들) {
         일정예외[p.id] ? ' · ' + 일정예외[p.id].메모 : ''}</div>
     </div>`;
   }).join('');
-  return `<div class="card"><h3>마감 일정 <span class="r">칸 = 약정 한 편 · 점 = 수업 · 보라 선 = 오늘</span></h3>
+  return `<div class="card"><h3>마감 일정 <span class="r">칸 = 약정 한 편 · 점 = 수업 · 보라 세로선 = 오늘 날짜</span></h3>
     <div class="tl-key"><span><i style="background:var(--ok)"></i>완료</span><span><i style="background:var(--wait)"></i>검수·수정 중</span>
       <span><i style="background:var(--warn)"></i>마감 지남</span><span><i style="background:var(--card3)"></i>앞으로</span></div>
-    <div class="plan"><div class="tl-axis">${달눈금.join('')}</div>${줄}</div></div>`;
+    <div class="plan"><div class="tl-axis">${달눈금.join('')}<span class="tl-now" style="left:${x(더하기(오늘, .5))}%">오늘 ${짧게(오늘)}</span></div>${줄}</div></div>`;
 }
 
 function render(d) {
