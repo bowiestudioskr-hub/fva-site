@@ -1,50 +1,44 @@
 {
-  "updated": "2026. 9. 28. PM 10:21:10",
+  "updated": "2026. 9. 29. AM 1:00:16",
   "naver": {
     "start": "2026-08-16",
     "live": true,
     "state": "운영",
-    "charged": 264,
+    "charged": 0,
     "pending": 88,
     "dailyBudget": 2500,
-    "balance": 17702,
-    "imp": 837,
-    "clk": 60,
-    "cost": 5018,
+    "balance": 17614,
+    "imp": 842,
+    "clk": 61,
+    "cost": 5106,
     "byPeriod": {
       "1": {
-        "imp": 27,
-        "clk": 2,
-        "cost": 264
+        "imp": 0,
+        "clk": 0,
+        "cost": 0
       },
       "7": {
-        "imp": 232,
-        "clk": 28,
-        "cost": 2402
+        "imp": 198,
+        "clk": 23,
+        "cost": 2006
       },
       "28": {
-        "imp": 3309,
-        "clk": 66,
-        "cost": 12642
+        "imp": 1817,
+        "clk": 64,
+        "cost": 12256
       },
       "90": {
-        "imp": 24195,
-        "clk": 126,
-        "cost": 82373
+        "imp": 24200,
+        "clk": 127,
+        "cost": 82461
       },
       "y": {
         "imp": 32,
-        "clk": 0,
-        "cost": 0
+        "clk": 3,
+        "cost": 352
       }
     },
     "daily": [
-      {
-        "d": "2026-09-15",
-        "imp": 67,
-        "clk": 3,
-        "cost": 242
-      },
       {
         "d": "2026-09-16",
         "imp": 56,
@@ -119,14 +113,20 @@
       },
       {
         "d": "2026-09-28",
-        "imp": 27,
-        "clk": 2,
-        "cost": 264
+        "imp": 32,
+        "clk": 3,
+        "cost": 352
+      },
+      {
+        "d": "2026-09-29",
+        "imp": 0,
+        "clk": 0,
+        "cost": 0
       }
     ],
-    "campaignImp": 24195,
-    "campaignClk": 126,
-    "campaignCost": 82373,
+    "campaignImp": 24200,
+    "campaignClk": 127,
+    "campaignCost": 82461,
     "groups": [
       {
         "id": "grp-a001-01-000000066183708",
@@ -142,10 +142,10 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 31,
-            "clk": 18,
-            "cost": 1458,
-            "rank": 1
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
           },
           {
             "word": "영상FVA아카데미",
@@ -182,20 +182,20 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 1,
-            "clk": 1,
-            "cost": 77,
-            "rank": 1
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
           },
           {
             "word": "피바아카데미",
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 122,
-            "clk": 24,
-            "cost": 1859,
-            "rank": 1
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
           },
           {
             "word": "피바아카데미영상학원",
@@ -222,10 +222,10 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 433,
-            "clk": 11,
-            "cost": 937,
-            "rank": 1.2
+            "imp": 0,
+            "clk": 0,
+            "cost": 0,
+            "rank": null
           },
           {
             "word": "영상종합기획아카데미",
@@ -10235,7 +10235,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 9. 28. PM 10:20:51",
+    "updated": "2026. 9. 28. PM 10:37:20",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10245,28 +10245,28 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 90,
+        "visit": 92,
         "click": 9,
         "unique": 6,
-        "ctr": 10,
+        "ctr": 9.8,
         "dwell": 13
       },
       "7": {
-        "visit": 918,
+        "visit": 920,
         "click": 199,
         "unique": 142,
-        "ctr": 21.7,
+        "ctr": 21.6,
         "dwell": 16
       },
       "28": {
-        "visit": 3285,
+        "visit": 3287,
         "click": 726,
         "unique": 516,
         "ctr": 22.1,
         "dwell": 29
       },
       "90": {
-        "visit": 7289,
+        "visit": 7291,
         "click": 2441,
         "unique": 718,
         "ctr": 33.5,
@@ -10280,7 +10280,7 @@
         "dwell": 14
       },
       "all": {
-        "visit": 37969,
+        "visit": 37971,
         "click": 15070,
         "unique": 718,
         "ctr": 39.7,
@@ -12930,7 +12930,7 @@
       },
       {
         "d": "2026-09-28",
-        "visit": 90,
+        "visit": 92,
         "click": 9,
         "unique": 6
       }
@@ -12939,7 +12939,7 @@
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14505,
+        "visit": 14506,
         "click": 3758,
         "unique": 160,
         "ctr": 25.9,
@@ -12957,7 +12957,7 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 2698,
+        "visit": 2699,
         "click": 0,
         "unique": 338,
         "ctr": 0,
@@ -13944,7 +13944,7 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 63,
+            "visit": 64,
             "click": 0,
             "unique": 0,
             "ctr": 0,
@@ -13953,10 +13953,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 22,
+            "visit": 23,
             "click": 8,
             "unique": 4,
-            "ctr": 36.4,
+            "ctr": 34.8,
             "dwell": 18
           },
           {
@@ -14156,7 +14156,7 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 647,
+            "visit": 648,
             "click": 0,
             "unique": 97,
             "ctr": 0,
@@ -14165,10 +14165,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 177,
+            "visit": 178,
             "click": 142,
             "unique": 33,
-            "ctr": 80.2,
+            "ctr": 79.8,
             "dwell": 24
           },
           {
@@ -14713,7 +14713,7 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 1879,
+            "visit": 1880,
             "click": 0,
             "unique": 292,
             "ctr": 0,
@@ -14722,10 +14722,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 625,
+            "visit": 626,
             "click": 509,
             "unique": 109,
-            "ctr": 81.4,
+            "ctr": 81.3,
             "dwell": 56
           },
           {
@@ -15288,7 +15288,7 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 2553,
+            "visit": 2554,
             "click": 0,
             "unique": 338,
             "ctr": 0,
@@ -15297,7 +15297,7 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2210,
+            "visit": 2211,
             "click": 1696,
             "unique": 160,
             "ctr": 76.7,
@@ -16031,7 +16031,7 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14505,
+            "visit": 14506,
             "click": 3758,
             "unique": 160,
             "ctr": 25.9,
@@ -16049,7 +16049,7 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 2698,
+            "visit": 2699,
             "click": 0,
             "unique": 338,
             "ctr": 0,
@@ -17036,7 +17036,7 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 63,
+            "visit": 64,
             "click": 0,
             "unique": 0,
             "ctr": 0,
@@ -17045,10 +17045,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 22,
+            "visit": 23,
             "click": 8,
             "unique": 4,
-            "ctr": 36.4,
+            "ctr": 34.8,
             "dwell": 18
           },
           {
