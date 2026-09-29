@@ -354,6 +354,10 @@ const esc = v => String(v ?? '').replace(/[&<>"']/g,
    ⚠ 그래서 앰버서더 연락처는 이 화면에 내려보내지 않는다 — 남의 개인정보다.
      번호는 계약서 폴더(~/Documents/FVA/20260822_앰버서더/)에 있다. */
 const feed = q => `${FEED}?${q}`;
+/* 저장은 POST 로 보낸다 — 피드백이 쌓이면 한글이 주소에서 9배로 부풀어 GET 은 구글이 400 을 뱉는다
+   (2026-09-30 주환님 2편에서 18KB 로 막힘). text/plain 이라 사전요청(CORS preflight)이 없다. */
+const 저장보내기 = (who, 사람) => fetch(FEED, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+  body: JSON.stringify({ amb: 'save', who, data: JSON.stringify(사람) }) }).then(r => r.json());
 
 const 상태들 = ['대기', '검수중', '수정요청', '게시완료'];
 
@@ -750,8 +754,7 @@ function render(d) {
     const 보낼것 = { ...사람 }; delete 보낼것.파일;
     b.disabled = true; b.textContent = '숨기는 중';
     try {
-      await fetch(feed(`amb=save&who=${encodeURIComponent(box.dataset.p)}` +
-        `&data=${encodeURIComponent(JSON.stringify(보낼것))}`));
+      await 저장보내기(box.dataset.p, 보낼것);
       box.remove();
     } catch { b.textContent = '실패'; b.disabled = false; }
   });
@@ -856,8 +859,7 @@ function render(d) {
     const 보낼것 = { ...person }; delete 보낼것.파일;   // 파일은 드라이브가 준다. 저장할 필요 없다.
     b.disabled = true; said.textContent = '저장 중';
     try {
-      const r = await (await fetch(feed(`amb=save&who=${encodeURIComponent(pid)}` +
-        `&data=${encodeURIComponent(JSON.stringify(보낼것))}`))).json();
+      const r = await 저장보내기(pid, 보낼것);
       said.textContent = r.ok ? '저장됨' : (r.오류 || '실패');
       box.querySelector('.pill').textContent = person.피드백[fid].상태;
       box.querySelector('.pill').className = 'pill ' + person.피드백[fid].상태;
