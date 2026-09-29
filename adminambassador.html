@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow,noarchive">
-<title>FVA 19기 앰버서더</title>
+<title>FVA 앰버서더</title>
 <link rel="icon" href="/favicon.ico">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -293,7 +293,7 @@
 
   /* 편 목록은 편수만큼 한 줄에 — 한 편만 아랫줄로 떨어지지 않게. 폰에선 3칸씩(6편=3+3, 5편=3+2) */
   .tl-row .tl-list{grid-template-columns:repeat(var(--n),minmax(0,1fr))}
-  @media (max-width:640px){ .tl-row .tl-list{grid-template-columns:repeat(3,minmax(0,1fr));font-size:13px} }
+  @media (max-width:640px){ .tl-row .tl-list{grid-template-columns:repeat(3,minmax(0,1fr));font-size:13px} .tl-row .tl-list.n4{grid-template-columns:repeat(2,minmax(0,1fr))} }
 
   .tl-row{word-break:keep-all}
   .tl-row .tl-list .it{display:flex;flex-direction:column;white-space:nowrap}
@@ -310,15 +310,24 @@
   /* 한글은 단어 단위로만 꺾는다(모든 화면 공통 규칙 — 「앰버서/더」 사건 2026-09-28) */
   body{word-break:keep-all;overflow-wrap:anywhere}
   .tl-h b,.tl-h small,.tl-h .nx,.tl-marks span,.tl-key span,.chip,.pill,button{white-space:nowrap}
+
+  /* 마스터/베이직 탭 · 반별 묶음 (2026-09-29) */
+  .tabs{display:flex;gap:6px;background:var(--card);border-radius:14px;padding:5px}
+  .tabs .tab{flex:1;border:0;border-radius:10px;padding:12px 0;font:inherit;font-size:15px;font-weight:800;background:transparent;color:var(--sub);cursor:pointer}
+  .tabs .tab small{font-weight:600;margin-left:4px;opacity:.7}
+  .tabs .tab.on{background:var(--ok);color:#000}
+  .grp{font-size:17px;font-weight:800;margin:22px 2px 10px;white-space:nowrap}
+  #plan .card+.card{margin-top:14px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="hd">
-    <div class="row"><h1>19기 앰버서더</h1><span class="date" id="date">불러오는 중…</span></div>
+    <div class="row"><h1>FVA 앰버서더</h1><span class="date" id="date">불러오는 중…</span></div>
     <p class="lede">제작 영상은 구글 드라이브에서 자동으로 읽어옵니다 ·
       <a href="/adminmonitor.html">유입 현황</a></p>
   </div>
+  <div id="tabs" class="tabs"></div>
   <div id="plan"></div>
   <div id="alarm"></div>
   <div id="list"></div>
@@ -378,13 +387,17 @@ const 일정예외 = {
         ['2026-09-05', '2026-10-01'], ['2026-10-02', '2026-10-09'],
         ['2026-10-10', '2026-10-23'], ['2026-10-24', '2026-11-06'], ['2026-11-07', '2026-11-14']] },
 };
+const 주기 = p => p.주기 || 14;
+/* 수업일 — 마스터는 주 1회 12주, 베이직은 주 2회 4주(수업요일 = 첫 수업일로부터 며칠 뒤) */
+function 수업일(p) { const 개강 = 날(p.개강), 주수 = p.과정 === '베이직' ? 4 : 12, 요 = p.수업요일 || [0], o = [];
+  for (let w = 0; w < 주수; w++) for (const d of 요) o.push(더하기(개강, w * 7 + d)); return o; }
 function 칸만들기(p) {
   const 개강 = 날(p.개강), 종료 = 날(p.종료), n = p.편수 || 6;
   const 예외 = 일정예외[p.id];
   if (예외) return 예외.칸.map(([a, b, 약속]) => ({ 시작: 날(a), 마감: 날(b), 약속: 약속 ? 날(약속) : null }));
   return Array.from({ length: n }, (_, i) => ({
-    시작: 더하기(개강, i * 14),
-    마감: i === n - 1 ? 종료 : 더하기(개강, i * 14 + 13), 약속: null }));
+    시작: 더하기(개강, i * 주기(p)),
+    마감: i === n - 1 ? 종료 : 더하기(개강, i * 주기(p) + 주기(p) - 1), 약속: null }));
 }
 function 편들(p) {
   const 개강 = 날(p.개강), 숨김 = p.숨김 || {}, 피드백 = p.피드백 || {};
@@ -404,7 +417,9 @@ function 편들(p) {
   끝.sort((a, b) => a.날 - b.날);
   return { 끝, 열림, 칸 };
 }
-function 일정판(사람들) {
+/* 옛 19기 기록에는 과정·기수·반이 없다 — 요일에서 채운다 */
+function 정리(p) { if (!p.과정) { p.과정 = '마스터'; p.기수 = '19기'; p.반 = /^토/.test(p.요일 || '') ? '토요일반' : /^금/.test(p.요일 || '') ? '금요일반' : '기타'; } return p; }
+function 일정판(사람들, 제목) {
   if (!사람들.length) return '';
   const 오늘 = 날(new Date(Date.now() + 9 * 3600e3).toISOString());
   const 처음 = new Date(Math.min(...사람들.map(p => 날(p.개강))));
@@ -417,8 +432,8 @@ function 일정판(사람들) {
   const 줄 = 사람들.map(p => {
     const { 끝, 열림, 칸 } = 편들(p);
     const 개강 = 날(p.개강), 종료 = 날(p.종료);
-    const 수업 = Array.from({ length: 12 }, (_, i) => 더하기(개강, i * 7));
-    const 막수업 = 수업[11];
+    const 수업 = 수업일(p);
+    const 막수업 = 수업[수업.length - 1];
     const 상태 = 칸.map((c, i) => {
       if (i < 끝.length) return { k: 'done', 글: '완료', 늦음: 끝[i].날 > (c.약속 || c.마감) };
       if (i === 끝.length && 열림) return { k: 오늘 > (c.약속 || c.마감) ? 'late now' : 'now', 글: 열림.상태 };
@@ -462,22 +477,34 @@ function 일정판(사람들) {
       ${일정예외[p.id] ? `<div class="tl-note">📌 ${esc(일정예외[p.id].메모)}</div>` : ''}
       <div class="tl-note tl-rule">⚠️ 적힌 날짜는 <b>최종 게시 마감</b>입니다. 검수와 수정 시간이 필요하니
         <b>1차 편집본은 수업 3일 뒤까지</b> 먼저 공유해 주세요(편마다 아래 「1차본」 날짜).</div>
-      <div class="tl-axis">${달눈금.join('')}<span class="tl-now" style="left:${x(더하기(오늘, .5))}%">오늘 ${짧게(오늘)}</span></div>
+      <div class="tl-axis">${달눈금.join('')}<span class="tl-now" style="left:${x(더하기(오늘, .5))}%;transform:translateX(${x(더하기(오늘, .5)) < 12 ? '-2px' : x(더하기(오늘, .5)) > 88 ? 'calc(-100% + 2px)' : '-50%'})">오늘 ${짧게(오늘)}</span></div>
       <div class="tl-bar">${칸들}${점}
         <i class="tl-end" style="left:${x(더하기(종료, 1))}%" title="활동 종료 ${짧게(종료)}"></i>
         <i class="tl-today" style="left:${x(더하기(오늘, .5))}%" title="오늘"></i></div>
       <div class="tl-marks"><span>첫 수업 <b>${짧게(개강)}</b></span>
         <span class="r">마지막 수업 <b>${짧게(막수업)}</b> · 계약 종료 <b>${짧게(종료)}</b></span></div>
-      <div class="tl-list" style="--n:${칸.length}">${목록}</div>
+      <div class="tl-list n${칸.length}" style="--n:${칸.length}">${목록}</div>
       ${범례}
     </div>`;
   }).join('');
-  return `<div class="card"><h3>마감 일정 <span class="r">한 사람씩 캡처해서 보내도 되게 따로 그렸습니다</span></h3>
+  return `<div class="card"><h3>${esc(제목 || '마감 일정')} <span class="r">${사람들.length}명</span></h3>
     <div class="plan">${줄}</div></div>`;
 }
 
 function render(d) {
-  $('plan').innerHTML = 일정판(d.사람 || []);
+  window.__D = d;
+  const 모두 = (d.사람 || []).map(정리);
+  let 탭 = '마스터'; try { 탭 = localStorage.getItem('amb_tab') || '마스터'; } catch (e) {}
+  const 수 = k => 모두.filter(p => p.과정 === k).length;
+  $('tabs').innerHTML = ['마스터', '베이직'].map(k => `<button type="button" class="tab${k === 탭 ? ' on' : ''}" data-k="${k}">${k}반 <small>${수(k)}</small></button>`).join('');
+  $('tabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { try { localStorage.setItem('amb_tab', b.dataset.k); } catch (e) {} render(window.__D); });
+  const 보임 = 모두.filter(p => p.과정 === 탭);
+  const 묶음키 = p => `${p.과정} ${p.기수} · ${p.반}`;
+  const 차례 = ['19기 · 토요일반', '19기 · 금요일반', '20기 · 수요일반', '20기 · 일요일반', '1기 · 평일반', '1기 · 주말반'];
+  const 순 = p => { const i = 차례.findIndex(s => 묶음키(p).endsWith(s)); return i < 0 ? 99 : i; };
+  보임.sort((a, b) => 순(a) - 순(b));
+  const 묶음들 = []; for (const p of 보임) { const k = 묶음키(p); let g = 묶음들.find(x => x.k === k); if (!g) 묶음들.push(g = { k, 사람: [] }); g.사람.push(p); }
+  $('plan').innerHTML = 묶음들.map(g => 일정판(g.사람, g.k + ' · ' + (g.사람[0].요일 || ''))).join('');
   $('date').textContent = (d.드라이브?.읽은때 || '') + ' 기준';
 
   const A = [];
@@ -491,23 +518,24 @@ function render(d) {
   try { 본것 = JSON.parse(localStorage.getItem('amb_seen') || '{}'); } catch (e) {}
 
   /* 주차 — 계약일(개강) 기준 2주 단위. 0~13일 = 1주차, 14~27일 = 2주차 … */
-  const 주차잡기 = (개강, 올린날) => {
+  const 주차잡기 = (개강, 올린날, 주 = 14) => {
     const 기준 = new Date(개강 + 'T00:00:00');
     const m = String(올린날).match(/^(\d{2})-(\d{2})/);
     if (!m || isNaN(기준)) return { n: 1, 시작: null };
     let 든날 = new Date(기준.getFullYear(), +m[1] - 1, +m[2]);
     if (든날 < 기준 && (기준 - 든날) > 120 * 864e5) 든날.setFullYear(든날.getFullYear() + 1);
-    const n = Math.max(0, Math.floor((든날 - 기준) / (14 * 864e5)));
+    const n = Math.max(0, Math.floor((든날 - 기준) / (주 * 864e5)));
     return { n: n + 1 };
   };
-  const 주기간 = (개강, n) => {
-    const a = new Date(개강 + 'T00:00:00'); a.setDate(a.getDate() + (n - 1) * 14);
-    const b = new Date(a); b.setDate(b.getDate() + 13);
+  const 주기간 = (개강, n, 주 = 14) => {
+    const a = new Date(개강 + 'T00:00:00'); a.setDate(a.getDate() + (n - 1) * 주);
+    const b = new Date(a); b.setDate(b.getDate() + 주 - 1);
     const 꼴 = t => `${t.getMonth() + 1}/${t.getDate()}`;
     return `${꼴(a)}~${꼴(b)}`;
   };
 
-  $('list').innerHTML = (d.사람 || []).map(p => {
+  $('list').innerHTML = 보임.map((p, pi) => {
+    const 머리 = (pi === 0 || 묶음키(보임[pi - 1]) !== 묶음키(p)) ? `<h2 class="grp">${esc(묶음키(p))}</h2>` : '';
     /* ⚠ 같은 영상을 두 벌 올리는 일이 있다(배속본/원본). 화면이 지저분해지니 숨길 수 있게 한다.
          **드라이브 원본은 건드리지 않는다** — 목록에서만 뺀다. 되살리려면 서버에서 숨김을 지운다. */
     const 숨김 = p.숨김 || {};
@@ -517,7 +545,7 @@ function render(d) {
          「원본 + 수정 1차」는 같은 한 편인데 전에는 파일 수로 세서 2칸이 칠해졌다
          (2026-09-02 사용자 지적). **주차로 묶어서** 센다.
          한 주차 안에 게시완료가 하나라도 있으면 그 주는 끝난 것으로 본다. */
-    const 주차의 = f => 주차잡기(p.개강, f.올린날).n;
+    const 주차의 = f => 주차잡기(p.개강, f.올린날, 주기(p)).n;
     const 주모음 = {};
     for (const f of files) {
       const n = 주차의(f);
@@ -547,7 +575,7 @@ function render(d) {
     /* 주차별로 묶는다 */
     const 묶음 = {};
     for (const f of files) {
-      const { n } = 주차잡기(p.개강, f.올린날);
+      const { n } = 주차잡기(p.개강, f.올린날, 주기(p));
       (묶음[n] = 묶음[n] || []).push(f);
     }
     const 새거 = f => !본것[f.id];
@@ -564,7 +592,7 @@ function render(d) {
       if (!묶음[n]) {
         const x = 외부[n];
         return `<details class="week"><summary><span class="arr">▶</span>
-            ${n}주차 <small>${주기간(p.개강, +n)}</small>
+            ${n}주차 <small>${주기간(p.개강, +n, 주기(p))}</small>
             <span class="r">${esc(x.방식 || '기타')}</span></summary>
           <div class="none"><span class="pill ${esc(x.상태 || '')}">${esc(x.상태 || '')}</span>
             ${esc(x.방식 || '')}로 완료 — 드라이브 영상 없음${x.메모 ? ' · ' + esc(x.메모) : ''}
@@ -626,7 +654,7 @@ function render(d) {
           </div></div>`;
       }).join('');
       return `<details class="week"><summary><span class="arr">▶</span>
-          ${n}주차 <small>${주기간(p.개강, +n)}</small>
+          ${n}주차 <small>${주기간(p.개강, +n, 주기(p))}</small>
           ${새 ? `<span class="nbadge">NEW ${새}</span>` : ''}
           <span class="r">${묶음[n].length}편</span></summary>
         <div class="vrow">${vids}</div></details>`;
@@ -634,7 +662,7 @@ function render(d) {
         <a href="${esc(p.드라이브)}" target="_blank" rel="noopener"
            style="color:var(--acc)">드라이브 열기</a></div>`;
 
-    return `<details class="person" data-ids="${esc(files.map(f => f.id).join(','))}">
+    return 머리 + `<details class="person" data-ids="${esc(files.map(f => f.id).join(','))}">
       <summary><div class="psum"><span class="arr">▶</span>${esc(p.이름)}
           ${새수 ? `<span class="nbadge">NEW ${새수}</span>` : ''}
           <span class="r">${끝난것} / ${p.편수}편</span><span class="tgl"></span></div>
