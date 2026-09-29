@@ -318,6 +318,15 @@
   .tabs .tab.on{background:var(--ok);color:#000}
   .grp{font-size:17px;font-weight:800;margin:22px 2px 10px;white-space:nowrap}
   #plan .card+.card{margin-top:14px}
+
+  .lks{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+  .lk{display:inline-flex;align-items:center;gap:4px;padding:9px 13px;border-radius:10px;background:var(--card3);color:var(--ink);font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap}
+  .lk small{font-weight:600;opacity:.75}
+  .lk.ok{background:rgba(44,255,5,.14);color:var(--ok)}
+  .lk.wait{background:rgba(255,214,10,.14);color:var(--wait)}
+  .lk.off{color:var(--dim)}
+  .grp small{font-size:12.5px;font-weight:700;color:var(--sub);margin-left:6px}
+  .nw{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -417,6 +426,18 @@ function 편들(p) {
   끝.sort((a, b) => a.날 - b.날);
   return { 끝, 열림, 칸 };
 }
+/* 사람마다 바로가기 — 인스타 · 드라이브 폴더 · 계약서(서명본이 올라왔는지) (2026-09-29) */
+function 서명본(p) { const 원본 = ['계약서_' + p.이름 + '.pdf'];  /* 우리가 올린 건 PDF 원본 하나 — 그 밖의 파일(확장자 없는 문서 포함)은 앰버서더가 올린 서명본으로 본다 */
+  const L = (p.계약파일 || []).filter(f => !원본.includes(f.이름)).sort((a, b) => String(b.올린날).localeCompare(String(a.올린날)));
+  return { 서명: L[0] || null, 원본: (p.계약파일 || []).find(f => 원본.includes(f.이름)) || null, 폴더있음: !!p.계약파일 }; }
+function 바로가기(p) { const s = 서명본(p), 폴더 = p.폴더id ? `https://drive.google.com/drive/folders/${p.폴더id}` : (p.드라이브 || '');
+  const 계약 = s.서명 ? `<a class="lk ok" href="https://drive.google.com/file/d/${esc(s.서명.id)}/view" target="_blank" rel="noopener">계약서 서명 완료 ✓ <small>${esc(String(s.서명.올린날).slice(0, 5).replace('-', '/'))}</small></a>`
+    : s.원본 ? `<a class="lk wait" href="https://drive.google.com/file/d/${esc(s.원본.id)}/view" target="_blank" rel="noopener">계약서 서명 전</a>`
+    : `<span class="lk off">계약서 폴더 없음</span>`;
+  return `<div class="lks" onclick="event.stopPropagation()">
+    <a class="lk" href="https://instagram.com/${esc(p.인스타)}" target="_blank" rel="noopener">인스타</a>
+    ${폴더 ? `<a class="lk" href="${esc(폴더)}" target="_blank" rel="noopener">드라이브</a>` : '<span class="lk off">드라이브 없음</span>'}
+    ${계약}</div>`; }
 /* 옛 19기 기록에는 과정·기수·반이 없다 — 요일에서 채운다 */
 function 정리(p) { if (!p.과정) { p.과정 = '마스터'; p.기수 = '19기'; p.반 = /^토/.test(p.요일 || '') ? '토요일반' : /^금/.test(p.요일 || '') ? '금요일반' : '기타'; } return p; }
 function 일정판(사람들, 제목) {
@@ -535,7 +556,7 @@ function render(d) {
   };
 
   $('list').innerHTML = 보임.map((p, pi) => {
-    const 머리 = (pi === 0 || 묶음키(보임[pi - 1]) !== 묶음키(p)) ? `<h2 class="grp">${esc(묶음키(p))}</h2>` : '';
+    const 머리 = (pi === 0 || 묶음키(보임[pi - 1]) !== 묶음키(p)) ? `<h2 class="grp">${esc(묶음키(p))} <small>계약서 서명 ${보임.filter(q => 묶음키(q) === 묶음키(p) && 서명본(q).서명).length} / ${보임.filter(q => 묶음키(q) === 묶음키(p)).length}</small></h2>` : '';
     /* ⚠ 같은 영상을 두 벌 올리는 일이 있다(배속본/원본). 화면이 지저분해지니 숨길 수 있게 한다.
          **드라이브 원본은 건드리지 않는다** — 목록에서만 뺀다. 되살리려면 서버에서 숨김을 지운다. */
     const 숨김 = p.숨김 || {};
@@ -668,8 +689,9 @@ function render(d) {
           <span class="r">${끝난것} / ${p.편수}편</span><span class="tgl"></span></div>
         <div class="meta" style="padding:4px 0 0">
           <a href="https://instagram.com/${esc(p.인스타)}" target="_blank" rel="noopener">@${esc(p.인스타)}</a>
-          · ${esc(p.요일)} · ${esc(p.개강)} ~ ${esc(p.종료)}
+          · <span class="nw">${esc(p.요일)}</span> · <span class="nw">${esc(String(p.개강).slice(5).replace('-', '/').replace(/^0/, ''))} ~ ${esc(String(p.종료).slice(5).replace('-', '/').replace(/^0/, ''))}</span>
           <span class="sp">특약 — ${esc(p.특약)}</span></div>
+        ${바로가기(p)}
         <div class="prog" style="padding:10px 0 2px">${bar}</div>
         ${셈}
         <div class="chips">${칩}</div></summary>
