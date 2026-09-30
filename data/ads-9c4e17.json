@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 9. 30. PM 4:40:12",
+  "updated": "2026. 9. 30. PM 4:54:28",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 88,
     "dailyBudget": 2500,
     "balance": 17190,
-    "imp": 921,
+    "imp": 926,
     "clk": 65,
     "cost": 5442,
     "byPeriod": {
       "1": {
-        "imp": 26,
+        "imp": 31,
         "clk": 3,
         "cost": 248
       },
       "7": {
-        "imp": 240,
+        "imp": 245,
         "clk": 21,
         "cost": 1864
       },
       "28": {
-        "imp": 986,
+        "imp": 991,
         "clk": 65,
         "cost": 5442
       },
       "90": {
-        "imp": 24279,
+        "imp": 24284,
         "clk": 131,
         "cost": 82797
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-09-30",
-        "imp": 26,
+        "imp": 31,
         "clk": 3,
         "cost": 248
       }
     ],
-    "campaignImp": 24279,
+    "campaignImp": 24284,
     "campaignClk": 131,
     "campaignCost": 82797,
     "groups": [
@@ -192,7 +192,7 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 131,
+            "imp": 134,
             "clk": 27,
             "cost": 2118,
             "rank": 1
@@ -222,7 +222,7 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 440,
+            "imp": 441,
             "clk": 12,
             "cost": 1025,
             "rank": 1.2
@@ -10092,86 +10092,73 @@
     ]
   },
   "google": {
-    "updated": "2026. 9. 28. PM 5:17:55",
-    "period": "2026년 8월 29일 ~ 9월 27일",
-    "imp": 4662,
-    "clk": 201,
-    "cost": 175988,
+    "updated": "2026. 9. 30. PM 4:53:21",
+    "period": "2026년 8월 31일 ~ 9월 29일",
+    "imp": 4961,
+    "clk": 206,
+    "cost": 164635,
     "conv": 28,
-    "cpc": 876,
-    "ctr": 4.31,
+    "cpc": 799,
+    "ctr": 4.15,
     "keywords": [
       {
         "keyword": "영상 학원",
-        "status": "운영 가능",
+        "status": "일시중지됨",
         "note": "",
-        "imp": 1687,
-        "ctr": 3.44,
-        "cost": 47526,
+        "imp": 2124,
+        "ctr": 3.3,
+        "cost": 55434,
         "rel": "평균 이상",
-        "clk": 58,
-        "cvrate": 5.17,
+        "clk": 70,
+        "cvrate": 4.29,
         "conv": 3,
-        "cpc": 819
+        "cpc": 792
       },
       {
         "keyword": "피바아카데미",
         "status": "운영 가능",
         "note": "",
-        "imp": 1158,
-        "ctr": 5.79,
-        "cost": 43823,
+        "imp": 1263,
+        "ctr": 5.86,
+        "cost": 47060,
         "rel": "평균 미만",
-        "clk": 67,
-        "cvrate": 25.37,
+        "clk": 74,
+        "cvrate": 22.97,
         "conv": 17,
-        "cpc": 654
+        "cpc": 636
       },
       {
         "keyword": "AI 영상제작",
         "status": "일시중지됨",
         "note": "",
-        "imp": 661,
+        "imp": 455,
+        "ctr": 3.96,
+        "cost": 23101,
+        "rel": "평균 이상",
+        "clk": 18,
+        "cvrate": 2.78,
+        "conv": 0.5,
+        "cpc": 1283
+      },
+      {
+        "keyword": "\"영화 아카데미\"",
+        "status": "운영 가능",
+        "note": "",
+        "imp": 296,
         "ctr": 4.39,
-        "cost": 39417,
-        "rel": "평균 이상",
-        "clk": 29,
-        "cvrate": 5.17,
-        "conv": 1.5,
-        "cpc": 1359
-      },
-      {
-        "keyword": "영상 강의",
-        "status": "일시중지됨",
-        "note": "",
-        "imp": 379,
-        "ctr": 1.85,
-        "cost": 9337,
-        "rel": "평균 이상",
-        "clk": 7,
-        "cvrate": 14.29,
-        "conv": 1,
-        "cpc": 1334
-      },
-      {
-        "keyword": "영상온라인강의",
-        "status": "일시중지됨",
-        "note": "",
-        "imp": 152,
-        "ctr": 4.61,
-        "cost": 8743,
-        "rel": "",
-        "clk": 7,
-        "cvrate": 0,
-        "conv": 0,
-        "cpc": 1249
+        "cost": 10041,
+        "rel": "평균 미만",
+        "clk": 13,
+        "cvrate": 30.77,
+        "conv": 4,
+        "cpc": 772
       },
       {
         "keyword": "\"영화 학원\"",
         "status": "운영 가능",
         "note": "",
-        "imp": 242,
-        "ctr": 4.55,
+        "imp": 279,
+        "ctr": 3.94,
         "cost": 8666,
         "rel": "평균 이상",
         "clk": 11,
@@ -10180,37 +10167,50 @@
         "cpc": 788
       },
       {
-        "keyword": "\"영화 아카데미\"",
-        "status": "운영 가능",
-        "note": "",
-        "imp": 254,
-        "ctr": 4.33,
-        "cost": 8534,
-        "rel": "평균 미만",
-        "clk": 11,
-        "cvrate": 27.27,
-        "conv": 3,
-        "cpc": 776
-      },
-      {
         "keyword": "편집 학원",
         "status": "운영 가능(제한적)",
         "note": "거의 게재되지 않음(품질평가점수 낮음)",
-        "imp": 110,
-        "ctr": 6.36,
-        "cost": 6412,
+        "imp": 133,
+        "ctr": 6.77,
+        "cost": 7986,
         "rel": "평균 미만",
-        "clk": 7,
-        "cvrate": 7.14,
+        "clk": 9,
+        "cvrate": 5.56,
         "conv": 0.5,
-        "cpc": 916
+        "cpc": 887
+      },
+      {
+        "keyword": "영상 강의",
+        "status": "일시중지됨",
+        "note": "",
+        "imp": 281,
+        "ctr": 1.78,
+        "cost": 6606,
+        "rel": "평균 이상",
+        "clk": 5,
+        "cvrate": 20,
+        "conv": 1,
+        "cpc": 1321
+      },
+      {
+        "keyword": "영상온라인강의",
+        "status": "일시중지됨",
+        "note": "",
+        "imp": 105,
+        "ctr": 1.9,
+        "cost": 2589,
+        "rel": "",
+        "clk": 2,
+        "cvrate": 0,
+        "conv": 0,
+        "cpc": 1295
       },
       {
         "keyword": "\"영화 연출 학원\"",
         "status": "운영 가능",
         "note": "",
-        "imp": 13,
-        "ctr": 23.08,
+        "imp": 16,
+        "ctr": 18.75,
         "cost": 2364,
         "rel": "평균",
         "clk": 3,
@@ -10219,23 +10219,23 @@
         "cpc": 788
       },
       {
-        "keyword": "AI영상학원",
-        "status": "일시중지됨",
-        "note": "",
-        "imp": 6,
-        "ctr": 16.67,
-        "cost": 1166,
-        "rel": "평균 이상",
+        "keyword": "\"단편영화 제작\"",
+        "status": "운영 가능(제한적)",
+        "note": "거의 게재되지 않음(품질평가점수 낮음)",
+        "imp": 9,
+        "ctr": 11.11,
+        "cost": 788,
+        "rel": "평균",
         "clk": 1,
         "cvrate": 0,
         "conv": 0,
-        "cpc": 1166
+        "cpc": 788
       }
     ],
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 9. 30. PM 4:39:50",
+    "updated": "2026. 9. 30. PM 4:53:49",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
