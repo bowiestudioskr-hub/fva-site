@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 10. 2. PM 11:31:00",
+  "updated": "2026. 10. 2. PM 11:47:10",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 88,
     "dailyBudget": 2500,
     "balance": 16225,
-    "imp": 1084,
+    "imp": 1085,
     "clk": 78,
     "cost": 6496,
     "byPeriod": {
       "1": {
-        "imp": 36,
+        "imp": 37,
         "clk": 3,
         "cost": 242
       },
       "7": {
-        "imp": 330,
+        "imp": 331,
         "clk": 24,
         "cost": 2104
       },
       "28": {
-        "imp": 1049,
+        "imp": 1050,
         "clk": 74,
         "cost": 6188
       },
       "90": {
-        "imp": 24442,
+        "imp": 24443,
         "clk": 144,
         "cost": 83851
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-10-02",
-        "imp": 36,
+        "imp": 37,
         "clk": 3,
         "cost": 242
       }
     ],
-    "campaignImp": 24442,
+    "campaignImp": 24443,
     "campaignClk": 144,
     "campaignCost": 83851,
     "groups": [
@@ -10235,7 +10235,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 10. 2. PM 11:30:40",
+    "updated": "2026. 10. 2. PM 11:46:53",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10245,30 +10245,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 137,
-        "click": 27,
-        "unique": 5,
-        "ctr": 19.7,
-        "dwell": 11
+        "visit": 139,
+        "click": 28,
+        "unique": 6,
+        "ctr": 20.1,
+        "dwell": 12
       },
       "7": {
-        "visit": 935,
-        "click": 193,
-        "unique": 142,
-        "ctr": 20.6,
+        "visit": 937,
+        "click": 194,
+        "unique": 143,
+        "ctr": 20.7,
         "dwell": 14
       },
       "28": {
-        "visit": 3616,
-        "click": 724,
-        "unique": 586,
+        "visit": 3618,
+        "click": 725,
+        "unique": 587,
         "ctr": 20,
         "dwell": 17
       },
       "90": {
-        "visit": 7583,
-        "click": 2414,
-        "unique": 837,
+        "visit": 7585,
+        "click": 2415,
+        "unique": 838,
         "ctr": 31.8,
         "dwell": 27
       },
@@ -10280,9 +10280,9 @@
         "dwell": 17
       },
       "all": {
-        "visit": 38467,
-        "click": 15172,
-        "unique": 837,
+        "visit": 38469,
+        "click": 15173,
+        "unique": 838,
         "ctr": 39.4,
         "dwell": 27
       }
@@ -12954,17 +12954,17 @@
       },
       {
         "d": "2026-10-02",
-        "visit": 137,
-        "click": 27,
-        "unique": 5
+        "visit": 139,
+        "click": 28,
+        "unique": 6
       }
     ],
     "sources": [
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14522,
-        "click": 3840,
+        "visit": 14523,
+        "click": 3841,
         "unique": 194,
         "ctr": 26.4,
         "dwell": 41
@@ -13193,7 +13193,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 3196
+        "clicks": 3197
       },
       {
         "key": "bGTonvP",
@@ -13583,11 +13583,11 @@
       },
       {
         "name": "데스크탑",
-        "visit": 373,
+        "visit": 374,
         "click": 185,
-        "unique": 69,
+        "unique": 70,
         "dwell": 216,
-        "ctr": 49.6
+        "ctr": 49.5
       },
       {
         "name": "태블릿",
@@ -13977,11 +13977,11 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 33,
-            "click": 22,
+            "visit": 34,
+            "click": 23,
             "unique": 3,
-            "ctr": 66.7,
-            "dwell": 15
+            "ctr": 67.6,
+            "dwell": 16
           },
           {
             "name": "우리 사이트",
@@ -14004,23 +14004,32 @@
         ],
         "device": [
           {
+            "name": "데스크탑",
+            "visit": 4,
+            "click": 4,
+            "unique": 4,
+            "dwell": 10,
+            "ctr": 100
+          },
+          {
             "name": "모바일",
             "visit": 3,
             "click": 11,
             "unique": 2,
             "dwell": 11,
             "ctr": 366.7
-          },
-          {
-            "name": "데스크탑",
-            "visit": 3,
-            "click": 4,
-            "unique": 3,
-            "dwell": 10,
-            "ctr": 133.3
           }
         ],
         "country": [
+          {
+            "name": "EE",
+            "visit": 3,
+            "click": 0,
+            "unique": 3,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
           {
             "name": "KR",
             "visit": 3,
@@ -14029,15 +14038,6 @@
             "dwell": 11,
             "ctr": 466.7,
             "code": "KR"
-          },
-          {
-            "name": "EE",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "EE"
           },
           {
             "name": "US",
@@ -14051,6 +14051,15 @@
         ],
         "city": [
           {
+            "name": "Tallinn",
+            "visit": 3,
+            "click": 0,
+            "unique": 3,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
+          {
             "name": "Yongin-si",
             "visit": 3,
             "click": 0,
@@ -14058,15 +14067,6 @@
             "dwell": 11,
             "ctr": 0,
             "code": "KR"
-          },
-          {
-            "name": "Tallinn",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "EE"
           },
           {
             "name": "알 수 없음",
@@ -14105,16 +14105,16 @@
             "clicks": 5
           },
           {
-            "key": "bGTonvP",
-            "name": "온라인 강의 페이지",
+            "key": "Norn5x4",
+            "name": "커리큘럼 페이지",
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 3
+            "clicks": 4
           },
           {
-            "key": "Norn5x4",
-            "name": "커리큘럼 페이지",
+            "key": "bGTonvP",
+            "name": "온라인 강의 페이지",
             "gone": false,
             "kind": "site",
             "img": true,
@@ -14184,10 +14184,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 208,
-            "click": 154,
+            "visit": 209,
+            "click": 155,
             "unique": 42,
-            "ctr": 74,
+            "ctr": 74.2,
             "dwell": 20
           },
           {
@@ -14265,11 +14265,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 10,
+            "visit": 11,
             "click": 10,
-            "unique": 8,
+            "unique": 9,
             "dwell": 11,
-            "ctr": 100
+            "ctr": 90.9
           },
           {
             "name": "태블릿",
@@ -14327,6 +14327,15 @@
             "code": "DE"
           },
           {
+            "name": "EE",
+            "visit": 3,
+            "click": 0,
+            "unique": 3,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
+          {
             "name": "MY",
             "visit": 3,
             "click": 0,
@@ -14343,15 +14352,6 @@
             "dwell": 19,
             "ctr": 66.7,
             "code": "VN"
-          },
-          {
-            "name": "EE",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "EE"
           },
           {
             "name": "HK",
@@ -14464,6 +14464,15 @@
             "code": "DE"
           },
           {
+            "name": "Tallinn",
+            "visit": 3,
+            "click": 0,
+            "unique": 3,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
+          {
             "name": "Gwangju",
             "visit": 3,
             "click": 3,
@@ -14507,15 +14516,6 @@
             "dwell": 28,
             "ctr": 200,
             "code": "CA"
-          },
-          {
-            "name": "Tallinn",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "EE"
           },
           {
             "name": "Central",
@@ -14624,7 +14624,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 44
+            "clicks": 45
           },
           {
             "key": "bby1R8Y",
@@ -14714,8 +14714,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 642,
-            "click": 512,
+            "visit": 643,
+            "click": 513,
             "unique": 110,
             "ctr": 79.8,
             "dwell": 26
@@ -14822,11 +14822,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 38,
+            "visit": 39,
             "click": 19,
-            "unique": 34,
+            "unique": 35,
             "dwell": 12,
-            "ctr": 50
+            "ctr": 48.7
           },
           {
             "name": "태블릿",
@@ -14974,6 +14974,15 @@
             "code": "DE"
           },
           {
+            "name": "EE",
+            "visit": 3,
+            "click": 0,
+            "unique": 3,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
+          {
             "name": "MO",
             "visit": 3,
             "click": 0,
@@ -15008,15 +15017,6 @@
             "dwell": 12,
             "ctr": 50,
             "code": "AU"
-          },
-          {
-            "name": "CN",
-            "visit": 2,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "CN"
           }
         ],
         "city": [
@@ -15165,6 +15165,15 @@
             "code": "DE"
           },
           {
+            "name": "Tallinn",
+            "visit": 3,
+            "click": 0,
+            "unique": 3,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
+          {
             "name": "알 수 없음",
             "visit": 3,
             "click": 0,
@@ -15190,15 +15199,6 @@
             "dwell": 38,
             "ctr": 100,
             "code": "KR"
-          },
-          {
-            "name": "Macao",
-            "visit": 3,
-            "click": 0,
-            "unique": 1,
-            "dwell": 2,
-            "ctr": 0,
-            "code": "MO"
           }
         ],
         "blocks": [
@@ -15208,7 +15208,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 154
+            "clicks": 155
           },
           {
             "key": "4rFKEfH",
@@ -15298,8 +15298,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2245,
-            "click": 1720,
+            "visit": 2246,
+            "click": 1721,
             "unique": 194,
             "ctr": 76.6,
             "dwell": 41
@@ -15469,11 +15469,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 230,
+            "visit": 231,
             "click": 110,
-            "unique": 69,
+            "unique": 70,
             "dwell": 216,
-            "ctr": 47.8
+            "ctr": 47.6
           },
           {
             "name": "태블릿",
@@ -15855,7 +15855,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 518
+            "clicks": 519
           },
           {
             "key": "OkhXD1v",
@@ -16032,8 +16032,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14522,
-            "click": 3840,
+            "visit": 14523,
+            "click": 3841,
             "unique": 194,
             "ctr": 26.4,
             "dwell": 41
@@ -16266,11 +16266,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 373,
+            "visit": 374,
             "click": 185,
-            "unique": 69,
+            "unique": 70,
             "dwell": 216,
-            "ctr": 49.6
+            "ctr": 49.5
           },
           {
             "name": "태블릿",
@@ -16652,7 +16652,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 3196
+            "clicks": 3197
           },
           {
             "key": "bGTonvP",
@@ -17046,11 +17046,11 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 33,
-            "click": 22,
+            "visit": 34,
+            "click": 23,
             "unique": 3,
-            "ctr": 66.7,
-            "dwell": 15
+            "ctr": 67.6,
+            "dwell": 16
           },
           {
             "name": "우리 사이트",
@@ -17073,23 +17073,32 @@
         ],
         "device": [
           {
+            "name": "데스크탑",
+            "visit": 4,
+            "click": 4,
+            "unique": 4,
+            "dwell": 10,
+            "ctr": 100
+          },
+          {
             "name": "모바일",
             "visit": 3,
             "click": 11,
             "unique": 2,
             "dwell": 11,
             "ctr": 366.7
-          },
-          {
-            "name": "데스크탑",
-            "visit": 3,
-            "click": 4,
-            "unique": 3,
-            "dwell": 10,
-            "ctr": 133.3
           }
         ],
         "country": [
+          {
+            "name": "EE",
+            "visit": 3,
+            "click": 0,
+            "unique": 3,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
           {
             "name": "KR",
             "visit": 3,
@@ -17098,15 +17107,6 @@
             "dwell": 11,
             "ctr": 466.7,
             "code": "KR"
-          },
-          {
-            "name": "EE",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "EE"
           },
           {
             "name": "US",
@@ -17120,6 +17120,15 @@
         ],
         "city": [
           {
+            "name": "Tallinn",
+            "visit": 3,
+            "click": 0,
+            "unique": 3,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
+          {
             "name": "Yongin-si",
             "visit": 3,
             "click": 0,
@@ -17127,15 +17136,6 @@
             "dwell": 11,
             "ctr": 0,
             "code": "KR"
-          },
-          {
-            "name": "Tallinn",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "EE"
           },
           {
             "name": "알 수 없음",
@@ -17174,16 +17174,16 @@
             "clicks": 5
           },
           {
-            "key": "bGTonvP",
-            "name": "온라인 강의 페이지",
+            "key": "Norn5x4",
+            "name": "커리큘럼 페이지",
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 3
+            "clicks": 4
           },
           {
-            "key": "Norn5x4",
-            "name": "커리큘럼 페이지",
+            "key": "bGTonvP",
+            "name": "온라인 강의 페이지",
             "gone": false,
             "kind": "site",
             "img": true,
