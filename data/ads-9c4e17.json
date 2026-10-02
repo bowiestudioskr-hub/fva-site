@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 10. 3. AM 4:21:05",
+  "updated": "2026. 10. 3. AM 4:52:54",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,29 +8,29 @@
     "pending": 116,
     "dailyBudget": 2500,
     "balance": 16108,
-    "imp": 1085,
-    "clk": 78,
-    "cost": 6496,
+    "imp": 1087,
+    "clk": 79,
+    "cost": 6612,
     "byPeriod": {
       "1": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 2,
+        "clk": 1,
+        "cost": 116
       },
       "7": {
-        "imp": 307,
-        "clk": 20,
-        "cost": 1742
+        "imp": 309,
+        "clk": 21,
+        "cost": 1858
       },
       "28": {
-        "imp": 1034,
-        "clk": 72,
-        "cost": 6034
+        "imp": 1036,
+        "clk": 73,
+        "cost": 6150
       },
       "90": {
-        "imp": 24443,
-        "clk": 144,
-        "cost": 83851
+        "imp": 24445,
+        "clk": 145,
+        "cost": 83967
       },
       "y": {
         "imp": 37,
@@ -119,14 +119,14 @@
       },
       {
         "d": "2026-10-03",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 2,
+        "clk": 1,
+        "cost": 116
       }
     ],
-    "campaignImp": 24443,
-    "campaignClk": 144,
-    "campaignCost": 83851,
+    "campaignImp": 24445,
+    "campaignClk": 145,
+    "campaignCost": 83967,
     "groups": [
       {
         "id": "grp-a001-01-000000066183708",
@@ -192,7 +192,7 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 151,
+            "imp": 152,
             "clk": 37,
             "cost": 2939,
             "rank": 1
@@ -10235,7 +10235,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 10. 3. AM 4:20:50",
+    "updated": "2026. 10. 3. AM 4:52:39",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10245,29 +10245,29 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 20,
-        "click": 2,
+        "visit": 21,
+        "click": 3,
         "unique": 8,
-        "ctr": 10,
-        "dwell": 20
+        "ctr": 14.3,
+        "dwell": 21
       },
       "7": {
-        "visit": 823,
-        "click": 175,
+        "visit": 824,
+        "click": 176,
         "unique": 141,
-        "ctr": 21.3,
+        "ctr": 21.4,
         "dwell": 14
       },
       "28": {
-        "visit": 3619,
-        "click": 711,
+        "visit": 3620,
+        "click": 712,
         "unique": 587,
-        "ctr": 19.6,
+        "ctr": 19.7,
         "dwell": 17
       },
       "90": {
-        "visit": 7571,
-        "click": 2399,
+        "visit": 7572,
+        "click": 2400,
         "unique": 846,
         "ctr": 31.7,
         "dwell": 27
@@ -10280,8 +10280,8 @@
         "dwell": 12
       },
       "all": {
-        "visit": 38490,
-        "click": 15175,
+        "visit": 38491,
+        "click": 15176,
         "unique": 846,
         "ctr": 39.4,
         "dwell": 27
@@ -12960,8 +12960,8 @@
       },
       {
         "d": "2026-10-03",
-        "visit": 20,
-        "click": 2,
+        "visit": 21,
+        "click": 3,
         "unique": 8
       }
     ],
@@ -13199,7 +13199,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 3197
+        "clicks": 3198
       },
       {
         "key": "bGTonvP",
@@ -14058,6 +14058,14 @@
             "clicks": 1
           },
           {
+            "key": "Norn5x4",
+            "name": "커리큘럼 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 1
+          },
+          {
             "key": "OkhXD1v",
             "name": "수강생 작품보기 (유튜브)",
             "gone": false,
@@ -14503,7 +14511,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 36
+            "clicks": 37
           },
           {
             "key": "bby1R8Y",
@@ -15087,7 +15095,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 154
+            "clicks": 155
           },
           {
             "key": "bby1R8Y",
@@ -15734,7 +15742,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 517
+            "clicks": 518
           },
           {
             "key": "OkhXD1v",
@@ -16531,7 +16539,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 3197
+            "clicks": 3198
           },
           {
             "key": "bGTonvP",
@@ -16994,6 +17002,14 @@
           {
             "key": "bGTonvP",
             "name": "온라인 강의 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 1
+          },
+          {
+            "key": "Norn5x4",
+            "name": "커리큘럼 페이지",
             "gone": false,
             "kind": "site",
             "img": true,
