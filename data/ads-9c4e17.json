@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 10. 4. AM 2:13:39",
+  "updated": "2026. 10. 4. AM 2:29:39",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -10235,7 +10235,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 10. 4. AM 2:13:21",
+    "updated": "2026. 10. 4. AM 2:29:23",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10245,31 +10245,31 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 12,
-        "click": 7,
+        "visit": 16,
+        "click": 19,
         "unique": 2,
-        "ctr": 58.3,
-        "dwell": 23
+        "ctr": 118.8,
+        "dwell": 21
       },
       "7": {
-        "visit": 814,
-        "click": 155,
+        "visit": 818,
+        "click": 167,
         "unique": 181,
-        "ctr": 19,
-        "dwell": 17
+        "ctr": 20.4,
+        "dwell": 18
       },
       "28": {
-        "visit": 3667,
-        "click": 684,
+        "visit": 3671,
+        "click": 696,
         "unique": 627,
-        "ctr": 18.7,
+        "ctr": 19,
         "dwell": 18
       },
       "90": {
-        "visit": 7648,
-        "click": 2395,
+        "visit": 7652,
+        "click": 2407,
         "unique": 889,
-        "ctr": 31.3,
+        "ctr": 31.5,
         "dwell": 27
       },
       "y": {
@@ -10280,8 +10280,8 @@
         "dwell": 37
       },
       "all": {
-        "visit": 38598,
-        "click": 15192,
+        "visit": 38602,
+        "click": 15204,
         "unique": 889,
         "ctr": 39.4,
         "dwell": 27
@@ -12966,8 +12966,8 @@
       },
       {
         "d": "2026-10-04",
-        "visit": 12,
-        "click": 7,
+        "visit": 16,
+        "click": 19,
         "unique": 2
       }
     ],
@@ -12975,10 +12975,10 @@
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14461,
-        "click": 3852,
+        "visit": 14465,
+        "click": 3864,
         "unique": 205,
-        "ctr": 26.6,
+        "ctr": 26.7,
         "dwell": 41
       },
       {
@@ -13205,7 +13205,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 3202
+        "clicks": 3203
       },
       {
         "key": "bGTonvP",
@@ -13213,7 +13213,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 1815
+        "clicks": 1824
       },
       {
         "key": "0bSSo5p",
@@ -13261,7 +13261,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 548
+        "clicks": 549
       },
       {
         "key": "OkhXD1v",
@@ -13477,7 +13477,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 27
+        "clicks": 28
       },
       {
         "key": "V8SPJ8g",
@@ -13987,6 +13987,15 @@
             "dwell": 0
           },
           {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 6,
+            "click": 14,
+            "unique": 1,
+            "ctr": 233.3,
+            "dwell": 24
+          },
+          {
             "name": "우리 사이트",
             "host": "fva.co.kr",
             "visit": 2,
@@ -13994,15 +14003,6 @@
             "unique": 1,
             "ctr": 150,
             "dwell": 16
-          },
-          {
-            "name": "인스타 링크 눌러 옴",
-            "host": "l.instagram.com",
-            "visit": 2,
-            "click": 2,
-            "unique": 1,
-            "ctr": 100,
-            "dwell": 34
           },
           {
             "name": "pcmap.place.naver.com",
@@ -14074,16 +14074,32 @@
         ],
         "blocks": [
           {
+            "key": "bGTonvP",
+            "name": "온라인 강의 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 10
+          },
+          {
             "key": "Norn5x4",
             "name": "커리큘럼 페이지",
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 4
+            "clicks": 5
           },
           {
-            "key": "bGTonvP",
-            "name": "온라인 강의 페이지",
+            "key": "qHImjnR",
+            "name": "스마트스토어 · 2개월",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 2
+          },
+          {
+            "key": "O1PZwO3",
+            "name": "수강 후기 페이지",
             "gone": false,
             "kind": "site",
             "img": true,
@@ -14094,14 +14110,6 @@
             "name": "수강생 작품보기 (유튜브)",
             "gone": false,
             "kind": "site",
-            "img": true,
-            "clicks": 1
-          },
-          {
-            "key": "qHImjnR",
-            "name": "스마트스토어 · 2개월",
-            "gone": false,
-            "kind": "store",
             "img": true,
             "clicks": 1
           }
@@ -14121,10 +14129,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 185,
-            "click": 124,
+            "visit": 189,
+            "click": 136,
             "unique": 51,
-            "ctr": 67,
+            "ctr": 72,
             "dwell": 21
           },
           {
@@ -14552,7 +14560,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 32
+            "clicks": 33
           },
           {
             "key": "bby1R8Y",
@@ -14571,6 +14579,14 @@
             "clicks": 29
           },
           {
+            "key": "bGTonvP",
+            "name": "온라인 강의 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 24
+          },
+          {
             "key": "OkhXD1v",
             "name": "수강생 작품보기 (유튜브)",
             "gone": false,
@@ -14579,24 +14595,16 @@
             "clicks": 20
           },
           {
-            "key": "bGTonvP",
-            "name": "온라인 강의 페이지",
+            "key": "qHImjnR",
+            "name": "스마트스토어 · 2개월",
             "gone": false,
-            "kind": "site",
+            "kind": "store",
             "img": true,
-            "clicks": 15
+            "clicks": 9
           },
           {
             "key": "EJVYl6C",
             "name": "스마트스토어 · 1개월",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 8
-          },
-          {
-            "key": "qHImjnR",
-            "name": "스마트스토어 · 2개월",
             "gone": false,
             "kind": "store",
             "img": true,
@@ -14608,7 +14616,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 7
+            "clicks": 8
           },
           {
             "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
@@ -14642,10 +14650,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 607,
-            "click": 475,
+            "visit": 611,
+            "click": 487,
             "unique": 114,
-            "ctr": 78.3,
+            "ctr": 79.7,
             "dwell": 26
           },
           {
@@ -15136,7 +15144,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 150
+            "clicks": 151
           },
           {
             "key": "bby1R8Y",
@@ -15168,7 +15176,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 57
+            "clicks": 66
           },
           {
             "key": "O1PZwO3",
@@ -15176,7 +15184,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 51
+            "clicks": 52
           },
           {
             "key": "EJVYl6C",
@@ -15192,7 +15200,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 22
+            "clicks": 23
           },
           {
             "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
@@ -15226,10 +15234,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2232,
-            "click": 1705,
+            "visit": 2236,
+            "click": 1717,
             "unique": 205,
-            "ctr": 76.4,
+            "ctr": 76.8,
             "dwell": 41
           },
           {
@@ -15783,7 +15791,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 518
+            "clicks": 519
           },
           {
             "key": "OkhXD1v",
@@ -15807,7 +15815,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 223
+            "clicks": 232
           },
           {
             "key": "4rFKEfH",
@@ -15839,7 +15847,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 149
+            "clicks": 150
           },
           {
             "key": "OPjnbdZ",
@@ -15887,7 +15895,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 27
+            "clicks": 28
           },
           {
             "key": "V8SPJ8g",
@@ -15960,10 +15968,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14461,
-            "click": 3852,
+            "visit": 14465,
+            "click": 3864,
             "unique": 205,
-            "ctr": 26.6,
+            "ctr": 26.7,
             "dwell": 41
           },
           {
@@ -16580,7 +16588,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 3202
+            "clicks": 3203
           },
           {
             "key": "bGTonvP",
@@ -16588,7 +16596,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 1815
+            "clicks": 1824
           },
           {
             "key": "0bSSo5p",
@@ -16636,7 +16644,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 548
+            "clicks": 549
           },
           {
             "key": "OkhXD1v",
@@ -16852,7 +16860,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 27
+            "clicks": 28
           },
           {
             "key": "V8SPJ8g",
@@ -16972,6 +16980,15 @@
             "dwell": 0
           },
           {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 6,
+            "click": 14,
+            "unique": 1,
+            "ctr": 233.3,
+            "dwell": 24
+          },
+          {
             "name": "우리 사이트",
             "host": "fva.co.kr",
             "visit": 2,
@@ -16979,15 +16996,6 @@
             "unique": 1,
             "ctr": 150,
             "dwell": 16
-          },
-          {
-            "name": "인스타 링크 눌러 옴",
-            "host": "l.instagram.com",
-            "visit": 2,
-            "click": 2,
-            "unique": 1,
-            "ctr": 100,
-            "dwell": 34
           },
           {
             "name": "pcmap.place.naver.com",
@@ -17059,16 +17067,32 @@
         ],
         "blocks": [
           {
+            "key": "bGTonvP",
+            "name": "온라인 강의 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 10
+          },
+          {
             "key": "Norn5x4",
             "name": "커리큘럼 페이지",
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 4
+            "clicks": 5
           },
           {
-            "key": "bGTonvP",
-            "name": "온라인 강의 페이지",
+            "key": "qHImjnR",
+            "name": "스마트스토어 · 2개월",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 2
+          },
+          {
+            "key": "O1PZwO3",
+            "name": "수강 후기 페이지",
             "gone": false,
             "kind": "site",
             "img": true,
@@ -17079,14 +17103,6 @@
             "name": "수강생 작품보기 (유튜브)",
             "gone": false,
             "kind": "site",
-            "img": true,
-            "clicks": 1
-          },
-          {
-            "key": "qHImjnR",
-            "name": "스마트스토어 · 2개월",
-            "gone": false,
-            "kind": "store",
             "img": true,
             "clicks": 1
           }
