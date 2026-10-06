@@ -363,6 +363,21 @@
     #list > .grp{grid-column:1/-1} #list > details[open]{grid-column:1/-1}
     #list > div:empty{display:none} #list > div:not(:empty){grid-column:1/-1}
   }
+  /* 피드백 쓰기 편하게 (2026-10-06) — PC: 영상 왼쪽·피드백 오른쪽 나란히 / 폰: 영상 폭 줄이고 상태·저장·복사 줄은 화면 아래에 붙여 둠 */
+  .vid .fb{min-height:220px !important;font-size:14px !important}
+  .vid .row2{position:sticky;bottom:0;z-index:5;background:var(--card);padding:8px 0;margin-top:6px}
+  @media (min-width:1000px){
+    #list > details[open] .vrow{flex-direction:column}
+    #list > details[open] .vid{width:100%;box-sizing:border-box;display:grid;grid-template-columns:340px minmax(0,1fr);column-gap:22px;align-items:start}
+    #list > details[open] .vid > .t{grid-column:1/-1}
+    #list > details[open] .vid > .player{grid-column:1;grid-row:2 / span 6;margin-top:6px;width:340px;padding-bottom:0 !important;height:calc(340px * 1.7778 + var(--gutter,120px))} /* 그리드 안에선 padding %가 바깥 폭 기준이라 높이로 고정 */
+    #list > details[open] .vid > :not(.t):not(.player){grid-column:2}
+    #list > details[open] .vid > .judge{margin-top:6px}
+    #list > details[open] .vid .fb{min-height:360px !important}
+  }
+  @media (max-width:999px){
+    .vid .player{width:78% !important;margin-left:auto;margin-right:auto;padding-bottom:calc(78% * 1.7778 + var(--gutter,120px)) !important}
+  }
   @media (max-width:640px){ .tl-row .tl-list{font-size:11px !important} .tl-row .tl-list .it em{font-size:10.5px !important} .tl-row .tl-list.n6{grid-template-columns:repeat(3,minmax(0,1fr)) !important} }
   .tl-h .nx{color:var(--sub) !important;font-weight:600}
   .tl-h .nx.late{color:var(--warn) !important} .tl-h .nx.fin{color:var(--ok) !important}
