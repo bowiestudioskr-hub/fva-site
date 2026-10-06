@@ -368,13 +368,12 @@
   .vid .row2{position:sticky;bottom:0;z-index:5;background:var(--card);padding:8px 0;margin-top:6px}
   @media (min-width:1000px){
     #list > details[open] .vrow{flex-direction:column}
-    #list > details.person[open]{max-height:820px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin} /* 편이 여럿이면 카드 안에서만 스크롤 */
     #list > details[open] .vid .hide, #list > details[open] .vid .t small{display:none}
     #list > details[open] .vid .judge>summary small{display:none}
     #list > details[open] .vid .row2{position:static}
-    #list > details[open] .vid{width:100%;box-sizing:border-box;display:grid;grid-template-columns:230px minmax(0,1fr);column-gap:14px;align-items:start}
+    #list > details[open] .vid{width:100%;box-sizing:border-box;display:grid;grid-template-columns:250px minmax(0,1fr);column-gap:14px;align-items:start}
     #list > details[open] .vid > .t{grid-column:1/-1}
-    #list > details[open] .vid > .player{grid-column:1;grid-row:2 / span 6;margin-top:6px;width:230px;padding-bottom:0 !important;height:calc(230px * 1.7778 + var(--gutter,120px))} /* 그리드 안에선 padding %가 바깥 폭 기준이라 높이로 고정 */
+    #list > details[open] .vid > .player{grid-column:1;grid-row:2 / span 6;margin-top:6px;width:250px;padding-bottom:0 !important;height:calc(250px * 1.7778 + var(--gutter,150px));--zoom:.5;--gutter:150px} /* 10/6: 좁으면 드라이브가 꽉 채워 자름 → 안쪽을 2배로 잡고 반으로 축소(폰과 같은 방식) */ /* 그리드 안에선 padding %가 바깥 폭 기준이라 높이로 고정 */
     #list > details[open] .vid > :not(.t):not(.player){grid-column:2}
     #list > details[open] .vid > .judge{margin-top:6px}
     #list > details[open] .vid .fb{min-height:300px !important}
@@ -382,6 +381,10 @@
   @media (max-width:999px){
     .vid .player{width:78% !important;margin-left:auto;margin-right:auto;padding-bottom:calc(78% * 1.7778 + var(--gutter,120px)) !important}
   }
+  /* 10/6: 글자 한 단계 작게 */
+  .vid .fb{font-size:12.5px !important;line-height:1.6 !important}
+  .vid .t{font-size:12.5px !important} .psum{font-size:15px} .meta{font-size:12px} .lk{font-size:12px !important}
+  .morev{display:block;margin:6px 16px;background:var(--card2);color:var(--sub);border:0;border-radius:999px;padding:6px 12px;font:inherit;font-size:12px;cursor:pointer}
   @media (max-width:640px){ .tl-row .tl-list{font-size:11px !important} .tl-row .tl-list .it em{font-size:10.5px !important} .tl-row .tl-list.n6{grid-template-columns:repeat(3,minmax(0,1fr)) !important} }
   .tl-h .nx{color:var(--sub) !important;font-weight:600}
   .tl-h .nx.late{color:var(--warn) !important} .tl-h .nx.fin{color:var(--ok) !important}
@@ -810,6 +813,12 @@ function render(d) {
   document.querySelectorAll('details.person').forEach(pe => {
     pe.addEventListener('toggle', () => {
       if (!pe.open) return;
+      /* 10/6: 펼치면 가장 최근 주차 하나만 열어 영상 하나가 한눈에 — 나머지 주차는 접어 둠(눌러서 열기) */
+      const 주 = [...pe.querySelectorAll('details.week')]; 주.forEach((w, i) => { w.open = i === 주.length - 1; });
+      주.forEach(w => { const vs = [...w.querySelectorAll('.vid')]; if (vs.length < 2 || w.dataset.all) return;
+        vs.forEach((v, i) => { v.style.display = i === vs.length - 1 ? '' : 'none'; });
+        if (!w.querySelector('.morev')) { const b = document.createElement('button'); b.type = 'button'; b.className = 'morev'; b.textContent = `이전 영상 ${vs.length - 1}개 보기`;
+          b.onclick = () => { w.dataset.all = 1; vs.forEach(v => { v.style.display = ''; }); b.remove(); }; vs[vs.length - 1].before(b); } });
       (pe.dataset.ids || '').split(',').filter(Boolean).forEach(id => { 본것[id] = 1; });
       try { localStorage.setItem('amb_seen', JSON.stringify(본것)); } catch (e) {}
     });
