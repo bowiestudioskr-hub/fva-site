@@ -394,6 +394,12 @@
   .tl-panel{display:none;margin-top:12px} .tl-panel.on{display:block}
   .tl-panel details.person{background:transparent;margin:0}
   .tl-panel details.person > summary{display:none}
+  /* 10/6: 아래 사람 목록은 일정 카드로 합쳐서 숨김(요소는 남겨 두고 「영상 보기」 때 카드 안으로 옮겨 씀) */
+  #list > .grp, #list > div:not(:empty){display:none !important}
+  #list > details.person{display:none !important}
+  .tl-panel details.person{display:block !important}
+  .tl-links{margin-top:8px} .tl-links .lks{gap:6px} .tl-links .lk{padding:5px 10px !important;font-size:11.5px !important}
+  .card h3 .sg{font-size:12px;font-weight:600;color:var(--dim);margin-left:6px}
   @media (max-width:640px){ .tl-row .tl-list{font-size:11px !important} .tl-row .tl-list .it em{font-size:10.5px !important} .tl-row .tl-list.n6{grid-template-columns:repeat(3,minmax(0,1fr)) !important} }
   .tl-h .nx{color:var(--sub) !important;font-weight:600}
   .tl-h .nx.late{color:var(--warn) !important} .tl-h .nx.fin{color:var(--ok) !important}
@@ -590,6 +596,7 @@ function 일정판(사람들, 제목) {
     if (p.계약종료) 머리 = `<span class="nx">계약 종료 · ${esc(짧게(날(p.계약종료.날)))}</span>`;
     return `<div class="tl-row${p.계약종료 ? ' ended' : ''}" data-pid="${esc(p.id)}">
       <div class="tl-h"><b>${esc(p.이름)} 님</b>${p.계약종료 ? '<span class="endtag">계약 종료</span>' : ''}<small>앰버서더 게시 일정 · ${esc(p.요일)} · 총 ${p.편수}편</small><span class="nxs">${머리}</span><button type="button" class="tlv">영상 보기 ▾</button></div>
+      <div class="tl-links">${바로가기(p)}</div>
       ${일정예외[p.id] ? `<div class="tl-note">📌 ${esc(일정예외[p.id].메모)}</div>` : ''}
       <div class="tl-note tl-rule">⚠️ 적힌 날짜는 <b>최종 게시 마감</b>입니다. 검수와 수정 시간이 필요하니
         <b>1차 편집본은 수업 3일 뒤까지</b> 먼저 공유해 주세요(편마다 아래 「1차본」 날짜).</div>
@@ -604,7 +611,7 @@ function 일정판(사람들, 제목) {
       ${범례}
     </div>`;
   }).join('');
-  return `<div class="card"><h3>${esc(제목 || '마감 일정')} <span class="r">${사람들.length}명</span></h3>
+  return `<div class="card"><h3>${esc(제목 || '마감 일정')} <small class="sg">계약서 서명 ${사람들.filter(q => 서명본(q).서명).length} / ${사람들.length}</small> <span class="r">${사람들.length}명</span></h3>
     <div class="plan">${줄}</div></div>`;
 }
 
