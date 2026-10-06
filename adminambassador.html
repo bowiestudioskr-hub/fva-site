@@ -576,7 +576,8 @@ function render(d) {
   window.__D = d;
   const 모두 = (d.사람 || []).map(정리);
   let 탭 = '마스터'; try { 탭 = localStorage.getItem('amb_tab') || '마스터'; } catch (e) {}
-  const 수 = k => 모두.filter(p => p.과정 === k).length;
+  const 수 = k => { const 무리 = 모두.filter(p => p.과정 === k), 기수 = [...new Set(무리.map(p => p.기수 || ''))].filter(Boolean).sort((x, y) => parseInt(x) - parseInt(y));
+    return 기수.length > 1 ? 기수.map(g => `${g} ${무리.filter(p => p.기수 === g).length}`).join(' · ') : 무리.length; }; /* 10/6: 마스터는 19기·20기 나눠 표시 */
   $('tabs').innerHTML = ['마스터', '베이직'].map(k => `<button type="button" class="tab${k === 탭 ? ' on' : ''}" data-k="${k}">${k}반 <small>${수(k)}</small></button>`).join('');
   $('tabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { try { localStorage.setItem('amb_tab', b.dataset.k); } catch (e) {} render(window.__D); });
   const 보임 = 모두.filter(p => p.과정 === 탭);
