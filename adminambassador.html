@@ -402,6 +402,7 @@
   .pill.검수중,.pill.대기{background:var(--card2) !important;color:var(--sub) !important}
   .pill.수정요청{background:#3A3210 !important;color:#FFD60A !important} /* 10/6: 수정요청만 노랑 */
   .tl-h .nx.req{color:#FFD60A !important}
+  .cnt .c-req{color:#FFD60A !important} .prog i.req{background:#FFD60A !important}
   .tl-slot.now.req,.tl-row .tl-slot.now.req{background:#FFD60A !important;color:#000 !important}
   .nbadge,.chip.new{background:var(--ok) !important;color:#000 !important}
   .chip.new b{color:#000 !important}
@@ -663,6 +664,7 @@ function render(d) {
       const 났 = (피드백[f.id] || {}).상태 === '게시완료';
       주모음[n] = 주모음[n] || { 끝: false };
       if (났) 주모음[n].끝 = true;
+      if ((피드백[f.id] || {}).상태 === '수정요청') 주모음[n].요청 = true;
     }
     /* 영상 말고 다른 방식으로 낸 회차(블로그 등). 드라이브에 파일이 없어 따로 적어 둔다.
        p.외부 = { "2": { 방식:'블로그', 상태:'게시완료', 메모, 링크 } } — 2026-09-24 승아님 2주차가 처음. */
@@ -673,13 +675,15 @@ function render(d) {
     }
     const 주들번호 = Object.keys(주모음);
     const 끝난것 = 주들번호.filter(n => 주모음[n].끝).length;
-    const 진행중 = 주들번호.length - 끝난것;
+    const 수정중 = 주들번호.filter(n => !주모음[n].끝 && 주모음[n].요청).length; /* 10/6: 수정요청은 따로(노랑) */
+    const 진행중 = 주들번호.length - 끝난것 - 수정중;
     const 낸편수 = 주들번호.length;
     const bar = Array.from({ length: p.편수 || 6 }, (_, i) =>
-      `<i class="${i < 끝난것 ? 'done' : i < 낸편수 ? 'now' : ''}"
-          title="${i < 끝난것 ? '게시완료' : i < 낸편수 ? '검수 중' : '아직 안 들어옴'}"></i>`).join('');
+      `<i class="${i < 끝난것 ? 'done' : i < 끝난것 + 수정중 ? 'req' : i < 낸편수 ? 'now' : ''}"
+          title="${i < 끝난것 ? '게시완료' : i < 끝난것 + 수정중 ? '수정요청' : i < 낸편수 ? '검수 중' : '아직 안 들어옴'}"></i>`).join('');
     const 셈 = `<span class="cnt">` +
       `<b class="c-done">게시완료 ${끝난것}</b>` +
+      (수정중 ? `<b class="c-req">수정요청 ${수정중}</b>` : '') +
       (진행중 ? `<b class="c-now">검수 중 ${진행중}</b>` : '') +
       `<b class="c-left">남은 ${Math.max(0, (p.편수 || 6) - 낸편수)}</b></span>`;
 
