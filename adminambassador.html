@@ -327,6 +327,28 @@
   .lk.off{color:var(--dim)}
   .grp small{font-size:12.5px;font-weight:700;color:var(--sub);margin-left:6px}
   .nw{white-space:nowrap}
+
+  /* ── 2026-10-06 미니멀 정리 (사용자: 「글이 너무 많고 색이 너무 많음」) ──
+     색은 완료(초록)·마감 지남(빨강) 두 가지만. 나머지는 회색. 사람마다 반복되던 경고문·범례·편별 날짜표·첫/마지막 수업 줄은 숨김. */
+  :root{ --wait:#E5E5EA; --acc:#E5E5EA; }
+  .tl-rule,.tl-key,.tl-list,.tl-marks,.tl-h small,.tl-axis span:not(.tl-now){display:none !important}
+  .tl-row{padding-top:14px !important;padding-bottom:14px !important}
+  .tl-h .nx{color:var(--sub) !important;font-weight:600}
+  .tl-h .nx.late{color:var(--warn) !important} .tl-h .nx.fin{color:var(--ok) !important}
+  .tl-slot.now,.tl-row .tl-slot.now{background:#636366 !important;color:#fff !important}
+  .tl-slot.promise{outline:1px dashed #8E8E93 !important}
+  .tl-dot{opacity:.35}
+  .tl-today{background:#fff !important;opacity:.7}
+  .tl-axis .tl-now{color:var(--dim) !important;font-weight:600 !important}
+  .lk.wait{background:var(--card3) !important;color:var(--dim) !important}
+  .lk.ok{background:transparent !important;color:var(--ok) !important;box-shadow:inset 0 0 0 1px rgba(44,255,5,.35)}
+  .pill.검수중,.pill.대기{background:var(--card2) !important;color:var(--sub) !important}
+  .pill.수정요청{background:var(--card2) !important;color:var(--ink) !important}
+  .nbadge,.chip.new{background:var(--ok) !important;color:#000 !important}
+  .chip.new b{color:#000 !important}
+  .cnt .c-now{color:var(--sub) !important}
+  .tl-note{background:var(--card2) !important;color:var(--sub) !important;font-weight:500 !important}
+  .chip.new{background:var(--card3) !important;color:var(--ink) !important} .chip.new b{color:var(--ok) !important}
 </style>
 </head>
 <body>
@@ -441,7 +463,10 @@ function 바로가기(p) { const s = 서명본(p), 폴더 = p.폴더id ? `https:
   return `<div class="lks" onclick="event.stopPropagation()">
     <a class="lk" href="https://instagram.com/${esc(p.인스타)}" target="_blank" rel="noopener">인스타</a>
     ${폴더 ? `<a class="lk" href="${esc(폴더)}" target="_blank" rel="noopener">드라이브</a>` : '<span class="lk off">드라이브 없음</span>'}
-    ${계약}</div>`; }
+    ${계약}
+    ${(p.기타파일 || []).map(f => `<a class="lk" href="https://drive.google.com/file/d/${esc(f.id)}/view" target="_blank" rel="noopener" title="${esc((f.경로 ? f.경로 + '/' : '') + f.이름)}">기타 · ${esc(f.이름)} <small>${esc(String(f.올린날).slice(0, 5).replace('-', '/'))}</small></a>`).join('')}</div>`; }
+/* 2026-10-05 서버가 사람 폴더 전체를 재귀로 훑는다 — 영상·계약서가 아닌 파일은 「기타파일」로 와서 바로가기 줄에 붙인다.
+   ⚠ 저장할 때는 파일·계약파일·기타파일·폴더id 를 빼고 보낸다(드라이브가 매번 새로 준다 · 속성 용량 9KB).
 /* 옛 19기 기록에는 과정·기수·반이 없다 — 요일에서 채운다 */
 function 정리(p) { if (!p.과정) { p.과정 = '마스터'; p.기수 = '19기'; p.반 = /^토/.test(p.요일 || '') ? '토요일반' : /^금/.test(p.요일 || '') ? '금요일반' : '기타'; } return p; }
 function 일정판(사람들, 제목) {
@@ -751,7 +776,7 @@ function render(d) {
     const 사람 = (d.사람 || []).find(x => x.id === box.dataset.p);
     if (!confirm('이 영상을 목록에서 숨길까요?\n(드라이브 파일은 그대로 있습니다)')) return;
     사람.숨김 = 사람.숨김 || {}; 사람.숨김[box.dataset.f] = 1;
-    const 보낼것 = { ...사람 }; delete 보낼것.파일;
+    const 보낼것 = { ...사람 }; for (const k of ['파일', '계약파일', '기타파일', '폴더id']) delete 보낼것[k];
     b.disabled = true; b.textContent = '숨기는 중';
     try {
       await 저장보내기(box.dataset.p, 보낼것);
@@ -856,7 +881,7 @@ function render(d) {
     person.피드백 = person.피드백 || {};
     person.피드백[fid] = { 상태: box.querySelector('.st').value,
                           메모: box.querySelector('.fb').value };
-    const 보낼것 = { ...person }; delete 보낼것.파일;   // 파일은 드라이브가 준다. 저장할 필요 없다.
+    const 보낼것 = { ...person }; for (const k of ['파일', '계약파일', '기타파일', '폴더id']) delete 보낼것[k];   // 파일은 드라이브가 준다. 저장할 필요 없다.
     b.disabled = true; said.textContent = '저장 중';
     try {
       const r = await 저장보내기(pid, 보낼것);
