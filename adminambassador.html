@@ -396,7 +396,9 @@
   .lk.wait{background:var(--card3) !important;color:var(--dim) !important}
   .lk.ok{background:transparent !important;color:var(--ok) !important;box-shadow:inset 0 0 0 1px rgba(44,255,5,.35)}
   .pill.검수중,.pill.대기{background:var(--card2) !important;color:var(--sub) !important}
-  .pill.수정요청{background:var(--card2) !important;color:var(--ink) !important}
+  .pill.수정요청{background:#3A3210 !important;color:#FFD60A !important} /* 10/6: 수정요청만 노랑 */
+  .tl-h .nx.req{color:#FFD60A !important}
+  .tl-slot.now.req,.tl-row .tl-slot.now.req{background:#FFD60A !important;color:#000 !important}
   .nbadge,.chip.new{background:var(--ok) !important;color:#000 !important}
   .chip.new b{color:#000 !important}
   .cnt .c-now{color:var(--sub) !important}
@@ -539,7 +541,7 @@ function 일정판(사람들, 제목) {
     const 막수업 = 수업[수업.length - 1];
     const 상태 = 칸.map((c, i) => {
       if (i < 끝.length) return { k: 'done', 글: '완료', 늦음: 끝[i].날 > (c.약속 || c.마감) };
-      if (i === 끝.length && 열림) return { k: 오늘 > (c.약속 || c.마감) ? 'late now' : 'now', 글: 열림.상태 };
+      if (i === 끝.length && 열림) return { k: (오늘 > (c.약속 || c.마감) ? 'late now' : 'now') + (열림.상태 === '수정요청' ? ' req' : ''), 글: 열림.상태 };
       if (오늘 > (c.약속 || c.마감)) return { k: 'late', 글: '마감 지남' };
       return { k: '', 글: '' };
     });
@@ -547,7 +549,7 @@ function 일정판(사람들, 제목) {
     let 머리 = '<span class="nx fin">모두 완료</span>';
     if (다음 >= 0) {
       const c = 칸[다음], 기한 = c.약속 || c.마감, dd = Math.round((기한 - 오늘) / DAY);
-      머리 = `<span class="nx${dd < 0 ? ' late' : ''}">${다음 + 1}편 게시 마감 ${짧게(기한)} · ${dd < 0 ? `${-dd}일 지남` : dd === 0 ? '오늘' : `D-${dd}`}${상태[다음].글 && 상태[다음].글 !== '마감 지남' ? ' · ' + esc(상태[다음].글) : ''}</span>`;
+      머리 = `<span class="nx${dd < 0 ? ' late' : 상태[다음].글 === '수정요청' ? ' req' : ''}">${다음 + 1}편 게시 마감 ${짧게(기한)} · ${dd < 0 ? `${-dd}일 지남` : dd === 0 ? '오늘' : `D-${dd}`}${상태[다음].글 && 상태[다음].글 !== '마감 지남' ? ' · ' + esc(상태[다음].글) : ''}</span>`;
       /* 밀린 편이 있으면 그 다음 다가오는 마감도 같이 — 밀린 것만 보고 이번 주 마감을 놓치지 않게 */
       const 곧 = 칸.findIndex((c, i) => i > 다음 && !상태[i].k.startsWith('done') && (c.약속 || c.마감) >= 오늘);
       if (dd < 0 && 곧 >= 0) { const c2 = 칸[곧], d2 = c2.약속 || c2.마감;
