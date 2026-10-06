@@ -399,6 +399,7 @@
   #list > details.person{display:none !important}
   .tl-panel details.person{display:block !important}
   .tl-links{margin-top:8px} .tl-links .lks{gap:6px} .tl-links .lk{padding:5px 10px !important;font-size:11.5px !important}
+  .nmlink{color:inherit;text-decoration:none;border-bottom:1px solid transparent} .nmlink:hover{border-bottom-color:currentColor} /* 10/6: 이름 누르면 인스타 */
   .card h3 .sg{font-size:12px;font-weight:600;color:var(--dim);margin-left:6px}
   @media (max-width:640px){ .tl-row .tl-list{font-size:11px !important} .tl-row .tl-list .it em{font-size:10.5px !important} .tl-row .tl-list.n6{grid-template-columns:repeat(3,minmax(0,1fr)) !important} }
   .tl-h .nx{color:var(--sub) !important;font-weight:600}
@@ -595,7 +596,7 @@ function 일정판(사람들, 제목) {
         <span><b class="k-line" style="background:var(--acc)"></b>오늘</span><span><b class="k-line" style="background:#8E8E93"></b>계약 종료</span></div>`;
     if (p.계약종료) 머리 = `<span class="nx">계약 종료 · ${esc(짧게(날(p.계약종료.날)))}</span>`;
     return `<div class="tl-row${p.계약종료 ? ' ended' : ''}" data-pid="${esc(p.id)}">
-      <div class="tl-h"><b>${esc(p.이름)} 님</b>${p.계약종료 ? '<span class="endtag">계약 종료</span>' : ''}<small>앰버서더 게시 일정 · ${esc(p.요일)} · 총 ${p.편수}편</small><span class="nxs">${머리}</span><button type="button" class="tlv">영상 보기 ▾</button></div>
+      <div class="tl-h"><b>${p.인스타 ? `<a class="nmlink" href="https://instagram.com/${esc(p.인스타)}" target="_blank" rel="noopener">${esc(p.이름)} 님</a>` : esc(p.이름) + ' 님'}</b>${p.계약종료 ? '<span class="endtag">계약 종료</span>' : ''}<small>앰버서더 게시 일정 · ${esc(p.요일)} · 총 ${p.편수}편</small><span class="nxs">${머리}</span><button type="button" class="tlv">영상 보기 ▾</button></div>
       <div class="tl-links">${바로가기(p)}</div>
       ${일정예외[p.id] ? `<div class="tl-note">📌 ${esc(일정예외[p.id].메모)}</div>` : ''}
       <div class="tl-note tl-rule">⚠️ 적힌 날짜는 <b>최종 게시 마감</b>입니다. 검수와 수정 시간이 필요하니
