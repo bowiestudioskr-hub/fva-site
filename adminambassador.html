@@ -331,8 +331,39 @@
   /* ── 2026-10-06 미니멀 정리 (사용자: 「글이 너무 많고 색이 너무 많음」) ──
      색은 완료(초록)·마감 지남(빨강) 두 가지만. 나머지는 회색. 사람마다 반복되던 경고문·범례·편별 날짜표·첫/마지막 수업 줄은 숨김. */
   :root{ --wait:#E5E5EA; --acc:#E5E5EA; }
-  .tl-rule,.tl-key,.tl-list,.tl-marks,.tl-h small,.tl-axis span:not(.tl-now){display:none !important}
-  .tl-row{padding-top:14px !important;padding-bottom:14px !important}
+  .tl-key,.tl-marks,.tl-axis span:not(.tl-now){display:none !important}
+  /* 경고문은 반마다 첫 사람에게만 한 번, 회색 작은 글씨로 */
+  .tl-rule{display:none !important}
+  .plan .tl-row:first-child .tl-rule{display:block !important;background:transparent !important;padding:0 !important;margin:6px 0 0 !important;font-size:12px !important;color:var(--dim) !important}
+  .plan .tl-row:first-child .tl-rule b{color:var(--sub) !important}
+  .tl-row{padding-top:16px !important;padding-bottom:14px !important}
+  .tl-h small{font-size:12.5px !important;color:var(--dim) !important}
+  .tl-row .tl-axis{margin-top:2px !important;height:20px !important}
+  .tl-row .tl-axis .tl-now{top:2px !important;font-size:11.5px !important}
+  /* 편별 날짜 — 막대 바로 아래 한 줄로, 칸과 같은 폭 */
+  .tl-row .tl-list{display:grid !important;grid-template-columns:repeat(var(--n),minmax(0,1fr)) !important;gap:4px 6px !important;margin-top:4px !important;font-size:12px !important;color:var(--dim) !important}
+  .tl-row .tl-list .it b{display:none}
+  .tl-row .tl-list .it{color:var(--dim) !important}
+  .tl-row .tl-list .it span{color:var(--sub)}
+  .tl-row .tl-list .it em{color:var(--dim) !important;font-weight:500 !important;font-size:11.5px !important}
+  .tl-row .tl-list .it small{display:none}
+  .tl-row .tl-list .it.done span{color:var(--ok)} .tl-row .tl-list .it.late span{color:var(--warn)}
+  /* 스크롤 줄이기 (2026-10-06) — 반 제목과 겹치는 「게시 일정·요일」 줄 빼고, 간격 조이고, PC 는 2열 */
+  .tl-h small{display:none !important}
+  .plan{gap:10px !important}
+  .tl-row .tl-bar{height:36px !important}
+  .lk{padding:7px 11px !important;font-size:12.5px !important}
+  @media (min-width:1000px){
+    .wrap{max-width:1320px !important}
+    .plan{display:grid !important;grid-template-columns:1fr 1fr;align-items:start}
+    #list :is(div,section):has(> details.person){display:grid !important;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+    #list :has(> details.person) > .grp{grid-column:1/-1}
+    #list :has(> details.person) > details[open]{grid-column:1/-1}
+    #list:has(> details.person){display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+    #list > .grp{grid-column:1/-1} #list > details[open]{grid-column:1/-1}
+    #list > div:empty{display:none} #list > div:not(:empty){grid-column:1/-1}
+  }
+  @media (max-width:640px){ .tl-row .tl-list{font-size:11px !important} .tl-row .tl-list .it em{font-size:10.5px !important} .tl-row .tl-list.n6{grid-template-columns:repeat(3,minmax(0,1fr)) !important} }
   .tl-h .nx{color:var(--sub) !important;font-weight:600}
   .tl-h .nx.late{color:var(--warn) !important} .tl-h .nx.fin{color:var(--ok) !important}
   .tl-slot.now,.tl-row .tl-slot.now{background:#636366 !important;color:#fff !important}
