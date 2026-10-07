@@ -401,6 +401,21 @@
   .tl-links{margin-top:8px} .tl-links .lks{gap:6px} .tl-links .lk{padding:5px 10px !important;font-size:11.5px !important}
   .nmlink{color:inherit;text-decoration:none;border-bottom:1px solid transparent} .nmlink:hover{border-bottom-color:currentColor} /* 10/6: 이름 누르면 인스타 */
   .card h3 .sg{font-size:12px;font-weight:600;color:var(--dim);margin-left:6px}
+  /* 10/7: 알림 */
+  .hd{position:relative}
+  .bell{margin-left:10px;background:var(--card2);color:var(--sub);border:0;border-radius:999px;padding:6px 12px;font:inherit;font-size:12.5px;font-weight:700;cursor:pointer}
+  .bell.has{background:var(--ok);color:#000}
+  .noti{display:none;position:absolute;right:0;top:44px;z-index:80;width:min(380px,92vw);max-height:70vh;overflow-y:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+  .noti.on{display:block}
+  .noti .nh{display:flex;align-items:center;justify-content:space-between;padding:8px 10px}
+  .noti .nall{background:none;border:0;color:var(--dim);font:inherit;font-size:12px;cursor:pointer}
+  .noti .ni{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;background:none;border:0;border-radius:10px;padding:9px 10px;color:var(--ink);font:inherit;cursor:pointer;opacity:.4}
+  .noti .ni.new{opacity:1} .noti .ni:hover{background:var(--card2)}
+  .noti .nk{flex:none;font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--card3);color:var(--sub)}
+  .noti .ni.new .nk{background:var(--ok);color:#000} .noti .nk.sg{background:#3A3A3C}
+  .noti .nt{flex:1;min-width:0;font-size:13px;line-height:1.4} .noti .nt small{color:var(--dim);font-size:11.5px;word-break:break-all}
+  .noti .nd{flex:none;font-size:11px;color:var(--dim)}
+  .flash{outline:2px solid var(--ok);outline-offset:4px;border-radius:12px;transition:outline-color .6s}
   @media (max-width:640px){ .tl-row .tl-list{font-size:11px !important} .tl-row .tl-list .it em{font-size:10.5px !important} .tl-row .tl-list.n6{grid-template-columns:repeat(3,minmax(0,1fr)) !important} }
   .tl-h .nx{color:var(--sub) !important;font-weight:600}
   .tl-h .nx.late{color:var(--warn) !important} .tl-h .nx.fin{color:var(--ok) !important}
@@ -426,7 +441,8 @@
 <body>
 <div class="wrap">
   <div class="hd">
-    <div class="row"><h1>FVA 앰버서더</h1><span class="date" id="date">불러오는 중…</span></div>
+    <div class="row"><h1>FVA 앰버서더</h1><span class="date" id="date">불러오는 중…</span><button type="button" id="bell" class="bell">알림<b id="bellN"></b></button></div>
+    <div id="noti" class="noti"></div>
     <p class="lede">제작 영상은 구글 드라이브에서 자동으로 읽어옵니다 ·
       <a href="/adminmonitor.html">유입 현황</a></p>
   </div>
@@ -849,6 +865,42 @@ function render(d) {
     row.querySelector('.tlv').onclick = e => { e.stopPropagation(); 일정에서열기(row); };
     row.querySelectorAll('.tl-slot').forEach((sl, i) => { sl.style.cursor = 'pointer'; sl.onclick = () => 일정에서열기(row, i); });
   });
+
+  /* 10/7: 알림 — 드라이브에 새로 올라온 영상·서명본·파일. 누르면 그 사람 일정 카드로 이동해 영상까지 펼침. 본 알림은 흐리게 쌓임 */
+  window.__goFile = (pid, fid) => {
+    const row = document.querySelector(`.tl-row[data-pid="${CSS.escape(pid)}"]`); if (!row) return;
+    const pe = document.querySelector(`details.person[data-pid="${CSS.escape(pid)}"]`);
+    const v = pe && pe.querySelector(`.vid[data-f="${CSS.escape(fid)}"]`);
+    if (v) { 일정에서열기(row); const w = v.closest('details.week'); pe.querySelectorAll('details.week').forEach(x => { x.open = x === w; });
+      v.style.display = ''; setTimeout(() => { v.scrollIntoView({ block: 'center', behavior: 'smooth' }); v.classList.add('flash'); setTimeout(() => v.classList.remove('flash'), 1800); }, 60); }
+    else { row.scrollIntoView({ block: 'center', behavior: 'smooth' }); row.classList.add('flash'); setTimeout(() => row.classList.remove('flash'), 1800); }
+  };
+  const 오늘년 = new Date(Date.now() + 9 * 3600e3);
+  const 며칠전 = 원문 => { const m = String(원문 || '').match(/^(\d{2})-(\d{2})/); if (!m) return 999; const d0 = new Date(오늘년.getUTCFullYear(), +m[1] - 1, +m[2]); return Math.floor((오늘년 - d0) / 864e5); };
+  const 알림 = [];
+  for (const p of 모두) {
+    const 원본 = '계약서_' + p.이름 + '.pdf';
+    (p.파일 || []).forEach(f => 알림.push({ id: f.id, p, f, 종류: '영상', 글: f.이름 }));
+    (p.계약파일 || []).filter(f => f.이름 !== 원본).forEach(f => 알림.push({ id: f.id, p, f, 종류: '서명', 글: '계약서 서명본' }));
+    (p.기타파일 || []).forEach(f => 알림.push({ id: f.id, p, f, 종류: '파일', 글: f.이름 }));
+  }
+  알림.sort((a, b) => String(b.f.올린날).localeCompare(String(a.f.올린날)));
+  const 보일것 = 알림.filter(a => 며칠전(a.f.올린날) <= 21).slice(0, 40);
+  const 안읽음 = a => !본것[a.id] && 며칠전(a.f.올린날) <= 7;
+  const 알림그리기 = () => {
+    const n = 보일것.filter(안읽음).length; $('bellN').textContent = n ? ' ' + n : ''; $('bell').classList.toggle('has', !!n);
+    $('noti').innerHTML = `<div class="nh"><b>알림</b><button type="button" class="nall">모두 읽음</button></div>` + (보일것.length ? 보일것.map(a => `
+      <button type="button" class="ni${안읽음(a) ? ' new' : ''}" data-id="${esc(a.id)}"><span class="nk ${a.종류 === '서명' ? 'sg' : ''}">${a.종류}</span>
+        <span class="nt"><b>${esc(a.p.이름)}</b> · ${esc(a.p.과정 || '')}${a.p.기수 ? ' ' + esc(a.p.기수) : ''}<br><small>${esc(a.글)}</small></span><span class="nd">${esc(String(a.f.올린날 || '').replace('-', '/'))}</span></button>`).join('') : '<p class="none">최근 3주 동안 올라온 것이 없습니다</p>');
+    $('noti').querySelectorAll('.ni').forEach(b => b.onclick = () => { const a = 보일것.find(x => x.id === b.dataset.id); 본것[a.id] = 1; try { localStorage.setItem('amb_seen', JSON.stringify(본것)); } catch (e) {}
+      $('noti').classList.remove('on');
+      if (a.p.과정 !== 탭) { try { localStorage.setItem('amb_tab', a.p.과정); } catch (e) {} render(window.__D); setTimeout(() => window.__goFile(a.p.id, a.id), 50); }
+      else { 알림그리기(); window.__goFile(a.p.id, a.id); } });
+    $('noti').querySelector('.nall').onclick = () => { 보일것.forEach(a => { 본것[a.id] = 1; }); try { localStorage.setItem('amb_seen', JSON.stringify(본것)); } catch (e) {} 알림그리기(); };
+  };
+  알림그리기();
+  $('bell').onclick = e => { e.stopPropagation(); $('noti').classList.toggle('on'); };
+  document.addEventListener('click', e => { if (!e.target.closest('#noti') && !e.target.closest('#bell')) $('noti').classList.remove('on'); });
   /* 사람을 펼치면 그 사람 영상은 「본 것」으로 기록 — 다음에 열 때 NEW 가 사라진다 */
   document.querySelectorAll('details.person').forEach(pe => {
     pe.addEventListener('toggle', () => {
