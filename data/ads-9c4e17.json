@@ -1,13 +1,13 @@
 {
-  "updated": "2026. 10. 8. PM 7:57:55",
+  "updated": "2026. 10. 8. PM 8:14:03",
   "naver": {
     "start": "2026-08-16",
     "live": true,
     "state": "운영",
-    "charged": 176,
+    "charged": 264,
     "pending": 88,
     "dailyBudget": 2500,
-    "balance": 15338,
+    "balance": 15250,
     "imp": 1305,
     "clk": 88,
     "cost": 7382,
@@ -10235,7 +10235,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 10. 8. PM 7:57:36",
+    "updated": "2026. 10. 8. PM 8:13:43",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10245,28 +10245,28 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 110,
+        "visit": 111,
         "click": 29,
         "unique": 51,
-        "ctr": 26.4,
+        "ctr": 26.1,
         "dwell": 12
       },
       "7": {
-        "visit": 1025,
+        "visit": 1026,
         "click": 273,
         "unique": 294,
         "ctr": 26.6,
         "dwell": 18
       },
       "28": {
-        "visit": 3962,
+        "visit": 3963,
         "click": 751,
         "unique": 708,
         "ctr": 19,
         "dwell": 17
       },
       "90": {
-        "visit": 8158,
+        "visit": 8159,
         "click": 2494,
         "unique": 1070,
         "ctr": 30.6,
@@ -10280,7 +10280,7 @@
         "dwell": 17
       },
       "all": {
-        "visit": 39245,
+        "visit": 39246,
         "click": 15389,
         "unique": 1070,
         "ctr": 39.2,
@@ -12990,7 +12990,7 @@
       },
       {
         "d": "2026-10-08",
-        "visit": 110,
+        "visit": 111,
         "click": 29,
         "unique": 51
       }
@@ -13026,7 +13026,7 @@
       {
         "name": "리틀리 안에서",
         "host": "litt.ly",
-        "visit": 835,
+        "visit": 836,
         "click": 17,
         "unique": 1,
         "ctr": 2,
@@ -13603,11 +13603,11 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 3138,
+        "visit": 3139,
         "click": 1574,
         "unique": 982,
         "dwell": 20,
-        "ctr": 50.2
+        "ctr": 50.1
       },
       {
         "name": "데스크탑",
@@ -13629,7 +13629,7 @@
     "country": [
       {
         "name": "KR",
-        "visit": 25481,
+        "visit": 25482,
         "click": 1693,
         "unique": 898,
         "dwell": 48,
@@ -13811,7 +13811,7 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 2726,
+        "visit": 2727,
         "click": 1462,
         "unique": 797,
         "dwell": 25,
@@ -14009,7 +14009,7 @@
             "click": 23,
             "unique": 13,
             "ctr": 100,
-            "dwell": 20
+            "dwell": 19
           },
           {
             "name": "우리 사이트",
@@ -14019,16 +14019,25 @@
             "unique": 1,
             "ctr": 200,
             "dwell": 28
+          },
+          {
+            "name": "리틀리 안에서",
+            "host": "litt.ly",
+            "visit": 1,
+            "click": 0,
+            "unique": 0,
+            "ctr": 0,
+            "dwell": 0
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 74,
+            "visit": 75,
             "click": 22,
             "unique": 50,
-            "dwell": 13,
-            "ctr": 29.7
+            "dwell": 12,
+            "ctr": 29.3
           },
           {
             "name": "데스크탑",
@@ -14042,11 +14051,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 72,
+            "visit": 73,
             "click": 22,
             "unique": 49,
-            "dwell": 13,
-            "ctr": 30.6,
+            "dwell": 12,
+            "ctr": 30.1,
             "code": "KR"
           },
           {
@@ -14071,11 +14080,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 72,
+            "visit": 73,
             "click": 22,
             "unique": 49,
-            "dwell": 13,
-            "ctr": 30.6,
+            "dwell": 12,
+            "ctr": 30.1,
             "code": "KR"
           },
           {
@@ -14174,7 +14183,7 @@
             "click": 216,
             "unique": 79,
             "ctr": 93.5,
-            "dwell": 24
+            "dwell": 23
           },
           {
             "name": "우리 사이트",
@@ -14186,6 +14195,15 @@
             "dwell": 56
           },
           {
+            "name": "리틀리 안에서",
+            "host": "litt.ly",
+            "visit": 5,
+            "click": 0,
+            "unique": 0,
+            "ctr": 0,
+            "dwell": 0
+          },
+          {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
             "visit": 4,
@@ -14193,15 +14211,6 @@
             "unique": 1,
             "ctr": 0,
             "dwell": 2
-          },
-          {
-            "name": "리틀리 안에서",
-            "host": "litt.ly",
-            "visit": 4,
-            "click": 0,
-            "unique": 0,
-            "ctr": 0,
-            "dwell": 0
           },
           {
             "name": "m.place.naver.com",
@@ -14261,11 +14270,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 407,
+            "visit": 408,
             "click": 107,
             "unique": 275,
             "dwell": 15,
-            "ctr": 26.3
+            "ctr": 26.2
           },
           {
             "name": "데스크탑",
@@ -14287,11 +14296,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 399,
+            "visit": 400,
             "click": 116,
             "unique": 271,
             "dwell": 15,
-            "ctr": 29.1,
+            "ctr": 29,
             "code": "KR"
           },
           {
@@ -14397,11 +14406,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 374,
+            "visit": 375,
             "click": 110,
             "unique": 254,
             "dwell": 16,
-            "ctr": 29.4,
+            "ctr": 29.3,
             "code": "KR"
           },
           {
@@ -14709,10 +14718,10 @@
           {
             "name": "리틀리 안에서",
             "host": "litt.ly",
-            "visit": 10,
+            "visit": 11,
             "click": 1,
             "unique": 0,
-            "ctr": 10,
+            "ctr": 9.1,
             "dwell": 1
           },
           {
@@ -14773,7 +14782,7 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 947,
+            "visit": 948,
             "click": 258,
             "unique": 667,
             "dwell": 23,
@@ -14799,7 +14808,7 @@
         "country": [
           {
             "name": "KR",
-            "visit": 836,
+            "visit": 837,
             "click": 271,
             "unique": 584,
             "dwell": 23,
@@ -14981,7 +14990,7 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 732,
+            "visit": 733,
             "click": 243,
             "unique": 513,
             "dwell": 24,
@@ -15293,10 +15302,10 @@
           {
             "name": "리틀리 안에서",
             "host": "litt.ly",
-            "visit": 77,
+            "visit": 78,
             "click": 8,
             "unique": 1,
-            "ctr": 10.4,
+            "ctr": 10.3,
             "dwell": 11
           },
           {
@@ -15420,7 +15429,7 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 2155,
+            "visit": 2156,
             "click": 730,
             "unique": 982,
             "dwell": 20,
@@ -15446,7 +15455,7 @@
         "country": [
           {
             "name": "KR",
-            "visit": 2042,
+            "visit": 2043,
             "click": 795,
             "unique": 898,
             "dwell": 48,
@@ -15628,11 +15637,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1818,
+            "visit": 1819,
             "click": 670,
             "unique": 797,
             "dwell": 25,
-            "ctr": 36.9,
+            "ctr": 36.8,
             "code": "KR"
           },
           {
@@ -16018,7 +16027,7 @@
           {
             "name": "리틀리 안에서",
             "host": "litt.ly",
-            "visit": 835,
+            "visit": 836,
             "click": 17,
             "unique": 1,
             "ctr": 2,
@@ -16217,11 +16226,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3138,
+            "visit": 3139,
             "click": 1574,
             "unique": 982,
             "dwell": 20,
-            "ctr": 50.2
+            "ctr": 50.1
           },
           {
             "name": "데스크탑",
@@ -16243,7 +16252,7 @@
         "country": [
           {
             "name": "KR",
-            "visit": 25481,
+            "visit": 25482,
             "click": 1693,
             "unique": 898,
             "dwell": 48,
@@ -16425,7 +16434,7 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 2726,
+            "visit": 2727,
             "click": 1462,
             "unique": 797,
             "dwell": 25,
@@ -17001,7 +17010,7 @@
             "click": 23,
             "unique": 13,
             "ctr": 100,
-            "dwell": 20
+            "dwell": 19
           },
           {
             "name": "우리 사이트",
@@ -17011,16 +17020,25 @@
             "unique": 1,
             "ctr": 200,
             "dwell": 28
+          },
+          {
+            "name": "리틀리 안에서",
+            "host": "litt.ly",
+            "visit": 1,
+            "click": 0,
+            "unique": 0,
+            "ctr": 0,
+            "dwell": 0
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 74,
+            "visit": 75,
             "click": 22,
             "unique": 50,
-            "dwell": 13,
-            "ctr": 29.7
+            "dwell": 12,
+            "ctr": 29.3
           },
           {
             "name": "데스크탑",
@@ -17034,11 +17052,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 72,
+            "visit": 73,
             "click": 22,
             "unique": 49,
-            "dwell": 13,
-            "ctr": 30.6,
+            "dwell": 12,
+            "ctr": 30.1,
             "code": "KR"
           },
           {
@@ -17063,11 +17081,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 72,
+            "visit": 73,
             "click": 22,
             "unique": 49,
-            "dwell": 13,
-            "ctr": 30.6,
+            "dwell": 12,
+            "ctr": 30.1,
             "code": "KR"
           },
           {
