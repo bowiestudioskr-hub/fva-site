@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 10. 9. AM 2:08:58",
+  "updated": "2026. 10. 9. AM 2:24:50",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -10235,7 +10235,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 10. 9. AM 2:08:39",
+    "updated": "2026. 10. 9. AM 2:24:33",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10245,31 +10245,31 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 14,
+        "visit": 16,
         "click": 9,
-        "unique": 1,
-        "ctr": 64.3,
-        "dwell": 14
+        "unique": 2,
+        "ctr": 56.3,
+        "dwell": 18
       },
       "7": {
-        "visit": 959,
+        "visit": 961,
         "click": 267,
-        "unique": 255,
+        "unique": 256,
         "ctr": 27.8,
         "dwell": 18
       },
       "28": {
-        "visit": 3780,
+        "visit": 3782,
         "click": 754,
-        "unique": 718,
+        "unique": 719,
         "ctr": 19.9,
         "dwell": 17
       },
       "90": {
-        "visit": 8164,
+        "visit": 8166,
         "click": 2478,
-        "unique": 1087,
-        "ctr": 30.4,
+        "unique": 1088,
+        "ctr": 30.3,
         "dwell": 25
       },
       "y": {
@@ -10280,9 +10280,9 @@
         "dwell": 13
       },
       "all": {
-        "visit": 39289,
+        "visit": 39291,
         "click": 15412,
-        "unique": 1087,
+        "unique": 1088,
         "ctr": 39.2,
         "dwell": 25
       }
@@ -12996,16 +12996,16 @@
       },
       {
         "d": "2026-10-09",
-        "visit": 14,
+        "visit": 16,
         "click": 9,
-        "unique": 1
+        "unique": 2
       }
     ],
     "sources": [
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14462,
+        "visit": 14463,
         "click": 4033,
         "unique": 256,
         "ctr": 27.9,
@@ -13023,9 +13023,9 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 3565,
+        "visit": 3566,
         "click": 1,
-        "unique": 569,
+        "unique": 570,
         "ctr": 0,
         "dwell": 13
       },
@@ -13609,9 +13609,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 3158,
+        "visit": 3159,
         "click": 1586,
-        "unique": 997,
+        "unique": 998,
         "dwell": 20,
         "ctr": 50.2
       },
@@ -13653,9 +13653,9 @@
       },
       {
         "name": "IE",
-        "visit": 145,
+        "visit": 146,
         "click": 0,
-        "unique": 3,
+        "unique": 4,
         "dwell": 19,
         "ctr": 0,
         "code": "IE"
@@ -13837,7 +13837,7 @@
         "name": "알 수 없음",
         "visit": 136,
         "click": 0,
-        "unique": 3,
+        "unique": 4,
         "dwell": 18,
         "ctr": 0,
         "code": "IE"
@@ -14002,33 +14002,42 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 7,
+            "visit": 8,
             "click": 9,
             "unique": 0,
-            "ctr": 128.6,
-            "dwell": 18
+            "ctr": 112.5,
+            "dwell": 21
           },
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 6,
+            "visit": 7,
             "click": 0,
-            "unique": 1,
+            "unique": 2,
             "ctr": 0,
-            "dwell": 2
+            "dwell": 9
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 1,
+            "visit": 2,
             "click": 2,
-            "unique": 1,
-            "dwell": 4,
-            "ctr": 200
+            "unique": 2,
+            "dwell": 16,
+            "ctr": 100
           }
         ],
         "country": [
+          {
+            "name": "IE",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "IE"
+          },
           {
             "name": "KR",
             "visit": 1,
@@ -14040,6 +14049,15 @@
           }
         ],
         "city": [
+          {
+            "name": "알 수 없음",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "IE"
+          },
           {
             "name": "Namyangju",
             "visit": 1,
@@ -14107,19 +14125,19 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 631,
+            "visit": 632,
             "click": 1,
-            "unique": 156,
+            "unique": 157,
             "ctr": 0.2,
             "dwell": 9
           },
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 222,
+            "visit": 223,
             "click": 215,
             "unique": 65,
-            "ctr": 96.8,
+            "ctr": 96.4,
             "dwell": 23
           },
           {
@@ -14189,11 +14207,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 358,
+            "visit": 359,
             "click": 116,
-            "unique": 235,
+            "unique": 236,
             "dwell": 15,
-            "ctr": 32.4
+            "ctr": 32.3
           },
           {
             "name": "데스크탑",
@@ -14236,7 +14254,7 @@
             "visit": 5,
             "click": 1,
             "unique": 5,
-            "dwell": 9,
+            "dwell": 11,
             "ctr": 20,
             "code": "US"
           },
@@ -14257,6 +14275,15 @@
             "dwell": 17,
             "ctr": 0,
             "code": "CA"
+          },
+          {
+            "name": "IE",
+            "visit": 2,
+            "click": 0,
+            "unique": 2,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "IE"
           },
           {
             "name": "LK",
@@ -14293,15 +14320,6 @@
             "dwell": 63,
             "ctr": 100,
             "code": "AU"
-          },
-          {
-            "name": "IE",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "IE"
           },
           {
             "name": "MN",
@@ -14396,6 +14414,15 @@
             "code": "HK"
           },
           {
+            "name": "알 수 없음",
+            "visit": 2,
+            "click": 0,
+            "unique": 2,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "IE"
+          },
+          {
             "name": "Panadura",
             "visit": 2,
             "click": 0,
@@ -14439,15 +14466,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "HK"
-          },
-          {
-            "name": "알 수 없음",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "IE"
           },
           {
             "name": "Namyangju",
@@ -14592,19 +14610,19 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 2449,
+            "visit": 2450,
             "click": 1,
-            "unique": 463,
+            "unique": 464,
             "ctr": 0,
             "dwell": 14
           },
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 668,
+            "visit": 669,
             "click": 542,
             "unique": 152,
-            "ctr": 81.1,
+            "ctr": 81,
             "dwell": 23
           },
           {
@@ -14701,9 +14719,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 956,
+            "visit": 957,
             "click": 269,
-            "unique": 676,
+            "unique": 677,
             "dwell": 23,
             "ctr": 28.1
           },
@@ -14739,7 +14757,7 @@
             "visit": 21,
             "click": 3,
             "unique": 20,
-            "dwell": 9,
+            "dwell": 10,
             "ctr": 14.3,
             "code": "US"
           },
@@ -14825,6 +14843,15 @@
             "code": "FR"
           },
           {
+            "name": "IE",
+            "visit": 4,
+            "click": 0,
+            "unique": 4,
+            "dwell": 8,
+            "ctr": 0,
+            "code": "IE"
+          },
+          {
             "name": "JP",
             "visit": 4,
             "click": 0,
@@ -14868,15 +14895,6 @@
             "dwell": 13,
             "ctr": 0,
             "code": "DE"
-          },
-          {
-            "name": "IE",
-            "visit": 3,
-            "click": 0,
-            "unique": 3,
-            "dwell": 8,
-            "ctr": 0,
-            "code": "IE"
           },
           {
             "name": "MY",
@@ -15007,6 +15025,15 @@
             "code": "HK"
           },
           {
+            "name": "알 수 없음",
+            "visit": 4,
+            "click": 0,
+            "unique": 4,
+            "dwell": 8,
+            "ctr": 0,
+            "code": "IE"
+          },
+          {
             "name": "Incheon",
             "visit": 4,
             "click": 3,
@@ -15068,15 +15095,6 @@
             "dwell": 19,
             "ctr": 0,
             "code": "HK"
-          },
-          {
-            "name": "알 수 없음",
-            "visit": 3,
-            "click": 0,
-            "unique": 3,
-            "dwell": 8,
-            "ctr": 0,
-            "code": "IE"
           },
           {
             "name": "Gwangju",
@@ -15176,16 +15194,16 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 3418,
+            "visit": 3419,
             "click": 1,
-            "unique": 569,
+            "unique": 570,
             "ctr": 0,
             "dwell": 13
           },
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2302,
+            "visit": 2303,
             "click": 1800,
             "unique": 256,
             "ctr": 78.2,
@@ -15348,9 +15366,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 2153,
+            "visit": 2154,
             "click": 740,
-            "unique": 997,
+            "unique": 998,
             "dwell": 20,
             "ctr": 34.4
           },
@@ -15535,6 +15553,15 @@
             "code": "FR"
           },
           {
+            "name": "IE",
+            "visit": 5,
+            "click": 0,
+            "unique": 4,
+            "dwell": 19,
+            "ctr": 0,
+            "code": "IE"
+          },
+          {
             "name": "MO",
             "visit": 5,
             "click": 1,
@@ -15542,15 +15569,6 @@
             "dwell": 2,
             "ctr": 20,
             "code": "MO"
-          },
-          {
-            "name": "IN",
-            "visit": 5,
-            "click": 0,
-            "unique": 2,
-            "dwell": 6,
-            "ctr": 0,
-            "code": "IN"
           }
         ],
         "city": [
@@ -15919,7 +15937,7 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14462,
+            "visit": 14463,
             "click": 4033,
             "unique": 256,
             "ctr": 27.9,
@@ -15937,9 +15955,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 3565,
+            "visit": 3566,
             "click": 1,
-            "unique": 569,
+            "unique": 570,
             "ctr": 0,
             "dwell": 13
           },
@@ -16145,9 +16163,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3158,
+            "visit": 3159,
             "click": 1586,
-            "unique": 997,
+            "unique": 998,
             "dwell": 20,
             "ctr": 50.2
           },
@@ -16189,9 +16207,9 @@
           },
           {
             "name": "IE",
-            "visit": 145,
+            "visit": 146,
             "click": 0,
-            "unique": 3,
+            "unique": 4,
             "dwell": 19,
             "ctr": 0,
             "code": "IE"
@@ -16373,7 +16391,7 @@
             "name": "알 수 없음",
             "visit": 136,
             "click": 0,
-            "unique": 3,
+            "unique": 4,
             "dwell": 18,
             "ctr": 0,
             "code": "IE"
@@ -16916,33 +16934,42 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 7,
+            "visit": 8,
             "click": 9,
             "unique": 0,
-            "ctr": 128.6,
-            "dwell": 18
+            "ctr": 112.5,
+            "dwell": 21
           },
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 6,
+            "visit": 7,
             "click": 0,
-            "unique": 1,
+            "unique": 2,
             "ctr": 0,
-            "dwell": 2
+            "dwell": 9
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 1,
+            "visit": 2,
             "click": 2,
-            "unique": 1,
-            "dwell": 4,
-            "ctr": 200
+            "unique": 2,
+            "dwell": 16,
+            "ctr": 100
           }
         ],
         "country": [
+          {
+            "name": "IE",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "IE"
+          },
           {
             "name": "KR",
             "visit": 1,
@@ -16954,6 +16981,15 @@
           }
         ],
         "city": [
+          {
+            "name": "알 수 없음",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "IE"
+          },
           {
             "name": "Namyangju",
             "visit": 1,
