@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 10. 9. AM 1:21:02",
+  "updated": "2026. 10. 9. AM 1:53:02",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,29 +8,29 @@
     "pending": 97,
     "dailyBudget": 2500,
     "balance": 14848,
-    "imp": 1326,
-    "clk": 93,
-    "cost": 7775,
+    "imp": 1329,
+    "clk": 94,
+    "cost": 7872,
     "byPeriod": {
       "1": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 3,
+        "clk": 1,
+        "cost": 97
       },
       "7": {
-        "imp": 241,
-        "clk": 15,
-        "cost": 1279
+        "imp": 244,
+        "clk": 16,
+        "cost": 1377
       },
       "28": {
-        "imp": 1044,
-        "clk": 78,
-        "cost": 6613
+        "imp": 1047,
+        "clk": 79,
+        "cost": 6710
       },
       "90": {
-        "imp": 24684,
-        "clk": 159,
-        "cost": 85130
+        "imp": 24687,
+        "clk": 160,
+        "cost": 85227
       },
       "y": {
         "imp": 77,
@@ -119,14 +119,14 @@
       },
       {
         "d": "2026-10-09",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 3,
+        "clk": 1,
+        "cost": 97
       }
     ],
-    "campaignImp": 24684,
-    "campaignClk": 159,
-    "campaignCost": 85130,
+    "campaignImp": 24687,
+    "campaignClk": 160,
+    "campaignCost": 85227,
     "groups": [
       {
         "id": "grp-a001-01-000000066183708",
@@ -10235,7 +10235,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 10. 9. AM 1:20:42",
+    "updated": "2026. 10. 9. AM 1:52:45",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10245,31 +10245,31 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 10,
-        "click": 7,
+        "visit": 12,
+        "click": 9,
         "unique": 1,
-        "ctr": 70,
-        "dwell": 14
+        "ctr": 75,
+        "dwell": 15
       },
       "7": {
-        "visit": 955,
-        "click": 265,
+        "visit": 957,
+        "click": 267,
         "unique": 255,
-        "ctr": 27.7,
+        "ctr": 27.9,
         "dwell": 18
       },
       "28": {
-        "visit": 3776,
-        "click": 752,
+        "visit": 3778,
+        "click": 754,
         "unique": 718,
-        "ctr": 19.9,
+        "ctr": 20,
         "dwell": 17
       },
       "90": {
-        "visit": 8160,
-        "click": 2476,
+        "visit": 8162,
+        "click": 2478,
         "unique": 1087,
-        "ctr": 30.3,
+        "ctr": 30.4,
         "dwell": 25
       },
       "y": {
@@ -10280,8 +10280,8 @@
         "dwell": 13
       },
       "all": {
-        "visit": 39285,
-        "click": 15410,
+        "visit": 39287,
+        "click": 15412,
         "unique": 1087,
         "ctr": 39.2,
         "dwell": 25
@@ -12996,8 +12996,8 @@
       },
       {
         "d": "2026-10-09",
-        "visit": 10,
-        "click": 7,
+        "visit": 12,
+        "click": 9,
         "unique": 1
       }
     ],
@@ -13005,8 +13005,8 @@
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14459,
-        "click": 4031,
+        "visit": 14461,
+        "click": 4033,
         "unique": 256,
         "ctr": 27.9,
         "dwell": 38
@@ -13235,7 +13235,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 3256
+        "clicks": 3257
       },
       {
         "key": "bGTonvP",
@@ -13323,7 +13323,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 310
+        "clicks": 311
       },
       {
         "key": "ZP63A49",
@@ -14000,6 +14000,15 @@
       "1": {
         "sources": [
           {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 6,
+            "click": 9,
+            "unique": 0,
+            "ctr": 150,
+            "dwell": 18
+          },
+          {
             "name": "페이스북",
             "host": "m.facebook.com",
             "visit": 5,
@@ -14007,15 +14016,6 @@
             "unique": 1,
             "ctr": 0,
             "dwell": 2
-          },
-          {
-            "name": "인스타 링크 눌러 옴",
-            "host": "l.instagram.com",
-            "visit": 4,
-            "click": 7,
-            "unique": 0,
-            "ctr": 175,
-            "dwell": 17
           }
         ],
         "device": [
@@ -14066,6 +14066,14 @@
             "gone": false,
             "kind": "site",
             "img": true,
+            "clicks": 3
+          },
+          {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
             "clicks": 2
           },
           {
@@ -14079,14 +14087,6 @@
           {
             "key": "4rFKEfH",
             "name": "스마트스토어 · HOT 3개월 풀코스",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 1
-          },
-          {
-            "key": "bby1R8Y",
-            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
             "gone": false,
             "kind": "store",
             "img": true,
@@ -14116,8 +14116,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 219,
-            "click": 213,
+            "visit": 221,
+            "click": 215,
             "unique": 65,
             "ctr": 97.3,
             "dwell": 23
@@ -14511,7 +14511,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 63
+            "clicks": 64
           },
           {
             "key": "bby1R8Y",
@@ -14519,7 +14519,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 53
+            "clicks": 54
           },
           {
             "key": "4rFKEfH",
@@ -14601,10 +14601,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 665,
-            "click": 540,
+            "visit": 667,
+            "click": 542,
             "unique": 152,
-            "ctr": 81.2,
+            "ctr": 81.3,
             "dwell": 23
           },
           {
@@ -15095,7 +15095,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 170
+            "clicks": 171
           },
           {
             "key": "bby1R8Y",
@@ -15103,7 +15103,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 140
+            "clicks": 141
           },
           {
             "key": "4rFKEfH",
@@ -15185,8 +15185,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2299,
-            "click": 1798,
+            "visit": 2301,
+            "click": 1800,
             "unique": 256,
             "ctr": 78.2,
             "dwell": 38
@@ -15742,7 +15742,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 552
+            "clicks": 553
           },
           {
             "key": "bby1R8Y",
@@ -15750,7 +15750,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 310
+            "clicks": 311
           },
           {
             "key": "OkhXD1v",
@@ -15919,8 +15919,8 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14459,
-            "click": 4031,
+            "visit": 14461,
+            "click": 4033,
             "unique": 256,
             "ctr": 27.9,
             "dwell": 38
@@ -16539,7 +16539,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 3256
+            "clicks": 3257
           },
           {
             "key": "bGTonvP",
@@ -16627,7 +16627,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 310
+            "clicks": 311
           },
           {
             "key": "ZP63A49",
@@ -16914,6 +16914,15 @@
       "y": {
         "sources": [
           {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 6,
+            "click": 9,
+            "unique": 0,
+            "ctr": 150,
+            "dwell": 18
+          },
+          {
             "name": "페이스북",
             "host": "m.facebook.com",
             "visit": 5,
@@ -16921,15 +16930,6 @@
             "unique": 1,
             "ctr": 0,
             "dwell": 2
-          },
-          {
-            "name": "인스타 링크 눌러 옴",
-            "host": "l.instagram.com",
-            "visit": 4,
-            "click": 7,
-            "unique": 0,
-            "ctr": 175,
-            "dwell": 17
           }
         ],
         "device": [
@@ -16980,6 +16980,14 @@
             "gone": false,
             "kind": "site",
             "img": true,
+            "clicks": 3
+          },
+          {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": false,
+            "kind": "store",
+            "img": true,
             "clicks": 2
           },
           {
@@ -16993,14 +17001,6 @@
           {
             "key": "4rFKEfH",
             "name": "스마트스토어 · HOT 3개월 풀코스",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 1
-          },
-          {
-            "key": "bby1R8Y",
-            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
             "gone": false,
             "kind": "store",
             "img": true,
