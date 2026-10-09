@@ -1,14 +1,14 @@
 {
-  "updated": "2026. 10. 10. AM 12:26:38",
+  "updated": "2026. 10. 10. AM 12:58:41",
   "naver": {
     "start": "2026-08-16",
     "live": true,
     "state": "운영",
-    "charged": 0,
+    "charged": 88,
     "pending": 88,
     "dailyBudget": 2500,
-    "balance": 14760,
-    "imp": 1402,
+    "balance": 14672,
+    "imp": 1404,
     "clk": 95,
     "cost": 7960,
     "byPeriod": {
@@ -18,22 +18,22 @@
         "cost": 0
       },
       "7": {
-        "imp": 290,
+        "imp": 292,
         "clk": 16,
         "cost": 1348
       },
       "28": {
-        "imp": 1106,
+        "imp": 1108,
         "clk": 79,
         "cost": 6710
       },
       "90": {
-        "imp": 24760,
+        "imp": 24762,
         "clk": 161,
         "cost": 85315
       },
       "y": {
-        "imp": 76,
+        "imp": 78,
         "clk": 2,
         "cost": 185
       }
@@ -113,7 +113,7 @@
       },
       {
         "d": "2026-10-09",
-        "imp": 76,
+        "imp": 78,
         "clk": 2,
         "cost": 185
       },
@@ -124,7 +124,7 @@
         "cost": 0
       }
     ],
-    "campaignImp": 24760,
+    "campaignImp": 24762,
     "campaignClk": 161,
     "campaignCost": 85315,
     "groups": [
@@ -222,7 +222,7 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 572,
+            "imp": 574,
             "clk": 18,
             "cost": 1522,
             "rank": 1.2
@@ -10235,7 +10235,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 10. 10. AM 12:26:22",
+    "updated": "2026. 10. 10. AM 12:58:23",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10245,28 +10245,28 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 2,
+        "visit": 3,
         "click": 0,
         "unique": 2,
         "ctr": 0,
-        "dwell": 4
+        "dwell": 5
       },
       "7": {
-        "visit": 967,
+        "visit": 968,
         "click": 274,
         "unique": 255,
         "ctr": 28.3,
         "dwell": 19
       },
       "28": {
-        "visit": 3711,
+        "visit": 3712,
         "click": 765,
         "unique": 716,
         "ctr": 20.6,
         "dwell": 17
       },
       "90": {
-        "visit": 8291,
+        "visit": 8292,
         "click": 2505,
         "unique": 1093,
         "ctr": 30.2,
@@ -10280,7 +10280,7 @@
         "dwell": 18
       },
       "all": {
-        "visit": 39437,
+        "visit": 39438,
         "click": 15447,
         "unique": 1093,
         "ctr": 39.2,
@@ -13002,7 +13002,7 @@
       },
       {
         "d": "2026-10-10",
-        "visit": 2,
+        "visit": 3,
         "click": 0,
         "unique": 2
       }
@@ -13011,7 +13011,7 @@
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14444,
+        "visit": 14445,
         "click": 4065,
         "unique": 259,
         "ctr": 28.1,
@@ -14006,6 +14006,15 @@
       "1": {
         "sources": [
           {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 5
+          },
+          {
             "name": "페이스북",
             "host": "m.facebook.com",
             "visit": 1,
@@ -14013,15 +14022,6 @@
             "unique": 1,
             "ctr": 0,
             "dwell": 6
-          },
-          {
-            "name": "인스타 링크 눌러 옴",
-            "host": "l.instagram.com",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "ctr": 0,
-            "dwell": 1
           }
         ],
         "device": [
@@ -14072,10 +14072,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 229,
+            "visit": 230,
             "click": 224,
             "unique": 65,
-            "ctr": 97.8,
+            "ctr": 97.4,
             "dwell": 25
           },
           {
@@ -14566,10 +14566,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 695,
+            "visit": 696,
             "click": 561,
             "unique": 155,
-            "ctr": 80.7,
+            "ctr": 80.6,
             "dwell": 24
           },
           {
@@ -15150,7 +15150,7 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2328,
+            "visit": 2329,
             "click": 1826,
             "unique": 259,
             "ctr": 78.4,
@@ -15884,7 +15884,7 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14444,
+            "visit": 14445,
             "click": 4065,
             "unique": 259,
             "ctr": 28.1,
@@ -16879,6 +16879,15 @@
       "y": {
         "sources": [
           {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 5
+          },
+          {
             "name": "페이스북",
             "host": "m.facebook.com",
             "visit": 1,
@@ -16886,15 +16895,6 @@
             "unique": 1,
             "ctr": 0,
             "dwell": 6
-          },
-          {
-            "name": "인스타 링크 눌러 옴",
-            "host": "l.instagram.com",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "ctr": 0,
-            "dwell": 1
           }
         ],
         "device": [
