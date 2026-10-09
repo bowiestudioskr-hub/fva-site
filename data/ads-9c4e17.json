@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 10. 9. PM 5:38:47",
+  "updated": "2026. 10. 9. PM 5:54:56",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 88,
     "dailyBudget": 2500,
     "balance": 14760,
-    "imp": 1369,
+    "imp": 1372,
     "clk": 95,
     "cost": 7960,
     "byPeriod": {
       "1": {
-        "imp": 43,
+        "imp": 46,
         "clk": 2,
         "cost": 185
       },
       "7": {
-        "imp": 284,
+        "imp": 287,
         "clk": 17,
         "cost": 1465
       },
       "28": {
-        "imp": 1087,
+        "imp": 1090,
         "clk": 80,
         "cost": 6798
       },
       "90": {
-        "imp": 24727,
+        "imp": 24730,
         "clk": 161,
         "cost": 85315
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-10-09",
-        "imp": 43,
+        "imp": 46,
         "clk": 2,
         "cost": 185
       }
     ],
-    "campaignImp": 24727,
+    "campaignImp": 24730,
     "campaignClk": 161,
     "campaignCost": 85315,
     "groups": [
@@ -1072,7 +1072,7 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 5,
+            "imp": 6,
             "clk": 0,
             "cost": 0,
             "rank": 1.2
@@ -10235,7 +10235,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 10. 9. PM 5:38:29",
+    "updated": "2026. 10. 9. PM 5:54:37",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10245,30 +10245,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 120,
+        "visit": 125,
         "click": 31,
-        "unique": 3,
-        "ctr": 25.8,
+        "unique": 4,
+        "ctr": 24.8,
         "dwell": 15
       },
       "7": {
-        "visit": 1065,
+        "visit": 1070,
         "click": 289,
-        "unique": 257,
-        "ctr": 27.1,
+        "unique": 258,
+        "ctr": 27,
         "dwell": 18
       },
       "28": {
-        "visit": 3886,
+        "visit": 3891,
         "click": 776,
-        "unique": 720,
-        "ctr": 20,
+        "unique": 721,
+        "ctr": 19.9,
         "dwell": 17
       },
       "90": {
-        "visit": 8270,
+        "visit": 8275,
         "click": 2500,
-        "unique": 1089,
+        "unique": 1090,
         "ctr": 30.2,
         "dwell": 25
       },
@@ -10280,9 +10280,9 @@
         "dwell": 13
       },
       "all": {
-        "visit": 39395,
+        "visit": 39400,
         "click": 15434,
-        "unique": 1089,
+        "unique": 1090,
         "ctr": 39.2,
         "dwell": 25
       }
@@ -12996,9 +12996,9 @@
       },
       {
         "d": "2026-10-09",
-        "visit": 120,
+        "visit": 125,
         "click": 31,
-        "unique": 3
+        "unique": 4
       }
     ],
     "sources": [
@@ -13023,7 +13023,7 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 3647,
+        "visit": 3651,
         "click": 1,
         "unique": 570,
         "ctr": 0,
@@ -13617,11 +13617,11 @@
       },
       {
         "name": "데스크탑",
-        "visit": 390,
+        "visit": 391,
         "click": 194,
-        "unique": 85,
+        "unique": 86,
         "dwell": 196,
-        "ctr": 49.7
+        "ctr": 49.6
       },
       {
         "name": "태블릿",
@@ -14002,7 +14002,7 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 88,
+            "visit": 92,
             "click": 0,
             "unique": 2,
             "ctr": 0,
@@ -14035,9 +14035,26 @@
             "unique": 3,
             "dwell": 24,
             "ctr": 100
+          },
+          {
+            "name": "데스크탑",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0
           }
         ],
         "country": [
+          {
+            "name": "EE",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
           {
             "name": "IE",
             "visit": 1,
@@ -14067,6 +14084,15 @@
           }
         ],
         "city": [
+          {
+            "name": "Tallinn",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
           {
             "name": "알 수 없음",
             "visit": 1,
@@ -14176,7 +14202,7 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 713,
+            "visit": 717,
             "click": 1,
             "unique": 157,
             "ctr": 0.1,
@@ -14266,11 +14292,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 20,
+            "visit": 21,
             "click": 13,
-            "unique": 19,
+            "unique": 20,
             "dwell": 15,
-            "ctr": 65
+            "ctr": 61.9
           },
           {
             "name": "태블릿",
@@ -14293,9 +14319,9 @@
           },
           {
             "name": "EE",
-            "visit": 6,
+            "visit": 7,
             "click": 0,
-            "unique": 6,
+            "unique": 7,
             "dwell": 0,
             "ctr": 0,
             "code": "EE"
@@ -14421,9 +14447,9 @@
           },
           {
             "name": "Tallinn",
-            "visit": 6,
+            "visit": 7,
             "click": 0,
-            "unique": 6,
+            "unique": 7,
             "dwell": 0,
             "ctr": 0,
             "code": "EE"
@@ -14670,7 +14696,7 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 2531,
+            "visit": 2535,
             "click": 1,
             "unique": 464,
             "ctr": 0,
@@ -14787,11 +14813,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 41,
+            "visit": 42,
             "click": 26,
-            "unique": 38,
+            "unique": 39,
             "dwell": 14,
-            "ctr": 63.4
+            "ctr": 61.9
           },
           {
             "name": "태블릿",
@@ -14849,6 +14875,15 @@
             "code": "CA"
           },
           {
+            "name": "EE",
+            "visit": 7,
+            "click": 0,
+            "unique": 7,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
+          {
             "name": "BR",
             "visit": 6,
             "click": 2,
@@ -14856,15 +14891,6 @@
             "dwell": 30,
             "ctr": 33.3,
             "code": "BR"
-          },
-          {
-            "name": "EE",
-            "visit": 6,
-            "click": 0,
-            "unique": 6,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "EE"
           },
           {
             "name": "MN",
@@ -15041,9 +15067,9 @@
           },
           {
             "name": "Tallinn",
-            "visit": 6,
+            "visit": 7,
             "click": 0,
-            "unique": 6,
+            "unique": 7,
             "dwell": 0,
             "ctr": 0,
             "code": "EE"
@@ -15254,7 +15280,7 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 3500,
+            "visit": 3504,
             "click": 1,
             "unique": 570,
             "ctr": 0,
@@ -15434,11 +15460,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 223,
+            "visit": 224,
             "click": 112,
-            "unique": 85,
+            "unique": 86,
             "dwell": 196,
-            "ctr": 50.2
+            "ctr": 50
           },
           {
             "name": "태블릿",
@@ -15586,6 +15612,15 @@
             "code": "NP"
           },
           {
+            "name": "EE",
+            "visit": 7,
+            "click": 0,
+            "unique": 7,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
+          {
             "name": "NL",
             "visit": 6,
             "click": 0,
@@ -15593,15 +15628,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "NL"
-          },
-          {
-            "name": "EE",
-            "visit": 6,
-            "click": 0,
-            "unique": 6,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "EE"
           },
           {
             "name": "FR",
@@ -15732,6 +15758,15 @@
             "code": "MN"
           },
           {
+            "name": "Tallinn",
+            "visit": 7,
+            "click": 0,
+            "unique": 7,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
+          {
             "name": "Dallas",
             "visit": 7,
             "click": 0,
@@ -15766,15 +15801,6 @@
             "dwell": 6,
             "ctr": 0,
             "code": "KR"
-          },
-          {
-            "name": "Tallinn",
-            "visit": 6,
-            "click": 0,
-            "unique": 6,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "EE"
           },
           {
             "name": "Quezon City",
@@ -16015,7 +16041,7 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 3647,
+            "visit": 3651,
             "click": 1,
             "unique": 570,
             "ctr": 0,
@@ -16231,11 +16257,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 390,
+            "visit": 391,
             "click": 194,
-            "unique": 85,
+            "unique": 86,
             "dwell": 196,
-            "ctr": 49.7
+            "ctr": 49.6
           },
           {
             "name": "태블릿",
@@ -16994,7 +17020,7 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 88,
+            "visit": 92,
             "click": 0,
             "unique": 2,
             "ctr": 0,
@@ -17027,9 +17053,26 @@
             "unique": 3,
             "dwell": 24,
             "ctr": 100
+          },
+          {
+            "name": "데스크탑",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0
           }
         ],
         "country": [
+          {
+            "name": "EE",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
           {
             "name": "IE",
             "visit": 1,
@@ -17059,6 +17102,15 @@
           }
         ],
         "city": [
+          {
+            "name": "Tallinn",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "EE"
+          },
           {
             "name": "알 수 없음",
             "visit": 1,
