@@ -85,6 +85,10 @@
 .bs-pick b{ display:block; font-weight:800; letter-spacing:-.03em; font-size:calc(var(--u) * 30/860) }
 .bs-pick span{ display:block; margin-top:calc(var(--u) * 4/860); opacity:.72;
   font-size:calc(var(--u) * 22/860) }
+/* 장소를 맨 위 칸에서 바로 보이게 — 마스터(합정)·베이직(연희동)을 헷갈려 엉뚱한 곳으로 가는 일이 잦다(2026-10-13 감독님). */
+.bs-pick .bs-where{ display:block; font-style:normal; font-weight:800; letter-spacing:-.03em;
+  margin-top:calc(var(--u) * 6/860); font-size:calc(var(--u) * 24/860); color:#2CFF05; word-break:keep-all }
+.bs-pick a:not([aria-current="page"]) .bs-where{ color:#8FD97E }
 
 /* ── 히어로 ───────────────────────────────────────
    사진 라이카시네마 x-8 y44 w877 h877 → 프레임보다 넓다. 그대로 넘치게 두고 자른다. */
@@ -1194,6 +1198,8 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
   text-align:center;
 }
 .bs-notice .nt-urgent[hidden]{ display:none }
+/* 장소 칸을 띠 위로 올렸다 — 띠의 마스코트가 위로 튀어나오므로 그만큼 띄운다. */
+.bs-notice .loc + .nt-urgent{ margin-top:clamp(56px, calc(var(--u) * 90/1920), 90px) }
 .bs-notice .nt-urgent{
   position:relative; display:flex; align-items:flex-end; justify-content:center;
   gap:clamp(10px, calc(var(--u) * 26/1920), 26px);
