@@ -206,8 +206,8 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 
 <main class="bs">
 
-<!-- 상단 모집 블록 — 마스터(offline.html)와 같은 구조. 띠 문구는 아래 스크립트가 개강일에서 센다.
-     ⚠ 왕초보반은 기수 대신 「매달」 모집. 개강일이 지나면 스크립트의 개강 배열을 다음 달 날짜로 갱신할 것. -->
+<!-- 상단 모집 블록 — 마스터(offline.html)와 같은 구조.
+     ⚠ 왕초보반은 상시 모집(신청한 그 주에 바로 합류)이라 개강일을 적지 않는다 (2026-10-16). -->
 <section class="bs-notice" aria-label="모집 안내">
   <p class="loc"><b>강의 장소 &middot; 연희동 스페이스독</b><span>서울 서대문구 연희로8길 18 (연희동 194-25)</span></p>
     <div class="nt-urgent" id="nt-urgent" hidden>
@@ -232,12 +232,10 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
       <div class="nt-row">
         <span class="cls">화&middot;목 평일반</span>
         <span class="time">19:30 &ndash; 21:30</span>
-        <span class="start">개강 9월 29일 (화)</span>
       </div>
       <div class="nt-row">
         <span class="cls">토&middot;일 주말반</span>
         <span class="time">13:30 &ndash; 15:30</span>
-        <span class="start">개강 10월 3일 (토)</span>
       </div>
     </div>
   </div>
@@ -844,10 +842,8 @@ if(window.wcs) { wcs_do(); }
        D-day 가 음수로 걸러져 「지금도 합류하실 수 있습니다」가 뜨는데,
        아직 시작도 안 한 기수에는 거짓말이 된다. 빈 배열이면 따로 문구가 나간다. */
   /* ⚠ 왕초보반 실제 일정 (스마트스토어와 일치시킬 것) — 매달 모집이라 지나면 다음 달로 갱신 */
-  var 개강 = [
-    { 반: '화·목 평일반', 날: '2026-09-29' },
-    { 반: '토·일 주말반', 날: '2026-10-03' }
-  ];
+  /* ⚠ 2026-10-16부터 상시 모집 — 신청한 주에 바로 합류한다. 개강일이 없으니 빈 배열로 둔다. */
+  var 개강 = [];
 
   if (!모집중) return;
   var 오늘 = new Date(); 오늘.setHours(0, 0, 0, 0);
@@ -889,10 +885,10 @@ if(window.wcs) { wcs_do(); }
     말.innerHTML = 기수 + ' 수강생 <b>모집</b>';
     덧말.textContent = '지금도 합류하실 수 있습니다';
   } else {
-    /* 개강일이 아직 안 정해진 상태. 「지금도 합류」는 이미 시작한 것처럼 들려서 안 쓴다. */
-    딱지.textContent = '모집 중';
+    /* 왕초보반은 상시 모집 — 개강일 없이 신청한 주부터 바로 듣는다. */
+    딱지.textContent = '상시 모집';
     말.innerHTML = 기수 + ' 수강생 <b>모집</b>';
-    덧말.textContent = '개강일은 확정되면 안내드립니다';
+    덧말.textContent = '신청한 주부터 바로 수업 들으실 수 있습니다';
   }
 
   /* 반마다 남은 날을 개강일 옆에 붙인다 — 상담이 개강일로 몰려서 표에서 바로 보이게 한다.
