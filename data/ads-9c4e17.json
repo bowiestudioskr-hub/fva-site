@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 10. 16. AM 12:18:39",
+  "updated": "2026. 10. 16. AM 12:35:35",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -10235,7 +10235,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 10. 16. AM 12:18:10",
+    "updated": "2026. 10. 16. AM 12:34:59",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10245,30 +10245,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 5,
+        "visit": 7,
         "click": 1,
-        "unique": 5,
-        "ctr": 20,
-        "dwell": 13
+        "unique": 6,
+        "ctr": 14.3,
+        "dwell": 18
       },
       "7": {
-        "visit": 1034,
+        "visit": 1036,
         "click": 345,
-        "unique": 597,
-        "ctr": 33.4,
+        "unique": 598,
+        "ctr": 33.3,
         "dwell": 21
       },
       "28": {
-        "visit": 3685,
+        "visit": 3687,
         "click": 942,
-        "unique": 1190,
-        "ctr": 25.6,
+        "unique": 1191,
+        "ctr": 25.5,
         "dwell": 18
       },
       "90": {
-        "visit": 9034,
+        "visit": 9036,
         "click": 2704,
-        "unique": 1683,
+        "unique": 1684,
         "ctr": 29.9,
         "dwell": 25
       },
@@ -10280,9 +10280,9 @@
         "dwell": 14
       },
       "all": {
-        "visit": 40309,
+        "visit": 40311,
         "click": 15748,
-        "unique": 1683,
+        "unique": 1684,
         "ctr": 39.1,
         "dwell": 25
       }
@@ -13038,9 +13038,9 @@
       },
       {
         "d": "2026-10-16",
-        "visit": 5,
+        "visit": 7,
         "click": 1,
-        "unique": 5
+        "unique": 6
       }
     ],
     "sources": [
@@ -13128,11 +13128,11 @@
       {
         "name": "youtube.com",
         "host": "youtube.com",
-        "visit": 53,
+        "visit": 55,
         "click": 33,
-        "unique": 4,
-        "ctr": 62.3,
-        "dwell": 151
+        "unique": 5,
+        "ctr": 60,
+        "dwell": 133
       },
       {
         "name": "네이버 검색",
@@ -13651,9 +13651,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 3910,
+        "visit": 3912,
         "click": 1804,
-        "unique": 1551,
+        "unique": 1552,
         "dwell": 19,
         "ctr": 46.1
       },
@@ -13677,9 +13677,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 25964,
+        "visit": 25966,
         "click": 1929,
-        "unique": 1483,
+        "unique": 1484,
         "dwell": 38,
         "ctr": 7.4,
         "code": "KR"
@@ -14048,7 +14048,7 @@
             "click": 1,
             "unique": 3,
             "ctr": 33.3,
-            "dwell": 16
+            "dwell": 18
           },
           {
             "name": "우리 사이트",
@@ -14058,26 +14058,35 @@
             "unique": 2,
             "ctr": 0,
             "dwell": 10
+          },
+          {
+            "name": "youtube.com",
+            "host": "youtube.com",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 27
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 5,
+            "visit": 7,
             "click": 1,
-            "unique": 5,
-            "dwell": 13,
-            "ctr": 20
+            "unique": 6,
+            "dwell": 18,
+            "ctr": 14.3
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 5,
+            "visit": 7,
             "click": 1,
-            "unique": 5,
-            "dwell": 13,
-            "ctr": 20,
+            "unique": 6,
+            "dwell": 18,
+            "ctr": 14.3,
             "code": "KR"
           }
         ],
@@ -14088,6 +14097,15 @@
             "click": 0,
             "unique": 2,
             "dwell": 12,
+            "ctr": 0,
+            "code": "KR"
+          },
+          {
+            "name": "Uijeongbu-si",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 27,
             "ctr": 0,
             "code": "KR"
           },
@@ -14114,7 +14132,7 @@
             "visit": 1,
             "click": 0,
             "unique": 1,
-            "dwell": 0,
+            "dwell": 22,
             "ctr": 0,
             "code": "KR"
           }
@@ -14169,6 +14187,15 @@
             "dwell": 21
           },
           {
+            "name": "youtube.com",
+            "host": "youtube.com",
+            "visit": 4,
+            "click": 3,
+            "unique": 3,
+            "ctr": 75,
+            "dwell": 430
+          },
+          {
             "name": "m.place.naver.com",
             "host": "m.place.naver.com",
             "visit": 2,
@@ -14176,15 +14203,6 @@
             "unique": 1,
             "ctr": 100,
             "dwell": 21
-          },
-          {
-            "name": "youtube.com",
-            "host": "youtube.com",
-            "visit": 2,
-            "click": 3,
-            "unique": 2,
-            "ctr": 150,
-            "dwell": 833
           },
           {
             "name": "bit.ly",
@@ -14226,11 +14244,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 753,
+            "visit": 755,
             "click": 220,
-            "unique": 555,
+            "unique": 556,
             "dwell": 17,
-            "ctr": 29.2
+            "ctr": 29.1
           },
           {
             "name": "데스크탑",
@@ -14252,11 +14270,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 775,
+            "visit": 777,
             "click": 226,
-            "unique": 570,
+            "unique": 571,
             "dwell": 22,
-            "ctr": 29.2,
+            "ctr": 29.1,
             "code": "KR"
           },
           {
@@ -14446,7 +14464,7 @@
             "visit": 12,
             "click": 1,
             "unique": 12,
-            "dwell": 13,
+            "dwell": 14,
             "ctr": 8.3,
             "code": "KR"
           },
@@ -14505,6 +14523,15 @@
             "code": "KR"
           },
           {
+            "name": "Uijeongbu-si",
+            "visit": 6,
+            "click": 2,
+            "unique": 3,
+            "dwell": 19,
+            "ctr": 33.3,
+            "code": "KR"
+          },
+          {
             "name": "Asan",
             "visit": 5,
             "click": 2,
@@ -14547,15 +14574,6 @@
             "unique": 3,
             "dwell": 22,
             "ctr": 125,
-            "code": "KR"
-          },
-          {
-            "name": "Seongnam-si",
-            "visit": 4,
-            "click": 1,
-            "unique": 4,
-            "dwell": 82,
-            "ctr": 25,
             "code": "KR"
           }
         ],
@@ -14710,11 +14728,11 @@
           {
             "name": "youtube.com",
             "host": "youtube.com",
-            "visit": 6,
+            "visit": 8,
             "click": 14,
-            "unique": 3,
-            "ctr": 233.3,
-            "dwell": 246
+            "unique": 4,
+            "ctr": 175,
+            "dwell": 197
           },
           {
             "name": "bit.ly",
@@ -14765,9 +14783,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1558,
+            "visit": 1560,
             "click": 419,
-            "unique": 1112,
+            "unique": 1113,
             "dwell": 15,
             "ctr": 26.9
           },
@@ -14791,9 +14809,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 1510,
+            "visit": 1512,
             "click": 438,
-            "unique": 1075,
+            "unique": 1076,
             "dwell": 19,
             "ctr": 29,
             "code": "KR"
@@ -15021,7 +15039,7 @@
             "visit": 16,
             "click": 4,
             "unique": 14,
-            "dwell": 12,
+            "dwell": 13,
             "ctr": 25,
             "code": "KR"
           },
@@ -15312,11 +15330,11 @@
           {
             "name": "youtube.com",
             "host": "youtube.com",
-            "visit": 14,
+            "visit": 16,
             "click": 15,
-            "unique": 4,
-            "ctr": 107.1,
-            "dwell": 151
+            "unique": 5,
+            "ctr": 93.8,
+            "dwell": 133
           },
           {
             "name": "네이버 검색",
@@ -15403,9 +15421,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 2851,
+            "visit": 2853,
             "click": 921,
-            "unique": 1551,
+            "unique": 1552,
             "dwell": 19,
             "ctr": 32.3
           },
@@ -15429,9 +15447,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 2755,
+            "visit": 2757,
             "click": 989,
-            "unique": 1483,
+            "unique": 1484,
             "dwell": 38,
             "ctr": 35.9,
             "code": "KR"
@@ -16055,11 +16073,11 @@
           {
             "name": "youtube.com",
             "host": "youtube.com",
-            "visit": 53,
+            "visit": 55,
             "click": 33,
-            "unique": 4,
-            "ctr": 62.3,
-            "dwell": 151
+            "unique": 5,
+            "ctr": 60,
+            "dwell": 133
           },
           {
             "name": "네이버 검색",
@@ -16200,9 +16218,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3910,
+            "visit": 3912,
             "click": 1804,
-            "unique": 1551,
+            "unique": 1552,
             "dwell": 19,
             "ctr": 46.1
           },
@@ -16226,9 +16244,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 25964,
+            "visit": 25966,
             "click": 1929,
-            "unique": 1483,
+            "unique": 1484,
             "dwell": 38,
             "ctr": 7.4,
             "code": "KR"
@@ -16975,7 +16993,7 @@
             "click": 1,
             "unique": 3,
             "ctr": 33.3,
-            "dwell": 16
+            "dwell": 18
           },
           {
             "name": "우리 사이트",
@@ -16985,26 +17003,35 @@
             "unique": 2,
             "ctr": 0,
             "dwell": 10
+          },
+          {
+            "name": "youtube.com",
+            "host": "youtube.com",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 27
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 5,
+            "visit": 7,
             "click": 1,
-            "unique": 5,
-            "dwell": 13,
-            "ctr": 20
+            "unique": 6,
+            "dwell": 18,
+            "ctr": 14.3
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 5,
+            "visit": 7,
             "click": 1,
-            "unique": 5,
-            "dwell": 13,
-            "ctr": 20,
+            "unique": 6,
+            "dwell": 18,
+            "ctr": 14.3,
             "code": "KR"
           }
         ],
@@ -17015,6 +17042,15 @@
             "click": 0,
             "unique": 2,
             "dwell": 12,
+            "ctr": 0,
+            "code": "KR"
+          },
+          {
+            "name": "Uijeongbu-si",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 27,
             "ctr": 0,
             "code": "KR"
           },
@@ -17041,7 +17077,7 @@
             "visit": 1,
             "click": 0,
             "unique": 1,
-            "dwell": 0,
+            "dwell": 22,
             "ctr": 0,
             "code": "KR"
           }
