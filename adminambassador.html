@@ -348,6 +348,9 @@
   .tl-row .tl-list .it em{color:var(--dim) !important;font-weight:500 !important;font-size:11.5px !important}
   .tl-row .tl-list .it small{display:none}
   .tl-row .tl-list .it.done span{color:var(--ok)} .tl-row .tl-list .it.late span{color:var(--warn)}
+  /* 10/17 칸이 6개·좁을 때(마스터 20기 2열) 「게시 ~11/3(화)」가 옆 칸으로 넘쳐 겹치던 것 — 칸 안에서 줄바꿈 */
+  .tl-row .tl-list .it{white-space:normal !important;min-width:0;word-break:keep-all;line-height:1.3}
+  .tl-row .tl-list .it span,.tl-row .tl-list .it em{display:block}
   /* 스크롤 줄이기 (2026-10-06) — 반 제목과 겹치는 「게시 일정·요일」 줄 빼고, 간격 조이고, PC 는 2열 */
   .tl-h small{display:none !important}
   .plan{gap:10px !important}
