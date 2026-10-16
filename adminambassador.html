@@ -569,7 +569,9 @@ function 편들(p) {
 /* 사람마다 바로가기 — 인스타 · 드라이브 폴더 · 계약서(서명본이 올라왔는지) (2026-09-29) */
 function 서명본(p) { const 원본 = ['계약서_' + p.이름 + '.pdf', '계약서_' + p.이름 + '(마스터).pdf'];  /* 10/16 동명이인(베이직·마스터 김성진)은 파일명에 (마스터) — 원본으로 쳐야 「서명 완료」 오판이 안 난다 */  /* 우리가 올린 건 PDF 원본 하나 — 그 밖의 파일(확장자 없는 문서 포함)은 앰버서더가 올린 서명본으로 본다 */
   const L = (p.계약파일 || []).filter(f => !원본.includes(f.이름)).sort((a, b) => String(b.올린날).localeCompare(String(a.올린날)));
-  return { 서명: L[0] || null, 원본: (p.계약파일 || []).find(f => 원본.includes(f.이름)) || null, 폴더있음: !!p.계약파일 }; }
+  const 원본파일 = (p.계약파일 || []).find(f => 원본.includes(f.이름)) || null;
+  /* 10/16 서명본을 원본과 같은 이름으로 덮어 올린 사람(손승아·엄주환)은 서버 데이터에 서명완료:true 로 표시 */
+  return { 서명: L[0] || (p.서명완료 ? 원본파일 : null), 원본: 원본파일, 폴더있음: !!p.계약파일 }; }
 function 바로가기(p) { const s = 서명본(p), 폴더 = p.폴더id ? `https://drive.google.com/drive/folders/${p.폴더id}` : (p.드라이브 || '');
   const 계약 = s.서명 ? `<a class="lk ok" href="https://drive.google.com/file/d/${esc(s.서명.id)}/view" target="_blank" rel="noopener">계약서 서명 완료 ✓ <small>${esc(String(s.서명.올린날).slice(0, 5).replace('-', '/'))}</small></a>`
     : s.원본 ? `<a class="lk wait" href="https://drive.google.com/file/d/${esc(s.원본.id)}/view" target="_blank" rel="noopener">계약서 서명 전</a>`
