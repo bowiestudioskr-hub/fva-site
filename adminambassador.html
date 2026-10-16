@@ -541,7 +541,7 @@ function 편들(p) {
   return { 끝, 열림, 칸 };
 }
 /* 사람마다 바로가기 — 인스타 · 드라이브 폴더 · 계약서(서명본이 올라왔는지) (2026-09-29) */
-function 서명본(p) { const 원본 = ['계약서_' + p.이름 + '.pdf'];  /* 우리가 올린 건 PDF 원본 하나 — 그 밖의 파일(확장자 없는 문서 포함)은 앰버서더가 올린 서명본으로 본다 */
+function 서명본(p) { const 원본 = ['계약서_' + p.이름 + '.pdf', '계약서_' + p.이름 + '(마스터).pdf'];  /* 10/16 동명이인(베이직·마스터 김성진)은 파일명에 (마스터) — 원본으로 쳐야 「서명 완료」 오판이 안 난다 */  /* 우리가 올린 건 PDF 원본 하나 — 그 밖의 파일(확장자 없는 문서 포함)은 앰버서더가 올린 서명본으로 본다 */
   const L = (p.계약파일 || []).filter(f => !원본.includes(f.이름)).sort((a, b) => String(b.올린날).localeCompare(String(a.올린날)));
   return { 서명: L[0] || null, 원본: (p.계약파일 || []).find(f => 원본.includes(f.이름)) || null, 폴더있음: !!p.계약파일 }; }
 function 바로가기(p) { const s = 서명본(p), 폴더 = p.폴더id ? `https://drive.google.com/drive/folders/${p.폴더id}` : (p.드라이브 || '');
@@ -879,9 +879,9 @@ function render(d) {
   const 며칠전 = 원문 => { const m = String(원문 || '').match(/^(\d{2})-(\d{2})/); if (!m) return 999; const d0 = new Date(오늘년.getUTCFullYear(), +m[1] - 1, +m[2]); return Math.floor((오늘년 - d0) / 864e5); };
   const 알림 = [];
   for (const p of 모두) {
-    const 원본 = '계약서_' + p.이름 + '.pdf';
+    const 원본들 = ['계약서_' + p.이름 + '.pdf', '계약서_' + p.이름 + '(마스터).pdf'];
     (p.파일 || []).forEach(f => 알림.push({ id: f.id, p, f, 종류: '영상', 글: f.이름 }));
-    (p.계약파일 || []).filter(f => f.이름 !== 원본).forEach(f => 알림.push({ id: f.id, p, f, 종류: '서명', 글: '계약서 서명본' }));
+    (p.계약파일 || []).filter(f => !원본들.includes(f.이름)).forEach(f => 알림.push({ id: f.id, p, f, 종류: '서명', 글: '계약서 서명본' }));
     (p.기타파일 || []).forEach(f => 알림.push({ id: f.id, p, f, 종류: '파일', 글: f.이름 }));
   }
   알림.sort((a, b) => String(b.f.올린날).localeCompare(String(a.f.올린날)));
