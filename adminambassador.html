@@ -349,7 +349,8 @@
   .tl-row .tl-list .it small{display:none}
   .tl-row .tl-list .it.done span{color:var(--ok)} .tl-row .tl-list .it.late span{color:var(--warn)}
   /* 10/17 칸이 6개·좁을 때(마스터 20기 2열) 「게시 ~11/3(화)」가 옆 칸으로 넘쳐 겹치던 것 — 칸 안에서 줄바꿈 */
-  .tl-row .tl-list .it{white-space:nowrap !important;min-width:0;overflow:hidden;line-height:1.35}
+  .tl-row .tl-list .it{white-space:normal !important;word-break:keep-all;min-width:0;line-height:1.35}
+  .tl-row .tl-list .it .d{font-style:normal;white-space:nowrap}
   .tl-row .tl-list .it span,.tl-row .tl-list .it em{display:block}
   /* 10/17 「글자별로 분간이 안 간다」 — 날짜 칸을 위 막대 칸 폭과 똑같이 맞추고, 칸마다 왼쪽에 가는 선 */
   .tl-row .tl-list{gap:6px 0 !important}
@@ -640,12 +641,14 @@ function 일정판(사람들, 제목) {
        (2026-09-28 「10/9 는 1차본 수령이 아니라 최종 기준 — 1차본은 더 빨리, 이미지 안에도 보이게」) */
     /* 1차본 = 게시 마감 전 마지막 수업 + 3일 (2026-09-28 「1차본 날짜는 수업 이후 3일로」).
        수업 다음 날 바로 내라는 무리한 날짜가 안 나오고, 게시까지 검수·수정 여유가 남는다. */
-    const 일차본 = 게시 => { const 전수업 = 수업.filter(d => 더하기(d, 3) < 게시).pop();
-      return 전수업 ? 더하기(전수업, 3) : 더하기(게시, -3); };
+    /* 2026-10-17 마스터 20기는 수업 2일 뒤(수→금, 일→화) */
+    const 뒤 = p.기수 === '20기' ? 2 : 3;
+    const 일차본 = 게시 => { const 전수업 = 수업.filter(d => 더하기(d, 뒤) < 게시).pop();
+      return 전수업 ? 더하기(전수업, 뒤) : 더하기(게시, -뒤); };
     const 목록 = 칸.map((c, i) => { const 게시 = c.약속 || c.마감, 일차 = 일차본(게시), k = 상태[i].k;
       const 둘째 = k.startsWith('done') ? '' : k.includes('now') ? `<em>수정본 바로 전달</em>`
-        : `<em>1차 ${일차 < 오늘 ? '바로' : 짧게(일차)}</em>`;
-      return `<span class="it ${k.split(' ')[0]}"><b>${i + 1}편</b><span>게시 ${짧게(게시)}</span>${둘째}<small>${
+        : `<em>1차 <i class="d">${일차 < 오늘 ? '바로' : 짧게(일차)}</i></em>`;
+      return `<span class="it ${k.split(' ')[0]}"><b>${i + 1}편</b><span>게시 <i class="d">${짧게(게시)}</i></span>${둘째}<small>${
         k.startsWith('done') ? '완료 ✓' : k.includes('now') ? esc(상태[i].글) : k === 'late' ? '마감 지남' : '예정'}</small></span>`; }).join('');
     const 범례 = `<div class="tl-key">
         <span><i style="background:var(--ok)"></i>완료</span><span><i style="background:var(--wait)"></i>검수·수정 중</span>
@@ -657,8 +660,6 @@ function 일정판(사람들, 제목) {
       <div class="tl-h"><b>${p.인스타 ? `<a class="nmlink" href="https://instagram.com/${esc(p.인스타)}" target="_blank" rel="noopener">${esc(p.이름)} 님</a>` : esc(p.이름) + ' 님'}</b>${p.계약종료 ? '<span class="endtag">계약 종료</span>' : ''}<small>앰버서더 게시 일정 · ${esc(p.요일)} · 총 ${p.편수}편</small><span class="nxs">${머리}</span><button type="button" class="tlv">영상 보기 ▾</button></div>
       <div class="tl-links">${바로가기(p)}</div>
       ${일정예외[p.id] ? `<div class="tl-note">📌 ${esc(일정예외[p.id].메모)}</div>` : ''}
-      <div class="tl-note tl-rule">⚠️ 적힌 날짜는 <b>최종 게시 마감</b>입니다. 검수와 수정 시간이 필요하니
-        <b>1차 편집본은 수업 3일 뒤까지</b> 먼저 공유해 주세요(편마다 아래 「1차본」 날짜).</div>
       <div class="tl-axis">${달눈금.join('')}<span class="tl-now" style="left:${x(더하기(오늘, .5))}%;transform:translateX(${x(더하기(오늘, .5)) < 12 ? '-2px' : x(더하기(오늘, .5)) > 88 ? 'calc(-100% + 2px)' : '-50%'})">오늘 ${짧게(오늘)}</span></div>
       <div class="tl-bar">${칸들}${점}
         <i class="tl-end" style="left:${x(더하기(종료, 1))}%" title="활동 종료 ${짧게(종료)}"></i>
