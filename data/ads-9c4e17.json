@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 10. 24. AM 1:07:55",
+  "updated": "2026. 10. 24. AM 1:39:38",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 88,
     "dailyBudget": 2500,
     "balance": 10344,
-    "imp": 2082,
+    "imp": 2083,
     "clk": 142,
     "cost": 12376,
     "byPeriod": {
       "1": {
-        "imp": 0,
+        "imp": 1,
         "clk": 0,
         "cost": 0
       },
       "7": {
-        "imp": 349,
+        "imp": 350,
         "clk": 14,
         "cost": 1397
       },
       "28": {
-        "imp": 1304,
+        "imp": 1305,
         "clk": 84,
         "cost": 7622
       },
       "90": {
-        "imp": 25440,
+        "imp": 25441,
         "clk": 208,
         "cost": 89731
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-10-24",
-        "imp": 0,
+        "imp": 1,
         "clk": 0,
         "cost": 0
       }
     ],
-    "campaignImp": 25440,
+    "campaignImp": 25441,
     "campaignClk": 208,
     "campaignCost": 89731,
     "groups": [
@@ -10196,7 +10196,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 10. 24. AM 1:07:38",
+    "updated": "2026. 10. 24. AM 1:39:19",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10206,30 +10206,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 2,
-        "click": 0,
-        "unique": 2,
-        "ctr": 0,
-        "dwell": 0
+        "visit": 3,
+        "click": 1,
+        "unique": 3,
+        "ctr": 33.3,
+        "dwell": 8
       },
       "7": {
-        "visit": 886,
-        "click": 150,
-        "unique": 652,
-        "ctr": 16.9,
+        "visit": 887,
+        "click": 151,
+        "unique": 653,
+        "ctr": 17,
         "dwell": 18
       },
       "28": {
-        "visit": 3629,
-        "click": 920,
-        "unique": 1702,
+        "visit": 3630,
+        "click": 921,
+        "unique": 1703,
         "ctr": 25.4,
         "dwell": 18
       },
       "90": {
-        "visit": 9729,
-        "click": 2689,
-        "unique": 2407,
+        "visit": 9730,
+        "click": 2690,
+        "unique": 2408,
         "ctr": 27.6,
         "dwell": 24
       },
@@ -10241,9 +10241,9 @@
         "dwell": 56
       },
       "all": {
-        "visit": 41296,
-        "click": 15920,
-        "unique": 2407,
+        "visit": 41297,
+        "click": 15921,
+        "unique": 2408,
         "ctr": 38.6,
         "dwell": 24
       }
@@ -13047,18 +13047,18 @@
       },
       {
         "d": "2026-10-24",
-        "visit": 2,
-        "click": 0,
-        "unique": 2
+        "visit": 3,
+        "click": 1,
+        "unique": 3
       }
     ],
     "sources": [
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14397,
-        "click": 4426,
-        "unique": 570,
+        "visit": 14398,
+        "click": 4427,
+        "unique": 571,
         "ctr": 30.7,
         "dwell": 34
       },
@@ -13374,7 +13374,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 323
+        "clicks": 324
       },
       {
         "key": "ZP63A49",
@@ -13668,11 +13668,11 @@
       },
       {
         "name": "데스크탑",
-        "visit": 469,
-        "click": 240,
-        "unique": 152,
-        "dwell": 140,
-        "ctr": 51.2
+        "visit": 470,
+        "click": 241,
+        "unique": 153,
+        "dwell": 139,
+        "ctr": 51.3
       },
       {
         "name": "태블릿",
@@ -13686,9 +13686,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 26515,
-        "click": 2100,
-        "unique": 2104,
+        "visit": 26516,
+        "click": 2101,
+        "unique": 2105,
         "dwell": 33,
         "ctr": 7.9,
         "code": "KR"
@@ -13868,11 +13868,11 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 3696,
-        "click": 1635,
-        "unique": 1491,
+        "visit": 3697,
+        "click": 1636,
+        "unique": 1492,
         "dwell": 25,
-        "ctr": 44.2,
+        "ctr": 44.3,
         "code": "KR"
       },
       {
@@ -14058,6 +14058,15 @@
             "unique": 1,
             "ctr": 0,
             "dwell": 0
+          },
+          {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "ctr": 100,
+            "dwell": 8
           }
         ],
         "device": [
@@ -14068,31 +14077,48 @@
             "unique": 2,
             "dwell": 0,
             "ctr": 0
+          },
+          {
+            "name": "데스크탑",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "dwell": 8,
+            "ctr": 100
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
+            "visit": 3,
+            "click": 1,
+            "unique": 3,
+            "dwell": 8,
+            "ctr": 33.3,
             "code": "KR"
           }
         ],
         "city": [
           {
             "name": "Seoul",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
+            "visit": 3,
+            "click": 1,
+            "unique": 3,
+            "dwell": 8,
+            "ctr": 33.3,
             "code": "KR"
           }
         ],
-        "blocks": []
+        "blocks": [
+          {
+            "key": "4rFKEfH",
+            "name": "스마트스토어 · HOT 3개월 풀코스",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
+          }
+        ]
       },
       "7": {
         "sources": [
@@ -14108,10 +14134,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 147,
-            "click": 114,
-            "unique": 115,
-            "ctr": 77.6,
+            "visit": 148,
+            "click": 115,
+            "unique": 116,
+            "ctr": 77.7,
             "dwell": 24
           },
           {
@@ -14171,21 +14197,21 @@
           },
           {
             "name": "데스크탑",
-            "visit": 24,
-            "click": 18,
-            "unique": 21,
-            "dwell": 56,
-            "ctr": 75
+            "visit": 25,
+            "click": 19,
+            "unique": 22,
+            "dwell": 55,
+            "ctr": 76
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 772,
-            "click": 149,
-            "unique": 550,
+            "visit": 773,
+            "click": 150,
+            "unique": 551,
             "dwell": 19,
-            "ctr": 19.3,
+            "ctr": 19.4,
             "code": "KR"
           },
           {
@@ -14327,11 +14353,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 419,
-            "click": 54,
-            "unique": 299,
+            "visit": 420,
+            "click": 55,
+            "unique": 300,
             "dwell": 23,
-            "ctr": 12.9,
+            "ctr": 13.1,
             "code": "KR"
           },
           {
@@ -14513,7 +14539,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 36
+            "clicks": 37
           },
           {
             "key": "Norn5x4",
@@ -14603,10 +14629,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 855,
-            "click": 722,
-            "unique": 418,
-            "ctr": 84.4,
+            "visit": 856,
+            "click": 723,
+            "unique": 419,
+            "ctr": 84.5,
             "dwell": 22
           },
           {
@@ -14720,11 +14746,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 105,
-            "click": 63,
-            "unique": 90,
-            "dwell": 51,
-            "ctr": 60
+            "visit": 106,
+            "click": 64,
+            "unique": 91,
+            "dwell": 50,
+            "ctr": 60.4
           },
           {
             "name": "태블릿",
@@ -14738,9 +14764,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 2142,
-            "click": 552,
-            "unique": 1529,
+            "visit": 2143,
+            "click": 553,
+            "unique": 1530,
             "dwell": 19,
             "ctr": 25.8,
             "code": "KR"
@@ -14920,11 +14946,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1412,
-            "click": 307,
-            "unique": 995,
+            "visit": 1413,
+            "click": 308,
+            "unique": 996,
             "dwell": 21,
-            "ctr": 21.7,
+            "ctr": 21.8,
             "code": "KR"
           },
           {
@@ -15122,7 +15148,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 165
+            "clicks": 166
           },
           {
             "key": "OkhXD1v",
@@ -15196,9 +15222,9 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2485,
-            "click": 1993,
-            "unique": 570,
+            "visit": 2486,
+            "click": 1994,
+            "unique": 571,
             "ctr": 80.2,
             "dwell": 34
           },
@@ -15358,11 +15384,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 288,
-            "click": 145,
-            "unique": 152,
-            "dwell": 140,
-            "ctr": 50.3
+            "visit": 289,
+            "click": 146,
+            "unique": 153,
+            "dwell": 139,
+            "ctr": 50.5
           },
           {
             "name": "태블릿",
@@ -15376,9 +15402,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3581,
-            "click": 1073,
-            "unique": 2104,
+            "visit": 3582,
+            "click": 1074,
+            "unique": 2105,
             "dwell": 33,
             "ctr": 30,
             "code": "KR"
@@ -15558,9 +15584,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 2674,
-            "click": 726,
-            "unique": 1491,
+            "visit": 2675,
+            "click": 727,
+            "unique": 1492,
             "dwell": 25,
             "ctr": 27.2,
             "code": "KR"
@@ -15760,7 +15786,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 323
+            "clicks": 324
           },
           {
             "key": "OkhXD1v",
@@ -15913,9 +15939,9 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14397,
-            "click": 4426,
-            "unique": 570,
+            "visit": 14398,
+            "click": 4427,
+            "unique": 571,
             "ctr": 30.7,
             "dwell": 34
           },
@@ -16147,11 +16173,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 469,
-            "click": 240,
-            "unique": 152,
-            "dwell": 140,
-            "ctr": 51.2
+            "visit": 470,
+            "click": 241,
+            "unique": 153,
+            "dwell": 139,
+            "ctr": 51.3
           },
           {
             "name": "태블릿",
@@ -16165,9 +16191,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 26515,
-            "click": 2100,
-            "unique": 2104,
+            "visit": 26516,
+            "click": 2101,
+            "unique": 2105,
             "dwell": 33,
             "ctr": 7.9,
             "code": "KR"
@@ -16347,11 +16373,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 3696,
-            "click": 1635,
-            "unique": 1491,
+            "visit": 3697,
+            "click": 1636,
+            "unique": 1492,
             "dwell": 25,
-            "ctr": 44.2,
+            "ctr": 44.3,
             "code": "KR"
           },
           {
@@ -16621,7 +16647,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 323
+            "clicks": 324
           },
           {
             "key": "ZP63A49",
@@ -16915,6 +16941,15 @@
             "unique": 1,
             "ctr": 0,
             "dwell": 0
+          },
+          {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "ctr": 100,
+            "dwell": 8
           }
         ],
         "device": [
@@ -16925,31 +16960,48 @@
             "unique": 2,
             "dwell": 0,
             "ctr": 0
+          },
+          {
+            "name": "데스크탑",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "dwell": 8,
+            "ctr": 100
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
+            "visit": 3,
+            "click": 1,
+            "unique": 3,
+            "dwell": 8,
+            "ctr": 33.3,
             "code": "KR"
           }
         ],
         "city": [
           {
             "name": "Seoul",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
+            "visit": 3,
+            "click": 1,
+            "unique": 3,
+            "dwell": 8,
+            "ctr": 33.3,
             "code": "KR"
           }
         ],
-        "blocks": []
+        "blocks": [
+          {
+            "key": "4rFKEfH",
+            "name": "스마트스토어 · HOT 3개월 풀코스",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
+          }
+        ]
       }
     }
   }
