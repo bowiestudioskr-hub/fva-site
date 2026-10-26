@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 10. 27. AM 12:16:39",
+  "updated": "2026. 10. 27. AM 12:48:42",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,9 +8,9 @@
     "pending": 72,
     "dailyBudget": 2500,
     "balance": 9592,
-    "imp": 2249,
-    "clk": 148,
-    "cost": 13055,
+    "imp": 2251,
+    "clk": 149,
+    "cost": 13128,
     "byPeriod": {
       "1": {
         "imp": 0,
@@ -18,24 +18,24 @@
         "cost": 0
       },
       "7": {
-        "imp": 342,
-        "clk": 16,
-        "cost": 1724
+        "imp": 344,
+        "clk": 17,
+        "cost": 1797
       },
       "28": {
-        "imp": 1354,
-        "clk": 86,
-        "cost": 7861
+        "imp": 1356,
+        "clk": 87,
+        "cost": 7934
       },
       "90": {
-        "imp": 25607,
-        "clk": 214,
-        "cost": 90410
+        "imp": 25609,
+        "clk": 215,
+        "cost": 90483
       },
       "y": {
-        "imp": 51,
-        "clk": 2,
-        "cost": 253
+        "imp": 53,
+        "clk": 3,
+        "cost": 326
       }
     },
     "daily": [
@@ -113,9 +113,9 @@
       },
       {
         "d": "2026-10-26",
-        "imp": 51,
-        "clk": 2,
-        "cost": 253
+        "imp": 53,
+        "clk": 3,
+        "cost": 326
       },
       {
         "d": "2026-10-27",
@@ -124,9 +124,9 @@
         "cost": 0
       }
     ],
-    "campaignImp": 25607,
-    "campaignClk": 214,
-    "campaignCost": 90410,
+    "campaignImp": 25609,
+    "campaignClk": 215,
+    "campaignCost": 90483,
     "groups": [
       {
         "id": "grp-a001-01-000000066183708",
@@ -222,9 +222,9 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 859,
-            "clk": 25,
-            "cost": 2138,
+            "imp": 860,
+            "clk": 26,
+            "cost": 2211,
             "rank": 1.3
           },
           {
@@ -10196,41 +10196,41 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 10. 27. AM 12:16:21",
+    "updated": "2026. 10. 27. AM 12:48:26",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
       "처음": "2025-07-15",
-      "마지막": "2026-10-26",
-      "일수": 469
+      "마지막": "2026-10-27",
+      "일수": 470
     },
     "byPeriod": {
       "1": {
-        "visit": 0,
+        "visit": 1,
         "click": 0,
-        "unique": 0,
+        "unique": 1,
         "ctr": 0,
-        "dwell": 0
+        "dwell": 9
       },
       "7": {
-        "visit": 909,
+        "visit": 910,
         "click": 137,
-        "unique": 676,
+        "unique": 677,
         "ctr": 15.1,
         "dwell": 21
       },
       "28": {
-        "visit": 3738,
+        "visit": 3739,
         "click": 899,
-        "unique": 2009,
-        "ctr": 24.1,
+        "unique": 2010,
+        "ctr": 24,
         "dwell": 19
       },
       "90": {
-        "visit": 10071,
+        "visit": 10072,
         "click": 2684,
-        "unique": 2728,
-        "ctr": 26.7,
+        "unique": 2729,
+        "ctr": 26.6,
         "dwell": 24
       },
       "y": {
@@ -10241,9 +10241,9 @@
         "dwell": 21
       },
       "all": {
-        "visit": 41719,
+        "visit": 41720,
         "click": 15977,
-        "unique": 2728,
+        "unique": 2729,
         "ctr": 38.3,
         "dwell": 24
       }
@@ -13062,6 +13062,12 @@
         "visit": 135,
         "click": 21,
         "unique": 100
+      },
+      {
+        "d": "2026-10-27",
+        "visit": 1,
+        "click": 0,
+        "unique": 1
       }
     ],
     "sources": [
@@ -13113,11 +13119,11 @@
       {
         "name": "우리 사이트",
         "host": "fva.co.kr",
-        "visit": 436,
+        "visit": 437,
         "click": 351,
-        "unique": 90,
-        "ctr": 80.5,
-        "dwell": 38
+        "unique": 91,
+        "ctr": 80.3,
+        "dwell": 37
       },
       {
         "name": "pcmap.place.naver.com",
@@ -13672,10 +13678,10 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 5271,
+        "visit": 5272,
         "click": 1999,
-        "unique": 2557,
-        "dwell": 18,
+        "unique": 2558,
+        "dwell": 17,
         "ctr": 37.9
       },
       {
@@ -13698,9 +13704,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 26762,
+        "visit": 26763,
         "click": 2155,
-        "unique": 2364,
+        "unique": 2365,
         "dwell": 32,
         "ctr": 8.1,
         "code": "KR"
@@ -14061,10 +14067,49 @@
     ],
     "byPeriodDetail": {
       "1": {
-        "sources": [],
-        "device": [],
-        "country": [],
-        "city": [],
+        "sources": [
+          {
+            "name": "우리 사이트",
+            "host": "fva.co.kr",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 9
+          }
+        ],
+        "device": [
+          {
+            "name": "모바일",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 9,
+            "ctr": 0
+          }
+        ],
+        "country": [
+          {
+            "name": "KR",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 9,
+            "ctr": 0,
+            "code": "KR"
+          }
+        ],
+        "city": [
+          {
+            "name": "Yangsan",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 9,
+            "ctr": 0,
+            "code": "KR"
+          }
+        ],
         "blocks": []
       },
       "7": {
@@ -14090,11 +14135,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 16,
+            "visit": 17,
             "click": 12,
-            "unique": 12,
-            "ctr": 75,
-            "dwell": 33
+            "unique": 13,
+            "ctr": 70.6,
+            "dwell": 32
           },
           {
             "name": "pcmap.place.naver.com",
@@ -14136,11 +14181,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 875,
+            "visit": 876,
             "click": 116,
-            "unique": 650,
+            "unique": 651,
             "dwell": 15,
-            "ctr": 13.3
+            "ctr": 13.2
           },
           {
             "name": "데스크탑",
@@ -14162,9 +14207,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 785,
+            "visit": 786,
             "click": 135,
-            "unique": 562,
+            "unique": 563,
             "dwell": 21,
             "ctr": 17.2,
             "code": "KR"
@@ -14584,10 +14629,10 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 127,
+            "visit": 128,
             "click": 96,
-            "unique": 70,
-            "ctr": 75.6,
+            "unique": 71,
+            "ctr": 75,
             "dwell": 35
           },
           {
@@ -14675,9 +14720,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 2615,
+            "visit": 2616,
             "click": 553,
-            "unique": 1904,
+            "unique": 1905,
             "dwell": 15,
             "ctr": 21.1
           },
@@ -14701,11 +14746,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 2492,
+            "visit": 2493,
             "click": 602,
-            "unique": 1785,
+            "unique": 1786,
             "dwell": 19,
-            "ctr": 24.2,
+            "ctr": 24.1,
             "code": "KR"
           },
           {
@@ -15177,11 +15222,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 310,
+            "visit": 311,
             "click": 253,
-            "unique": 90,
-            "ctr": 81.6,
-            "dwell": 38
+            "unique": 91,
+            "ctr": 81.4,
+            "dwell": 37
           },
           {
             "name": "m.place.naver.com",
@@ -15313,10 +15358,10 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 4127,
+            "visit": 4128,
             "click": 1015,
-            "unique": 2557,
-            "dwell": 18,
+            "unique": 2558,
+            "dwell": 17,
             "ctr": 24.6
           },
           {
@@ -15339,9 +15384,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3908,
+            "visit": 3909,
             "click": 1102,
-            "unique": 2364,
+            "unique": 2365,
             "dwell": 32,
             "ctr": 28.2,
             "code": "KR"
@@ -15921,11 +15966,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 436,
+            "visit": 437,
             "click": 351,
-            "unique": 90,
-            "ctr": 80.5,
-            "dwell": 38
+            "unique": 91,
+            "ctr": 80.3,
+            "dwell": 37
           },
           {
             "name": "pcmap.place.naver.com",
@@ -16102,10 +16147,10 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 5271,
+            "visit": 5272,
             "click": 1999,
-            "unique": 2557,
-            "dwell": 18,
+            "unique": 2558,
+            "dwell": 17,
             "ctr": 37.9
           },
           {
@@ -16128,9 +16173,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 26762,
+            "visit": 26763,
             "click": 2155,
-            "unique": 2364,
+            "unique": 2365,
             "dwell": 32,
             "ctr": 8.1,
             "code": "KR"
@@ -16869,10 +16914,49 @@
         ]
       },
       "y": {
-        "sources": [],
-        "device": [],
-        "country": [],
-        "city": [],
+        "sources": [
+          {
+            "name": "우리 사이트",
+            "host": "fva.co.kr",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 9
+          }
+        ],
+        "device": [
+          {
+            "name": "모바일",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 9,
+            "ctr": 0
+          }
+        ],
+        "country": [
+          {
+            "name": "KR",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 9,
+            "ctr": 0,
+            "code": "KR"
+          }
+        ],
+        "city": [
+          {
+            "name": "Yangsan",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 9,
+            "ctr": 0,
+            "code": "KR"
+          }
+        ],
         "blocks": []
       }
     }
