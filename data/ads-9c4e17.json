@@ -1,10 +1,10 @@
 {
-  "updated": "2026. 10. 28. AM 12:02:56",
+  "updated": "2026. 10. 28. AM 12:20:17",
   "naver": {
     "start": "2026-08-16",
     "live": true,
     "state": "운영",
-    "charged": 407,
+    "charged": 0,
     "pending": 77,
     "dailyBudget": 2500,
     "balance": 9185,
@@ -10196,7 +10196,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 10. 28. AM 12:02:36",
+    "updated": "2026. 10. 28. AM 12:20:00",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10206,30 +10206,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 1,
-        "click": 1,
-        "unique": 1,
-        "ctr": 100,
-        "dwell": 31
+        "visit": 5,
+        "click": 3,
+        "unique": 3,
+        "ctr": 60,
+        "dwell": 32
       },
       "7": {
-        "visit": 940,
-        "click": 161,
-        "unique": 696,
-        "ctr": 17.1,
+        "visit": 944,
+        "click": 163,
+        "unique": 698,
+        "ctr": 17.3,
         "dwell": 22
       },
       "28": {
-        "visit": 3774,
-        "click": 915,
-        "unique": 2070,
-        "ctr": 24.2,
+        "visit": 3778,
+        "click": 917,
+        "unique": 2072,
+        "ctr": 24.3,
         "dwell": 19
       },
       "90": {
-        "visit": 10180,
-        "click": 2681,
-        "unique": 2841,
+        "visit": 10184,
+        "click": 2683,
+        "unique": 2843,
         "ctr": 26.3,
         "dwell": 24
       },
@@ -10241,9 +10241,9 @@
         "dwell": 21
       },
       "all": {
-        "visit": 41872,
-        "click": 16012,
-        "unique": 2841,
+        "visit": 41876,
+        "click": 16014,
+        "unique": 2843,
         "ctr": 38.2,
         "dwell": 24
       }
@@ -13071,9 +13071,9 @@
       },
       {
         "d": "2026-10-28",
-        "visit": 1,
-        "click": 1,
-        "unique": 1
+        "visit": 5,
+        "click": 3,
+        "unique": 3
       }
     ],
     "sources": [
@@ -13089,9 +13089,9 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 5093,
+        "visit": 5095,
         "click": 1,
-        "unique": 1529,
+        "unique": 1530,
         "ctr": 0,
         "dwell": 11
       },
@@ -13125,10 +13125,10 @@
       {
         "name": "우리 사이트",
         "host": "fva.co.kr",
-        "visit": 449,
+        "visit": 451,
         "click": 360,
-        "unique": 97,
-        "ctr": 80.2,
+        "unique": 98,
+        "ctr": 79.8,
         "dwell": 38
       },
       {
@@ -13398,7 +13398,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 345
+        "clicks": 346
       },
       {
         "key": "ZP63A49",
@@ -13494,7 +13494,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 98
+        "clicks": 99
       },
       {
         "key": "435zt6v",
@@ -13684,9 +13684,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 5408,
-        "click": 2023,
-        "unique": 2662,
+        "visit": 5412,
+        "click": 2025,
+        "unique": 2664,
         "dwell": 18,
         "ctr": 37.4
       },
@@ -13710,9 +13710,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 26854,
-        "click": 2190,
-        "unique": 2456,
+        "visit": 26858,
+        "click": 2192,
+        "unique": 2458,
         "dwell": 32,
         "ctr": 8.2,
         "code": "KR"
@@ -13892,9 +13892,9 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 3949,
-        "click": 1682,
-        "unique": 1678,
+        "visit": 3951,
+        "click": 1684,
+        "unique": 1679,
         "dwell": 25,
         "ctr": 42.6,
         "code": "KR"
@@ -14073,40 +14073,84 @@
     ],
     "byPeriodDetail": {
       "1": {
-        "sources": [],
+        "sources": [
+          {
+            "name": "페이스북",
+            "host": "m.facebook.com",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 0
+          },
+          {
+            "name": "우리 사이트",
+            "host": "fva.co.kr",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 33
+          }
+        ],
         "device": [
           {
             "name": "모바일",
-            "visit": 1,
-            "click": 1,
-            "unique": 1,
-            "dwell": 31,
-            "ctr": 100
+            "visit": 5,
+            "click": 3,
+            "unique": 3,
+            "dwell": 32,
+            "ctr": 60
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 1,
-            "click": 1,
-            "unique": 1,
-            "dwell": 31,
-            "ctr": 100,
+            "visit": 5,
+            "click": 3,
+            "unique": 3,
+            "dwell": 32,
+            "ctr": 60,
             "code": "KR"
           }
         ],
         "city": [
           {
             "name": "Seoul",
-            "visit": 1,
-            "click": 1,
-            "unique": 1,
+            "visit": 3,
+            "click": 3,
+            "unique": 2,
             "dwell": 31,
             "ctr": 100,
+            "code": "KR"
+          },
+          {
+            "name": "Pyeongtaek-si",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 33,
+            "ctr": 0,
             "code": "KR"
           }
         ],
         "blocks": [
+          {
+            "key": "4rFKEfH",
+            "name": "스마트스토어 · HOT 3개월 풀코스",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
+          },
+          {
+            "key": "EJVYl6C",
+            "name": "스마트스토어 · 1개월",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
+          },
           {
             "key": "OkhXD1v",
             "name": "수강생 작품보기 (유튜브)",
@@ -14122,9 +14166,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 557,
+            "visit": 559,
             "click": 0,
-            "unique": 371,
+            "unique": 372,
             "ctr": 0,
             "dwell": 7
           },
@@ -14140,11 +14184,11 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 27,
+            "visit": 29,
             "click": 19,
-            "unique": 18,
-            "ctr": 70.4,
-            "dwell": 40
+            "unique": 19,
+            "ctr": 65.5,
+            "dwell": 39
           },
           {
             "name": "pcmap.place.naver.com",
@@ -14177,11 +14221,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 892,
-            "click": 130,
-            "unique": 664,
+            "visit": 896,
+            "click": 132,
+            "unique": 666,
             "dwell": 16,
-            "ctr": 14.6
+            "ctr": 14.7
           },
           {
             "name": "데스크탑",
@@ -14203,11 +14247,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 807,
-            "click": 159,
-            "unique": 573,
+            "visit": 811,
+            "click": 161,
+            "unique": 575,
             "dwell": 23,
-            "ctr": 19.7,
+            "ctr": 19.9,
             "code": "KR"
           },
           {
@@ -14340,11 +14384,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 428,
-            "click": 72,
-            "unique": 311,
+            "visit": 430,
+            "click": 74,
+            "unique": 312,
             "dwell": 30,
-            "ctr": 16.8,
+            "ctr": 17.2,
             "code": "KR"
           },
           {
@@ -14492,6 +14536,15 @@
             "code": "KR"
           },
           {
+            "name": "Pyeongtaek-si",
+            "visit": 5,
+            "click": 1,
+            "unique": 3,
+            "dwell": 27,
+            "ctr": 20,
+            "code": "KR"
+          },
+          {
             "name": "Gwangmyeong",
             "visit": 4,
             "click": 4,
@@ -14508,15 +14561,6 @@
             "dwell": 22,
             "ctr": 25,
             "code": "KR"
-          },
-          {
-            "name": "Siheung-si",
-            "visit": 4,
-            "click": 0,
-            "unique": 3,
-            "dwell": 16,
-            "ctr": 0,
-            "code": "KR"
           }
         ],
         "blocks": [
@@ -14526,7 +14570,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 39
+            "clicks": 40
           },
           {
             "key": "Norn5x4",
@@ -14553,18 +14597,18 @@
             "clicks": 15
           },
           {
-            "key": "bGTonvP",
-            "name": "온라인 강의 페이지",
-            "gone": false,
-            "kind": "site",
-            "img": true,
-            "clicks": 9
-          },
-          {
             "key": "EJVYl6C",
             "name": "스마트스토어 · 1개월",
             "gone": false,
             "kind": "store",
+            "img": true,
+            "clicks": 10
+          },
+          {
+            "key": "bGTonvP",
+            "name": "온라인 강의 페이지",
+            "gone": false,
+            "kind": "site",
             "img": true,
             "clicks": 9
           },
@@ -14607,9 +14651,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 2308,
+            "visit": 2310,
             "click": 1,
-            "unique": 1153,
+            "unique": 1154,
             "ctr": 0,
             "dwell": 8
           },
@@ -14625,10 +14669,10 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 138,
+            "visit": 140,
             "click": 104,
-            "unique": 77,
-            "ctr": 75.4,
+            "unique": 78,
+            "ctr": 74.3,
             "dwell": 36
           },
           {
@@ -14716,11 +14760,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 2682,
-            "click": 567,
-            "unique": 1960,
+            "visit": 2686,
+            "click": 569,
+            "unique": 1962,
             "dwell": 16,
-            "ctr": 21.1
+            "ctr": 21.2
           },
           {
             "name": "데스크탑",
@@ -14742,11 +14786,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 2556,
-            "click": 624,
-            "unique": 1830,
+            "visit": 2560,
+            "click": 626,
+            "unique": 1832,
             "dwell": 20,
-            "ctr": 24.4,
+            "ctr": 24.5,
             "code": "KR"
           },
           {
@@ -14924,11 +14968,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1597,
-            "click": 341,
-            "unique": 1135,
+            "visit": 1599,
+            "click": 343,
+            "unique": 1136,
             "dwell": 23,
-            "ctr": 21.4,
+            "ctr": 21.5,
             "code": "KR"
           },
           {
@@ -15118,7 +15162,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 178
+            "clicks": 179
           },
           {
             "key": "bby1R8Y",
@@ -15150,7 +15194,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 49
+            "clicks": 50
           },
           {
             "key": "O1PZwO3",
@@ -15191,9 +15235,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 4946,
+            "visit": 4948,
             "click": 1,
-            "unique": 1529,
+            "unique": 1530,
             "ctr": 0,
             "dwell": 11
           },
@@ -15218,10 +15262,10 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 323,
+            "visit": 325,
             "click": 262,
-            "unique": 97,
-            "ctr": 81.1,
+            "unique": 98,
+            "ctr": 80.6,
             "dwell": 38
           },
           {
@@ -15354,9 +15398,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 4234,
-            "click": 1013,
-            "unique": 2662,
+            "visit": 4238,
+            "click": 1015,
+            "unique": 2664,
             "dwell": 18,
             "ctr": 23.9
           },
@@ -15380,11 +15424,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 4006,
-            "click": 1107,
-            "unique": 2456,
+            "visit": 4010,
+            "click": 1109,
+            "unique": 2458,
             "dwell": 32,
-            "ctr": 27.6,
+            "ctr": 27.7,
             "code": "KR"
           },
           {
@@ -15562,11 +15606,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 2864,
-            "click": 720,
-            "unique": 1678,
+            "visit": 2866,
+            "click": 722,
+            "unique": 1679,
             "dwell": 25,
-            "ctr": 25.1,
+            "ctr": 25.2,
             "code": "KR"
           },
           {
@@ -15764,7 +15808,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 345
+            "clicks": 346
           },
           {
             "key": "OkhXD1v",
@@ -15804,7 +15848,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 98
+            "clicks": 99
           },
           {
             "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
@@ -15926,9 +15970,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 5093,
+            "visit": 5095,
             "click": 1,
-            "unique": 1529,
+            "unique": 1530,
             "ctr": 0,
             "dwell": 11
           },
@@ -15962,10 +16006,10 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 449,
+            "visit": 451,
             "click": 360,
-            "unique": 97,
-            "ctr": 80.2,
+            "unique": 98,
+            "ctr": 79.8,
             "dwell": 38
           },
           {
@@ -16143,9 +16187,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 5408,
-            "click": 2023,
-            "unique": 2662,
+            "visit": 5412,
+            "click": 2025,
+            "unique": 2664,
             "dwell": 18,
             "ctr": 37.4
           },
@@ -16169,9 +16213,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 26854,
-            "click": 2190,
-            "unique": 2456,
+            "visit": 26858,
+            "click": 2192,
+            "unique": 2458,
             "dwell": 32,
             "ctr": 8.2,
             "code": "KR"
@@ -16351,9 +16395,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 3949,
-            "click": 1682,
-            "unique": 1678,
+            "visit": 3951,
+            "click": 1684,
+            "unique": 1679,
             "dwell": 25,
             "ctr": 42.6,
             "code": "KR"
@@ -16625,7 +16669,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 345
+            "clicks": 346
           },
           {
             "key": "ZP63A49",
@@ -16721,7 +16765,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 98
+            "clicks": 99
           },
           {
             "key": "435zt6v",
@@ -16910,40 +16954,84 @@
         ]
       },
       "y": {
-        "sources": [],
+        "sources": [
+          {
+            "name": "페이스북",
+            "host": "m.facebook.com",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 0
+          },
+          {
+            "name": "우리 사이트",
+            "host": "fva.co.kr",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 33
+          }
+        ],
         "device": [
           {
             "name": "모바일",
-            "visit": 1,
-            "click": 1,
-            "unique": 1,
-            "dwell": 31,
-            "ctr": 100
+            "visit": 5,
+            "click": 3,
+            "unique": 3,
+            "dwell": 32,
+            "ctr": 60
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 1,
-            "click": 1,
-            "unique": 1,
-            "dwell": 31,
-            "ctr": 100,
+            "visit": 5,
+            "click": 3,
+            "unique": 3,
+            "dwell": 32,
+            "ctr": 60,
             "code": "KR"
           }
         ],
         "city": [
           {
             "name": "Seoul",
-            "visit": 1,
-            "click": 1,
-            "unique": 1,
+            "visit": 3,
+            "click": 3,
+            "unique": 2,
             "dwell": 31,
             "ctr": 100,
+            "code": "KR"
+          },
+          {
+            "name": "Pyeongtaek-si",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 33,
+            "ctr": 0,
             "code": "KR"
           }
         ],
         "blocks": [
+          {
+            "key": "4rFKEfH",
+            "name": "스마트스토어 · HOT 3개월 풀코스",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
+          },
+          {
+            "key": "EJVYl6C",
+            "name": "스마트스토어 · 1개월",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
+          },
           {
             "key": "OkhXD1v",
             "name": "수강생 작품보기 (유튜브)",
