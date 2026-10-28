@@ -1,13 +1,13 @@
 {
-  "updated": "2026. 10. 29. AM 12:07:58",
+  "updated": "2026. 10. 29. AM 12:24:12",
   "naver": {
     "start": "2026-08-16",
     "live": true,
     "state": "운영",
-    "charged": 0,
+    "charged": 77,
     "pending": 77,
     "dailyBudget": 2500,
-    "balance": 8954,
+    "balance": 8877,
     "imp": 2354,
     "clk": 156,
     "cost": 13689,
@@ -10196,40 +10196,40 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 10. 29. AM 12:07:38",
+    "updated": "2026. 10. 29. AM 12:23:55",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
       "처음": "2025-07-15",
-      "마지막": "2026-10-28",
-      "일수": 471
+      "마지막": "2026-10-29",
+      "일수": 472
     },
     "byPeriod": {
       "1": {
-        "visit": 0,
+        "visit": 1,
         "click": 0,
-        "unique": 0,
+        "unique": 1,
         "ctr": 0,
         "dwell": 0
       },
       "7": {
-        "visit": 953,
+        "visit": 954,
         "click": 147,
-        "unique": 717,
+        "unique": 718,
         "ctr": 15.4,
         "dwell": 23
       },
       "28": {
-        "visit": 3812,
+        "visit": 3813,
         "click": 916,
-        "unique": 2188,
+        "unique": 2189,
         "ctr": 24,
         "dwell": 19
       },
       "90": {
-        "visit": 10323,
+        "visit": 10324,
         "click": 2693,
-        "unique": 2964,
+        "unique": 2965,
         "ctr": 26.1,
         "dwell": 24
       },
@@ -10241,9 +10241,9 @@
         "dwell": 20
       },
       "all": {
-        "visit": 42032,
+        "visit": 42033,
         "click": 16032,
-        "unique": 2964,
+        "unique": 2965,
         "ctr": 38.1,
         "dwell": 24
       }
@@ -13074,6 +13074,12 @@
         "visit": 161,
         "click": 21,
         "unique": 124
+      },
+      {
+        "d": "2026-10-29",
+        "visit": 1,
+        "click": 0,
+        "unique": 1
       }
     ],
     "sources": [
@@ -13684,9 +13690,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 5562,
+        "visit": 5563,
         "click": 2041,
-        "unique": 2780,
+        "unique": 2781,
         "dwell": 18,
         "ctr": 36.7
       },
@@ -13728,9 +13734,9 @@
       },
       {
         "name": "IE",
-        "visit": 302,
+        "visit": 303,
         "click": 0,
-        "unique": 165,
+        "unique": 166,
         "dwell": 15,
         "ctr": 0,
         "code": "IE"
@@ -13921,7 +13927,7 @@
         "name": "알 수 없음",
         "visit": 131,
         "click": 0,
-        "unique": 165,
+        "unique": 166,
         "dwell": 14,
         "ctr": 0,
         "code": "IE"
@@ -14074,9 +14080,38 @@
     "byPeriodDetail": {
       "1": {
         "sources": [],
-        "device": [],
-        "country": [],
-        "city": [],
+        "device": [
+          {
+            "name": "모바일",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0
+          }
+        ],
+        "country": [
+          {
+            "name": "IE",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "IE"
+          }
+        ],
+        "city": [
+          {
+            "name": "알 수 없음",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "IE"
+          }
+        ],
         "blocks": []
       },
       "7": {
@@ -14139,9 +14174,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 903,
+            "visit": 904,
             "click": 118,
-            "unique": 683,
+            "unique": 684,
             "dwell": 17,
             "ctr": 13.1
           },
@@ -14174,9 +14209,9 @@
           },
           {
             "name": "IE",
-            "visit": 106,
+            "visit": 107,
             "click": 0,
-            "unique": 106,
+            "unique": 107,
             "dwell": 5,
             "ctr": 0,
             "code": "IE"
@@ -14320,9 +14355,9 @@
           },
           {
             "name": "알 수 없음",
-            "visit": 106,
+            "visit": 107,
             "click": 0,
-            "unique": 106,
+            "unique": 107,
             "dwell": 5,
             "ctr": 0,
             "code": "IE"
@@ -14687,9 +14722,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 2831,
+            "visit": 2832,
             "click": 574,
-            "unique": 2073,
+            "unique": 2074,
             "dwell": 16,
             "ctr": 20.3
           },
@@ -14722,9 +14757,9 @@
           },
           {
             "name": "IE",
-            "visit": 163,
+            "visit": 164,
             "click": 0,
-            "unique": 163,
+            "unique": 164,
             "dwell": 4,
             "ctr": 0,
             "code": "IE"
@@ -14913,9 +14948,9 @@
           },
           {
             "name": "알 수 없음",
-            "visit": 163,
+            "visit": 164,
             "click": 0,
-            "unique": 163,
+            "unique": 164,
             "dwell": 4,
             "ctr": 0,
             "code": "IE"
@@ -15325,9 +15360,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 4386,
+            "visit": 4387,
             "click": 1030,
-            "unique": 2780,
+            "unique": 2781,
             "dwell": 18,
             "ctr": 23.5
           },
@@ -15360,9 +15395,9 @@
           },
           {
             "name": "IE",
-            "visit": 166,
+            "visit": 167,
             "click": 0,
-            "unique": 165,
+            "unique": 166,
             "dwell": 15,
             "ctr": 0,
             "code": "IE"
@@ -15551,9 +15586,9 @@
           },
           {
             "name": "알 수 없음",
-            "visit": 166,
+            "visit": 167,
             "click": 0,
-            "unique": 165,
+            "unique": 166,
             "dwell": 14,
             "ctr": 0,
             "code": "IE"
@@ -16114,9 +16149,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 5562,
+            "visit": 5563,
             "click": 2041,
-            "unique": 2780,
+            "unique": 2781,
             "dwell": 18,
             "ctr": 36.7
           },
@@ -16158,9 +16193,9 @@
           },
           {
             "name": "IE",
-            "visit": 302,
+            "visit": 303,
             "click": 0,
-            "unique": 165,
+            "unique": 166,
             "dwell": 15,
             "ctr": 0,
             "code": "IE"
@@ -16351,7 +16386,7 @@
             "name": "알 수 없음",
             "visit": 131,
             "click": 0,
-            "unique": 165,
+            "unique": 166,
             "dwell": 14,
             "ctr": 0,
             "code": "IE"
@@ -16882,9 +16917,38 @@
       },
       "y": {
         "sources": [],
-        "device": [],
-        "country": [],
-        "city": [],
+        "device": [
+          {
+            "name": "모바일",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0
+          }
+        ],
+        "country": [
+          {
+            "name": "IE",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "IE"
+          }
+        ],
+        "city": [
+          {
+            "name": "알 수 없음",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "IE"
+          }
+        ],
         "blocks": []
       }
     }
