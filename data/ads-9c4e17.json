@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 10. 30. AM 9:18:22",
+  "updated": "2026. 10. 30. AM 9:34:25",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -10196,7 +10196,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 10. 30. AM 9:18:01",
+    "updated": "2026. 10. 30. AM 9:34:03",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10206,30 +10206,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 31,
-        "click": 5,
-        "unique": 22,
-        "ctr": 16.1,
-        "dwell": 18
+        "visit": 34,
+        "click": 6,
+        "unique": 24,
+        "ctr": 17.6,
+        "dwell": 21
       },
       "7": {
-        "visit": 1033,
-        "click": 158,
-        "unique": 783,
+        "visit": 1036,
+        "click": 159,
+        "unique": 785,
         "ctr": 15.3,
         "dwell": 22
       },
       "28": {
-        "visit": 3881,
-        "click": 928,
-        "unique": 2271,
+        "visit": 3884,
+        "click": 929,
+        "unique": 2273,
         "ctr": 23.9,
         "dwell": 19
       },
       "90": {
-        "visit": 10484,
-        "click": 2718,
-        "unique": 3103,
+        "visit": 10487,
+        "click": 2719,
+        "unique": 3105,
         "ctr": 25.9,
         "dwell": 24
       },
@@ -10241,9 +10241,9 @@
         "dwell": 17
       },
       "all": {
-        "visit": 42211,
-        "click": 16073,
-        "unique": 3103,
+        "visit": 42214,
+        "click": 16074,
+        "unique": 3105,
         "ctr": 38.1,
         "dwell": 24
       }
@@ -13083,9 +13083,9 @@
       },
       {
         "d": "2026-10-30",
-        "visit": 31,
-        "click": 5,
-        "unique": 22
+        "visit": 34,
+        "click": 6,
+        "unique": 24
       }
     ],
     "sources": [
@@ -13101,9 +13101,9 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 5279,
+        "visit": 5280,
         "click": 1,
-        "unique": 1652,
+        "unique": 1653,
         "ctr": 0,
         "dwell": 11
       },
@@ -13128,9 +13128,9 @@
       {
         "name": "m.place.naver.com",
         "host": "m.place.naver.com",
-        "visit": 533,
-        "click": 197,
-        "unique": 12,
+        "visit": 535,
+        "click": 198,
+        "unique": 13,
         "ctr": 37,
         "dwell": 22
       },
@@ -13354,7 +13354,7 @@
         "gone": false,
         "kind": "chat",
         "img": false,
-        "clicks": 641
+        "clicks": 642
       },
       {
         "key": "V65EW4n",
@@ -13696,9 +13696,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 5740,
-        "click": 2080,
-        "unique": 2918,
+        "visit": 5743,
+        "click": 2081,
+        "unique": 2920,
         "dwell": 18,
         "ctr": 36.2
       },
@@ -13722,9 +13722,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 27108,
-        "click": 2244,
-        "unique": 2670,
+        "visit": 27111,
+        "click": 2245,
+        "unique": 2672,
         "dwell": 31,
         "ctr": 8.3,
         "code": "KR"
@@ -13904,9 +13904,9 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 4126,
+        "visit": 4127,
         "click": 1699,
-        "unique": 1807,
+        "unique": 1808,
         "dwell": 24,
         "ctr": 41.2,
         "code": "KR"
@@ -14003,11 +14003,11 @@
       },
       {
         "name": "Busan",
-        "visit": 39,
-        "click": 14,
-        "unique": 29,
-        "dwell": 21,
-        "ctr": 35.9,
+        "visit": 41,
+        "click": 15,
+        "unique": 30,
+        "dwell": 20,
+        "ctr": 36.6,
         "code": "KR"
       },
       {
@@ -14089,11 +14089,11 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 21,
+            "visit": 22,
             "click": 0,
-            "unique": 12,
+            "unique": 13,
             "ctr": 0,
-            "dwell": 11
+            "dwell": 21
           },
           {
             "name": "인스타 링크 눌러 옴",
@@ -14112,26 +14112,35 @@
             "unique": 2,
             "ctr": 100,
             "dwell": 19
+          },
+          {
+            "name": "m.place.naver.com",
+            "host": "m.place.naver.com",
+            "visit": 2,
+            "click": 1,
+            "unique": 1,
+            "ctr": 50,
+            "dwell": 7
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 31,
-            "click": 5,
-            "unique": 22,
-            "dwell": 20,
-            "ctr": 16.1
+            "visit": 34,
+            "click": 6,
+            "unique": 24,
+            "dwell": 22,
+            "ctr": 17.6
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 25,
-            "click": 3,
-            "unique": 16,
-            "dwell": 17,
-            "ctr": 12,
+            "visit": 28,
+            "click": 4,
+            "unique": 18,
+            "dwell": 21,
+            "ctr": 14.3,
             "code": "KR"
           },
           {
@@ -14156,10 +14165,10 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 16,
+            "visit": 17,
             "click": 0,
-            "unique": 9,
-            "dwell": 14,
+            "unique": 10,
+            "dwell": 25,
             "ctr": 0,
             "code": "KR"
           },
@@ -14179,6 +14188,15 @@
             "unique": 2,
             "dwell": 0,
             "ctr": 0,
+            "code": "KR"
+          },
+          {
+            "name": "Busan",
+            "visit": 2,
+            "click": 1,
+            "unique": 1,
+            "dwell": 7,
+            "ctr": 50,
             "code": "KR"
           },
           {
@@ -14245,6 +14263,14 @@
             "clicks": 1
           },
           {
+            "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
+            "name": "🙋 카카오 채널로 수강상담 하러가기",
+            "gone": false,
+            "kind": "chat",
+            "img": false,
+            "clicks": 1
+          },
+          {
             "key": "Norn5x4",
             "name": "커리큘럼 페이지",
             "gone": false,
@@ -14267,9 +14293,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 602,
+            "visit": 603,
             "click": 0,
-            "unique": 403,
+            "unique": 404,
             "ctr": 0,
             "dwell": 7
           },
@@ -14303,11 +14329,11 @@
           {
             "name": "m.place.naver.com",
             "host": "m.place.naver.com",
-            "visit": 6,
-            "click": 11,
-            "unique": 4,
-            "ctr": 183.3,
-            "dwell": 58
+            "visit": 8,
+            "click": 12,
+            "unique": 5,
+            "ctr": 150,
+            "dwell": 51
           },
           {
             "name": "인스타 (앱 미리보기)",
@@ -14322,11 +14348,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 983,
-            "click": 128,
-            "unique": 749,
+            "visit": 986,
+            "click": 129,
+            "unique": 751,
             "dwell": 18,
-            "ctr": 13
+            "ctr": 13.1
           },
           {
             "name": "데스크탑",
@@ -14348,11 +14374,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 880,
-            "click": 149,
-            "unique": 637,
+            "visit": 883,
+            "click": 150,
+            "unique": 639,
             "dwell": 23,
-            "ctr": 16.9,
+            "ctr": 17,
             "code": "KR"
           },
           {
@@ -14494,9 +14520,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 491,
+            "visit": 492,
             "click": 65,
-            "unique": 358,
+            "unique": 359,
             "dwell": 28,
             "ctr": 13.2,
             "code": "KR"
@@ -14575,11 +14601,11 @@
           },
           {
             "name": "Busan",
-            "visit": 15,
-            "click": 8,
-            "unique": 8,
-            "dwell": 40,
-            "ctr": 53.3,
+            "visit": 17,
+            "click": 9,
+            "unique": 9,
+            "dwell": 36,
+            "ctr": 52.9,
             "code": "KR"
           },
           {
@@ -14728,7 +14754,7 @@
             "gone": false,
             "kind": "chat",
             "img": false,
-            "clicks": 5
+            "clicks": 6
           },
           {
             "key": "O1PZwO3",
@@ -14761,9 +14787,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 2347,
+            "visit": 2348,
             "click": 1,
-            "unique": 1239,
+            "unique": 1240,
             "ctr": 0,
             "dwell": 8
           },
@@ -14786,6 +14812,15 @@
             "dwell": 37
           },
           {
+            "name": "m.place.naver.com",
+            "host": "m.place.naver.com",
+            "visit": 17,
+            "click": 24,
+            "unique": 10,
+            "ctr": 141.2,
+            "dwell": 32
+          },
+          {
             "name": "pcmap.place.naver.com",
             "host": "pcmap.place.naver.com",
             "visit": 17,
@@ -14793,15 +14828,6 @@
             "unique": 7,
             "ctr": 76.5,
             "dwell": 28
-          },
-          {
-            "name": "m.place.naver.com",
-            "host": "m.place.naver.com",
-            "visit": 15,
-            "click": 23,
-            "unique": 9,
-            "ctr": 153.3,
-            "dwell": 34
           },
           {
             "name": "인스타 (앱 미리보기)",
@@ -14861,11 +14887,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 2940,
-            "click": 610,
-            "unique": 2156,
+            "visit": 2943,
+            "click": 611,
+            "unique": 2158,
             "dwell": 16,
-            "ctr": 20.7
+            "ctr": 20.8
           },
           {
             "name": "데스크탑",
@@ -14887,9 +14913,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 2778,
-            "click": 666,
-            "unique": 1989,
+            "visit": 2781,
+            "click": 667,
+            "unique": 1991,
             "dwell": 20,
             "ctr": 24,
             "code": "KR"
@@ -15069,9 +15095,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1707,
+            "visit": 1708,
             "click": 347,
-            "unique": 1210,
+            "unique": 1211,
             "dwell": 22,
             "ctr": 20.3,
             "code": "KR"
@@ -15150,11 +15176,11 @@
           },
           {
             "name": "Busan",
-            "visit": 32,
-            "click": 14,
-            "unique": 25,
-            "dwell": 24,
-            "ctr": 43.8,
+            "visit": 34,
+            "click": 15,
+            "unique": 26,
+            "dwell": 23,
+            "ctr": 44.1,
             "code": "KR"
           },
           {
@@ -15319,7 +15345,7 @@
             "gone": false,
             "kind": "chat",
             "img": false,
-            "clicks": 24
+            "clicks": 25
           },
           {
             "key": "6i2xFwE",
@@ -15336,9 +15362,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 5131,
+            "visit": 5132,
             "click": 1,
-            "unique": 1652,
+            "unique": 1653,
             "ctr": 0,
             "dwell": 11
           },
@@ -15372,10 +15398,10 @@
           {
             "name": "m.place.naver.com",
             "host": "m.place.naver.com",
-            "visit": 74,
-            "click": 83,
-            "unique": 12,
-            "ctr": 112.2,
+            "visit": 76,
+            "click": 84,
+            "unique": 13,
+            "ctr": 110.5,
             "dwell": 22
           },
           {
@@ -15499,9 +15525,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 4562,
-            "click": 1055,
-            "unique": 2918,
+            "visit": 4565,
+            "click": 1056,
+            "unique": 2920,
             "dwell": 18,
             "ctr": 23.1
           },
@@ -15525,9 +15551,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 4294,
-            "click": 1145,
-            "unique": 2670,
+            "visit": 4297,
+            "click": 1146,
+            "unique": 2672,
             "dwell": 31,
             "ctr": 26.7,
             "code": "KR"
@@ -15707,9 +15733,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 3041,
+            "visit": 3042,
             "click": 722,
-            "unique": 1807,
+            "unique": 1808,
             "dwell": 24,
             "ctr": 23.7,
             "code": "KR"
@@ -15797,11 +15823,11 @@
           },
           {
             "name": "Busan",
-            "visit": 39,
-            "click": 14,
-            "unique": 29,
-            "dwell": 21,
-            "ctr": 35.9,
+            "visit": 41,
+            "click": 15,
+            "unique": 30,
+            "dwell": 20,
+            "ctr": 36.6,
             "code": "KR"
           },
           {
@@ -15957,7 +15983,7 @@
             "gone": false,
             "kind": "chat",
             "img": false,
-            "clicks": 67
+            "clicks": 68
           },
           {
             "key": "9Vywz94",
@@ -16071,9 +16097,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 5279,
+            "visit": 5280,
             "click": 1,
-            "unique": 1652,
+            "unique": 1653,
             "ctr": 0,
             "dwell": 11
           },
@@ -16098,9 +16124,9 @@
           {
             "name": "m.place.naver.com",
             "host": "m.place.naver.com",
-            "visit": 533,
-            "click": 197,
-            "unique": 12,
+            "visit": 535,
+            "click": 198,
+            "unique": 13,
             "ctr": 37,
             "dwell": 22
           },
@@ -16288,9 +16314,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 5740,
-            "click": 2080,
-            "unique": 2918,
+            "visit": 5743,
+            "click": 2081,
+            "unique": 2920,
             "dwell": 18,
             "ctr": 36.2
           },
@@ -16314,9 +16340,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 27108,
-            "click": 2244,
-            "unique": 2670,
+            "visit": 27111,
+            "click": 2245,
+            "unique": 2672,
             "dwell": 31,
             "ctr": 8.3,
             "code": "KR"
@@ -16496,9 +16522,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 4126,
+            "visit": 4127,
             "click": 1699,
-            "unique": 1807,
+            "unique": 1808,
             "dwell": 24,
             "ctr": 41.2,
             "code": "KR"
@@ -16595,11 +16621,11 @@
           },
           {
             "name": "Busan",
-            "visit": 39,
-            "click": 14,
-            "unique": 29,
-            "dwell": 21,
-            "ctr": 35.9,
+            "visit": 41,
+            "click": 15,
+            "unique": 30,
+            "dwell": 20,
+            "ctr": 36.6,
             "code": "KR"
           },
           {
@@ -16714,7 +16740,7 @@
             "gone": false,
             "kind": "chat",
             "img": false,
-            "clicks": 641
+            "clicks": 642
           },
           {
             "key": "V65EW4n",
@@ -17059,11 +17085,11 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 21,
+            "visit": 22,
             "click": 0,
-            "unique": 12,
+            "unique": 13,
             "ctr": 0,
-            "dwell": 11
+            "dwell": 21
           },
           {
             "name": "인스타 링크 눌러 옴",
@@ -17082,26 +17108,35 @@
             "unique": 2,
             "ctr": 100,
             "dwell": 19
+          },
+          {
+            "name": "m.place.naver.com",
+            "host": "m.place.naver.com",
+            "visit": 2,
+            "click": 1,
+            "unique": 1,
+            "ctr": 50,
+            "dwell": 7
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 31,
-            "click": 5,
-            "unique": 22,
-            "dwell": 20,
-            "ctr": 16.1
+            "visit": 34,
+            "click": 6,
+            "unique": 24,
+            "dwell": 22,
+            "ctr": 17.6
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 25,
-            "click": 3,
-            "unique": 16,
-            "dwell": 17,
-            "ctr": 12,
+            "visit": 28,
+            "click": 4,
+            "unique": 18,
+            "dwell": 21,
+            "ctr": 14.3,
             "code": "KR"
           },
           {
@@ -17126,10 +17161,10 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 16,
+            "visit": 17,
             "click": 0,
-            "unique": 9,
-            "dwell": 14,
+            "unique": 10,
+            "dwell": 25,
             "ctr": 0,
             "code": "KR"
           },
@@ -17149,6 +17184,15 @@
             "unique": 2,
             "dwell": 0,
             "ctr": 0,
+            "code": "KR"
+          },
+          {
+            "name": "Busan",
+            "visit": 2,
+            "click": 1,
+            "unique": 1,
+            "dwell": 7,
+            "ctr": 50,
             "code": "KR"
           },
           {
@@ -17212,6 +17256,14 @@
             "gone": false,
             "kind": "store",
             "img": true,
+            "clicks": 1
+          },
+          {
+            "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
+            "name": "🙋 카카오 채널로 수강상담 하러가기",
+            "gone": false,
+            "kind": "chat",
+            "img": false,
             "clicks": 1
           },
           {
