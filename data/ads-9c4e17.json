@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 3. PM 2:50:04",
+  "updated": "2026. 11. 3. PM 3:06:00",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 3. PM 2:49:42",
+    "updated": "2026. 11. 3. PM 3:05:38",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10180,30 +10180,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 50,
-        "click": 13,
-        "unique": 35,
-        "ctr": 26,
-        "dwell": 25
+        "visit": 52,
+        "click": 14,
+        "unique": 37,
+        "ctr": 26.9,
+        "dwell": 24
       },
       "7": {
-        "visit": 1090,
-        "click": 181,
-        "unique": 814,
-        "ctr": 16.6,
+        "visit": 1092,
+        "click": 182,
+        "unique": 816,
+        "ctr": 16.7,
         "dwell": 22
       },
       "28": {
-        "visit": 3952,
-        "click": 891,
-        "unique": 2597,
-        "ctr": 22.5,
+        "visit": 3954,
+        "click": 892,
+        "unique": 2599,
+        "ctr": 22.6,
         "dwell": 20
       },
       "90": {
-        "visit": 10911,
-        "click": 2666,
-        "unique": 3542,
+        "visit": 10913,
+        "click": 2667,
+        "unique": 3544,
         "ctr": 24.4,
         "dwell": 24
       },
@@ -10215,9 +10215,9 @@
         "dwell": 16
       },
       "all": {
-        "visit": 42809,
-        "click": 16158,
-        "unique": 3542,
+        "visit": 42811,
+        "click": 16159,
+        "unique": 3544,
         "ctr": 37.7,
         "dwell": 24
       }
@@ -13081,9 +13081,9 @@
       },
       {
         "d": "2026-11-03",
-        "visit": 50,
-        "click": 13,
-        "unique": 35
+        "visit": 52,
+        "click": 14,
+        "unique": 37
       }
     ],
     "sources": [
@@ -13144,10 +13144,10 @@
       {
         "name": "pcmap.place.naver.com",
         "host": "pcmap.place.naver.com",
-        "visit": 369,
+        "visit": 370,
         "click": 97,
-        "unique": 15,
-        "ctr": 26.3,
+        "unique": 16,
+        "ctr": 26.2,
         "dwell": 35
       },
       {
@@ -13408,7 +13408,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 366
+        "clicks": 367
       },
       {
         "key": "ZP63A49",
@@ -13694,19 +13694,19 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 6317,
-        "click": 2158,
-        "unique": 3339,
+        "visit": 6318,
+        "click": 2159,
+        "unique": 3340,
         "dwell": 18,
         "ctr": 34.2
       },
       {
         "name": "데스크탑",
-        "visit": 524,
+        "visit": 525,
         "click": 272,
-        "unique": 191,
-        "dwell": 115,
-        "ctr": 51.9
+        "unique": 192,
+        "dwell": 114,
+        "ctr": 51.8
       },
       {
         "name": "태블릿",
@@ -13720,10 +13720,10 @@
     "country": [
       {
         "name": "KR",
-        "visit": 27439,
-        "click": 2329,
-        "unique": 3026,
-        "dwell": 31,
+        "visit": 27441,
+        "click": 2330,
+        "unique": 3028,
+        "dwell": 30,
         "ctr": 8.5,
         "code": "KR"
       },
@@ -13902,9 +13902,9 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 4403,
+        "visit": 4404,
         "click": 1735,
-        "unique": 1997,
+        "unique": 1998,
         "dwell": 24,
         "ctr": 39.4,
         "code": "KR"
@@ -13929,11 +13929,11 @@
       },
       {
         "name": "Yongin-si",
-        "visit": 158,
-        "click": 72,
-        "unique": 65,
+        "visit": 159,
+        "click": 73,
+        "unique": 66,
         "dwell": 16,
-        "ctr": 45.6,
+        "ctr": 45.9,
         "code": "KR"
       },
       {
@@ -14112,6 +14112,15 @@
             "dwell": 11
           },
           {
+            "name": "pcmap.place.naver.com",
+            "host": "pcmap.place.naver.com",
+            "visit": 2,
+            "click": 1,
+            "unique": 2,
+            "ctr": 50,
+            "dwell": 22
+          },
+          {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
             "visit": 1,
@@ -14119,33 +14128,24 @@
             "unique": 1,
             "ctr": 0,
             "dwell": 3
-          },
-          {
-            "name": "pcmap.place.naver.com",
-            "host": "pcmap.place.naver.com",
-            "visit": 1,
-            "click": 1,
-            "unique": 1,
-            "ctr": 100,
-            "dwell": 32
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 46,
-            "click": 12,
-            "unique": 31,
+            "visit": 47,
+            "click": 13,
+            "unique": 32,
             "dwell": 26,
-            "ctr": 26.1
+            "ctr": 27.7
           },
           {
             "name": "데스크탑",
-            "visit": 3,
+            "visit": 4,
             "click": 1,
-            "unique": 3,
-            "dwell": 21,
-            "ctr": 33.3
+            "unique": 4,
+            "dwell": 19,
+            "ctr": 25
           },
           {
             "name": "태블릿",
@@ -14159,11 +14159,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 41,
-            "click": 13,
-            "unique": 26,
-            "dwell": 27,
-            "ctr": 31.7,
+            "visit": 43,
+            "click": 14,
+            "unique": 28,
+            "dwell": 26,
+            "ctr": 32.6,
             "code": "KR"
           },
           {
@@ -14188,11 +14188,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 18,
+            "visit": 19,
             "click": 3,
-            "unique": 13,
+            "unique": 14,
             "dwell": 13,
-            "ctr": 16.7,
+            "ctr": 15.8,
             "code": "KR"
           },
           {
@@ -14284,6 +14284,15 @@
             "dwell": 32,
             "ctr": 100,
             "code": "KR"
+          },
+          {
+            "name": "Yongin-si",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "dwell": 20,
+            "ctr": 100,
+            "code": "KR"
           }
         ],
         "blocks": [
@@ -14301,7 +14310,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 2
+            "clicks": 3
           },
           {
             "key": "bby1R8Y",
@@ -14378,10 +14387,10 @@
           {
             "name": "pcmap.place.naver.com",
             "host": "pcmap.place.naver.com",
-            "visit": 7,
+            "visit": 8,
             "click": 7,
-            "unique": 2,
-            "ctr": 100,
+            "unique": 3,
+            "ctr": 87.5,
             "dwell": 18
           },
           {
@@ -14397,19 +14406,19 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1046,
-            "click": 159,
-            "unique": 782,
+            "visit": 1047,
+            "click": 160,
+            "unique": 783,
             "dwell": 22,
-            "ctr": 15.2
+            "ctr": 15.3
           },
           {
             "name": "데스크탑",
-            "visit": 37,
+            "visit": 38,
             "click": 21,
-            "unique": 27,
+            "unique": 28,
             "dwell": 27,
-            "ctr": 56.8
+            "ctr": 55.3
           },
           {
             "name": "태블릿",
@@ -14423,11 +14432,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 931,
-            "click": 174,
-            "unique": 662,
+            "visit": 933,
+            "click": 175,
+            "unique": 664,
             "dwell": 23,
-            "ctr": 18.7,
+            "ctr": 18.8,
             "code": "KR"
           },
           {
@@ -14569,9 +14578,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 529,
+            "visit": 530,
             "click": 69,
-            "unique": 370,
+            "unique": 371,
             "dwell": 19,
             "ctr": 13,
             "code": "KR"
@@ -14613,21 +14622,21 @@
             "code": "KR"
           },
           {
+            "name": "Yongin-si",
+            "visit": 20,
+            "click": 9,
+            "unique": 13,
+            "dwell": 12,
+            "ctr": 45,
+            "code": "KR"
+          },
+          {
             "name": "Busan",
             "visit": 19,
             "click": 10,
             "unique": 14,
             "dwell": 29,
             "ctr": 52.6,
-            "code": "KR"
-          },
-          {
-            "name": "Yongin-si",
-            "visit": 19,
-            "click": 8,
-            "unique": 12,
-            "dwell": 11,
-            "ctr": 42.1,
             "code": "KR"
           },
           {
@@ -14771,7 +14780,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 31
+            "clicks": 32
           },
           {
             "key": "OkhXD1v",
@@ -14872,11 +14881,11 @@
           {
             "name": "pcmap.place.naver.com",
             "host": "pcmap.place.naver.com",
-            "visit": 16,
+            "visit": 17,
             "click": 13,
-            "unique": 8,
-            "ctr": 81.3,
-            "dwell": 29
+            "unique": 9,
+            "ctr": 76.5,
+            "dwell": 28
           },
           {
             "name": "인스타 (앱 미리보기)",
@@ -14936,19 +14945,19 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3360,
-            "click": 641,
-            "unique": 2476,
+            "visit": 3361,
+            "click": 642,
+            "unique": 2477,
             "dwell": 17,
             "ctr": 19.1
           },
           {
             "name": "데스크탑",
-            "visit": 141,
+            "visit": 142,
             "click": 80,
-            "unique": 113,
+            "unique": 114,
             "dwell": 49,
-            "ctr": 56.7
+            "ctr": 56.3
           },
           {
             "name": "태블릿",
@@ -14962,9 +14971,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3130,
-            "click": 697,
-            "unique": 2244,
+            "visit": 3132,
+            "click": 698,
+            "unique": 2246,
             "dwell": 21,
             "ctr": 22.3,
             "code": "KR"
@@ -15144,9 +15153,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1834,
+            "visit": 1835,
             "click": 332,
-            "unique": 1303,
+            "unique": 1304,
             "dwell": 22,
             "ctr": 18.1,
             "code": "KR"
@@ -15180,11 +15189,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 80,
-            "click": 32,
-            "unique": 48,
+            "visit": 81,
+            "click": 33,
+            "unique": 49,
             "dwell": 14,
-            "ctr": 40,
+            "ctr": 40.7,
             "code": "KR"
           },
           {
@@ -15346,7 +15355,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 165
+            "clicks": 166
           },
           {
             "key": "OkhXD1v",
@@ -15465,10 +15474,10 @@
           {
             "name": "pcmap.place.naver.com",
             "host": "pcmap.place.naver.com",
-            "visit": 50,
+            "visit": 51,
             "click": 43,
-            "unique": 15,
-            "ctr": 86,
+            "unique": 16,
+            "ctr": 84.3,
             "dwell": 35
           },
           {
@@ -15556,19 +15565,19 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 5116,
-            "click": 1112,
-            "unique": 3339,
+            "visit": 5117,
+            "click": 1113,
+            "unique": 3340,
             "dwell": 18,
-            "ctr": 21.7
+            "ctr": 21.8
           },
           {
             "name": "데스크탑",
-            "visit": 326,
+            "visit": 327,
             "click": 159,
-            "unique": 191,
-            "dwell": 115,
-            "ctr": 48.8
+            "unique": 192,
+            "dwell": 114,
+            "ctr": 48.6
           },
           {
             "name": "태블릿",
@@ -15582,10 +15591,10 @@
         "country": [
           {
             "name": "KR",
-            "visit": 4773,
-            "click": 1203,
-            "unique": 3026,
-            "dwell": 31,
+            "visit": 4775,
+            "click": 1204,
+            "unique": 3028,
+            "dwell": 30,
             "ctr": 25.2,
             "code": "KR"
           },
@@ -15764,9 +15773,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 3292,
+            "visit": 3293,
             "click": 736,
-            "unique": 1997,
+            "unique": 1998,
             "dwell": 24,
             "ctr": 22.4,
             "code": "KR"
@@ -15800,11 +15809,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 145,
-            "click": 68,
-            "unique": 65,
+            "visit": 146,
+            "click": 69,
+            "unique": 66,
             "dwell": 16,
-            "ctr": 46.9,
+            "ctr": 47.3,
             "code": "KR"
           },
           {
@@ -15966,7 +15975,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 366
+            "clicks": 367
           },
           {
             "key": "OkhXD1v",
@@ -16149,10 +16158,10 @@
           {
             "name": "pcmap.place.naver.com",
             "host": "pcmap.place.naver.com",
-            "visit": 369,
+            "visit": 370,
             "click": 97,
-            "unique": 15,
-            "ctr": 26.3,
+            "unique": 16,
+            "ctr": 26.2,
             "dwell": 35
           },
           {
@@ -16321,19 +16330,19 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 6317,
-            "click": 2158,
-            "unique": 3339,
+            "visit": 6318,
+            "click": 2159,
+            "unique": 3340,
             "dwell": 18,
             "ctr": 34.2
           },
           {
             "name": "데스크탑",
-            "visit": 524,
+            "visit": 525,
             "click": 272,
-            "unique": 191,
-            "dwell": 115,
-            "ctr": 51.9
+            "unique": 192,
+            "dwell": 114,
+            "ctr": 51.8
           },
           {
             "name": "태블릿",
@@ -16347,10 +16356,10 @@
         "country": [
           {
             "name": "KR",
-            "visit": 27439,
-            "click": 2329,
-            "unique": 3026,
-            "dwell": 31,
+            "visit": 27441,
+            "click": 2330,
+            "unique": 3028,
+            "dwell": 30,
             "ctr": 8.5,
             "code": "KR"
           },
@@ -16529,9 +16538,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 4403,
+            "visit": 4404,
             "click": 1735,
-            "unique": 1997,
+            "unique": 1998,
             "dwell": 24,
             "ctr": 39.4,
             "code": "KR"
@@ -16556,11 +16565,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 158,
-            "click": 72,
-            "unique": 65,
+            "visit": 159,
+            "click": 73,
+            "unique": 66,
             "dwell": 16,
-            "ctr": 45.6,
+            "ctr": 45.9,
             "code": "KR"
           },
           {
@@ -16803,7 +16812,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 366
+            "clicks": 367
           },
           {
             "key": "ZP63A49",
@@ -17117,6 +17126,15 @@
             "dwell": 11
           },
           {
+            "name": "pcmap.place.naver.com",
+            "host": "pcmap.place.naver.com",
+            "visit": 2,
+            "click": 1,
+            "unique": 2,
+            "ctr": 50,
+            "dwell": 22
+          },
+          {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
             "visit": 1,
@@ -17124,33 +17142,24 @@
             "unique": 1,
             "ctr": 0,
             "dwell": 3
-          },
-          {
-            "name": "pcmap.place.naver.com",
-            "host": "pcmap.place.naver.com",
-            "visit": 1,
-            "click": 1,
-            "unique": 1,
-            "ctr": 100,
-            "dwell": 32
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 46,
-            "click": 12,
-            "unique": 31,
+            "visit": 47,
+            "click": 13,
+            "unique": 32,
             "dwell": 26,
-            "ctr": 26.1
+            "ctr": 27.7
           },
           {
             "name": "데스크탑",
-            "visit": 3,
+            "visit": 4,
             "click": 1,
-            "unique": 3,
-            "dwell": 21,
-            "ctr": 33.3
+            "unique": 4,
+            "dwell": 19,
+            "ctr": 25
           },
           {
             "name": "태블릿",
@@ -17164,11 +17173,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 41,
-            "click": 13,
-            "unique": 26,
-            "dwell": 27,
-            "ctr": 31.7,
+            "visit": 43,
+            "click": 14,
+            "unique": 28,
+            "dwell": 26,
+            "ctr": 32.6,
             "code": "KR"
           },
           {
@@ -17193,11 +17202,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 18,
+            "visit": 19,
             "click": 3,
-            "unique": 13,
+            "unique": 14,
             "dwell": 13,
-            "ctr": 16.7,
+            "ctr": 15.8,
             "code": "KR"
           },
           {
@@ -17289,6 +17298,15 @@
             "dwell": 32,
             "ctr": 100,
             "code": "KR"
+          },
+          {
+            "name": "Yongin-si",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "dwell": 20,
+            "ctr": 100,
+            "code": "KR"
           }
         ],
         "blocks": [
@@ -17306,7 +17324,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 2
+            "clicks": 3
           },
           {
             "key": "bby1R8Y",
