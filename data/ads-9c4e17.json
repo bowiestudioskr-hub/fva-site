@@ -1,10 +1,10 @@
 {
-  "updated": "2026. 11. 6. PM 11:53:04",
+  "updated": "2026. 11. 7. AM 12:09:19",
   "naver": {
     "start": "2026-08-16",
     "live": true,
     "state": "운영",
-    "charged": 242,
+    "charged": 0,
     "pending": 77,
     "dailyBudget": 2500,
     "balance": 6187,
@@ -13,19 +13,19 @@
     "cost": 16534,
     "byPeriod": {
       "1": {
-        "imp": 53,
-        "clk": 3,
-        "cost": 242
+        "imp": 0,
+        "clk": 0,
+        "cost": 0
       },
       "7": {
-        "imp": 339,
-        "clk": 29,
-        "cost": 2438
+        "imp": 304,
+        "clk": 26,
+        "cost": 2125
       },
       "28": {
-        "imp": 1382,
-        "clk": 95,
-        "cost": 8573
+        "imp": 1344,
+        "clk": 88,
+        "cost": 7963
       },
       "90": {
         "imp": 26144,
@@ -33,18 +33,12 @@
         "cost": 93888
       },
       "y": {
-        "imp": 48,
-        "clk": 4,
-        "cost": 308
+        "imp": 53,
+        "clk": 3,
+        "cost": 242
       }
     },
     "daily": [
-      {
-        "d": "2026-10-24",
-        "imp": 43,
-        "clk": 1,
-        "cost": 88
-      },
       {
         "d": "2026-10-25",
         "imp": 73,
@@ -122,6 +116,12 @@
         "imp": 53,
         "clk": 3,
         "cost": 242
+      },
+      {
+        "d": "2026-11-07",
+        "imp": 0,
+        "clk": 0,
+        "cost": 0
       }
     ],
     "campaignImp": 26144,
@@ -10170,54 +10170,54 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 6. PM 11:52:44",
+    "updated": "2026. 11. 7. AM 12:09:00",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
       "처음": "2025-07-15",
-      "마지막": "2026-11-06",
-      "일수": 480
+      "마지막": "2026-11-07",
+      "일수": 481
     },
     "byPeriod": {
       "1": {
+        "visit": 3,
+        "click": 4,
+        "unique": 3,
+        "ctr": 133.3,
+        "dwell": 22
+      },
+      "7": {
+        "visit": 972,
+        "click": 166,
+        "unique": 736,
+        "ctr": 17.1,
+        "dwell": 26
+      },
+      "28": {
+        "visit": 3876,
+        "click": 810,
+        "unique": 2838,
+        "ctr": 20.9,
+        "dwell": 21
+      },
+      "90": {
+        "visit": 11254,
+        "click": 2634,
+        "unique": 3929,
+        "ctr": 23.4,
+        "dwell": 24
+      },
+      "y": {
         "visit": 110,
         "click": 22,
         "unique": 84,
         "ctr": 20,
         "dwell": 12
       },
-      "7": {
-        "visit": 1128,
-        "click": 185,
-        "unique": 845,
-        "ctr": 16.4,
-        "dwell": 25
-      },
-      "28": {
-        "visit": 4033,
-        "click": 850,
-        "unique": 2840,
-        "ctr": 21.1,
-        "dwell": 21
-      },
-      "90": {
-        "visit": 11278,
-        "click": 2657,
-        "unique": 3926,
-        "ctr": 23.6,
-        "dwell": 24
-      },
-      "y": {
-        "visit": 100,
-        "click": 17,
-        "unique": 79,
-        "ctr": 17,
-        "dwell": 22
-      },
       "all": {
-        "visit": 43308,
-        "click": 16253,
-        "unique": 3926,
+        "visit": 43311,
+        "click": 16257,
+        "unique": 3929,
         "ctr": 37.5,
         "dwell": 24
       }
@@ -13102,31 +13102,37 @@
         "visit": 110,
         "click": 22,
         "unique": 84
+      },
+      {
+        "d": "2026-11-07",
+        "visit": 3,
+        "click": 4,
+        "unique": 3
       }
     ],
     "sources": [
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14322,
-        "click": 4633,
-        "unique": 797,
-        "ctr": 32.3,
+        "visit": 14304,
+        "click": 4637,
+        "unique": 799,
+        "ctr": 32.4,
         "dwell": 34
       },
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 5903,
+        "visit": 5904,
         "click": 1,
-        "unique": 2076,
+        "unique": 2077,
         "ctr": 0,
         "dwell": 11
       },
       {
         "name": "인스타 (앱 미리보기)",
         "host": "instagram.com",
-        "visit": 4040,
+        "visit": 4034,
         "click": 58,
         "unique": 121,
         "ctr": 1.4,
@@ -13338,7 +13344,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 3459
+        "clicks": 3461
       },
       {
         "key": "bGTonvP",
@@ -13394,7 +13400,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 548
+        "clicks": 549
       },
       {
         "key": "bby1R8Y",
@@ -13581,20 +13587,20 @@
         "clicks": 49
       },
       {
-        "key": "sWOeLTu",
-        "name": "지운 블럭 (sWOeLTu)",
-        "gone": true,
-        "kind": "etc",
-        "img": false,
-        "clicks": 44
-      },
-      {
         "key": "IU3UTlE",
         "name": "지운 블럭 (IU3UTlE)",
         "gone": true,
         "kind": "etc",
         "img": false,
         "clicks": 38
+      },
+      {
+        "key": "sWOeLTu",
+        "name": "지운 블럭 (sWOeLTu)",
+        "gone": true,
+        "kind": "etc",
+        "img": false,
+        "clicks": 34
       },
       {
         "key": "6i2xFwE",
@@ -13613,20 +13619,20 @@
         "clicks": 30
       },
       {
+        "key": "CBR1sRX",
+        "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
+        "gone": false,
+        "kind": "store",
+        "img": true,
+        "clicks": 25
+      },
+      {
         "key": "V8SPJ8g",
         "name": "스마트스토어 · [수료생 전용] 재입학 풀코스",
         "gone": true,
         "kind": "store",
         "img": true,
         "clicks": 25
-      },
-      {
-        "key": "CBR1sRX",
-        "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
-        "gone": false,
-        "kind": "store",
-        "img": true,
-        "clicks": 24
       },
       {
         "key": "dVgRn4o",
@@ -13760,11 +13766,11 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 6785,
-        "click": 2240,
-        "unique": 3703,
+        "visit": 6788,
+        "click": 2244,
+        "unique": 3706,
         "dwell": 18,
-        "ctr": 33
+        "ctr": 33.1
       },
       {
         "name": "데스크탑",
@@ -13786,20 +13792,20 @@
     "country": [
       {
         "name": "KR",
-        "visit": 27643,
-        "click": 2424,
-        "unique": 3369,
+        "visit": 27572,
+        "click": 2428,
+        "unique": 3372,
         "dwell": 30,
         "ctr": 8.8,
         "code": "KR"
       },
       {
         "name": "US",
-        "visit": 926,
+        "visit": 878,
         "click": 22,
         "unique": 62,
         "dwell": 9,
-        "ctr": 2.4,
+        "ctr": 2.5,
         "code": "US"
       },
       {
@@ -13831,7 +13837,7 @@
       },
       {
         "name": "NL",
-        "visit": 81,
+        "visit": 80,
         "click": 0,
         "unique": 2,
         "dwell": 0,
@@ -13977,20 +13983,20 @@
       },
       {
         "name": "알 수 없음",
-        "visit": 447,
-        "click": 111,
-        "unique": 263,
+        "visit": 448,
+        "click": 114,
+        "unique": 264,
         "dwell": 12,
-        "ctr": 24.8,
+        "ctr": 25.4,
         "code": "KR"
       },
       {
         "name": "Yongin-si",
-        "visit": 172,
-        "click": 74,
-        "unique": 73,
+        "visit": 173,
+        "click": 75,
+        "unique": 74,
         "dwell": 16,
-        "ctr": 43,
+        "ctr": 43.4,
         "code": "KR"
       },
       {
@@ -14111,21 +14117,21 @@
         "code": "KR"
       },
       {
+        "name": "Namyangju",
+        "visit": 25,
+        "click": 18,
+        "unique": 17,
+        "dwell": 20,
+        "ctr": 72,
+        "code": "KR"
+      },
+      {
         "name": "Siheung-si",
         "visit": 25,
         "click": 5,
         "unique": 17,
         "dwell": 13,
         "ctr": 20,
-        "code": "KR"
-      },
-      {
-        "name": "Namyangju",
-        "visit": 24,
-        "click": 18,
-        "unique": 16,
-        "dwell": 21,
-        "ctr": 75,
         "code": "KR"
       },
       {
@@ -14151,246 +14157,58 @@
       "1": {
         "sources": [
           {
-            "name": "페이스북",
-            "host": "m.facebook.com",
-            "visit": 80,
-            "click": 0,
-            "unique": 57,
-            "ctr": 0,
-            "dwell": 4
-          },
-          {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14,
-            "click": 12,
-            "unique": 13,
-            "ctr": 85.7,
-            "dwell": 24
-          },
-          {
-            "name": "우리 사이트",
-            "host": "fva.co.kr",
-            "visit": 3,
+            "visit": 2,
             "click": 4,
             "unique": 2,
-            "ctr": 133.3,
-            "dwell": 12
+            "ctr": 200,
+            "dwell": 33
           },
           {
-            "name": "m.place.naver.com",
-            "host": "m.place.naver.com",
-            "visit": 3,
-            "click": 4,
-            "unique": 2,
-            "ctr": 133.3,
-            "dwell": 16
-          },
-          {
-            "name": "pcmap.place.naver.com",
-            "host": "pcmap.place.naver.com",
+            "name": "페이스북",
+            "host": "facebook.com",
             "visit": 1,
-            "click": 1,
+            "click": 0,
             "unique": 1,
-            "ctr": 100,
-            "dwell": 3
+            "ctr": 0,
+            "dwell": 2
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 105,
-            "click": 20,
-            "unique": 79,
-            "dwell": 12,
-            "ctr": 19
-          },
-          {
-            "name": "데스크탑",
-            "visit": 5,
-            "click": 2,
-            "unique": 5,
-            "dwell": 17,
-            "ctr": 40
+            "visit": 3,
+            "click": 4,
+            "unique": 3,
+            "dwell": 22,
+            "ctr": 133.3
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 105,
-            "click": 22,
-            "unique": 79,
-            "dwell": 13,
-            "ctr": 21,
+            "visit": 3,
+            "click": 4,
+            "unique": 3,
+            "dwell": 22,
+            "ctr": 133.3,
             "code": "KR"
-          },
-          {
-            "name": "HK",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "HK"
-          },
-          {
-            "name": "IE",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "IE"
-          },
-          {
-            "name": "PK",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "PK"
           }
         ],
         "city": [
           {
-            "name": "Seoul",
-            "visit": 72,
-            "click": 16,
-            "unique": 55,
-            "dwell": 13,
-            "ctr": 22.2,
-            "code": "KR"
-          },
-          {
             "name": "알 수 없음",
-            "visit": 11,
-            "click": 0,
-            "unique": 7,
-            "dwell": 5,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Siheung-si",
-            "visit": 3,
-            "click": 0,
-            "unique": 2,
-            "dwell": 5,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Yongin-si",
-            "visit": 3,
-            "click": 1,
-            "unique": 2,
-            "dwell": 5,
-            "ctr": 33.3,
-            "code": "KR"
-          },
-          {
-            "name": "Central",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "HK"
-          },
-          {
-            "name": "알 수 없음",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "IE"
-          },
-          {
-            "name": "Bucheon-si",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 2,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Gimpo-si",
-            "visit": 2,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Goyang-si",
-            "visit": 2,
-            "click": 1,
-            "unique": 2,
-            "dwell": 13,
-            "ctr": 50,
-            "code": "KR"
-          },
-          {
-            "name": "Gunsan",
-            "visit": 2,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Incheon",
-            "visit": 2,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Cheonan",
             "visit": 1,
-            "click": 1,
+            "click": 3,
             "unique": 1,
-            "dwell": 24,
-            "ctr": 100,
-            "code": "KR"
-          },
-          {
-            "name": "Daejeon",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 1,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Icheon-si",
-            "visit": 1,
-            "click": 1,
-            "unique": 1,
-            "dwell": 40,
-            "ctr": 100,
+            "dwell": 59,
+            "ctr": 300,
             "code": "KR"
           },
           {
             "name": "Namyangju",
             "visit": 1,
-            "click": 1,
-            "unique": 1,
-            "dwell": 42,
-            "ctr": 100,
-            "code": "KR"
-          },
-          {
-            "name": "Yangju",
-            "visit": 1,
             "click": 0,
             "unique": 1,
             "dwell": 2,
@@ -14398,65 +14216,16 @@
             "code": "KR"
           },
           {
-            "name": "Yeoncheon-gun",
+            "name": "Yongin-si",
             "visit": 1,
             "click": 1,
             "unique": 1,
-            "dwell": 16,
+            "dwell": 6,
             "ctr": 100,
             "code": "KR"
-          },
-          {
-            "name": "Islamabad",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "PK"
           }
         ],
         "blocks": [
-          {
-            "key": "xI5UCt0",
-            "name": "스마트스토어 · HOT 포트폴리오 3개월 풀코스",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 5
-          },
-          {
-            "key": "OkhXD1v",
-            "name": "수강생 작품보기 (유튜브)",
-            "gone": false,
-            "kind": "site",
-            "img": true,
-            "clicks": 4
-          },
-          {
-            "key": "418MjcE",
-            "name": "스마트스토어 · 한달 영화 만들기",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 3
-          },
-          {
-            "key": "bGTonvP",
-            "name": "온라인 강의 페이지",
-            "gone": false,
-            "kind": "site",
-            "img": true,
-            "clicks": 3
-          },
-          {
-            "key": "CBR1sRX",
-            "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 2
-          },
           {
             "key": "Norn5x4",
             "name": "커리큘럼 페이지",
@@ -14466,26 +14235,18 @@
             "clicks": 2
           },
           {
-            "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
-            "name": "🙋 카카오 채널로 수강상담 하러가기",
+            "key": "CBR1sRX",
+            "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
             "gone": false,
-            "kind": "chat",
-            "img": false,
-            "clicks": 1
-          },
-          {
-            "key": "O1PZwO3",
-            "name": "수강 후기 페이지",
-            "gone": false,
-            "kind": "site",
+            "kind": "store",
             "img": true,
             "clicks": 1
           },
           {
-            "key": "XaZx8ky",
-            "name": "스마트스토어 · 포트폴리오 2개월",
+            "key": "OkhXD1v",
+            "name": "수강생 작품보기 (유튜브)",
             "gone": false,
-            "kind": "store",
+            "kind": "site",
             "img": true,
             "clicks": 1
           }
@@ -14496,38 +14257,38 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 653,
+            "visit": 546,
             "click": 0,
-            "unique": 436,
+            "unique": 371,
             "ctr": 0,
             "dwell": 9
           },
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 160,
-            "click": 122,
-            "unique": 126,
-            "ctr": 76.3,
-            "dwell": 36
+            "visit": 142,
+            "click": 107,
+            "unique": 112,
+            "ctr": 75.4,
+            "dwell": 37
           },
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 35,
-            "click": 25,
-            "unique": 27,
-            "ctr": 71.4,
+            "visit": 31,
+            "click": 22,
+            "unique": 23,
+            "ctr": 71,
             "dwell": 32
           },
           {
             "name": "m.place.naver.com",
             "host": "m.place.naver.com",
-            "visit": 10,
-            "click": 8,
-            "unique": 8,
-            "ctr": 80,
-            "dwell": 12
+            "visit": 8,
+            "click": 7,
+            "unique": 7,
+            "ctr": 87.5,
+            "dwell": 13
           },
           {
             "name": "인스타 (앱 미리보기)",
@@ -14560,18 +14321,18 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1076,
-            "click": 165,
-            "unique": 807,
-            "dwell": 21,
-            "ctr": 15.3
+            "visit": 920,
+            "click": 146,
+            "unique": 698,
+            "dwell": 22,
+            "ctr": 15.9
           },
           {
             "name": "데스크탑",
             "visit": 47,
             "click": 19,
             "unique": 35,
-            "dwell": 58,
+            "dwell": 59,
             "ctr": 40.4
           },
           {
@@ -14586,27 +14347,27 @@
         "country": [
           {
             "name": "KR",
-            "visit": 990,
-            "click": 183,
-            "unique": 715,
-            "dwell": 26,
-            "ctr": 18.5,
+            "visit": 852,
+            "click": 166,
+            "unique": 623,
+            "dwell": 27,
+            "ctr": 19.5,
             "code": "KR"
           },
           {
             "name": "IE",
-            "visit": 100,
+            "visit": 85,
             "click": 0,
-            "unique": 100,
+            "unique": 85,
             "dwell": 8,
             "ctr": 0,
             "code": "IE"
           },
           {
             "name": "HK",
-            "visit": 7,
+            "visit": 5,
             "click": 0,
-            "unique": 5,
+            "unique": 4,
             "dwell": 16,
             "ctr": 0,
             "code": "HK"
@@ -14646,15 +14407,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "CA"
-          },
-          {
-            "name": "GB",
-            "visit": 2,
-            "click": 2,
-            "unique": 2,
-            "dwell": 28,
-            "ctr": 100,
-            "code": "GB"
           },
           {
             "name": "ID",
@@ -14720,6 +14472,15 @@
             "code": "ES"
           },
           {
+            "name": "GB",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 13,
+            "ctr": 0,
+            "code": "GB"
+          },
+          {
             "name": "IN",
             "visit": 1,
             "click": 0,
@@ -14741,128 +14502,101 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 572,
-            "click": 84,
-            "unique": 412,
+            "visit": 502,
+            "click": 76,
+            "unique": 365,
             "dwell": 25,
-            "ctr": 14.7,
+            "ctr": 15.1,
             "code": "KR"
           },
           {
             "name": "알 수 없음",
-            "visit": 119,
-            "click": 16,
-            "unique": 81,
-            "dwell": 14,
-            "ctr": 13.4,
+            "visit": 105,
+            "click": 19,
+            "unique": 72,
+            "dwell": 16,
+            "ctr": 18.1,
             "code": "KR"
           },
           {
             "name": "알 수 없음",
-            "visit": 100,
+            "visit": 85,
             "click": 0,
-            "unique": 100,
+            "unique": 85,
             "dwell": 8,
             "ctr": 0,
             "code": "IE"
           },
           {
             "name": "Daejeon",
-            "visit": 38,
+            "visit": 28,
             "click": 12,
-            "unique": 29,
+            "unique": 22,
             "dwell": 11,
-            "ctr": 31.6,
+            "ctr": 42.9,
             "code": "KR"
           },
           {
             "name": "Seongnam-si",
-            "visit": 34,
+            "visit": 28,
             "click": 4,
-            "unique": 29,
+            "unique": 24,
             "dwell": 67,
-            "ctr": 11.8,
+            "ctr": 14.3,
             "code": "KR"
           },
           {
             "name": "Yongin-si",
-            "visit": 25,
-            "click": 6,
-            "unique": 14,
-            "dwell": 12,
-            "ctr": 24,
+            "visit": 20,
+            "click": 3,
+            "unique": 12,
+            "dwell": 10,
+            "ctr": 15,
             "code": "KR"
           },
           {
             "name": "Incheon",
-            "visit": 19,
-            "click": 6,
-            "unique": 11,
-            "dwell": 60,
-            "ctr": 31.6,
-            "code": "KR"
-          },
-          {
-            "name": "Busan",
-            "visit": 16,
-            "click": 4,
-            "unique": 12,
-            "dwell": 16,
-            "ctr": 25,
+            "visit": 15,
+            "click": 5,
+            "unique": 8,
+            "dwell": 70,
+            "ctr": 33.3,
             "code": "KR"
           },
           {
             "name": "Bucheon-si",
-            "visit": 13,
-            "click": 6,
-            "unique": 11,
-            "dwell": 23,
-            "ctr": 46.2,
+            "visit": 12,
+            "click": 5,
+            "unique": 10,
+            "dwell": 16,
+            "ctr": 41.7,
+            "code": "KR"
+          },
+          {
+            "name": "Busan",
+            "visit": 11,
+            "click": 3,
+            "unique": 8,
+            "dwell": 22,
+            "ctr": 27.3,
             "code": "KR"
           },
           {
             "name": "Goyang-si",
-            "visit": 12,
-            "click": 3,
-            "unique": 10,
-            "dwell": 18,
-            "ctr": 25,
+            "visit": 10,
+            "click": 2,
+            "unique": 8,
+            "dwell": 10,
+            "ctr": 20,
             "code": "KR"
           },
           {
             "name": "Gwangju",
-            "visit": 11,
+            "visit": 10,
             "click": 8,
-            "unique": 5,
-            "dwell": 40,
-            "ctr": 72.7,
-            "code": "KR"
-          },
-          {
-            "name": "Suwon",
-            "visit": 11,
-            "click": 4,
-            "unique": 8,
-            "dwell": 21,
-            "ctr": 36.4,
-            "code": "KR"
-          },
-          {
-            "name": "Siheung-si",
-            "visit": 8,
-            "click": 0,
-            "unique": 5,
-            "dwell": 3,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Daegu",
-            "visit": 7,
-            "click": 1,
-            "unique": 7,
-            "dwell": 30,
-            "ctr": 14.3,
+            "unique": 4,
+            "dwell": 43,
+            "ctr": 80,
             "code": "KR"
           },
           {
@@ -14875,13 +14609,13 @@
             "code": "KR"
           },
           {
-            "name": "Central",
-            "visit": 6,
-            "click": 0,
-            "unique": 4,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "HK"
+            "name": "Namyangju",
+            "visit": 7,
+            "click": 5,
+            "unique": 5,
+            "dwell": 18,
+            "ctr": 71.4,
+            "code": "KR"
           },
           {
             "name": "Ansan-si",
@@ -14893,12 +14627,12 @@
             "code": "KR"
           },
           {
-            "name": "Namyangju",
+            "name": "Daegu",
             "visit": 6,
-            "click": 5,
-            "unique": 4,
-            "dwell": 21,
-            "ctr": 83.3,
+            "click": 1,
+            "unique": 6,
+            "dwell": 30,
+            "ctr": 16.7,
             "code": "KR"
           },
           {
@@ -14918,6 +14652,33 @@
             "dwell": 12,
             "ctr": 0,
             "code": "KR"
+          },
+          {
+            "name": "Siheung-si",
+            "visit": 6,
+            "click": 0,
+            "unique": 4,
+            "dwell": 4,
+            "ctr": 0,
+            "code": "KR"
+          },
+          {
+            "name": "Suwon",
+            "visit": 6,
+            "click": 1,
+            "unique": 5,
+            "dwell": 27,
+            "ctr": 16.7,
+            "code": "KR"
+          },
+          {
+            "name": "Changwon",
+            "visit": 5,
+            "click": 1,
+            "unique": 4,
+            "dwell": 345,
+            "ctr": 20,
+            "code": "KR"
           }
         ],
         "blocks": [
@@ -14927,15 +14688,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 36
-          },
-          {
-            "key": "OkhXD1v",
-            "name": "수강생 작품보기 (유튜브)",
-            "gone": false,
-            "kind": "site",
-            "img": true,
-            "clicks": 25
+            "clicks": 30
           },
           {
             "key": "CBR1sRX",
@@ -14943,7 +14696,15 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 24
+            "clicks": 25
+          },
+          {
+            "key": "OkhXD1v",
+            "name": "수강생 작품보기 (유튜브)",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 23
           },
           {
             "key": "bby1R8Y",
@@ -14951,7 +14712,7 @@
             "gone": true,
             "kind": "store",
             "img": true,
-            "clicks": 22
+            "clicks": 19
           },
           {
             "key": "4rFKEfH",
@@ -14959,7 +14720,7 @@
             "gone": true,
             "kind": "store",
             "img": true,
-            "clicks": 16
+            "clicks": 14
           },
           {
             "key": "xI5UCt0",
@@ -14978,20 +14739,20 @@
             "clicks": 10
           },
           {
-            "key": "qHImjnR",
-            "name": "스마트스토어 · 2개월",
-            "gone": true,
-            "kind": "store",
-            "img": true,
-            "clicks": 9
-          },
-          {
             "key": "bGTonvP",
             "name": "온라인 강의 페이지",
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 7
+            "clicks": 6
+          },
+          {
+            "key": "qHImjnR",
+            "name": "스마트스토어 · 2개월",
+            "gone": true,
+            "kind": "store",
+            "img": true,
+            "clicks": 6
           },
           {
             "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
@@ -14999,7 +14760,7 @@
             "gone": false,
             "kind": "chat",
             "img": false,
-            "clicks": 6
+            "clicks": 5
           },
           {
             "key": "O1PZwO3",
@@ -15007,7 +14768,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 6
+            "clicks": 5
           },
           {
             "key": "6i2xFwE",
@@ -15031,7 +14792,7 @@
             "gone": true,
             "kind": "store",
             "img": true,
-            "clicks": 3
+            "clicks": 2
           },
           {
             "key": "73BTpTJ",
@@ -15056,28 +14817,28 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 2354,
+            "visit": 2250,
             "click": 0,
-            "unique": 1508,
+            "unique": 1507,
             "ctr": 0,
             "dwell": 8
           },
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 769,
-            "click": 609,
+            "visit": 723,
+            "click": 572,
             "unique": 541,
-            "ctr": 79.2,
+            "ctr": 79.1,
             "dwell": 27
           },
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 134,
-            "click": 103,
+            "visit": 133,
+            "click": 102,
             "unique": 99,
-            "ctr": 76.9,
+            "ctr": 76.7,
             "dwell": 31
           },
           {
@@ -15156,19 +14917,19 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3628,
+            "visit": 3627,
             "click": 656,
-            "unique": 2707,
+            "unique": 2706,
             "dwell": 18,
             "ctr": 18.1
           },
           {
             "name": "데스크탑",
-            "visit": 165,
+            "visit": 164,
             "click": 91,
-            "unique": 126,
+            "unique": 125,
             "dwell": 54,
-            "ctr": 55.2
+            "ctr": 55.5
           },
           {
             "name": "태블릿",
@@ -15182,29 +14943,29 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3391,
-            "click": 721,
-            "unique": 2456,
+            "visit": 3393,
+            "click": 723,
+            "unique": 2458,
             "dwell": 22,
             "ctr": 21.3,
             "code": "KR"
           },
           {
             "name": "IE",
-            "visit": 275,
+            "visit": 274,
             "click": 0,
-            "unique": 275,
+            "unique": 274,
             "dwell": 5,
             "ctr": 0,
             "code": "IE"
           },
           {
             "name": "US",
-            "visit": 32,
-            "click": 10,
-            "unique": 26,
+            "visit": 31,
+            "click": 9,
+            "unique": 25,
             "dwell": 9,
-            "ctr": 31.3,
+            "ctr": 29,
             "code": "US"
           },
           {
@@ -15217,15 +14978,6 @@
             "code": "HK"
           },
           {
-            "name": "JP",
-            "visit": 12,
-            "click": 3,
-            "unique": 9,
-            "dwell": 20,
-            "ctr": 25,
-            "code": "JP"
-          },
-          {
             "name": "NP",
             "visit": 11,
             "click": 0,
@@ -15233,6 +14985,15 @@
             "dwell": 11,
             "ctr": 0,
             "code": "NP"
+          },
+          {
+            "name": "JP",
+            "visit": 11,
+            "click": 2,
+            "unique": 8,
+            "dwell": 15,
+            "ctr": 18.2,
+            "code": "JP"
           },
           {
             "name": "GB",
@@ -15373,18 +15134,18 @@
           },
           {
             "name": "알 수 없음",
-            "visit": 331,
-            "click": 58,
-            "unique": 232,
+            "visit": 332,
+            "click": 61,
+            "unique": 233,
             "dwell": 12,
-            "ctr": 17.5,
+            "ctr": 18.4,
             "code": "KR"
           },
           {
             "name": "알 수 없음",
-            "visit": 275,
+            "visit": 274,
             "click": 0,
-            "unique": 275,
+            "unique": 274,
             "dwell": 5,
             "ctr": 0,
             "code": "IE"
@@ -15409,11 +15170,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 94,
-            "click": 34,
-            "unique": 56,
+            "visit": 95,
+            "click": 35,
+            "unique": 57,
             "dwell": 14,
-            "ctr": 36.2,
+            "ctr": 36.8,
             "code": "KR"
           },
           {
@@ -15455,10 +15216,10 @@
           {
             "name": "Bucheon-si",
             "visit": 45,
-            "click": 24,
+            "click": 22,
             "unique": 33,
             "dwell": 24,
-            "ctr": 53.3,
+            "ctr": 48.9,
             "code": "KR"
           },
           {
@@ -15550,15 +15311,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 205
-          },
-          {
-            "key": "bby1R8Y",
-            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
-            "gone": true,
-            "kind": "store",
-            "img": true,
-            "clicks": 155
+            "clicks": 196
           },
           {
             "key": "4rFKEfH",
@@ -15566,7 +15319,15 @@
             "gone": true,
             "kind": "store",
             "img": true,
-            "clicks": 149
+            "clicks": 145
+          },
+          {
+            "key": "bby1R8Y",
+            "name": "스마트스토어 · NEW 취미 입문반 한달만에 내 작품 극장에",
+            "gone": true,
+            "kind": "store",
+            "img": true,
+            "clicks": 145
           },
           {
             "key": "OkhXD1v",
@@ -15574,15 +15335,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 88
-          },
-          {
-            "key": "bGTonvP",
-            "name": "온라인 강의 페이지",
-            "gone": false,
-            "kind": "site",
-            "img": true,
-            "clicks": 49
+            "clicks": 82
           },
           {
             "key": "EJVYl6C",
@@ -15590,7 +15343,15 @@
             "gone": true,
             "kind": "store",
             "img": true,
-            "clicks": 48
+            "clicks": 45
+          },
+          {
+            "key": "bGTonvP",
+            "name": "온라인 강의 페이지",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 43
           },
           {
             "key": "O1PZwO3",
@@ -15598,20 +15359,20 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 41
-          },
-          {
-            "key": "qHImjnR",
-            "name": "스마트스토어 · 2개월",
-            "gone": true,
-            "kind": "store",
-            "img": true,
-            "clicks": 25
+            "clicks": 39
           },
           {
             "key": "CBR1sRX",
             "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
             "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 25
+          },
+          {
+            "key": "qHImjnR",
+            "name": "스마트스토어 · 2개월",
+            "gone": true,
             "kind": "store",
             "img": true,
             "clicks": 24
@@ -15679,19 +15440,19 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 5762,
+            "visit": 5763,
             "click": 1,
-            "unique": 2076,
+            "unique": 2077,
             "ctr": 0,
             "dwell": 11
           },
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2445,
-            "click": 1945,
-            "unique": 797,
-            "ctr": 79.6,
+            "visit": 2422,
+            "click": 1924,
+            "unique": 799,
+            "ctr": 79.4,
             "dwell": 34
           },
           {
@@ -15706,10 +15467,10 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 351,
-            "click": 270,
+            "visit": 350,
+            "click": 268,
             "unique": 131,
-            "ctr": 76.9,
+            "ctr": 76.6,
             "dwell": 37
           },
           {
@@ -15724,10 +15485,10 @@
           {
             "name": "리틀리 안에서",
             "host": "litt.ly",
-            "visit": 53,
+            "visit": 52,
             "click": 10,
             "unique": 1,
-            "ctr": 18.9,
+            "ctr": 19.2,
             "dwell": 12
           },
           {
@@ -15815,9 +15576,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 5535,
-            "click": 1173,
-            "unique": 3703,
+            "visit": 5536,
+            "click": 1176,
+            "unique": 3706,
             "dwell": 18,
             "ctr": 21.2
           },
@@ -15841,11 +15602,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 5156,
-            "click": 1270,
-            "unique": 3369,
+            "visit": 5157,
+            "click": 1273,
+            "unique": 3372,
             "dwell": 30,
-            "ctr": 24.6,
+            "ctr": 24.7,
             "code": "KR"
           },
           {
@@ -16032,11 +15793,11 @@
           },
           {
             "name": "알 수 없음",
-            "visit": 384,
-            "click": 76,
-            "unique": 263,
+            "visit": 385,
+            "click": 79,
+            "unique": 264,
             "dwell": 12,
-            "ctr": 19.8,
+            "ctr": 20.5,
             "code": "KR"
           },
           {
@@ -16059,11 +15820,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 159,
-            "click": 68,
-            "unique": 73,
+            "visit": 160,
+            "click": 69,
+            "unique": 74,
             "dwell": 16,
-            "ctr": 42.8,
+            "ctr": 43.1,
             "code": "KR"
           },
           {
@@ -16104,11 +15865,11 @@
           },
           {
             "name": "Busan",
-            "visit": 55,
+            "visit": 53,
             "click": 18,
             "unique": 41,
             "dwell": 20,
-            "ctr": 32.7,
+            "ctr": 34,
             "code": "KR"
           },
           {
@@ -16157,21 +15918,21 @@
             "code": "KR"
           },
           {
+            "name": "Namyangju",
+            "visit": 24,
+            "click": 16,
+            "unique": 17,
+            "dwell": 20,
+            "ctr": 66.7,
+            "code": "KR"
+          },
+          {
             "name": "Anyang-si",
             "visit": 23,
             "click": 4,
             "unique": 20,
             "dwell": 11,
             "ctr": 17.4,
-            "code": "KR"
-          },
-          {
-            "name": "Namyangju",
-            "visit": 23,
-            "click": 16,
-            "unique": 16,
-            "dwell": 21,
-            "ctr": 69.6,
             "code": "KR"
           },
           {
@@ -16209,7 +15970,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 588
+            "clicks": 581
           },
           {
             "key": "bby1R8Y",
@@ -16233,7 +15994,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 295
+            "clicks": 294
           },
           {
             "key": "bGTonvP",
@@ -16241,7 +16002,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 208
+            "clicks": 204
           },
           {
             "key": "O1PZwO3",
@@ -16249,7 +16010,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 155
+            "clicks": 153
           },
           {
             "key": "IHsH0Mk",
@@ -16257,7 +16018,7 @@
             "gone": true,
             "kind": "store",
             "img": true,
-            "clicks": 143
+            "clicks": 138
           },
           {
             "key": "EJVYl6C",
@@ -16289,7 +16050,7 @@
             "gone": true,
             "kind": "store",
             "img": true,
-            "clicks": 52
+            "clicks": 48
           },
           {
             "key": "6i2xFwE",
@@ -16305,7 +16066,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 24
+            "clicks": 25
           },
           {
             "key": "dVgRn4o",
@@ -16329,7 +16090,7 @@
             "gone": true,
             "kind": "store",
             "img": true,
-            "clicks": 17
+            "clicks": 16
           },
           {
             "key": "xI5UCt0",
@@ -16402,25 +16163,25 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14322,
-            "click": 4633,
-            "unique": 797,
-            "ctr": 32.3,
+            "visit": 14304,
+            "click": 4637,
+            "unique": 799,
+            "ctr": 32.4,
             "dwell": 34
           },
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 5903,
+            "visit": 5904,
             "click": 1,
-            "unique": 2076,
+            "unique": 2077,
             "ctr": 0,
             "dwell": 11
           },
           {
             "name": "인스타 (앱 미리보기)",
             "host": "instagram.com",
-            "visit": 4040,
+            "visit": 4034,
             "click": 58,
             "unique": 121,
             "ctr": 1.4,
@@ -16628,11 +16389,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 6785,
-            "click": 2240,
-            "unique": 3703,
+            "visit": 6788,
+            "click": 2244,
+            "unique": 3706,
             "dwell": 18,
-            "ctr": 33
+            "ctr": 33.1
           },
           {
             "name": "데스크탑",
@@ -16654,20 +16415,20 @@
         "country": [
           {
             "name": "KR",
-            "visit": 27643,
-            "click": 2424,
-            "unique": 3369,
+            "visit": 27572,
+            "click": 2428,
+            "unique": 3372,
             "dwell": 30,
             "ctr": 8.8,
             "code": "KR"
           },
           {
             "name": "US",
-            "visit": 926,
+            "visit": 878,
             "click": 22,
             "unique": 62,
             "dwell": 9,
-            "ctr": 2.4,
+            "ctr": 2.5,
             "code": "US"
           },
           {
@@ -16699,7 +16460,7 @@
           },
           {
             "name": "NL",
-            "visit": 81,
+            "visit": 80,
             "click": 0,
             "unique": 2,
             "dwell": 0,
@@ -16845,20 +16606,20 @@
           },
           {
             "name": "알 수 없음",
-            "visit": 447,
-            "click": 111,
-            "unique": 263,
+            "visit": 448,
+            "click": 114,
+            "unique": 264,
             "dwell": 12,
-            "ctr": 24.8,
+            "ctr": 25.4,
             "code": "KR"
           },
           {
             "name": "Yongin-si",
-            "visit": 172,
-            "click": 74,
-            "unique": 73,
+            "visit": 173,
+            "click": 75,
+            "unique": 74,
             "dwell": 16,
-            "ctr": 43,
+            "ctr": 43.4,
             "code": "KR"
           },
           {
@@ -16979,21 +16740,21 @@
             "code": "KR"
           },
           {
+            "name": "Namyangju",
+            "visit": 25,
+            "click": 18,
+            "unique": 17,
+            "dwell": 20,
+            "ctr": 72,
+            "code": "KR"
+          },
+          {
             "name": "Siheung-si",
             "visit": 25,
             "click": 5,
             "unique": 17,
             "dwell": 13,
             "ctr": 20,
-            "code": "KR"
-          },
-          {
-            "name": "Namyangju",
-            "visit": 24,
-            "click": 18,
-            "unique": 16,
-            "dwell": 21,
-            "ctr": 75,
             "code": "KR"
           },
           {
@@ -17022,7 +16783,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 3459
+            "clicks": 3461
           },
           {
             "key": "bGTonvP",
@@ -17078,7 +16839,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 548
+            "clicks": 549
           },
           {
             "key": "bby1R8Y",
@@ -17265,20 +17026,20 @@
             "clicks": 49
           },
           {
-            "key": "sWOeLTu",
-            "name": "옛 버튼 (sWOeLTu)",
-            "gone": true,
-            "kind": "etc",
-            "img": false,
-            "clicks": 44
-          },
-          {
             "key": "IU3UTlE",
             "name": "옛 버튼 (IU3UTlE)",
             "gone": true,
             "kind": "etc",
             "img": false,
             "clicks": 38
+          },
+          {
+            "key": "sWOeLTu",
+            "name": "옛 버튼 (sWOeLTu)",
+            "gone": true,
+            "kind": "etc",
+            "img": false,
+            "clicks": 34
           },
           {
             "key": "6i2xFwE",
@@ -17297,20 +17058,20 @@
             "clicks": 30
           },
           {
+            "key": "CBR1sRX",
+            "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 25
+          },
+          {
             "key": "V8SPJ8g",
             "name": "스마트스토어 · [수료생 전용] 재입학 풀코스",
             "gone": true,
             "kind": "store",
             "img": true,
             "clicks": 25
-          },
-          {
-            "key": "CBR1sRX",
-            "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 24
           },
           {
             "key": "dVgRn4o",
@@ -17445,246 +17206,58 @@
       "y": {
         "sources": [
           {
-            "name": "페이스북",
-            "host": "m.facebook.com",
-            "visit": 80,
-            "click": 0,
-            "unique": 57,
-            "ctr": 0,
-            "dwell": 4
-          },
-          {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14,
-            "click": 12,
-            "unique": 13,
-            "ctr": 85.7,
-            "dwell": 24
-          },
-          {
-            "name": "우리 사이트",
-            "host": "fva.co.kr",
-            "visit": 3,
+            "visit": 2,
             "click": 4,
             "unique": 2,
-            "ctr": 133.3,
-            "dwell": 12
+            "ctr": 200,
+            "dwell": 33
           },
           {
-            "name": "m.place.naver.com",
-            "host": "m.place.naver.com",
-            "visit": 3,
-            "click": 4,
-            "unique": 2,
-            "ctr": 133.3,
-            "dwell": 16
-          },
-          {
-            "name": "pcmap.place.naver.com",
-            "host": "pcmap.place.naver.com",
+            "name": "페이스북",
+            "host": "facebook.com",
             "visit": 1,
-            "click": 1,
+            "click": 0,
             "unique": 1,
-            "ctr": 100,
-            "dwell": 3
+            "ctr": 0,
+            "dwell": 2
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 105,
-            "click": 20,
-            "unique": 79,
-            "dwell": 12,
-            "ctr": 19
-          },
-          {
-            "name": "데스크탑",
-            "visit": 5,
-            "click": 2,
-            "unique": 5,
-            "dwell": 17,
-            "ctr": 40
+            "visit": 3,
+            "click": 4,
+            "unique": 3,
+            "dwell": 22,
+            "ctr": 133.3
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 105,
-            "click": 22,
-            "unique": 79,
-            "dwell": 13,
-            "ctr": 21,
+            "visit": 3,
+            "click": 4,
+            "unique": 3,
+            "dwell": 22,
+            "ctr": 133.3,
             "code": "KR"
-          },
-          {
-            "name": "HK",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "HK"
-          },
-          {
-            "name": "IE",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "IE"
-          },
-          {
-            "name": "PK",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "PK"
           }
         ],
         "city": [
           {
-            "name": "Seoul",
-            "visit": 72,
-            "click": 16,
-            "unique": 55,
-            "dwell": 13,
-            "ctr": 22.2,
-            "code": "KR"
-          },
-          {
             "name": "알 수 없음",
-            "visit": 11,
-            "click": 0,
-            "unique": 7,
-            "dwell": 5,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Siheung-si",
-            "visit": 3,
-            "click": 0,
-            "unique": 2,
-            "dwell": 5,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Yongin-si",
-            "visit": 3,
-            "click": 1,
-            "unique": 2,
-            "dwell": 5,
-            "ctr": 33.3,
-            "code": "KR"
-          },
-          {
-            "name": "Central",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "HK"
-          },
-          {
-            "name": "알 수 없음",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "IE"
-          },
-          {
-            "name": "Bucheon-si",
-            "visit": 2,
-            "click": 0,
-            "unique": 2,
-            "dwell": 2,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Gimpo-si",
-            "visit": 2,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Goyang-si",
-            "visit": 2,
-            "click": 1,
-            "unique": 2,
-            "dwell": 13,
-            "ctr": 50,
-            "code": "KR"
-          },
-          {
-            "name": "Gunsan",
-            "visit": 2,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Incheon",
-            "visit": 2,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Cheonan",
             "visit": 1,
-            "click": 1,
+            "click": 3,
             "unique": 1,
-            "dwell": 24,
-            "ctr": 100,
-            "code": "KR"
-          },
-          {
-            "name": "Daejeon",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 1,
-            "ctr": 0,
-            "code": "KR"
-          },
-          {
-            "name": "Icheon-si",
-            "visit": 1,
-            "click": 1,
-            "unique": 1,
-            "dwell": 40,
-            "ctr": 100,
+            "dwell": 59,
+            "ctr": 300,
             "code": "KR"
           },
           {
             "name": "Namyangju",
             "visit": 1,
-            "click": 1,
-            "unique": 1,
-            "dwell": 42,
-            "ctr": 100,
-            "code": "KR"
-          },
-          {
-            "name": "Yangju",
-            "visit": 1,
             "click": 0,
             "unique": 1,
             "dwell": 2,
@@ -17692,65 +17265,16 @@
             "code": "KR"
           },
           {
-            "name": "Yeoncheon-gun",
+            "name": "Yongin-si",
             "visit": 1,
             "click": 1,
             "unique": 1,
-            "dwell": 16,
+            "dwell": 6,
             "ctr": 100,
             "code": "KR"
-          },
-          {
-            "name": "Islamabad",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "PK"
           }
         ],
         "blocks": [
-          {
-            "key": "xI5UCt0",
-            "name": "스마트스토어 · HOT 포트폴리오 3개월 풀코스",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 5
-          },
-          {
-            "key": "OkhXD1v",
-            "name": "수강생 작품보기 (유튜브)",
-            "gone": false,
-            "kind": "site",
-            "img": true,
-            "clicks": 4
-          },
-          {
-            "key": "418MjcE",
-            "name": "스마트스토어 · 한달 영화 만들기",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 3
-          },
-          {
-            "key": "bGTonvP",
-            "name": "온라인 강의 페이지",
-            "gone": false,
-            "kind": "site",
-            "img": true,
-            "clicks": 3
-          },
-          {
-            "key": "CBR1sRX",
-            "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
-            "gone": false,
-            "kind": "store",
-            "img": true,
-            "clicks": 2
-          },
           {
             "key": "Norn5x4",
             "name": "커리큘럼 페이지",
@@ -17760,26 +17284,18 @@
             "clicks": 2
           },
           {
-            "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
-            "name": "🙋 카카오 채널로 수강상담 하러가기",
+            "key": "CBR1sRX",
+            "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
             "gone": false,
-            "kind": "chat",
-            "img": false,
-            "clicks": 1
-          },
-          {
-            "key": "O1PZwO3",
-            "name": "수강 후기 페이지",
-            "gone": false,
-            "kind": "site",
+            "kind": "store",
             "img": true,
             "clicks": 1
           },
           {
-            "key": "XaZx8ky",
-            "name": "스마트스토어 · 포트폴리오 2개월",
+            "key": "OkhXD1v",
+            "name": "수강생 작품보기 (유튜브)",
             "gone": false,
-            "kind": "store",
+            "kind": "site",
             "img": true,
             "clicks": 1
           }
