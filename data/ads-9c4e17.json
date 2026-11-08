@@ -1,16 +1,16 @@
 {
-  "updated": "2026. 11. 9. AM 12:35:01",
+  "updated": "2026. 11. 9. AM 12:50:45",
   "naver": {
     "start": "2026-08-16",
     "live": true,
     "state": "운영",
-    "charged": 0,
-    "pending": 88,
+    "charged": 77,
+    "pending": 77,
     "dailyBudget": 2500,
-    "balance": 5604,
-    "imp": 2860,
-    "clk": 195,
-    "cost": 17029,
+    "balance": 5527,
+    "imp": 2862,
+    "clk": 196,
+    "cost": 17117,
     "byPeriod": {
       "1": {
         "imp": 0,
@@ -18,24 +18,24 @@
         "cost": 0
       },
       "7": {
-        "imp": 283,
-        "clk": 27,
-        "cost": 2304
+        "imp": 285,
+        "clk": 28,
+        "cost": 2392
       },
       "28": {
-        "imp": 1294,
-        "clk": 86,
-        "cost": 7853
+        "imp": 1296,
+        "clk": 87,
+        "cost": 7941
       },
       "90": {
-        "imp": 26218,
-        "clk": 261,
-        "cost": 94383
+        "imp": 26220,
+        "clk": 262,
+        "cost": 94471
       },
       "y": {
-        "imp": 28,
-        "clk": 0,
-        "cost": 0
+        "imp": 30,
+        "clk": 1,
+        "cost": 88
       }
     },
     "daily": [
@@ -113,9 +113,9 @@
       },
       {
         "d": "2026-11-08",
-        "imp": 28,
-        "clk": 0,
-        "cost": 0
+        "imp": 30,
+        "clk": 1,
+        "cost": 88
       },
       {
         "d": "2026-11-09",
@@ -124,9 +124,9 @@
         "cost": 0
       }
     ],
-    "campaignImp": 26218,
-    "campaignClk": 261,
-    "campaignCost": 94383,
+    "campaignImp": 26220,
+    "campaignClk": 262,
+    "campaignCost": 94471,
     "groups": [
       {
         "id": "grp-a001-01-000000066183708",
@@ -192,9 +192,9 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 347,
-            "clk": 103,
-            "cost": 8390,
+            "imp": 349,
+            "clk": 104,
+            "cost": 8478,
             "rank": 1
           },
           {
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 9. AM 12:34:45",
+    "updated": "2026. 11. 9. AM 12:50:28",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10180,30 +10180,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 2,
+        "visit": 3,
         "click": 2,
-        "unique": 2,
-        "ctr": 100,
-        "dwell": 27
+        "unique": 3,
+        "ctr": 66.7,
+        "dwell": 22
       },
       "7": {
-        "visit": 916,
+        "visit": 917,
         "click": 191,
-        "unique": 688,
-        "ctr": 20.9,
+        "unique": 689,
+        "ctr": 20.8,
         "dwell": 25
       },
       "28": {
-        "visit": 3783,
+        "visit": 3784,
         "click": 756,
-        "unique": 2830,
+        "unique": 2831,
         "ctr": 20,
         "dwell": 22
       },
       "90": {
-        "visit": 11233,
+        "visit": 11234,
         "click": 2621,
-        "unique": 4080,
+        "unique": 4081,
         "ctr": 23.3,
         "dwell": 24
       },
@@ -10215,9 +10215,9 @@
         "dwell": 37
       },
       "all": {
-        "visit": 43521,
+        "visit": 43522,
         "click": 16314,
-        "unique": 4080,
+        "unique": 4081,
         "ctr": 37.5,
         "dwell": 24
       }
@@ -13117,9 +13117,9 @@
       },
       {
         "d": "2026-11-09",
-        "visit": 2,
+        "visit": 3,
         "click": 2,
-        "unique": 2
+        "unique": 3
       }
     ],
     "sources": [
@@ -13171,10 +13171,10 @@
       {
         "name": "우리 사이트",
         "host": "fva.co.kr",
-        "visit": 501,
+        "visit": 502,
         "click": 397,
-        "unique": 138,
-        "ctr": 79.2,
+        "unique": 139,
+        "ctr": 79.1,
         "dwell": 37
       },
       {
@@ -13778,9 +13778,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 6989,
+        "visit": 6990,
         "click": 2295,
-        "unique": 3849,
+        "unique": 3850,
         "dwell": 18,
         "ctr": 32.8
       },
@@ -13804,9 +13804,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 27674,
+        "visit": 27675,
         "click": 2483,
-        "unique": 3516,
+        "unique": 3517,
         "dwell": 30,
         "ctr": 9,
         "code": "KR"
@@ -14130,11 +14130,11 @@
       },
       {
         "name": "Namyangju",
-        "visit": 27,
+        "visit": 28,
         "click": 18,
-        "unique": 18,
+        "unique": 19,
         "dwell": 20,
-        "ctr": 66.7,
+        "ctr": 64.3,
         "code": "KR"
       },
       {
@@ -14171,9 +14171,9 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 1,
+            "visit": 2,
             "click": 0,
-            "unique": 1,
+            "unique": 2,
             "ctr": 0,
             "dwell": 2
           },
@@ -14184,17 +14184,17 @@
             "click": 2,
             "unique": 1,
             "ctr": 200,
-            "dwell": 40
+            "dwell": 28
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 1,
+            "visit": 2,
             "click": 2,
-            "unique": 1,
-            "dwell": 40,
-            "ctr": 200
+            "unique": 2,
+            "dwell": 28,
+            "ctr": 100
           },
           {
             "name": "데스크탑",
@@ -14208,11 +14208,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 2,
+            "visit": 3,
             "click": 2,
-            "unique": 2,
-            "dwell": 27,
-            "ctr": 100,
+            "unique": 3,
+            "dwell": 22,
+            "ctr": 66.7,
             "code": "KR"
           }
         ],
@@ -14222,8 +14222,17 @@
             "visit": 1,
             "click": 2,
             "unique": 1,
-            "dwell": 40,
+            "dwell": 28,
             "ctr": 200,
+            "code": "KR"
+          },
+          {
+            "name": "Namyangju",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
             "code": "KR"
           },
           {
@@ -14278,10 +14287,10 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 37,
+            "visit": 38,
             "click": 27,
-            "unique": 29,
-            "ctr": 73,
+            "unique": 30,
+            "ctr": 71.1,
             "dwell": 30
           },
           {
@@ -14324,9 +14333,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 866,
+            "visit": 867,
             "click": 167,
-            "unique": 650,
+            "unique": 651,
             "dwell": 18,
             "ctr": 19.3
           },
@@ -14350,9 +14359,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 824,
+            "visit": 825,
             "click": 189,
-            "unique": 602,
+            "unique": 603,
             "dwell": 26,
             "ctr": 22.9,
             "code": "KR"
@@ -14562,7 +14571,7 @@
             "visit": 14,
             "click": 4,
             "unique": 11,
-            "dwell": 14,
+            "dwell": 13,
             "ctr": 28.6,
             "code": "KR"
           },
@@ -14585,21 +14594,21 @@
             "code": "KR"
           },
           {
+            "name": "Namyangju",
+            "visit": 8,
+            "click": 2,
+            "unique": 5,
+            "dwell": 21,
+            "ctr": 25,
+            "code": "KR"
+          },
+          {
             "name": "Bucheon-si",
             "visit": 7,
             "click": 5,
             "unique": 7,
             "dwell": 16,
             "ctr": 71.4,
-            "code": "KR"
-          },
-          {
-            "name": "Namyangju",
-            "visit": 7,
-            "click": 2,
-            "unique": 4,
-            "dwell": 21,
-            "ctr": 28.6,
             "code": "KR"
           },
           {
@@ -14820,10 +14829,10 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 130,
+            "visit": 131,
             "click": 100,
-            "unique": 101,
-            "ctr": 76.9,
+            "unique": 102,
+            "ctr": 76.3,
             "dwell": 31
           },
           {
@@ -14893,9 +14902,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3614,
+            "visit": 3615,
             "click": 662,
-            "unique": 2700,
+            "unique": 2701,
             "dwell": 17,
             "ctr": 18.3
           },
@@ -14919,9 +14928,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3372,
+            "visit": 3373,
             "click": 738,
-            "unique": 2447,
+            "unique": 2448,
             "dwell": 22,
             "ctr": 21.9,
             "code": "KR"
@@ -15227,11 +15236,11 @@
           },
           {
             "name": "Namyangju",
-            "visit": 25,
+            "visit": 26,
             "click": 16,
-            "unique": 17,
+            "unique": 18,
             "dwell": 21,
-            "ctr": 64,
+            "ctr": 61.5,
             "code": "KR"
           },
           {
@@ -15443,10 +15452,10 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 358,
+            "visit": 359,
             "click": 274,
-            "unique": 138,
-            "ctr": 76.5,
+            "unique": 139,
+            "ctr": 76.3,
             "dwell": 37
           },
           {
@@ -15552,9 +15561,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 5708,
+            "visit": 5709,
             "click": 1224,
-            "unique": 3849,
+            "unique": 3850,
             "dwell": 18,
             "ctr": 21.4
           },
@@ -15578,9 +15587,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 5340,
+            "visit": 5341,
             "click": 1325,
-            "unique": 3516,
+            "unique": 3517,
             "dwell": 30,
             "ctr": 24.8,
             "code": "KR"
@@ -15895,11 +15904,11 @@
           },
           {
             "name": "Namyangju",
-            "visit": 26,
+            "visit": 27,
             "click": 16,
-            "unique": 18,
+            "unique": 19,
             "dwell": 20,
-            "ctr": 61.5,
+            "ctr": 59.3,
             "code": "KR"
           },
           {
@@ -16184,10 +16193,10 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 501,
+            "visit": 502,
             "click": 397,
-            "unique": 138,
-            "ctr": 79.2,
+            "unique": 139,
+            "ctr": 79.1,
             "dwell": 37
           },
           {
@@ -16365,9 +16374,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 6989,
+            "visit": 6990,
             "click": 2295,
-            "unique": 3849,
+            "unique": 3850,
             "dwell": 18,
             "ctr": 32.8
           },
@@ -16391,9 +16400,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 27674,
+            "visit": 27675,
             "click": 2483,
-            "unique": 3516,
+            "unique": 3517,
             "dwell": 30,
             "ctr": 9,
             "code": "KR"
@@ -16717,11 +16726,11 @@
           },
           {
             "name": "Namyangju",
-            "visit": 27,
+            "visit": 28,
             "click": 18,
-            "unique": 18,
+            "unique": 19,
             "dwell": 20,
-            "ctr": 66.7,
+            "ctr": 64.3,
             "code": "KR"
           },
           {
@@ -17184,9 +17193,9 @@
           {
             "name": "우리 사이트",
             "host": "fva.co.kr",
-            "visit": 1,
+            "visit": 2,
             "click": 0,
-            "unique": 1,
+            "unique": 2,
             "ctr": 0,
             "dwell": 2
           },
@@ -17197,17 +17206,17 @@
             "click": 2,
             "unique": 1,
             "ctr": 200,
-            "dwell": 40
+            "dwell": 28
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 1,
+            "visit": 2,
             "click": 2,
-            "unique": 1,
-            "dwell": 40,
-            "ctr": 200
+            "unique": 2,
+            "dwell": 28,
+            "ctr": 100
           },
           {
             "name": "데스크탑",
@@ -17221,11 +17230,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 2,
+            "visit": 3,
             "click": 2,
-            "unique": 2,
-            "dwell": 27,
-            "ctr": 100,
+            "unique": 3,
+            "dwell": 22,
+            "ctr": 66.7,
             "code": "KR"
           }
         ],
@@ -17235,8 +17244,17 @@
             "visit": 1,
             "click": 2,
             "unique": 1,
-            "dwell": 40,
+            "dwell": 28,
             "ctr": 200,
+            "code": "KR"
+          },
+          {
+            "name": "Namyangju",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
             "code": "KR"
           },
           {
