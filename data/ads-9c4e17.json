@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 11. AM 10:34:14",
+  "updated": "2026. 11. 11. AM 10:50:22",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 88,
     "dailyBudget": 2500,
     "balance": 4339,
-    "imp": 2972,
+    "imp": 2973,
     "clk": 210,
     "cost": 18382,
     "byPeriod": {
       "1": {
-        "imp": 5,
+        "imp": 6,
         "clk": 0,
         "cost": 0
       },
       "7": {
-        "imp": 287,
+        "imp": 288,
         "clk": 27,
         "cost": 2398
       },
       "28": {
-        "imp": 1323,
+        "imp": 1324,
         "clk": 89,
         "cost": 8121
       },
       "90": {
-        "imp": 26330,
+        "imp": 26331,
         "clk": 276,
         "cost": 95736
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-11-11",
-        "imp": 5,
+        "imp": 6,
         "clk": 0,
         "cost": 0
       }
     ],
-    "campaignImp": 26330,
+    "campaignImp": 26331,
     "campaignClk": 276,
     "campaignCost": 95736,
     "groups": [
@@ -222,7 +222,7 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 992,
+            "imp": 993,
             "clk": 31,
             "cost": 2651,
             "rank": 1.3
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 11. AM 10:33:46",
+    "updated": "2026. 11. 11. AM 10:49:54",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10180,30 +10180,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 26,
+        "visit": 27,
         "click": 9,
-        "unique": 20,
-        "ctr": 34.6,
-        "dwell": 21
+        "unique": 21,
+        "ctr": 33.3,
+        "dwell": 22
       },
       "7": {
-        "visit": 888,
+        "visit": 889,
         "click": 205,
-        "unique": 666,
+        "unique": 667,
         "ctr": 23.1,
         "dwell": 25
       },
       "28": {
-        "visit": 3813,
+        "visit": 3814,
         "click": 752,
-        "unique": 2849,
+        "unique": 2850,
         "ctr": 19.7,
         "dwell": 21
       },
       "90": {
-        "visit": 11237,
+        "visit": 11238,
         "click": 2616,
-        "unique": 4302,
+        "unique": 4303,
         "ctr": 23.3,
         "dwell": 24
       },
@@ -10215,9 +10215,9 @@
         "dwell": 29
       },
       "all": {
-        "visit": 43828,
+        "visit": 43829,
         "click": 16402,
-        "unique": 4302,
+        "unique": 4303,
         "ctr": 37.4,
         "dwell": 24
       }
@@ -13129,18 +13129,18 @@
       },
       {
         "d": "2026-11-11",
-        "visit": 26,
+        "visit": 27,
         "click": 9,
-        "unique": 20
+        "unique": 21
       }
     ],
     "sources": [
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14345,
+        "visit": 14346,
         "click": 4748,
-        "unique": 901,
+        "unique": 902,
         "ctr": 33.1,
         "dwell": 35
       },
@@ -13790,11 +13790,11 @@
       },
       {
         "name": "데스크탑",
-        "visit": 571,
+        "visit": 572,
         "click": 294,
-        "unique": 226,
-        "dwell": 108,
-        "ctr": 51.5
+        "unique": 227,
+        "dwell": 107,
+        "ctr": 51.4
       },
       {
         "name": "태블릿",
@@ -13808,9 +13808,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 26850,
+        "visit": 26851,
         "click": 2570,
-        "unique": 3727,
+        "unique": 3728,
         "dwell": 30,
         "ctr": 9.6,
         "code": "KR"
@@ -14026,11 +14026,11 @@
       },
       {
         "name": "Seongnam-si",
-        "visit": 128,
+        "visit": 129,
         "click": 25,
-        "unique": 101,
-        "dwell": 42,
-        "ctr": 19.5,
+        "unique": 102,
+        "dwell": 41,
+        "ctr": 19.4,
         "code": "KR"
       },
       {
@@ -14184,10 +14184,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 9,
+            "visit": 10,
             "click": 8,
-            "unique": 8,
-            "ctr": 88.9,
+            "unique": 9,
+            "ctr": 80,
             "dwell": 30
           },
           {
@@ -14216,16 +14216,24 @@
             "unique": 1,
             "dwell": 0,
             "ctr": 0
+          },
+          {
+            "name": "데스크탑",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 16,
+            "ctr": 0
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 25,
+            "visit": 26,
             "click": 8,
-            "unique": 19,
+            "unique": 20,
             "dwell": 21,
-            "ctr": 32,
+            "ctr": 30.8,
             "code": "KR"
           },
           {
@@ -14310,6 +14318,15 @@
             "dwell": 11,
             "ctr": 0,
             "code": "KR"
+          },
+          {
+            "name": "Seongnam-si",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 28,
+            "ctr": 0,
+            "code": "KR"
           }
         ],
         "blocks": [
@@ -14377,10 +14394,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 180,
+            "visit": 181,
             "click": 149,
-            "unique": 141,
-            "ctr": 82.8,
+            "unique": 142,
+            "ctr": 82.3,
             "dwell": 39
           },
           {
@@ -14449,11 +14466,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 26,
+            "visit": 27,
             "click": 14,
-            "unique": 24,
-            "dwell": 67,
-            "ctr": 53.8
+            "unique": 25,
+            "dwell": 66,
+            "ctr": 51.9
           },
           {
             "name": "태블릿",
@@ -14467,11 +14484,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 836,
+            "visit": 837,
             "click": 202,
-            "unique": 618,
+            "unique": 619,
             "dwell": 26,
-            "ctr": 24.2,
+            "ctr": 24.1,
             "code": "KR"
           },
           {
@@ -14613,11 +14630,11 @@
           },
           {
             "name": "Seongnam-si",
-            "visit": 26,
+            "visit": 27,
             "click": 5,
-            "unique": 20,
-            "dwell": 81,
-            "ctr": 19.2,
+            "unique": 21,
+            "dwell": 78,
+            "ctr": 18.5,
             "code": "KR"
           },
           {
@@ -14879,10 +14896,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 675,
+            "visit": 676,
             "click": 522,
-            "unique": 537,
-            "ctr": 77.3,
+            "unique": 538,
+            "ctr": 77.2,
             "dwell": 32
           },
           {
@@ -14960,11 +14977,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 152,
+            "visit": 153,
             "click": 89,
-            "unique": 118,
+            "unique": 119,
             "dwell": 48,
-            "ctr": 58.6
+            "ctr": 58.2
           },
           {
             "name": "태블릿",
@@ -14978,9 +14995,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3394,
+            "visit": 3395,
             "click": 737,
-            "unique": 2459,
+            "unique": 2460,
             "dwell": 22,
             "ctr": 21.7,
             "code": "KR"
@@ -15196,11 +15213,11 @@
           },
           {
             "name": "Seongnam-si",
-            "visit": 106,
+            "visit": 107,
             "click": 14,
-            "unique": 89,
+            "unique": 90,
             "dwell": 45,
-            "ctr": 13.2,
+            "ctr": 13.1,
             "code": "KR"
           },
           {
@@ -15484,9 +15501,9 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2406,
+            "visit": 2407,
             "click": 1906,
-            "unique": 901,
+            "unique": 902,
             "ctr": 79.2,
             "dwell": 35
           },
@@ -15628,11 +15645,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 324,
+            "visit": 325,
             "click": 165,
-            "unique": 226,
-            "dwell": 108,
-            "ctr": 50.9
+            "unique": 227,
+            "dwell": 107,
+            "ctr": 50.8
           },
           {
             "name": "태블릿",
@@ -15646,9 +15663,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 5632,
+            "visit": 5633,
             "click": 1359,
-            "unique": 3727,
+            "unique": 3728,
             "dwell": 30,
             "ctr": 24.1,
             "code": "KR"
@@ -15873,11 +15890,11 @@
           },
           {
             "name": "Seongnam-si",
-            "visit": 119,
+            "visit": 120,
             "click": 14,
-            "unique": 101,
-            "dwell": 42,
-            "ctr": 11.8,
+            "unique": 102,
+            "dwell": 41,
+            "ctr": 11.7,
             "code": "KR"
           },
           {
@@ -16207,9 +16224,9 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14345,
+            "visit": 14346,
             "click": 4748,
-            "unique": 901,
+            "unique": 902,
             "ctr": 33.1,
             "dwell": 35
           },
@@ -16441,11 +16458,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 571,
+            "visit": 572,
             "click": 294,
-            "unique": 226,
-            "dwell": 108,
-            "ctr": 51.5
+            "unique": 227,
+            "dwell": 107,
+            "ctr": 51.4
           },
           {
             "name": "태블릿",
@@ -16459,9 +16476,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 26850,
+            "visit": 26851,
             "click": 2570,
-            "unique": 3727,
+            "unique": 3728,
             "dwell": 30,
             "ctr": 9.6,
             "code": "KR"
@@ -16677,11 +16694,11 @@
           },
           {
             "name": "Seongnam-si",
-            "visit": 128,
+            "visit": 129,
             "click": 25,
-            "unique": 101,
-            "dwell": 42,
-            "ctr": 19.5,
+            "unique": 102,
+            "dwell": 41,
+            "ctr": 19.4,
             "code": "KR"
           },
           {
@@ -17253,10 +17270,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 9,
+            "visit": 10,
             "click": 8,
-            "unique": 8,
-            "ctr": 88.9,
+            "unique": 9,
+            "ctr": 80,
             "dwell": 30
           },
           {
@@ -17285,16 +17302,24 @@
             "unique": 1,
             "dwell": 0,
             "ctr": 0
+          },
+          {
+            "name": "데스크탑",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 16,
+            "ctr": 0
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 25,
+            "visit": 26,
             "click": 8,
-            "unique": 19,
+            "unique": 20,
             "dwell": 21,
-            "ctr": 32,
+            "ctr": 30.8,
             "code": "KR"
           },
           {
@@ -17377,6 +17402,15 @@
             "click": 0,
             "unique": 1,
             "dwell": 11,
+            "ctr": 0,
+            "code": "KR"
+          },
+          {
+            "name": "Seongnam-si",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 28,
             "ctr": 0,
             "code": "KR"
           }
