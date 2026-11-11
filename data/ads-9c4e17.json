@@ -1,10 +1,10 @@
 {
-  "updated": "2026. 11. 12. AM 12:01:02",
+  "updated": "2026. 11. 12. AM 12:17:41",
   "naver": {
     "start": "2026-08-16",
     "live": true,
     "state": "운영",
-    "charged": 88,
+    "charged": 0,
     "pending": 88,
     "dailyBudget": 2500,
     "balance": 4251,
@@ -10170,40 +10170,40 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 12. AM 12:00:41",
+    "updated": "2026. 11. 12. AM 12:17:13",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
       "처음": "2025-07-15",
-      "마지막": "2026-11-11",
-      "일수": 485
+      "마지막": "2026-11-12",
+      "일수": 486
     },
     "byPeriod": {
       "1": {
-        "visit": 0,
-        "click": 0,
-        "unique": 0,
-        "ctr": 0,
-        "dwell": 0
+        "visit": 3,
+        "click": 1,
+        "unique": 1,
+        "ctr": 33.3,
+        "dwell": 62
       },
       "7": {
-        "visit": 846,
-        "click": 220,
-        "unique": 616,
+        "visit": 849,
+        "click": 221,
+        "unique": 617,
         "ctr": 26,
         "dwell": 23
       },
       "28": {
-        "visit": 3771,
-        "click": 738,
-        "unique": 2801,
+        "visit": 3774,
+        "click": 739,
+        "unique": 2802,
         "ctr": 19.6,
         "dwell": 22
       },
       "90": {
-        "visit": 11181,
-        "click": 2602,
-        "unique": 4379,
+        "visit": 11184,
+        "click": 2603,
+        "unique": 4380,
         "ctr": 23.3,
         "dwell": 24
       },
@@ -10215,9 +10215,9 @@
         "dwell": 20
       },
       "all": {
-        "visit": 43944,
-        "click": 16434,
-        "unique": 4379,
+        "visit": 43947,
+        "click": 16435,
+        "unique": 4380,
         "ctr": 37.4,
         "dwell": 24
       }
@@ -13132,6 +13132,12 @@
         "visit": 142,
         "click": 41,
         "unique": 97
+      },
+      {
+        "d": "2026-11-12",
+        "visit": 3,
+        "click": 1,
+        "unique": 1
       }
     ],
     "sources": [
@@ -13408,7 +13414,7 @@
         "gone": false,
         "kind": "chat",
         "img": false,
-        "clicks": 600
+        "clicks": 601
       },
       {
         "key": "OkhXD1v",
@@ -13782,9 +13788,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 7385,
-        "click": 2403,
-        "unique": 4129,
+        "visit": 7388,
+        "click": 2404,
+        "unique": 4130,
         "dwell": 19,
         "ctr": 32.5
       },
@@ -13808,9 +13814,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 25957,
-        "click": 2602,
-        "unique": 3803,
+        "visit": 25960,
+        "click": 2603,
+        "unique": 3804,
         "dwell": 30,
         "ctr": 10,
         "code": "KR"
@@ -13990,9 +13996,9 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 4990,
-        "click": 1871,
-        "unique": 2424,
+        "visit": 4993,
+        "click": 1872,
+        "unique": 2425,
         "dwell": 25,
         "ctr": 37.5,
         "code": "KR"
@@ -14172,10 +14178,48 @@
     "byPeriodDetail": {
       "1": {
         "sources": [],
-        "device": [],
-        "country": [],
-        "city": [],
-        "blocks": []
+        "device": [
+          {
+            "name": "모바일",
+            "visit": 3,
+            "click": 1,
+            "unique": 1,
+            "dwell": 62,
+            "ctr": 33.3
+          }
+        ],
+        "country": [
+          {
+            "name": "KR",
+            "visit": 3,
+            "click": 1,
+            "unique": 1,
+            "dwell": 62,
+            "ctr": 33.3,
+            "code": "KR"
+          }
+        ],
+        "city": [
+          {
+            "name": "Seoul",
+            "visit": 3,
+            "click": 1,
+            "unique": 1,
+            "dwell": 62,
+            "ctr": 33.3,
+            "code": "KR"
+          }
+        ],
+        "blocks": [
+          {
+            "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
+            "name": "🙋 카카오 채널로 수강상담 하러가기",
+            "gone": false,
+            "kind": "chat",
+            "img": false,
+            "clicks": 1
+          }
+        ]
       },
       "7": {
         "sources": [
@@ -14255,11 +14299,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 804,
-            "click": 198,
-            "unique": 583,
-            "dwell": 20,
-            "ctr": 24.6
+            "visit": 807,
+            "click": 199,
+            "unique": 584,
+            "dwell": 21,
+            "ctr": 24.7
           },
           {
             "name": "데스크탑",
@@ -14281,9 +14325,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 807,
-            "click": 217,
-            "unique": 581,
+            "visit": 810,
+            "click": 218,
+            "unique": 582,
             "dwell": 24,
             "ctr": 26.9,
             "code": "KR"
@@ -14400,11 +14444,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 438,
-            "click": 113,
-            "unique": 314,
-            "dwell": 26,
-            "ctr": 25.8,
+            "visit": 441,
+            "click": 114,
+            "unique": 315,
+            "dwell": 27,
+            "ctr": 25.9,
             "code": "KR"
           },
           {
@@ -14650,7 +14694,7 @@
             "gone": false,
             "kind": "chat",
             "img": false,
-            "clicks": 5
+            "clicks": 6
           },
           {
             "key": "7o53vHx",
@@ -14757,9 +14801,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3603,
-            "click": 644,
-            "unique": 2676,
+            "visit": 3606,
+            "click": 645,
+            "unique": 2677,
             "dwell": 18,
             "ctr": 17.9
           },
@@ -14783,9 +14827,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3360,
-            "click": 723,
-            "unique": 2420,
+            "visit": 3363,
+            "click": 724,
+            "unique": 2421,
             "dwell": 22,
             "ctr": 21.5,
             "code": "KR"
@@ -14965,9 +15009,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1849,
-            "click": 324,
-            "unique": 1332,
+            "visit": 1852,
+            "click": 325,
+            "unique": 1333,
             "dwell": 24,
             "ctr": 17.5,
             "code": "KR"
@@ -15231,7 +15275,7 @@
             "gone": false,
             "kind": "chat",
             "img": false,
-            "clicks": 21
+            "clicks": 22
           },
           {
             "key": "qHImjnR",
@@ -15425,9 +15469,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 6010,
-            "click": 1251,
-            "unique": 4129,
+            "visit": 6013,
+            "click": 1252,
+            "unique": 4130,
             "dwell": 19,
             "ctr": 20.8
           },
@@ -15451,9 +15495,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 5657,
-            "click": 1360,
-            "unique": 3803,
+            "visit": 5660,
+            "click": 1361,
+            "unique": 3804,
             "dwell": 30,
             "ctr": 24,
             "code": "KR"
@@ -15633,9 +15677,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 3717,
-            "click": 765,
-            "unique": 2424,
+            "visit": 3720,
+            "click": 766,
+            "unique": 2425,
             "dwell": 25,
             "ctr": 20.6,
             "code": "KR"
@@ -15883,7 +15927,7 @@
             "gone": false,
             "kind": "chat",
             "img": false,
-            "clicks": 61
+            "clicks": 62
           },
           {
             "key": "qHImjnR",
@@ -16238,9 +16282,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 7385,
-            "click": 2403,
-            "unique": 4129,
+            "visit": 7388,
+            "click": 2404,
+            "unique": 4130,
             "dwell": 19,
             "ctr": 32.5
           },
@@ -16264,9 +16308,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 25957,
-            "click": 2602,
-            "unique": 3803,
+            "visit": 25960,
+            "click": 2603,
+            "unique": 3804,
             "dwell": 30,
             "ctr": 10,
             "code": "KR"
@@ -16446,9 +16490,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 4990,
-            "click": 1871,
-            "unique": 2424,
+            "visit": 4993,
+            "click": 1872,
+            "unique": 2425,
             "dwell": 25,
             "ctr": 37.5,
             "code": "KR"
@@ -16672,7 +16716,7 @@
             "gone": false,
             "kind": "chat",
             "img": false,
-            "clicks": 600
+            "clicks": 601
           },
           {
             "key": "OkhXD1v",
@@ -17046,10 +17090,48 @@
       },
       "y": {
         "sources": [],
-        "device": [],
-        "country": [],
-        "city": [],
-        "blocks": []
+        "device": [
+          {
+            "name": "모바일",
+            "visit": 3,
+            "click": 1,
+            "unique": 1,
+            "dwell": 62,
+            "ctr": 33.3
+          }
+        ],
+        "country": [
+          {
+            "name": "KR",
+            "visit": 3,
+            "click": 1,
+            "unique": 1,
+            "dwell": 62,
+            "ctr": 33.3,
+            "code": "KR"
+          }
+        ],
+        "city": [
+          {
+            "name": "Seoul",
+            "visit": 3,
+            "click": 1,
+            "unique": 1,
+            "dwell": 62,
+            "ctr": 33.3,
+            "code": "KR"
+          }
+        ],
+        "blocks": [
+          {
+            "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
+            "name": "🙋 카카오 채널로 수강상담 하러가기",
+            "gone": false,
+            "kind": "chat",
+            "img": false,
+            "clicks": 1
+          }
+        ]
       }
     }
   }
