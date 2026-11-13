@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 13. PM 2:41:32",
+  "updated": "2026. 11. 13. PM 2:57:31",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,12 +8,12 @@
     "pending": 77,
     "dailyBudget": 2500,
     "balance": 3833,
-    "imp": 3080,
+    "imp": 3085,
     "clk": 215,
     "cost": 18811,
     "byPeriod": {
       "1": {
-        "imp": 9,
+        "imp": 14,
         "clk": 1,
         "cost": 88
       },
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 13. PM 2:41:08",
+    "updated": "2026. 11. 13. PM 2:57:08",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10180,30 +10180,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 70,
-        "click": 15,
-        "unique": 53,
-        "ctr": 21.4,
+        "visit": 71,
+        "click": 16,
+        "unique": 54,
+        "ctr": 22.5,
         "dwell": 17
       },
       "7": {
-        "visit": 981,
-        "click": 267,
-        "unique": 698,
-        "ctr": 27.2,
+        "visit": 982,
+        "click": 268,
+        "unique": 699,
+        "ctr": 27.3,
         "dwell": 22
       },
       "28": {
-        "visit": 3875,
-        "click": 751,
-        "unique": 2862,
+        "visit": 3876,
+        "click": 752,
+        "unique": 2863,
         "ctr": 19.4,
         "dwell": 22
       },
       "90": {
-        "visit": 11237,
-        "click": 2619,
-        "unique": 4540,
+        "visit": 11238,
+        "click": 2620,
+        "unique": 4541,
         "ctr": 23.3,
         "dwell": 24
       },
@@ -10215,9 +10215,9 @@
         "dwell": 18
       },
       "all": {
-        "visit": 44179,
-        "click": 16498,
-        "unique": 4540,
+        "visit": 44180,
+        "click": 16499,
+        "unique": 4541,
         "ctr": 37.3,
         "dwell": 24
       }
@@ -13141,9 +13141,9 @@
       },
       {
         "d": "2026-11-13",
-        "visit": 70,
-        "click": 15,
-        "unique": 53
+        "visit": 71,
+        "click": 16,
+        "unique": 54
       }
     ],
     "sources": [
@@ -13204,11 +13204,11 @@
       {
         "name": "pcmap.place.naver.com",
         "host": "pcmap.place.naver.com",
-        "visit": 372,
-        "click": 100,
-        "unique": 18,
-        "ctr": 26.9,
-        "dwell": 34
+        "visit": 373,
+        "click": 101,
+        "unique": 19,
+        "ctr": 27.1,
+        "dwell": 33
       },
       {
         "name": "bit.ly",
@@ -13588,7 +13588,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 66
+        "clicks": 67
       },
       {
         "key": "qHImjnR",
@@ -13802,11 +13802,11 @@
       },
       {
         "name": "데스크탑",
-        "visit": 589,
-        "click": 300,
-        "unique": 238,
-        "dwell": 105,
-        "ctr": 50.9
+        "visit": 590,
+        "click": 301,
+        "unique": 239,
+        "dwell": 104,
+        "ctr": 51
       },
       {
         "name": "태블릿",
@@ -13820,9 +13820,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 25096,
-        "click": 2663,
-        "unique": 3959,
+        "visit": 25097,
+        "click": 2664,
+        "unique": 3960,
         "dwell": 29,
         "ctr": 10.6,
         "code": "KR"
@@ -14002,9 +14002,9 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 5109,
-        "click": 1896,
-        "unique": 2510,
+        "visit": 5110,
+        "click": 1897,
+        "unique": 2511,
         "dwell": 25,
         "ctr": 37.1,
         "code": "KR"
@@ -14210,6 +14210,15 @@
             "unique": 2,
             "ctr": 0,
             "dwell": 0
+          },
+          {
+            "name": "pcmap.place.naver.com",
+            "host": "pcmap.place.naver.com",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "ctr": 100,
+            "dwell": 3
           }
         ],
         "device": [
@@ -14223,21 +14232,21 @@
           },
           {
             "name": "데스크탑",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 5,
-            "ctr": 0
+            "visit": 2,
+            "click": 1,
+            "unique": 2,
+            "dwell": 4,
+            "ctr": 50
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 65,
-            "click": 12,
-            "unique": 49,
-            "dwell": 17,
-            "ctr": 18.5,
+            "visit": 66,
+            "click": 13,
+            "unique": 50,
+            "dwell": 16,
+            "ctr": 19.7,
             "code": "KR"
           },
           {
@@ -14280,11 +14289,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 46,
-            "click": 10,
-            "unique": 32,
-            "dwell": 21,
-            "ctr": 21.7,
+            "visit": 47,
+            "click": 11,
+            "unique": 33,
+            "dwell": 20,
+            "ctr": 23.4,
             "code": "KR"
           },
           {
@@ -14416,16 +14425,16 @@
         ],
         "blocks": [
           {
-            "key": "418MjcE",
-            "name": "스마트스토어 · 60일 영화 만들기",
+            "key": "CBR1sRX",
+            "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 4
+            "clicks": 5
           },
           {
-            "key": "CBR1sRX",
-            "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
+            "key": "418MjcE",
+            "name": "스마트스토어 · 60일 영화 만들기",
             "gone": false,
             "kind": "store",
             "img": true,
@@ -14523,11 +14532,11 @@
           {
             "name": "pcmap.place.naver.com",
             "host": "pcmap.place.naver.com",
-            "visit": 2,
-            "click": 3,
-            "unique": 2,
-            "ctr": 150,
-            "dwell": 19
+            "visit": 3,
+            "click": 4,
+            "unique": 3,
+            "ctr": 133.3,
+            "dwell": 14
           },
           {
             "name": "talk.naver.com",
@@ -14550,11 +14559,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 39,
-            "click": 17,
-            "unique": 32,
-            "dwell": 52,
-            "ctr": 43.6
+            "visit": 40,
+            "click": 18,
+            "unique": 33,
+            "dwell": 51,
+            "ctr": 45
           },
           {
             "name": "태블릿",
@@ -14568,9 +14577,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 947,
-            "click": 261,
-            "unique": 669,
+            "visit": 948,
+            "click": 262,
+            "unique": 670,
             "dwell": 22,
             "ctr": 27.6,
             "code": "KR"
@@ -14705,11 +14714,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 499,
-            "click": 129,
-            "unique": 355,
+            "visit": 500,
+            "click": 130,
+            "unique": 356,
             "dwell": 26,
-            "ctr": 25.9,
+            "ctr": 26,
             "code": "KR"
           },
           {
@@ -14899,7 +14908,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 44
+            "clicks": 45
           },
           {
             "key": "xI5UCt0",
@@ -15025,11 +15034,11 @@
           {
             "name": "pcmap.place.naver.com",
             "host": "pcmap.place.naver.com",
-            "visit": 14,
-            "click": 12,
-            "unique": 9,
-            "ctr": 85.7,
-            "dwell": 29
+            "visit": 15,
+            "click": 13,
+            "unique": 10,
+            "ctr": 86.7,
+            "dwell": 28
           },
           {
             "name": "youtube.com",
@@ -15070,11 +15079,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 150,
-            "click": 83,
-            "unique": 112,
-            "dwell": 50,
-            "ctr": 55.3
+            "visit": 151,
+            "click": 84,
+            "unique": 113,
+            "dwell": 49,
+            "ctr": 55.6
           },
           {
             "name": "태블릿",
@@ -15088,9 +15097,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3463,
-            "click": 735,
-            "unique": 2481,
+            "visit": 3464,
+            "click": 736,
+            "unique": 2482,
             "dwell": 22,
             "ctr": 21.2,
             "code": "KR"
@@ -15270,9 +15279,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1893,
-            "click": 325,
-            "unique": 1360,
+            "visit": 1894,
+            "click": 326,
+            "unique": 1361,
             "dwell": 24,
             "ctr": 17.2,
             "code": "KR"
@@ -15488,7 +15497,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 66
+            "clicks": 67
           },
           {
             "key": "418MjcE",
@@ -15639,11 +15648,11 @@
           {
             "name": "pcmap.place.naver.com",
             "host": "pcmap.place.naver.com",
-            "visit": 40,
-            "click": 36,
-            "unique": 18,
-            "ctr": 90,
-            "dwell": 34
+            "visit": 41,
+            "click": 37,
+            "unique": 19,
+            "ctr": 90.2,
+            "dwell": 33
           },
           {
             "name": "youtube.com",
@@ -15738,11 +15747,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 333,
-            "click": 167,
-            "unique": 238,
-            "dwell": 105,
-            "ctr": 50.2
+            "visit": 334,
+            "click": 168,
+            "unique": 239,
+            "dwell": 104,
+            "ctr": 50.3
           },
           {
             "name": "태블릿",
@@ -15756,9 +15765,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 5885,
-            "click": 1420,
-            "unique": 3959,
+            "visit": 5886,
+            "click": 1421,
+            "unique": 3960,
             "dwell": 29,
             "ctr": 24.1,
             "code": "KR"
@@ -15938,9 +15947,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 3836,
-            "click": 790,
-            "unique": 2510,
+            "visit": 3837,
+            "click": 791,
+            "unique": 2511,
             "dwell": 25,
             "ctr": 20.6,
             "code": "KR"
@@ -16188,7 +16197,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 66
+            "clicks": 67
           },
           {
             "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
@@ -16371,11 +16380,11 @@
           {
             "name": "pcmap.place.naver.com",
             "host": "pcmap.place.naver.com",
-            "visit": 372,
-            "click": 100,
-            "unique": 18,
-            "ctr": 26.9,
-            "dwell": 34
+            "visit": 373,
+            "click": 101,
+            "unique": 19,
+            "ctr": 27.1,
+            "dwell": 33
           },
           {
             "name": "bit.ly",
@@ -16551,11 +16560,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 589,
-            "click": 300,
-            "unique": 238,
-            "dwell": 105,
-            "ctr": 50.9
+            "visit": 590,
+            "click": 301,
+            "unique": 239,
+            "dwell": 104,
+            "ctr": 51
           },
           {
             "name": "태블릿",
@@ -16569,9 +16578,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 25096,
-            "click": 2663,
-            "unique": 3959,
+            "visit": 25097,
+            "click": 2664,
+            "unique": 3960,
             "dwell": 29,
             "ctr": 10.6,
             "code": "KR"
@@ -16751,9 +16760,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 5109,
-            "click": 1896,
-            "unique": 2510,
+            "visit": 5110,
+            "click": 1897,
+            "unique": 2511,
             "dwell": 25,
             "ctr": 37.1,
             "code": "KR"
@@ -17145,7 +17154,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 66
+            "clicks": 67
           },
           {
             "key": "qHImjnR",
@@ -17377,6 +17386,15 @@
             "unique": 2,
             "ctr": 0,
             "dwell": 0
+          },
+          {
+            "name": "pcmap.place.naver.com",
+            "host": "pcmap.place.naver.com",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "ctr": 100,
+            "dwell": 3
           }
         ],
         "device": [
@@ -17390,21 +17408,21 @@
           },
           {
             "name": "데스크탑",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 5,
-            "ctr": 0
+            "visit": 2,
+            "click": 1,
+            "unique": 2,
+            "dwell": 4,
+            "ctr": 50
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 65,
-            "click": 12,
-            "unique": 49,
-            "dwell": 17,
-            "ctr": 18.5,
+            "visit": 66,
+            "click": 13,
+            "unique": 50,
+            "dwell": 16,
+            "ctr": 19.7,
             "code": "KR"
           },
           {
@@ -17447,11 +17465,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 46,
-            "click": 10,
-            "unique": 32,
-            "dwell": 21,
-            "ctr": 21.7,
+            "visit": 47,
+            "click": 11,
+            "unique": 33,
+            "dwell": 20,
+            "ctr": 23.4,
             "code": "KR"
           },
           {
@@ -17583,16 +17601,16 @@
         ],
         "blocks": [
           {
-            "key": "418MjcE",
-            "name": "스마트스토어 · 60일 영화 만들기",
+            "key": "CBR1sRX",
+            "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 4
+            "clicks": 5
           },
           {
-            "key": "CBR1sRX",
-            "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
+            "key": "418MjcE",
+            "name": "스마트스토어 · 60일 영화 만들기",
             "gone": false,
             "kind": "store",
             "img": true,
