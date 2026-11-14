@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 15. AM 12:18:38",
+  "updated": "2026. 11. 15. AM 12:34:39",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 15. AM 12:18:20",
+    "updated": "2026. 11. 15. AM 12:34:20",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10180,30 +10180,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 2,
+        "visit": 3,
         "click": 0,
-        "unique": 2,
+        "unique": 3,
         "ctr": 0,
-        "dwell": 4
+        "dwell": 6
       },
       "7": {
-        "visit": 972,
+        "visit": 973,
         "click": 264,
-        "unique": 681,
-        "ctr": 27.2,
+        "unique": 682,
+        "ctr": 27.1,
         "dwell": 27
       },
       "28": {
-        "visit": 3867,
+        "visit": 3868,
         "click": 762,
-        "unique": 2851,
+        "unique": 2852,
         "ctr": 19.7,
         "dwell": 23
       },
       "90": {
-        "visit": 10985,
+        "visit": 10986,
         "click": 2560,
-        "unique": 4679,
+        "unique": 4680,
         "ctr": 23.3,
         "dwell": 24
       },
@@ -10215,9 +10215,9 @@
         "dwell": 54
       },
       "all": {
-        "visit": 44376,
+        "visit": 44377,
         "click": 16551,
-        "unique": 4679,
+        "unique": 4680,
         "ctr": 37.3,
         "dwell": 24
       }
@@ -13153,18 +13153,18 @@
       },
       {
         "d": "2026-11-15",
-        "visit": 2,
+        "visit": 3,
         "click": 0,
-        "unique": 2
+        "unique": 3
       }
     ],
     "sources": [
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14432,
+        "visit": 14433,
         "click": 4859,
-        "unique": 1021,
+        "unique": 1022,
         "ctr": 33.7,
         "dwell": 34
       },
@@ -13806,9 +13806,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 7797,
+        "visit": 7798,
         "click": 2509,
-        "unique": 4411,
+        "unique": 4412,
         "dwell": 19,
         "ctr": 32.2
       },
@@ -13832,9 +13832,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 23103,
+        "visit": 23104,
         "click": 2712,
-        "unique": 4092,
+        "unique": 4093,
         "dwell": 30,
         "ctr": 11.7,
         "code": "KR"
@@ -14014,11 +14014,11 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 5221,
+        "visit": 5222,
         "click": 1919,
-        "unique": 2589,
+        "unique": 2590,
         "dwell": 25,
-        "ctr": 36.8,
+        "ctr": 36.7,
         "code": "KR"
       },
       {
@@ -14197,6 +14197,15 @@
       "1": {
         "sources": [
           {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 2,
+            "click": 0,
+            "unique": 2,
+            "ctr": 0,
+            "dwell": 8
+          },
+          {
             "name": "페이스북",
             "host": "m.facebook.com",
             "visit": 1,
@@ -14204,54 +14213,45 @@
             "unique": 1,
             "ctr": 0,
             "dwell": 2
-          },
-          {
-            "name": "인스타 링크 눌러 옴",
-            "host": "l.instagram.com",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "ctr": 0,
-            "dwell": 6
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 2,
+            "visit": 3,
             "click": 0,
-            "unique": 2,
-            "dwell": 4,
+            "unique": 3,
+            "dwell": 6,
             "ctr": 0
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 2,
+            "visit": 3,
             "click": 0,
-            "unique": 2,
-            "dwell": 4,
+            "unique": 3,
+            "dwell": 6,
             "ctr": 0,
             "code": "KR"
           }
         ],
         "city": [
           {
-            "name": "Seongnam-si",
-            "visit": 1,
+            "name": "Seoul",
+            "visit": 2,
             "click": 0,
-            "unique": 1,
+            "unique": 2,
             "dwell": 6,
             "ctr": 0,
             "code": "KR"
           },
           {
-            "name": "Seoul",
+            "name": "Seongnam-si",
             "visit": 1,
             "click": 0,
             "unique": 1,
-            "dwell": 2,
+            "dwell": 6,
             "ctr": 0,
             "code": "KR"
           }
@@ -14272,10 +14272,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 274,
+            "visit": 275,
             "click": 200,
-            "unique": 206,
-            "ctr": 73,
+            "unique": 207,
+            "ctr": 72.7,
             "dwell": 33
           },
           {
@@ -14327,9 +14327,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 919,
+            "visit": 920,
             "click": 238,
-            "unique": 639,
+            "unique": 640,
             "dwell": 22,
             "ctr": 25.9
           },
@@ -14353,11 +14353,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 939,
+            "visit": 940,
             "click": 256,
-            "unique": 655,
+            "unique": 656,
             "dwell": 28,
-            "ctr": 27.3,
+            "ctr": 27.2,
             "code": "KR"
           },
           {
@@ -14463,11 +14463,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 492,
+            "visit": 493,
             "click": 121,
-            "unique": 346,
+            "unique": 347,
             "dwell": 31,
-            "ctr": 24.6,
+            "ctr": 24.5,
             "code": "KR"
           },
           {
@@ -14747,10 +14747,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 709,
+            "visit": 710,
             "click": 533,
-            "unique": 549,
-            "ctr": 75.2,
+            "unique": 550,
+            "ctr": 75.1,
             "dwell": 32
           },
           {
@@ -14820,9 +14820,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3695,
+            "visit": 3696,
             "click": 671,
-            "unique": 2722,
+            "unique": 2723,
             "dwell": 19,
             "ctr": 18.2
           },
@@ -14846,9 +14846,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3452,
+            "visit": 3453,
             "click": 742,
-            "unique": 2468,
+            "unique": 2469,
             "dwell": 24,
             "ctr": 21.5,
             "code": "KR"
@@ -15028,9 +15028,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1896,
+            "visit": 1897,
             "click": 328,
-            "unique": 1363,
+            "unique": 1364,
             "dwell": 26,
             "ctr": 17.3,
             "code": "KR"
@@ -15352,10 +15352,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2365,
+            "visit": 2366,
             "click": 1875,
-            "unique": 1021,
-            "ctr": 79.3,
+            "unique": 1022,
+            "ctr": 79.2,
             "dwell": 34
           },
           {
@@ -15470,9 +15470,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 6176,
+            "visit": 6177,
             "click": 1343,
-            "unique": 4411,
+            "unique": 4412,
             "dwell": 19,
             "ctr": 21.7
           },
@@ -15496,9 +15496,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 5850,
+            "visit": 5851,
             "click": 1456,
-            "unique": 4092,
+            "unique": 4093,
             "dwell": 30,
             "ctr": 24.9,
             "code": "KR"
@@ -15678,9 +15678,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 3724,
+            "visit": 3725,
             "click": 813,
-            "unique": 2589,
+            "unique": 2590,
             "dwell": 25,
             "ctr": 21.8,
             "code": "KR"
@@ -16057,9 +16057,9 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14432,
+            "visit": 14433,
             "click": 4859,
-            "unique": 1021,
+            "unique": 1022,
             "ctr": 33.7,
             "dwell": 34
           },
@@ -16283,9 +16283,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 7797,
+            "visit": 7798,
             "click": 2509,
-            "unique": 4411,
+            "unique": 4412,
             "dwell": 19,
             "ctr": 32.2
           },
@@ -16309,9 +16309,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 23103,
+            "visit": 23104,
             "click": 2712,
-            "unique": 4092,
+            "unique": 4093,
             "dwell": 30,
             "ctr": 11.7,
             "code": "KR"
@@ -16491,11 +16491,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 5221,
+            "visit": 5222,
             "click": 1919,
-            "unique": 2589,
+            "unique": 2590,
             "dwell": 25,
-            "ctr": 36.8,
+            "ctr": 36.7,
             "code": "KR"
           },
           {
@@ -17092,6 +17092,15 @@
       "y": {
         "sources": [
           {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 2,
+            "click": 0,
+            "unique": 2,
+            "ctr": 0,
+            "dwell": 8
+          },
+          {
             "name": "페이스북",
             "host": "m.facebook.com",
             "visit": 1,
@@ -17099,54 +17108,45 @@
             "unique": 1,
             "ctr": 0,
             "dwell": 2
-          },
-          {
-            "name": "인스타 링크 눌러 옴",
-            "host": "l.instagram.com",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "ctr": 0,
-            "dwell": 6
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 2,
+            "visit": 3,
             "click": 0,
-            "unique": 2,
-            "dwell": 4,
+            "unique": 3,
+            "dwell": 6,
             "ctr": 0
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 2,
+            "visit": 3,
             "click": 0,
-            "unique": 2,
-            "dwell": 4,
+            "unique": 3,
+            "dwell": 6,
             "ctr": 0,
             "code": "KR"
           }
         ],
         "city": [
           {
-            "name": "Seongnam-si",
-            "visit": 1,
+            "name": "Seoul",
+            "visit": 2,
             "click": 0,
-            "unique": 1,
+            "unique": 2,
             "dwell": 6,
             "ctr": 0,
             "code": "KR"
           },
           {
-            "name": "Seoul",
+            "name": "Seongnam-si",
             "visit": 1,
             "click": 0,
             "unique": 1,
-            "dwell": 2,
+            "dwell": 6,
             "ctr": 0,
             "code": "KR"
           }
