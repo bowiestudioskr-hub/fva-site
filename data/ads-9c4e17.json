@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 16. AM 12:38:40",
+  "updated": "2026. 11. 16. AM 12:54:36",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,7 +8,7 @@
     "pending": 77,
     "dailyBudget": 2500,
     "balance": 3503,
-    "imp": 3173,
+    "imp": 3176,
     "clk": 220,
     "cost": 19218,
     "byPeriod": {
@@ -18,22 +18,22 @@
         "cost": 0
       },
       "7": {
-        "imp": 264,
+        "imp": 267,
         "clk": 14,
         "cost": 1167
       },
       "28": {
-        "imp": 1358,
+        "imp": 1361,
         "clk": 91,
         "cost": 8150
       },
       "90": {
-        "imp": 19508,
+        "imp": 19511,
         "clk": 275,
         "cost": 78029
       },
       "y": {
-        "imp": 34,
+        "imp": 37,
         "clk": 3,
         "cost": 253
       }
@@ -113,7 +113,7 @@
       },
       {
         "d": "2026-11-15",
-        "imp": 34,
+        "imp": 37,
         "clk": 3,
         "cost": 253
       },
@@ -124,7 +124,7 @@
         "cost": 0
       }
     ],
-    "campaignImp": 26531,
+    "campaignImp": 26534,
     "campaignClk": 286,
     "campaignCost": 96572,
     "groups": [
@@ -182,7 +182,7 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 4,
+            "imp": 5,
             "clk": 3,
             "cost": 231,
             "rank": 1
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 16. AM 12:38:14",
+    "updated": "2026. 11. 16. AM 12:54:13",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10180,30 +10180,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 3,
-        "click": 1,
-        "unique": 2,
-        "ctr": 33.3,
-        "dwell": 13
+        "visit": 4,
+        "click": 2,
+        "unique": 3,
+        "ctr": 50,
+        "dwell": 27
       },
       "7": {
-        "visit": 998,
-        "click": 285,
-        "unique": 701,
+        "visit": 999,
+        "click": 286,
+        "unique": 702,
         "ctr": 28.6,
         "dwell": 29
       },
       "28": {
-        "visit": 3867,
-        "click": 784,
-        "unique": 2843,
+        "visit": 3868,
+        "click": 785,
+        "unique": 2844,
         "ctr": 20.3,
         "dwell": 25
       },
       "90": {
-        "visit": 10885,
-        "click": 2567,
-        "unique": 4779,
+        "visit": 10886,
+        "click": 2568,
+        "unique": 4780,
         "ctr": 23.6,
         "dwell": 25
       },
@@ -10215,9 +10215,9 @@
         "dwell": 47
       },
       "all": {
-        "visit": 44517,
-        "click": 16597,
-        "unique": 4779,
+        "visit": 44518,
+        "click": 16598,
+        "unique": 4780,
         "ctr": 37.3,
         "dwell": 25
       }
@@ -13159,9 +13159,9 @@
       },
       {
         "d": "2026-11-16",
-        "visit": 3,
-        "click": 1,
-        "unique": 2
+        "visit": 4,
+        "click": 2,
+        "unique": 3
       }
     ],
     "sources": [
@@ -13222,11 +13222,11 @@
       {
         "name": "pcmap.place.naver.com",
         "host": "pcmap.place.naver.com",
-        "visit": 375,
-        "click": 106,
-        "unique": 20,
-        "ctr": 28.3,
-        "dwell": 73
+        "visit": 376,
+        "click": 107,
+        "unique": 21,
+        "ctr": 28.5,
+        "dwell": 72
       },
       {
         "name": "bit.ly",
@@ -13398,7 +13398,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 3536
+        "clicks": 3537
       },
       {
         "key": "bGTonvP",
@@ -13820,11 +13820,11 @@
       },
       {
         "name": "데스크탑",
-        "visit": 607,
-        "click": 312,
-        "unique": 254,
-        "dwell": 108,
-        "ctr": 51.4
+        "visit": 608,
+        "click": 313,
+        "unique": 255,
+        "dwell": 107,
+        "ctr": 51.5
       },
       {
         "name": "태블릿",
@@ -13838,11 +13838,11 @@
     "country": [
       {
         "name": "KR",
-        "visit": 22157,
-        "click": 2758,
-        "unique": 4188,
+        "visit": 22158,
+        "click": 2759,
+        "unique": 4189,
         "dwell": 30,
-        "ctr": 12.4,
+        "ctr": 12.5,
         "code": "KR"
       },
       {
@@ -14219,6 +14219,15 @@
             "unique": 1,
             "ctr": 100,
             "dwell": 13
+          },
+          {
+            "name": "pcmap.place.naver.com",
+            "host": "pcmap.place.naver.com",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "ctr": 100,
+            "dwell": 54
           }
         ],
         "device": [
@@ -14229,16 +14238,24 @@
             "unique": 2,
             "dwell": 13,
             "ctr": 33.3
+          },
+          {
+            "name": "데스크탑",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "dwell": 54,
+            "ctr": 100
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 3,
-            "click": 1,
-            "unique": 2,
-            "dwell": 13,
-            "ctr": 33.3,
+            "visit": 4,
+            "click": 2,
+            "unique": 3,
+            "dwell": 27,
+            "ctr": 50,
             "code": "KR"
           }
         ],
@@ -14251,6 +14268,15 @@
             "dwell": 13,
             "ctr": 33.3,
             "code": "KR"
+          },
+          {
+            "name": "Gyeonggi-do",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "dwell": 54,
+            "ctr": 100,
+            "code": "KR"
           }
         ],
         "blocks": [
@@ -14260,7 +14286,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 1
+            "clicks": 2
           }
         ]
       },
@@ -14314,11 +14340,11 @@
           {
             "name": "pcmap.place.naver.com",
             "host": "pcmap.place.naver.com",
-            "visit": 3,
-            "click": 6,
-            "unique": 2,
-            "ctr": 200,
-            "dwell": 541
+            "visit": 4,
+            "click": 7,
+            "unique": 3,
+            "ctr": 175,
+            "dwell": 419
           },
           {
             "name": "구글 검색",
@@ -14359,11 +14385,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 46,
-            "click": 22,
-            "unique": 38,
-            "dwell": 79,
-            "ctr": 47.8
+            "visit": 47,
+            "click": 23,
+            "unique": 39,
+            "dwell": 78,
+            "ctr": 48.9
           },
           {
             "name": "태블릿",
@@ -14377,11 +14403,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 964,
-            "click": 277,
-            "unique": 674,
+            "visit": 965,
+            "click": 278,
+            "unique": 675,
             "dwell": 30,
-            "ctr": 28.7,
+            "ctr": 28.8,
             "code": "KR"
           },
           {
@@ -14682,7 +14708,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 60
+            "clicks": 61
           },
           {
             "key": "CBR1sRX",
@@ -14816,11 +14842,11 @@
           {
             "name": "pcmap.place.naver.com",
             "host": "pcmap.place.naver.com",
-            "visit": 17,
-            "click": 18,
-            "unique": 11,
-            "ctr": 105.9,
-            "dwell": 115
+            "visit": 18,
+            "click": 19,
+            "unique": 12,
+            "ctr": 105.6,
+            "dwell": 111
           },
           {
             "name": "리틀리 안에서",
@@ -14870,11 +14896,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 157,
-            "click": 86,
-            "unique": 118,
+            "visit": 158,
+            "click": 87,
+            "unique": 119,
             "dwell": 64,
-            "ctr": 54.8
+            "ctr": 55.1
           },
           {
             "name": "태블릿",
@@ -14888,9 +14914,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3461,
-            "click": 765,
-            "unique": 2470,
+            "visit": 3462,
+            "click": 766,
+            "unique": 2471,
             "dwell": 26,
             "ctr": 22.1,
             "code": "KR"
@@ -15256,7 +15282,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 166
+            "clicks": 167
           },
           {
             "key": "CBR1sRX",
@@ -15430,11 +15456,11 @@
           {
             "name": "pcmap.place.naver.com",
             "host": "pcmap.place.naver.com",
-            "visit": 37,
-            "click": 35,
-            "unique": 20,
-            "ctr": 94.6,
-            "dwell": 73
+            "visit": 38,
+            "click": 36,
+            "unique": 21,
+            "ctr": 94.7,
+            "dwell": 72
           },
           {
             "name": "리틀리 안에서",
@@ -15520,11 +15546,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 329,
-            "click": 169,
-            "unique": 254,
-            "dwell": 108,
-            "ctr": 51.4
+            "visit": 330,
+            "click": 170,
+            "unique": 255,
+            "dwell": 107,
+            "ctr": 51.5
           },
           {
             "name": "태블릿",
@@ -15538,9 +15564,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 5866,
-            "click": 1498,
-            "unique": 4188,
+            "visit": 5867,
+            "click": 1499,
+            "unique": 4189,
             "dwell": 30,
             "ctr": 25.5,
             "code": "KR"
@@ -15906,7 +15932,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 572
+            "clicks": 573
           },
           {
             "key": "bby1R8Y",
@@ -16153,11 +16179,11 @@
           {
             "name": "pcmap.place.naver.com",
             "host": "pcmap.place.naver.com",
-            "visit": 375,
-            "click": 106,
-            "unique": 20,
-            "ctr": 28.3,
-            "dwell": 73
+            "visit": 376,
+            "click": 107,
+            "unique": 21,
+            "ctr": 28.5,
+            "dwell": 72
           },
           {
             "name": "bit.ly",
@@ -16333,11 +16359,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 607,
-            "click": 312,
-            "unique": 254,
-            "dwell": 108,
-            "ctr": 51.4
+            "visit": 608,
+            "click": 313,
+            "unique": 255,
+            "dwell": 107,
+            "ctr": 51.5
           },
           {
             "name": "태블릿",
@@ -16351,11 +16377,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 22157,
-            "click": 2758,
-            "unique": 4188,
+            "visit": 22158,
+            "click": 2759,
+            "unique": 4189,
             "dwell": 30,
-            "ctr": 12.4,
+            "ctr": 12.5,
             "code": "KR"
           },
           {
@@ -16719,7 +16745,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 3536
+            "clicks": 3537
           },
           {
             "key": "bGTonvP",
@@ -17150,6 +17176,15 @@
             "unique": 1,
             "ctr": 100,
             "dwell": 13
+          },
+          {
+            "name": "pcmap.place.naver.com",
+            "host": "pcmap.place.naver.com",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "ctr": 100,
+            "dwell": 54
           }
         ],
         "device": [
@@ -17160,16 +17195,24 @@
             "unique": 2,
             "dwell": 13,
             "ctr": 33.3
+          },
+          {
+            "name": "데스크탑",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "dwell": 54,
+            "ctr": 100
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 3,
-            "click": 1,
-            "unique": 2,
-            "dwell": 13,
-            "ctr": 33.3,
+            "visit": 4,
+            "click": 2,
+            "unique": 3,
+            "dwell": 27,
+            "ctr": 50,
             "code": "KR"
           }
         ],
@@ -17182,6 +17225,15 @@
             "dwell": 13,
             "ctr": 33.3,
             "code": "KR"
+          },
+          {
+            "name": "Gyeonggi-do",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "dwell": 54,
+            "ctr": 100,
+            "code": "KR"
           }
         ],
         "blocks": [
@@ -17191,7 +17243,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 1
+            "clicks": 2
           }
         ]
       }
