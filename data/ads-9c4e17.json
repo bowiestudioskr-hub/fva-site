@@ -1,34 +1,34 @@
 {
-  "updated": "2026. 11. 15. PM 2:38:59",
+  "updated": "2026. 11. 15. PM 2:54:57",
   "naver": {
     "start": "2026-08-16",
     "live": true,
     "state": "운영",
-    "charged": 176,
-    "pending": 88,
+    "charged": 253,
+    "pending": 77,
     "dailyBudget": 2500,
-    "balance": 3580,
-    "imp": 3152,
+    "balance": 3503,
+    "imp": 3158,
     "clk": 219,
     "cost": 19141,
     "byPeriod": {
       "1": {
-        "imp": 13,
+        "imp": 19,
         "clk": 2,
         "cost": 176
       },
       "7": {
-        "imp": 290,
+        "imp": 296,
         "clk": 23,
         "cost": 2024
       },
       "28": {
-        "imp": 1397,
+        "imp": 1403,
         "clk": 90,
         "cost": 8073
       },
       "90": {
-        "imp": 21189,
+        "imp": 21195,
         "clk": 280,
         "cost": 95998
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-11-15",
-        "imp": 13,
+        "imp": 19,
         "clk": 2,
         "cost": 176
       }
     ],
-    "campaignImp": 26510,
+    "campaignImp": 26516,
     "campaignClk": 285,
     "campaignCost": 96495,
     "groups": [
@@ -222,7 +222,7 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 1034,
+            "imp": 1036,
             "clk": 35,
             "cost": 3003,
             "rank": 1.3
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 15. PM 2:38:39",
+    "updated": "2026. 11. 15. PM 2:54:36",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10180,30 +10180,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 65,
+        "visit": 67,
         "click": 24,
-        "unique": 44,
-        "ctr": 36.9,
+        "unique": 45,
+        "ctr": 35.8,
         "dwell": 21
       },
       "7": {
-        "visit": 1035,
+        "visit": 1037,
         "click": 288,
-        "unique": 723,
+        "unique": 724,
         "ctr": 27.8,
         "dwell": 27
       },
       "28": {
-        "visit": 3930,
+        "visit": 3932,
         "click": 786,
-        "unique": 2893,
+        "unique": 2894,
         "ctr": 20,
         "dwell": 23
       },
       "90": {
-        "visit": 11048,
+        "visit": 11050,
         "click": 2584,
-        "unique": 4721,
+        "unique": 4722,
         "ctr": 23.4,
         "dwell": 24
       },
@@ -10215,9 +10215,9 @@
         "dwell": 54
       },
       "all": {
-        "visit": 44439,
+        "visit": 44441,
         "click": 16575,
-        "unique": 4721,
+        "unique": 4722,
         "ctr": 37.3,
         "dwell": 24
       }
@@ -13153,9 +13153,9 @@
       },
       {
         "d": "2026-11-15",
-        "visit": 65,
+        "visit": 67,
         "click": 24,
-        "unique": 44
+        "unique": 45
       }
     ],
     "sources": [
@@ -13171,9 +13171,9 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 6587,
+        "visit": 6589,
         "click": 1,
-        "unique": 2536,
+        "unique": 2537,
         "ctr": 0,
         "dwell": 11
       },
@@ -13806,9 +13806,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 7860,
+        "visit": 7862,
         "click": 2533,
-        "unique": 4453,
+        "unique": 4454,
         "dwell": 19,
         "ctr": 32.2
       },
@@ -13832,9 +13832,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 23162,
+        "visit": 23164,
         "click": 2736,
-        "unique": 4132,
+        "unique": 4133,
         "dwell": 29,
         "ctr": 11.8,
         "code": "KR"
@@ -14014,9 +14014,9 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 5250,
+        "visit": 5252,
         "click": 1929,
-        "unique": 2608,
+        "unique": 2609,
         "dwell": 25,
         "ctr": 36.7,
         "code": "KR"
@@ -14199,11 +14199,11 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 44,
+            "visit": 46,
             "click": 0,
-            "unique": 26,
+            "unique": 27,
             "ctr": 0,
-            "dwell": 25
+            "dwell": 24
           },
           {
             "name": "인스타 링크 눌러 옴",
@@ -14236,21 +14236,21 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 65,
+            "visit": 67,
             "click": 24,
-            "unique": 44,
+            "unique": 45,
             "dwell": 21,
-            "ctr": 36.9
+            "ctr": 35.8
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 61,
+            "visit": 63,
             "click": 24,
-            "unique": 42,
-            "dwell": 22,
-            "ctr": 39.3,
+            "unique": 43,
+            "dwell": 21,
+            "ctr": 38.1,
             "code": "KR"
           },
           {
@@ -14275,11 +14275,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 30,
+            "visit": 32,
             "click": 10,
-            "unique": 20,
-            "dwell": 33,
-            "ctr": 33.3,
+            "unique": 21,
+            "dwell": 31,
+            "ctr": 31.3,
             "code": "KR"
           },
           {
@@ -14498,9 +14498,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 624,
+            "visit": 626,
             "click": 0,
-            "unique": 416,
+            "unique": 417,
             "ctr": 0,
             "dwell": 11
           },
@@ -14562,11 +14562,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 982,
+            "visit": 984,
             "click": 262,
-            "unique": 681,
+            "unique": 682,
             "dwell": 22,
-            "ctr": 26.7
+            "ctr": 26.6
           },
           {
             "name": "데스크탑",
@@ -14588,11 +14588,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 998,
+            "visit": 1000,
             "click": 280,
-            "unique": 695,
+            "unique": 696,
             "dwell": 28,
-            "ctr": 28.1,
+            "ctr": 28,
             "code": "KR"
           },
           {
@@ -14698,11 +14698,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 521,
+            "visit": 523,
             "click": 131,
-            "unique": 365,
+            "unique": 366,
             "dwell": 31,
-            "ctr": 25.1,
+            "ctr": 25,
             "code": "KR"
           },
           {
@@ -14973,9 +14973,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 2323,
+            "visit": 2325,
             "click": 0,
-            "unique": 1556,
+            "unique": 1557,
             "ctr": 0,
             "dwell": 8
           },
@@ -15055,9 +15055,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3758,
+            "visit": 3760,
             "click": 695,
-            "unique": 2764,
+            "unique": 2765,
             "dwell": 19,
             "ctr": 18.5
           },
@@ -15081,9 +15081,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3511,
+            "visit": 3513,
             "click": 766,
-            "unique": 2508,
+            "unique": 2509,
             "dwell": 24,
             "ctr": 21.8,
             "code": "KR"
@@ -15263,11 +15263,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1925,
+            "visit": 1927,
             "click": 338,
-            "unique": 1382,
+            "unique": 1383,
             "dwell": 26,
-            "ctr": 17.6,
+            "ctr": 17.5,
             "code": "KR"
           },
           {
@@ -15578,9 +15578,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 6133,
+            "visit": 6135,
             "click": 1,
-            "unique": 2536,
+            "unique": 2537,
             "ctr": 0,
             "dwell": 11
           },
@@ -15705,9 +15705,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 6239,
+            "visit": 6241,
             "click": 1367,
-            "unique": 4453,
+            "unique": 4454,
             "dwell": 19,
             "ctr": 21.9
           },
@@ -15731,9 +15731,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 5909,
+            "visit": 5911,
             "click": 1480,
-            "unique": 4132,
+            "unique": 4133,
             "dwell": 29,
             "ctr": 25,
             "code": "KR"
@@ -15913,9 +15913,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 3753,
+            "visit": 3755,
             "click": 823,
-            "unique": 2608,
+            "unique": 2609,
             "dwell": 25,
             "ctr": 21.9,
             "code": "KR"
@@ -16301,9 +16301,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 6587,
+            "visit": 6589,
             "click": 1,
-            "unique": 2536,
+            "unique": 2537,
             "ctr": 0,
             "dwell": 11
           },
@@ -16518,9 +16518,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 7860,
+            "visit": 7862,
             "click": 2533,
-            "unique": 4453,
+            "unique": 4454,
             "dwell": 19,
             "ctr": 32.2
           },
@@ -16544,9 +16544,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 23162,
+            "visit": 23164,
             "click": 2736,
-            "unique": 4132,
+            "unique": 4133,
             "dwell": 29,
             "ctr": 11.8,
             "code": "KR"
@@ -16726,9 +16726,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 5250,
+            "visit": 5252,
             "click": 1929,
-            "unique": 2608,
+            "unique": 2609,
             "dwell": 25,
             "ctr": 36.7,
             "code": "KR"
@@ -17329,11 +17329,11 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 44,
+            "visit": 46,
             "click": 0,
-            "unique": 26,
+            "unique": 27,
             "ctr": 0,
-            "dwell": 25
+            "dwell": 24
           },
           {
             "name": "인스타 링크 눌러 옴",
@@ -17366,21 +17366,21 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 65,
+            "visit": 67,
             "click": 24,
-            "unique": 44,
+            "unique": 45,
             "dwell": 21,
-            "ctr": 36.9
+            "ctr": 35.8
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 61,
+            "visit": 63,
             "click": 24,
-            "unique": 42,
-            "dwell": 22,
-            "ctr": 39.3,
+            "unique": 43,
+            "dwell": 21,
+            "ctr": 38.1,
             "code": "KR"
           },
           {
@@ -17405,11 +17405,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 30,
+            "visit": 32,
             "click": 10,
-            "unique": 20,
-            "dwell": 33,
-            "ctr": 33.3,
+            "unique": 21,
+            "dwell": 31,
+            "ctr": 31.3,
             "code": "KR"
           },
           {
