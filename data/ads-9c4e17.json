@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 15. PM 2:54:57",
+  "updated": "2026. 11. 15. PM 3:10:56",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 15. PM 2:54:36",
+    "updated": "2026. 11. 15. PM 3:10:34",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10180,30 +10180,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 67,
+        "visit": 70,
         "click": 24,
-        "unique": 45,
-        "ctr": 35.8,
+        "unique": 46,
+        "ctr": 34.3,
         "dwell": 21
       },
       "7": {
-        "visit": 1037,
+        "visit": 1040,
         "click": 288,
-        "unique": 724,
-        "ctr": 27.8,
+        "unique": 725,
+        "ctr": 27.7,
         "dwell": 27
       },
       "28": {
-        "visit": 3932,
+        "visit": 3935,
         "click": 786,
-        "unique": 2894,
+        "unique": 2895,
         "ctr": 20,
         "dwell": 23
       },
       "90": {
-        "visit": 11050,
+        "visit": 11053,
         "click": 2584,
-        "unique": 4722,
+        "unique": 4723,
         "ctr": 23.4,
         "dwell": 24
       },
@@ -10215,9 +10215,9 @@
         "dwell": 54
       },
       "all": {
-        "visit": 44441,
+        "visit": 44444,
         "click": 16575,
-        "unique": 4722,
+        "unique": 4723,
         "ctr": 37.3,
         "dwell": 24
       }
@@ -13153,9 +13153,9 @@
       },
       {
         "d": "2026-11-15",
-        "visit": 67,
+        "visit": 70,
         "click": 24,
-        "unique": 45
+        "unique": 46
       }
     ],
     "sources": [
@@ -13234,11 +13234,11 @@
       {
         "name": "구글 검색",
         "host": "google.com",
-        "visit": 70,
+        "visit": 72,
         "click": 10,
-        "unique": 2,
-        "ctr": 14.3,
-        "dwell": 0
+        "unique": 3,
+        "ctr": 13.9,
+        "dwell": 35
       },
       {
         "name": "youtube.com",
@@ -13806,7 +13806,7 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 7862,
+        "visit": 7863,
         "click": 2533,
         "unique": 4454,
         "dwell": 19,
@@ -13814,11 +13814,11 @@
       },
       {
         "name": "데스크탑",
-        "visit": 601,
+        "visit": 603,
         "click": 310,
-        "unique": 249,
+        "unique": 250,
         "dwell": 106,
-        "ctr": 51.6
+        "ctr": 51.4
       },
       {
         "name": "태블릿",
@@ -13832,7 +13832,7 @@
     "country": [
       {
         "name": "KR",
-        "visit": 23164,
+        "visit": 23166,
         "click": 2736,
         "unique": 4133,
         "dwell": 29,
@@ -13841,9 +13841,9 @@
       },
       {
         "name": "US",
-        "visit": 528,
+        "visit": 529,
         "click": 26,
-        "unique": 72,
+        "unique": 73,
         "dwell": 10,
         "ctr": 4.9,
         "code": "US"
@@ -14014,7 +14014,7 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 5252,
+        "visit": 5253,
         "click": 1929,
         "unique": 2609,
         "dwell": 25,
@@ -14023,11 +14023,11 @@
       },
       {
         "name": "알 수 없음",
-        "visit": 564,
+        "visit": 565,
         "click": 147,
         "unique": 343,
         "dwell": 14,
-        "ctr": 26.1,
+        "ctr": 26,
         "code": "KR"
       },
       {
@@ -14086,9 +14086,9 @@
       },
       {
         "name": "알 수 없음",
-        "visit": 76,
+        "visit": 77,
         "click": 1,
-        "unique": 31,
+        "unique": 32,
         "dwell": 6,
         "ctr": 1.3,
         "code": "US"
@@ -14224,6 +14224,15 @@
             "dwell": 0
           },
           {
+            "name": "구글 검색",
+            "host": "google.com",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 35
+          },
+          {
             "name": "우리 사이트",
             "host": "fva.co.kr",
             "visit": 1,
@@ -14236,21 +14245,29 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 67,
+            "visit": 68,
             "click": 24,
             "unique": 45,
             "dwell": 21,
-            "ctr": 35.8
+            "ctr": 35.3
+          },
+          {
+            "name": "데스크탑",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 35,
+            "ctr": 0
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 63,
+            "visit": 65,
             "click": 24,
             "unique": 43,
-            "dwell": 21,
-            "ctr": 38.1,
+            "dwell": 22,
+            "ctr": 36.9,
             "code": "KR"
           },
           {
@@ -14270,25 +14287,34 @@
             "dwell": 0,
             "ctr": 0,
             "code": "JP"
+          },
+          {
+            "name": "US",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "US"
           }
         ],
         "city": [
           {
             "name": "Seoul",
-            "visit": 32,
+            "visit": 33,
             "click": 10,
             "unique": 21,
             "dwell": 31,
-            "ctr": 31.3,
+            "ctr": 30.3,
             "code": "KR"
           },
           {
             "name": "알 수 없음",
-            "visit": 7,
+            "visit": 8,
             "click": 8,
             "unique": 5,
-            "dwell": 17,
-            "ctr": 114.3,
+            "dwell": 16,
+            "ctr": 100,
             "code": "KR"
           },
           {
@@ -14416,6 +14442,15 @@
             "dwell": 46,
             "ctr": 100,
             "code": "KR"
+          },
+          {
+            "name": "알 수 없음",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "US"
           }
         ],
         "blocks": [
@@ -14550,6 +14585,15 @@
             "dwell": 541
           },
           {
+            "name": "구글 검색",
+            "host": "google.com",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 35
+          },
+          {
             "name": "talk.naver.com",
             "host": "talk.naver.com",
             "visit": 1,
@@ -14562,7 +14606,7 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 984,
+            "visit": 985,
             "click": 262,
             "unique": 682,
             "dwell": 22,
@@ -14570,11 +14614,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 44,
+            "visit": 46,
             "click": 23,
-            "unique": 36,
-            "dwell": 87,
-            "ctr": 52.3
+            "unique": 37,
+            "dwell": 85,
+            "ctr": 50
           },
           {
             "name": "태블릿",
@@ -14588,20 +14632,20 @@
         "country": [
           {
             "name": "KR",
-            "visit": 1000,
+            "visit": 1002,
             "click": 280,
             "unique": 696,
             "dwell": 28,
-            "ctr": 28,
+            "ctr": 27.9,
             "code": "KR"
           },
           {
             "name": "US",
-            "visit": 11,
+            "visit": 12,
             "click": 4,
-            "unique": 9,
+            "unique": 10,
             "dwell": 12,
-            "ctr": 36.4,
+            "ctr": 33.3,
             "code": "US"
           },
           {
@@ -14698,7 +14742,7 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 523,
+            "visit": 524,
             "click": 131,
             "unique": 366,
             "dwell": 31,
@@ -14707,11 +14751,11 @@
           },
           {
             "name": "알 수 없음",
-            "visit": 112,
+            "visit": 113,
             "click": 32,
             "unique": 75,
             "dwell": 19,
-            "ctr": 28.6,
+            "ctr": 28.3,
             "code": "KR"
           },
           {
@@ -15025,6 +15069,15 @@
             "dwell": 115
           },
           {
+            "name": "구글 검색",
+            "host": "google.com",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 35
+          },
+          {
             "name": "리틀리 안에서",
             "host": "litt.ly",
             "visit": 2,
@@ -15055,7 +15108,7 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3760,
+            "visit": 3761,
             "click": 695,
             "unique": 2765,
             "dwell": 19,
@@ -15063,11 +15116,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 154,
+            "visit": 156,
             "click": 86,
-            "unique": 116,
+            "unique": 117,
             "dwell": 59,
-            "ctr": 55.8
+            "ctr": 55.1
           },
           {
             "name": "태블릿",
@@ -15081,7 +15134,7 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3513,
+            "visit": 3515,
             "click": 766,
             "unique": 2509,
             "dwell": 24,
@@ -15099,11 +15152,11 @@
           },
           {
             "name": "US",
-            "visit": 35,
+            "visit": 36,
             "click": 4,
-            "unique": 28,
+            "unique": 29,
             "dwell": 11,
-            "ctr": 11.4,
+            "ctr": 11.1,
             "code": "US"
           },
           {
@@ -15263,7 +15316,7 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1927,
+            "visit": 1928,
             "click": 338,
             "unique": 1383,
             "dwell": 26,
@@ -15272,7 +15325,7 @@
           },
           {
             "name": "알 수 없음",
-            "visit": 356,
+            "visit": 357,
             "click": 72,
             "unique": 246,
             "dwell": 15,
@@ -15659,11 +15712,11 @@
           {
             "name": "구글 검색",
             "host": "google.com",
-            "visit": 3,
+            "visit": 5,
             "click": 1,
-            "unique": 2,
-            "ctr": 33.3,
-            "dwell": 0
+            "unique": 3,
+            "ctr": 20,
+            "dwell": 35
           },
           {
             "name": "business.kakao.com",
@@ -15705,7 +15758,7 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 6241,
+            "visit": 6242,
             "click": 1367,
             "unique": 4454,
             "dwell": 19,
@@ -15713,11 +15766,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 331,
+            "visit": 333,
             "click": 172,
-            "unique": 249,
+            "unique": 250,
             "dwell": 106,
-            "ctr": 52
+            "ctr": 51.7
           },
           {
             "name": "태블릿",
@@ -15731,7 +15784,7 @@
         "country": [
           {
             "name": "KR",
-            "visit": 5911,
+            "visit": 5913,
             "click": 1480,
             "unique": 4133,
             "dwell": 29,
@@ -15749,11 +15802,11 @@
           },
           {
             "name": "US",
-            "visit": 88,
+            "visit": 89,
             "click": 19,
-            "unique": 72,
+            "unique": 73,
             "dwell": 10,
-            "ctr": 21.6,
+            "ctr": 21.3,
             "code": "US"
           },
           {
@@ -15913,7 +15966,7 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 3755,
+            "visit": 3756,
             "click": 823,
             "unique": 2609,
             "dwell": 25,
@@ -15922,7 +15975,7 @@
           },
           {
             "name": "알 수 없음",
-            "visit": 486,
+            "visit": 487,
             "click": 112,
             "unique": 343,
             "dwell": 14,
@@ -16039,9 +16092,9 @@
           },
           {
             "name": "알 수 없음",
-            "visit": 41,
+            "visit": 42,
             "click": 1,
-            "unique": 31,
+            "unique": 32,
             "dwell": 6,
             "ctr": 2.4,
             "code": "US"
@@ -16364,11 +16417,11 @@
           {
             "name": "구글 검색",
             "host": "google.com",
-            "visit": 70,
+            "visit": 72,
             "click": 10,
-            "unique": 2,
-            "ctr": 14.3,
-            "dwell": 0
+            "unique": 3,
+            "ctr": 13.9,
+            "dwell": 35
           },
           {
             "name": "youtube.com",
@@ -16518,7 +16571,7 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 7862,
+            "visit": 7863,
             "click": 2533,
             "unique": 4454,
             "dwell": 19,
@@ -16526,11 +16579,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 601,
+            "visit": 603,
             "click": 310,
-            "unique": 249,
+            "unique": 250,
             "dwell": 106,
-            "ctr": 51.6
+            "ctr": 51.4
           },
           {
             "name": "태블릿",
@@ -16544,7 +16597,7 @@
         "country": [
           {
             "name": "KR",
-            "visit": 23164,
+            "visit": 23166,
             "click": 2736,
             "unique": 4133,
             "dwell": 29,
@@ -16553,9 +16606,9 @@
           },
           {
             "name": "US",
-            "visit": 528,
+            "visit": 529,
             "click": 26,
-            "unique": 72,
+            "unique": 73,
             "dwell": 10,
             "ctr": 4.9,
             "code": "US"
@@ -16726,7 +16779,7 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 5252,
+            "visit": 5253,
             "click": 1929,
             "unique": 2609,
             "dwell": 25,
@@ -16735,11 +16788,11 @@
           },
           {
             "name": "알 수 없음",
-            "visit": 564,
+            "visit": 565,
             "click": 147,
             "unique": 343,
             "dwell": 14,
-            "ctr": 26.1,
+            "ctr": 26,
             "code": "KR"
           },
           {
@@ -16798,9 +16851,9 @@
           },
           {
             "name": "알 수 없음",
-            "visit": 76,
+            "visit": 77,
             "click": 1,
-            "unique": 31,
+            "unique": 32,
             "dwell": 6,
             "ctr": 1.3,
             "code": "US"
@@ -17354,6 +17407,15 @@
             "dwell": 0
           },
           {
+            "name": "구글 검색",
+            "host": "google.com",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 35
+          },
+          {
             "name": "우리 사이트",
             "host": "fva.co.kr",
             "visit": 1,
@@ -17366,21 +17428,29 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 67,
+            "visit": 68,
             "click": 24,
             "unique": 45,
             "dwell": 21,
-            "ctr": 35.8
+            "ctr": 35.3
+          },
+          {
+            "name": "데스크탑",
+            "visit": 2,
+            "click": 0,
+            "unique": 1,
+            "dwell": 35,
+            "ctr": 0
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 63,
+            "visit": 65,
             "click": 24,
             "unique": 43,
-            "dwell": 21,
-            "ctr": 38.1,
+            "dwell": 22,
+            "ctr": 36.9,
             "code": "KR"
           },
           {
@@ -17400,25 +17470,34 @@
             "dwell": 0,
             "ctr": 0,
             "code": "JP"
+          },
+          {
+            "name": "US",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "US"
           }
         ],
         "city": [
           {
             "name": "Seoul",
-            "visit": 32,
+            "visit": 33,
             "click": 10,
             "unique": 21,
             "dwell": 31,
-            "ctr": 31.3,
+            "ctr": 30.3,
             "code": "KR"
           },
           {
             "name": "알 수 없음",
-            "visit": 7,
+            "visit": 8,
             "click": 8,
             "unique": 5,
-            "dwell": 17,
-            "ctr": 114.3,
+            "dwell": 16,
+            "ctr": 100,
             "code": "KR"
           },
           {
@@ -17546,6 +17625,15 @@
             "dwell": 46,
             "ctr": 100,
             "code": "KR"
+          },
+          {
+            "name": "알 수 없음",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "US"
           }
         ],
         "blocks": [
