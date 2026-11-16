@@ -611,9 +611,8 @@
   .pf-12 .pf-12__foot--host img{height:12px}
 }
 
-/* ══ 폰 글자 바닥 14px (사이트 규칙) · 양수 자간 금지(사이트 영구 규칙) ══
+/* ══ 폰 글자 바닥 14px (사이트 규칙). 영문 꼬리표 자간은 피그마 값 그대로(11/17 정환님 — 이 페이지는 양수 자간 예외) ══
    피그마의 작은 꼬리표·눈금·캡션이 폰에서 12px 아래로 줄어 읽기 어렵다. 크기만 올리고 모양·색은 그대로. */
-.bs-pro .pf-05__en, .bs-pro .pf-05 dt, .bs-pro .pf-06__en{ letter-spacing:0 }
 @media (max-width:600px){
   .bs-pro .pf-01__src, .bs-pro .pf-05__note, .bs-pro .pf-05__en, .bs-pro .pf-05 dt, .bs-pro .pf-06__en,
   .bs-pro .pf-07__lg, .bs-pro .pf-07__chip,

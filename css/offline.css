@@ -504,6 +504,8 @@ svg.club-wordmark{
     --pagew:min(calc(100vw - 2 * clamp(0px, 4.6vw, 112px)), 1920px);
     --gutter:clamp(0px, 4.6vw, 112px);
   }
+  /* 상단 모집 블록(장소·기수·반·시간·버튼)은 베이직과 같은 크기로 크게 (11/17 정환님) */
+  .off-notice{ --pagew:min(calc(100vw - 2 * clamp(0px, 4.6vw, 112px)), 1920px) }
 }
 
 /* ─────────────────────────────────────────────────────────────
