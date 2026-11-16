@@ -1322,6 +1322,8 @@ html.js-rv .bs .bs-recs li.bs-rv{ transition-delay:var(--d, 0s) }
   padding:.18em .62em; white-space:nowrap;
 }
 .bs-notice .nt-row .start .dday.soon{ background:#FF375F; color:#fff }
+.bs-notice a.start{ text-decoration:none }
+.bs-notice a.start:hover, .bs-notice a.start:focus-visible{ text-decoration:underline; text-underline-offset:.2em }
 /* 신청 방법 */
 .bs-notice .nt-how{
   margin-top:clamp(24px, calc(var(--u) * 48/1920), 48px);

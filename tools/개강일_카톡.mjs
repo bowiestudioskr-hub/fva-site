@@ -7,7 +7,7 @@
  * ⚠ 카카오는 자동응답을 고치는 **공개 API 를 주지 않는다.** 그래서 파트너센터 화면을
  *   크롬으로 직접 조작한다. 그러려면 —
  *     · 맥이 켜져 있고
- *     · 디버그 크롬(9222)이 떠 있고
+ *     · 어사이드(9330)가 떠 있고
  *     · business.kakao.com 에 로그인돼 있어야 한다.
  *   세션이 만료되면 사람이 한 번 로그인해 줘야 한다.
  *
@@ -21,13 +21,25 @@ const 목록 = 채널 + '/custom_menus/auto_replies';
 const 발화 = '개강일이 궁금해요';
 const 쓰기 = process.argv.includes('--쓰기');
 
+/* ⚠ 어사이드(9330, 카카오 비즈니스 로그인돼 있음)에 **뒤에서** 새 탭을 하나 열어 쓰고 끝나면 닫는다.
+     사용자 탭을 가로채지 않고, 창을 앞으로 꺼내지 않는다. 포트는 KAKAO_CDP_PORT 로 바꿀 수 있다. */
+const 포트 = process.env.KAKAO_CDP_PORT || '9330';
+let 탭닫기 = async () => {};
 async function 붙기() {
-  let l;
-  try { l = await (await fetch('http://127.0.0.1:9222/json/list')).json(); }
-  catch { throw new Error('디버그 크롬(9222)이 안 떠 있다'); }
-  const t = l.find(x => x.type === 'page' && /business\.kakao|kakao/.test(x.url))
-         || l.find(x => x.type === 'page');
-  if (!t) throw new Error('크롬에 열린 탭이 없다');
+  let v;
+  try { v = await (await fetch(`http://127.0.0.1:${포트}/json/version`)).json(); }
+  catch { throw new Error(`어사이드(${포트})가 안 떠 있다 — ~/.claude/tools/aside-cdp.sh 로 띄울 것`); }
+  const 브 = new WebSocket(v.webSocketDebuggerUrl); await new Promise(r => 브.onopen = r);
+  let bid = 0; const bq = new Map();
+  브.onmessage = e => { const m = JSON.parse(e.data); if (m.id && bq.has(m.id)) { bq.get(m.id)(m); bq.delete(m.id); } };
+  const bcmd = (mm, p = {}) => new Promise(r => { const i = ++bid; bq.set(i, r); 브.send(JSON.stringify({ id: i, method: mm, params: p })); });
+  const 새 = await bcmd('Target.createTarget', { url: 'about:blank', background: true });
+  const tid = 새.result.targetId;
+  탭닫기 = async () => { try { await bcmd('Target.closeTarget', { targetId: tid }); } catch {} 브.close(); };
+  await new Promise(r => setTimeout(r, 800));
+  const l = await (await fetch(`http://127.0.0.1:${포트}/json/list`)).json();
+  const t = l.find(x => x.id === tid);
+  if (!t) throw new Error('새 탭을 못 찾았다');
   const s = new WebSocket(t.webSocketDebuggerUrl); let id = 0; const q = new Map();
   await new Promise(r => s.onopen = r);
   s.onmessage = e => {
@@ -57,23 +69,24 @@ async function 붙기() {
 }
 
 const { ev, 가기, 누르기, 잠깐 } = await 붙기();
+const 끝 = async (c) => { await 탭닫기(); process.exit(c); };
 
 await 가기(목록, 11000);
 if (/accounts\.kakao|\/login/.test(String(await ev('location.href'))))
-  { console.log('✗ 카카오 로그인이 풀렸다. 크롬에서 한 번 로그인해 줄 것.'); process.exit(1); }
+  { console.log('✗ 카카오 로그인이 풀렸다. 크롬에서 한 번 로그인해 줄 것.'); await 끝(1); }
 
 /* 목록에서 그 줄을 연다 — 줄 전체가 링크다 */
 if (!await 누르기(`x.tagName==='A' && x.innerText.includes('개강일 안내')`, 5000))
-  { console.log('✗ 「개강일 안내」 자동응답을 목록에서 못 찾았다'); process.exit(1); }
+  { console.log('✗ 「개강일 안내」 자동응답을 목록에서 못 찾았다'); await 끝(1); }
 
 const 지금 = await ev(`(()=>{const t=[...document.querySelectorAll('textarea')].filter(x=>x.offsetParent)[0];
   return t? t.value : null;})()`);
-if (지금 == null) { console.log('✗ 응답 메시지 칸을 못 찾았다'); process.exit(1); }
+if (지금 == null) { console.log('✗ 응답 메시지 칸을 못 찾았다', await ev(`location.href+' ta='+document.querySelectorAll('textarea').length+' ce='+document.querySelectorAll('[contenteditable=true]').length+' '+document.body.innerText.slice(0,300).replace(/\s+/g,' ')`)); await 끝(1); }
 
 console.log('── 지금 등록된 문안 (' + 지금.length + '자)');
 console.log(지금.split('\n').map(l => '   ' + l).join('\n'));
 
-if (!쓰기) { console.log('\n(바꾸려면 --쓰기)'); process.exit(0); }
+if (!쓰기) { console.log('\n(바꾸려면 --쓰기)'); await 끝(0); }
 
 /* 새 문안은 개강일.mjs 가 표준출력으로 준다 */
 const { execFileSync } = await import('child_process');
@@ -81,8 +94,8 @@ const { fileURLToPath } = await import('url');
 /* ⚠ new URL(...).pathname 은 한글을 %EA%B0%9C… 로 바꿔 버린다. fileURLToPath 로 풀어야 한다. */
 const 나온것 = execFileSync('node', [fileURLToPath(new URL('./개강일.mjs', import.meta.url)), '--문안만'],
                             { encoding: 'utf8' }).trim();
-if (나온것.length < 50) { console.log('✗ 새 문안이 비었다'); process.exit(1); }
-if (나온것 === 지금) { console.log('\n○ 이미 같은 내용이다. 건드리지 않는다.'); process.exit(0); }
+if (나온것.length < 50) { console.log('✗ 새 문안이 비었다'); await 끝(1); }
+if (나온것 === 지금) { console.log('\n○ 이미 같은 내용이다. 건드리지 않는다.'); await 끝(0); }
 
 console.log('\n── 새 문안 (' + 나온것.length + '자)');
 console.log(나온것.split('\n').map(l => '   ' + l).join('\n'));
@@ -95,7 +108,7 @@ await ev(`(()=>{const t=[...document.querySelectorAll('textarea')].filter(x=>x.o
 await 잠깐(900);
 
 if (!await 누르기(`x.innerText.replace(/\\s+/g,'')==='저장하기'`, 4500))
-  { console.log('✗ 저장하기 버튼을 못 찾았다'); process.exit(1); }
+  { console.log('✗ 저장하기 버튼을 못 찾았다'); await 끝(1); }
 await 누르기(`x.innerText.replace(/\\s+/g,'')==='확인'`, 3000);
 
 /* 되읽어 확인한다 — 저장됐다는 말만 믿지 않는다 */
@@ -103,4 +116,4 @@ await 가기(목록, 9000);
 const 확인 = await ev(`(()=>{const a=[...document.querySelectorAll('a')].filter(x=>x.innerText.includes('개강일 안내'))[0];
   return a? a.innerText.replace(/\\s+/g,' ').slice(0,80) : null;})()`);
 console.log('\n○ 저장 확인:', 확인 || '✗ 목록에서 못 찾음');
-process.exit(0);
+await 끝(0);

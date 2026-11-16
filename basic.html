@@ -125,7 +125,7 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 <link rel="stylesheet" href="css/style.css?v=bcdee7d5">
 <link rel="stylesheet" href="css/mobile.css?v=6a81566b">
 <link rel="stylesheet" href="css/sub.css?v=313eb78b">
-<link rel="stylesheet" href="css/basic.css?v=2c209631">
+<link rel="stylesheet" href="css/basic.css?v=9376a8c3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -229,14 +229,16 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
       <span>주 1회 3시간 &middot; 다른 요일로 보강 가능</span>
     </p>
     <div class="nt-table">
-      <div class="nt-row">
-        <span class="cls">목요일 평일반</span>
-        <span class="time">19:00 &ndash; 22:00</span>
-      </div>
-      <div class="nt-row">
-        <span class="cls">토요일 주말반</span>
-        <span class="time">13:00 &ndash; 16:00</span>
-      </div>
+        <div class="nt-row">
+          <span class="cls">목요일 반</span>
+          <span class="time">19:30 &ndash; 22:30</span>
+          <a class="start" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">개강 12월 17일 (목)</a>
+        </div>
+        <div class="nt-row">
+          <span class="cls">토요일 반</span>
+          <span class="time">13:30 &ndash; 16:30</span>
+          <a class="start" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">개강 12월 19일 (토)</a>
+        </div>
     </div>
   </div>
 
@@ -843,7 +845,10 @@ if(window.wcs) { wcs_do(); }
        아직 시작도 안 한 기수에는 거짓말이 된다. 빈 배열이면 따로 문구가 나간다. */
   /* ⚠ 왕초보반 실제 일정 (스마트스토어와 일치시킬 것) — 매달 모집이라 지나면 다음 달로 갱신 */
   /* ⚠ 2026-10-16부터 상시 모집 — 신청한 주에 바로 합류한다. 개강일이 없으니 빈 배열로 둔다. */
-  var 개강 = [];
+  var 개강 = [
+    { 반: '목요일 반', 날: '2026-12-17' },
+    { 반: '토요일 반', 날: '2026-12-19' }
+  ];
 
   if (!모집중) return;
   var 오늘 = new Date(); 오늘.setHours(0, 0, 0, 0);

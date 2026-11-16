@@ -24,7 +24,7 @@ const SITE = join(HERE, '..');
 const 요일 = ['일', '월', '화', '수', '목', '금', '토'];
 
 const 판 = [
-  { 파일: 'basic.html',   반이름: 'BASIC CLASS',  꼬리: '왕초보 · 주 2회',
+  { 파일: 'basic.html',   반이름: 'BASIC CLASS',  꼬리: '왕초보 · 주 1회',
     터: '서울 서대문구 연희로8길 18' },
   { 파일: 'offline.html', 반이름: 'MASTER CLASS', 꼬리: null,      // 기수를 파일에서 읽어 붙인다
     터: '서울 마포구 독막로6길 6 현영빌딩 5F' },
@@ -38,7 +38,7 @@ function 읽기(파일) {
   const 배열 = [...s.matchAll(/\{\s*반:\s*'([^']+)'\s*,\s*날:\s*'(\d{4}-\d{2}-\d{2})'\s*\}/g)]
     .map(m => ({ 반: m[1], 날: m[2] }));
   const 줄 = [...s.matchAll(
-    /<span class="cls">([^<]+)<\/span>\s*<span class="time">([^<]+)<\/span>\s*<span class="start">개강\s*([^<]+)<\/span>/g)]
+    /<span class="cls">([^<]+)<\/span>\s*<span class="time">([^<]+)<\/span>\s*<(?:span|a)[^>]*class="start"[^>]*>개강\s*([^<]+)<\/(?:span|a)>/g)]
     .map(m => ({ 반: m[1].replace(/&middot;/g, '·').trim(),
                  때: m[2].replace(/&ndash;/g, '–').replace(/&nbsp;/g, ' ').trim(),
                  적힌개강: m[3].trim() }));
