@@ -100,7 +100,7 @@ if (!쓰기) { console.log('\n(바꾸려면 --쓰기)'); await 끝(0); }
 const { execFileSync } = await import('child_process');
 const { fileURLToPath } = await import('url');
 /* ⚠ new URL(...).pathname 은 한글을 %EA%B0%9C… 로 바꿔 버린다. fileURLToPath 로 풀어야 한다. */
-const 나온것 = execFileSync('node', [fileURLToPath(new URL('./개강일.mjs', import.meta.url)), '--문안만'],
+const 나온것 = execFileSync(process.execPath, [fileURLToPath(new URL('./개강일.mjs', import.meta.url)), '--문안만'],
                             { encoding: 'utf8' }).trim();
 if (나온것.length < 50) { console.log('✗ 새 문안이 비었다'); await 끝(1); }
 if (나온것 === 지금) { console.log('\n○ 이미 같은 내용이다. 건드리지 않는다.'); await 끝(0); }

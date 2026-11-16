@@ -142,9 +142,9 @@ if (!결과.some(x => x.바뀜)) {
   남기기('○ 리틀리 = 사이트. (' + 요약 + ')');
   /* 사이트는 같아도 카톡만 어긋나 있을 수 있다 — 적용 모드면 카톡도 대조한다(같으면 안 건드림) */
   if (적용 && !process.argv.includes('--미리')) {
-    try { const 답 = execFileSync('node', [join(HERE, '개강일_카톡.mjs'), '--쓰기'], { cwd: SITE, encoding: 'utf8', timeout: 240000 });
+    try { const 답 = execFileSync(process.execPath, [join(HERE, '개강일_카톡.mjs'), '--쓰기'], { cwd: SITE, encoding: 'utf8', timeout: 240000 });
           남기기('  카톡 ' + (/이미 같은/.test(답) ? '같음' : /저장 확인/.test(답) ? '갱신됨' : '결과 확인 필요')); }
-    catch { 남기기('  ⚠ 카톡 확인 실패(어사이드 꺼짐/카카오 로그인 풀림)'); }
+    catch (e) { 남기기('  ⚠ 카톡 확인 실패 — ' + String((e.stdout||'')+e.message).split('\n').filter(Boolean).pop().slice(0,120)); }
   }
   process.exit(0);
 }
@@ -172,7 +172,7 @@ try {
 
 /* ── 6. 카톡 자동응답 ───────────────────────────── */
 try {
-  const 답 = execFileSync('node', [join(HERE, '개강일_카톡.mjs'), '--쓰기'], { cwd: SITE, encoding: 'utf8', timeout: 240000 });
+  const 답 = execFileSync(process.execPath, [join(HERE, '개강일_카톡.mjs'), '--쓰기'], { cwd: SITE, encoding: 'utf8', timeout: 240000 });
   남기기('  카톡 ' + (/저장 확인|이미 같은/.test(답) ? '갱신됨' : '결과 확인 필요: ' + 답.trim().split('\n').pop()));
 } catch (e) {
   남기기('  ⚠ 카톡은 못 바꿨다(어사이드 꺼짐/카카오 로그인 풀림). 맥에서 `node tools/개강일_카톡.mjs --쓰기` 한 번 돌릴 것.');
