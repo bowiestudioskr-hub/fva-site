@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 16. PM 11:26:01",
+  "updated": "2026. 11. 16. PM 11:42:09",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -8,27 +8,27 @@
     "pending": 88,
     "dailyBudget": 2500,
     "balance": 3173,
-    "imp": 3237,
+    "imp": 3239,
     "clk": 224,
     "cost": 19548,
     "byPeriod": {
       "1": {
-        "imp": 61,
+        "imp": 63,
         "clk": 4,
         "cost": 330
       },
       "7": {
-        "imp": 328,
+        "imp": 330,
         "clk": 18,
         "cost": 1497
       },
       "28": {
-        "imp": 1422,
+        "imp": 1424,
         "clk": 95,
         "cost": 8480
       },
       "90": {
-        "imp": 19572,
+        "imp": 19574,
         "clk": 279,
         "cost": 78359
       },
@@ -119,12 +119,12 @@
       },
       {
         "d": "2026-11-16",
-        "imp": 61,
+        "imp": 63,
         "clk": 4,
         "cost": 330
       }
     ],
-    "campaignImp": 26595,
+    "campaignImp": 26597,
     "campaignClk": 290,
     "campaignCost": 96902,
     "groups": [
@@ -192,7 +192,7 @@
             "bid": 80,
             "live": true,
             "state": "운영",
-            "imp": 399,
+            "imp": 400,
             "clk": 117,
             "cost": 9545,
             "rank": 1
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 16. PM 11:25:38",
+    "updated": "2026. 11. 16. PM 11:41:48",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10180,30 +10180,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 193,
-        "click": 79,
-        "unique": 129,
-        "ctr": 40.9,
+        "visit": 194,
+        "click": 80,
+        "unique": 130,
+        "ctr": 41.2,
         "dwell": 19
       },
       "7": {
-        "visit": 1188,
-        "click": 363,
-        "unique": 828,
+        "visit": 1189,
+        "click": 364,
+        "unique": 829,
         "ctr": 30.6,
         "dwell": 28
       },
       "28": {
-        "visit": 4057,
-        "click": 862,
-        "unique": 2970,
-        "ctr": 21.2,
+        "visit": 4058,
+        "click": 863,
+        "unique": 2971,
+        "ctr": 21.3,
         "dwell": 25
       },
       "90": {
-        "visit": 11075,
-        "click": 2645,
-        "unique": 4906,
+        "visit": 11076,
+        "click": 2646,
+        "unique": 4907,
         "ctr": 23.9,
         "dwell": 24
       },
@@ -10215,9 +10215,9 @@
         "dwell": 47
       },
       "all": {
-        "visit": 44707,
-        "click": 16675,
-        "unique": 4906,
+        "visit": 44708,
+        "click": 16676,
+        "unique": 4907,
         "ctr": 37.3,
         "dwell": 24
       }
@@ -13159,9 +13159,9 @@
       },
       {
         "d": "2026-11-16",
-        "visit": 193,
-        "click": 79,
-        "unique": 129
+        "visit": 194,
+        "click": 80,
+        "unique": 130
       }
     ],
     "sources": [
@@ -13258,11 +13258,11 @@
       {
         "name": "네이버 검색",
         "host": "search.naver.com",
-        "visit": 18,
-        "click": 11,
-        "unique": 0,
-        "ctr": 61.1,
-        "dwell": 32
+        "visit": 19,
+        "click": 12,
+        "unique": 1,
+        "ctr": 63.2,
+        "dwell": 30
       },
       {
         "name": "talk.naver.com",
@@ -13398,7 +13398,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 3554
+        "clicks": 3555
       },
       {
         "key": "bGTonvP",
@@ -13820,9 +13820,9 @@
       },
       {
         "name": "데스크탑",
-        "visit": 628,
-        "click": 325,
-        "unique": 266,
+        "visit": 629,
+        "click": 326,
+        "unique": 267,
         "dwell": 103,
         "ctr": 51.8
       },
@@ -13838,9 +13838,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 22340,
-        "click": 2829,
-        "unique": 4312,
+        "visit": 22341,
+        "click": 2830,
+        "unique": 4313,
         "dwell": 30,
         "ctr": 12.7,
         "code": "KR"
@@ -14137,11 +14137,11 @@
       },
       {
         "name": "Ansan-si",
-        "visit": 56,
-        "click": 31,
-        "unique": 31,
+        "visit": 57,
+        "click": 32,
+        "unique": 32,
         "dwell": 19,
-        "ctr": 55.4,
+        "ctr": 56.1,
         "code": "KR"
       },
       {
@@ -14264,6 +14264,15 @@
             "unique": 1,
             "ctr": 100,
             "dwell": 21
+          },
+          {
+            "name": "네이버 검색",
+            "host": "search.naver.com",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "ctr": 100,
+            "dwell": 27
           }
         ],
         "device": [
@@ -14277,11 +14286,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 21,
-            "click": 13,
-            "unique": 12,
-            "dwell": 19,
-            "ctr": 61.9
+            "visit": 22,
+            "click": 14,
+            "unique": 13,
+            "dwell": 20,
+            "ctr": 63.6
           },
           {
             "name": "태블릿",
@@ -14295,11 +14304,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 186,
-            "click": 72,
-            "unique": 126,
+            "visit": 187,
+            "click": 73,
+            "unique": 127,
             "dwell": 19,
-            "ctr": 38.7,
+            "ctr": 39,
             "code": "KR"
           },
           {
@@ -14413,6 +14422,15 @@
             "code": "KR"
           },
           {
+            "name": "Ansan-si",
+            "visit": 2,
+            "click": 2,
+            "unique": 2,
+            "dwell": 42,
+            "ctr": 100,
+            "code": "KR"
+          },
+          {
             "name": "Anyang-si",
             "visit": 2,
             "click": 1,
@@ -14492,15 +14510,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "KR"
-          },
-          {
-            "name": "Frankfurt am Main",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "DE"
           }
         ],
         "blocks": [
@@ -14510,7 +14519,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 19
+            "clicks": 20
           },
           {
             "key": "xI5UCt0",
@@ -14660,6 +14669,15 @@
             "unique": 0,
             "ctr": 0,
             "dwell": 0
+          },
+          {
+            "name": "네이버 검색",
+            "host": "search.naver.com",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "ctr": 100,
+            "dwell": 27
           }
         ],
         "device": [
@@ -14673,11 +14691,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 67,
-            "click": 35,
-            "unique": 50,
-            "dwell": 61,
-            "ctr": 52.2
+            "visit": 68,
+            "click": 36,
+            "unique": 51,
+            "dwell": 60,
+            "ctr": 52.9
           },
           {
             "name": "태블릿",
@@ -14691,11 +14709,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 1147,
-            "click": 348,
-            "unique": 798,
+            "visit": 1148,
+            "click": 349,
+            "unique": 799,
             "dwell": 28,
-            "ctr": 30.3,
+            "ctr": 30.4,
             "code": "KR"
           },
           {
@@ -14891,11 +14909,11 @@
           },
           {
             "name": "Ansan-si",
-            "visit": 14,
-            "click": 5,
-            "unique": 10,
+            "visit": 15,
+            "click": 6,
+            "unique": 11,
             "dwell": 21,
-            "ctr": 35.7,
+            "ctr": 40,
             "code": "KR"
           },
           {
@@ -15005,7 +15023,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 78
+            "clicks": 79
           },
           {
             "key": "CBR1sRX",
@@ -15173,6 +15191,15 @@
             "dwell": 35
           },
           {
+            "name": "네이버 검색",
+            "host": "search.naver.com",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "ctr": 100,
+            "dwell": 27
+          },
+          {
             "name": "youtube.com",
             "host": "youtube.com",
             "visit": 1,
@@ -15193,11 +15220,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 178,
-            "click": 99,
-            "unique": 130,
+            "visit": 179,
+            "click": 100,
+            "unique": 131,
             "dwell": 59,
-            "ctr": 55.6
+            "ctr": 55.9
           },
           {
             "name": "태블릿",
@@ -15211,11 +15238,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3644,
-            "click": 836,
-            "unique": 2594,
+            "visit": 3645,
+            "click": 837,
+            "unique": 2595,
             "dwell": 25,
-            "ctr": 22.9,
+            "ctr": 23,
             "code": "KR"
           },
           {
@@ -15501,11 +15528,11 @@
           },
           {
             "name": "Ansan-si",
-            "visit": 41,
-            "click": 25,
-            "unique": 23,
+            "visit": 42,
+            "click": 26,
+            "unique": 24,
             "dwell": 23,
-            "ctr": 61,
+            "ctr": 61.9,
             "code": "KR"
           },
           {
@@ -15579,7 +15606,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 184
+            "clicks": 185
           },
           {
             "key": "CBR1sRX",
@@ -15825,11 +15852,11 @@
           {
             "name": "네이버 검색",
             "host": "search.naver.com",
-            "visit": 1,
-            "click": 1,
-            "unique": 0,
+            "visit": 2,
+            "click": 2,
+            "unique": 1,
             "ctr": 100,
-            "dwell": 32
+            "dwell": 30
           }
         ],
         "device": [
@@ -15843,11 +15870,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 350,
-            "click": 182,
-            "unique": 266,
+            "visit": 351,
+            "click": 183,
+            "unique": 267,
             "dwell": 103,
-            "ctr": 52
+            "ctr": 52.1
           },
           {
             "name": "태블릿",
@@ -15861,11 +15888,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 6049,
-            "click": 1569,
-            "unique": 4312,
+            "visit": 6050,
+            "click": 1570,
+            "unique": 4313,
             "dwell": 30,
-            "ctr": 25.9,
+            "ctr": 26,
             "code": "KR"
           },
           {
@@ -16151,11 +16178,11 @@
           },
           {
             "name": "Ansan-si",
-            "visit": 51,
-            "click": 28,
-            "unique": 31,
+            "visit": 52,
+            "click": 29,
+            "unique": 32,
             "dwell": 19,
-            "ctr": 54.9,
+            "ctr": 55.8,
             "code": "KR"
           },
           {
@@ -16229,7 +16256,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 590
+            "clicks": 591
           },
           {
             "key": "bby1R8Y",
@@ -16512,11 +16539,11 @@
           {
             "name": "네이버 검색",
             "host": "search.naver.com",
-            "visit": 18,
-            "click": 11,
-            "unique": 0,
-            "ctr": 61.1,
-            "dwell": 32
+            "visit": 19,
+            "click": 12,
+            "unique": 1,
+            "ctr": 63.2,
+            "dwell": 30
           },
           {
             "name": "talk.naver.com",
@@ -16656,9 +16683,9 @@
           },
           {
             "name": "데스크탑",
-            "visit": 628,
-            "click": 325,
-            "unique": 266,
+            "visit": 629,
+            "click": 326,
+            "unique": 267,
             "dwell": 103,
             "ctr": 51.8
           },
@@ -16674,9 +16701,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 22340,
-            "click": 2829,
-            "unique": 4312,
+            "visit": 22341,
+            "click": 2830,
+            "unique": 4313,
             "dwell": 30,
             "ctr": 12.7,
             "code": "KR"
@@ -16973,11 +17000,11 @@
           },
           {
             "name": "Ansan-si",
-            "visit": 56,
-            "click": 31,
-            "unique": 31,
+            "visit": 57,
+            "click": 32,
+            "unique": 32,
             "dwell": 19,
-            "ctr": 55.4,
+            "ctr": 56.1,
             "code": "KR"
           },
           {
@@ -17042,7 +17069,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 3554
+            "clicks": 3555
           },
           {
             "key": "bGTonvP",
@@ -17518,6 +17545,15 @@
             "unique": 1,
             "ctr": 100,
             "dwell": 21
+          },
+          {
+            "name": "네이버 검색",
+            "host": "search.naver.com",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "ctr": 100,
+            "dwell": 27
           }
         ],
         "device": [
@@ -17531,11 +17567,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 21,
-            "click": 13,
-            "unique": 12,
-            "dwell": 19,
-            "ctr": 61.9
+            "visit": 22,
+            "click": 14,
+            "unique": 13,
+            "dwell": 20,
+            "ctr": 63.6
           },
           {
             "name": "태블릿",
@@ -17549,11 +17585,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 186,
-            "click": 72,
-            "unique": 126,
+            "visit": 187,
+            "click": 73,
+            "unique": 127,
             "dwell": 19,
-            "ctr": 38.7,
+            "ctr": 39,
             "code": "KR"
           },
           {
@@ -17667,6 +17703,15 @@
             "code": "KR"
           },
           {
+            "name": "Ansan-si",
+            "visit": 2,
+            "click": 2,
+            "unique": 2,
+            "dwell": 42,
+            "ctr": 100,
+            "code": "KR"
+          },
+          {
             "name": "Anyang-si",
             "visit": 2,
             "click": 1,
@@ -17746,15 +17791,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "KR"
-          },
-          {
-            "name": "Frankfurt am Main",
-            "visit": 1,
-            "click": 0,
-            "unique": 1,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "DE"
           }
         ],
         "blocks": [
@@ -17764,7 +17800,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 19
+            "clicks": 20
           },
           {
             "key": "xI5UCt0",
