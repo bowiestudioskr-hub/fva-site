@@ -383,6 +383,9 @@ const HANDMADE = new Set([
   // basic.html — 왕초보반(연희동 4주). 피그마 상세페이지를 진짜 텍스트로 옮긴 손조판이다.
   //   ⚠ pages/ 에 동명 항목이 생기면 빌드가 덮어쓴다. 만들지 말 것.
   'basic.html',
+  // professional.html — 프로페셔널 클래스(촬영&조명 올인원 캠프, 종로 BS타워). 손조판.
+  //   ⚠ pages/ 에 동명 항목이 생기면 빌드가 덮어쓴다. 만들지 말 것.
+  'professional.html',
   // singleroom501/ — 오공일501 예약 현황(운영자용). 사업은 다르지만 주소만 여기 둔다.
   // ⚠ 손님 화면은 oh501.surge.sh 다. 이 파일 안에서 '/' 로 걸면 아카데미 첫 화면으로 간다.
   //   원본은 이 파일 하나다 (예전에 501/site/monitor/ 에도 사본이 있었으나 지웠다).
@@ -411,7 +414,7 @@ const today = new Date().toISOString().slice(0, 10);
 const ND = require('./pages/news-data');
 const NEWS_SLUGS = [...ND.map(n => `news-${n.slug}.html`),
                     ...ND.flatMap(n => n.posts.map((_, i) => `news-${n.slug}-${i+1}.html`))];
-const urls = ['', 'online.html', 'offline.html', 'basic.html', 'curriculum.html', 'news.html', 'works.html', 'reviews.html', 'privacy.html', ...NEWS_SLUGS];
+const urls = ['', 'online.html', 'offline.html', 'basic.html', 'professional.html', 'curriculum.html', 'news.html', 'works.html', 'reviews.html', 'privacy.html', ...NEWS_SLUGS];
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'),
 `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

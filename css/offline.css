@@ -834,6 +834,8 @@ a.start:hover, a.start:focus-visible{ text-decoration:underline; text-underline-
 /* ── 페이지 맨 아래 버튼 한 벌 ─────────────────────────
    위쪽 버튼은 한참 위에 있어서, 끝까지 읽은 사람이 다시 올라가야 했다. */
 .off-endcta{
+  /* ⚠ --u 가 여기엔 없어서 데스크탑에서 버튼 크기 calc 가 통째로 무효가 됐다(버튼이 16px 납작). 위 모집 블록과 같은 단위를 준다. 2026-11-16 */
+  --u:var(--pagew);
   padding:clamp(48px, calc(var(--u) * 120/1920), 120px) var(--gutter)
           clamp(64px, calc(var(--u) * 140/1920), 140px);
   background:#000;
@@ -850,3 +852,7 @@ a.start:hover, a.start:focus-visible{ text-decoration:underline; text-underline-
   transform:translateX(-130%); animation:fv-shine2 3.6s ease 1.4s infinite }
 @keyframes fv-shine2{ 0%{ transform:translateX(-130%) } 45%,100%{ transform:translateX(130%) } }
 @media (prefers-reduced-motion: reduce){ .nt-btn.solid,.nt-btn.solid::after{ animation:none } }
+
+/* 버튼 세 개(수강 신청 · 개강일 확인 · 코스 전체, 2026-11-16) — 폰에서 한 줄에 셋이면 글자가 접힌다.
+   신청 버튼만 한 줄 전체로 올리고, 나머지 둘을 아래 줄에 나란히 둔다. */
+@media (max-width:680px){ .nt-btns .nt-btn.solid{ flex:1 1 100% } }

@@ -139,8 +139,28 @@ if (process.argv.includes('--set') || set아규.startsWith('--set=')) {
 const 모음 = 판.map(판하나 => ({ 판: 판하나, 정보: 읽기(판하나.파일) }));
 
 /* 카톡 갱신 도구가 문안만 가져갈 때 쓴다. 다른 말은 한 줄도 찍지 않는다. */
+/* ⚠ 2026-11-16부터 사이트에는 개강일을 안 적는다. 카톡 날짜는 감시 도구가 리틀리 그림에서 읽어 둔 파일에서 가져온다. */
+function 카톡문안_리틀리() {
+  const F = join(process.env.HOME, 'Library', 'Application Support', 'fva', '개강일_리틀리.json');
+  if (!existsSync(F)) return null;
+  const j = JSON.parse(readFileSync(F, 'utf8'));
+  const 줄 = (rs) => rs.map(r => `· ${r.반} ${r.때.replace(/\s*–\s*/g, ' - ')} → ${짧은날(r.날)} 개강`);
+  const 토막 = [
+    ['▪ BASIC CLASS · 왕초보 · 주 1회', '서울 서대문구 연희로8길 18', ...줄(j.베이직)],
+    [`▪ MASTER CLASS ${j.마스터.기수}기 · 주 1회`, '서울 마포구 독막로6길 6 현영빌딩 5F', ...줄(j.마스터.반목록)],
+  ];
+  if (j.프로) {
+    const r = j.프로.반목록[0];
+    토막.push([`▪ PROFESSIONAL CLASS CAMP ${j.프로.기}기 · 주말 이틀`, '서울 종로구 종로35길 12 BS타워 B1',
+              `· ${짧은날(r.날)}부터 이틀, ${r.때.replace(/\s*–\s*/g, ' - ')}`]);
+  }
+  return ['📅 개강일 안내', '', ...토막.map(t => t.join('\n')).join('\n\n').split('\n'), '',
+          '베이직과 마스터는 다른 요일로 보강 가능합니다.'].join('\n');
+}
 if (process.argv.includes('--문안만')) {
-  process.stdout.write(카톡문안(모음));
+  const 문 = 카톡문안_리틀리() || 카톡문안(모음);
+  if ([...문].length > 400) { console.error('400자 넘음: ' + [...문].length); process.exit(1); }
+  process.stdout.write(문);
   process.exit(0);
 }
 

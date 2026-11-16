@@ -52,7 +52,7 @@ if __name__ == '__main__':
 #   그러면 CSS 를 고쳐도 그 두 쪽은 빌드를 돌려야만 새 걸 받는다 — 옛 CSS 가 나간다.
 #   그래서 **모든 페이지를 같은 방식(내용 해시)으로** 맞춘다.
 # ⚠ 빌드(build.js)를 돌린 뒤에는 이 스크립트를 다시 돌려야 한다. 빌드가 ?v= 를 지운다.
-쪽들 = ('basic.html', 'offline.html', 'index.html', 'online.html', 'curriculum.html',
+쪽들 = ('basic.html', 'offline.html', 'professional.html', 'index.html', 'online.html', 'curriculum.html',
         'works.html', 'reviews.html', 'littly.html', 'privacy.html', 'news.html')
 
 

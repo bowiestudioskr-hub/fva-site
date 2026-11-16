@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="naver-site-verification" content="c4bbb7024041cad14985b579d3c6128fb16a3b62">
+<meta name="naver-site-verification" content="0ee823beb2ceccadce51966746eead96618a3573">
+<!-- Meta 픽셀 — 데이터세트 771478541518631 (계정 fvaAD 835470185019366)
+     인스타 광고가 사이트에서 무슨 일을 만들었는지 세려면 이게 있어야 한다.
+     없으면 메타는 「프로필 방문」처럼 싸고 의미 없는 지표만 사다 준다. -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+/* ⚠ 자동 점검 도구가 인스타 광고 성과에 섞이면 안 된다. gtag 와 같은 이유로 막는다. */
+if (!/HeadlessChrome|bot|crawler|spider|Lighthouse|PhantomJS/i.test(navigator.userAgent)
+    && navigator.webdriver !== true) {
+  fbq('init','771478541518631');
+  fbq('track','PageView');
+}
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-79SFDWBK3L"></script>
+<script>
+  /* ⚠ 자동 점검 도구(헤드리스 크롬)가 방문자로 잡히면 수치가 통째로 오염된다.
+     2026-08-19 에 실제로 그랬다 — 그날 89명 중 57명(64%)이 「출처 없음」이었고
+     그 대부분이 내가 사이트를 점검하려고 띄운 창이었다.
+     헤드리스는 UA 에 HeadlessChrome 이 박히고, 자동조종은 navigator.webdriver 가 true 다.
+     둘 중 하나라도 걸리면 아무것도 보내지 않는다. 사람 브라우저는 둘 다 해당 없다. */
+  var __bot = /HeadlessChrome|bot|crawler|spider|Lighthouse|PhantomJS/i.test(navigator.userAgent)
+              || navigator.webdriver === true;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ if (__bot) return; dataLayer.push(arguments); }
+  gtag('js', new Date());
+  // 네이버 검색광고는 클릭도 referrer 가 search.naver.com 이라 자연 검색과 구분되지 않는다.
+  // 광고 URL 에 붙인 utm_* 로 출처를 잡고, 네이버 자동추적이 붙여주는 n_keyword·n_query 로
+  // 「어떤 검색어로 들어왔는지」까지 잡는다. 둘 다 없으면 그냥 평소대로 동작한다.
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var nkw = q.get('n_keyword') || q.get('n_query');
+    var cfg = {};
+    if (nkw && !q.get('utm_term')) cfg.campaign_term = nkw;
+    if (nkw && !q.get('utm_source')) {
+      cfg.campaign_source = 'naver';
+      cfg.campaign_medium = 'cpc';
+      cfg.campaign_name = 'powerlink';
+    }
+    gtag('config', 'G-79SFDWBK3L', cfg);
+    // 구글애즈 전환 측정. 이 줄이 없으면 아래 conversion 이벤트가 갈 곳을 모른다.
+    gtag('config', 'AW-18168213469');
+  })();
+
+  /* 사이트 밖으로 나가는 두 갈래만 이름 붙여 센다.
+     GA4 향상된 측정도 outbound click 을 잡지만 전부 'click' 한 덩어리라
+     보고서에서 갈라 보기 어렵다. 이름을 주면 바로 집계된다.
+       online_class_click  — 온라인 강의 구매/맛보기 (app.publr.co)
+       kakao_consult_click — 즉시 상담 (pf.kakao.com)
+     페이지별 체류시간은 GA4 「참여도 > 페이지 및 화면」에서 자동으로 나온다. */
+  document.addEventListener('click', function (e) {
+    var el = e.target instanceof Element ? e.target.closest('a[href]') : null;
+    if (!el) return;
+    var href = el.href || '', text = (el.textContent || '').trim().slice(0, 40);
+    if (href.indexOf('app.publr.co') > -1) {
+      gtag('event', 'online_class_click', {
+        link_text: text, link_url: href, from_page: location.pathname
+      });
+      /* ⚠ 이 줄이 없어서 온라인강의 클릭이 구글애즈에 한 건도 안 갔다(2026-08-30 발견). */
+      gtag('event', 'conversion', { send_to: 'AW-18168213469/tn3YCK-gtuIcEN3fo9dD' });
+    } else if (href.indexOf('pf.kakao.com') > -1) {
+      gtag('event', 'kakao_consult_click', {
+        link_text: text, from_page: location.pathname
+      });
+      // 구글애즈 전환 「상담 클릭」. GA4 이벤트와 별개로 광고 계정에 직접 보낸다.
+      gtag('event', 'conversion', { send_to: 'AW-18168213469/tn3YCK-gtuIcEN3fo9dD' });
+    } else if (href.indexOf('smartstore.naver.com') > -1) {
+      gtag('event', 'offline_store_click', {
+        link_text: text, link_url: href, from_page: location.pathname
+      });
+      /* ⚠ **가장 중요한 전환인데 빠져 있었다.** 오프라인 수강권은 여기서 팔린다.
+           8월에 GA4 는 84건을 봤는데 구글애즈가 본 전환은 4건뿐이었다(21배 차이).
+           자동 입찰이 그 4건만 보고 돌아가니 어떤 검색어가 돈을 벌어주는지 알 수 없었다.
+         ⚠ 지금은 상담·수강권·온라인강의가 **같은 전환 액션**으로 간다. 나누려면 구글애즈에서
+           새 전환 액션을 만들어 라벨을 받아야 한다. 나누기 전이라도 보내는 편이 훨씬 낫다.
+           어디서 눌렀는지는 GA4 이벤트로 그대로 갈라 본다. */
+      gtag('event', 'conversion', { send_to: 'AW-18168213469/tn3YCK-gtuIcEN3fo9dD' });
+    }
+  }, true);
+</script>
+<title>프로페셔널 클래스 PROFESSIONAL CLASS — 촬영&amp;조명 올인원 캠프 CAMP 1기 | FVA 피바아카데미</title>
+<meta name="description" content="주말 동안 끝내는 촬영&amp;조명 올인원 속성 캠프. 2026년 12월 19일(토) 오전 9시부터 12월 20일(일) 22시까지 2일 과정. DSLR부터 ALEXA 35, ALEXA SXT Plus, RED V-RAPTOR, FX6, FX3까지 시네마 카메라 5종과 렌즈, 조명, 달리·짐벌·크레인 무빙 장비를 직접 세팅하고 촬영합니다. 황금촬영상 3년 연속 수상 박민우 촬영감독 직강. 서울 종로 BS타워 지하 1층, 선착순 30명.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "홈",
+      "item": "https://fva.co.kr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "프로페셔널 클래스",
+      "item": "https://fva.co.kr/professional.html"
+    }
+  ]
+}
+</script>
+<link rel="canonical" href="https://fva.co.kr/professional.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FVA ACADEMY">
+<meta property="og:title" content="프로페셔널 클래스 PROFESSIONAL CLASS — 촬영&amp;조명 올인원 캠프 CAMP 1기 | FVA 피바아카데미">
+<meta property="og:description" content="주말 동안 끝내는 촬영&amp;조명 올인원 속성 캠프. 12월 19일(토)~20일(일) 2일 과정, 박민우 촬영감독 직강, 서울 종로 BS타워, 선착순 30명.">
+<meta property="og:url" content="https://fva.co.kr/professional.html">
+<meta property="og:image" content="https://fva.co.kr/assets/img/og.jpg">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="css/style.css?v=bcdee7d5">
+<link rel="stylesheet" href="css/mobile.css?v=6a81566b">
+<link rel="stylesheet" href="css/sub.css?v=313eb78b">
+<link rel="stylesheet" href="css/basic.css?v=0a31796f">
+<link rel="stylesheet" href="css/pro.css?v=ac322666">
+<!-- 가격은 피그마 판매 페이지 원본(11 INFO) 값 — 800,000원(특별 할인가). 바뀌면 여기와 본문 표를 같이 고칠 것. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "FVA PROFESSIONAL CLASS 촬영&조명 올인원 캠프",
+  "description": "주말 동안 끝내는 촬영&조명 올인원 속성 캠프. DSLR부터 시네마 카메라까지 카메라 5종, 렌즈와 촬영 장비, 조명 설치와 세팅을 직접 다루고 촬영감독, 오퍼레이터, 조명감독, 그립, 촬영부 5가지 현장 역할을 실습한다.",
+  "provider": { "@type": "EducationalOrganization", "name": "FVA ACADEMY 피바아카데미", "url": "https://fva.co.kr/" },
+  "inLanguage": "ko",
+  "offers": { "@type": "Offer", "price": "800000", "priceCurrency": "KRW",
+              "url": "https://smartstore.naver.com/bowiestudios/products/13819797024",
+              "availability": "https://schema.org/InStock" },
+  "hasCourseInstance": { "@type": "CourseInstance", "courseMode": "onsite", "courseWorkload": "PT26H",
+    "startDate": "2026-12-19T09:00:00+09:00", "endDate": "2026-12-20T22:00:00+09:00",
+    "instructor": { "@type": "Person", "name": "박민우", "jobTitle": "촬영감독" },
+    "location": { "@type": "Place", "name": "BS타워 지하 1층",
+      "address": { "@type": "PostalAddress", "streetAddress": "종로 35길 12 BS타워 지하 1층", "addressLocality": "종로구",
+                   "addressRegion": "서울", "addressCountry": "KR" } } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationEvent",
+  "name": "PROFESSIONAL CLASS 촬영&조명 올인원 캠프 CAMP 1기",
+  "description": "주말 동안 끝내는 촬영&조명 올인원 속성 캠프. 박민우 촬영감독 직강, 선착순 30명, 피바 수료생 우선.",
+  "startDate": "2026-12-19T09:00:00+09:00",
+  "endDate": "2026-12-20T22:00:00+09:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "maximumAttendeeCapacity": 30,
+  "url": "https://fva.co.kr/professional.html",
+  "image": "https://fva.co.kr/assets/img/og.jpg",
+  "location": { "@type": "Place", "name": "BS타워 지하 1층",
+    "address": { "@type": "PostalAddress", "streetAddress": "종로 35길 12 BS타워 지하 1층", "addressLocality": "종로구",
+                 "addressRegion": "서울", "addressCountry": "KR" } },
+  "organizer": { "@type": "EducationalOrganization", "name": "FVA ACADEMY 피바아카데미", "url": "https://fva.co.kr/" },
+  "performer": { "@type": "Person", "name": "박민우", "jobTitle": "촬영감독" }
+}
+</script>
+  <script src="/js/measure.js?v=912a3c8b" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="top-bar" aria-hidden="true"></span>
+  <div class="hd">
+    <a class="hd-logo" href="/">
+      <span class="sr-only">FVA ACADEMY</span><svg class="tlab-logo" aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" style="display: block;" viewBox="0 0 184 17.7697" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group">
+<path id="Vector" d="M12.9107 3.72084V0.297209H0V17.4812H3.67108V11.8302H11.4918V8.40659H3.67108V3.72909H12.9107V3.72084Z" fill="currentColor"/>
+<path id="Vector_2" d="M28.1398 0.297209L23.5365 12.5975L18.9331 0.297209H14.8166L21.276 17.4812H25.6814L32.1409 0.297209H28.1233H28.1398Z" fill="currentColor"/>
+<path id="Vector_3" d="M41.6524 0.297209H37.1976L30.7381 17.4812H34.6567L35.7374 14.3958H42.9806L44.1026 17.4812H48.1202L41.6607 0.297209H41.6524ZM36.9006 11.0712L39.3508 4.1168L41.8009 11.0712H36.9089H36.9006Z" fill="currentColor"/>
+<path id="Vector_4" d="M66.4753 0.297209H62.0205L55.6105 17.4812H59.5291L60.6098 14.3958H67.853L68.9337 17.4812H73.0007L66.4918 0.297209H66.4753ZM61.773 11.0712L64.2231 4.1168L66.6733 11.0712H61.7812H61.773Z" fill="currentColor"/>
+<path id="Vector_5" d="M82.8757 14.2472C79.8398 14.2472 77.5381 11.9455 77.5381 8.86017C77.5381 5.7748 79.8398 3.52267 82.8757 3.52267C85.0784 3.52267 86.9428 4.74361 87.6275 6.70703H91.5956C90.7624 2.73894 87.1903 5.03481e-05 82.884 5.03481e-05C77.6949 5.03481e-05 73.7763 3.81963 73.7763 8.86017C73.7763 13.9007 77.6949 17.7697 82.884 17.7697C87.1903 17.7697 90.7624 15.0309 91.5956 11.0628H87.6275C86.9428 13.0179 85.0784 14.2472 82.8757 14.2472Z" fill="currentColor"/>
+<path id="Vector_6" d="M103.195 0.297209H98.7399L92.2804 17.4812H96.199L97.2797 14.3958H104.572L104.506 14.3051L105.653 17.4812H109.671L103.211 0.297209H103.195ZM98.4429 11.0712L100.893 4.1168L103.343 11.0712H98.4511H98.4429Z" fill="currentColor"/>
+<path id="Vector_7" d="M118.952 0.297209H112.196V17.4812H118.952C123.943 17.4812 127.713 13.7607 127.713 8.86862C127.713 3.97657 123.943 0.297209 118.952 0.297209ZM118.862 14.0081H115.875V3.72909H118.862C121.749 3.72909 123.952 5.93174 123.952 8.86862C123.952 11.8055 121.749 14.0081 118.862 14.0081Z" fill="currentColor"/>
+<path id="Vector_8" d="M134.305 14.0079V10.5349H141.16V7.11124H134.305V3.73706H141.994V0.313534H130.683V17.4975H142.093V14.0245H134.305V14.0079Z" fill="currentColor"/>
+<path id="Vector_9" d="M160.101 0.297209L155.11 9.40476L155.011 9.20678L150.16 0.297209H145.508V17.4812H149.179V5.48618L149.377 5.92343L155.102 16.4252L156.133 14.5444L161.075 5.48618V17.4812H164.696V0.297209H160.093H160.101Z" fill="currentColor"/>
+<path id="Vector_10" d="M179.884 0.297209L175.676 7.83741L175.577 7.63942L171.419 0.297209H167.262L173.77 11.558V17.4812H177.442V11.558L184 0.297209H179.892H179.884Z" fill="currentColor"/>
+</g>
+</svg>
+
+    </a>
+    <button class="nav-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">☰</button>
+    <nav class="gnb" id="gnb" aria-label="주 메뉴">
+      <a href="/">홈</a>
+      <a href="/online.html">온라인 강의</a>
+      <a href="/offline.html">오프라인 강의</a>
+      <a href="/basic.html">왕초보반</a>
+      <a href="/professional.html" aria-current="page">프로페셔널</a>
+      <a href="/curriculum.html">커리큘럼</a>
+      <a href="/news.html">피바뉴스</a>
+      <a href="/works.html">수강생 작품</a>
+      <a href="/reviews.html">강의후기</a>
+    </nav>
+    <a class="btn-cta" href="https://pf.kakao.com/_nxhyhn/chat" target="_blank" rel="noopener">즉시 상담하기</a>
+    <ul class="sns">
+      <li><a href="https://smartstore.naver.com/bowiestudios" target="_blank" rel="noopener" aria-label="네이버 스마트스토어"><img src="assets/icons/sns-naver.svg" alt="" aria-hidden="true"></a></li>
+      <li><a href="https://www.instagram.com/fvaacademy/" target="_blank" rel="noopener" aria-label="인스타그램"><img src="assets/icons/sns-instagram.svg" alt="" aria-hidden="true"></a></li>
+      <li><a href="https://pf.kakao.com/_nxhyhn/chat" target="_blank" rel="noopener" aria-label="카카오톡 채널"><img src="assets/icons/sns-kakao.svg" alt="" aria-hidden="true"></a></li>
+      <li><a href="https://blog.naver.com/bowiestudioskr" target="_blank" rel="noopener" aria-label="네이버 블로그"><img src="assets/icons/sns-blog.svg" alt="" aria-hidden="true"></a></li>
+      <li><a href="https://www.youtube.com/@FVA-ACADEMY" target="_blank" rel="noopener" aria-label="유튜브"><img src="assets/icons/sns-youtube.svg" alt="" aria-hidden="true"></a></li>
+      <li><a href="https://litt.ly/bowiestudios" target="_blank" rel="noopener" aria-label="피바아카데미 리틀리"><img src="assets/icons/sns-link.svg" alt="" aria-hidden="true"></a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ⚠ 과정 고르기 — offline.html·basic.html·professional.html 세 페이지 맨 위에 같은 칸을 둔다.
+     세 과정은 **장소도 결제도 다르다**(합정 현영빌딩 / 연희동 스페이스독 / 종로 BS타워, 스토어 상품 별개). -->
+<div class="bs-pick-wrap">
+  <nav class="bs-pick" aria-label="오프라인 과정 고르기">
+    <a href="/offline.html">
+      <img class="bs-mascot bs-m-reg" src="assets/img/mascot-face.png?v=96087825" width="320" height="314" alt="" aria-hidden="true">
+      <b>마스터 클래스</b><span>1~3개월 · 포트폴리오</span><em class="bs-where">합정 현영빌딩</em></a>
+    <a href="/basic.html">
+      <img class="bs-mascot bs-m-basic" src="assets/img/basic/egg3d.webp?v=2552b260" width="520" height="657" alt="" aria-hidden="true">
+      <b>베이직 클래스</b><span>4주 4회 · 왕초보반</span><em class="bs-where">연희동 스페이스독</em></a>
+    <a href="/professional.html" aria-current="page">
+      <img class="bs-mascot bs-m-pro" src="assets/img/mascot-cam-460.webp?v=d2609388" width="460" height="344" alt="" aria-hidden="true">
+      <b>프로페셔널 클래스</b><span>주말 2일 캠프</span><em class="bs-where">종로 BS타워</em></a>
+  </nav>
+</div>
+
+<main class="bs bs-pro">
+
+<!-- 상단 모집 블록 — basic.html·offline.html 과 같은 구조.
+     ⚠ 사이트 전체 방침으로 개강일은 표에 적지 않는다(반 이름·시간만). 개강일은 리틀리(「개강일 확인하기」)에서 안내한다.
+     ⚠ 남은 자리 수처럼 확인 안 된 숫자는 적지 말 것. -->
+<section class="bs-notice" aria-label="모집 안내">
+  <p class="loc"><b>강의 장소 &middot; 종로 BS타워</b><span>서울 종로구 종로 35길 12 BS타워 지하 1층</span></p>
+  <div class="nt-urgent" id="nt-urgent" hidden>
+    <picture>
+      <source srcset="assets/img/mascot-cam-460.webp?v=d2609388" type="image/webp">
+      <img class="face" src="assets/img/mascot-cam-460.png?v=7c6188bc" alt="" width="460" height="344"
+           decoding="async" aria-hidden="true">
+    </picture>
+    <div class="say">
+      <span class="flare" id="nt-flare">모집 중</span>
+      <strong id="nt-say">CAMP 1기 수강생 <b>모집</b></strong>
+      <span class="dday" id="nt-dday"></span>
+    </div>
+  </div>
+
+  <div class="nt-open">
+    <p class="head">
+      <strong id="nt-h">CAMP 1기 모집중</strong>
+      <span>주말 2일 과정 &middot; 선착순 30명</span>
+    </p>
+    <div class="nt-table">
+        <div class="nt-row">
+          <span class="cls">주말 캠프</span>
+          <span class="time">09:00 &ndash; 22:00</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="nt-how">
+    <div><b>모집</b><span>선착순 30명이며 피바 수료생을 우선으로 받습니다.</span></div>
+  </div>
+
+  <p class="nt-btns">
+    <a class="nt-btn solid" href="https://smartstore.naver.com/bowiestudios/products/13819797024" target="_blank" rel="noopener">
+      수강 신청하기 <span aria-hidden="true">&rarr;</span>
+    </a>
+    <a class="nt-btn ghost" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">
+      개강일 확인하기 <span aria-hidden="true">&rarr;</span>
+    </a>
+    <a class="nt-btn ghost" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">
+      코스 전체 보기 <span aria-hidden="true">&rarr;</span>
+    </a>
+  </p>
+</section>
+
+<!-- 본문은 전부 진짜 글자다 — 검색엔진과 AI 가 읽고 검색어를 만들 수 있게 (정주 요청 11/16).
+     원본: 피그마 fS84ZugZYCAkZ8SIPaeKDd 「PRO」 페이지(102128:156), 00 → 12 순서 그대로. -->
+<!-- ══ 00 장비 메시지 (피그마 102128:1601) ══ -->
+<section class="pro-msg" aria-labelledby="pro-msg-h">
+  <div class="pro-msg-card">
+    <h2 class="pro-msg-h" id="pro-msg-h">장비를 바꿔도 화면이 그대로라면<br>답은 “장비를 제대로 배우는 것”입니다.</h2>
+    <p class="pro-msg-sub">카메라와 조명은 완전히 익숙해지면<br>훨씬 더 잘 찍을 수 있습니다. <b>단 이틀</b>이면 충분합니다.</p>
+    <h3 class="pro-msg-h3">이런 분께 필요합니다</h3>
+    <ul class="pro-dots">
+      <li><b>유튜브</b>를 시작했는데 결과물이 광고처럼 안 나오는 분</li>
+      <li>프리랜서로 촬영을 시작했는데 <b>세팅</b>에서 막히는 분</li>
+      <li><b>광고 / 뮤비 현장</b>에 가기 전 장비부터 만져 봐야 하는 분</li>
+      <li>스튜디오를 열었는데 <b>조명 세팅</b>이 늘 아쉬운 분</li>
+    </ul>
+    <h3 class="pro-msg-h3 pro-mid">이틀 동안 직접 실습해보는 장비들</h3>
+    <ul class="pro-chips">
+      <li>ARRI ALEXA</li><li>Sony FX6</li><li>Sony FX3</li><li>조명 세팅</li>
+    </ul>
+    <p class="pro-msg-sub">장비들을 직접 만져보는 실습형 캠프입니다.</p>
+    <p class="pro-msg-end">프리랜서도 직장인도 학생도 모두 참여 가능하시도록<br>토요일과 일요일, 단 26시간으로 압축했습니다.</p>
+    <p class="pro-msg-sub">비싼 장비 대여료는 걱정하지 마세요.<br>저희가 다 준비해 놨습니다. 마음껏 만져 보세요~!</p>
+  </div>
+</section>
+
+<!-- ══ 01 HERO (102128:158) ══ -->
+<section class="pro-hero" aria-labelledby="pro-title">
+  <img class="pro-hero-ph" src="assets/img/pro/hero-kv.webp?v=2550c673" width="1024" height="576" fetchpriority="high" alt="박민우 촬영감독이 시네마 카메라와 조명을 세팅한 촬영 현장">
+  <div class="pro-hero-copy">
+    <h1 class="pro-hero-h" id="pro-title"><span class="pro-g">MINU PARK KSC</span><br>CINEMATOGRAPHY<br>INTENSIVE CAMP</h1>
+    <p class="pro-hero-sub">Professional Class : 주말 안에 모든 장비 마스터하기</p>
+    <p class="pro-hero-one">주말 동안 끝내는 촬영&amp;조명 올인원 속성 캠프</p>
+  </div>
+  <ul class="pro-reviews">
+    <li>강의를 들으며 단편영화를 만드는데, 감독님의 조언 덕분에 지원 사업에 성공해서 단편 투자도 받아 작품을 잘 끝냈습니다. <span>(박O 수강생)</span></li>
+    <li>대학 졸업 후 글만 쓰던 연출가였는데, 촬영 강의를 들으면서 비로소 카메라로 제 연출을 구현하는 방법을 제대로 배운 느낌입니다. <span>(채OO 수강생)</span></li>
+    <li>장편 한 편 찍은 경험으로 바로 드라마, 영화 그립팀에 합류해 꾸준히 일하고 있습니다. 감독님 말씀대로 흘러가서 신기합니다. <span>(김OO 수강생)</span></li>
+    <li>현장에서 바로 쓸 수 있는 조명 팁을 배워 야간 촬영이 너무 쉬워졌습니다. <span>(김O 수강생)</span></li>
+  </ul>
+  <p class="pro-src">ArtistCave 수강생 후기</p>
+</section>
+
+<!-- ══ 02 HOOK (102128:191) ══ -->
+<section class="pro-sec pro-hook" aria-labelledby="pro-hook-h">
+  <h2 class="pro-h" id="pro-hook-h">고수는 장비를<br>탓하지 않는다.</h2>
+  <p class="pro-p">DSLR부터 시네마 카메라까지. 실제 상업영화, 드라마 현장에서 사용하는 카메라, 조명, 무빙 장비로 이미지를 만드는 방법을 배웁니다.</p>
+</section>
+
+<!-- ══ 03 KEY FACTS (102128:195) ══ -->
+<section class="pro-sec pro-facts" aria-label="핵심 정보">
+  <ul class="pro-fact">
+    <li><b>2</b><i>Days</i><span>토~일 2일 집중 과정<br>09:00 – 22:00</span></li>
+    <li><b>26</b><i>Hours</i><span>하루 13시간 Full-time<br>촬영 중 자율 식사 진행</span></li>
+    <li><b>5</b><i>Cameras</i><span>ALEXA 35 / SXT Plus<br>V-RAPTOR / FX6 / FX3</span></li>
+    <li><b>5</b><i>Roles</i><span>DP / Operator / Gaffer<br>Grip / AC 역할 순환 촬영</span></li>
+  </ul>
+  <p class="pro-note pro-g">+ 수료 후 FVA 촬영&amp;조명 워크샵 참여 / 연출자와 콜라보 기회 제공</p>
+</section>
+
+<!-- ══ 04 INTRO (102128:221) ══ -->
+<section class="pro-sec" aria-labelledby="pro-about-h">
+  <p class="pro-kick">01 ABOUT</p>
+  <h2 class="pro-h" id="pro-about-h">좋은 이미지는 장비의 성능과<br>촬영감독의 선택이 함께 만들어냅니다.</h2>
+  <ul class="pro-qa">
+    <li><q>카메라는 어디에 놓을까?</q><p>거리, 높이, 렌즈를 바꿔가며 인물과 공간이 어떻게 달라지는지 비교합니다.</p></li>
+    <li><q>빛은 어디서 만들고, 어디서 줄일까?</q><p>실내든 야외든 어떤 조건에서도 장면에 맞는 시네마틱 조명을 설계합니다.</p></li>
+    <li><q>카메라는 언제 움직여야 할까?</q><p>달리, 짐벌, 크레인으로 배우의 동선에 맞춘 무빙을 설계합니다.</p></li>
+  </ul>
+  <div class="pro-ph"><img src="assets/img/pro/intro-set-wide.webp?v=c10b0656" width="1720" height="1291" loading="lazy" alt="붉은 조명을 켠 실습 스튜디오 전경"></div>
+  <p class="pro-p">박민우 KSC 촬영감독과 함께 카메라 운용, Lighting, Camera Movement를 익히고 짧은 장면을 완성합니다. 현장용 장비로 장비의 가능성과 한계를 이해하고, 내가 가진 장비에도 적용할 수 있는 촬영 원리를 배웁니다.</p>
+</section>
+
+<!-- ══ 05 EQUIPMENT (102128:238) ══ -->
+<section class="pro-sec" aria-labelledby="pro-eq-h">
+  <p class="pro-kick">02 EQUIPMENT</p>
+  <h2 class="pro-h" id="pro-eq-h">최고의 장비로 배우는 수업</h2>
+  <p class="pro-p">실제 영화와 OTT 현장의 상업용 시네마 장비를 매 시간 직접 세팅하고 운용합니다.</p>
+  <ul class="pro-cams">
+    <li><img src="assets/img/pro/cam-alexa35.webp?v=18ddd792" width="990" height="1152" loading="lazy" alt="ALEXA 35 카메라"><h3>ALEXA 35</h3><p>노출, 색, 모니터링 운용</p></li>
+    <li><img src="assets/img/pro/cam-alexa-sxt.webp?v=f77fe664" width="1182" height="567" loading="lazy" alt="ALEXA SXT Plus 카메라"><h3>ALEXA SXT Plus</h3><p>시네마 카메라 현장 운용</p></li>
+    <li><img src="assets/img/pro/cam-v-raptor.webp?v=d7201615" width="919" height="738" loading="lazy" alt="RED V-RAPTOR 카메라"><h3>RED V-RAPTOR</h3><p>기록과 모니터링 운용</p></li>
+    <li><img src="assets/img/pro/cam-fx6.webp?v=64056320" width="1433" height="1254" loading="lazy" alt="FX6 카메라"><h3>FX6</h3><p>소형 제작 환경 운용</p></li>
+    <li><img src="assets/img/pro/cam-fx3.webp?v=fa4c0887" width="1404" height="1142" loading="lazy" alt="FX3 카메라"><h3>FX3</h3><p>렌즈, 조명, 무빙 결합 실습</p></li>
+  </ul>
+  <h3 class="pro-h3">다섯 대의 카메라로 찍어보는 같은 장면</h3>
+  <p class="pro-p">같은 피사체와 조명에서 5종을 먼저 비교하고, 화각과 프레이밍을 맞춥니다. 하이라이트, 그림자, 피부 톤과 모니터링 화면을 나란히 보며 센서, 렌즈, 기록 포맷, 색 관리 중 어디서 차이가 생기는지 확인합니다.</p>
+  <h3 class="pro-h3 pro-g">GRIP &amp; MOVEMENT</h3>
+  <ul class="pro-grips">
+    <li><img src="assets/img/pro/grip-dolly.webp?v=f7647b0e" width="799" height="916" loading="lazy" alt=""><h4>유압 달리 &amp; 레일</h4><p>Dolly &amp; Track</p></li>
+    <li><img src="assets/img/pro/grip-gimbal.webp?v=a5dfeaf5" width="962" height="1157" loading="lazy" alt=""><h4>짐벌</h4><p>Gimbal</p></li>
+    <li><img src="assets/img/pro/grip-crane.webp?v=5aec546c" width="560" height="620" loading="lazy" alt=""><h4>크레인 &amp; 테크노크레인</h4><p>Crane</p></li>
+    <li><img src="assets/img/pro/grip-lighting.webp?v=7557b5ed" width="694" height="866" loading="lazy" alt=""><h4>조명 &amp; Grip 패키지</h4><p>Lighting &amp; Grip</p></li>
+  </ul>
+  <dl class="pro-dl">
+    <div><dt>LIGHTING</dt><dd>실제 상업영화와 드라마 현장용 조명 패키지<small>조명 종류, 출력, 모델, 수량은 최종 목록에서 확정</small></dd></div>
+    <div><dt>GRIP</dt><dd>C-Stand, Combo Stand, Flag, Net, Frame, Diffusion, Bounce, Negative Fill<small>빛을 통제하는 도구로 배웁니다</small></dd></div>
+    <div><dt>MOVEMENT</dt><dd>유압 달리, 레일 시스템, 짐벌, 크레인, 테크노크레인<small>세부 모델과 배치는 장소, 운영 인력과 함께 확정</small></dd></div>
+  </dl>
+</section>
+
+<!-- ══ 06 WHAT YOU LEARN (102128:339) ══ -->
+<section class="pro-sec" aria-labelledby="pro-learn-h">
+  <img class="pro-char" src="assets/img/pro/char-learn.webp?v=0acbf2fa" width="900" height="900" loading="lazy" alt="" aria-hidden="true">
+  <p class="pro-kick">03 WHAT YOU LEARN</p>
+  <h2 class="pro-h" id="pro-learn-h">수업에서 배우는<br>촬영감독의 판단</h2>
+  <ul class="pro-abcd">
+    <li><b>A</b><div><h3>CAMERA / LENS / EXPOSURE</h3><p>장면에 맞는 카메라, 렌즈, 노출과 모니터링 조건을 선택하는 방법</p></div></li>
+    <li><b>B</b><div><h3>LIGHTING</h3><p>실내, 야외 어떤 컨디션에서도 실제 현장처럼 조명을 세팅하는 방법</p></div></li>
+    <li><b>C</b><div><h3>CAMERA MOVEMENT</h3><p>배우의 동선과 감정에 맞춰 달리, 짐벌, 크레인 움직임을 설계하는 방법</p></div></li>
+    <li><b>D</b><div><h3>SCENE &amp; REVIEW</h3><p>카메라, 조명, 무빙을 함께 운용하고 촬영 결과를 리뷰하는 방법</p></div></li>
+  </ul>
+</section>
+
+<!-- ══ 07 CURRICULUM (102128:366) ══ -->
+<section class="pro-sec" aria-labelledby="pro-cur-h">
+  <p class="pro-kick">04 CURRICULUM</p>
+  <h2 class="pro-h" id="pro-cur-h">단 2일,<br>총 26시간의 집중 과정</h2>
+  <p class="pro-p">토~일 09:00 – 22:00 / 이틀 총 26시간</p>
+
+  <div class="pro-day">
+    <img class="pro-char" src="assets/img/pro/char-day1.webp?v=ae01a2fc" width="900" height="900" loading="lazy" alt="" aria-hidden="true">
+    <p class="pro-dayno">Day 1</p>
+    <h3 class="pro-dayh">카메라와 조명</h3>
+    <p class="pro-p">카메라의 공통 원리를 익히고, 조명용 Grip을 활용해 인물 장면을 만듭니다.</p>
+    <p class="pro-ratio">실습 8.5시간 / 이론 &amp; 리뷰 2.5시간</p>
+    <ol class="pro-tt">
+      <li><time>09:00–10:30</time><div><h4>촬영감독의 판단과 장면 분석</h4><p>Story, Visual Concept, Shot의 연결</p></div><em>사례 분석</em></li>
+      <li><time>10:30–13:00</time><div><h4>카메라 5종의 기본 운용과 비교</h4><p>노출, Dynamic Range, ISO/EI, ND, 셔터, WB, Log/LUT, 모니터링</p></div><em>시연 &amp; 실습</em></li>
+      <li class="pro-rest"><time>13:00–14:00</time><div><h4>점심 (촬영 중 자율 식사)</h4></div></li>
+      <li><time>14:00–15:00</time><div><h4>렌즈와 카메라 위치</h4><p>화각, 거리, 높이, 원근감, 심도, 인물과 공간</p></div><em>비교 촬영</em></li>
+      <li><time>15:00–18:00</time><div><h4>Lighting과 조명용 Grip</h4><p>Hard/Soft Light, 방향, 크기, 거리, 대비, 색온도, Motivated Lighting</p></div><em>시연 &amp; 실습</em></li>
+      <li class="pro-rest"><time>18:00–19:00</time><div><h4>저녁 (촬영 중 자율 식사)</h4></div></li>
+      <li><time>19:00–21:00</time><div><h4>같은 카메라로 이미지 바꾸기</h4><p>Available Light에서 시작해 Negative Fill, Diffusion, Bounce, Key, Practical 조정</p></div><em>인물 실습</em></li>
+      <li><time>21:00–22:00</time><div><h4>촬영 결과 비교와 리뷰</h4><p>노출과 조명 선택의 효과와 개선점</p></div><em>리뷰 &amp; 질의</em></li>
+    </ol>
+    <div class="pro-ph2"><img src="assets/img/pro/day1-practice.webp?v=812a4b7f" width="1280" height="720" loading="lazy" alt="스튜디오에서 카메라를 세팅하는 실습"><img src="assets/img/pro/day1-lighting-grip.webp?v=2a8e230e" width="1440" height="1081" loading="lazy" alt="붉은 조명 아래 조명과 Grip 실습"></div>
+    <div class="pro-ph2"><img src="assets/img/pro/day1-before.webp?v=2bc8f1b4" width="1720" height="968" loading="lazy" alt="Before 이미지"><img src="assets/img/pro/day1-after.webp?v=bd124388" width="1720" height="1291" loading="lazy" alt="After 이미지"></div>
+    <div class="pro-box">
+      <h4>카메라 비교는 이렇게</h4>
+      <p>공통 장면을 촬영해 하이라이트, 그림자, 피부 톤을 비교하고, 각 장비가 유리한 조건을 들은 뒤 직접 설정하고 촬영합니다.</p>
+      <h4>조명과 Grip은 이렇게</h4>
+      <p>Key, Fill, Backlight, Practical과 주변광을 조절하고, Flag, Net, Diffusion, Bounce, Negative Fill을 직접 배치하며 C-Stand 등 지지 장비의 설치와 운용을 익힙니다.</p>
+    </div>
+    <div class="pro-box pro-box-g">
+      <h4>DAY 1 확인 과제 <span>Before / After</span></h4>
+      <p>동일 카메라로 만든 Before와 After 이미지를 비교합니다. 바꾼 요소와 그 이유를 설명하고, 노출, 조명, 렌즈, 카메라 위치 중 어떤 선택이 가장 효과적이었는지 정리합니다.</p>
+    </div>
+  </div>
+
+  <div class="pro-day">
+    <img class="pro-char" src="assets/img/pro/char-day2.webp?v=f9633736" width="900" height="900" loading="lazy" alt="" aria-hidden="true">
+    <p class="pro-dayno">Day 2</p>
+    <h3 class="pro-dayh">카메라 무빙과 장면 촬영</h3>
+    <p class="pro-p">장면의 목적에 맞는 무빙을 선택하고, 실제 장비로 짧은 Scene을 촬영합니다.</p>
+    <p class="pro-ratio">실습 9.5시간 / 이론 &amp; 리뷰 1.5시간</p>
+    <ol class="pro-tt">
+      <li><time>09:00–11:30</time><div><h4>유압 달리와 레일 설치</h4><p>레일 배치, 수평 확인, 달리 운용, Push/Pull, Lateral, Boom, Operator와 Dolly Grip의 호흡</p></div><em>시연 &amp; 실습</em></li>
+      <li><time>11:30–13:00</time><div><h4>짐벌 운용과 무빙 설계</h4><p>밸런스와 기본 설정, Following/Leading, Focus, 배우 Blocking과 이동 타이밍</p></div><em>시연 &amp; 실습</em></li>
+      <li class="pro-rest"><time>13:00–14:00</time><div><h4>점심 (촬영 중 자율 식사)</h4></div></li>
+      <li><time>14:00–15:30</time><div><h4>크레인과 테크노크레인</h4><p>구조, Payload, Counterweight, 밸런스와 세팅, Remote Head, Boom/Telescope/Swing 운용 이해</p></div><em>감독하 시연 참여 실습</em></li>
+      <li><time>15:30–18:00</time><div><h4>팀별 Scene 촬영 1 - 낮</h4><p>실내, 실외 Reference, Shot Plan, 카메라, 렌즈 선택, Lighting Plan, 무빙 세팅, 리허설과 촬영</p></div><em>팀 실습</em></li>
+      <li class="pro-rest"><time>18:00–19:00</time><div><h4>저녁 (촬영 중 자율 식사)</h4></div></li>
+      <li><time>19:00–20:30</time><div><h4>팀별 Scene 촬영 2 - 밤</h4><p>실내, 실외 역할 순환, 추가 Shot, 장면 연결과 개선 촬영</p></div><em>팀 실습</em></li>
+      <li><time>20:30–22:00</time><div><h4>상영과 강사 피드백</h4><p>촬영 선택의 이유, 장면 연결, 개선 접근</p></div><em>리뷰 &amp; 질의</em></li>
+    </ol>
+    <div class="pro-box pro-box-g">
+      <h4>TEAM SHOOT / 4H <span>역할을 바꿔가며 촬영합니다</span></h4>
+      <ul class="pro-chips"><li>DP</li><li>Operator</li><li>Gaffer</li><li>Grip</li><li>AC</li></ul>
+      <p>공통 Scene을 바탕으로 강사가 직접 코칭합니다. 마지막에는 카메라, 렌즈, 조명, 무빙을 선택한 이유를 발표하고 장면의 감정과 편집 연결을 리뷰합니다.</p>
+    </div>
+    <div class="pro-ph"><img src="assets/img/pro/day2-movement.webp?v=975b43fa" width="1720" height="977" loading="lazy" alt="달리와 짐벌, 크레인 무빙 실습"></div>
+    <div class="pro-ph2"><img src="assets/img/pro/day2-scene-day.webp?v=fcf007a2" width="1720" height="968" loading="lazy" alt="팀별 Scene 낮 촬영"><img src="assets/img/pro/day2-scene-night.webp?v=21732870" width="1411" height="1058" loading="lazy" alt="팀별 Scene 밤 촬영"></div>
+  </div>
+</section>
+
+<!-- ══ 08 METHOD (102128:619) ══ -->
+<section class="pro-sec" aria-labelledby="pro-how-h">
+  <p class="pro-kick">05 HOW IT WORKS</p>
+  <h2 class="pro-h" id="pro-how-h">보는 수업이 아니라<br>직접 세팅하는 수업</h2>
+  <p class="pro-p">강사가 완성한 화면을 보는 데서 끝나지 않습니다. 캠프 참여 수강생이 직접 세팅하고 촬영합니다.</p>
+  <ul class="pro-vs">
+    <li><s>강사 시연만 구경하기</s><b>장비를 직접 세팅하고 촬영합니다.</b></li>
+    <li><s>장비 메뉴 전부 외우기</s><b>이미지를 판단하는 데 필요한 설정부터 익힙니다.</b></li>
+  </ul>
+  <ol class="pro-steps">
+    <li><i>STEP 01</i><h3>공통 시연</h3><p>강사가 장비 세팅과 판단 과정을 먼저 보여줍니다</p></li>
+    <li><i>STEP 02</i><h3>장비 실습</h3><p>카메라, 조명, 무빙 장비를 직접 운용합니다</p></li>
+    <li><i>STEP 03</i><h3>팀별 장면 촬영</h3><p>4시간 동안 역할을 바꿔가며 팀별 Scene을 촬영합니다</p></li>
+    <li><i>STEP 04</i><h3>결과 리뷰</h3><p>촬영본으로 선택의 이유와 개선점을 확인합니다</p></li>
+  </ol>
+  <div class="pro-box pro-box-g">
+    <h4>OUTPUT <span>팀별 촬영본 / Shot Plan / Lighting Plan</span></h4>
+    <p>세 가지를 리뷰 자료로 사용합니다.</p>
+  </div>
+  <div class="pro-ph"><img src="assets/img/pro/method-review-screening.webp?v=de0e0731" width="1720" height="968" loading="lazy" alt="촬영 결과를 상영하며 리뷰하는 강의실"></div>
+  <div class="pro-works"><img src="assets/img/pro/method-still-01.webp?v=386ca66e" width="640" height="360" loading="lazy" alt="수강생 촬영 결과물 스틸"><img src="assets/img/pro/method-still-02.webp?v=755ff2bb" width="640" height="360" loading="lazy" alt="수강생 촬영 결과물 스틸"><img src="assets/img/pro/method-still-03.webp?v=98aa04bd" width="640" height="360" loading="lazy" alt="수강생 촬영 결과물 스틸"><img src="assets/img/pro/method-still-04.webp?v=170ab3c4" width="640" height="360" loading="lazy" alt="수강생 촬영 결과물 스틸"><img src="assets/img/pro/method-still-05.webp?v=7b84fbad" width="640" height="360" loading="lazy" alt="수강생 촬영 결과물 스틸"><img src="assets/img/pro/method-still-06.webp?v=843abcd0" width="640" height="360" loading="lazy" alt="수강생 촬영 결과물 스틸"></div>
+</section>
+
+<!-- ══ 09 INSTRUCTOR (102128:694) ══ -->
+<section class="pro-sec" aria-labelledby="pro-tutor-h">
+  <p class="pro-kick">06 INSTRUCTOR</p>
+  <div class="pro-ph"><img src="assets/img/pro/instructor.webp?v=3946e4d6" width="1080" height="1440" loading="lazy" alt="카메라를 잡은 박민우 촬영감독"></div>
+  <h2 class="pro-h" id="pro-tutor-h">박민우 KSC</h2>
+  <p class="pro-p">한국영화촬영감독협회 소속 촬영감독</p>
+  <div class="bs-tutor">
+    <ul>
+      <li>《신의악단》 촬영 및 조명, 제46회 황금촬영상 은상</li>
+      <li>KBS 《오아시스》 메인 촬영</li>
+      <li>황금촬영상 3년 연속 수상 (2024 신인, 2025 동상, 2026 은상)</li>
+      <li>2025 대한민국예술문화대상 영화인 부문 신인상</li>
+      <li>2024 한국영화촬영감독협회 학술이사, 장편 및 드라마 19작품</li>
+      <li>뉴욕 Pratt Institute Film &amp; Video 학사 (연출 주전공, 촬영 부전공), 국내외 영화제 55회+ 수상</li>
+      <li>《신의악단》 관객 145만, 《오아시스》 최고 시청률 9.7%</li>
+      <li>《오늘부터 1일》 《리틀몬스터》 《Together Now!》 촬영</li>
+      <li>디즈니+ 《마마리》 촬영 및 조명감독 (2027 제작 예정)</li>
+      <li>광고 70, 뮤직비디오 150, 브랜드 콘텐츠 30, 단편 30편+</li>
+      <li>Caveman Film Production 대표 (2013–현재)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ 10 FOR YOU (102128:743) ══ -->
+<section class="pro-sec" aria-labelledby="pro-who-h">
+  <p class="pro-kick">07 FOR YOU</p>
+  <h2 class="pro-h" id="pro-who-h">이런 분께 추천합니다</h2>
+  <ul class="pro-who">
+    <li><img src="assets/img/pro/foryou-face-01.webp?v=65bb6874" width="248" height="248" loading="lazy" alt=""><div><q>장비의 모든 것을 알고 싶어요</q><p>카메라, 렌즈, 조명 장비가 늘 궁금했던 분</p></div></li>
+    <li><img src="assets/img/pro/foryou-face-02.webp?v=c7ef13e2" width="248" height="248" loading="lazy" alt=""><div><q>촬영, 막연하게 관심만 있었어요</q><p>어디서부터 시작할지 몰랐던 분</p></div></li>
+    <li><img src="assets/img/pro/foryou-face-03.webp?v=9a516131" width="248" height="248" loading="lazy" alt=""><div><q>업계에 있지만 현장을 너무 몰라요</q><p>기획, 연출, 편집 일을 하며 촬영 현장이 궁금한 분</p></div></li>
+    <li><img src="assets/img/pro/foryou-face-04.webp?v=8c3fdcea" width="248" height="248" loading="lazy" alt=""><div><q>시네마 카메라를 직접 다뤄보고 싶어요</q><p>미러리스에서 시네마 장비로 한 단계 가고 싶은 분</p></div></li>
+    <li><img src="assets/img/pro/foryou-face-05.webp?v=baf44d25" width="248" height="248" loading="lazy" alt=""><div><q>촬영팀에 들어가고 싶어요</q><p>장편 영화, 드라마 촬영팀과 조명팀 진입을 준비하는 분</p></div></li>
+  </ul>
+</section>
+
+<!-- ══ 10-1 BENEFIT (102128:798) ══ -->
+<section class="pro-sec" aria-labelledby="pro-bn-h">
+  <p class="pro-kick">08 BENEFIT</p>
+  <h2 class="pro-h" id="pro-bn-h">장비 캠프가 끝나도<br>현장은 계속됩니다</h2>
+  <ol class="pro-bn">
+    <li><b>01</b><div><h3>피바아카데미 마스터 클래스<br>Filming &amp; Lighting Workshop 참여 기회 제공</h3><p>수료 후에는 FVA 촬영&amp;조명 워크숍에도 참여할 수 있어요. 수업에서 배운 장비와 조명을 실습으로 다시 확인하고, 현장에서 필요한 감각까지 자연스럽게 익힐 수 있습니다.</p></div></li>
+    <li><b>02</b><div><h3>마스터 클래스 연출자와 콜라보레이션</h3><p>워크숍 후에는 촬영감독을 찾는 마스터 클래스 감각 있는 연출자들과 만나 함께 작품을 만들어요. 촬영 크레딧과 나만의 포트폴리오를 얻어가실 수 있습니다.</p></div></li>
+  </ol>
+  <div class="pro-works"><img src="assets/img/pro/benefit-workshop-01.webp?v=f48809a6" width="640" height="360" loading="lazy" alt="FVA 촬영&amp;조명 워크숍 현장"><img src="assets/img/pro/benefit-workshop-02.webp?v=43a12c87" width="640" height="360" loading="lazy" alt="FVA 촬영&amp;조명 워크숍 현장"><img src="assets/img/pro/benefit-workshop-03.webp?v=25a0f2f8" width="640" height="360" loading="lazy" alt="FVA 촬영&amp;조명 워크숍 현장"><img src="assets/img/pro/benefit-workshop-04.webp?v=950cf47e" width="640" height="427" loading="lazy" alt="FVA 촬영&amp;조명 워크숍 현장"><img src="assets/img/pro/benefit-workshop-05.webp?v=ee346fd0" width="640" height="427" loading="lazy" alt="FVA 촬영&amp;조명 워크숍 현장"><img src="assets/img/pro/benefit-workshop-06.webp?v=62d114aa" width="640" height="427" loading="lazy" alt="FVA 촬영&amp;조명 워크숍 현장"></div>
+</section>
+
+<!-- ══ 10-2 WORKS (102128:855) ══ -->
+<section class="pro-sec" aria-labelledby="pro-wk-h">
+  <p class="pro-kick">09 COLLABORATION</p>
+  <h2 class="pro-h" id="pro-wk-h">매칭되는 팀들은<br>이런 작품을 만듭니다</h2>
+  <div class="pro-works"><img src="assets/img/pro/works-01.webp?v=ce2a1520" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-02.webp?v=a786a282" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-03.webp?v=ee485e79" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-04.webp?v=69f9047e" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-05.webp?v=cdd0cf55" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-06.webp?v=6c0ded9c" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-07.webp?v=0ab47119" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-08.webp?v=8760375d" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-09.webp?v=6a5ef897" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-10.webp?v=9f3a0467" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-11.webp?v=3c2df09d" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-12.webp?v=9b0e615b" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-13.webp?v=a3e14e68" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-14.webp?v=606a48cb" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-15.webp?v=105e8570" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-16.webp?v=d9f4cd5d" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-17.webp?v=cdd89cc6" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-18.webp?v=3eb6ac55" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-19.webp?v=c85039e4" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-20.webp?v=7543c91e" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"><img src="assets/img/pro/works-21.webp?v=32815774" width="640" height="360" loading="lazy" alt="FVA 수강생 작품 스틸"></div>
+  <div class="pro-award">
+    <p class="pro-award-k">최근 수상</p>
+    <p class="pro-award-h">전주국제단편영화제 대상</p>
+    <p class="pro-p">FVA 팀들의 영상 공모전 수상이 계속해서 이어지고 있습니다.</p>
+    <p class="pro-award-n"><b>10</b> 연속 수상</p>
+  </div>
+  <ul class="pro-awards">
+    <li><b>대상</b>전주국제단편영화제</li>
+    <li><b>대상</b>제11회 서울 29초영화제 통합</li>
+    <li><b>최우수상</b>제11회 신한 29초영화제 일반부</li>
+    <li><b>대상</b>2024 BCU 콘텐츠리그</li>
+    <li><b>최우수상</b>군포 숏폼 공모전</li>
+    <li><b>최우수상</b>그리니티 공모전</li>
+    <li><b>대상</b>김복남 맥주 BOK PLAY 영상 공모전</li>
+    <li><b>대상</b>얌샘김밥 숏폼 공모전</li>
+    <li><b>최우수상</b>도박문제예방 29초숏폼왕</li>
+    <li><b>+ More</b>외 다수 공모전 수상</li>
+  </ul>
+  <p class="pro-h3 pro-mid">이 팀들의 다음 작품,<br><span class="pro-g">촬영감독으로 함께해보세요!</span></p>
+</section>
+
+<!-- ══ 11 INFO (102128:1097) ══ -->
+<section class="pro-sec" aria-labelledby="pro-info-h">
+  <p class="pro-kick">10 INFORMATION</p>
+  <h2 class="pro-h" id="pro-info-h">모집 안내</h2>
+  <table class="bs-tbl pro-tbl">
+    <tbody>
+      <tr><th scope="row">과정</th><td>2일 집중 과정, 총 26시간</td></tr>
+      <tr><th scope="row">일정</th><td>2026년 12월 19일(토) 09:00 – 22:00 / 12월 20일(일) 09:00 – 22:00</td></tr>
+      <tr><th scope="row">장소</th><td>서울특별시 종로구 종로35길 12 BS타워 지하 1층</td></tr>
+      <tr><th scope="row">숙박</th><td>숙박은 제공하지 않습니다. 지방에서 오시면 숙소는 따로 예약해 주세요.</td></tr>
+      <tr><th scope="row">주차</th><td>주차는 지원하지 않습니다. 대중교통을 이용해 주세요.</td></tr>
+      <tr><th scope="row">야외 실습</th><td>야외 촬영 실습은 청계천, 을지로 일대에서 진행합니다.</td></tr>
+      <tr><th scope="row">수강료</th><td><b class="pro-g">800,000 원</b> (특별 할인가)</td></tr>
+      <tr><th scope="row">신청</th><td>피바아카데미 스마트스토어 결제</td></tr>
+      <tr><th scope="row">혜택</th><td>FVA 촬영&amp;조명 워크샵 참여, 마스터 클래스 연출자와 콜라보레이션</td></tr>
+      <tr><th scope="row">대상</th><td>촬영에 관심 있는 입문자부터 현장 진입을 준비하는 촬영, 조명 스태프까지</td></tr>
+      <tr><th scope="row">강사</th><td>박민우 KSC 촬영감독 직강</td></tr>
+      <tr><th scope="row">모집</th><td>소수 정예 선착순 30명, 피바 수료생 우선</td></tr>
+    </tbody>
+  </table>
+  <ul class="pro-fine">
+    <li>소수 정예 선착순 모집으로, 모집 인원 마감 시 조기 종료될 수 있습니다.</li>
+    <li>장비별 실습 방식과 개인별 참여 범위는 모집 시 함께 안내합니다.</li>
+    <li>크레인과 테크노크레인 실습은 강사와 숙련 운영 스태프의 감독 아래 진행합니다.</li>
+    <li>달리, 레일, 짐벌은 시연 후 수강생이 참여하며, 개인별 운용 시간은 정원과 장비 배치에 맞춰 확정합니다.</li>
+  </ul>
+</section>
+
+<!-- ══ 12 CLOSING (102128:1201) ══ -->
+<section class="pro-sec pro-closing" aria-labelledby="pro-end-h">
+  <div class="pro-ph"><img src="assets/img/pro/closing-bg.webp?v=78b3e86d" width="1720" height="1290" loading="lazy" alt="야간 거리 촬영 현장"></div>
+  <h2 class="pro-h" id="pro-end-h">지금 사용하는 카메라로<br>어떤 이미지를 만들 수 있을까요?</h2>
+  <p class="pro-p">박민우 KSC 촬영감독과 함께 빛과 렌즈, 카메라 위치와 움직임을 직접 바꿔보세요.</p>
+  <div class="bs-go">
+    <a class="bs-buy" href="https://smartstore.naver.com/bowiestudios/products/13819797024" target="_blank" rel="noopener">워크숍 신청하기</a>
+    <a class="bs-ask" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">개강일 확인하기</a>
+  </div>
+  <p class="pro-sign">MINU PARK KSC CINEMATOGRAPHY WORKSHOP<br>Hosted by FVA Academy</p>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="sr-only">FVA ACADEMY</span><svg class="tlab-logo ft-logo" aria-hidden="true" focusable="false" preserveAspectRatio="none" overflow="visible" style="display: block;" viewBox="0 0 184 17.7697" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group">
+<path id="Vector" d="M12.9107 3.72084V0.297209H0V17.4812H3.67108V11.8302H11.4918V8.40659H3.67108V3.72909H12.9107V3.72084Z" fill="currentColor"/>
+<path id="Vector_2" d="M28.1398 0.297209L23.5365 12.5975L18.9331 0.297209H14.8166L21.276 17.4812H25.6814L32.1409 0.297209H28.1233H28.1398Z" fill="currentColor"/>
+<path id="Vector_3" d="M41.6524 0.297209H37.1976L30.7381 17.4812H34.6567L35.7374 14.3958H42.9806L44.1026 17.4812H48.1202L41.6607 0.297209H41.6524ZM36.9006 11.0712L39.3508 4.1168L41.8009 11.0712H36.9089H36.9006Z" fill="currentColor"/>
+<path id="Vector_4" d="M66.4753 0.297209H62.0205L55.6105 17.4812H59.5291L60.6098 14.3958H67.853L68.9337 17.4812H73.0007L66.4918 0.297209H66.4753ZM61.773 11.0712L64.2231 4.1168L66.6733 11.0712H61.7812H61.773Z" fill="currentColor"/>
+<path id="Vector_5" d="M82.8757 14.2472C79.8398 14.2472 77.5381 11.9455 77.5381 8.86017C77.5381 5.7748 79.8398 3.52267 82.8757 3.52267C85.0784 3.52267 86.9428 4.74361 87.6275 6.70703H91.5956C90.7624 2.73894 87.1903 5.03481e-05 82.884 5.03481e-05C77.6949 5.03481e-05 73.7763 3.81963 73.7763 8.86017C73.7763 13.9007 77.6949 17.7697 82.884 17.7697C87.1903 17.7697 90.7624 15.0309 91.5956 11.0628H87.6275C86.9428 13.0179 85.0784 14.2472 82.8757 14.2472Z" fill="currentColor"/>
+<path id="Vector_6" d="M103.195 0.297209H98.7399L92.2804 17.4812H96.199L97.2797 14.3958H104.572L104.506 14.3051L105.653 17.4812H109.671L103.211 0.297209H103.195ZM98.4429 11.0712L100.893 4.1168L103.343 11.0712H98.4511H98.4429Z" fill="currentColor"/>
+<path id="Vector_7" d="M118.952 0.297209H112.196V17.4812H118.952C123.943 17.4812 127.713 13.7607 127.713 8.86862C127.713 3.97657 123.943 0.297209 118.952 0.297209ZM118.862 14.0081H115.875V3.72909H118.862C121.749 3.72909 123.952 5.93174 123.952 8.86862C123.952 11.8055 121.749 14.0081 118.862 14.0081Z" fill="currentColor"/>
+<path id="Vector_8" d="M134.305 14.0079V10.5349H141.16V7.11124H134.305V3.73706H141.994V0.313534H130.683V17.4975H142.093V14.0245H134.305V14.0079Z" fill="currentColor"/>
+<path id="Vector_9" d="M160.101 0.297209L155.11 9.40476L155.011 9.20678L150.16 0.297209H145.508V17.4812H149.179V5.48618L149.377 5.92343L155.102 16.4252L156.133 14.5444L161.075 5.48618V17.4812H164.696V0.297209H160.093H160.101Z" fill="currentColor"/>
+<path id="Vector_10" d="M179.884 0.297209L175.676 7.83741L175.577 7.63942L171.419 0.297209H167.262L173.77 11.558V17.4812H177.442V11.558L184 0.297209H179.892H179.884Z" fill="currentColor"/>
+</g>
+</svg>
+
+    <p>보위스튜디오(bowie studios) ㅣ 대표자 : 정주영 ㅣ 주소 : 서울특별시 마포구 독막로6길 6, 5층(합정동, 현영빌딩) ㅣ 이메일 : bowiestudios.kr@gmail.com</p>
+    <p>통신판매업 신고번호 : 2024-서울마포-1965호 ㅣ 사업자 등록 번호 : 285-37-00494 ㅣ 대표 전화번호 : 010-8108-3530</p>
+    <p><a class="ft-privacy" href="/privacy.html">개인정보처리방침</a></p>
+    <p>Copyright ⓒ 2024 FVA ACADEMY. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn=document.querySelector('.nav-toggle'), nav=document.getElementById('gnb');
+    if(!btn||!nav)return;
+    btn.addEventListener('click',function(){
+      var open=nav.getAttribute('data-open')==='true';
+      nav.setAttribute('data-open',String(!open));
+      btn.setAttribute('aria-expanded',String(!open));
+      btn.textContent=open?'☰':'✕';
+    });
+  })();
+
+  (function(){
+    var v=document.getElementById('reel'), b=document.querySelector('.reel-sound');
+    if(!v||!b)return;
+    b.addEventListener('click',function(){
+      v.muted=!v.muted;
+      b.textContent=v.muted?'🔇':'🔊';
+      b.setAttribute('aria-pressed',String(!v.muted));
+      b.setAttribute('aria-label',v.muted?'소리 켜기':'소리 끄기');
+      if(!v.muted) v.play();
+    });
+  })();
+
+  /* 스크롤 진행 바 */
+  (function(){
+    var bar=document.querySelector('.top-bar'); if(!bar)return;
+    var tick=function(){
+      var d=document.documentElement, max=d.scrollHeight-d.clientHeight;
+      bar.style.setProperty('--scroll', (max>0 ? (d.scrollTop/max*100) : 0)+'%');
+    };
+    addEventListener('scroll',tick,{passive:true}); addEventListener('resize',tick); tick();
+  })();
+
+  /* 피바뉴스 — 시리즈 목록에서 글을 누르면 팝업으로 연다.
+     주소는 그대로 바뀌므로 뒤로가기·새로고침·링크공유가 모두 정상 동작한다. */
+  (function(){
+    var grid=document.querySelector('.post-grid'); if(!grid)return;
+    var modal=document.createElement('div');
+    modal.className='modal'; modal.setAttribute('role','dialog');
+    modal.setAttribute('aria-modal','true'); modal.hidden=true;
+    modal.innerHTML='<div class="modal-inner"><button class="modal-close" type="button" aria-label="닫기">&times;</button><div class="modal-body"><p class="modal-loading">불러오는 중…</p></div></div>';
+    document.body.appendChild(modal);
+    var body=modal.querySelector('.modal-body');
+
+    function close(){
+      modal.classList.remove('on'); modal.hidden=true;
+      document.body.classList.remove('modal-open');
+      if(location.pathname!==openerPath) history.pushState({},'',openerPath);
+    }
+    var openerPath=location.pathname;
+
+    function open(href){
+      modal.hidden=false; modal.classList.add('on');
+      document.body.classList.add('modal-open');
+      body.innerHTML='<p class="modal-loading">불러오는 중…</p>';
+      history.pushState({modal:href},'',href);
+      fetch(href).then(function(r){return r.text()}).then(function(html){
+        var doc=new DOMParser().parseFromString(html,'text/html');
+        var art=doc.querySelector('.post-detail');
+        body.innerHTML=''; if(art) body.appendChild(art);
+        modal.querySelector('.modal-close').focus();
+      }).catch(function(){ location.href=href; });
+    }
+
+    grid.addEventListener('click',function(e){
+      var a=e.target.closest('a[href]'); if(!a)return;
+      if(e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;   // 새 탭은 그대로
+      e.preventDefault(); open(a.getAttribute('href'));
+    });
+    modal.addEventListener('click',function(e){
+      if(e.target===modal||e.target.closest('.modal-close')) close();
+    });
+    addEventListener('keydown',function(e){ if(e.key==='Escape'&&!modal.hidden) close(); });
+    addEventListener('popstate',function(){ if(!modal.hidden) { modal.classList.remove('on'); modal.hidden=true; document.body.classList.remove('modal-open'); } });
+  })();
+</script>
+
+<!-- 네이버 애널리틱스 — 발급ID 2a4873e8881b40 (Bowie / jjy3530) -->
+<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "2a4873e8881b40";
+if(window.wcs) { wcs_do(); }
+</script>
+<script>
+/* 맨 위 빨간 띠. 개강일에서 남은 날을 세어 문구를 고른다 — basic.html·offline.html 과 같은 방식.
+   ⚠ 「마감 임박」을 손으로 적어두면 지나고도 안 고쳐서 거짓말이 된다.
+     그래서 개강 전/후로 문구를 갈라 둔다. */
+(function () {
+  var 모집중 = true;
+  var 기수 = 'CAMP 1기';
+  /* ⚠ 표의 반 이름(.cls)과 글자까지 같아야 D-day 칩이 붙는다. */
+  /* ⚠ 사이트 방침상 개강일을 띠·표에 띄우지 않는다. 빈 배열로 둔다. */
+  var 개강 = [];
+
+  if (!모집중) return;
+  var 오늘 = new Date(); 오늘.setHours(0, 0, 0, 0);
+  var 남은 = 개강
+    .map(function (x) {
+      var d = new Date(x.날 + 'T00:00:00');
+      return { 반: x.반, d: Math.round((d - 오늘) / 864e5) };
+    })
+    .filter(function (x) { return x.d >= 0; })
+    .sort(function (a, b) { return a.d - b.d; });
+
+  var 딱지 = document.getElementById('nt-flare');
+  var 말   = document.getElementById('nt-say');
+  var 덧말 = document.getElementById('nt-dday');
+
+  if (남은.length) {
+    var D = 남은[0].d;
+    if (D === 0) {
+      딱지.textContent = '오늘 개강';
+      말.innerHTML = 기수 + ' 수강신청 <b>오늘</b> 마감';
+      덧말.textContent = 남은[0].반 + ' 오늘 개강';
+    } else if (D <= 14) {
+      딱지.textContent = '마감 임박';
+      말.innerHTML = 기수 + ' 수강신청 마감까지 <b>D-' + D + '</b>';
+      덧말.textContent = 남은[0].반 + ' 개강까지 ' + D + '일';
+    } else {
+      딱지.textContent = '모집 중';
+      말.innerHTML = 기수 + ' 수강신청 마감까지 <b>D-' + D + '</b>';
+      덧말.textContent = '';
+      덧말.hidden = true;
+    }
+  } else if (개강.length) {
+    /* 캠프가 이미 시작했거나 끝났다. 「지금도 합류」는 이틀짜리 캠프엔 거짓이라 쓰지 않는다. */
+    딱지.textContent = '모집 마감';
+    말.innerHTML = 기수 + ' <b>진행 완료</b>';
+    덧말.textContent = '다음 기수 일정은 전체 일정에서 안내드립니다';
+  } else {
+    딱지.textContent = '모집 중';
+    말.innerHTML = 기수 + ' 수강생 <b>모집</b>';
+    덧말.textContent = '선착순 30명, 피바 수료생 우선';
+  }
+
+  /* 반마다 남은 날을 개강일 옆에 붙인다. 지난 개강일에는 아무것도 안 붙인다. */
+  document.querySelectorAll('.nt-row').forEach(function (행) {
+    var 이름 = (행.querySelector('.cls') || {}).textContent;
+    var 칸   = 행.querySelector('.start');
+    if (!이름 || !칸) return;
+    var 짝 = 남은.filter(function (x) { return x.반 === 이름.trim(); })[0];
+    if (!짝) return;
+    var 칩 = document.createElement('b');
+    칩.className = 'dday' + (짝.d <= 14 ? ' soon' : '');
+    칩.textContent = 짝.d === 0 ? '오늘' : 'D-' + 짝.d;
+    칸.appendChild(칩);
+  });
+  document.getElementById('nt-urgent').hidden = false;
+})();
+</script>
+</body>
+</html>

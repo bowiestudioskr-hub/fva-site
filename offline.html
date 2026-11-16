@@ -125,8 +125,8 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 <link rel="stylesheet" href="css/style.css?v=bcdee7d5">
 <link rel="stylesheet" href="css/mobile.css?v=6a81566b">
 <link rel="stylesheet" href="css/sub.css?v=313eb78b">
-<link rel="stylesheet" href="css/basic.css?v=9376a8c3">
-<link rel="stylesheet" href="css/offline.css?v=9f179e5f">
+<link rel="stylesheet" href="css/basic.css?v=0a31796f">
+<link rel="stylesheet" href="css/offline.css?v=38aa0613">
 <link rel="stylesheet" href="css/offline-plan.css?v=9ab719a4">
 <link rel="stylesheet" href="css/offline-blocks.css?v=2c61a0e6">
 <script type="application/ld+json">
@@ -178,6 +178,7 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
       <a href="/online.html">온라인 강의</a>
       <a href="/offline.html" aria-current="page">오프라인 강의</a>
       <a href="/basic.html">왕초보반</a>
+      <a href="/professional.html">프로페셔널</a>
       <a href="/curriculum.html">커리큘럼</a>
       <a href="/news.html">피바뉴스</a>
       <a href="/works.html">수강생 작품</a>
@@ -206,6 +207,9 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
     <a href="/basic.html">
       <img class="bs-mascot bs-m-basic" src="assets/img/basic/egg3d.webp?v=2552b260" width="520" height="657" alt="" aria-hidden="true">
       <b>베이직 클래스</b><span>4주 4회 · 왕초보반</span><em class="bs-where">연희동 스페이스독</em></a>
+    <a href="/professional.html">
+      <img class="bs-mascot bs-m-pro" src="assets/img/mascot-cam-460.webp?v=d2609388" width="460" height="344" alt="" aria-hidden="true">
+      <b>프로페셔널 클래스</b><span>주말 2일 캠프</span><em class="bs-where">종로 BS타워</em></a>
   </nav>
 </div>
 
@@ -254,21 +258,18 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
       </p>
 
       <div class="nt-table">
-        <!-- 개강일을 누르면 리틀리(전체 일정)로 간다 — 정주 요청 11/16 -->
+        <!-- 개강일은 사이트에 적지 않는다(11/16 정주) — 「개강일 확인하기」 버튼이 리틀리로 보낸다 -->
         <div class="nt-row">
           <span class="cls">금 저녁반</span>
           <span class="time">19:00 &ndash; 21:00</span>
-          <a class="start" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">개강 1월 8일 (금)</a>
         </div>
         <div class="nt-row">
           <span class="cls">토 점심반</span>
           <span class="time">13:00 &ndash; 15:00</span>
-          <a class="start" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">개강 1월 9일 (토)</a>
         </div>
         <div class="nt-row">
           <span class="cls">토 저녁반</span>
           <span class="time">19:00 &ndash; 21:00</span>
-          <a class="start" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">개강 1월 9일 (토)</a>
         </div>
       </div>
     </div>
@@ -281,6 +282,9 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
     <p class="nt-btns">
       <a class="nt-btn solid" href="https://smartstore.naver.com/bowiestudios/products/12653524153" target="_blank" rel="noopener">
         수강 신청하기 <span aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="nt-btn ghost" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">
+        개강일 확인하기 <span aria-hidden="true">&rarr;</span>
       </a>
       <a class="nt-btn ghost" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">
         코스 전체 보기 <span aria-hidden="true">&rarr;</span>
@@ -909,6 +913,9 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
         수강 신청하기 <span aria-hidden="true">&rarr;</span>
       </a>
       <a class="nt-btn ghost" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">
+        개강일 확인하기 <span aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="nt-btn ghost" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">
         코스 전체 보기 <span aria-hidden="true">&rarr;</span>
       </a>
     </p>
@@ -1176,11 +1183,7 @@ if(window.wcs) { wcs_do(); }
   /* ⚠ 개강일이 아직 안 나왔으면 **빈 배열로 둔다.** 지난 기수 날짜를 남겨두면
        D-day 가 음수로 걸러져 「지금도 합류하실 수 있습니다」가 뜨는데,
        아직 시작도 안 한 기수에는 거짓말이 된다. 빈 배열이면 따로 문구가 나간다. */
-  var 개강 = [
-    { 반: '금 저녁반', 날: '2027-01-08' },
-    { 반: '토 점심반', 날: '2027-01-09' },
-    { 반: '토 저녁반', 날: '2027-01-09' }
-  ];
+  var 개강 = [];
 
   if (!모집중) return;
   var 오늘 = new Date(); 오늘.setHours(0, 0, 0, 0);
@@ -1225,7 +1228,7 @@ if(window.wcs) { wcs_do(); }
     /* 개강일이 아직 안 정해진 상태. 「지금도 합류」는 이미 시작한 것처럼 들려서 안 쓴다. */
     딱지.textContent = '모집 중';
     말.innerHTML = 기수 + ' 수강생 <b>모집</b>';
-    덧말.textContent = '개강일은 확정되면 안내드립니다';
+    덧말.textContent = '개강일은 「개강일 확인하기」에서 안내합니다';
   }
 
   /* 반마다 남은 날을 개강일 옆에 붙인다 — 상담이 개강일로 몰려서 표에서 바로 보이게 한다.

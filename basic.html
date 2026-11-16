@@ -125,7 +125,7 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 <link rel="stylesheet" href="css/style.css?v=bcdee7d5">
 <link rel="stylesheet" href="css/mobile.css?v=6a81566b">
 <link rel="stylesheet" href="css/sub.css?v=313eb78b">
-<link rel="stylesheet" href="css/basic.css?v=9376a8c3">
+<link rel="stylesheet" href="css/basic.css?v=0a31796f">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -173,6 +173,7 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
       <a href="/online.html">온라인 강의</a>
       <a href="/offline.html">오프라인 강의</a>
       <a href="/basic.html" aria-current="page">왕초보반</a>
+      <a href="/professional.html">프로페셔널</a>
       <a href="/curriculum.html">커리큘럼</a>
       <a href="/news.html">피바뉴스</a>
       <a href="/works.html">수강생 작품</a>
@@ -201,6 +202,9 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
     <a href="/basic.html" aria-current="page">
       <img class="bs-mascot bs-m-basic" src="assets/img/basic/egg3d.webp?v=2552b260" width="520" height="657" alt="" aria-hidden="true">
       <b>베이직 클래스</b><span>4주 4회 · 왕초보반</span><em class="bs-where">연희동 스페이스독</em></a>
+    <a href="/professional.html">
+      <img class="bs-mascot bs-m-pro" src="assets/img/mascot-cam-460.webp?v=d2609388" width="460" height="344" alt="" aria-hidden="true">
+      <b>프로페셔널 클래스</b><span>주말 2일 캠프</span><em class="bs-where">종로 BS타워</em></a>
   </nav>
 </div>
 
@@ -232,12 +236,10 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
         <div class="nt-row">
           <span class="cls">목요일 반</span>
           <span class="time">19:30 &ndash; 22:30</span>
-          <a class="start" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">개강 12월 17일 (목)</a>
         </div>
         <div class="nt-row">
           <span class="cls">토요일 반</span>
           <span class="time">13:30 &ndash; 16:30</span>
-          <a class="start" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">개강 12월 19일 (토)</a>
         </div>
     </div>
   </div>
@@ -249,6 +251,9 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
   <p class="nt-btns">
     <a class="nt-btn solid" href="https://smartstore.naver.com/bowiestudios/products/13725425855" target="_blank" rel="noopener">
       수강 신청하기 <span aria-hidden="true">&rarr;</span>
+    </a>
+    <a class="nt-btn ghost" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">
+      개강일 확인하기 <span aria-hidden="true">&rarr;</span>
     </a>
     <a class="nt-btn ghost" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">
       코스 전체 보기 <span aria-hidden="true">&rarr;</span>
@@ -845,10 +850,7 @@ if(window.wcs) { wcs_do(); }
        아직 시작도 안 한 기수에는 거짓말이 된다. 빈 배열이면 따로 문구가 나간다. */
   /* ⚠ 왕초보반 실제 일정 (스마트스토어와 일치시킬 것) — 매달 모집이라 지나면 다음 달로 갱신 */
   /* ⚠ 2026-10-16부터 상시 모집 — 신청한 주에 바로 합류한다. 개강일이 없으니 빈 배열로 둔다. */
-  var 개강 = [
-    { 반: '목요일 반', 날: '2026-12-17' },
-    { 반: '토요일 반', 날: '2026-12-19' }
-  ];
+  var 개강 = [];
 
   if (!모집중) return;
   var 오늘 = new Date(); 오늘.setHours(0, 0, 0, 0);

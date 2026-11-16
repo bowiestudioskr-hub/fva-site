@@ -123,14 +123,18 @@ if (프로조각) {
 }
 if (문제.length) { 남기기('멈춤: 그림을 확실히 못 읽었다 — ' + 문제.join(' / ')); process.exit(0); }
 
+/* 카톡 문안의 원본 — 날짜는 여기(리틀리)에서만 가져간다 */
+writeFileSync(join(폴더, '개강일_리틀리.json'), JSON.stringify({ 읽은때: 이제, 베이직, 마스터: { 기수, 반목록: 마스터 }, 프로 }, null, 1));
+
 /* ── 4. 사이트에 쓰기(메모리 안에서) ─────────────── */
+/* ⚠ 2026-11-16 정주: 사이트에는 개강일을 적지 않는다(헷갈림 방지, 개강일은 리틀리 한 곳에서만).
+     사이트에는 반 이름·시간만 맞추고, 날짜는 카톡 자동응답에만 넣는다. */
 const 칸 = (r) =>
 `        <div class="nt-row">
           <span class="cls">${r.반}</span>
           <span class="time">${r.때.replace(' – ', ' &ndash; ')}</span>
-          <a class="start" href="${리틀리주소}" target="_blank" rel="noopener">개강 ${r.한글}</a>
         </div>`;
-const 배열 = (rs) => 'var 개강 = [\n' + rs.map(r => `    { 반: '${r.반}', 날: '${r.날}' }`).join(',\n') + '\n  ];';
+const 배열 = () => 'var 개강 = [];';
 function 고치기(파일, 반목록, 기수값) {
   const p = join(SITE, 파일); let s = readFileSync(p, 'utf8'); const 원래 = s;
   const 표 = /(<div class="nt-table">\s*\n)([\s\S]*?)(\n\s*<\/div>\s*\n\s*<\/div>\s*\n\s*<div class="nt-how">|\n\s{4}<\/div>\s*\n\s{2}<\/div>)/;
@@ -141,7 +145,7 @@ function 고치기(파일, 반목록, 기수값) {
   });
   const 배열규칙 = /var 개강 = \[[\s\S]*?\];/;
   if (!배열규칙.test(s)) throw new Error(파일 + ': 개강 배열을 못 찾음');
-  s = s.replace(배열규칙, 배열(반목록));
+  s = s.replace(배열규칙, 배열());
   if (기수값) {
     s = s.replace(/(<strong id="nt-h">)\d+기( 수강신청중<\/strong>)/, `$1${기수값}기$2`)
          .replace(/(<strong id="nt-say">)\d+기( 수강생)/, `$1${기수값}기$2`)
