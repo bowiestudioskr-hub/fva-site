@@ -105,6 +105,22 @@ const 마스터조각 = 덩어리('MASTER', 'PROFESSIONAL');
 const 마스터 = 반들(마스터조각, 'MASTER');
 const 기수 = ((마스터조각.match(/(\d{1,3})\s*기\s*수강\s*신청\s*중/) || [])[1]);
 if (!기수) 문제.push('MASTER: 기수(「NN기 수강신청중」)를 못 읽음');
+/* 프로페셔널(캠프): 「CAMP 1기 모집중」 + 「기간 :12월 19일 오전 9시 ~ 12월 20일 22시」. 덩어리가 없으면 건너뛴다(필수 아님). */
+const 프로조각 = 덩어리('PROFESSIONAL', null);
+let 프로 = null;
+if (프로조각) {
+  const 기 = (프로조각.match(/CAMP\s*(\d{1,3})\s*기/i) || [])[1];
+  const m = 프로조각.match(/기간\s*[:：]?\s*(\d{1,2})\s*월\s*(\d{1,2})\s*일\s*(오전|오후)?\s*(\d{1,2})\s*시\s*[~∼-]\s*(\d{1,2})\s*월\s*(\d{1,2})\s*일\s*(오전|오후)?\s*(\d{1,2})\s*시/);
+  if (!기 || !m) 문제.push('PROFESSIONAL: 기수나 기간을 못 읽음');
+  else {
+    const 시 = (오후, h) => (오후 === '오후' && +h < 12 ? +h + 12 : +h);
+    const d1 = 날짜(+m[1], +m[2]), d2 = 날짜(+m[5], +m[6]);
+    const h1 = 시(m[3], m[4]), h2 = 시(m[7], m[8]);
+    if (!d1 || !d2 || d2 < d1 || h1 > 23 || h2 > 24) 문제.push('PROFESSIONAL: 기간 이상');
+    else 프로 = { 기: 기, 반목록: [{ 반: '주말 캠프', 때: `${String(h1).padStart(2, '0')}:00 – ${String(h2).padStart(2, '0')}:00`,
+      날: d1.toISOString().slice(0, 10), 한글: `${+m[1]}월 ${+m[2]}일 (${요일[d1.getUTCDay()]})` }] };
+  }
+}
 if (문제.length) { 남기기('멈춤: 그림을 확실히 못 읽었다 — ' + 문제.join(' / ')); process.exit(0); }
 
 /* ── 4. 사이트에 쓰기(메모리 안에서) ─────────────── */
@@ -134,10 +150,17 @@ function 고치기(파일, 반목록, 기수값) {
   return { p, s, 바뀜: s !== 원래 };
 }
 let 결과;
-try { 결과 = [고치기('basic.html', 베이직, null), 고치기('offline.html', 마스터, 기수)]; }
+try {
+  결과 = [고치기('basic.html', 베이직, null), 고치기('offline.html', 마스터, 기수)];
+  if (프로 && existsSync(join(SITE, 'professional.html'))) {
+    const r = 고치기('professional.html', 프로.반목록, null);
+    r.s = r.s.replace(/(CAMP\s*)\d+(기)/g, `$1${프로.기}$2`); r.바뀜 = r.s !== readFileSync(r.p, 'utf8');
+    결과.push(r);
+  }
+}
 catch (e) { 남기기('멈춤: ' + e.message); process.exit(0); }
 
-const 요약 = `BASIC ${베이직.map(r => r.반 + ' ' + r.날).join(', ')} · MASTER ${기수}기 ${마스터.map(r => r.반 + ' ' + r.날).join(', ')}`;
+const 요약 = `BASIC ${베이직.map(r => r.반 + ' ' + r.날).join(', ')} · MASTER ${기수}기 ${마스터.map(r => r.반 + ' ' + r.날).join(', ')}` + (프로 ? ` · CAMP ${프로.기}기 ${프로.반목록[0].날} ${프로.반목록[0].때}` : '');
 if (!결과.some(x => x.바뀜)) {
   남기기('○ 리틀리 = 사이트. (' + 요약 + ')');
   /* 사이트는 같아도 카톡만 어긋나 있을 수 있다 — 적용 모드면 카톡도 대조한다(같으면 안 건드림) */
@@ -158,7 +181,7 @@ for (const x of 결과) if (x.바뀜) writeFileSync(x.p, x.s);
 if (process.argv.includes('--미리')) { 남기기('  (--미리: 파일만 고쳐 두고 멈춤)'); process.exit(0); }
 execFileSync('python3', [join(HERE, 'bust.py')], { cwd: SITE, encoding: 'utf8' });
 const 손댄것 = execFileSync('git', ['diff', '--name-only'], { cwd: SITE, encoding: 'utf8' }).split('\n').filter(Boolean);
-const 남는것 = 손댄것.filter(f => !['basic.html', 'offline.html'].includes(f));
+const 남는것 = 손댄것.filter(f => !['basic.html', 'offline.html', 'professional.html'].includes(f));
 if (남는것.length) { execFileSync('git', ['checkout', '--', ...손댄것], { cwd: SITE });
   남기기('멈춤: 예상 밖 파일이 바뀌어 되돌렸다 — ' + 남는것.join(', ')); process.exit(1); }
 execFileSync('git', ['add', ...손댄것], { cwd: SITE });
