@@ -54,15 +54,11 @@ async function 붙기() {
   const ev = async (e) => (await cmd('Runtime.evaluate', { expression: e, returnByValue: true })).result?.result?.value;
   const 잠깐 = (ms) => new Promise(r => setTimeout(r, ms));
   const 가기 = async (u, ms = 10000) => { await cmd('Page.navigate', { url: u }); await 잠깐(ms); };
+  /* ⚠ 뒤 탭이라 좌표 클릭 대신 요소의 click() 을 직접 부른다 */
   const 누르기 = async (조건, ms = 3500) => {
-    const p = await ev(`(()=>{const b=[...document.querySelectorAll('button,a')].filter(x=>x.offsetParent && (${조건}));
-      if(!b.length)return null; b[0].scrollIntoView({block:'center'});
-      const r=b[0].getBoundingClientRect(); return JSON.stringify({x:Math.round(r.left+r.width/2),y:Math.round(r.top+r.height/2)});})()`);
-    if (!p) return false;
-    await 잠깐(600);
-    const { x, y } = JSON.parse(p);
-    for (const ty of ['mouseMoved', 'mousePressed', 'mouseReleased'])
-      await cmd('Input.dispatchMouseEvent', { type: ty, x, y, button: 'left', buttons: 1, clickCount: 1 });
+    const ok = await ev(`(()=>{const b=[...document.querySelectorAll('button,a')].filter(x=>x.offsetParent && (${조건}));
+      if(!b.length)return false; b[0].scrollIntoView({block:'center'}); b[0].click(); return true;})()`);
+    if (!ok) return false;
     await 잠깐(ms); return true;
   };
   return { ev, 가기, 누르기, 잠깐 };
@@ -75,12 +71,24 @@ await 가기(목록, 11000);
 if (/accounts\.kakao|\/login/.test(String(await ev('location.href'))))
   { console.log('✗ 카카오 로그인이 풀렸다. 크롬에서 한 번 로그인해 줄 것.'); await 끝(1); }
 
-/* 목록에서 그 줄을 연다 — 줄 전체가 링크다 */
-if (!await 누르기(`x.tagName==='A' && x.innerText.includes('개강일 안내')`, 5000))
-  { console.log('✗ 「개강일 안내」 자동응답을 목록에서 못 찾았다'); await 끝(1); }
+/* 목록에서 그 줄을 연다 — 줄 전체가 링크다.
+   ⚠ 뒤 탭에서는 좌표 클릭이 먹지 않을 때가 있어 링크 주소로 바로 간다. */
+let 줄주소 = null;
+for (let i = 0; i < 15 && !줄주소; i++) {
+  줄주소 = await ev(`(()=>{const a=[...document.querySelectorAll('a')].filter(x=>x.innerText.includes('개강일 안내'))[0];
+    return a? a.href : null;})()`);
+  if (!줄주소) await 잠깐(1000);
+}
+if (!줄주소) { console.log('✗ 「개강일 안내」 자동응답을 목록에서 못 찾았다'); await 끝(1); }
+await 가기(줄주소, 8000);
 
-const 지금 = await ev(`(()=>{const t=[...document.querySelectorAll('textarea')].filter(x=>x.offsetParent)[0];
-  return t? t.value : null;})()`);
+/* ⚠ 화면이 늦게 뜰 때가 있다 — 응답 칸이 나올 때까지 최대 20초 기다린다 */
+let 지금 = null;
+for (let i = 0; i < 20 && 지금 == null; i++) {
+  지금 = await ev(`(()=>{const t=[...document.querySelectorAll('textarea')].filter(x=>x.offsetParent)[0];
+    return t? t.value : null;})()`);
+  if (지금 == null) await 잠깐(1000);
+}
 if (지금 == null) { console.log('✗ 응답 메시지 칸을 못 찾았다', await ev(`location.href+' ta='+document.querySelectorAll('textarea').length+' ce='+document.querySelectorAll('[contenteditable=true]').length+' '+document.body.innerText.slice(0,300).replace(/\s+/g,' ')`)); await 끝(1); }
 
 console.log('── 지금 등록된 문안 (' + 지금.length + '자)');

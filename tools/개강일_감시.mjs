@@ -138,7 +138,16 @@ try { 결과 = [고치기('basic.html', 베이직, null), 고치기('offline.htm
 catch (e) { 남기기('멈춤: ' + e.message); process.exit(0); }
 
 const 요약 = `BASIC ${베이직.map(r => r.반 + ' ' + r.날).join(', ')} · MASTER ${기수}기 ${마스터.map(r => r.반 + ' ' + r.날).join(', ')}`;
-if (!결과.some(x => x.바뀜)) { 남기기('○ 리틀리 = 사이트. 할 일 없음. (' + 요약 + ')'); process.exit(0); }
+if (!결과.some(x => x.바뀜)) {
+  남기기('○ 리틀리 = 사이트. (' + 요약 + ')');
+  /* 사이트는 같아도 카톡만 어긋나 있을 수 있다 — 적용 모드면 카톡도 대조한다(같으면 안 건드림) */
+  if (적용 && !process.argv.includes('--미리')) {
+    try { const 답 = execFileSync('node', [join(HERE, '개강일_카톡.mjs'), '--쓰기'], { cwd: SITE, encoding: 'utf8', timeout: 240000 });
+          남기기('  카톡 ' + (/이미 같은/.test(답) ? '같음' : /저장 확인/.test(답) ? '갱신됨' : '결과 확인 필요')); }
+    catch { 남기기('  ⚠ 카톡 확인 실패(어사이드 꺼짐/카카오 로그인 풀림)'); }
+  }
+  process.exit(0);
+}
 남기기('▲ 달라졌다 → ' + 요약);
 if (!적용) { 남기기('  (--적용 을 붙이면 사이트와 카톡을 맞춘다)'); process.exit(0); }
 
@@ -155,7 +164,7 @@ if (남는것.length) { execFileSync('git', ['checkout', '--', ...손댄것], { 
 execFileSync('git', ['add', ...손댄것], { cwd: SITE });
 execFileSync('git', ['commit', '-q', '-m', '개강일 갱신 — 리틀리 그림에서 자동으로\n\n' + 요약], { cwd: SITE });
 try {
-  const 토큰 = execFileSync('gh', ['auth', 'token', '--user', 'bowiestudioskr-hub'], { encoding: 'utf8' }).trim();
+  const 토큰 = execFileSync('/opt/homebrew/bin/gh', ['auth', 'token', '--user', 'bowiestudioskr-hub'], { encoding: 'utf8' }).trim();
   execFileSync('git', ['push', '-q', `https://x-access-token:${토큰}@github.com/bowiestudioskr-hub/fva-site.git`, 'HEAD:main'], { cwd: SITE, stdio: 'pipe' });
   execFileSync('git', ['fetch', '-q', 'origin'], { cwd: SITE });
   남기기('  사이트 밀어넣음');
