@@ -126,7 +126,7 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 <link rel="stylesheet" href="css/mobile.css?v=6a81566b">
 <link rel="stylesheet" href="css/sub.css?v=313eb78b">
 <link rel="stylesheet" href="css/basic.css?v=2c209631">
-<link rel="stylesheet" href="css/offline.css?v=1cb6607a">
+<link rel="stylesheet" href="css/offline.css?v=9f179e5f">
 <link rel="stylesheet" href="css/offline-plan.css?v=9ab719a4">
 <link rel="stylesheet" href="css/offline-blocks.css?v=2c61a0e6">
 <script type="application/ld+json">
@@ -234,7 +234,7 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
       </picture>
       <div class="say">
         <span class="flare" id="nt-flare">모집 중</span>
-        <strong id="nt-say">20기 수강생 <b>모집</b></strong>
+        <strong id="nt-say">21기 수강생 <b>모집</b></strong>
         <span class="dday" id="nt-dday"></span>
       </div>
     </div>
@@ -249,20 +249,26 @@ src="https://www.facebook.com/tr?id=771478541518631&ev=PageView&noscript=1"></no
 
     <div class="nt-open">
       <p class="head">
-        <strong id="nt-h">20기 수강신청중</strong>
+        <strong id="nt-h">21기 수강신청중</strong>
         <span>주 1회 · 다른 요일로 보강 가능</span>
       </p>
 
       <div class="nt-table">
+        <!-- 개강일을 누르면 리틀리(전체 일정)로 간다 — 정주 요청 11/16 -->
         <div class="nt-row">
-          <span class="cls">일요일 반</span>
-          <span class="time">13:00 &ndash; 15:00</span>
-          <span class="start">개강 10월 18일 (일)</span>
+          <span class="cls">금 저녁반</span>
+          <span class="time">19:00 &ndash; 21:00</span>
+          <a class="start" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">개강 1월 8일 (금)</a>
         </div>
         <div class="nt-row">
-          <span class="cls">수요일 반</span>
+          <span class="cls">토 점심반</span>
+          <span class="time">13:00 &ndash; 15:00</span>
+          <a class="start" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">개강 1월 9일 (토)</a>
+        </div>
+        <div class="nt-row">
+          <span class="cls">토 저녁반</span>
           <span class="time">19:00 &ndash; 21:00</span>
-          <span class="start">개강 10월 21일 (수)</span>
+          <a class="start" href="https://litt.ly/bowiestudios" target="_blank" rel="noopener">개강 1월 9일 (토)</a>
         </div>
       </div>
     </div>
@@ -1166,13 +1172,14 @@ if(window.wcs) { wcs_do(); }
      그래서 개강 전/후로 문구를 갈라 둔다. */
 (function () {
   var 모집중 = true;
-  var 기수 = '20기';
+  var 기수 = '21기';
   /* ⚠ 개강일이 아직 안 나왔으면 **빈 배열로 둔다.** 지난 기수 날짜를 남겨두면
        D-day 가 음수로 걸러져 「지금도 합류하실 수 있습니다」가 뜨는데,
        아직 시작도 안 한 기수에는 거짓말이 된다. 빈 배열이면 따로 문구가 나간다. */
   var 개강 = [
-    { 반: '일요일 반', 날: '2026-10-18' },
-    { 반: '수요일 반', 날: '2026-10-21' }
+    { 반: '금 저녁반', 날: '2027-01-08' },
+    { 반: '토 점심반', 날: '2027-01-09' },
+    { 반: '토 저녁반', 날: '2027-01-09' }
   ];
 
   if (!모집중) return;

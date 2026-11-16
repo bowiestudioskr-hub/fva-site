@@ -632,6 +632,8 @@ svg.club-wordmark{
   padding:.18em .62em; white-space:nowrap;
 }
 .nt-row .start .dday.soon{ background:#FF375F; color:#fff }
+a.start{ text-decoration:none }
+a.start:hover, a.start:focus-visible{ text-decoration:underline; text-underline-offset:.2em }
 
 /* ── 신청·연장 방법 ── */
 .nt-how{
