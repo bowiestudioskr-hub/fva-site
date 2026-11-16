@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 17. AM 7:05:29",
+  "updated": "2026. 11. 17. AM 7:21:06",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -13,67 +13,67 @@
     "cost": 0,
     "byPeriod": {
       "1": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 5,
+        "clk": 2,
+        "cost": 176
       },
       "7": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 279,
+        "clk": 16,
+        "cost": 1342
       },
       "28": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 1339,
+        "clk": 94,
+        "cost": 8392
       },
       "90": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 16518,
+        "clk": 278,
+        "cost": 65436
       },
       "y": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 65,
+        "clk": 4,
+        "cost": 330
       }
     },
     "daily": [
       {
         "d": "2026-11-04",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 50,
+        "clk": 8,
+        "cost": 621
       },
       {
         "d": "2026-11-05",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 48,
+        "clk": 4,
+        "cost": 308
       },
       {
         "d": "2026-11-06",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 56,
+        "clk": 3,
+        "cost": 242
       },
       {
         "d": "2026-11-07",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 43,
+        "clk": 5,
+        "cost": 495
       },
       {
         "d": "2026-11-08",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 30,
+        "clk": 1,
+        "cost": 88
       },
       {
         "d": "2026-11-09",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 47,
+        "clk": 10,
+        "cost": 934
       },
       {
         "d": "2026-11-10",
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 17. AM 7:05:26",
+    "updated": "2026. 11. 17. AM 7:21:00",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10180,30 +10180,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 13,
+        "visit": 14,
         "click": 8,
-        "unique": 11,
-        "ctr": 61.5,
+        "unique": 12,
+        "ctr": 57.1,
         "dwell": 20
       },
       "7": {
-        "visit": 1067,
+        "visit": 1068,
         "click": 338,
-        "unique": 738,
-        "ctr": 31.7,
+        "unique": 739,
+        "ctr": 31.6,
         "dwell": 28
       },
       "28": {
-        "visit": 3912,
+        "visit": 3913,
         "click": 844,
-        "unique": 2867,
+        "unique": 2868,
         "ctr": 21.6,
         "dwell": 25
       },
       "90": {
-        "visit": 10873,
+        "visit": 10874,
         "click": 2631,
-        "unique": 4912,
+        "unique": 4913,
         "ctr": 24.2,
         "dwell": 23
       },
@@ -10215,9 +10215,9 @@
         "dwell": 19
       },
       "all": {
-        "visit": 44722,
+        "visit": 44723,
         "click": 16684,
-        "unique": 4919,
+        "unique": 4920,
         "ctr": 37.3,
         "dwell": 24
       }
@@ -13165,9 +13165,9 @@
       },
       {
         "d": "2026-11-17",
-        "visit": 13,
+        "visit": 14,
         "click": 8,
-        "unique": 11
+        "unique": 12
       }
     ],
     "sources": [
@@ -13273,11 +13273,11 @@
       {
         "name": "talk.naver.com",
         "host": "talk.naver.com",
-        "visit": 17,
+        "visit": 18,
         "click": 3,
-        "unique": 3,
-        "ctr": 17.6,
-        "dwell": 16
+        "unique": 4,
+        "ctr": 16.7,
+        "dwell": 18
       },
       {
         "name": "client-fva-academy-defilouisjs-projects.vercel.app",
@@ -13826,9 +13826,9 @@
       },
       {
         "name": "데스크탑",
-        "visit": 630,
+        "visit": 631,
         "click": 326,
-        "unique": 268,
+        "unique": 269,
         "dwell": 103,
         "ctr": 51.7
       },
@@ -13844,9 +13844,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 21180,
+        "visit": 21181,
         "click": 2837,
-        "unique": 4324,
+        "unique": 4325,
         "dwell": 30,
         "ctr": 13.4,
         "code": "KR"
@@ -14234,6 +14234,15 @@
             "unique": 1,
             "ctr": 0,
             "dwell": 17
+          },
+          {
+            "name": "talk.naver.com",
+            "host": "talk.naver.com",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 25
           }
         ],
         "device": [
@@ -14247,21 +14256,21 @@
           },
           {
             "name": "데스크탑",
-            "visit": 1,
+            "visit": 2,
             "click": 0,
-            "unique": 1,
-            "dwell": 6,
+            "unique": 2,
+            "dwell": 16,
             "ctr": 0
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 12,
+            "visit": 13,
             "click": 7,
-            "unique": 10,
+            "unique": 11,
             "dwell": 17,
-            "ctr": 58.3,
+            "ctr": 53.8,
             "code": "KR"
           },
           {
@@ -14299,6 +14308,15 @@
             "click": 0,
             "unique": 1,
             "dwell": 6,
+            "ctr": 0,
+            "code": "KR"
+          },
+          {
+            "name": "Gunsan",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 25,
             "ctr": 0,
             "code": "KR"
           },
@@ -14415,11 +14433,11 @@
           {
             "name": "talk.naver.com",
             "host": "talk.naver.com",
-            "visit": 4,
+            "visit": 5,
             "click": 1,
-            "unique": 2,
-            "ctr": 25,
-            "dwell": 13
+            "unique": 3,
+            "ctr": 20,
+            "dwell": 15
           },
           {
             "name": "구글 검색",
@@ -14460,11 +14478,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 64,
+            "visit": 65,
             "click": 34,
-            "unique": 47,
-            "dwell": 64,
-            "ctr": 53.1
+            "unique": 48,
+            "dwell": 63,
+            "ctr": 52.3
           },
           {
             "name": "태블릿",
@@ -14478,9 +14496,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 1032,
+            "visit": 1033,
             "click": 322,
-            "unique": 713,
+            "unique": 714,
             "dwell": 28,
             "ctr": 31.2,
             "code": "KR"
@@ -14926,11 +14944,11 @@
           {
             "name": "talk.naver.com",
             "host": "talk.naver.com",
-            "visit": 5,
+            "visit": 6,
             "click": 1,
-            "unique": 3,
-            "ctr": 20,
-            "dwell": 16
+            "unique": 4,
+            "ctr": 16.7,
+            "dwell": 18
           },
           {
             "name": "리틀리 안에서",
@@ -14980,11 +14998,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 176,
+            "visit": 177,
             "click": 96,
-            "unique": 129,
-            "dwell": 60,
-            "ctr": 54.5
+            "unique": 130,
+            "dwell": 59,
+            "ctr": 54.2
           },
           {
             "name": "태블릿",
@@ -14998,9 +15016,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3535,
+            "visit": 3536,
             "click": 817,
-            "unique": 2522,
+            "unique": 2523,
             "dwell": 25,
             "ctr": 23.1,
             "code": "KR"
@@ -15576,11 +15594,11 @@
           {
             "name": "talk.naver.com",
             "host": "talk.naver.com",
-            "visit": 5,
+            "visit": 6,
             "click": 1,
-            "unique": 3,
-            "ctr": 20,
-            "dwell": 16
+            "unique": 4,
+            "ctr": 16.7,
+            "dwell": 18
           },
           {
             "name": "구글 검색",
@@ -15630,11 +15648,11 @@
           },
           {
             "name": "데스크탑",
-            "visit": 351,
+            "visit": 352,
             "click": 181,
-            "unique": 267,
+            "unique": 268,
             "dwell": 103,
-            "ctr": 51.6
+            "ctr": 51.4
           },
           {
             "name": "태블릿",
@@ -15648,9 +15666,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 6061,
+            "visit": 6062,
             "click": 1575,
-            "unique": 4323,
+            "unique": 4324,
             "dwell": 30,
             "ctr": 26,
             "code": "KR"
@@ -16308,11 +16326,11 @@
           {
             "name": "talk.naver.com",
             "host": "talk.naver.com",
-            "visit": 17,
+            "visit": 18,
             "click": 3,
-            "unique": 3,
-            "ctr": 17.6,
-            "dwell": 16
+            "unique": 4,
+            "ctr": 16.7,
+            "dwell": 18
           },
           {
             "name": "client-fva-academy-defilouisjs-projects.vercel.app",
@@ -16443,9 +16461,9 @@
           },
           {
             "name": "데스크탑",
-            "visit": 630,
+            "visit": 631,
             "click": 326,
-            "unique": 268,
+            "unique": 269,
             "dwell": 103,
             "ctr": 51.7
           },
@@ -16461,9 +16479,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 21180,
+            "visit": 21181,
             "click": 2837,
-            "unique": 4324,
+            "unique": 4325,
             "dwell": 30,
             "ctr": 13.4,
             "code": "KR"
@@ -17269,6 +17287,15 @@
             "unique": 1,
             "ctr": 0,
             "dwell": 17
+          },
+          {
+            "name": "talk.naver.com",
+            "host": "talk.naver.com",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 25
           }
         ],
         "device": [
@@ -17282,21 +17309,21 @@
           },
           {
             "name": "데스크탑",
-            "visit": 1,
+            "visit": 2,
             "click": 0,
-            "unique": 1,
-            "dwell": 6,
+            "unique": 2,
+            "dwell": 16,
             "ctr": 0
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 12,
+            "visit": 13,
             "click": 7,
-            "unique": 10,
+            "unique": 11,
             "dwell": 17,
-            "ctr": 58.3,
+            "ctr": 53.8,
             "code": "KR"
           },
           {
@@ -17334,6 +17361,15 @@
             "click": 0,
             "unique": 1,
             "dwell": 6,
+            "ctr": 0,
+            "code": "KR"
+          },
+          {
+            "name": "Gunsan",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 25,
             "ctr": 0,
             "code": "KR"
           },
