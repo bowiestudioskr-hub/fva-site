@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 19. PM 8:22:32",
+  "updated": "2026. 11. 19. PM 8:38:24",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -13,49 +13,49 @@
     "cost": 0,
     "byPeriod": {
       "1": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 27,
+        "clk": 8,
+        "cost": 638
       },
       "7": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 299,
+        "clk": 29,
+        "cost": 2332
       },
       "28": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 1347,
+        "clk": 105,
+        "cost": 9030
       },
       "90": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 16068,
+        "clk": 289,
+        "cost": 38636
       },
       "y": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 69,
+        "clk": 8,
+        "cost": 605
       }
     },
     "daily": [
       {
         "d": "2026-11-06",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 56,
+        "clk": 3,
+        "cost": 242
       },
       {
         "d": "2026-11-07",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 43,
+        "clk": 5,
+        "cost": 495
       },
       {
         "d": "2026-11-08",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 30,
+        "clk": 1,
+        "cost": 88
       },
       {
         "d": "2026-11-09",
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 19. PM 8:22:28",
+    "updated": "2026. 11. 19. PM 8:38:18",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10180,30 +10180,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 114,
+        "visit": 115,
         "click": 49,
-        "unique": 76,
-        "ctr": 43,
-        "dwell": 38
+        "unique": 77,
+        "ctr": 42.6,
+        "dwell": 39
       },
       "7": {
-        "visit": 1121,
+        "visit": 1122,
         "click": 375,
-        "unique": 773,
-        "ctr": 33.5,
+        "unique": 774,
+        "ctr": 33.4,
         "dwell": 32
       },
       "28": {
-        "visit": 3986,
+        "visit": 3987,
         "click": 924,
-        "unique": 2905,
+        "unique": 2906,
         "ctr": 23.2,
         "dwell": 27
       },
       "90": {
-        "visit": 10783,
+        "visit": 10784,
         "click": 2692,
-        "unique": 5054,
+        "unique": 5055,
         "ctr": 25,
         "dwell": 25
       },
@@ -10215,9 +10215,9 @@
         "dwell": 22
       },
       "all": {
-        "visit": 45065,
+        "visit": 45066,
         "click": 16809,
-        "unique": 5152,
+        "unique": 5153,
         "ctr": 37.3,
         "dwell": 25
       }
@@ -13177,9 +13177,9 @@
       },
       {
         "d": "2026-11-19",
-        "visit": 114,
+        "visit": 115,
         "click": 49,
-        "unique": 76
+        "unique": 77
       }
     ],
     "sources": [
@@ -13231,11 +13231,11 @@
       {
         "name": "m.place.naver.com",
         "host": "m.place.naver.com",
-        "visit": 556,
+        "visit": 557,
         "click": 223,
-        "unique": 29,
-        "ctr": 40.1,
-        "dwell": 21
+        "unique": 30,
+        "ctr": 40,
+        "dwell": 22
       },
       {
         "name": "pcmap.place.naver.com",
@@ -13830,9 +13830,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 8430,
+        "visit": 8431,
         "click": 2736,
-        "unique": 4845,
+        "unique": 4846,
         "dwell": 20,
         "ctr": 32.5
       },
@@ -13856,9 +13856,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 20365,
+        "visit": 20366,
         "click": 2960,
-        "unique": 4555,
+        "unique": 4556,
         "dwell": 30,
         "ctr": 14.5,
         "code": "KR"
@@ -14038,11 +14038,11 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 5570,
+        "visit": 5571,
         "click": 2036,
-        "unique": 2824,
+        "unique": 2825,
         "dwell": 28,
-        "ctr": 36.6,
+        "ctr": 36.5,
         "code": "KR"
       },
       {
@@ -14246,16 +14246,25 @@
             "unique": 4,
             "ctr": 100,
             "dwell": 19
+          },
+          {
+            "name": "m.place.naver.com",
+            "host": "m.place.naver.com",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 150
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 107,
+            "visit": 108,
             "click": 44,
-            "unique": 71,
-            "dwell": 39,
-            "ctr": 41.1
+            "unique": 72,
+            "dwell": 40,
+            "ctr": 40.7
           },
           {
             "name": "데스크탑",
@@ -14269,11 +14278,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 113,
+            "visit": 114,
             "click": 47,
-            "unique": 75,
-            "dwell": 38,
-            "ctr": 41.6,
+            "unique": 76,
+            "dwell": 39,
+            "ctr": 41.2,
             "code": "KR"
           },
           {
@@ -14289,11 +14298,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 65,
+            "visit": 66,
             "click": 25,
-            "unique": 46,
-            "dwell": 56,
-            "ctr": 38.5,
+            "unique": 47,
+            "dwell": 59,
+            "ctr": 37.9,
             "code": "KR"
           },
           {
@@ -14592,11 +14601,11 @@
           {
             "name": "m.place.naver.com",
             "host": "m.place.naver.com",
-            "visit": 7,
+            "visit": 8,
             "click": 5,
-            "unique": 7,
-            "ctr": 71.4,
-            "dwell": 25
+            "unique": 8,
+            "ctr": 62.5,
+            "dwell": 38
           },
           {
             "name": "talk.naver.com",
@@ -14656,11 +14665,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 1045,
+            "visit": 1046,
             "click": 333,
-            "unique": 716,
+            "unique": 717,
             "dwell": 25,
-            "ctr": 31.9
+            "ctr": 31.8
           },
           {
             "name": "데스크탑",
@@ -14682,9 +14691,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 1091,
+            "visit": 1092,
             "click": 358,
-            "unique": 752,
+            "unique": 753,
             "dwell": 32,
             "ctr": 32.8,
             "code": "KR"
@@ -14792,9 +14801,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 580,
+            "visit": 581,
             "click": 165,
-            "unique": 400,
+            "unique": 401,
             "dwell": 42,
             "ctr": 28.4,
             "code": "KR"
@@ -15094,11 +15103,11 @@
           {
             "name": "m.place.naver.com",
             "host": "m.place.naver.com",
-            "visit": 29,
+            "visit": 30,
             "click": 37,
-            "unique": 21,
-            "ctr": 127.6,
-            "dwell": 25
+            "unique": 22,
+            "ctr": 123.3,
+            "dwell": 28
           },
           {
             "name": "인스타 (앱 미리보기)",
@@ -15167,9 +15176,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3771,
+            "visit": 3772,
             "click": 813,
-            "unique": 2748,
+            "unique": 2749,
             "dwell": 22,
             "ctr": 21.6
           },
@@ -15193,9 +15202,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3637,
+            "visit": 3638,
             "click": 895,
-            "unique": 2586,
+            "unique": 2587,
             "dwell": 27,
             "ctr": 24.6,
             "code": "KR"
@@ -15375,9 +15384,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1979,
+            "visit": 1980,
             "click": 420,
-            "unique": 1408,
+            "unique": 1409,
             "dwell": 32,
             "ctr": 21.2,
             "code": "KR"
@@ -15726,11 +15735,11 @@
           {
             "name": "m.place.naver.com",
             "host": "m.place.naver.com",
-            "visit": 69,
+            "visit": 70,
             "click": 82,
-            "unique": 29,
-            "ctr": 118.8,
-            "dwell": 21
+            "unique": 30,
+            "ctr": 117.1,
+            "dwell": 23
           },
           {
             "name": "pcmap.place.naver.com",
@@ -15817,9 +15826,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 6574,
+            "visit": 6575,
             "click": 1562,
-            "unique": 4753,
+            "unique": 4754,
             "dwell": 20,
             "ctr": 23.8
           },
@@ -15843,9 +15852,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 6307,
+            "visit": 6308,
             "click": 1696,
-            "unique": 4471,
+            "unique": 4472,
             "dwell": 30,
             "ctr": 26.9,
             "code": "KR"
@@ -16025,9 +16034,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 3863,
+            "visit": 3864,
             "click": 930,
-            "unique": 2745,
+            "unique": 2746,
             "dwell": 28,
             "ctr": 24.1,
             "code": "KR"
@@ -16417,11 +16426,11 @@
           {
             "name": "m.place.naver.com",
             "host": "m.place.naver.com",
-            "visit": 556,
+            "visit": 557,
             "click": 223,
-            "unique": 29,
-            "ctr": 40.1,
-            "dwell": 21
+            "unique": 30,
+            "ctr": 40,
+            "dwell": 22
           },
           {
             "name": "pcmap.place.naver.com",
@@ -16598,9 +16607,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 8430,
+            "visit": 8431,
             "click": 2736,
-            "unique": 4845,
+            "unique": 4846,
             "dwell": 20,
             "ctr": 32.5
           },
@@ -16624,9 +16633,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 20365,
+            "visit": 20366,
             "click": 2960,
-            "unique": 4555,
+            "unique": 4556,
             "dwell": 30,
             "ctr": 14.5,
             "code": "KR"
@@ -16806,11 +16815,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 5570,
+            "visit": 5571,
             "click": 2036,
-            "unique": 2824,
+            "unique": 2825,
             "dwell": 28,
-            "ctr": 36.6,
+            "ctr": 36.5,
             "code": "KR"
           },
           {
@@ -17432,16 +17441,25 @@
             "unique": 4,
             "ctr": 100,
             "dwell": 19
+          },
+          {
+            "name": "m.place.naver.com",
+            "host": "m.place.naver.com",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 150
           }
         ],
         "device": [
           {
             "name": "모바일",
-            "visit": 107,
+            "visit": 108,
             "click": 44,
-            "unique": 71,
-            "dwell": 39,
-            "ctr": 41.1
+            "unique": 72,
+            "dwell": 40,
+            "ctr": 40.7
           },
           {
             "name": "데스크탑",
@@ -17455,11 +17473,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 113,
+            "visit": 114,
             "click": 47,
-            "unique": 75,
-            "dwell": 38,
-            "ctr": 41.6,
+            "unique": 76,
+            "dwell": 39,
+            "ctr": 41.2,
             "code": "KR"
           },
           {
@@ -17475,11 +17493,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 65,
+            "visit": 66,
             "click": 25,
-            "unique": 46,
-            "dwell": 56,
-            "ctr": 38.5,
+            "unique": 47,
+            "dwell": 59,
+            "ctr": 37.9,
             "code": "KR"
           },
           {
