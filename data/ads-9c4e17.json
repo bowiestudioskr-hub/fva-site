@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 20. AM 7:10:46",
+  "updated": "2026. 11. 20. AM 7:42:18",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -13,22 +13,22 @@
     "cost": 0,
     "byPeriod": {
       "1": {
-        "imp": 4,
+        "imp": 5,
         "clk": 0,
         "cost": 0
       },
       "7": {
-        "imp": 272,
+        "imp": 273,
         "clk": 29,
         "cost": 2321
       },
       "28": {
-        "imp": 1303,
+        "imp": 1304,
         "clk": 103,
         "cost": 8832
       },
       "90": {
-        "imp": 15114,
+        "imp": 15115,
         "clk": 289,
         "cost": 38484
       },
@@ -119,7 +119,7 @@
       },
       {
         "d": "2026-11-20",
-        "imp": 4,
+        "imp": 5,
         "clk": 0,
         "cost": 0
       }
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 20. AM 7:10:40",
+    "updated": "2026. 11. 20. AM 7:42:12",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -14882,15 +14882,6 @@
             "dwell": 25
           },
           {
-            "name": "네이버 검색",
-            "host": "search.naver.com",
-            "visit": 2,
-            "click": 2,
-            "unique": 2,
-            "ctr": 100,
-            "dwell": 27
-          },
-          {
             "name": "구글 검색",
             "host": "google.com",
             "visit": 2,
@@ -14907,6 +14898,15 @@
             "unique": 2,
             "ctr": 100,
             "dwell": 33
+          },
+          {
+            "name": "네이버 검색",
+            "host": "search.naver.com",
+            "visit": 2,
+            "click": 2,
+            "unique": 2,
+            "ctr": 100,
+            "dwell": 27
           },
           {
             "name": "리틀리 안에서",
@@ -15443,7 +15443,7 @@
         "sources": [
           {
             "name": "페이스북",
-            "host": "m.facebook.com",
+            "host": "facebook.com",
             "visit": 6122,
             "click": 1,
             "unique": 2709,
@@ -15541,15 +15541,6 @@
             "dwell": 35
           },
           {
-            "name": "l.facebook.com",
-            "host": "l.facebook.com",
-            "visit": 3,
-            "click": 1,
-            "unique": 0,
-            "ctr": 33.3,
-            "dwell": 11
-          },
-          {
             "name": "business.kakao.com",
             "host": "business.kakao.com",
             "visit": 3,
@@ -15566,6 +15557,15 @@
             "unique": 2,
             "ctr": 100,
             "dwell": 29
+          },
+          {
+            "name": "l.facebook.com",
+            "host": "l.facebook.com",
+            "visit": 3,
+            "click": 1,
+            "unique": 0,
+            "ctr": 33.3,
+            "dwell": 11
           }
         ],
         "device": [
