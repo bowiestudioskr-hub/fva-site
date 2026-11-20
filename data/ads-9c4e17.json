@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 20. PM 3:39:18",
+  "updated": "2026. 11. 20. PM 3:55:10",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -13,24 +13,24 @@
     "cost": 0,
     "byPeriod": {
       "1": {
-        "imp": 17,
-        "clk": 1,
-        "cost": 77
+        "imp": 23,
+        "clk": 2,
+        "cost": 154
       },
       "7": {
-        "imp": 285,
-        "clk": 30,
-        "cost": 2398
+        "imp": 291,
+        "clk": 31,
+        "cost": 2475
       },
       "28": {
-        "imp": 1316,
-        "clk": 104,
-        "cost": 8909
+        "imp": 1322,
+        "clk": 105,
+        "cost": 8986
       },
       "90": {
-        "imp": 15127,
-        "clk": 290,
-        "cost": 38561
+        "imp": 15133,
+        "clk": 291,
+        "cost": 38638
       },
       "y": {
         "imp": 38,
@@ -119,9 +119,9 @@
       },
       {
         "d": "2026-11-20",
-        "imp": 17,
-        "clk": 1,
-        "cost": 77
+        "imp": 23,
+        "clk": 2,
+        "cost": 154
       }
     ],
     "campaignImp": 0,
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 20. PM 3:39:10",
+    "updated": "2026. 11. 20. PM 3:55:04",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10180,30 +10180,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 58,
+        "visit": 59,
         "click": 4,
-        "unique": 42,
-        "ctr": 6.9,
-        "dwell": 38
+        "unique": 43,
+        "ctr": 6.8,
+        "dwell": 165
       },
       "7": {
-        "visit": 1038,
+        "visit": 1039,
         "click": 332,
-        "unique": 722,
+        "unique": 723,
         "ctr": 32,
-        "dwell": 34
+        "dwell": 40
       },
       "28": {
-        "visit": 3969,
+        "visit": 3970,
         "click": 900,
-        "unique": 2889,
+        "unique": 2890,
         "ctr": 22.7,
-        "dwell": 27
+        "dwell": 29
       },
       "90": {
-        "visit": 10764,
+        "visit": 10765,
         "click": 2688,
-        "unique": 5067,
+        "unique": 5068,
         "ctr": 25,
         "dwell": 25
       },
@@ -10215,9 +10215,9 @@
         "dwell": 36
       },
       "all": {
-        "visit": 45147,
+        "visit": 45148,
         "click": 16815,
-        "unique": 5209,
+        "unique": 5210,
         "ctr": 37.2,
         "dwell": 25
       }
@@ -13183,9 +13183,9 @@
       },
       {
         "d": "2026-11-20",
-        "visit": 58,
+        "visit": 59,
         "click": 4,
-        "unique": 42
+        "unique": 43
       }
     ],
     "sources": [
@@ -13839,16 +13839,16 @@
         "visit": 8511,
         "click": 2741,
         "unique": 4901,
-        "dwell": 20,
+        "dwell": 21,
         "ctr": 32.2
       },
       {
         "name": "데스크탑",
-        "visit": 655,
+        "visit": 656,
         "click": 342,
-        "unique": 286,
+        "unique": 287,
         "dwell": 104,
-        "ctr": 52.2
+        "ctr": 52.1
       },
       {
         "name": "태블릿",
@@ -13865,7 +13865,7 @@
         "visit": 20412,
         "click": 2966,
         "unique": 4609,
-        "dwell": 30,
+        "dwell": 31,
         "ctr": 14.5,
         "code": "KR"
       },
@@ -13952,11 +13952,11 @@
       },
       {
         "name": "AU",
-        "visit": 28,
+        "visit": 29,
         "click": 6,
-        "unique": 6,
+        "unique": 7,
         "dwell": 31,
-        "ctr": 21.4,
+        "ctr": 20.7,
         "code": "AU"
       },
       {
@@ -14047,7 +14047,7 @@
         "visit": 5609,
         "click": 2039,
         "unique": 2848,
-        "dwell": 28,
+        "dwell": 29,
         "ctr": 36.4,
         "code": "KR"
       },
@@ -14260,16 +14260,16 @@
             "visit": 57,
             "click": 3,
             "unique": 41,
-            "dwell": 38,
+            "dwell": 170,
             "ctr": 5.3
           },
           {
             "name": "데스크탑",
-            "visit": 1,
+            "visit": 2,
             "click": 1,
-            "unique": 1,
+            "unique": 2,
             "dwell": 24,
-            "ctr": 100
+            "ctr": 50
           }
         ],
         "country": [
@@ -14278,7 +14278,7 @@
             "visit": 55,
             "click": 4,
             "unique": 39,
-            "dwell": 39,
+            "dwell": 170,
             "ctr": 7.3,
             "code": "KR"
           },
@@ -14290,6 +14290,15 @@
             "dwell": 0,
             "ctr": 0,
             "code": "HK"
+          },
+          {
+            "name": "AU",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "AU"
           },
           {
             "name": "BR",
@@ -14307,7 +14316,7 @@
             "visit": 24,
             "click": 2,
             "unique": 16,
-            "dwell": 13,
+            "dwell": 427,
             "ctr": 8.3,
             "code": "KR"
           },
@@ -14373,6 +14382,15 @@
             "dwell": 10,
             "ctr": 0,
             "code": "KR"
+          },
+          {
+            "name": "Sydney",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "AU"
           },
           {
             "name": "Curitiba",
@@ -14572,16 +14590,16 @@
             "visit": 967,
             "click": 290,
             "unique": 669,
-            "dwell": 27,
+            "dwell": 33,
             "ctr": 30
           },
           {
             "name": "데스크탑",
-            "visit": 67,
+            "visit": 68,
             "click": 42,
-            "unique": 49,
+            "unique": 50,
             "dwell": 98,
-            "ctr": 62.7
+            "ctr": 61.8
           },
           {
             "name": "태블릿",
@@ -14598,7 +14616,7 @@
             "visit": 1006,
             "click": 315,
             "unique": 699,
-            "dwell": 35,
+            "dwell": 41,
             "ctr": 31.3,
             "code": "KR"
           },
@@ -14646,6 +14664,15 @@
             "dwell": 0,
             "ctr": 0,
             "code": "PH"
+          },
+          {
+            "name": "AU",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "AU"
           },
           {
             "name": "BD",
@@ -14708,7 +14735,7 @@
             "visit": 546,
             "click": 153,
             "unique": 370,
-            "dwell": 44,
+            "dwell": 56,
             "ctr": 28,
             "code": "KR"
           },
@@ -15083,16 +15110,16 @@
             "visit": 3754,
             "click": 789,
             "unique": 2732,
-            "dwell": 22,
+            "dwell": 24,
             "ctr": 21
           },
           {
             "name": "데스크탑",
-            "visit": 194,
+            "visit": 195,
             "click": 106,
-            "unique": 141,
+            "unique": 142,
             "dwell": 69,
-            "ctr": 54.6
+            "ctr": 54.4
           },
           {
             "name": "태블릿",
@@ -15109,7 +15136,7 @@
             "visit": 3628,
             "click": 871,
             "unique": 2576,
-            "dwell": 28,
+            "dwell": 30,
             "ctr": 24,
             "code": "KR"
           },
@@ -15231,6 +15258,15 @@
             "code": "SG"
           },
           {
+            "name": "AU",
+            "visit": 3,
+            "click": 2,
+            "unique": 3,
+            "dwell": 36,
+            "ctr": 66.7,
+            "code": "AU"
+          },
+          {
             "name": "GB",
             "visit": 3,
             "click": 3,
@@ -15238,15 +15274,6 @@
             "dwell": 29,
             "ctr": 100,
             "code": "GB"
-          },
-          {
-            "name": "AU",
-            "visit": 2,
-            "click": 2,
-            "unique": 2,
-            "dwell": 36,
-            "ctr": 100,
-            "code": "AU"
           },
           {
             "name": "TH",
@@ -15291,7 +15318,7 @@
             "visit": 1974,
             "click": 405,
             "unique": 1399,
-            "dwell": 33,
+            "dwell": 36,
             "ctr": 20.5,
             "code": "KR"
           },
@@ -15733,16 +15760,16 @@
             "visit": 6606,
             "click": 1562,
             "unique": 4767,
-            "dwell": 20,
+            "dwell": 21,
             "ctr": 23.6
           },
           {
             "name": "데스크탑",
-            "visit": 365,
+            "visit": 366,
             "click": 196,
-            "unique": 278,
+            "unique": 279,
             "dwell": 105,
-            "ctr": 53.7
+            "ctr": 53.6
           },
           {
             "name": "태블릿",
@@ -15759,7 +15786,7 @@
             "visit": 6337,
             "click": 1698,
             "unique": 4484,
-            "dwell": 30,
+            "dwell": 32,
             "ctr": 26.8,
             "code": "KR"
           },
@@ -15926,13 +15953,13 @@
             "code": "IN"
           },
           {
-            "name": "BD",
+            "name": "AU",
             "visit": 6,
-            "click": 0,
-            "unique": 5,
-            "dwell": 9,
-            "ctr": 0,
-            "code": "BD"
+            "click": 4,
+            "unique": 6,
+            "dwell": 37,
+            "ctr": 66.7,
+            "code": "AU"
           }
         ],
         "city": [
@@ -15941,7 +15968,7 @@
             "visit": 3853,
             "click": 929,
             "unique": 2728,
-            "dwell": 28,
+            "dwell": 30,
             "ctr": 24.1,
             "code": "KR"
           },
@@ -16506,16 +16533,16 @@
             "visit": 8511,
             "click": 2741,
             "unique": 4901,
-            "dwell": 20,
+            "dwell": 21,
             "ctr": 32.2
           },
           {
             "name": "데스크탑",
-            "visit": 655,
+            "visit": 656,
             "click": 342,
-            "unique": 286,
+            "unique": 287,
             "dwell": 104,
-            "ctr": 52.2
+            "ctr": 52.1
           },
           {
             "name": "태블릿",
@@ -16532,7 +16559,7 @@
             "visit": 20412,
             "click": 2966,
             "unique": 4609,
-            "dwell": 30,
+            "dwell": 31,
             "ctr": 14.5,
             "code": "KR"
           },
@@ -16619,11 +16646,11 @@
           },
           {
             "name": "AU",
-            "visit": 28,
+            "visit": 29,
             "click": 6,
-            "unique": 6,
+            "unique": 7,
             "dwell": 31,
-            "ctr": 21.4,
+            "ctr": 20.7,
             "code": "AU"
           },
           {
@@ -16714,7 +16741,7 @@
             "visit": 5609,
             "click": 2039,
             "unique": 2848,
-            "dwell": 28,
+            "dwell": 29,
             "ctr": 36.4,
             "code": "KR"
           },
@@ -17345,16 +17372,16 @@
             "visit": 57,
             "click": 3,
             "unique": 41,
-            "dwell": 38,
+            "dwell": 170,
             "ctr": 5.3
           },
           {
             "name": "데스크탑",
-            "visit": 1,
+            "visit": 2,
             "click": 1,
-            "unique": 1,
+            "unique": 2,
             "dwell": 24,
-            "ctr": 100
+            "ctr": 50
           }
         ],
         "country": [
@@ -17363,7 +17390,7 @@
             "visit": 55,
             "click": 4,
             "unique": 39,
-            "dwell": 39,
+            "dwell": 170,
             "ctr": 7.3,
             "code": "KR"
           },
@@ -17375,6 +17402,15 @@
             "dwell": 0,
             "ctr": 0,
             "code": "HK"
+          },
+          {
+            "name": "AU",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "AU"
           },
           {
             "name": "BR",
@@ -17392,7 +17428,7 @@
             "visit": 24,
             "click": 2,
             "unique": 16,
-            "dwell": 13,
+            "dwell": 427,
             "ctr": 8.3,
             "code": "KR"
           },
@@ -17458,6 +17494,15 @@
             "dwell": 10,
             "ctr": 0,
             "code": "KR"
+          },
+          {
+            "name": "Sydney",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "AU"
           },
           {
             "name": "Curitiba",
