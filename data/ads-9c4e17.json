@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 21. PM 3:38:22",
+  "updated": "2026. 11. 21. PM 3:54:15",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -13,22 +13,22 @@
     "cost": 0,
     "byPeriod": {
       "1": {
-        "imp": 20,
+        "imp": 22,
         "clk": 0,
         "cost": 0
       },
       "7": {
-        "imp": 309,
+        "imp": 311,
         "clk": 33,
         "cost": 2629
       },
       "28": {
-        "imp": 1323,
+        "imp": 1325,
         "clk": 107,
         "cost": 9129
       },
       "90": {
-        "imp": 14494,
+        "imp": 14496,
         "clk": 292,
         "cost": 38667
       },
@@ -119,7 +119,7 @@
       },
       {
         "d": "2026-11-21",
-        "imp": 20,
+        "imp": 22,
         "clk": 0,
         "cost": 0
       }
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 21. PM 3:38:16",
+    "updated": "2026. 11. 21. PM 3:54:09",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -15658,7 +15658,7 @@
         "sources": [
           {
             "name": "페이스북",
-            "host": "facebook.com",
+            "host": "m.facebook.com",
             "visit": 6234,
             "click": 1,
             "unique": 2786,
@@ -15756,6 +15756,15 @@
             "dwell": 35
           },
           {
+            "name": "l.facebook.com",
+            "host": "l.facebook.com",
+            "visit": 3,
+            "click": 1,
+            "unique": 0,
+            "ctr": 33.3,
+            "dwell": 11
+          },
+          {
             "name": "business.kakao.com",
             "host": "business.kakao.com",
             "visit": 3,
@@ -15772,15 +15781,6 @@
             "unique": 2,
             "ctr": 100,
             "dwell": 29
-          },
-          {
-            "name": "l.facebook.com",
-            "host": "l.facebook.com",
-            "visit": 3,
-            "click": 1,
-            "unique": 0,
-            "ctr": 33.3,
-            "dwell": 11
           }
         ],
         "device": [
