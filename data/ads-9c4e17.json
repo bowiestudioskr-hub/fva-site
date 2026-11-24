@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 25. AM 12:13:29",
+  "updated": "2026. 11. 25. AM 12:45:02",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -10170,40 +10170,40 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 25. AM 12:13:23",
+    "updated": "2026. 11. 25. AM 12:44:57",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
       "처음": "2025-07-15",
-      "마지막": "2026-11-24",
-      "일수": 498
+      "마지막": "2026-11-25",
+      "일수": 499
     },
     "byPeriod": {
       "1": {
-        "visit": 0,
-        "click": 0,
-        "unique": 0,
-        "ctr": 0,
-        "dwell": 0
+        "visit": 2,
+        "click": 1,
+        "unique": 2,
+        "ctr": 50,
+        "dwell": 16
       },
       "7": {
-        "visit": 866,
-        "click": 274,
-        "unique": 613,
-        "ctr": 31.6,
+        "visit": 868,
+        "click": 275,
+        "unique": 615,
+        "ctr": 31.7,
         "dwell": 30
       },
       "28": {
-        "visit": 3820,
-        "click": 985,
-        "unique": 2765,
+        "visit": 3822,
+        "click": 986,
+        "unique": 2767,
         "ctr": 25.8,
         "dwell": 28
       },
       "90": {
-        "visit": 11072,
-        "click": 2701,
-        "unique": 5423,
+        "visit": 11074,
+        "click": 2702,
+        "unique": 5425,
         "ctr": 24.4,
         "dwell": 25
       },
@@ -10215,9 +10215,9 @@
         "dwell": 21
       },
       "all": {
-        "visit": 45691,
-        "click": 16996,
-        "unique": 5605,
+        "visit": 45693,
+        "click": 16997,
+        "unique": 5607,
         "ctr": 37.2,
         "dwell": 25
       }
@@ -13210,15 +13210,21 @@
         "visit": 128,
         "click": 58,
         "unique": 89
+      },
+      {
+        "d": "2026-11-25",
+        "visit": 2,
+        "click": 1,
+        "unique": 2
       }
     ],
     "sources": [
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14602,
-        "click": 5183,
-        "unique": 1336,
+        "visit": 14604,
+        "click": 5184,
+        "unique": 1338,
         "ctr": 35.5,
         "dwell": 34
       },
@@ -13589,7 +13595,7 @@
         "gone": false,
         "kind": "store",
         "img": true,
-        "clicks": 165
+        "clicks": 166
       },
       {
         "key": "QuhY7oT",
@@ -13851,9 +13857,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 9031,
-        "click": 2909,
-        "unique": 5277,
+        "visit": 9033,
+        "click": 2910,
+        "unique": 5279,
         "dwell": 21,
         "ctr": 32.2
       },
@@ -13877,9 +13883,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 20821,
-        "click": 3147,
-        "unique": 4994,
+        "visit": 20823,
+        "click": 3148,
+        "unique": 4996,
         "dwell": 30,
         "ctr": 15.1,
         "code": "KR"
@@ -14149,11 +14155,11 @@
       },
       {
         "name": "Bucheon-si",
-        "visit": 79,
-        "click": 38,
-        "unique": 56,
+        "visit": 80,
+        "click": 39,
+        "unique": 57,
         "dwell": 19,
-        "ctr": 48.1,
+        "ctr": 48.8,
         "code": "KR"
       },
       {
@@ -14193,21 +14199,21 @@
         "code": "KR"
       },
       {
+        "name": "Gimpo-si",
+        "visit": 42,
+        "click": 20,
+        "unique": 28,
+        "dwell": 88,
+        "ctr": 47.6,
+        "code": "KR"
+      },
+      {
         "name": "Siheung-si",
         "visit": 42,
         "click": 7,
         "unique": 29,
         "dwell": 11,
         "ctr": 16.7,
-        "code": "KR"
-      },
-      {
-        "name": "Gimpo-si",
-        "visit": 41,
-        "click": 20,
-        "unique": 27,
-        "dwell": 91,
-        "ctr": 48.8,
         "code": "KR"
       },
       {
@@ -14240,11 +14246,68 @@
     ],
     "byPeriodDetail": {
       "1": {
-        "sources": [],
-        "device": [],
-        "country": [],
-        "city": [],
-        "blocks": []
+        "sources": [
+          {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 2,
+            "click": 1,
+            "unique": 2,
+            "ctr": 50,
+            "dwell": 16
+          }
+        ],
+        "device": [
+          {
+            "name": "모바일",
+            "visit": 2,
+            "click": 1,
+            "unique": 2,
+            "dwell": 16,
+            "ctr": 50
+          }
+        ],
+        "country": [
+          {
+            "name": "KR",
+            "visit": 2,
+            "click": 1,
+            "unique": 2,
+            "dwell": 16,
+            "ctr": 50,
+            "code": "KR"
+          }
+        ],
+        "city": [
+          {
+            "name": "Bucheon-si",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "dwell": 16,
+            "ctr": 100,
+            "code": "KR"
+          },
+          {
+            "name": "Gimpo-si",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 15,
+            "ctr": 0,
+            "code": "KR"
+          }
+        ],
+        "blocks": [
+          {
+            "key": "CBR1sRX",
+            "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
+          }
+        ]
       },
       "7": {
         "sources": [
@@ -14260,10 +14323,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 233,
-            "click": 203,
-            "unique": 193,
-            "ctr": 87.1,
+            "visit": 235,
+            "click": 204,
+            "unique": 195,
+            "ctr": 86.8,
             "dwell": 26
           },
           {
@@ -14324,9 +14387,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 826,
-            "click": 251,
-            "unique": 581,
+            "visit": 828,
+            "click": 252,
+            "unique": 583,
             "dwell": 31,
             "ctr": 30.4
           },
@@ -14350,10 +14413,10 @@
         "country": [
           {
             "name": "KR",
-            "visit": 848,
-            "click": 272,
-            "unique": 597,
-            "dwell": 31,
+            "visit": 850,
+            "click": 273,
+            "unique": 599,
+            "dwell": 30,
             "ctr": 32.1,
             "code": "KR"
           },
@@ -14496,11 +14559,11 @@
           },
           {
             "name": "Bucheon-si",
-            "visit": 12,
-            "click": 5,
-            "unique": 9,
-            "dwell": 6,
-            "ctr": 41.7,
+            "visit": 13,
+            "click": 6,
+            "unique": 10,
+            "dwell": 7,
+            "ctr": 46.2,
             "code": "KR"
           },
           {
@@ -14531,21 +14594,21 @@
             "code": "KR"
           },
           {
+            "name": "Gimpo-si",
+            "visit": 10,
+            "click": 6,
+            "unique": 7,
+            "dwell": 30,
+            "ctr": 60,
+            "code": "KR"
+          },
+          {
             "name": "Busan",
             "visit": 9,
             "click": 2,
             "unique": 9,
             "dwell": 21,
             "ctr": 22.2,
-            "code": "KR"
-          },
-          {
-            "name": "Gimpo-si",
-            "visit": 9,
-            "click": 6,
-            "unique": 6,
-            "dwell": 33,
-            "ctr": 66.7,
             "code": "KR"
           },
           {
@@ -14610,7 +14673,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 55
+            "clicks": 56
           },
           {
             "key": "418MjcE",
@@ -14708,10 +14771,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 898,
-            "click": 710,
-            "unique": 717,
-            "ctr": 79.1,
+            "visit": 900,
+            "click": 711,
+            "unique": 719,
+            "ctr": 79,
             "dwell": 33
           },
           {
@@ -14799,9 +14862,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3624,
-            "click": 887,
-            "unique": 2616,
+            "visit": 3626,
+            "click": 888,
+            "unique": 2618,
             "dwell": 24,
             "ctr": 24.5
           },
@@ -14825,9 +14888,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3570,
-            "click": 958,
-            "unique": 2539,
+            "visit": 3572,
+            "click": 959,
+            "unique": 2541,
             "dwell": 28,
             "ctr": 26.8,
             "code": "KR"
@@ -15088,11 +15151,11 @@
           },
           {
             "name": "Bucheon-si",
-            "visit": 43,
-            "click": 16,
-            "unique": 35,
+            "visit": 44,
+            "click": 17,
+            "unique": 36,
             "dwell": 14,
-            "ctr": 37.2,
+            "ctr": 38.6,
             "code": "KR"
           },
           {
@@ -15133,11 +15196,11 @@
           },
           {
             "name": "Gimpo-si",
-            "visit": 29,
+            "visit": 30,
             "click": 16,
-            "unique": 19,
-            "dwell": 109,
-            "ctr": 55.2,
+            "unique": 20,
+            "dwell": 104,
+            "ctr": 53.3,
             "code": "KR"
           },
           {
@@ -15201,7 +15264,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 165
+            "clicks": 166
           },
           {
             "key": "xI5UCt0",
@@ -15331,10 +15394,10 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2417,
-            "click": 1969,
-            "unique": 1294,
-            "ctr": 81.5,
+            "visit": 2419,
+            "click": 1970,
+            "unique": 1296,
+            "ctr": 81.4,
             "dwell": 35
           },
           {
@@ -15449,11 +15512,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 7044,
-            "click": 1694,
-            "unique": 5114,
+            "visit": 7046,
+            "click": 1695,
+            "unique": 5116,
             "dwell": 21,
-            "ctr": 24
+            "ctr": 24.1
           },
           {
             "name": "데스크탑",
@@ -15475,9 +15538,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 6774,
-            "click": 1836,
-            "unique": 4834,
+            "visit": 6776,
+            "click": 1837,
+            "unique": 4836,
             "dwell": 31,
             "ctr": 27.1,
             "code": "KR"
@@ -15747,11 +15810,11 @@
           },
           {
             "name": "Bucheon-si",
-            "visit": 74,
-            "click": 35,
-            "unique": 56,
+            "visit": 75,
+            "click": 36,
+            "unique": 57,
             "dwell": 19,
-            "ctr": 47.3,
+            "ctr": 48,
             "code": "KR"
           },
           {
@@ -15792,11 +15855,11 @@
           },
           {
             "name": "Gimpo-si",
-            "visit": 40,
+            "visit": 41,
             "click": 17,
-            "unique": 27,
-            "dwell": 91,
-            "ctr": 42.5,
+            "unique": 28,
+            "dwell": 88,
+            "ctr": 41.5,
             "code": "KR"
           },
           {
@@ -15883,7 +15946,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 165
+            "clicks": 166
           },
           {
             "key": "O1PZwO3",
@@ -15972,9 +16035,9 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14602,
-            "click": 5183,
-            "unique": 1336,
+            "visit": 14604,
+            "click": 5184,
+            "unique": 1338,
             "ctr": 35.5,
             "dwell": 34
           },
@@ -16189,9 +16252,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 9031,
-            "click": 2909,
-            "unique": 5277,
+            "visit": 9033,
+            "click": 2910,
+            "unique": 5279,
             "dwell": 21,
             "ctr": 32.2
           },
@@ -16215,9 +16278,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 20821,
-            "click": 3147,
-            "unique": 4994,
+            "visit": 20823,
+            "click": 3148,
+            "unique": 4996,
             "dwell": 30,
             "ctr": 15.1,
             "code": "KR"
@@ -16487,11 +16550,11 @@
           },
           {
             "name": "Bucheon-si",
-            "visit": 79,
-            "click": 38,
-            "unique": 56,
+            "visit": 80,
+            "click": 39,
+            "unique": 57,
             "dwell": 19,
-            "ctr": 48.1,
+            "ctr": 48.8,
             "code": "KR"
           },
           {
@@ -16531,21 +16594,21 @@
             "code": "KR"
           },
           {
+            "name": "Gimpo-si",
+            "visit": 42,
+            "click": 20,
+            "unique": 28,
+            "dwell": 88,
+            "ctr": 47.6,
+            "code": "KR"
+          },
+          {
             "name": "Siheung-si",
             "visit": 42,
             "click": 7,
             "unique": 29,
             "dwell": 11,
             "ctr": 16.7,
-            "code": "KR"
-          },
-          {
-            "name": "Gimpo-si",
-            "visit": 41,
-            "click": 20,
-            "unique": 27,
-            "dwell": 91,
-            "ctr": 48.8,
             "code": "KR"
           },
           {
@@ -16735,7 +16798,7 @@
             "gone": false,
             "kind": "store",
             "img": true,
-            "clicks": 165
+            "clicks": 166
           },
           {
             "key": "QuhY7oT",
@@ -16996,11 +17059,68 @@
         ]
       },
       "y": {
-        "sources": [],
-        "device": [],
-        "country": [],
-        "city": [],
-        "blocks": []
+        "sources": [
+          {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 2,
+            "click": 1,
+            "unique": 2,
+            "ctr": 50,
+            "dwell": 16
+          }
+        ],
+        "device": [
+          {
+            "name": "모바일",
+            "visit": 2,
+            "click": 1,
+            "unique": 2,
+            "dwell": 16,
+            "ctr": 50
+          }
+        ],
+        "country": [
+          {
+            "name": "KR",
+            "visit": 2,
+            "click": 1,
+            "unique": 2,
+            "dwell": 16,
+            "ctr": 50,
+            "code": "KR"
+          }
+        ],
+        "city": [
+          {
+            "name": "Bucheon-si",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "dwell": 16,
+            "ctr": 100,
+            "code": "KR"
+          },
+          {
+            "name": "Gimpo-si",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 15,
+            "ctr": 0,
+            "code": "KR"
+          }
+        ],
+        "blocks": [
+          {
+            "key": "CBR1sRX",
+            "name": "스마트스토어 · NEW 주말 이틀 촬영조명 장비 캠프",
+            "gone": false,
+            "kind": "store",
+            "img": true,
+            "clicks": 1
+          }
+        ]
       }
     }
   }
