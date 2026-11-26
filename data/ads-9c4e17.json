@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 27. AM 12:41:43",
+  "updated": "2026. 11. 27. AM 12:57:37",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -10170,40 +10170,40 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 27. AM 12:41:36",
+    "updated": "2026. 11. 27. AM 12:57:32",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
       "처음": "2025-07-15",
-      "마지막": "2026-11-26",
-      "일수": 500
+      "마지막": "2026-11-27",
+      "일수": 501
     },
     "byPeriod": {
       "1": {
-        "visit": 0,
-        "click": 0,
-        "unique": 0,
-        "ctr": 0,
-        "dwell": 0
+        "visit": 3,
+        "click": 1,
+        "unique": 3,
+        "ctr": 33.3,
+        "dwell": 26
       },
       "7": {
-        "visit": 813,
-        "click": 236,
-        "unique": 592,
+        "visit": 816,
+        "click": 237,
+        "unique": 595,
         "ctr": 29,
         "dwell": 27
       },
       "28": {
-        "visit": 3722,
-        "click": 979,
-        "unique": 2678,
+        "visit": 3725,
+        "click": 980,
+        "unique": 2681,
         "ctr": 26.3,
         "dwell": 28
       },
       "90": {
-        "visit": 11249,
-        "click": 2732,
-        "unique": 5569,
+        "visit": 11252,
+        "click": 2733,
+        "unique": 5572,
         "ctr": 24.3,
         "dwell": 25
       },
@@ -10215,9 +10215,9 @@
         "dwell": 16
       },
       "all": {
-        "visit": 45902,
-        "click": 17047,
-        "unique": 5759,
+        "visit": 45905,
+        "click": 17048,
+        "unique": 5762,
         "ctr": 37.1,
         "dwell": 25
       }
@@ -13222,6 +13222,12 @@
         "visit": 95,
         "click": 21,
         "unique": 69
+      },
+      {
+        "d": "2026-11-27",
+        "visit": 3,
+        "click": 1,
+        "unique": 3
       }
     ],
     "sources": [
@@ -13237,9 +13243,9 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 7427,
+        "visit": 7428,
         "click": 3,
-        "unique": 3097,
+        "unique": 3098,
         "ctr": 0,
         "dwell": 12
       },
@@ -13273,10 +13279,10 @@
       {
         "name": "m.place.naver.com",
         "host": "m.place.naver.com",
-        "visit": 573,
-        "click": 234,
-        "unique": 43,
-        "ctr": 40.8,
+        "visit": 574,
+        "click": 235,
+        "unique": 44,
+        "ctr": 40.9,
         "dwell": 23
       },
       {
@@ -13489,7 +13495,7 @@
         "gone": false,
         "kind": "site",
         "img": true,
-        "clicks": 618
+        "clicks": 619
       },
       {
         "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
@@ -13863,9 +13869,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 9232,
-        "click": 2952,
-        "unique": 5421,
+        "visit": 9235,
+        "click": 2953,
+        "unique": 5424,
         "dwell": 21,
         "ctr": 32
       },
@@ -13889,9 +13895,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 20947,
-        "click": 3198,
-        "unique": 5143,
+        "visit": 20949,
+        "click": 3199,
+        "unique": 5145,
         "dwell": 30,
         "ctr": 15.3,
         "code": "KR"
@@ -13916,9 +13922,9 @@
       },
       {
         "name": "SG",
-        "visit": 128,
+        "visit": 129,
         "click": 3,
-        "unique": 12,
+        "unique": 13,
         "dwell": 10,
         "ctr": 2.3,
         "code": "SG"
@@ -14071,9 +14077,9 @@
     "city": [
       {
         "name": "Seoul",
-        "visit": 6017,
+        "visit": 6018,
         "click": 2160,
-        "unique": 3137,
+        "unique": 3138,
         "dwell": 29,
         "ctr": 35.9,
         "code": "KR"
@@ -14136,7 +14142,7 @@
         "name": "알 수 없음",
         "visit": 106,
         "click": 3,
-        "unique": 5,
+        "unique": 6,
         "dwell": 0,
         "ctr": 2.8,
         "code": "SG"
@@ -14206,11 +14212,11 @@
       },
       {
         "name": "Gimpo-si",
-        "visit": 44,
-        "click": 20,
-        "unique": 29,
-        "dwell": 85,
-        "ctr": 45.5,
+        "visit": 45,
+        "click": 21,
+        "unique": 30,
+        "dwell": 83,
+        "ctr": 46.7,
         "code": "KR"
       },
       {
@@ -14252,20 +14258,104 @@
     ],
     "byPeriodDetail": {
       "1": {
-        "sources": [],
-        "device": [],
-        "country": [],
-        "city": [],
-        "blocks": []
+        "sources": [
+          {
+            "name": "페이스북",
+            "host": "facebook.com",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 0
+          },
+          {
+            "name": "m.place.naver.com",
+            "host": "m.place.naver.com",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "ctr": 100,
+            "dwell": 26
+          }
+        ],
+        "device": [
+          {
+            "name": "모바일",
+            "visit": 3,
+            "click": 1,
+            "unique": 3,
+            "dwell": 26,
+            "ctr": 33.3
+          }
+        ],
+        "country": [
+          {
+            "name": "KR",
+            "visit": 2,
+            "click": 1,
+            "unique": 2,
+            "dwell": 26,
+            "ctr": 50,
+            "code": "KR"
+          },
+          {
+            "name": "SG",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "SG"
+          }
+        ],
+        "city": [
+          {
+            "name": "Gimpo-si",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "dwell": 26,
+            "ctr": 100,
+            "code": "KR"
+          },
+          {
+            "name": "Seoul",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "KR"
+          },
+          {
+            "name": "알 수 없음",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "SG"
+          }
+        ],
+        "blocks": [
+          {
+            "key": "OkhXD1v",
+            "name": "수강생 작품보기 (유튜브)",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 1
+          }
+        ]
       },
       "7": {
         "sources": [
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 508,
+            "visit": 509,
             "click": 2,
-            "unique": 345,
+            "unique": 346,
             "ctr": 0.4,
             "dwell": 6
           },
@@ -14290,10 +14380,10 @@
           {
             "name": "m.place.naver.com",
             "host": "m.place.naver.com",
-            "visit": 15,
-            "click": 11,
-            "unique": 13,
-            "ctr": 73.3,
+            "visit": 16,
+            "click": 12,
+            "unique": 14,
+            "ctr": 75,
             "dwell": 30
           },
           {
@@ -14336,9 +14426,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 778,
-            "click": 214,
-            "unique": 561,
+            "visit": 781,
+            "click": 215,
+            "unique": 564,
             "dwell": 27,
             "ctr": 27.5
           },
@@ -14362,11 +14452,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 791,
-            "click": 236,
-            "unique": 573,
+            "visit": 793,
+            "click": 237,
+            "unique": 575,
             "dwell": 28,
-            "ctr": 29.8,
+            "ctr": 29.9,
             "code": "KR"
           },
           {
@@ -14433,6 +14523,15 @@
             "code": "JP"
           },
           {
+            "name": "SG",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "SG"
+          },
+          {
             "name": "TH",
             "visit": 1,
             "click": 0,
@@ -14445,11 +14544,11 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 432,
+            "visit": 433,
             "click": 123,
-            "unique": 305,
+            "unique": 306,
             "dwell": 37,
-            "ctr": 28.5,
+            "ctr": 28.4,
             "code": "KR"
           },
           {
@@ -14517,11 +14616,11 @@
           },
           {
             "name": "Gimpo-si",
-            "visit": 12,
-            "click": 6,
-            "unique": 8,
+            "visit": 13,
+            "click": 7,
+            "unique": 9,
             "dwell": 27,
-            "ctr": 50,
+            "ctr": 53.8,
             "code": "KR"
           },
           {
@@ -14663,7 +14762,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 22
+            "clicks": 23
           },
           {
             "key": "bGTonvP",
@@ -14720,9 +14819,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 2185,
+            "visit": 2186,
             "click": 2,
-            "unique": 1457,
+            "unique": 1458,
             "ctr": 0.1,
             "dwell": 13
           },
@@ -14747,10 +14846,10 @@
           {
             "name": "m.place.naver.com",
             "host": "m.place.naver.com",
-            "visit": 40,
-            "click": 37,
-            "unique": 31,
-            "ctr": 92.5,
+            "visit": 41,
+            "click": 38,
+            "unique": 32,
+            "ctr": 92.7,
             "dwell": 25
           },
           {
@@ -14820,9 +14919,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3523,
-            "click": 877,
-            "unique": 2525,
+            "visit": 3526,
+            "click": 878,
+            "unique": 2528,
             "dwell": 24,
             "ctr": 24.9
           },
@@ -14846,9 +14945,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3509,
-            "click": 957,
-            "unique": 2489,
+            "visit": 3511,
+            "click": 958,
+            "unique": 2491,
             "dwell": 28,
             "ctr": 27.3,
             "code": "KR"
@@ -14944,6 +15043,15 @@
             "code": "CA"
           },
           {
+            "name": "SG",
+            "visit": 4,
+            "click": 0,
+            "unique": 4,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "SG"
+          },
+          {
             "name": "PH",
             "visit": 4,
             "click": 0,
@@ -14951,15 +15059,6 @@
             "dwell": 0,
             "ctr": 0,
             "code": "PH"
-          },
-          {
-            "name": "SG",
-            "visit": 3,
-            "click": 0,
-            "unique": 3,
-            "dwell": 0,
-            "ctr": 0,
-            "code": "SG"
           },
           {
             "name": "TH",
@@ -15028,9 +15127,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 1907,
+            "visit": 1908,
             "click": 461,
-            "unique": 1339,
+            "unique": 1340,
             "dwell": 35,
             "ctr": 24.2,
             "code": "KR"
@@ -15154,11 +15253,11 @@
           },
           {
             "name": "Gimpo-si",
-            "visit": 29,
-            "click": 15,
-            "unique": 20,
-            "dwell": 107,
-            "ctr": 51.7,
+            "visit": 30,
+            "click": 16,
+            "unique": 21,
+            "dwell": 103,
+            "ctr": 53.3,
             "code": "KR"
           },
           {
@@ -15246,7 +15345,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 95
+            "clicks": 96
           },
           {
             "key": "XaZx8ky",
@@ -15343,9 +15442,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 6627,
+            "visit": 6628,
             "click": 3,
-            "unique": 3052,
+            "unique": 3053,
             "ctr": 0,
             "dwell": 12
           },
@@ -15379,10 +15478,10 @@
           {
             "name": "m.place.naver.com",
             "host": "m.place.naver.com",
-            "visit": 80,
-            "click": 90,
-            "unique": 40,
-            "ctr": 112.5,
+            "visit": 81,
+            "click": 91,
+            "unique": 41,
+            "ctr": 112.3,
             "dwell": 24
           },
           {
@@ -15470,9 +15569,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 7239,
-            "click": 1736,
-            "unique": 5254,
+            "visit": 7242,
+            "click": 1737,
+            "unique": 5257,
             "dwell": 21,
             "ctr": 24
           },
@@ -15496,9 +15595,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 6967,
-            "click": 1882,
-            "unique": 4976,
+            "visit": 6969,
+            "click": 1883,
+            "unique": 4978,
             "dwell": 30,
             "ctr": 27,
             "code": "KR"
@@ -15595,9 +15694,9 @@
           },
           {
             "name": "SG",
-            "visit": 10,
+            "visit": 11,
             "click": 0,
-            "unique": 10,
+            "unique": 11,
             "dwell": 10,
             "ctr": 0,
             "code": "SG"
@@ -15678,9 +15777,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 4207,
+            "visit": 4208,
             "click": 1032,
-            "unique": 2988,
+            "unique": 2989,
             "dwell": 29,
             "ctr": 24.5,
             "code": "KR"
@@ -15803,6 +15902,15 @@
             "code": "KR"
           },
           {
+            "name": "Gimpo-si",
+            "visit": 44,
+            "click": 18,
+            "unique": 30,
+            "dwell": 83,
+            "ctr": 40.9,
+            "code": "KR"
+          },
+          {
             "name": "알 수 없음",
             "visit": 43,
             "click": 1,
@@ -15810,15 +15918,6 @@
             "dwell": 7,
             "ctr": 2.3,
             "code": "US"
-          },
-          {
-            "name": "Gimpo-si",
-            "visit": 43,
-            "click": 17,
-            "unique": 29,
-            "dwell": 85,
-            "ctr": 39.5,
-            "code": "KR"
           },
           {
             "name": "Anyang-si",
@@ -15888,7 +15987,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 282
+            "clicks": 283
           },
           {
             "key": "bGTonvP",
@@ -16002,9 +16101,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 7427,
+            "visit": 7428,
             "click": 3,
-            "unique": 3097,
+            "unique": 3098,
             "ctr": 0,
             "dwell": 12
           },
@@ -16038,10 +16137,10 @@
           {
             "name": "m.place.naver.com",
             "host": "m.place.naver.com",
-            "visit": 573,
-            "click": 234,
-            "unique": 43,
-            "ctr": 40.8,
+            "visit": 574,
+            "click": 235,
+            "unique": 44,
+            "ctr": 40.9,
             "dwell": 23
           },
           {
@@ -16210,9 +16309,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 9232,
-            "click": 2952,
-            "unique": 5421,
+            "visit": 9235,
+            "click": 2953,
+            "unique": 5424,
             "dwell": 21,
             "ctr": 32
           },
@@ -16236,9 +16335,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 20947,
-            "click": 3198,
-            "unique": 5143,
+            "visit": 20949,
+            "click": 3199,
+            "unique": 5145,
             "dwell": 30,
             "ctr": 15.3,
             "code": "KR"
@@ -16263,9 +16362,9 @@
           },
           {
             "name": "SG",
-            "visit": 128,
+            "visit": 129,
             "click": 3,
-            "unique": 12,
+            "unique": 13,
             "dwell": 10,
             "ctr": 2.3,
             "code": "SG"
@@ -16418,9 +16517,9 @@
         "city": [
           {
             "name": "Seoul",
-            "visit": 6017,
+            "visit": 6018,
             "click": 2160,
-            "unique": 3137,
+            "unique": 3138,
             "dwell": 29,
             "ctr": 35.9,
             "code": "KR"
@@ -16483,7 +16582,7 @@
             "name": "알 수 없음",
             "visit": 106,
             "click": 3,
-            "unique": 5,
+            "unique": 6,
             "dwell": 0,
             "ctr": 2.8,
             "code": "SG"
@@ -16553,11 +16652,11 @@
           },
           {
             "name": "Gimpo-si",
-            "visit": 44,
-            "click": 20,
-            "unique": 29,
-            "dwell": 85,
-            "ctr": 45.5,
+            "visit": 45,
+            "click": 21,
+            "unique": 30,
+            "dwell": 83,
+            "ctr": 46.7,
             "code": "KR"
           },
           {
@@ -16644,7 +16743,7 @@
             "gone": false,
             "kind": "site",
             "img": true,
-            "clicks": 618
+            "clicks": 619
           },
           {
             "key": "eSdsdeGFdi7VuvznXvPAcogrO3kClkhF",
@@ -17017,11 +17116,95 @@
         ]
       },
       "y": {
-        "sources": [],
-        "device": [],
-        "country": [],
-        "city": [],
-        "blocks": []
+        "sources": [
+          {
+            "name": "페이스북",
+            "host": "facebook.com",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 0
+          },
+          {
+            "name": "m.place.naver.com",
+            "host": "m.place.naver.com",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "ctr": 100,
+            "dwell": 26
+          }
+        ],
+        "device": [
+          {
+            "name": "모바일",
+            "visit": 3,
+            "click": 1,
+            "unique": 3,
+            "dwell": 26,
+            "ctr": 33.3
+          }
+        ],
+        "country": [
+          {
+            "name": "KR",
+            "visit": 2,
+            "click": 1,
+            "unique": 2,
+            "dwell": 26,
+            "ctr": 50,
+            "code": "KR"
+          },
+          {
+            "name": "SG",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "SG"
+          }
+        ],
+        "city": [
+          {
+            "name": "Gimpo-si",
+            "visit": 1,
+            "click": 1,
+            "unique": 1,
+            "dwell": 26,
+            "ctr": 100,
+            "code": "KR"
+          },
+          {
+            "name": "Seoul",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "KR"
+          },
+          {
+            "name": "알 수 없음",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 0,
+            "ctr": 0,
+            "code": "SG"
+          }
+        ],
+        "blocks": [
+          {
+            "key": "OkhXD1v",
+            "name": "수강생 작품보기 (유튜브)",
+            "gone": false,
+            "kind": "site",
+            "img": true,
+            "clicks": 1
+          }
+        ]
       }
     }
   }
