@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 26. PM 11:38:16",
+  "updated": "2026. 11. 26. PM 11:54:05",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -18,14 +18,14 @@
         "cost": 0
       },
       "7": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 408,
+        "clk": 19,
+        "cost": 1495
       },
       "28": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 1384,
+        "clk": 104,
+        "cost": 8696
       },
       "90": {
         "imp": 9286,
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 26. PM 11:38:12",
+    "updated": "2026. 11. 26. PM 11:53:59",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10180,31 +10180,31 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 91,
+        "visit": 95,
         "click": 21,
-        "unique": 66,
-        "ctr": 23.1,
-        "dwell": 17
+        "unique": 69,
+        "ctr": 22.1,
+        "dwell": 16
       },
       "7": {
-        "visit": 947,
+        "visit": 951,
         "click": 287,
-        "unique": 680,
-        "ctr": 30.3,
+        "unique": 683,
+        "ctr": 30.2,
         "dwell": 29
       },
       "28": {
-        "visit": 3866,
+        "visit": 3870,
         "click": 1015,
-        "unique": 2792,
-        "ctr": 26.3,
+        "unique": 2795,
+        "ctr": 26.2,
         "dwell": 28
       },
       "90": {
-        "visit": 11261,
+        "visit": 11265,
         "click": 2743,
-        "unique": 5569,
-        "ctr": 24.4,
+        "unique": 5572,
+        "ctr": 24.3,
         "dwell": 25
       },
       "y": {
@@ -10215,9 +10215,9 @@
         "dwell": 18
       },
       "all": {
-        "visit": 45898,
+        "visit": 45902,
         "click": 17047,
-        "unique": 5756,
+        "unique": 5759,
         "ctr": 37.1,
         "dwell": 25
       }
@@ -13219,9 +13219,9 @@
       },
       {
         "d": "2026-11-26",
-        "visit": 91,
+        "visit": 95,
         "click": 21,
-        "unique": 66
+        "unique": 69
       }
     ],
     "sources": [
@@ -13237,9 +13237,9 @@
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 7423,
+        "visit": 7427,
         "click": 3,
-        "unique": 3094,
+        "unique": 3097,
         "ctr": 0,
         "dwell": 12
       },
@@ -13863,9 +13863,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 9228,
+        "visit": 9232,
         "click": 2952,
-        "unique": 5418,
+        "unique": 5421,
         "dwell": 21,
         "ctr": 32
       },
@@ -13889,9 +13889,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 20992,
+        "visit": 20995,
         "click": 3198,
-        "unique": 5141,
+        "unique": 5143,
         "dwell": 30,
         "ctr": 15.2,
         "code": "KR"
@@ -13934,11 +13934,11 @@
       },
       {
         "name": "HK",
-        "visit": 63,
+        "visit": 64,
         "click": 8,
-        "unique": 32,
-        "dwell": 17,
-        "ctr": 12.7,
+        "unique": 33,
+        "dwell": 15,
+        "ctr": 12.5,
         "code": "HK"
       },
       {
@@ -14089,11 +14089,11 @@
       },
       {
         "name": "Yongin-si",
-        "visit": 258,
+        "visit": 260,
         "click": 118,
-        "unique": 125,
+        "unique": 126,
         "dwell": 15,
-        "ctr": 45.7,
+        "ctr": 45.4,
         "code": "KR"
       },
       {
@@ -14256,10 +14256,10 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 62,
+            "visit": 66,
             "click": 1,
-            "unique": 45,
-            "ctr": 1.6,
+            "unique": 48,
+            "ctr": 1.5,
             "dwell": 4
           },
           {
@@ -14302,11 +14302,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 88,
+            "visit": 92,
             "click": 18,
-            "unique": 63,
-            "dwell": 17,
-            "ctr": 20.5
+            "unique": 66,
+            "dwell": 16,
+            "ctr": 19.6
           },
           {
             "name": "데스크탑",
@@ -14328,12 +14328,21 @@
         "country": [
           {
             "name": "KR",
-            "visit": 90,
+            "visit": 93,
             "click": 21,
-            "unique": 65,
+            "unique": 67,
             "dwell": 17,
-            "ctr": 23.3,
+            "ctr": 22.6,
             "code": "KR"
+          },
+          {
+            "name": "HK",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 1,
+            "ctr": 0,
+            "code": "HK"
           },
           {
             "name": "JP",
@@ -14366,11 +14375,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 10,
+            "visit": 12,
             "click": 3,
-            "unique": 7,
-            "dwell": 33,
-            "ctr": 30,
+            "unique": 8,
+            "dwell": 29,
+            "ctr": 25,
             "code": "KR"
           },
           {
@@ -14446,6 +14455,15 @@
             "code": "KR"
           },
           {
+            "name": "알 수 없음",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 1,
+            "ctr": 0,
+            "code": "HK"
+          },
+          {
             "name": "Tokyo",
             "visit": 1,
             "click": 0,
@@ -14461,6 +14479,15 @@
             "unique": 1,
             "dwell": 8,
             "ctr": 300,
+            "code": "KR"
+          },
+          {
+            "name": "Cheongju-si",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 1,
+            "ctr": 0,
             "code": "KR"
           },
           {
@@ -14564,9 +14591,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 590,
+            "visit": 594,
             "click": 2,
-            "unique": 395,
+            "unique": 398,
             "ctr": 0.3,
             "dwell": 14
           },
@@ -14637,11 +14664,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 905,
+            "visit": 909,
             "click": 260,
-            "unique": 644,
+            "unique": 647,
             "dwell": 29,
-            "ctr": 28.7
+            "ctr": 28.6
           },
           {
             "name": "데스크탑",
@@ -14663,11 +14690,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 925,
+            "visit": 928,
             "click": 285,
-            "unique": 661,
+            "unique": 663,
             "dwell": 29,
-            "ctr": 30.8,
+            "ctr": 30.7,
             "code": "KR"
           },
           {
@@ -14689,6 +14716,15 @@
             "code": "AU"
           },
           {
+            "name": "HK",
+            "visit": 4,
+            "click": 2,
+            "unique": 4,
+            "dwell": 21,
+            "ctr": 50,
+            "code": "HK"
+          },
+          {
             "name": "US",
             "visit": 4,
             "click": 0,
@@ -14696,15 +14732,6 @@
             "dwell": 20,
             "ctr": 0,
             "code": "US"
-          },
-          {
-            "name": "HK",
-            "visit": 3,
-            "click": 2,
-            "unique": 3,
-            "dwell": 40,
-            "ctr": 66.7,
-            "code": "HK"
           },
           {
             "name": "BR",
@@ -14764,11 +14791,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 33,
+            "visit": 35,
             "click": 15,
-            "unique": 25,
+            "unique": 26,
             "dwell": 17,
-            "ctr": 45.5,
+            "ctr": 42.9,
             "code": "KR"
           },
           {
@@ -15021,9 +15048,9 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 2253,
+            "visit": 2257,
             "click": 2,
-            "unique": 1504,
+            "unique": 1507,
             "ctr": 0.1,
             "dwell": 13
           },
@@ -15121,9 +15148,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3666,
+            "visit": 3670,
             "click": 911,
-            "unique": 2638,
+            "unique": 2641,
             "dwell": 24,
             "ctr": 24.8
           },
@@ -15147,9 +15174,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3633,
+            "visit": 3636,
             "click": 988,
-            "unique": 2584,
+            "unique": 2586,
             "dwell": 28,
             "ctr": 27.2,
             "code": "KR"
@@ -15174,11 +15201,11 @@
           },
           {
             "name": "HK",
-            "visit": 16,
+            "visit": 17,
             "click": 7,
-            "unique": 13,
-            "dwell": 19,
-            "ctr": 43.8,
+            "unique": 14,
+            "dwell": 17,
+            "ctr": 41.2,
             "code": "HK"
           },
           {
@@ -15356,11 +15383,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 117,
+            "visit": 119,
             "click": 53,
-            "unique": 70,
+            "unique": 71,
             "dwell": 13,
-            "ctr": 45.3,
+            "ctr": 44.5,
             "code": "KR"
           },
           {
@@ -15644,9 +15671,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 6623,
+            "visit": 6627,
             "click": 3,
-            "unique": 3049,
+            "unique": 3052,
             "ctr": 0,
             "dwell": 12
           },
@@ -15771,9 +15798,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 7239,
+            "visit": 7243,
             "click": 1736,
-            "unique": 5253,
+            "unique": 5256,
             "dwell": 21,
             "ctr": 24
           },
@@ -15797,9 +15824,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 6969,
+            "visit": 6972,
             "click": 1883,
-            "unique": 4977,
+            "unique": 4979,
             "dwell": 30,
             "ctr": 27,
             "code": "KR"
@@ -15824,11 +15851,11 @@
           },
           {
             "name": "HK",
-            "visit": 37,
+            "visit": 38,
             "click": 8,
-            "unique": 32,
-            "dwell": 17,
-            "ctr": 21.6,
+            "unique": 33,
+            "dwell": 15,
+            "ctr": 21.1,
             "code": "HK"
           },
           {
@@ -16015,11 +16042,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 194,
+            "visit": 196,
             "click": 85,
-            "unique": 115,
+            "unique": 116,
             "dwell": 13,
-            "ctr": 43.8,
+            "ctr": 43.4,
             "code": "KR"
           },
           {
@@ -16303,9 +16330,9 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 7423,
+            "visit": 7427,
             "click": 3,
-            "unique": 3094,
+            "unique": 3097,
             "ctr": 0,
             "dwell": 12
           },
@@ -16511,9 +16538,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 9228,
+            "visit": 9232,
             "click": 2952,
-            "unique": 5418,
+            "unique": 5421,
             "dwell": 21,
             "ctr": 32
           },
@@ -16537,9 +16564,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 20992,
+            "visit": 20995,
             "click": 3198,
-            "unique": 5141,
+            "unique": 5143,
             "dwell": 30,
             "ctr": 15.2,
             "code": "KR"
@@ -16582,11 +16609,11 @@
           },
           {
             "name": "HK",
-            "visit": 63,
+            "visit": 64,
             "click": 8,
-            "unique": 32,
-            "dwell": 17,
-            "ctr": 12.7,
+            "unique": 33,
+            "dwell": 15,
+            "ctr": 12.5,
             "code": "HK"
           },
           {
@@ -16737,11 +16764,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 258,
+            "visit": 260,
             "click": 118,
-            "unique": 125,
+            "unique": 126,
             "dwell": 15,
-            "ctr": 45.7,
+            "ctr": 45.4,
             "code": "KR"
           },
           {
@@ -17322,10 +17349,10 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 62,
+            "visit": 66,
             "click": 1,
-            "unique": 45,
-            "ctr": 1.6,
+            "unique": 48,
+            "ctr": 1.5,
             "dwell": 4
           },
           {
@@ -17368,11 +17395,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 88,
+            "visit": 92,
             "click": 18,
-            "unique": 63,
-            "dwell": 17,
-            "ctr": 20.5
+            "unique": 66,
+            "dwell": 16,
+            "ctr": 19.6
           },
           {
             "name": "데스크탑",
@@ -17394,12 +17421,21 @@
         "country": [
           {
             "name": "KR",
-            "visit": 90,
+            "visit": 93,
             "click": 21,
-            "unique": 65,
+            "unique": 67,
             "dwell": 17,
-            "ctr": 23.3,
+            "ctr": 22.6,
             "code": "KR"
+          },
+          {
+            "name": "HK",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 1,
+            "ctr": 0,
+            "code": "HK"
           },
           {
             "name": "JP",
@@ -17432,11 +17468,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 10,
+            "visit": 12,
             "click": 3,
-            "unique": 7,
-            "dwell": 33,
-            "ctr": 30,
+            "unique": 8,
+            "dwell": 29,
+            "ctr": 25,
             "code": "KR"
           },
           {
@@ -17512,6 +17548,15 @@
             "code": "KR"
           },
           {
+            "name": "알 수 없음",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 1,
+            "ctr": 0,
+            "code": "HK"
+          },
+          {
             "name": "Tokyo",
             "visit": 1,
             "click": 0,
@@ -17527,6 +17572,15 @@
             "unique": 1,
             "dwell": 8,
             "ctr": 300,
+            "code": "KR"
+          },
+          {
+            "name": "Cheongju-si",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 1,
+            "ctr": 0,
             "code": "KR"
           },
           {
