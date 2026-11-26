@@ -1,5 +1,5 @@
 {
-  "updated": "2026. 11. 27. AM 5:25:29",
+  "updated": "2026. 11. 27. AM 5:41:14",
   "naver": {
     "start": "2026-08-16",
     "live": true,
@@ -23,14 +23,14 @@
         "cost": 0
       },
       "28": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 1342,
+        "clk": 103,
+        "cost": 8608
       },
       "90": {
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 8003,
+        "clk": 275,
+        "cost": 32840
       },
       "y": {
         "imp": 0,
@@ -41,27 +41,27 @@
     "daily": [
       {
         "d": "2026-11-14",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 26,
+        "clk": 1,
+        "cost": 77
       },
       {
         "d": "2026-11-15",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 37,
+        "clk": 3,
+        "cost": 253
       },
       {
         "d": "2026-11-16",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 65,
+        "clk": 4,
+        "cost": 330
       },
       {
         "d": "2026-11-17",
-        "imp": 0,
-        "clk": 0,
-        "cost": 0
+        "imp": 33,
+        "clk": 3,
+        "cost": 264
       },
       {
         "d": "2026-11-18",
@@ -10170,7 +10170,7 @@
     "console": "https://ads.google.com/aw/campaigns?authuser=4"
   },
   "littly": {
-    "updated": "2026. 11. 27. AM 5:25:26",
+    "updated": "2026. 11. 27. AM 5:41:09",
     "pageId": "62819",
     "url": "https://litt.ly/bowiestudios",
     "기간": {
@@ -10180,30 +10180,30 @@
     },
     "byPeriod": {
       "1": {
-        "visit": 5,
+        "visit": 7,
         "click": 1,
-        "unique": 4,
-        "ctr": 20,
-        "dwell": 26
+        "unique": 6,
+        "ctr": 14.3,
+        "dwell": 15
       },
       "7": {
-        "visit": 818,
+        "visit": 820,
         "click": 237,
-        "unique": 596,
-        "ctr": 29,
+        "unique": 598,
+        "ctr": 28.9,
         "dwell": 27
       },
       "28": {
-        "visit": 3727,
+        "visit": 3729,
         "click": 980,
-        "unique": 2682,
+        "unique": 2684,
         "ctr": 26.3,
         "dwell": 28
       },
       "90": {
-        "visit": 11254,
+        "visit": 11256,
         "click": 2733,
-        "unique": 5573,
+        "unique": 5575,
         "ctr": 24.3,
         "dwell": 25
       },
@@ -10215,9 +10215,9 @@
         "dwell": 16
       },
       "all": {
-        "visit": 45907,
+        "visit": 45909,
         "click": 17048,
-        "unique": 5763,
+        "unique": 5765,
         "ctr": 37.1,
         "dwell": 25
       }
@@ -13225,27 +13225,27 @@
       },
       {
         "d": "2026-11-27",
-        "visit": 5,
+        "visit": 7,
         "click": 1,
-        "unique": 4
+        "unique": 6
       }
     ],
     "sources": [
       {
         "name": "인스타 링크 눌러 옴",
         "host": "l.instagram.com",
-        "visit": 14571,
+        "visit": 14572,
         "click": 5221,
-        "unique": 1373,
+        "unique": 1374,
         "ctr": 35.8,
         "dwell": 34
       },
       {
         "name": "페이스북",
         "host": "facebook.com",
-        "visit": 7430,
+        "visit": 7431,
         "click": 3,
-        "unique": 3099,
+        "unique": 3100,
         "ctr": 0,
         "dwell": 12
       },
@@ -13869,9 +13869,9 @@
     "device": [
       {
         "name": "모바일",
-        "visit": 9237,
+        "visit": 9239,
         "click": 2953,
-        "unique": 5425,
+        "unique": 5427,
         "dwell": 21,
         "ctr": 32
       },
@@ -13895,9 +13895,9 @@
     "country": [
       {
         "name": "KR",
-        "visit": 20949,
+        "visit": 20951,
         "click": 3199,
-        "unique": 5145,
+        "unique": 5147,
         "dwell": 30,
         "ctr": 15.3,
         "code": "KR"
@@ -14095,11 +14095,11 @@
       },
       {
         "name": "Yongin-si",
-        "visit": 260,
+        "visit": 261,
         "click": 118,
-        "unique": 126,
+        "unique": 127,
         "dwell": 15,
-        "ctr": 45.4,
+        "ctr": 45.2,
         "code": "KR"
       },
       {
@@ -14149,11 +14149,11 @@
       },
       {
         "name": "Busan",
-        "visit": 93,
+        "visit": 94,
         "click": 36,
-        "unique": 70,
+        "unique": 71,
         "dwell": 21,
-        "ctr": 38.7,
+        "ctr": 38.3,
         "code": "KR"
       },
       {
@@ -14262,11 +14262,20 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 3,
+            "visit": 4,
             "click": 0,
-            "unique": 2,
+            "unique": 3,
             "ctr": 0,
-            "dwell": 0
+            "dwell": 14
+          },
+          {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 6
           },
           {
             "name": "m.place.naver.com",
@@ -14281,21 +14290,21 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 5,
+            "visit": 7,
             "click": 1,
-            "unique": 4,
-            "dwell": 26,
-            "ctr": 20
+            "unique": 6,
+            "dwell": 15,
+            "ctr": 14.3
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 2,
+            "visit": 4,
             "click": 1,
-            "unique": 2,
-            "dwell": 26,
-            "ctr": 50,
+            "unique": 4,
+            "dwell": 15,
+            "ctr": 25,
             "code": "KR"
           },
           {
@@ -14328,6 +14337,15 @@
             "code": "PH"
           },
           {
+            "name": "Busan",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 14,
+            "ctr": 0,
+            "code": "KR"
+          },
+          {
             "name": "Gimpo-si",
             "visit": 1,
             "click": 1,
@@ -14342,6 +14360,15 @@
             "click": 0,
             "unique": 1,
             "dwell": 0,
+            "ctr": 0,
+            "code": "KR"
+          },
+          {
+            "name": "Yongin-si",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 6,
             "ctr": 0,
             "code": "KR"
           },
@@ -14371,19 +14398,19 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 511,
+            "visit": 512,
             "click": 2,
-            "unique": 347,
+            "unique": 348,
             "ctr": 0.4,
             "dwell": 6
           },
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 216,
+            "visit": 217,
             "click": 181,
-            "unique": 179,
-            "ctr": 83.8,
+            "unique": 180,
+            "ctr": 83.4,
             "dwell": 26
           },
           {
@@ -14444,11 +14471,11 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 783,
+            "visit": 785,
             "click": 215,
-            "unique": 565,
+            "unique": 567,
             "dwell": 27,
-            "ctr": 27.5
+            "ctr": 27.4
           },
           {
             "name": "데스크탑",
@@ -14470,11 +14497,11 @@
         "country": [
           {
             "name": "KR",
-            "visit": 793,
+            "visit": 795,
             "click": 237,
-            "unique": 575,
+            "unique": 577,
             "dwell": 28,
-            "ctr": 29.9,
+            "ctr": 29.8,
             "code": "KR"
           },
           {
@@ -14589,11 +14616,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 33,
+            "visit": 34,
             "click": 15,
-            "unique": 25,
+            "unique": 26,
             "dwell": 17,
-            "ctr": 45.5,
+            "ctr": 44.1,
             "code": "KR"
           },
           {
@@ -14634,11 +14661,11 @@
           },
           {
             "name": "Busan",
-            "visit": 13,
+            "visit": 14,
             "click": 9,
-            "unique": 9,
-            "dwell": 25,
-            "ctr": 69.2,
+            "unique": 10,
+            "dwell": 24,
+            "ctr": 64.3,
             "code": "KR"
           },
           {
@@ -14846,19 +14873,19 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 2188,
+            "visit": 2189,
             "click": 2,
-            "unique": 1459,
+            "unique": 1460,
             "ctr": 0.1,
             "dwell": 13
           },
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 882,
+            "visit": 883,
             "click": 710,
-            "unique": 702,
-            "ctr": 80.5,
+            "unique": 703,
+            "ctr": 80.4,
             "dwell": 33
           },
           {
@@ -14946,9 +14973,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 3528,
+            "visit": 3530,
             "click": 878,
-            "unique": 2529,
+            "unique": 2531,
             "dwell": 24,
             "ctr": 24.9
           },
@@ -14972,9 +14999,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 3511,
+            "visit": 3513,
             "click": 958,
-            "unique": 2491,
+            "unique": 2493,
             "dwell": 28,
             "ctr": 27.3,
             "code": "KR"
@@ -15181,11 +15208,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 113,
+            "visit": 114,
             "click": 50,
-            "unique": 67,
+            "unique": 68,
             "dwell": 13,
-            "ctr": 44.2,
+            "ctr": 43.9,
             "code": "KR"
           },
           {
@@ -15226,11 +15253,11 @@
           },
           {
             "name": "Busan",
-            "visit": 54,
+            "visit": 55,
             "click": 22,
-            "unique": 41,
+            "unique": 42,
             "dwell": 22,
-            "ctr": 40.7,
+            "ctr": 40,
             "code": "KR"
           },
           {
@@ -15469,18 +15496,18 @@
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 6630,
+            "visit": 6631,
             "click": 3,
-            "unique": 3054,
+            "unique": 3055,
             "ctr": 0,
             "dwell": 12
           },
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 2445,
+            "visit": 2446,
             "click": 1993,
-            "unique": 1329,
+            "unique": 1330,
             "ctr": 81.5,
             "dwell": 35
           },
@@ -15596,9 +15623,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 7244,
+            "visit": 7246,
             "click": 1737,
-            "unique": 5258,
+            "unique": 5260,
             "dwell": 21,
             "ctr": 24
           },
@@ -15622,9 +15649,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 6969,
+            "visit": 6971,
             "click": 1883,
-            "unique": 4978,
+            "unique": 4980,
             "dwell": 30,
             "ctr": 27,
             "code": "KR"
@@ -15840,11 +15867,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 196,
+            "visit": 197,
             "click": 85,
-            "unique": 116,
+            "unique": 117,
             "dwell": 13,
-            "ctr": 43.4,
+            "ctr": 43.1,
             "code": "KR"
           },
           {
@@ -15876,11 +15903,11 @@
           },
           {
             "name": "Busan",
-            "visit": 91,
+            "visit": 92,
             "click": 36,
-            "unique": 70,
+            "unique": 71,
             "dwell": 21,
-            "ctr": 39.6,
+            "ctr": 39.1,
             "code": "KR"
           },
           {
@@ -16119,18 +16146,18 @@
           {
             "name": "인스타 링크 눌러 옴",
             "host": "l.instagram.com",
-            "visit": 14571,
+            "visit": 14572,
             "click": 5221,
-            "unique": 1373,
+            "unique": 1374,
             "ctr": 35.8,
             "dwell": 34
           },
           {
             "name": "페이스북",
             "host": "facebook.com",
-            "visit": 7430,
+            "visit": 7431,
             "click": 3,
-            "unique": 3099,
+            "unique": 3100,
             "ctr": 0,
             "dwell": 12
           },
@@ -16336,9 +16363,9 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 9237,
+            "visit": 9239,
             "click": 2953,
-            "unique": 5425,
+            "unique": 5427,
             "dwell": 21,
             "ctr": 32
           },
@@ -16362,9 +16389,9 @@
         "country": [
           {
             "name": "KR",
-            "visit": 20949,
+            "visit": 20951,
             "click": 3199,
-            "unique": 5145,
+            "unique": 5147,
             "dwell": 30,
             "ctr": 15.3,
             "code": "KR"
@@ -16562,11 +16589,11 @@
           },
           {
             "name": "Yongin-si",
-            "visit": 260,
+            "visit": 261,
             "click": 118,
-            "unique": 126,
+            "unique": 127,
             "dwell": 15,
-            "ctr": 45.4,
+            "ctr": 45.2,
             "code": "KR"
           },
           {
@@ -16616,11 +16643,11 @@
           },
           {
             "name": "Busan",
-            "visit": 93,
+            "visit": 94,
             "click": 36,
-            "unique": 70,
+            "unique": 71,
             "dwell": 21,
-            "ctr": 38.7,
+            "ctr": 38.3,
             "code": "KR"
           },
           {
@@ -17147,11 +17174,20 @@
           {
             "name": "페이스북",
             "host": "m.facebook.com",
-            "visit": 3,
+            "visit": 4,
             "click": 0,
-            "unique": 2,
+            "unique": 3,
             "ctr": 0,
-            "dwell": 0
+            "dwell": 14
+          },
+          {
+            "name": "인스타 링크 눌러 옴",
+            "host": "l.instagram.com",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "ctr": 0,
+            "dwell": 6
           },
           {
             "name": "m.place.naver.com",
@@ -17166,21 +17202,21 @@
         "device": [
           {
             "name": "모바일",
-            "visit": 5,
+            "visit": 7,
             "click": 1,
-            "unique": 4,
-            "dwell": 26,
-            "ctr": 20
+            "unique": 6,
+            "dwell": 15,
+            "ctr": 14.3
           }
         ],
         "country": [
           {
             "name": "KR",
-            "visit": 2,
+            "visit": 4,
             "click": 1,
-            "unique": 2,
-            "dwell": 26,
-            "ctr": 50,
+            "unique": 4,
+            "dwell": 15,
+            "ctr": 25,
             "code": "KR"
           },
           {
@@ -17213,6 +17249,15 @@
             "code": "PH"
           },
           {
+            "name": "Busan",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 14,
+            "ctr": 0,
+            "code": "KR"
+          },
+          {
             "name": "Gimpo-si",
             "visit": 1,
             "click": 1,
@@ -17227,6 +17272,15 @@
             "click": 0,
             "unique": 1,
             "dwell": 0,
+            "ctr": 0,
+            "code": "KR"
+          },
+          {
+            "name": "Yongin-si",
+            "visit": 1,
+            "click": 0,
+            "unique": 1,
+            "dwell": 6,
             "ctr": 0,
             "code": "KR"
           },
